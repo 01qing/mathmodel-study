@@ -1,0 +1,6 @@
+{
+  "name": "silent default feature on exception",
+  "trigger": "broad exception converts a failed transform/cluster into zero or plausible default feature values",
+  "rule": "emit explicit failure/missingness state and provenance; never silently substitute a valid-looking feature vector unless the downstream model is trained for that missingness convention",
+  "source_example": "S042 printed PCA/KMeans helpers return [0,0,0] or [0,0,1] on exception"
+}

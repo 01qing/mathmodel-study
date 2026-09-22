@@ -1,0 +1,6 @@
+{
+  "name": "architecture name implementation drift",
+  "trigger": "paper names a known module but printed code implements different primitives",
+  "gate": "trace named architecture to concrete layer graph; downgrade claim if defining operations are absent",
+  "source_example": "S020 calls channel-gating helper SK-Net although Split/Fuse/Select multi-kernel path is absent"
+}

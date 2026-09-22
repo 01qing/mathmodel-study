@@ -1,0 +1,208 @@
+function make_fusion_from_quick()
+%% ========= 输入：两个“快捷表格”（可在同一xlsx的不同Sheet，也可两个文件） =========
+baseDir = 'E:\桌面\dg\sxjm2\提交\第三问\画图\新建文件夹';
+
+% 方案A：同一个文件的两个sheet（若不存在会回退到方案B）
+oneFile   = fullfile(baseDir, '快捷表格.xlsx');
+sheetRun1 = 'run1_quick';   % 第一份脚本默认的 Sheet
+sheetRun2 = 'quick';        % 自动脚本默认的 Sheet
+
+% 方案B：两个不同文件（当方案A读取失败时使用）
+fileRun1 = fullfile(baseDir, '四项.xlsx');
+fileRun2 = fullfile(baseDir, '三项.xlsx');
+
+% 输出
+outExcel  = fullfile(baseDir, '融合结果_from_quick.xlsx');
+tau_fault = 0.85;                 % 故障优先阈值
+faultSet  = ["OR","IR","B"];      % 定义“故障类”的集合
+
+%% ========= 读取两张“快捷表格”（尽量鲁棒） =========
+T1 = try_read_quick(oneFile, sheetRun1);
+T2 = try_read_quick(oneFile, sheetRun2);
+if isempty(T1) || isempty(T2)
+    if isempty(T1), T1 = try_read_quick(fileRun1, 1); end
+    if isempty(T2), T2 = try_read_quick(fileRun2, 1); end
+end
+assert(~isempty(T1) && ~isempty(T2), '未能读取到两张快捷表。请检查文件/Sheet 是否存在。');
+
+% 统一列名：都转为无后缀的标准列名
+T1 = normalize_quick_cols(T1);
+T2 = normalize_quick_cols(T2);
+
+% 若缺少 NumWin 列，则补 0
+if ~ismember('NumWin', T1.Properties.VariableNames), T1.NumWin = zeros(height(T1),1); end
+if ~ismember('NumWin', T2.Properties.VariableNames), T2.NumWin = zeros(height(T2),1); end
+
+%% ========= 对齐键（优先 Sample，否则用 MAT_File 去掉 .mat） =========
+if all(T1.Sample~="") && all(T2.Sample~="")
+    T1.Key = T1.Sample;
+    T2.Key = T2.Sample;
+else
+    T1.Key = erase(T1.MAT_File, ".mat");
+    T2.Key = erase(T2.MAT_File, ".mat");
+end
+
+%% ========= 外连接并组装两侧列 =========
+J = outerjoin(T1, T2, 'Keys','Key', ...
+    'LeftVariables',  {'Sample','MAT_File','PredLabel','ConfMaj','ConfAll','NumWin'}, ...
+    'RightVariables', {'Sample','MAT_File','PredLabel','ConfMaj','ConfAll','NumWin'}, ...
+    'MergeKeys', true);
+
+% 生成统一的 Sample（尽量不留空）
+if ~ismember('Sample', J.Properties.VariableNames)
+    if ismember('Sample_T1', J.Properties.VariableNames)
+        J.Sample = J.Sample_T1;
+    elseif ismember('Sample_T2', J.Properties.VariableNames)
+        J.Sample = J.Sample_T2;
+    else
+        J.Sample = string(J.Key);
+    end
+end
+J.Sample(ismissing(J.Sample)) = "UNK";
+
+% 准备输出列并重命名：左边视为 run1(_1)，右边视为 run2(_2)
+outFusion = table();
+outFusion.Sample      = J.Sample;
+outFusion.MAT_File_1  = J.MAT_File_T1;
+outFusion.PredLabel_1 = upper(fill_missing_str(J.PredLabel_T1));
+outFusion.ConfMaj_1   = fill_missing_num(J.ConfMaj_T1);
+outFusion.ConfAll_1   = fill_missing_num(J.ConfAll_T1);
+outFusion.NumWin_1    = double(fill_missing_num(J.NumWin_T1));
+
+outFusion.PredLabel_2 = upper(fill_missing_str(J.PredLabel_T2));
+outFusion.ConfMaj_2   = fill_missing_num(J.ConfMaj_T2);
+outFusion.ConfAll_2   = fill_missing_num(J.ConfAll_T2);
+outFusion.NumWin_2    = double(fill_missing_num(J.NumWin_T2));
+
+% 若左侧 MAT_File_1 为空，用右侧的
+if ismember('MAT_File_T2', J.Properties.VariableNames)
+    m = (outFusion.MAT_File_1=="" | ismissing(outFusion.MAT_File_1)) & ~ismissing(J.MAT_File_T2);
+    outFusion.MAT_File_1(m) = J.MAT_File_T2(m);
+end
+
+% 若包含完整 A..P，则按 A→P 排序
+if all(ismember(string('A':'P')', outFusion.Sample))
+    [~,ix] = ismember(outFusion.Sample, string('A':'P')');
+    [~,o]  = sort(ix);
+    outFusion = outFusion(o,:);
+end
+
+%% ========= 融合逻辑 =========
+n = height(outFusion);
+FinalLabel = strings(n,1);
+FinalConf  = zeros(n,1);
+Agree      = zeros(n,1);
+
+for i = 1:n
+    l1 = safe_str(outFusion.PredLabel_1(i));
+    l2 = safe_str(outFusion.PredLabel_2(i));
+    c1 = safe_num(outFusion.ConfMaj_1(i));
+    c2 = safe_num(outFusion.ConfMaj_2(i));
+
+    if l1==l2
+        FinalLabel(i) = l1; FinalConf(i) = max(c1,c2); Agree(i) = 1;
+    else
+        if ismember(l1,faultSet) && ~ismember(l2,faultSet) && c1>=tau_fault
+            FinalLabel(i)=l1; FinalConf(i)=c1;
+        elseif ismember(l2,faultSet) && ~ismember(l1,faultSet) && c2>=tau_fault
+            FinalLabel(i)=l2; FinalConf(i)=c2;
+        else
+            if c1>=c2, FinalLabel(i)=l1; FinalConf(i)=c1;
+            else,      FinalLabel(i)=l2; FinalConf(i)=c2; end
+        end
+    end
+end
+
+outFusion.FinalLabel = FinalLabel;
+outFusion.FinalConf  = FinalConf;
+outFusion.Agree      = Agree;
+
+% 调整列顺序并把 MAT_File_1 改名为 MAT_File
+outFusion = movevars(outFusion, 'FinalLabel', 'After','NumWin_2');
+outFusion = movevars(outFusion, 'FinalConf',  'After','FinalLabel');
+outFusion = movevars(outFusion, 'Agree',      'After','FinalConf');
+outFusion.Properties.VariableNames{'MAT_File_1'} = 'MAT_File';
+
+%% ========= 另两张辅助表（便于画图） =========
+outPlotFinal = table(outFusion.Sample, outFusion.FinalLabel, outFusion.FinalConf, ...
+                     outFusion.NumWin_1, outFusion.NumWin_2, ...
+                     'VariableNames', {'Sample','FinalLabel','FinalConf','NumWin_run1','NumWin_run2'});
+
+outPlotTwo = table(outFusion.Sample, ...
+                   outFusion.PredLabel_1, outFusion.ConfMaj_1, ...
+                   outFusion.PredLabel_2, outFusion.ConfMaj_2, ...
+                   'VariableNames', {'Sample','Label1','Conf1','Label2','Conf2'});
+
+%% ========= 写出 Excel =========
+if exist(outExcel,'file'); delete(outExcel); end
+writetable(outFusion,   outExcel, 'Sheet','fusion');
+writetable(outPlotFinal,outExcel, 'Sheet','plot_final');
+writetable(outPlotTwo,  outExcel, 'Sheet','plot_two');
+
+fprintf('✅ 已生成融合结果到：\n%s\n', outExcel);
+
+end % main
+
+%% ================== 辅助函数 ==================
+function T = try_read_quick(file, sheet)
+    T = [];
+    if ~exist(file,'file'), return; end
+    try
+        if nargin<2 || isempty(sheet)
+            T = readtable(file);
+        else
+            T = readtable(file,'Sheet',sheet);
+        end
+    catch
+        T = [];
+    end
+end
+
+function T = normalize_quick_cols(T)
+    % 将“快捷表格”的列统一为：Sample, MAT_File, PredLabel, ConfMaj, ConfAll, [NumWin]
+    vn = lower(T.Properties.VariableNames);
+    % Sample / MAT_File
+    cSample = T.(T.Properties.VariableNames{find(strcmp(vn,'sample'),1)});
+    cMAT    = T.(T.Properties.VariableNames{find(strcmp(vn,'mat_file'),1)});
+    % Pred / Conf
+    idxPred = find(contains(vn,'predlabel'), 1); if isempty(idxPred), idxPred = find(strcmp(vn,'predlabel'),1); end
+    idxMaj  = find(contains(vn,'confmaj'), 1);
+    idxAll  = find(contains(vn,'confall'), 1);
+    % NumWin（可能不存在）
+    idxNum  = find(contains(vn,'numwin'), 1);
+
+    T = table(string(cSample), string(cMAT), ...
+              string(T.(T.Properties.VariableNames{idxPred})), ...
+              double(T.(T.Properties.VariableNames{idxMaj})), ...
+              double(T.(T.Properties.VariableNames{idxAll})), ...
+              'VariableNames', {'Sample','MAT_File','PredLabel','ConfMaj','ConfAll'});
+
+    if ~isempty(idxNum)
+        T.NumWin = double(T.(T.Properties.VariableNames{idxNum}));
+    end
+end
+
+function s = safe_str(x)
+    if ismissing(x) || strlength(string(x))==0
+        s = "UNK";
+    else
+        s = upper(string(x));
+    end
+end
+
+function v = safe_num(x)
+    v = double(x);
+    if ~isfinite(v), v = 0; end
+end
+
+% ===== 新增：缺失值填充（向量化） =====
+function S = fill_missing_str(x)
+    S = upper(string(x));
+    S(ismissing(S) | strlength(S)==0) = "UNK";
+end
+
+function V = fill_missing_num(x)
+    V = double(x);
+    V(ismissing(V)) = 0;
+    V(~isfinite(V)) = 0;
+end

@@ -1,0 +1,29 @@
+{
+  "review_id": "2025-E-S040-partial",
+  "source_id": "S040",
+  "problem_id": "E",
+  "questions": [
+    {
+      "question_id": "Q3",
+      "author_approach": "在无标签目标文件上进行迁移诊断并报告置信度；正文称平均置信度0.992",
+      "model_choice_reasoning": "本记录仅复核文表一致性，未完成模型选择理由全文审阅",
+      "verification_status": "contradicted",
+      "evidence_refs": [
+        "S040 PDF物理页37–38 表6-2；仅此表与对应文字核验",
+        "2025_E_regression_results.json:S040_table_6_2_mean_recomputed"
+      ],
+      "risks": [
+        "未说明正文均值是否使用不同权重或运行版本",
+        "置信度不能替代无真值目标准确率"
+      ],
+      "our_assessment": "表中16个值的等权算术均值0.9246875，与0.992不一致。结论限于文表口径；不代表整篇论文或诊断模型被判定无效。"
+    }
+  ],
+  "overall_transferable_lessons": [
+    "从原结果表重新计算正文汇总数字"
+  ],
+  "do_not_copy_blindly": [
+    "未经解释的正文均值",
+    "无真值目标准确率"
+  ]
+}

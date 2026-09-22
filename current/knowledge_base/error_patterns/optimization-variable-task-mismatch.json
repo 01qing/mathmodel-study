@@ -1,0 +1,13 @@
+{
+  "pattern": "optimization-variable-task-mismatch",
+  "description": "Optimization decision variables do not encode the decisions the question asks to output.",
+  "detection": [
+    "task asks for locations/counts but variables encode operating states or unrelated controls",
+    "reported solution contains fields not produced by the declared decision vector"
+  ],
+  "remedy": [
+    "write decision-variable/output contract before choosing optimizer",
+    "unit-test decode(candidate) produces exactly the required deliverable",
+    "reject solutions that cannot be replayed from the decision vector"
+  ]
+}

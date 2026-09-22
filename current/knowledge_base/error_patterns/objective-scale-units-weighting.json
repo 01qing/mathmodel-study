@@ -1,0 +1,6 @@
+{
+  "id": "objective-scale-units-weighting",
+  "name": "Equal numeric weights on incomparable objective scales/units",
+  "trigger": "A weighted sum uses 1:1 weights on objectives with different units or orders of magnitude.",
+  "gate": "Normalize to dimensionless utilities/reference ranges or keep the Pareto vector; document preference separately from numerical scale."
+}

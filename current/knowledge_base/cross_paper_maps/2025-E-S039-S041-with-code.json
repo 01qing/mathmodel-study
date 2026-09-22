@@ -1,0 +1,102 @@
+{
+  "map_id": "2025-E-S039-S041-with-supplemental-code",
+  "case_group": "2025-E",
+  "split": "train",
+  "status": "CORE_CROSS_PAPER_REVIEW_WITH_SUPPLEMENTAL_CODE_MAPPING",
+  "identity_boundary": "S039/S040/S041是优秀论文；GTeacher1/GTeacher2为教师/专家补充资料。代码映射只表示方法级重叠，不表示教师代码是对应论文官方附录实现。",
+  "question_map": {
+    "Q1": {
+      "common_problem": "源域选择、振动信号预处理、特征构造并兼顾目标域迁移需要",
+      "papers": {
+        "S039": "39候选特征→多方法筛14；重叠窗口扩样；突出特征筛选证据链",
+        "S040": "48k→32k；TVFEMD+GWO-MOMEDA；SMOTE；36特征+MixHop，突出强噪声去噪与多域融合",
+        "S041": "32k；1024/512窗口；SNR/RMS/crest筛样并保留10%低分；机理特征+ViT 128维，突出机理筛样和双路特征"
+      },
+      "code_links": {
+        "GTeacher1": [
+          "MAT→CSV/时域图",
+          "小波去噪",
+          "自定义EMD：适合最小信号探索基线"
+        ],
+        "GTeacher2": [
+          "detrend/bandpass/Hilbert envelope/resample/windowing",
+          "spectral kurtosis band",
+          "order tracking：更接近可批处理的工程预处理链"
+        ]
+      },
+      "selection_rule": "噪声不重时优先S039/S041式轻量特征/机理基线；强噪声且故障频率被遮蔽时才升级S040式复杂去噪；所有方案先按原始文件分组再切窗。"
+    },
+    "Q2": {
+      "common_problem": "建立源域故障分类器并证明模型选择合理",
+      "papers": {
+        "S039": "SVM/RF/MLP + VGG/CNN，五折CV；MLP最优",
+        "S040": "RF/LSTM/CNN/ViT，8:2并增加10次稳定性箱线图；ViT最优",
+        "S041": "KNN/TCN/DenseNet/ResNet-CBAM，多种划分比例；ResNet-CBAM最优"
+      },
+      "code_links": {
+        "GTeacher1": [
+          "RandomForestClassifier示例：只作为最小监督基线和指标模板"
+        ],
+        "GTeacher2": [
+          "1D BearingNet/FeatNet、MechanismFilterBank、Channel-SE、源域train/val/test文件级划分；更适合真实代码骨架"
+        ]
+      },
+      "selection_rule": "先跑RF/MLP等低成本基线；只有深度模型在文件级留出或跨工况验证上稳定获益时才升级。模型比较至少包含混淆结构和重复运行稳定性。"
+    },
+    "Q3": {
+      "common_problem": "带标签源域→无标签目标域的领域自适应与16文件预测",
+      "papers": {
+        "S039": "CNN + 边界/分布对齐；MMD+CORAL/DDM",
+        "S040": "ViT + 高阶/二阶联合矩匹配；MMD+CORAL；KDE先证域偏移",
+        "S041": "ResNet-CBAM + DANN + MMD + 伪标签/聚类；强调源域统计标准化避免泄漏"
+      },
+      "code_links": {
+        "GTeacher2": [
+          "CORAL loss",
+          "entropy minimization",
+          "BN recalibration/SHOT相关入口",
+          "target file aggregation",
+          "two-run fusion"
+        ],
+        "GTeacher1": [
+          "无完整迁移代码，不作为Q3主实现"
+        ]
+      },
+      "selection_rule": "最小迁移基线=源模型直接目标推理；再加CORAL/MMD；域偏移复杂且样本足够时再上DANN/伪标签。目标无真值时必须把confidence、MMD、cluster cohesion与accuracy分开。"
+    },
+    "Q4": {
+      "common_problem": "解释迁移过程及目标预测可信度",
+      "papers": {
+        "S039": "MMD/CORAL/DDM+t-SNE，偏域级解释",
+        "S040": "前后t-SNE+域距离/质心方差+attention，偏对齐过程与网络注意",
+        "S041": "事前结构+过程MMD/t-SNE+事后SHAP全局/单样本，解释层次最完整"
+      },
+      "code_links": {
+        "GTeacher2": [
+          "t-SNE/embedding",
+          "gate/channel weights",
+          "envelope examples",
+          "adapt loss",
+          "fusion confidence figures"
+        ],
+        "GTeacher1": [
+          "基础时域/去噪图可提供事前信号解释，不足以完成迁移解释"
+        ]
+      },
+      "selection_rule": "至少采用“机理/数据事前解释 + 域对齐过程证据 + 单样本事后解释”中的两层；若用SHAP/attention必须说明其不能证明因果。"
+    }
+  },
+  "cross_paper_risks": [
+    "三篇都有窗口级验证潜在泄漏风险，需要文件级/工况级分组重做",
+    "目标域无真值，任何置信度/域距离/聚类指标都不能直接称准确率",
+    "复杂去噪、深模型和迁移损失都应与简单基线/无迁移模型做消融",
+    "图表必须围绕证据缺口选择，不能为了像优秀论文而固定图数"
+  ],
+  "recommended_new_problem_output": [
+    "按子问题列出相似论文和具体页段",
+    "指出可复用的代码阶段而非只报模型名",
+    "给最小基线/主方案/切换条件",
+    "为每张建议图写purpose与cannot_prove",
+    "列出验证单位（文件/工况/时间）防泄漏规则"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "first": "FAIL",
+  "first_invalid_edges": [
+    [
+      "A",
+      "D"
+    ]
+  ],
+  "repaired": "PASS",
+  "overall": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+  "raw": {
+    "A_B": 0.999989881548171,
+    "A_C": 0.9999999990112429
+  },
+  "scaled": {
+    "A_B": 0.6230940892298894,
+    "A_C": 0.9888572799865547
+  }
+}

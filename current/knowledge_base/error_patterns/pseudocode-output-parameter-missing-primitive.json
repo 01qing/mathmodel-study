@@ -1,0 +1,5 @@
+{
+  "id": "PSEUDOCODE_OUTPUT_PARAMETER_MISSING_PRIMITIVE",
+  "scope": "generic",
+  "rule": "If an algorithm declares an output parameter that is never estimated/initialized/updated in the displayed steps, the method contract is incomplete. Do not infer hidden implementation from the final output list."
+}

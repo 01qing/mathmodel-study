@@ -1,0 +1,23 @@
+{
+  "case_group": "2025-F",
+  "status": "FINAL_AFTER_S042_S045",
+  "papers_reviewed": [
+    "S042",
+    "S043",
+    "S044",
+    "S045"
+  ],
+  "rules": [
+    "Q1 always show feasible-space/graph overlay and final route overlay; any bridge/repair edge must be visually marked and machine-feasibility replayed.",
+    "Q1 route comparison should show raw length/repeat/turn/scene-change values and a Pareto/epsilon table; convergence curves do not prove optimality or even algorithm identity.",
+    "Q1 scenic heatmap must share metric implementation/run_id with the score used by the optimizer; a different plotting proxy is explanatory only.",
+    "Q2 cluster maps register feature set, scaling, K-selection method, spatial adjacency and algorithm_id; KMeans output cannot be captioned as GMM-MRF evidence.",
+    "Q2 rank/sensitivity figures require a garden_id×run_id result matrix; Kendall/Spearman are computed across garden rankings per run, never across parameter scenarios.",
+    "Q2 calibration/reference garden should be visually separated from held-out/external validation; anchor top rank is not a validation panel.",
+    "Q3 similarity heatmaps use one immutable matrix registry; report value distribution/null baseline to detect similarity concentration.",
+    "Q3 dendrogram/linkage must match the distance geometry; Ward only on Euclidean feature space.",
+    "Q3 external-case plots are labeled applicability/face validity unless independent target/preference truth exists.",
+    "Any paper-code implementation figure must identify actual primitives; sophisticated algorithm names in prose do not upgrade code evidence.",
+    "Visual inspection is authoritative for formulas when text extraction drops absolute bars, superscripts or operators; record the resolved equation and page."
+  ]
+}

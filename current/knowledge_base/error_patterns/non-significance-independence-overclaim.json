@@ -1,0 +1,6 @@
+{
+  "id": "non-significance-independence-overclaim",
+  "name": "Nonsignificant interaction is interpreted as independence",
+  "trigger": "p>alpha is rewritten as two factors are independent or have no interaction.",
+  "gate": "Say evidence was insufficient to detect an interaction at the tested resolution; report effect estimate/CI/power and avoid a positive independence claim without an equivalence test."
+}

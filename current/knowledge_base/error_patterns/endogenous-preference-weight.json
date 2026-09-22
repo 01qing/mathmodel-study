@@ -1,0 +1,6 @@
+{
+  "id": "endogenous-preference-weight",
+  "trigger": "A weighted multiobjective scalarization treats the preference weight itself as a free optimization decision variable.",
+  "risk": "The optimizer chooses the decision maker’s preference, so the resulting point is not tied to an externally defined utility trade-off.",
+  "gate": "Fix weights from decision preference, sweep them for sensitivity, or retain the Pareto front and select a point afterward using a declared rule."
+}

@@ -1,0 +1,49 @@
+{
+  "paper_id": "S020",
+  "case_group": "2024-E",
+  "run_status": "PRINTED_PYTHON_STATIC_AUDIT_ONLY_NO_AUTHOR_DATA_OR_WEIGHT_REPRODUCTION",
+  "appendix_pages": "70-78",
+  "visible_modules": [
+    "YOLO-DeepSort speed estimation fragment",
+    "TCNAt-BiGRU forecasting fragment"
+  ],
+  "questions": {
+    "Q1": {
+      "visible_evidence": [
+        "SpeedEstimator code",
+        "TCNAt-BiGRU model code"
+      ],
+      "findings": [
+        "forecast target column is present in X and y simultaneously",
+        "one MinMaxScaler object is fit on X then re-fit on y before split; X and y scaling share a variable name but not fitted parameters",
+        "scalers are fit before train/test split",
+        "sequence length is exactly 1",
+        "printed SK-Net helper is a channel attention gate rather than Split/Fuse/Select SK-Net",
+        "absolute Windows paths make the fragment non-portable without data/path edits",
+        "no exact author CSV/model weights are bundled in current worktree, so end-to-end reproduction is not claimed"
+      ]
+    },
+    "Q2": {
+      "visible_evidence": [],
+      "findings": [
+        "No executable shockwave open/close state machine is printed."
+      ]
+    },
+    "Q3": {
+      "visible_evidence": [],
+      "findings": [
+        "No executable Greenshields intervention simulation/control implementation is printed."
+      ]
+    },
+    "Q4": {
+      "visible_evidence": [],
+      "findings": [
+        "No camera-placement optimization implementation is printed."
+      ]
+    }
+  },
+  "safe_reuse": [
+    "YOLO/DeepSORT tracking pipeline structure can be reused only after camera/time calibration",
+    "chronological split intent is directionally correct, but leakage must be removed before reuse"
+  ]
+}

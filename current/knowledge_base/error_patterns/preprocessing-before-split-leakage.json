@@ -1,0 +1,19 @@
+{
+  "pattern_id": "preprocessing-before-split-leakage",
+  "name": "划分前拟合特征选择/SMOTE/标准化导致信息泄漏",
+  "learned_from": [
+    "S039",
+    "S040"
+  ],
+  "trigger": [
+    "全数据先筛特征再CV",
+    "全数据先SMOTE再split",
+    "标准化均值方差使用测试或目标真值相关信息"
+  ],
+  "preferred_fix": [
+    "pipeline中每折只在训练集fit，再transform验证/测试",
+    "SMOTE只作用训练折",
+    "无监督目标域允许使用哪些统计量需事先声明；若评估源域泛化则不让测试折参与拟合"
+  ],
+  "positive_example": "S041明确提出Z-score使用源域统计量，体现了防信息泄漏意识。"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_acquisition.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "primary_xlsx_mirror",
+    "participant_csv_mirror"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.2"
+    },
+    "case_id": {
+      "const": "gmcm-2021-D"
+    },
+    "primary_xlsx_mirror": {
+      "type": "object"
+    },
+    "participant_csv_mirror": {
+      "type": "object"
+    }
+  }
+}

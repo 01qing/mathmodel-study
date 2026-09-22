@@ -1,0 +1,118 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "current version",
+      "passed": true
+    },
+    {
+      "name": "latest Dev distinct from Train",
+      "passed": true
+    },
+    {
+      "name": "Test exposure honest",
+      "passed": true
+    },
+    {
+      "name": "no claimed capability gain",
+      "passed": true
+    },
+    {
+      "name": "1788 sealed baseline files unchanged",
+      "passed": true
+    },
+    {
+      "name": "frozen55files portable intact",
+      "passed": true
+    },
+    {
+      "name": "freeze manifest identity",
+      "passed": true
+    },
+    {
+      "name": "45papers and frozen splits",
+      "passed": true
+    },
+    {
+      "name": "Train32 reviewed",
+      "passed": true
+    },
+    {
+      "name": "S014Dev62pages",
+      "passed": true
+    },
+    {
+      "name": "S015S016 not reviewed",
+      "passed": true
+    },
+    {
+      "name": "chunks.json byte unchanged",
+      "passed": true
+    },
+    {
+      "name": "split_manifest.json byte unchanged",
+      "passed": true
+    },
+    {
+      "name": "source PDF portable identity",
+      "passed": true
+    },
+    {
+      "name": "62visual pages evidence",
+      "passed": true
+    },
+    {
+      "name": "registry29",
+      "passed": true
+    },
+    {
+      "name": "four questions R2",
+      "passed": true
+    },
+    {
+      "name": "seven gates partial group",
+      "passed": true
+    },
+    {
+      "name": "local audit30 executed",
+      "passed": true
+    },
+    {
+      "name": "first local failure retained",
+      "passed": true
+    },
+    {
+      "name": "fresh23 historical effective",
+      "passed": true
+    },
+    {
+      "name": "historical raw failures retained",
+      "passed": true
+    },
+    {
+      "name": "release first attempt preserved",
+      "passed": true
+    },
+    {
+      "name": "current contracts and retrieval exit0",
+      "passed": true
+    },
+    {
+      "name": "v139contracts18 still pass",
+      "passed": true
+    },
+    {
+      "name": "new rule routed from main",
+      "passed": true
+    },
+    {
+      "name": "no added role skills",
+      "passed": true
+    },
+    {
+      "name": "skill structure",
+      "passed": true
+    }
+  ],
+  "scope": "release consistency/compatibility/local numeric fixtures; not new-problem competence"
+}

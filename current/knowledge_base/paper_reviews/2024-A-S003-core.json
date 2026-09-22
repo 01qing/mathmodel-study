@@ -1,0 +1,131 @@
+{
+  "review_id": "2024-A-S003-core",
+  "source_id": "S003",
+  "problem_id": "2024_A",
+  "paper_identity": {
+    "team": "浙江工商大学",
+    "team_number": "24103530117",
+    "physical_pages": 73,
+    "source_status": "full extracted text and printed appendix available; original PDF pixels not mounted"
+  },
+  "questions": [
+    {
+      "question_id": "1",
+      "author_approach": "自适应动态三阶段滑动窗口 + 改进实时雨流计数 + Goodman 修正 + Palmgren-Miner/S-N，目标是每秒内给出累计损伤与等效疲劳载荷。",
+      "model_choice_reasoning": "将全序列疲劳计数改造成局部流式/窗口处理，以换取实时性，同时保留疲劳机理基线。",
+      "author_reported_results": [
+        "主轴累计疲劳损伤 R²≈0.7287",
+        "塔架累计疲劳损伤 R²≈0.7613",
+        "主轴/塔架等效疲劳载荷 R²≈0.8918/0.8716",
+        "随机元件计算时间约0.26–0.37 s"
+      ],
+      "evidence_refs": [
+        "S003 physical pages 10-24",
+        "printed appendix pages 66-68"
+      ],
+      "risks": [
+        "式(4-7)写成同一窗口相减，按字面恒为0，应为前后窗口差分类表达。",
+        "正文说初始窗口14且有AB搜索、阈值分段、逆向尾部处理；附录代码实际是固定滑窗，process_all_turbines_parallel 又把 window_size 设成10，未实现上述关键步骤。",
+        "附录以 np.diff(重叠窗口损伤) 作为每秒疲劳增量，可能产生负值；若解释为物理累计损伤增量则违反非减性，必须用精确在线雨流或边界状态单元测试验证。",
+        "正文 Goodman 表达与代码 goodman_amplitudes=ranges/(1-means/Su) 需统一定义和量纲。"
+      ],
+      "our_assessment": "可迁移的是“精确批处理基线 + 在线近似 + 运行时间/误差双验证”框架；不能直接复用该附录为自适应三阶段算法实现。",
+      "alternatives": [
+        "有状态在线雨流/转折点栈",
+        "精确批雨流作金标准 + 在线近似",
+        "增量损伤代理模型但需边界循环回归测试"
+      ]
+    },
+    {
+      "question_id": "2",
+      "author_approach": "物理关系约束的多输入多输出非线性回归；按 Input1 / State1 / 联合条件分段，最小二乘拟合，再用随机搜索调初值/参数。",
+      "model_choice_reasoning": "先用风机机理构造扭矩、推力、功率关系，再用高阶项和分段策略吸收非线性。",
+      "author_reported_results": [
+        "摘要称最终拟合度0.8632",
+        "正文认为 Input1 分段优于 State1 与联合分段"
+      ],
+      "evidence_refs": [
+        "S003 physical pages 24-38",
+        "printed appendix pages 68-70"
+      ],
+      "risks": [
+        "摘要写“网格搜索”，正文明确采用“随机搜索”，方法命名不一致。",
+        "正文与代码把扫风面积 A 取80 m²，同时注释“叶片长度62.5 m”；若62.5 m为半径，扫风面积应约π×62.5²≈12272 m²，物理量明显不一致。",
+        "附录先引入 StandardScaler，预测函数又把 X_scaled 直接送入含风速立方、转速、物理功率的方程；若确实在标准化尺度上计算物理项，会破坏单位和机理解释。",
+        "代码模型解包35个参数、initial_guess=35，但正文最终列出的低/高功率参数各20个，且正文式(5-15)至(5-17)又是另一套较少参数表达，存在版本漂移。",
+        "代码含 exp(Input1)、exp(Input2)、exp(State2) 等项；若在原始量纲上极易数值爆炸，若在标准化尺度上又与物理项不相容。"
+      ],
+      "our_assessment": "应保留“物理基线 + 低复杂度残差/分段模型 + 时间/设备分组验证”，优先统一量纲和参数版本，再考虑高阶项。",
+      "alternatives": [
+        "物理方程 + Ridge/Huber残差",
+        "GAM/样条分段",
+        "梯度提升树与物理基线同台",
+        "需要时再升级序列模型"
+      ]
+    },
+    {
+      "question_id": "3",
+      "author_approach": "论文层面为 Pareto 权重自适应 + 风速分区 + LSTM风速预测 + 滚动时域MPC，区域内用SLSQP求功率分配。",
+      "model_choice_reasoning": "双疲劳目标需权衡，风速异质性用区域化处理，MPC负责未来时域与实时滚动。",
+      "author_reported_results": [
+        "论文给出区域权重0.14/0.86与0.46/0.54",
+        "前50秒计算时间图称均低于1 s",
+        "优化后多数时段功率方差较低"
+      ],
+      "evidence_refs": [
+        "S003 physical pages 38-51",
+        "printed appendix pages 70-72"
+      ],
+      "risks": [
+        "正文强调 Pareto 前沿，但编号图中没有实际 Pareto 前沿与最终选点图，权重0.14/0.86、0.46/0.54缺少可追溯选择证据。",
+        "附录 w_shaft=w_tower=0.5，未实现两区域自适应权重、Pareto扫描、区域划分、LSTM风速预测或Np滚动时域，因此代码更像逐秒静态约束优化，不是正文所述完整MPC。",
+        "wind_speeds 被加载但目标函数未使用；目标函数对每台风机重复调用同一个 rainflow_counting_and_fatigue(P_ref)，未利用Q2得到的逐机受力代理。",
+        "constraint_ineq 中 ineq3=abs(P_ref-avg)-1e6；SciPy type=ineq 语义要求返回值>=0，因此按字面反而要求偏差>=1MW，与正文“<=1MW”相反。",
+        "正文含功率变化率约束，附录未实现。",
+        "循环末尾把 P_ref_initial 设为最优值，但下一秒循环开头重新均分+随机扰动，所谓warm start被覆盖。"
+      ],
+      "our_assessment": "S003提供了很好的“MPC应具备什么”论文结构，但其打印代码不能证明实现。新题中只有显式状态/预测模型、有限时域、滚动执行和跨时刻约束都落到代码，才可称MPC。",
+      "alternatives": [
+        "可解释滚动时域NLP/QP",
+        "NSGA-II离线Pareto基准 + MPC在线选点",
+        "若实时求解困难，再以优化器蒸馏/策略网络加安全投影"
+      ]
+    },
+    {
+      "question_id": "4",
+      "author_approach": "正文提出卡尔曼去噪 + 延迟补偿 + 鲁棒MPC，并与PSO鲁棒优化比较。",
+      "model_choice_reasoning": "先处理测量与通信不确定性，再在统一目标下比较两种调度优化框架。",
+      "author_reported_results": [
+        "文字称PSO输出相对MPC更贴近Pref",
+        "主轴疲劳优化改善明显，塔架改善有限"
+      ],
+      "evidence_refs": [
+        "S003 physical pages 51-64",
+        "printed appendix pages 72-73"
+      ],
+      "risks": [
+        "附录Q4未出现卡尔曼滤波实现、延迟状态预测实现或PSO实现；无法由给出的关键代码复现正文完整链。",
+        "robust_objective 定义后未在 mpc_robust_control 中调用；函数内部 wind_speed_perturbed 也未参与P_pred更新。",
+        "所谓 mpc_robust_control 没有优化器，只把当前P值复制到预测窗口并按与Pref误差/变化率阈值做规则修正，不能据此证明鲁棒MPC求解。",
+        "robust_objective 直接计算 (P_ref - wind_speed_perturbed)^2，混合功率与风速不同量纲，目标函数在物理上不成立。",
+        "式(7-22)正文写成 max_x max_d f，而鲁棒优化通常应是决策对最坏扰动的 min_x max_d 结构；与后续式(7-24)也不一致。",
+        "PSO位置更新式(7-17)左侧仍写V_i而不是x_i，存在公式记号错误。",
+        "论文缺少“去噪前后误差/延迟补偿误差”独立验证和噪声/延迟严重度扫描，单一受扰数据下的下游曲线不足以证明鲁棒性。"
+      ],
+      "our_assessment": "可迁移的是“扰动识别→预处理/状态估计独立验证→下游优化→严重度扫描”的证据顺序，而不是直接采用这份Q4关键代码。",
+      "alternatives": [
+        "已知状态空间时Kalman/延迟状态扩维",
+        "简单EWMA/插值基线 + 鲁棒MPC",
+        "scenario/Monte-Carlo MPC severity sweep",
+        "PSO只作为离线/慢速基准并报告运行时间"
+      ]
+    }
+  ],
+  "cross_cutting_lessons": [
+    "摘要、正文、附录代码三层的方法名和参数必须一致。",
+    "物理约束模型必须保留单位，标准化后的变量不能未经反变换直接进入物理定律。",
+    "“MPC”标签必须通过预测模型、有限时域、跨时刻动态约束、滚动执行四项代码证据验证。",
+    "鲁棒性必须做噪声/延迟严重度扫描，不能只看一份受扰数据。",
+    "多目标方法必须画真实Pareto前沿并标出最终运行点与选点规则。"
+  ]
+}

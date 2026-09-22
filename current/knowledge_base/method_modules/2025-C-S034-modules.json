@@ -1,0 +1,53 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "modules": [
+    {
+      "id": "S034_Q1_COARSE_TO_FINE_CLASSICAL_ENSEMBLE",
+      "question": "Q1",
+      "transferable": "yes_after_label_provenance",
+      "module": "combine complementary ridge/edge/texture detectors for high-recall candidate generation, then classify connected components using compact morphology/texture features",
+      "compatibility": "prefer learned interpretable weights when labels exist; split by original image before tuning"
+    },
+    {
+      "id": "S034_Q2_ROBUST_INSTANCE_THEN_GEOMETRY_FIT",
+      "question": "Q2",
+      "transferable": "yes_after_contract_repair",
+      "module": "separate fracture-instance grouping from robust periodic fit; use RANSAC/refit and residual rejection",
+      "compatibility": "fix period to physical circumference when calibrated; axis semantics for cluster merge must be explicit"
+    },
+    {
+      "id": "S034_Q3_MULTISCALE_PROFILE_DIAGNOSTIC",
+      "question": "Q3",
+      "transferable": "yes_as_diagnostic",
+      "module": "decompose ordered fracture centerline into low-frequency/main shape and multiscale residuals (Fourier/spline + wavelet) to diagnose where roughness originates",
+      "compatibility": "do not treat decomposition itself as a validated improved JRC estimator"
+    },
+    {
+      "id": "S034_Q3_SAMPLING_CONVERGENCE",
+      "question": "Q3",
+      "transferable": "yes",
+      "module": "compare roughness estimates over increasing sampling budgets and adaptive/equal schemes; record convergence and computational budget",
+      "compatibility": "dense sampling is a numerical reference unless independent ground truth exists"
+    },
+    {
+      "id": "S034_Q4_FEASIBLE_COVERAGE_GREEDY",
+      "question": "Q4",
+      "transferable": "yes_after_semantic_relabel",
+      "module": "use a transparent spatial coverage score to generate feasible candidate measurement locations and greedily maximize marginal coverage reduction",
+      "compatibility": "call it coverage utility unless a probabilistic observation/update model supports posterior EIG; enforce constraints against all relevant existing/new sites"
+    }
+  ],
+  "blocked_transfers": [
+    "manual Q1 feature weights/6-of-10 threshold without independent calibration",
+    "Q2 free period estimates when borehole circumference is known and no distortion model is justified",
+    "Table 6 p-values without statistical-test provenance",
+    "Bootstrap reversed percentile interval or estimator-switch without likelihood definition",
+    "RAF correction coefficients without calibration provenance",
+    "calling dense-sampling JRC physical truth",
+    "using JRCmax=20 as an unexplained cross-stage scale when upstream values reach 60",
+    "calling product of heuristic factors calibrated connectivity probability",
+    "calling distance coverage posterior uncertainty or its drop expected information gain",
+    "checking only new-new spacing if the engineering safety condition applies to existing-new holes"
+  ]
+}

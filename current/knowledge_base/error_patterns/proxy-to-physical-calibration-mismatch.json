@@ -1,0 +1,14 @@
+{
+  "pattern": "proxy-to-physical-calibration-mismatch",
+  "description": "A normalized/relative proxy is inserted into a physical equation and the output is reported in physical units without an identified scale/calibration map.",
+  "detection": [
+    "paper says input has no physical distance/unit",
+    "downstream formula assumes vehicles/km or another physical unit",
+    "manual K_jam/free-speed constants are assigned without calibration"
+  ],
+  "remedy": [
+    "calibrate proxy against physical ground truth or estimate an explicit scale map",
+    "propagate calibration uncertainty",
+    "otherwise keep outputs dimensionless/relative and avoid km/h labels"
+  ]
+}

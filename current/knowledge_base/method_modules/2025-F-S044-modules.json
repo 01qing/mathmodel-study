@@ -1,0 +1,49 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "transferable_modules": [
+    {
+      "module": "garden_route_scene_change_registry",
+      "input": "walkable graph + local visibility/landscape types",
+      "output": "raw route interest/repetition/length metrics",
+      "use_when": "garden/scenic route novelty is modeled",
+      "gate": "same route_id links geometry, scene-change, repetition and feasibility; optimizer is separate"
+    },
+    {
+      "module": "deterministic_small_n_aesthetic_score",
+      "input": "auditable geometry/open-close descriptors",
+      "output": "component score + sensitivity",
+      "use_when": "garden-level n is tiny and interpretability matters",
+      "gate": "no random surrogate features; weight method and normalization are computed from declared calibration data"
+    },
+    {
+      "module": "garden_entity_grouped_pairwise_validation",
+      "input": "garden-level features + pair labels",
+      "output": "metric-learning validation on unseen gardens",
+      "use_when": "pairwise similarity/preference is learned",
+      "gate": "split gardens/entities first, then construct train/validation pairs; no entity overlap"
+    },
+    {
+      "module": "pretrained_multimodal_embedding_baseline",
+      "input": "real geometry + image + text modalities",
+      "output": "compact fused garden representation",
+      "use_when": "modalities genuinely exist but independent n is small",
+      "gate": "use frozen/pretrained encoders before training a new deep model; garden-level holdout"
+    },
+    {
+      "module": "printed_code_primitive_contract",
+      "input": "paper method chain + printed/attached source",
+      "output": "method-to-code coverage map",
+      "use_when": "paper contains long code appendix",
+      "gate": "method label counts as implemented only if algorithm-defining primitives exist and are reachable"
+    }
+  ],
+  "blocked_modules": [
+    "random placeholder features under real-data claims",
+    "fixed result dictionaries overriding computed outputs",
+    "clamped R2 or constant CV metrics as validation",
+    "untrained embedding used as result representation",
+    "same embedding relabeled as topology/behavior without PH/HMM primitives",
+    "pair-level CV for unseen-garden generalization"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "questions": {
+    "Q1": {
+      "baseline": "walkable centerline/path graph + fixed-distance sampling + simple ray/sector visibility + Shannon richness/Jaccard scene change + k-shortest/beam/greedy route candidates with explicit length/repetition constraints and transparent ranking",
+      "author_route": "Minkowski obstacle expansion + centerline graph + 50m/180° visibility + Shannon/Jaccard interest + weighted-sum improved GA",
+      "alternatives": [
+        "epsilon-constraint/Pareto label-setting if graph size permits",
+        "orienteering/MILP or CP-SAT on a reduced candidate graph for bounded/exact comparison",
+        "NSGA-II only when genuine Pareto tradeoffs need preservation",
+        "visitor pairwise-preference/ranking model if independent perceptual labels exist"
+      ],
+      "not_recommended": [
+        "calling a weighted-sum GA a certified global multiobjective optimum",
+        "roulette on possibly negative fitness",
+        "assuming OX automatically preserves path-edge feasibility",
+        "population-dependent min/max normalization when cross-generation objective comparability matters"
+      ],
+      "why_select": "the reusable value is the interpretable path/visibility/change representation; the optimizer should be selected by graph size, exactness budget and whether a true Pareto set is needed",
+      "switch_condition": "promote exact/epsilon methods on reduced graphs; promote learned perceptual utility only with independent visitor/expert labels and garden-level holdout"
+    },
+    "Q2": {
+      "baseline": "small nonredundant grid/visibility/open-close indicators on a common dimensionless scale + explicit benefit directions + transparent weighted score + weight/threshold sensitivity + independent perceptual/expert validation",
+      "author_route": "theme entropy/harmony/complexity + openness/rhythm/contrast -> 55/45 fusion -> force Jichang reference to 100 -> similarity/scale/culture/environment multipliers",
+      "alternatives": [
+        "factor/PCA after redundancy checks",
+        "AHP/CRITIC/entropy weighting with auditable provenance and sensitivity",
+        "ordinal/ranking model if independent human illusion-quality labels exist"
+      ],
+      "not_recommended": [
+        "mixing incompatible component scales while declaring a fixed score range",
+        "using the anchor garden both to construct and validate the score",
+        "calling a monotone area bonus an “optimal moderate scale” effect",
+        "calling unbounded autocovariance scaling a normalized rhythm index"
+      ],
+      "why_select": "interpretable descriptors suit n=10, but every score component needs a closed scale and calibration/validation separation",
+      "switch_condition": "use supervised ranking only after independent labels exist; use latent factors when redundancy/sensitivity shows hand-weighting instability"
+    },
+    "Q3": {
+      "baseline": "compact path/scenic/spatial descriptor + train/reference-cohort standardization + Gower or Euclidean/cosine distance chosen by data type + hierarchical clustering with bootstrap stability + predeclared external validation target",
+      "author_route": "20D descriptor + cosine/Jaccard/weighted-Euclidean fusion + Ward clustering + CV threshold/Kruskal-Wallis + eight expanded aesthetics/fuzzy scoring + three validation gardens",
+      "alternatives": [
+        "Gower distance for mixed continuous/set/categorical features",
+        "PCA/factor analysis before Euclidean Ward if dimensions are correlated",
+        "metric learning only with external pairwise similarity labels",
+        "spectral/average-linkage clustering if using a non-Euclidean similarity matrix"
+      ],
+      "not_recommended": [
+        "Ward directly on an arbitrary fused non-Euclidean similarity without embedding proof",
+        "using p>0.05 to prove commonality",
+        "reporting 2/3 accuracy without predeclared truth labels",
+        "AHP constructed from already-known w_i/w_j"
+      ],
+      "why_select": "compact 20D is preferable to d>>n representations, but validation targets and metric geometry must be explicit",
+      "switch_condition": "use learned metric/representation only when independent garden count and external labels are sufficient; otherwise keep compact interpretable distances with resampling"
+    }
+  }
+}

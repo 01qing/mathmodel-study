@@ -1,0 +1,8 @@
+[FAIL]
+- missing: /.agents/skills/graduate-mathmodel-learning/SKILL.md
+- missing: /learning_sources/source_index.json
+- missing: /learning_output/context/learning_state.json
+- missing: /learning_output/context/next_learning.md
+- missing: /knowledge_base/methods
+- missing: /knowledge_base/problem_patterns
+- missing: /knowledge_base/paper_reviews

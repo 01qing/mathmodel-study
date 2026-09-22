@@ -1,0 +1,10 @@
+{
+  "name": "resampler-shape-contract",
+  "trigger": "tabular resampler receives CNN/RNN tensors with >2 feature dimensions or one-hot multilabel y unsupported by API",
+  "risk": "printed code may not execute even before statistical validation issues are considered",
+  "gate": [
+    "resample on 2D pre-reshape training features with 1D class labels",
+    "reshape only after resampling",
+    "add a minimal API smoke test for X/y shape contract"
+  ]
+}

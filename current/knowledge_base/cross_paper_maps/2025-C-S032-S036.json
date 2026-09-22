@@ -1,0 +1,124 @@
+{
+  "case_group": "2025-C",
+  "papers": [
+    "S032",
+    "S033",
+    "S034",
+    "S035",
+    "S036"
+  ],
+  "papers_reviewed": [
+    "S032",
+    "S033",
+    "S034",
+    "S035",
+    "S036"
+  ],
+  "papers_pending": [],
+  "status": "FINAL_FIVE_TRAIN_PAPERS_REVIEWED",
+  "questions": {
+    "Q1": {
+      "S032": "supervised morphology/U-Net/improved U-Net; strong reported metrics but split/implementation concerns",
+      "S033": "K-Means/Canny/YOLO qualitative competition; YOLO described visually stronger but Canny chosen for annotation/interpretability cost",
+      "competition": "FINAL: route by label budget and source independence. No/very-low labels -> ridge/Frangi/edge+morphology. With labels -> compact pretrained segmentation only after source/original-image holdout. Separate predictive winner from deployment recommendation; duplicates/source overlap checked before split.",
+      "S034": "six classical detectors vote + 12-feature manual connected-component score; three-image confusion metrics replay arithmetically but truth-mask/tuning provenance is absent",
+      "S035": "Frangi/Otsu/morphology no-label mainline; learned RF/SVM/XGB branch exposes explicit source-overlap leakage and poor transfer",
+      "S036": "DeepLabV3+ transfer learning with 117 external images; reported all-project metrics lack an untouched project split because all project images are described as part of training."
+    },
+    "Q2": {
+      "S032": "component/DBSCAN + fixed-period sine; body-code robust-fit drift and extreme fit without reject",
+      "S033": "GMM + GD/Newton vs pseudo-neural Adam; printed code only fixed-count GMM and all final P=94.25",
+      "competition": "FINAL: unknown-count topology/density fragments -> fix P=pi*D -> solve fixed-frequency sinusoid robustly -> residual/inlier/missingness/physical reject. Free period only under calibrated cylindrical-unwrapping distortion.",
+      "S034": "DBSCAN + horizontal-band merge + RANSAC/LS vs sliding-window reduced Hough; p-value provenance absent, RANSAC P primitive underspecified, and free-period Model 1 conflicts with later fixed-circumference geometry",
+      "S035": "fixed 94.25 mm period + two-stage anomaly-reject/refit; several high-error/high-missingness rows show need for explicit reject",
+      "S036": "DBSCAN fragment proposal + largest-seed fixed 94.25-mm sinusoid model + iterative merge/refit; strongest explicit physical-period contract in the group."
+    },
+    "Q3": {
+      "S032": "LoG-attention/adaptive sampling claims; appendix per-image scaling and clipping",
+      "S033": "adaptive sampling + second-derivative Z3/area claims; appendix implements only original Z/JRC and body formula drifts",
+      "competition": "FINAL: ordered physical centerline/profile -> macro-shape detrend -> one canonical JRC -> matching-granularity numerical/external reference -> sampling-budget sensitivity. Adaptive/Fourier/wavelet/keypoint methods are enhancements selected by declared utility, not universal winners.",
+      "S034": "K=4 Fourier + DWT + Bootstrap + adaptive sampling + RAF JRC correction; valuable multiscale/sampling diagnostics but Bootstrap/CI and calibration/truth semantics are weak",
+      "S035": "JRC with sampling-density and equal-arc sensitivity; numerical stabilization is not external truth",
+      "S036": "baseline-normal roughness profile + Barton reference comparison of equal/adaptive/keypoint sampling; keypoint wins R2/RMSE but loses tail-outlier count."
+    },
+    "Q4": {
+      "S032": "heuristic connectivity + uncertainty + AHP/PPIGA recommendation; probability/entropy/optimizer evidence concerns",
+      "S033": "weighted sigmoid connectivity + voxel entropy + hotspot drilling, but simulated inputs, incomplete Bernoulli entropy, pseudo-IG and 500mm violation",
+      "competition": "FINAL: deterministic 3D geometry -> transparent compatibility score -> threshold sensitivity -> machine-readable edge registry -> component replay -> coverage/ambiguity map -> hard-feasible sequential drilling. Upgrade to probability/posterior/EIG only with calibration and observation-update model.",
+      "S034": "five-factor multiplicative connectivity score + DFS + distance-decay/IDW coverage surrogate + greedy placement; 64% vs 85% isolation drift and spacing-set ambiguity",
+      "S035": "Monte-Carlo plane sensitivity + angle/distance score + IDW uncertainty; useful propagation but probability/posterior semantics overclaimed",
+      "S036": "weighted space/orientation/JRC compatibility + threshold graph + hotspot drilling; one-edge vs four-hole component is a hard graph-contract contradiction."
+    }
+  },
+  "method_composer_preliminary": {
+    "compatible": [
+      "S034 coarse-to-fine classical candidate generation + S032/S033 grouped-image validation and deployment-cost gate",
+      "S032/S033/S034 geometry insight: physical period fixed by calibrated borehole circumference + robust fit/reject",
+      "S034 multiscale Fourier/wavelet diagnostic + S033 ordered-profile contract + S032/S034 sampling-sensitivity analysis",
+      "S034 feasible coverage candidate generation + S032/S033 uncertainty-propagation/true-EIG reformulation, with score semantics kept explicit"
+    ],
+    "blocked": [
+      "manual feature weights from S034 as universal thresholds without labeled calibration",
+      "S034 Table 6 p-values as evidence without a named statistical protocol",
+      "free-period Q2 outputs mixed with fixed-period physical models without a distortion/calibration interface",
+      "S032 per-image JRC scaling, S033 uncalibrated Z3, or S034 RAF coefficients directly composed into Q4 connectivity",
+      "any S032/S033/S034 heuristic connectivity score relabeled as probability without calibration",
+      "current entropy/distance coverage relabeled as expected information gain",
+      "drilling recommendations evaluated before complete hard-constraint set replay"
+    ],
+    "seven_gate_status": {
+      "input_output_interface": "PARTIAL_PASS: image->mask->trace->profile->3D chain is conceptually compatible, but S034 code/attachments are unavailable",
+      "variable_definitions": "CONDITIONAL: amplitude/period/JRC conventions must be canonicalized before mixing papers",
+      "data_distribution": "CONDITIONAL: all three target same attachments/problem family but reported evaluations use different subsets/simulation assumptions",
+      "mathematical_assumptions": "CONDITIONAL: fixed-period geometry is compatible; heuristic probability/uncertainty assumptions are not interchangeable with calibrated probabilistic models",
+      "units": "PASS_WITH_GATES: mm calibration is explicit, but JRC scale/range and area correction require provenance",
+      "train_execution_stage": "CONDITIONAL: Q1 learned thresholds/weights must be train-only; Q2-Q4 cannot use oracle intermediate labels when evaluating end-to-end performance",
+      "evaluation_metrics": "CONDITIONAL: use common held-out segmentation metrics, fit residual/reject rate, canonical JRC sensitivity, and feasible utility; paper-specific p-values/scores are not directly comparable"
+    }
+  },
+  "mini_transfer": "PASS_MECHANISM_TRANSFER_AFTER_FIRST_FAIL_AND_RULE_FIX; synthetic non-paper periodic-trace variant; does not raise paper R-level",
+  "method_composer_final": {
+    "recommended_composition": [
+      "Q1 S035 Frangi/no-label proposal + S032/S033 deployment-cost framing + S036 clean source holdout gate",
+      "Q2 S036/S035 physical fixed-period contract + S032/S034 unknown-count grouping/robust-fit/reject",
+      "Q3 S033 ordered-profile contract + S034 multiscale diagnostic + S036 Barton common reference + explicit multi-metric selection",
+      "Q4 S032/S033 uncertainty-propagation caution + S036 edge-registry replay + S034 hard-feasible placement"
+    ],
+    "blocked": [
+      "oracle/manual masks fed downstream and then reported as end-to-end",
+      "free-period outputs mixed with fixed circumference without calibration interface",
+      "uncalibrated JRC corrections/scales mixed across papers",
+      "compatibility/weighted scores relabeled probabilities",
+      "coverage/entropy hotspots relabeled EIG",
+      "network components not reproducible from edge registry",
+      "candidate drilling ranked before all hard constraints"
+    ],
+    "seven_gate_status": {
+      "input_output_interface": "PASS_WITH_UNCERTAINTY_PROPAGATION: common image->mask->instance->physical profile/geometry->graph->decision chain, but oracle intermediates must be flagged",
+      "variable_definitions": "CONDITIONAL_PASS: canonicalize amplitude, phase, fixed period, JRC formula/range, score semantics",
+      "data_distribution": "CONDITIONAL_PASS: same task family but different image subsets/labels/simulations; source-group evaluation required",
+      "mathematical_assumptions": "PASS_WITH_GATES: fixed circumference and deterministic geometry compatible; heuristic scores not interchangeable with calibrated probabilities",
+      "units": "PASS_WITH_GATES: mm geometry explicit; JRC range/scaling/corrections require provenance",
+      "train_execution_stage": "PASS_WITH_GATES: train-only fitted preprocessing/thresholds; no evaluation-image tuning; no oracle downstream claims",
+      "evaluation_metrics": "PASS_WITH_GATES: common segmentation holdout, fit residual/reject, canonical JRC error/sensitivity, graph replay and hard-feasible utility; metric conflicts require primary utility"
+    }
+  },
+  "stable_baseline": {
+    "Q1": "classical line/ridge+threshold+morphology on clean source split",
+    "Q2": "fragment grouping + fixed-frequency robust linear/nonlinear fit + reject",
+    "Q3": "ordered profile + canonical JRC + equal/arc sampling sensitivity",
+    "Q4": "deterministic geometry + compatibility score + edge registry + feasible coverage greedy"
+  },
+  "high_risk_high_reward": [
+    "deep segmentation after external-data pretraining and clean target holdout",
+    "adaptive/multiscale roughness models with held-out calibration",
+    "Bayesian connectivity/posterior EIG after likelihood/labels exist"
+  ],
+  "abandon_conditions": [
+    "no independent source holdout for learned Q1 metrics",
+    "Q2 physical period/residual/coverage gates fail",
+    "Q3 correction/sampling method improves only an endogenous reference and worsens declared primary metric",
+    "Q4 graph statistics cannot replay from edge registry or recommendation violates hard feasibility"
+  ],
+  "capability_evidence_gate": "PARTIAL: mechanism-level transfer executed; strict No-Core/Previous-Core/New-Core agent ablation NOT_RUN because no fixed three-configuration harness was available; do not claim whole-Core causal improvement."
+}

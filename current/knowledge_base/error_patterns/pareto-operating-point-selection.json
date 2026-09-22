@@ -1,0 +1,12 @@
+{
+  "pattern_id": "pareto_operating_point_selection_missing",
+  "trigger": "multiobjective optimizer returns Pareto set but one solution is used without a declared selection rule",
+  "risk": "reported operational solution is arbitrary and irreproducible",
+  "checklist": [
+    "define scalarization/knee/priority rule",
+    "show Pareto front",
+    "sensitivity-test weights or knee rule",
+    "verify selected solution constraints"
+  ],
+  "example": "S002 printed variants use first gamultiobj solution vs summed-objective selection"
+}

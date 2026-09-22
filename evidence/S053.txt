@@ -1,0 +1,4291 @@
+
+--- PAGE 1 ---
+
+--- PAGE 2 ---
+1.1
+1.2
+
+--- PAGE 3 ---
+3.1
+3.2
+1
+3.2.2
+
+--- PAGE 4 ---
+4.1
+4.1.1
+4.1.2
+min1,
+c
+c
+n
+w
+n
+( )
+( )
+x t
+y t
+
+--- PAGE 5 ---
+RMS
+2
+
+--- PAGE 6 ---
+
+--- PAGE 7 ---
+4.1.3
+4.1.3
+.1.3
+
+--- PAGE 8 ---
+4.2
+4.2.1
+
+--- PAGE 9 ---
+4.2.2
+N,OR,IR,B
+Y
+,
+( , )
+( ;
+)
+( , )log
+( ) ( )
+j
+y z
+p y z
+I Y Z
+p y z
+p y p z
+
+--- PAGE 10 ---
+
+--- PAGE 11 ---
+AUC
+
+--- PAGE 12 ---
+4.2.3
+
+--- PAGE 13 ---
+
+--- PAGE 14 ---
+4.3
+4.3.1
+4.3.2
+2
+2
+2
+MMD
+~
+[ ]
+~
+[ ]
+s
+t
+p
+p
+x
+x
+x
+x
+cov(
+)
+t
+t
+C
+X
+
+--- PAGE 15 ---
+( )
+( )
+( )
+(
+)
+c
+t
+j
+j
+j
+c
+t
+c
+j
+j
+w
+w
+x
+
+--- PAGE 16 ---
+d
+
+--- PAGE 17 ---
+4.3.3
+
+--- PAGE 18 ---
+
+--- PAGE 19 ---
+
+--- PAGE 20 ---
+
+--- PAGE 21 ---
+4.4
+4.4.1
+4.4.2
+d
+D
+d
+
+--- PAGE 22 ---
+
+--- PAGE 23 ---
+0.4 ~ 0.5
+4.4.3
+
+--- PAGE 24 ---
+
+--- PAGE 25 ---
+
+--- PAGE 26 ---
+4.5
+4.6
+
+--- PAGE 27 ---
+5.1
+5.2
+
+--- PAGE 28 ---
+5.3
+
+--- PAGE 29 ---
+[1]
+[2]
+[3]
+[4]
+[5]
+[6]
+[7]
+[8]
+
+--- PAGE 30 ---
+import os 
+import re 
+import glob 
+import math 
+import numpy as np 
+import pandas as pd 
+from scipy.io import loadmat 
+from scipy.signal import butter, filtfilt, hilbert, find_peaks 
+from numpy.fft import rfft, rfftfreq 
+import matplotlib.pyplot as plt 
+ 
+fs = 12000.0                         
+bandpass = (2000.0, 5000.0)          
+env_view_max = 300.0                 
+fft_view_max = 6000.0                
+lob
+p
+math
+import nump
+a
+import pand
+from sc
+pd
+ort loadmat
+port
+
+--- PAGE 31 ---
+n_show = 4000                        
+topk_env_peaks = 8                   
+peak_prominence_ratio = 6.0          
+peak_min_distance_hz = 2.0           
+band_energy_step = 500.0             
+plt.style.use('ggplot') 
+plt.rcParams['figure.figsize'] = (8, 3.2) 
+plt.rcParams['figure.dpi'] = 120 
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu 
+Sans'] 
+plt.rcParams['axes.unicode_minus'] = False 
+ 
+def parse_label_from_filename(fname): 
+    
+base = os.path.basename(fname) 
+    text = base.upper() 
+    label = None 
+    for key in ['OR', 'IR', 'B', 'N']: 
+        
+if re.search(r'(^|[^A-Z])' + key + r'([^A-Z]|$)', text): 
+            label = key 
+            break 
+    
+ei
+'Arial Unic
+] 
+False
+l_from_fi
+ame):
+
+--- PAGE 32 ---
+size = None 
+    m = re.search(r'0?0?(007|014|021|028)', text) 
+    if m: 
+        try: 
+            size = int(m.group(1)) / 1000.0  
+except: 
+            size = None 
+    return {'label': label, 'size_inch': size} 
+ 
+def find_key_by_suffix(dct, suffix): 
+    
+for k in dct.keys(): 
+        if k.endswith(suffix): 
+            return k 
+    return None 
+ 
+def butter_bandpass(low, high, fs, order=4): 
+    
+nyq = 0.5 * fs 
+    b, a = butter(order, [low/nyq, high/nyq], btype='band') 
+    return b, a 
+ 
+def time_features(x): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x)  
+N = len(x) 
+    rms = np.sqrt(np.mean(x**2)) 
+    std = x.std() 
+    mean_abs = np.mean(np.abs(x)) 
+    peak = np.max(np.abs(x)) 
+    skew = np.mean((x / (std + 1e-12))**3) 
+    kurt = np.mean((x / (std + 1e-12))**4) 
+h, fs, order=4)
+= 0 5 * fs
+a = butter
+return b, 
+d
+time_
+[low/nyq, high/n
+(x):
+
+--- PAGE 33 ---
+    p2p = np.ptp(x)  
+crest = peak / (rms + 1e-12) 
+    impulse = peak / (mean_abs + 1e-12) 
+    shape = rms / (mean_abs + 1e-12) 
+    
+x0 = x - np.mean(x) 
+    acf1 = np.dot(x0[:-1], x0[1:]) / (np.dot(x0, x0) + 1e-12) 
+    return { 
+        'mean': np.mean(x), 
+        'std': std, 
+        'rms': rms, 
+        'skew': skew, 
+        'kurt': kurt, 
+        'peak2peak': p2p, 
+        'crest_factor': crest, 
+        'impulse_factor': impulse, 
+        'shape_factor': shape, 
+        'acf_lag1': acf1, 
+        'abs_mean': mean_abs, 
+        'peak': peak 
+    } 
+ 
+def spectral_features(x, fs, band_step=500.0): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+    X = np.abs(rfft(x))               
+f = rfftfreq(len(x), d=1.0/fs)    
+ps = (X**2) 
+    ps = ps + 1e-16 
+    ps = ps / ps.sum() 
+ 
+    
+centroid = (f * ps).sum() 
+    spread = np.sqrt(((f - centroid)**2 * ps).sum()) 
+    spec_entropy = -(ps * np.log(ps)).sum() 
+ 
+    
+re
+, fs, band s
+= np.
+x =
+X
+500.0):
+ay(x, dtype=fl
+an(x)
+(x)) 
+(x
+
+--- PAGE 34 ---
+bands = np.arange(0.0, fs/2 + 1e-9, band_step) 
+    band_energy = {} 
+    total_energy = float((X**2).sum() + 1e-16) 
+    for i in range(len(bands)-1): 
+        lo, hi = bands[i], bands[i+1] 
+        idx = np.where((f >= lo) & (f < hi))[0] 
+        e = float((X[idx]**2).sum()) 
+        band_energy[f'band_{int(lo)}_{int(hi)}_ratio'] = e / total_energy 
+ 
+    
+if len(X) > 1: 
+        dom_idx = np.argmax(X[1:]) + 1 
+        dom_freq = float(f[dom_idx]) 
+        dom_amp = float(X[dom_idx]) 
+    else: 
+        dom_freq, dom_amp = 0.0, 0.0 
+ 
+    feats = { 
+        'spec_centroid': float(centroid), 
+        'spec_spread': float(spread), 
+        'spec_entropy': float(spec_entropy), 
+        'dom_freq': dom_freq, 
+        'dom_amp': dom_amp 
+    } 
+    feats.update(band_energy) 
+    return feats, f, X 
+ 
+def envelope_spectrum(x, fs, band=(2000, 5000)): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+    b, a = butter_bandpass(band[0], band[1], fs, order=4) 
+    xf = filtfilt(b, a, x)            
+analytic = hilbert(xf)            
+env = np.abs(analytic)            
+A = np.abs(rfft(env))             
+f = rfftfreq(len(env), d=1.0/fs) 
+    
+entroid),
+spread),
+(spec_entropy)
+dom_am
+te(band_en
+rn feats, f, X
+def envelope_s
+rum(x, fs, band= 20
+
+--- PAGE 35 ---
+mask = f <= env_view_max 
+    return f[mask], A[mask], env 
+ 
+def pick_env_peaks(f_env, A_env, rpm, topk=8, prom_ratio=6.0, 
+min_dist_hz=2.0): 
+    
+if rpm is None or rpm == 0: 
+        fr = np.nan 
+    else: 
+        fr = rpm / 60.0 
+ 
+    med = np.median(A_env) 
+    prominence = max(1e-6, med * prom_ratio) 
+    
+if len(f_env) > 1: 
+        df = np.mean(np.diff(f_env)) 
+    else: 
+        df = 1.0 
+    distance = max(1, int(min_dist_hz / max(df, 1e-9))) 
+ 
+    peaks, props = find_peaks(A_env, prominence=prominence, distance=dis-
+tance) 
+    if len(peaks) == 0: 
+        return fr, [] 
+ 
+    
+order = np.argsort(A_env[peaks])[::-1][:topk] 
+    peaks_sel = peaks[order] 
+ 
+    out = [] 
+    for idx in peaks_sel: 
+        fpk = float(f_env[idx]) 
+        apk = float(A_env[idx]) 
+        ratio = fpk / fr if (fr is not None and fr > 1e-9) else np.nan 
+        out.append({'peak_freq_Hz': fpk, 'peak_amp': apk, 'ra-
+tio_peak_over_fr': ratio}) 
+    return fr, out 
+ 
+def plot_waveform(x, fs, title, fname=None, nshow=4000): 
+m_ratio)
+(f_env))
+max(1, i
+(m
+s, props = find_
+if len(pea
+et
+hz / max(df, 1e
+s(A_env, promine
+0:
+r, []
+rt
+
+--- PAGE 36 ---
+    
+t = np.arange(len(x)) / fs 
+    fig, ax = plt.subplots() 
+    ax.plot(t[:nshow], x[:nshow], linewidth=1.0) 
+    ax.set_xlabel("
+ (s)") 
+    ax.set_ylabel("
+ (a.u.)") 
+    ax.set_title(title) 
+    ax.grid(True, alpha=0.35) 
+    fig.tight_layout() 
+    if fname: 
+        fig.savefig(fname, bbox_inches='tight') 
+        print(f"[
+] {fname}") 
+    plt.show() 
+ 
+def plot_spectrum(x, fs, title, fname=None, xlim=6000.0): 
+    
+X = np.abs(rfft(x - np.mean(x))) 
+    f = rfftfreq(len(x), d=1.0/fs) 
+    fig, ax = plt.subplots() 
+    ax.plot(f, X, linewidth=1.0) 
+    ax.set_xlim(0, xlim) 
+    ax.set_xlabel("
+ (Hz)") 
+    ax.set_ylabel("
+ (a.u.)") 
+    ax.set_title(title) 
+    ax.grid(True, alpha=0.35) 
+    fig.tight_layout() 
+    if fname: 
+        fig.savefig(fname, bbox_inches='tight') 
+        print(f"[
+] {fname}") 
+    plt.show() 
+ 
+def plot_envelope_spectrum(x, fs, band, title, fname=None, xlim=300.0): 
+    
+f_env, A_env, env = envelope_spectrum(x, fs, band) 
+    fig, ax = plt.subplots() 
+    ax.plot(f_env, A_env, linewidth=1.0) 
+    ax.set_xlim(0, xlim) 
+ne, xlim=6000.0)
+ean(x)))
+/fs)
+subplot
+X, linewidth
+m(0, xlim
+et_xlabel("
+set_ylabel
+ax.set_tit
+x.grid
+fig.t
+i
+")
+(a.u.)")
+itle)
+, alpha=0.35)
+out()
+fn
+
+--- PAGE 37 ---
+    ax.set_xlabel("
+ (Hz)") 
+    ax.set_ylabel("
+ (a.u.)") 
+    ax.set_title(f"{title} | 
+ {int(band[0])}-{int(band[1])} Hz") 
+    ax.grid(True, alpha=0.35) 
+    fig.tight_layout() 
+    if fname: 
+        fig.savefig(fname, bbox_inches='tight') 
+        print(f"[
+] {fname}") 
+    plt.show() 
+    return f_env, A_env, env 
+ 
+def load_one_mat(path): 
+    
+d = loadmat(path) 
+    out = {'DE': None, 'FE': None, 'BA': None, 'RPM': None} 
+    key_de = find_key_by_suffix(d, '_DE_time') 
+    key_fe = find_key_by_suffix(d, '_FE_time') 
+    key_ba = find_key_by_suffix(d, '_BA_time')  
+key_rpm = None 
+    
+for k in d.keys(): 
+        if 'RPM' in k.upper(): 
+            key_rpm = k 
+            break 
+ 
+    if key_de: out['DE'] = d[key_de].squeeze().astype(float) 
+    if key_fe: out['FE'] = d[key_fe].squeeze().astype(float) 
+    if key_ba: out['BA'] = d[key_ba].squeeze().astype(float) 
+    if key_rpm is not None: 
+        try: 
+            out['RPM'] = float(np.array(d[key_rpm]).squeeze()) 
+        except: 
+            out['RPM'] = None 
+    return out 
+ 
+one, 'BA
+key_by_suffix(d,
+ind_key_by_su
+ind_key_b
+rpm = None
+for 
+in d
+f
+one, RPM': None
+_time')
+'_FE_time')
+d, '_BA_time') 
+s():
+in k.upper():
+pm = k
+
+--- PAGE 38 ---
+if __name__ == "__main__": 
+    mat_files = sorted(glob.glob("*.mat"))  
+if len(mat_files) == 0: 
+        raise RuntimeError("
+ .mat 
+/
+ .mat 
+") 
+ 
+    print(f"
+ {len(mat_files)} 
+ .mat 
+) 
+    features_rows = []  
+peaks_rows = []     
+for path in mat_files: 
+        
+meta = parse_label_from_filename(path) 
+        label = meta.get('label', None) 
+        size_inch = meta.get('size_inch', None) 
+ 
+        
+data = load_one_mat(path) 
+        rpm = data['RPM'] 
+        fr = (rpm / 60.0) if (rpm is not None and rpm > 0) else np.nan 
+        print("\n" + "="*80) 
+        print(f"[
+] 
+: {os.path.basename(path)} | 
+: {label} 
+| 
+(in): {size_inch} | RPM: {rpm}") 
+ 
+        
+for ch_name in ['DE', 'FE', 'BA']: 
+            x = data.get(ch_name, None) 
+            if x is None: 
+                continue 
+ 
+            
+plot_waveform( 
+                x, fs, 
+                title=f"{ch_name} 
+ (
+ {n_show} 
+)", 
+                fname=f"{os.path.splitext(os.path.base-
+name(path))[0]}_{ch_name}_waveform.png", 
+                nshow=n_show 
+            ) 
+ 
+            
+plot_spectrum( 
+                x, fs, 
+None)
+ath)
+rpm is n
++
+*
+f"[
+] 
+: {size_i
+or ch
+one and rpm > 0)
+th.basename(pat
+M: {rpm} )
+in ['DE', 'FE', '
+data.get(ch_na
+s Non :
+tinue
+
+--- PAGE 39 ---
+                title=f"{ch_name} 
+", 
+                fname=f"{os.path.splitext(os.path.base-
+name(path))[0]}_{ch_name}_spectrum.png", 
+                xlim=fft_view_max 
+            ) 
+ 
+            
+f_env, A_env, env = plot_envelope_spectrum( 
+                x, fs, bandpass, 
+                title=f"{ch_name} 
+", 
+                fname=f"{os.path.splitext(os.path.base-
+name(path))[0]}_{ch_name}_envelope.png", 
+                xlim=env_view_max 
+            ) 
+ 
+            
+tfeat = time_features(x) 
+            sfeat, f_full, X_full = spectral_features(x, fs, 
+band_step=band_energy_step) 
+ 
+            
+fr_here, peaks = pick_env_peaks( 
+                f_env, A_env, rpm, 
+                topk=topk_env_peaks, 
+                prom_ratio=peak_prominence_ratio, 
+                min_dist_hz=peak_min_distance_hz 
+            ) 
+ 
+            
+for p in peaks: 
+                peaks_rows.append({ 
+                    'file': os.path.basename(path), 
+                    'channel': ch_name, 
+                    'label': label, 
+                    'size_inch': size_inch, 
+                    'rpm': rpm, 
+                    'fr_rps': fr_here, 
+                    **p 
+                }) 
+ 
+            
+row = { 
+                'file': os.path.basename(path), 
+l = spectral_featu
+e, peaks = pick_e
+f_env, A_en
+topk=top
+prom_ra
+m
+)
+s(x, fs,
+eaks(
+aks,
+eak_prominence_r
+_hz=peak_min_dis
+pea
+s
+
+--- PAGE 40 ---
+                'channel': ch_name, 
+                'label': label, 
+                'size_inch': size_inch, 
+                'rpm': rpm, 
+                'fr_rps': fr, 
+            } 
+            row.update(tfeat) 
+            row.update(sfeat) 
+ 
+            
+row['dom_freq_over_fr'] = (row['dom_freq'] / fr) if (fr is 
+not None and fr > 1e-9) else np.nan 
+            
+band_cols = [c for c in row.keys() if c.startswith('band_') 
+and c.endswith('_ratio')] 
+            row['sum_band_energy_ratio'] = float(np.nansum([row[c] for c 
+in band_cols])) 
+ 
+            features_rows.append(row) 
+ 
+    
+feat_df = pd.DataFrame(features_rows) 
+    peaks_df = pd.DataFrame(peaks_rows) 
+ 
+    
+time_cols = ['mean','std','rms','skew','kurt','peak2peak','crest_fac-
+tor','impulse_factor','shape_factor','acf_lag1','abs_mean','peak'] 
+    spec_cols = ['spec_centroid','spec_spread','spec_entro-
+py','dom_freq','dom_amp','dom_freq_over_fr','sum_band_energy_ratio'] 
+    band_cols = sorted([c for c in feat_df.columns if c.starts-
+with('band_') and c.endswith('_ratio')], 
+                       key=lambda s: int(s.split('_')[1])) 
+    base_cols = ['file','channel','label','size_inch','rpm','fr_rps'] 
+    ordered_cols = base_cols + time_cols + spec_cols + band_cols 
+    ordered_cols = [c for c in ordered_cols if c in feat_df.columns] 
+    feat_df = feat_df[ordered_cols] 
+ 
+    
+feat_csv = "features_summary.csv" 
+    peaks_csv = "envelope_peaks.csv" 
+r) i
+(fr 
+c.startswith(
+= float(np.nans
+end(row)
+pd.DataFr
+s_df = pd.DataFr
+time_
+r'
+res_rows)
+peaks_rows)
+mean','std
+r' 's
+ec
+
+--- PAGE 41 ---
+    feat_df.to_csv(feat_csv, index=False, encoding='utf-8-sig') 
+    peaks_df.to_csv(peaks_csv, index=False, encoding='utf-8-sig') 
+    print("\n" + "="*80) 
+    print(f"[
+] 
+{feat_csv}  
+ {len(feat_df)} 
+") 
+    print(f"[
+] 
+{peaks_csv}  
+ {len(peaks_df)} 
+") 
+ 
+    
+pd.set_option('display.max_columns', None) 
+    pd.set_option('display.width', 160) 
+    print("\n[
+ 
+]") 
+    print(feat_df.head(10)) 
+    print("\n[
+ 
+]") 
+    print(peaks_df.head(10)) 
+ 
+    
+def barplot_feature(df, feature, title, fname): 
+        
+if feature not in df.columns or df.empty: 
+            return 
+        fig, ax = plt.subplots(figsize=(9, 3.2)) 
+        xlabels = [f"{r['file']}\n{r['channel']}" for _, r in df.iter-
+rows()] 
+        vals = df[feature].values 
+        ax.bar(range(len(vals)), vals) 
+        ax.set_xticks(range(len(vals))) 
+        ax.set_xticklabels(xlabels, rotation=30, ha='right') 
+        ax.set_title(title) 
+        ax.set_ylabel(feature) 
+        ax.grid(True, axis='y', alpha=0.35) 
+        fig.tight_layout() 
+        fig.savefig(fname, bbox_inches='tight') 
+        print(f"[
+] {fname}") 
+        plt.show() 
+ 
+    
+if not feat_df.empty: 
+eature, title, 
+if feature not
+return
+ig, a
+a
+rows()]
+):
+columns or df.e
+plt.subplots(figsiz
+= [f"{r['file'
+eatur
+(l
+
+--- PAGE 42 ---
+        barplot_feature(feat_df, 'rms', '
+/
+ RMS 
+', 'com-
+pare_rms.png') 
+        barplot_feature(feat_df, 'kurt', '
+/
+ 
+ 
+', 'com-
+pare_kurt.png') 
+        barplot_feature(feat_df, 'crest_factor', '
+/
+ 
+ 
+', 'compare_crest.png') 
+        barplot_feature(feat_df, 'spec_entropy', '
+/
+ 
+ 
+', 
+'compare_spec_entropy.png') 
+        barplot_feature(feat_df, 'dom_freq_over_fr', '
+/
+ 
+/
+ 
+', 'compare_dom_over_fr.png') 
+ 
+    print("\n
+ .mat 
+ 
+CWRU 
+") 
+import os, re, glob, json, sys 
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+ 
+from scipy.io import loadmat 
+from scipy.signal import butter, filtfilt, hilbert, find_peaks 
+from numpy.fft import rfft, rfftfreq 
+ 
+from sklearn.model_selection import StratifiedShuffleSplit, GridSearchCV 
+from sklearn.preprocessing import LabelEncoder, RobustScaler 
+from sklearn.metrics import (classification_report, confusion_matrix, 
+roc_auc_score, 
+mat 
+)
+
+--- PAGE 43 ---
+                             roc_curve, auc, cohen_kappa_score, bal-
+anced_accuracy_score, 
+                             f1_score, accuracy_score) 
+from sklearn.pipeline import Pipeline 
+from sklearn.impute import SimpleImputer 
+from sklearn.linear_model import LogisticRegression 
+from sklearn.svm import SVC 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn.calibration import CalibratedClassifierCV 
+from sklearn.inspection import permutation_importance 
+from sklearn.compose import ColumnTransformer 
+from sklearn.manifold import TSNE 
+ 
+plt.style.use('ggplot') 
+plt.rcParams['figure.figsize'] = (8.5, 3.2) 
+plt.rcParams['figure.dpi'] = 120 
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu 
+Sans'] 
+plt.rcParams['axes.unicode_minus'] = False 
+ 
+RANDOM_STATE = 42  
+ROOT_DIR = "."                    
+fs = 12000.0                      
+bandpass = (2000.0, 5000.0)       
+env_view_max = 300.0              
+fft_view_max = 6000.0             
+n_show = 4000                     
+topk_env_peaks = 8                
+peak_prominence_ratio = 6.0       
+peak_min_distance_hz = 2.0        
+band_energy_step = 500.0          
+USE_CHANNEL_FOR_Q2 = None         
+USE_RPM_AS_FEATURE = True         
+5, 3.2)
+] = ['SimHei',
+us'] = F
+42
+ROOT_DIR = 
+fs = 1200
+al Unicode MS'
+50
+
+--- PAGE 44 ---
+def list_mat_files_recursive(root_dir): 
+    
+mats = [] 
+    for r, _, files in os.walk(root_dir): 
+        for fn in files: 
+            if fn.lower().endswith(".mat"): 
+                full = os.path.join(r, fn) 
+                rel = os.path.relpath(full, root_dir) 
+                mats.append((full, rel)) 
+    return sorted(mats, key=lambda x: x[1]) 
+ 
+def parse_label_from_path(path_rel): 
+    
+text = path_rel.replace("\\", "/").upper() 
+    
+parts = text.split("/") 
+    label = None 
+    for seg in reversed(parts[:-1]):  
+if seg in ("OR", "IR", "B", "N"): 
+            label = seg 
+            break 
+    
+base = parts[-1] 
+    if label is None: 
+        for key in ['OR', 'IR', 'B', 'N']: 
+            if re.search(r'(^|[^A-Z])' + key + r'([^A-Z]|$)', base): 
+                label = key 
+                break 
+root_dir)
+: x[1])
+om_path
+el)
+text 
+el.replace
+it
+
+--- PAGE 45 ---
+    
+size = None 
+    m = re.search(r'0?0?(007|014|021|028)', base) 
+    if m: 
+        try: 
+            size = int(m.group(1)) / 1000.0 
+        except: 
+            size = None 
+    return {'label': label, 'size_inch': size} 
+ 
+def safe_name_from_rel(rel_path): 
+    
+safe = rel_path.replace("\\", "__").replace("/", "__") 
+    return safe 
+ 
+def find_key_by_suffix(dct, suffix): 
+    
+for k in dct.keys(): 
+        if k.endswith(suffix): 
+            return k 
+    return None 
+ 
+def butter_bandpass(low, high, fs, order=4): 
+    
+from scipy.signal import butter 
+    nyq = 0.5 * fs 
+    b, a = butter(order, [low/nyq, high/nyq], btype='band') 
+    return b, a 
+ 
+def time_features(x): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+ace("/"
+__")
+ix):
+ct.keys()
+ndswith(s
+return k
+urn None
+def utter_
+ass(low, high,
+
+--- PAGE 46 ---
+    rms = np.sqrt(np.mean(x**2)) 
+    std = x.std() 
+    mean_abs = np.mean(np.abs(x)) 
+    peak = np.max(np.abs(x)) 
+    skew = np.mean((x / (std + 1e-12))**3) 
+    kurt = np.mean((x / (std + 1e-12))**4) 
+    p2p = np.ptp(x) 
+    crest = peak / (rms + 1e-12) 
+    impulse = peak / (mean_abs + 1e-12) 
+    shape = rms / (mean_abs + 1e-12) 
+    x0 = x - np.mean(x) 
+    acf1 = np.dot(x0[:-1], x0[1:]) / (np.dot(x0, x0) + 1e-12) 
+    return { 
+        'mean': np.mean(x), 
+        'std': std, 
+        'rms': rms, 
+        'skew': skew, 
+        'kurt': kurt, 
+        'peak2peak': p2p, 
+        'crest_factor': crest, 
+        'impulse_factor': impulse, 
+        'shape_factor': shape, 
+        'acf_lag1': acf1, 
+        'abs_mean': mean_abs, 
+        'peak': peak 
+    } 
+ 
+def spectral_features(x, fs, band_step=500.0): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+    X = np.abs(rfft(x)) 
+    f = rfftfreq(len(x), d=1.0/fs) 
+    
+ps = (X**2) + 1e-16 
+    ps = ps / ps.sum() 
+    centroid = (f * ps).sum() 
+    spread = np.sqrt(((f - centroid)**2 * ps).sum()) 
+    spec_entropy = -(ps * np.log(ps)).sum() 
+2)
+pulse,
+: acf1,
+ean': mean_ab
+ peak
+def spectral_f
+res(x, fs, band_ste
+
+--- PAGE 47 ---
+ 
+    
+bands = np.arange(0.0, fs/2 + 1e-9, band_step) 
+    band_energy = {} 
+    total_energy = float((X**2).sum() + 1e-16) 
+    for i in range(len(bands)-1): 
+        lo, hi = bands[i], bands[i+1] 
+        idx = np.where((f >= lo) & (f < hi))[0] 
+        e = float((X[idx]**2).sum()) 
+        band_energy[f'band_{int(lo)}_{int(hi)}_ratio'] = e / total_energy 
+ 
+    
+dom_idx = np.argmax(X[1:]) + 1 if len(X) > 1 else 0 
+    dom_freq = float(f[dom_idx]) if len(X) > 1 else 0.0 
+    dom_amp = float(X[dom_idx]) if len(X) > 1 else 0.0 
+ 
+    feats = { 
+        'spec_centroid': float(centroid), 
+        'spec_spread': float(spread), 
+        'spec_entropy': float(spec_entropy), 
+        'dom_freq': dom_freq, 
+        'dom_amp': dom_amp 
+    } 
+    feats.update(band_energy) 
+    return feats, f, X 
+ 
+def envelope_spectrum(x, fs, band=(2000, 5000), fmax=300.0): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+    b, a = butter_bandpass(band[0], band[1], fs, order=4) 
+    xf = filtfilt(b, a, x) 
+    env = np.abs(hilbert(xf)) 
+    A = np.abs(rfft(env)) 
+    f = rfftfreq(len(env), d=1.0/fs) 
+    mask = f <= fmax 
+    return f[mask], A[mask], env 
+ 
+def pick_env_peaks(f_env, A_env, rpm, topk=8, prom_ratio=6.0, 
+min_dist_hz=2.0): 
+    
+0
+0
+e
+.0
+oid),
+ead),
+(spec_entropy),
+te(band_energ
+ts, f, X
+elope_spect
+fs, band=( 000
+
+--- PAGE 48 ---
+fr = (rpm/60.0) if (rpm is not None and rpm > 0) else np.nan 
+    med = np.median(A_env) 
+    prominence = max(1e-6, med * prom_ratio)  
+dfreq = np.mean(np.diff(f_env)) if len(f_env) > 1 else 1.0 
+    distance = max(1, int(min_dist_hz / max(dfreq, 1e-9)))  
+peaks, _ = find_peaks(A_env, prominence=prominence, distance=dis-
+tance) 
+    if len(peaks) == 0: 
+        return fr, [] 
+    
+order = np.argsort(A_env[peaks])[::-1][:topk] 
+    out = [] 
+    for idx in peaks[order]: 
+        fpk = float(f_env[idx]); apk = float(A_env[idx]) 
+        ratio = fpk / fr if (fr is not None and fr > 1e-9) else np.nan 
+        out.append({'peak_freq_Hz': fpk, 'peak_amp': apk, 'ra-
+tio_peak_over_fr': ratio}) 
+    return fr, out 
+ 
+def plot_waveform(x, fs, title, fname=None, nshow=4000): 
+    
+t = np.arange(len(x)) / fs 
+    fig, ax = plt.subplots() 
+    ax.plot(t[:nshow], x[:nshow], linewidth=1.0) 
+    ax.set_xlabel("
+ (s)"); ax.set_ylabel("
+ (a.u.)"); ax.set_ti-
+tle(title) 
+    ax.grid(True, alpha=0.35); fig.tight_layout() 
+    if fname: fig.savefig(fname, bbox_inches='tight'); print(f"[
+] 
+{fname}") 
+    plt.show() 
+ 
+def plot_spectrum(x, fs, title, fname=None, xlim=6000.0): 
+    
+X = np.abs(rfft(x - np.mean(x))) 
+    f = rfftfreq(len(x), d=1.0/fs) 
+    fig, ax = plt.subplots() 
+float(A_env[id
+is not None and fr
+q_Hz': fpk, 'pe
+orm(x, fs, ti
+t = np.ara
+ig, ax
+ax.pl
+1e-9) else
+p : apk, 'ra-
+me
+ne, nshow=
+n(x)) / fs
+t.subplots()
+how], x[:ns
+
+--- PAGE 49 ---
+    ax.plot(f, X, linewidth=1.0) 
+    ax.set_xlim(0, xlim) 
+    ax.set_xlabel("
+ (Hz)"); ax.set_ylabel("
+ (a.u.)"); ax.set_ti-
+tle(title) 
+    ax.grid(True, alpha=0.35); fig.tight_layout() 
+    if fname: fig.savefig(fname, bbox_inches='tight'); print(f"[
+] 
+{fname}") 
+    plt.show() 
+ 
+def plot_envelope_spectrum(x, fs, band, title, fname=None, xlim=300.0): 
+    
+f_env, A_env, env = envelope_spectrum(x, fs, band, fmax=xlim) 
+    fig, ax = plt.subplots() 
+    ax.plot(f_env, A_env, linewidth=1.0) 
+    ax.set_xlim(0, xlim) 
+    ax.set_xlabel("
+ (Hz)"); ax.set_ylabel("
+ (a.u.)") 
+    ax.set_title(f"{title} | 
+ {int(band[0])}-{int(band[1])} Hz") 
+    ax.grid(True, alpha=0.35); fig.tight_layout() 
+    if fname: fig.savefig(fname, bbox_inches='tight'); print(f"[
+] 
+{fname}") 
+    plt.show() 
+    return f_env, A_env, env 
+ 
+def load_one_mat(full_path): 
+    
+d = loadmat(full_path) 
+    out = {'DE': None, 'FE': None, 'BA': None, 'RPM': None} 
+    key_de = find_key_by_suffix(d, '_DE_time') 
+    key_fe = find_key_by_suffix(d, '_FE_time') 
+    key_ba = find_key_by_suffix(d, '_BA_time') 
+    key_rpm = None 
+    for k in d.keys(): 
+        if 'RPM' in k.upper(): 
+            key_rpm = k; break 
+    if key_de: out['DE'] = d[key_de].squeeze().astype(float) 
+    if key_fe: out['FE'] = d[key_fe].squeeze().astype(float) 
+    if key_ba: out['BA'] = d[key_ba].squeeze().astype(float) 
+    if key_rpm is not None: 
+nd, fmax=xlim)
+et_ylabel "
+int(band[0])}-{
+ fig.tight_lay
+ame, bbox_inch
+nv, A_env, en
+_one_mat(full_pa
+(a.u
+(band[1])}
+ight'); print(f
+p
+
+--- PAGE 50 ---
+        try: out['RPM'] = float(np.array(d[key_rpm]).squeeze()) 
+        except: out['RPM'] = None 
+    return out 
+ 
+def run_Q1_if_needed(): 
+    
+if os.path.exists("features_summary.csv"): 
+        print("[Q1] 
+ features_summary.csv
+") 
+        return 
+ 
+    mats = list_mat_files_recursive(ROOT_DIR) 
+    if len(mats) == 0: 
+        print("[Q1] 
+ ROOT_DIR 
+ .mat 
+ ROOT_DIR 
+") 
+        sys.exit(1) 
+ 
+    print(f"[Q1] 
+ {len(mats)} 
+ .mat
+) 
+    features_rows, peaks_rows = [], [] 
+ 
+    for full, rel in mats: 
+        
+meta = parse_label_from_path(rel) 
+        label = meta.get('label', None) 
+        size_inch = meta.get('size_inch', None) 
+ 
+        
+data = load_one_mat(full) 
+        rpm = data['RPM'] 
+        fr = (rpm/60.0) if (rpm is not None and rpm > 0) else np.nan 
+ 
+        
+safe_base = safe_name_from_rel(os.path.splitext(rel)[0]) 
+        print("\n" + "="*80) 
+ary.csv")
+res_summary.csv
+rsive(RO
+"[Q1]
+RO
+sys.exit(1)
+prin (f"[Q
+eature
+f
+DIR)
+.mat 
+{len(mats)}
+s, peaks_rows 
+mat
+
+--- PAGE 51 ---
+        print(f"[
+] {rel} | 
+:{label} | 
+(in):{size_inch} | 
+RPM:{rpm}") 
+ 
+        for ch_name in ['DE','FE','BA']: 
+            x = data.get(ch_name, None) 
+            if x is None: 
+                continue 
+ 
+            
+plot_waveform( 
+                x, fs, 
+                title=f"{ch_name} 
+ (
+ {n_show} 
+)", 
+                fname=f"{safe_base}__{ch_name}_waveform.png", 
+                nshow=n_show 
+            ) 
+            plot_spectrum( 
+                x, fs, 
+                title=f"{ch_name} 
+", 
+                fname=f"{safe_base}__{ch_name}_spectrum.png", 
+                xlim=fft_view_max 
+            ) 
+            f_env, A_env, env = plot_envelope_spectrum( 
+                x, fs, bandpass, 
+                title=f"{ch_name} 
+", 
+                fname=f"{safe_base}__{ch_name}_envelope.png", 
+                xlim=env_view_max 
+            ) 
+ 
+            
+tfeat = time_features(x) 
+            sfeat, f_full, X_full = spectral_features(x, fs, 
+band_step=band_energy_step) 
+            fr_here, peaks = pick_env_peaks( 
+                f_env, A_env, rpm, 
+                topk=topk_env_peaks, 
+                prom_ratio=peak_prominence_ratio, 
+                min_dist_hz=peak_min_distance_hz 
+            ) 
+ 
+            
+for p in peaks: 
+                peaks_rows.append({ 
+                    'file_rel': rel,                 
+'file_safe': safe_base + ".mat", 
+m.png",
+",
+se __{ch_name}_spe
+_max
+= plot_e
+fs, ba
+title=f
+ch
+fname=f
+xlim=en
+)
+rum.png",
+lope_spectrum(
+",
+se}__{ch_name}
+w_max
+= time_fea
+f_ful
+y
+
+--- PAGE 52 ---
+'channel': ch_name, 
+                    'label': label, 
+                    'size_inch': size_inch, 
+                    'rpm': rpm, 
+                    'fr_rps': fr_here, 
+                    **p 
+                }) 
+ 
+            
+row = { 
+                'file_rel': rel, 
+                'file_safe': safe_base + ".mat", 
+                'channel': ch_name, 
+                'label': label, 
+                'size_inch': size_inch, 
+                'rpm': rpm, 
+                'fr_rps': fr 
+            } 
+            row.update(tfeat); row.update(sfeat) 
+            
+row['dom_freq_over_fr'] = (row['dom_freq']/fr) if (fr is not 
+None and fr > 1e-9) else np.nan 
+            
+band_cols_tmp = [c for c in row.keys() if c.starts-
+with('band_') and c.endswith('_ratio')] 
+            row['sum_band_energy_ratio'] = float(np.nansum([row[c] for c 
+in band_cols_tmp])) 
+            features_rows.append(row) 
+ 
+    
+feat_df = pd.DataFrame(features_rows) 
+    peaks_df = pd.DataFrame(peaks_rows) 
+ 
+    
+time_cols = ['mean','std','rms','skew','kurt','peak2peak','crest_fac-
+tor','impulse_factor','shape_factor','acf_lag1','abs_mean','peak'] 
+    spec_cols = ['spec_centroid','spec_spread','spec_entro-
+py','dom_freq','dom_amp','dom_freq_over_fr','sum_band_energy_ratio'] 
+    band_cols = sorted([c for c in feat_df.columns if c.starts-
+with('band_') and c.endswith('_ratio')], 
+                       key=lambda s: int(s.split('_')[1])) 
+    base_cols = ['file_rel','file_safe','channel','la-
+bel','size_inch','rpm','fr_rps'] 
+    ordered_cols = [c for c in base_cols + time_cols + spec_cols + 
+ow.update(sfeat)
+er_fr'] = (row[
+n
+nd_cols_tmp =
+and c.end
+row['sum_ban
+_cols_tmp])
+fe
+f
+_freq']/fr) f
+c 
+row.keys()
+atio')]
+ergy_ratio'
+= f
+es_rows.append(row)
+taFra
+ta
+
+--- PAGE 53 ---
+band_cols if c in feat_df.columns] 
+    feat_df = feat_df[ordered_cols] 
+ 
+    
+feat_df.to_csv("features_summary.csv", index=False, encoding='utf-8-
+sig') 
+    peaks_df.to_csv("envelope_peaks.csv", index=False, encoding='utf-8-
+sig') 
+    print("\n[
+] features_summary.csv  &  envelope_peaks.csv") 
+ 
+    
+print("\n[
+-
+ 
+10
+]") 
+    pd.set_option('display.max_columns', None) 
+    pd.set_option('display.width', 160) 
+    print(feat_df.head(10)) 
+    print("\n[
+-
+ 
+10
+]") 
+    print(peaks_df.head(10)) 
+ 
+    
+def barplot_feature(df, feature, title, fname): 
+        if feature not in df.columns or df.empty: return 
+        fig, ax = plt.subplots(figsize=(9, 3.2)) 
+        xlabels = [f"{r['file_rel']}\n{r['channel']}" for _, r in 
+df.iterrows()] 
+        vals = df[feature].values 
+        ax.bar(range(len(vals)), vals) 
+        ax.set_xticks(range(len(vals))); ax.set_xticklabels(xlabels, ro-
+tation=30, ha='right') 
+        ax.set_title(title); ax.set_ylabel(feature); ax.grid(True, 
+axis='y', alpha=0.35) 
+        fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+        plt.show() 
+ 
+    if not feat_df.empty: 
+        barplot_feature(feat_df, 'rms', 'RMS 
+', 'compare_rms.png') 
+        barplot_feature(feat_df, 'kurt', '
+ 
+', 'compare_kurt.png') 
+        barplot_feature(feat_df, 'crest_factor', '
+ 
+', 'com-
+pare_crest.png') 
+        barplot_feature(feat_df, 'spec_entropy', '
+ 
+', 'com-
+pare_spec_entropy.png') 
+        barplot_feature(feat_df, 'dom_freq_over_fr', '
+/
+ 
+', 
+'compare_dom_over_fr.png') 
+ 
+eature, title, 
+columns or df
+(figsize
+[f
+['file rel']
+df[featu
+ax.bar rang (len
+ax.set_xt
+tation=3
+ha=
+x.
+axis 'y'
+):
+y: return
+, 3.2))
+r['channe
+]}
+f
+s
+s)), vals)
+nge(len(vals))); 
+)
+itle(title); a
+35)
+ayout
+}
+
+--- PAGE 54 ---
+from sklearn.metrics import brier_score_loss  
+def compute_class_weight(y_int): 
+    
+vals, cnt = np.unique(y_int, return_counts=True) 
+    N = len(y_int); C = len(vals) 
+    return {int(v): N/(C*cnt[i]) for i, v in enumerate(vals)} 
+ 
+def run_Q2_training_and_eval(): 
+    
+feat_csv = "features_summary.csv" 
+    if not os.path.exists(feat_csv): 
+        print("[Q2] 
+ features_summary.csv
+ Q1
+") 
+        sys.exit(1) 
+ 
+    df = pd.read_csv(feat_csv) 
+ 
+    
+if USE_CHANNEL_FOR_Q2 is not None: 
+        if isinstance(USE_CHANNEL_FOR_Q2, str): 
+            df = df[df['channel'] == USE_CHANNEL_FOR_Q2].copy() 
+        else: 
+            df = df[df['channel'].isin(USE_CHANNEL_FOR_Q2)].copy() 
+ 
+    
+if 'label' not in df.columns: 
+        def parse_label_from_rel(rel): 
+            t = str(rel).upper() 
+            for key in ['OR','IR','B','N']: 
+s)}
+_csv = "feature
+not
+s.path
+rint(
+ys
+d
+mary.csv"
+s(feat_csv)
+features_s
+(1
+v(fea
+
+--- PAGE 55 ---
+                if key in t: return key 
+            return None 
+        df['label'] = df['file_rel'].map(parse_label_from_rel) 
+ 
+    df = df[~df['label'].isna()].copy() 
+    df['label'] = df['label'].astype(str) 
+ 
+    
+non_feature_cols = ['file_rel','file_safe','channel','la-
+bel','size_inch','rpm','fr_rps'] 
+    num_cols = [c for c in df.columns if c not in non_feature_cols and 
+np.issubdtype(df[c].dtype, np.number)] 
+    
+if USE_RPM_AS_FEATURE: 
+        for extra in ['rpm','fr_rps']: 
+            if extra in df.columns and extra not in num_cols: 
+                num_cols.append(extra) 
+ 
+    X = df[num_cols].copy() 
+    y = df['label'].copy() 
+    le = LabelEncoder() 
+    y_enc = le.fit_transform(y) 
+    class_names = list(le.classes_) 
+    print(f"[Q2] 
+{class_names}
+={len(X)}") 
+ 
+    
+sss = StratifiedShuffleSplit(n_splits=1, test_size=0.30, ran-
+dom_state=RANDOM_STATE) 
+    train_idx, test_idx = list(sss.split(X, y_enc))[0] 
+    X_train, X_test = X.iloc[train_idx].copy(), X.iloc[test_idx].copy() 
+    y_train, y_test = y_enc[train_idx].copy(), y_enc[test_idx].copy() 
+ 
+    
+train_std = X_train.std(numeric_only=True) 
+    low_var_cols = list(train_std[train_std < 1e-10].index) 
+    corr = X_train.corr().abs() 
+    to_drop = set(low_var_cols) 
+    thr = 0.98 
+    cols = corr.columns.tolist() 
+    for i, c1 in enumerate(cols): 
+        if c1 in to_drop: continue 
+        for c2 in cols[i+1:]: 
+            if c2 in to_drop: continue 
+            if corr.loc[c1, c2] > thr: 
+cols
+a
+ot in num_cols
+)
+li
+le.classes )
+2]
+la
+= Stratif
+dom_stat =RAND
+rain_i
+X_tra
+}
+={len(
+fleSplit(n_split
+TATE)
+est_idx =
+ist
+st = X.iloc
+= y_
+
+--- PAGE 56 ---
+                to_drop.add(c2) 
+    keep_cols = [c for c in num_cols if c not in to_drop] 
+    X_train, X_test = X_train[keep_cols], X_test[keep_cols] 
+    print(f"[Q2] 
+ {len(to_drop)} 
+/
+ 
+{len(keep_cols)} 
+") 
+ 
+    
+class_weight = compute_class_weight(y_train) 
+    numeric_features = keep_cols 
+    numeric_transformer = Pipeline(steps=[ 
+        ('imputer', SimpleImputer(strategy='median')), 
+        ('scaler', RobustScaler(quantile_range=(10.0, 90.0))) 
+    ]) 
+    preprocess = ColumnTransformer([('num', numeric_transformer, nu-
+meric_features)], remainder='drop') 
+ 
+    
+models = { 
+        "LR": Pipeline([('prep', preprocess), ('clf', LogisticRegres-
+sion(multi_class='ovr', class_weight=class_weight, max_iter=500, ran-
+dom_state=RANDOM_STATE))]), 
+        "SVM": Pipeline([('prep', preprocess), ('clf', SVC(kernel='rbf', 
+probability=True, class_weight=class_weight, random_state=RAN-
+DOM_STATE))]), 
+        "RF": Pipeline([('prep', preprocess), ('clf', RandomForestClassi-
+fier(n_estimators=500, max_depth=None, class_weight=class_weight, 
+n_jobs=-1, random_state=RANDOM_STATE))]) 
+    } 
+    param_grid = { 
+        "LR": {'clf__C':[0.1,1.0,5.0,10.0], 'clf__penalty':['l2'], 
+'clf__solver':['lbfgs','liblinear']}, 
+        "SVM": {'clf__C':[0.5,1.0,2.0,5.0], 'clf__gam-
+ma':['scale',0.05,0.1,0.2]}, 
+        "RF": {'clf__n_estimators':[300,500,800], 
+'clf__max_depth':[None,8,12,16], 'clf__min_samples_split':[2,5], 
+'clf__min_samples_leaf':[1,2]} 
+    } 
+ 
+    
+best_estimators, cv_results_summary = {}, [] 
+    for name, pipeline in models.items(): 
+        print("\n" + "="*80) 
+        print(f"[
+] {name}
+F1
+") 
+))
+_transformer, nu-
+preprocess), ('cl
+_weight=class_w
+p', prep
+class_w
+la
+Pipeline(
+stimators=500, 
+1,
+andom_
+}
+aram_g
+"
+lf
+ LogisticR
+, max_iter=500
+ess), ('clf', SVC
+ight, random_sta
+preprocess), 
+ept =None, lass
+RANDOM_STATE))])
+{
+lf__C':[0.1
+gs','
+
+--- PAGE 57 ---
+        grid = GridSearchCV(pipeline, param_grid[name], scor-
+ing='f1_macro', cv=5, n_jobs=-1, verbose=1) 
+        grid.fit(X_train, y_train) 
+        best_estimators[name] = grid.best_estimator_ 
+        print(f"
+{grid.best_params_}") 
+        print(f"
+CV
+F1
+{grid.best_score_:.4f}") 
+        cv_results_summary.append({'mod-
+el':name,'best_params':json.dumps(grid.best_params_),'cv_best_f1_macro':g
+rid.best_score_}) 
+    pd.DataFrame(cv_results_summary).to_csv("cv_results_summary.csv", in-
+dex=False, encoding='utf-8-sig') 
+    print("[
+] cv_results_summary.csv") 
+ 
+    
+def calibrate(estimator, Xtr, ytr, method='isotonic'): 
+        calib = CalibratedClassifierCV(estimator, method=method, cv=3, 
+n_jobs=-1) 
+        calib.fit(Xtr, ytr); return calib 
+    calibrated_models = {name: calibrate(est, X_train, y_train, 
+method='isotonic') for name, est in best_estimators.items()} 
+ 
+    
+def plot_confusion(cm, labels, title, fname): 
+        fig, ax = plt.subplots(figsize=(4.8, 4.0)) 
+        im = ax.imshow(cm, interpolation='nearest', cmap='Blues') 
+        ax.figure.colorbar(im, ax=ax, fraction=0.046, pad=0.04) 
+        ax.set(xticks=np.arange(len(labels)), yticks=np.arange(len(la-
+bels))) 
+        ax.set_xticklabels(labels, rotation=30, ha='right'); 
+ax.set_yticklabels(labels) 
+        ax.set_xlabel('
+'); ax.set_ylabel('
+'); ax.set_ti-
+tle(title) 
+        thresh = cm.max()/2.0 
+        for i in range(cm.shape[0]): 
+            for j in range(cm.shape[1]): 
+                ax.text(j, i, f"{cm[i,j]:.2f}", ha="center", va="center", 
+                        color="white" if cm[i,j] > thresh else "black") 
+        fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+        plt.show() 
+ 
+    def evaluate_and_plot(name, model, X_te, y_te, labels): 
+        
+otonic'):
+mator, method=met
+calib
+alibrate(est, X_tr
+est in best_est
+si
+cm, labels, 
+x = plt.subpl
+x.imshow(
+ax.figure.colorb
+ax.set(xt
+bels)))
+x.
+ax.set_yt
+n, y_train,
+rs.items()}
+e, fname)
+iz
+4.8, 4.0))
+polation 'near
+m,
+x=ax, fracti
+.arange(len labe
+ticklabels(lab
+s(labels)
+el(
+
+--- PAGE 58 ---
+print("\n" + "-"*80) 
+        print(f"[
+] {name}") 
+        y_pred = model.predict(X_te) 
+        y_proba = model.predict_proba(X_te) if hasattr(model,"pre-
+dict_proba") else None 
+        acc  = accuracy_score(y_te, y_pred) 
+        f1m  = f1_score(y_te, y_pred, average='macro') 
+        ba   = balanced_accuracy_score(y_te, y_pred) 
+        kappa= cohen_kappa_score(y_te, y_pred) 
+        print(f"Acc={acc:.4f}  Macro-F1={f1m:.4f}  BA={ba:.4f}  
+Kappa={kappa:.4f}") 
+        
+auc_macro = np.nan; auc_micro = np.nan 
+        if y_proba is not None: 
+            try: 
+                auc_macro = roc_auc_score(y_te, y_proba, 
+multi_class='ovr', average='macro') 
+                auc_micro = roc_auc_score(y_te, y_proba, 
+multi_class='ovr', average='micro') 
+                print(f"AUC(macro)={auc_macro:.4f}  AUC(micro)={auc_mi-
+cro:.4f}") 
+            except Exception as e: 
+                print("AUC 
+", e) 
+        
+cm = confusion_matrix(y_te, y_pred, labels=list(range(len(la-
+bels)))) 
+        cmn = cm.astype(float) / (cm.sum(axis=1, keepdims=True) + 1e-12) 
+        plot_confusion(cmn, labels, f"{name} 
+", 
+f"cm_{name}.png") 
+        
+report = classification_report(y_te, y_pred, target_names=labels, 
+digits=4, zero_division=0) 
+        print("\n[
+]\n", report) 
+        with open(f"report_{name}.txt","w",encoding="utf-8") as f: 
+f.write(report); print(f"[
+] report_{name}.txt") 
+        
+if y_proba is not None and len(labels)>2: 
+            fpr_dict, tpr_dict, auc_dict = {}, {}, {} 
+            for c in range(len(labels)): 
+                y_true_c = (y_te==c).astype(int); y_score_c = 
+y_proba[:,c] 
+                fpr, tpr, _ = roc_curve(y_true_c, y_score_c) 
+                fpr_dict[c], tpr_dict[c] = fpr, tpr; auc_dict[c] = 
+e(y_te, y_proba,
+auc_score(y_te, y_
+icro')
+macro)={auc_ma
+Except
+e:
+print( AUC 
+cm = confusion_m
+)
+mn = 
+o
+f"cm_{n
+oba,
+4f}  AUC(micro)
+, e)
+x(y_te, y_pred,
+stype float) / (cm.
+fusion(cmn, la
+ss
+
+--- PAGE 59 ---
+auc(fpr,tpr) 
+            all_fpr = np.unique(np.concatenate([fpr_dict[c] for c in 
+fpr_dict])) 
+            mean_tpr = np.zeros_like(all_fpr) 
+            for c in range(len(labels)): 
+                mean_tpr += np.interp(all_fpr, fpr_dict[c], tpr_dict[c]) 
+            mean_tpr /= len(labels) 
+            fig, ax = plt.subplots(figsize=(5.6,4)) 
+            ax.plot(all_fpr, mean_tpr, label=f"Macro ROC 
+(AUC={np.mean(list(auc_dict.values())):.3f})") 
+            for c in range(len(labels)): 
+                ax.plot(fpr_dict[c], tpr_dict[c], alpha=0.4, label=f"
+ 
+{labels[c]} (AUC={auc_dict[c]:.3f})") 
+            ax.plot([0,1],[0,1],'k--',lw=1) 
+            ax.set_xlabel("
+ FPR"); ax.set_ylabel("
+ TPR"); 
+ax.set_title(f"{name} 
+ROC
+") 
+            ax.legend(fontsize=9, ncol=1); fig.tight_layout(); fig.save-
+fig(f"roc_{name}.png", bbox_inches='tight') 
+            print(f"[
+] roc_{name}.png"); plt.show() 
+        
+out_pred = pd.DataFrame({'index':X_test.index,'y_true':le.in-
+verse_transform(y_te),'y_pred':le.inverse_transform(y_pred)}).set_in-
+dex('index') 
+        if y_proba is not None: 
+            for i,lbl in enumerate(labels): 
+                out_pred[f"proba_{lbl}"] = y_proba[:,i] 
+        out_pred.to_csv(f"pred_{name}.csv", encoding='utf-8-sig'); 
+print(f"[
+] pred_{name}.csv") 
+        return {'name':name,'acc':acc,'f1_macro':f1m,'ba':ba,'kap-
+pa':kappa,'auc_macro':auc_macro,'auc_micro':auc_micro}, y_pred 
+ 
+    
+metrics_rows, pred_store = [], {} 
+    for name, model in calibrated_models.items(): 
+        m, ypred = evaluate_and_plot(name, model, X_test, y_test, 
+class_names) 
+        metrics_rows.append(m); pred_store[name] = ypred 
+    pd.DataFrame(metrics_rows).to_csv("test_metrics_summary.csv", in-
+dex=False, encoding='utf-8-sig') 
+    print("[
+] test_metrics_summary.csv"); print(pd.DataFrame(met-
+rics_rows)) 
+ 
+    
+final_feature_names = keep_cols 
+4, label f
+_ylabel("
+; fig.tight_lay
+tight')
+name}.png"); plt.s
+ame({'index' X
+:le.inve
+roba is not N
+r i,lbl i
+out_pred
+out_pred.t
+print(f"
+]
+et
+pa :kappa
+w()
+.index,'y_true'
+_transform(y_pred
+te(labels)
+roba_{lbl}"
+= y_
+f"pred_{na
+} csv
+_{nam }.csv")
+'name' name,'a
+cro':auc_ma
+
+--- PAGE 60 ---
+    def barplot(values, labels, title, fname, topk=15): 
+        idx = np.argsort(np.abs(values))[::-1][:topk] 
+        vals = np.array(values)[idx]; labs = np.array(labels)[idx] 
+        fig, ax = plt.subplots(figsize=(8.5,3.2)) 
+        ax.bar(range(len(vals)), vals) 
+        ax.set_xticks(range(len(vals))); ax.set_xticklabels(labs, rota-
+tion=30, ha='right') 
+        ax.set_title(title); ax.set_ylabel("
+/
+"); ax.grid(True, 
+axis='y', alpha=0.35) 
+        fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+        plt.show() 
+ 
+    
+if 'LR' in calibrated_models: 
+        lr_est = [v for k,v in calibrated_models.items() if 
+k=='LR'][0].base_estimator if hasattr(calibrated_models['LR'],'base_esti-
+mator') else None 
+        if 'LR' in best_estimators: 
+            lr0 = best_estimators['LR'] 
+            lr_clf = lr0.named_steps['clf'] 
+            _ = lr0.fit(X_train, y_train) 
+            if lr_clf.coef_.ndim == 2: 
+                coef = np.linalg.norm(lr_clf.coef_, axis=0)  
+barplot(coef, final_feature_names, "
+ | 
+L2
+Top15
+", "coef_LR.png") 
+ 
+    
+if 'RF' in best_estimators: 
+        rf_clf = best_estimators['RF'].named_steps['clf'] 
+        barplot(rf_clf.feature_importances_, final_feature_names, "
+ | 
+Top15
+", "imp_RF.png") 
+ 
+    
+if 'SVM' in calibrated_models: 
+        print("\n
+ SVM 
+...") 
+        r = permutation_importance(calibrated_models['SVM'], X_test, 
+y_test, n_repeats=10, 
+                                   random_state=RANDOM_STATE, n_jobs=-1, 
+scoring='f1_macro') 
+        barplot(r.importances_mean, final_feature_names, "SVM | 
+Top15
+", "perm_SVM.png") 
+ 
+dels.items() if 
+librated_models[
+rs
+tors['LR ]
+ed_steps['clf']
+n, y_tra
+clf.coef_.ndim ==
+coef = np.l
+barplot
+op1
+", c
+if 'R
+rm(lr_clf.coef_
+ final_feature_n
+.png")
+st_estimato
+st_es
+lf
+
+--- PAGE 61 ---
+    
+try: 
+        print("\n
+ t-SNE 
+...") 
+        preproc = best_estimators['RF'].named_steps['prep'] if 'RF' in 
+best_estimators else list(best_estimators.val-
+ues())[0].named_steps['prep'] 
+        X_all = df[keep_cols].copy() 
+        y_all = le.transform(df['label'].astype(str)) 
+        X_all_trans = preproc.fit_transform(X_all, y_all) 
+        tsne = TSNE(n_components=2, init='random', learning_rate='auto', 
+perplexity=30, random_state=RANDOM_STATE) 
+        X_tsne = tsne.fit_transform(X_all_trans) 
+        fig, ax = plt.subplots(figsize=(5.8,4.2)) 
+        colors = ['#1f77b4','#ff7f0e','#2ca02c','#d62728'] 
+        for i, lbl in enumerate(class_names): 
+            idx = (y_all == i) 
+            ax.scatter(X_tsne[idx,0], X_tsne[idx,1], s=16, alpha=0.85, 
+label=lbl, c=colors[i % len(colors)]) 
+        ax.set_title("t-SNE 
+"); ax.set_xlabel("Dim 
+1"); ax.set_ylabel("Dim 2") 
+        ax.legend(loc='best', fontsize=9, ncol=1) 
+        fig.tight_layout(); fig.savefig("tsne_embedding.png", 
+bbox_inches='tight'); print("[
+] tsne_embedding.png") 
+        plt.show() 
+    except Exception as e: 
+        print("t-SNE 
+", e) 
+ 
+if __name__ == "__main__": 
+    
+run_Q1_if_needed() 
+    run_Q2_training_and_eval() 
+ 
+    print("\n
+") 
+    print("- Q1
+features_summary.csv
+envelope_peaks.csv
+ *_wave-
+form/_spectrum/_envelope.png
+compare_*.png") 
+    print("- Q2
+cv_results_summary.csv
+test_metrics_summary.csv
+re-
+port_*.txt
+pred_*.csv
+cm_*.png
+roc_*.png
+coef_LR.png/imp_RF.png/perm_SVM.png
+tsne_embedding.png") 
+728']
+tsne[idx,1], s=1
+)
+")
+fontsize 9
+g.savefi
+)
+ri
+]
+ow()
+eption as
+print("t SNE
+ax.set_xlab
+1)
+tsne_embedding.pn
+e_embedding.png"
+"
+ain__
+
+--- PAGE 62 ---
+import os, json, sys, warnings 
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+ 
+from scipy.io import loadmat 
+from scipy.signal import butter, filtfilt, hilbert, find_peaks 
+from numpy.fft import rfft, rfftfreq 
+ 
+from sklearn.preprocessing import RobustScaler 
+from sklearn.impute import SimpleImputer 
+from sklearn.ensemble import RandomForestClassifier 
+from sklearn.calibration import CalibratedClassifierCV 
+from sklearn.manifold import TSNE 
+ 
+warnings.filterwarnings("ignore")  
+plt.style.use('ggplot')  
+plt.rcParams['figure.figsize'] = (8.5, 3.2) 
+plt.rcParams['figure.dpi'] = 120 
+np
+as pd
+atplotlib.pyplot
+om
+ipy.io impo
+fr
+scipy.sig
+from numpy.
+pl
+oadmat
+import butter, f
+mport rfft, rf
+ess
+
+--- PAGE 63 ---
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu 
+Sans']  
+plt.rcParams['axes.unicode_minus'] = False  
+RANDOM_STATE = 42 
+np.random.seed(RANDOM_STATE)  
+SRC_FEAT_CSV = r"features_summary.csv"   
+TARGET_MATS = [ 
+    r"A.mat", 
+    r"B.mat", 
+    r"C.mat", 
+] 
+USE_CHANNELS = ['DE','FE','BA']  
+FS = 12000.0                     
+BANDPASS = (2000.0, 5000.0)      
+ENV_FMAX = 300.0                 
+FFT_FMAX = 6000.0                
+BAND_STEP = 500.0                
+WIN_LEN = 4096                   
+WIN_HOP = 2048                   
+TOPK_ENV_PEAKS = 6               
+ENV_PEAK_PROM_RATIO = 6.0        
+ENV_PEAK_MIN_DIST_HZ = 2.0       
+NNELS = [ D
+FS = 12000.0
+,'BA']  
+
+--- PAGE 64 ---
+TCA_DIM = 40 
+TCA_KERNEL = 'rbf'               
+TCA_LAMBDA = 1.0 
+TCA_GAMMA = None                 
+SELF_TRAIN_ITERS = 2             
+CONF_TH = 0.80                   
+MAX_PSEUDO_PER_CLASS = 999999    
+def _is_num_1d(v): 
+    
+try: 
+        a = np.asarray(v).squeeze() 
+        return (a.ndim == 1) and np.issubdtype(a.dtype, np.number) and 
+(a.size > 0) 
+    except Exception: 
+        return False 
+ 
+def _pick_key(d, keys, *patterns): 
+    
+pats = [p.upper() for p in patterns] 
+    cand = [] 
+    for k in keys: 
+        ku = str(k).upper() 
+        if all(p in ku for p in pats) and _is_num_1d(d[k]): 
+            cand.append(k) 
+    if not cand: 
+        return None 
+    
+cand.sort(key=lambda name: (('TIME' in str(name).upper()), 
+                                np.asarray(d[name]).squeeze().size), re-
+verse=True) 
+    return cand[0] 
+ 
+def load_one_mat(path): 
+    
+issubdtype(a.dtyp
+eys, *patterns):
+= [p.upper() f
+d = []
+for 
+in k
+u
+i
+np.num
+in atterns
+(k).upper
+n ku for p
+pend
+
+--- PAGE 65 ---
+out = {'DE': None, 'FE': None, 'BA': None, 'RPM': None} 
+    d = loadmat(path, squeeze_me=True, struct_as_record=False) 
+    keys = [k for k in d.keys() if not str(k).startswith('__')]  
+key_de = _pick_key(d, keys, 'DE','TIME') or _pick_key(d, keys, 'DE') 
+    key_fe = _pick_key(d, keys, 'FE','TIME') or _pick_key(d, keys, 'FE') 
+    key_ba = _pick_key(d, keys, 'BA','TIME') or _pick_key(d, keys, 'BA') 
+ 
+    
+if key_de is None: key_de = _pick_key(d, keys, 'A','TIME') or 
+_pick_key(d, keys, 'A') or _pick_key(d, keys, 'SIG') or _pick_key(d, 
+keys, 'SIGNAL') or _pick_key(d, keys, 'X') 
+    if key_fe is None: key_fe = _pick_key(d, keys, 'B','TIME') or 
+_pick_key(d, keys, 'B') or _pick_key(d, keys, 'Y') 
+    if key_ba is None: key_ba = _pick_key(d, keys, 'C','TIME') or 
+_pick_key(d, keys, 'C') or _pick_key(d, keys, 'Z') 
+ 
+    
+if all(k is None for k in [key_de, key_fe, key_ba]): 
+        vecs = [(k, np.asarray(d[k]).squeeze().size) for k in keys if 
+_is_num_1d(d[k])] 
+        vecs.sort(key=lambda kv: kv[1], reverse=True) 
+        if len(vecs) >= 1: key_de = vecs[0][0] 
+        if len(vecs) >= 2: key_fe = vecs[1][0] 
+        if len(vecs) >= 3: key_ba = vecs[2][0] 
+ 
+    
+if key_de is not None: out['DE'] = np.as-
+array(d[key_de]).squeeze().astype(float) 
+    if key_fe is not None: out['FE'] = np.as-
+array(d[key_fe]).squeeze().astype(float) 
+    if key_ba is not None: out['BA'] = np.as-
+array(d[key_ba]).squeeze().astype(float) 
+ 
+    
+key_rpm = next((k for k in keys if 'RPM' in str(k).upper()), None) 
+    if key_rpm is not None: 
+        try: 
+            rpm_arr = np.asarray(d[key_rpm]).squeeze() 
+            out['RPM'] = float(rpm_arr) if rpm_arr.size == 1 else 
+eys,
+,'TIME') or
+G ) or _pick_k
+y(d, keys, 'B','
+(d, keys,
+Y )
+_pick_key(d, keys,
+ick_key(d, keys
+ne for
+ey
+[(k, np.asar
+])]
+vecs.sort(key=la
+if
+en(vec
+f len
+f
+,'TIME') 
+)
+key_fe, key_ba])
+).squeeze().siz
+kv: kv[1], rev
+1: key_de = vecs
+s) >= 2: key_fe =
+ecs) >= 3
+key
+N
+
+--- PAGE 66 ---
+float(np.nanmean(rpm_arr)) 
+        except Exception: 
+            out['RPM'] = None 
+ 
+    
+if (out['DE'] is None) and (out['FE'] is None) and (out['BA'] is 
+None): 
+        raise ValueError(f"
+ {os.path.basename(path)} 
+ DE/FE/BA 
+ A/B/C
+") 
+    return out 
+ 
+def butter_bandpass(low, high, fs, order=4): 
+    
+nyq = 0.5 * fs 
+    from scipy.signal import butter 
+    b, a = butter(order, [low/nyq, high/nyq], btype='band') 
+    return b, a 
+ 
+def envelope_spectrum(x, fs, band=(2000,5000), fmax=300.0): 
+    
+x = np.asarray(x, dtype=float); x = x - np.mean(x) 
+    b, a = butter_bandpass(band[0], band[1], fs, order=4) 
+    xf = filtfilt(b, a, x) 
+    env = np.abs(hilbert(xf)) 
+    A = np.abs(rfft(env)) 
+    f = rfftfreq(len(env), d=1.0/fs) 
+    mask = f <= fmax 
+    return f[mask], A[mask], env 
+ 
+def time_features(x): 
+    
+x = np.asarray(x, dtype=float); x = x - np.mean(x) 
+    rms = np.sqrt(np.mean(x**2)); std = x.std(); mean_abs = 
+np.mean(np.abs(x)); peak = np.max(np.abs(x)) 
+    skew = np.mean((x / (std + 1e-12))**3); kurt = np.mean((x / (std + 
+1e-12))**4); p2p = np.ptp(x) 
+    crest = peak / (rms + 1e-12); impulse = peak / (mean_abs + 1e-12); 
+shape = rms / (mean_abs + 1e-12) 
+    x0 = x - np.mean(x); acf1 = np.dot(x0[:-1], x0[1:]) / (np.dot(x0, x0) 
++ 1e-12) 
+    return {'mean': np.mean(x), 'std': std, 'rms': rms, 'skew': skew, 
+q, high/nyq], btyp
+and=(200
+rray(x, dtype
+ter_bandp
+filtfilt(b, a, 
+= np.abs(h
+A = np.abs
+= rff
+mask
+band')
+00), fmax=300.0)
+x = x - np.mea
+0], band[1], f
+(xf))
+t(env))
+(len(env)
+d=1
+max
+A[ma
+
+--- PAGE 67 ---
+'kurt': kurt, 
+            'peak2peak': p2p, 'crest_factor': crest, 'impulse_factor': 
+impulse, 
+            'shape_factor': shape, 'acf_lag1': acf1, 'abs_mean': 
+mean_abs, 'peak': peak} 
+ 
+def spectral_features(x, fs, band_step=500.0): 
+    
+x = np.asarray(x, dtype=float); x = x - np.mean(x) 
+    X = np.abs(rfft(x)); f = rfftfreq(len(x), d=1.0/fs) 
+    ps = (X**2) + 1e-16; ps = ps / ps.sum() 
+    centroid = (f * ps).sum() 
+    spread = np.sqrt(((f - centroid)**2 * ps).sum()) 
+    spec_entropy = -(ps * np.log(ps)).sum() 
+    bands = np.arange(0.0, fs/2 + 1e-9, band_step) 
+    band_energy = {} 
+    total_energy = float((X**2).sum() + 1e-16) 
+    for i in range(len(bands)-1): 
+        lo, hi = bands[i], bands[i+1] 
+        idx = np.where((f >= lo) & (f < hi))[0] 
+        e = float((X[idx]**2).sum()) 
+        band_energy[f'band_{int(lo)}_{int(hi)}_ratio'] = e / total_energy 
+    dom_idx = np.argmax(X[1:]) + 1 if len(X) > 1 else 0 
+    dom_freq = float(f[dom_idx]) if len(X) > 1 else 0.0 
+    dom_amp = float(X[dom_idx]) if len(X) > 1 else 0.0 
+    feats = {'spec_centroid': float(centroid), 'spec_spread': 
+float(spread), 
+             'spec_entropy': float(spec_entropy), 'dom_freq': dom_freq, 
+'dom_amp': dom_amp} 
+    feats.update(band_energy) 
+    return feats, f, X 
+ 
+def pick_env_peaks(f_env, A_env, rpm, topk=6, prom_ratio=6.0, 
+min_dist_hz=2.0): 
+    
+fr = (rpm/60.0) if (rpm is not None and rpm > 0) else np.nan 
+    med = np.median(A_env); prominence = max(1e-6, med * prom_ratio) 
+    dfreq = np.mean(np.diff(f_env)) if len(f_env) > 1 else 1.0 
+    distance = max(1, int(min_dist_hz / max(dfreq, 1e-9))) 
+    peaks, _ = find_peaks(A_env, prominence=prominence, distance=dis-
+tance) 
+    order = np.argsort(A_env[peaks])[::-1][:topk] 
+    out = [] 
+    for idx in peaks[order]: 
+)
+1e-16)
+[i 1]
+lo) & (f < hi))
+).sum())
+t(lo)}
+rgmax(X
+1
+float(f[dom_
+float(X[d
+s = {'spec_centr
+pread),
+'
+dom_amp
+ 
+feats
+hi)}_ratio'] = e
+en(X) > 1 else 0
+l
+X) > 1 els
+f len(X) > 1 
+float(centroid)
+_entropy': float
+mp
+band_energy
+ X
+
+--- PAGE 68 ---
+        fpk = float(f_env[idx]); apk = float(A_env[idx]) 
+        ratio = fpk / fr if (fr is not None and fr > 1e-9) else np.nan 
+        out.append((fpk, apk, ratio)) 
+    return fr, out 
+ 
+def window_signal(x, win_len=4096, hop=2048): 
+    
+x = np.asarray(x, dtype=float) 
+    if len(x) < win_len: 
+        return [x.copy()] 
+    out = [] 
+    for st in range(0, len(x) - win_len + 1, hop): 
+        out.append(x[st:st+win_len].copy()) 
+    return out 
+ 
+def extract_feature_vector(x, fs, rpm=None): 
+    
+tfeat = time_features(x) 
+    sfeat, f_full, X_full = spectral_features(x, fs, band_step=BAND_STEP) 
+    f_env, A_env, env = envelope_spectrum(x, fs, band=BANDPASS, 
+fmax=ENV_FMAX) 
+    fr, peaks = pick_env_peaks(f_env, A_env, rpm, topk=TOPK_ENV_PEAKS, 
+                               prom_ratio=ENV_PEAK_PROM_RATIO, 
+min_dist_hz=ENV_PEAK_MIN_DIST_HZ) 
+    ratios = [p[2] for p in peaks if (not np.isnan(p[2]))] 
+    r_mean = np.mean(ratios) if len(ratios)>0 else np.nan 
+    r_std  = np.std(ratios) if len(ratios)>0 else np.nan 
+    row = {} 
+    row.update(tfeat); row.update(sfeat) 
+    row['rpm'] = rpm if rpm is not None else np.nan 
+    row['fr_rps'] = (rpm/60.0) if (rpm is not None and rpm>0) else np.nan 
+    row['dom_freq_over_fr'] = (row['dom_freq']/row['fr_rps']) if 
+(row.get('fr_rps',np.nan) and not np.isnan(row['fr_rps']) and 
+row['fr_rps']>1e-12) else np.nan 
+    row['env_ratio_mean'] = r_mean 
+    row['env_ratio_std']  = r_std 
+    row['sum_band_energy_ratio'] = float(np.nansum([v for k,v in 
+row.items() if k.startswith('band_') and k.endswith('_ratio')])) 
+    return row 
+ 
+def pairwise_sq_dists(X, Y): 
+    
+X = np.asarray(X, float); Y = np.asarray(Y, float) 
+tral_features(x, f
+ope_spectrum(x,
+(f_env, 
+rom
+V_PEAK_MIN_DI
+p[2] for p
+an = np.mean(rat
+td  = np.st
+row = {}
+ow.upd
+row['
+band_step
+band=BANDPASS, 
+nv, rpm, topk=TOP
+io=ENV_PEAK_PROM
+s if (not np.i
+if len(ratios)>
+os) if len(ratio
+feat); row.upd
+rpm if rpm 
+(rpm
+er
+
+--- PAGE 69 ---
+    XX = np.sum(X*X, axis=1, keepdims=True) 
+    YY = np.sum(Y*Y, axis=1, keepdims=True).T 
+    d2 = XX + YY - 2*np.dot(X, Y.T) 
+    d2[d2<0] = 0.0 
+    return d2 
+ 
+def mmd_rbf_unbiased(Xs, Xt, gamma=1.0): 
+    
+if Xs.shape[0] < 2 or Xt.shape[0] < 2: 
+        return 0.0 
+    Kss = np.exp(-pairwise_sq_dists(Xs, Xs) * gamma) 
+    Ktt = np.exp(-pairwise_sq_dists(Xt, Xt) * gamma) 
+    Kst = np.exp(-pairwise_sq_dists(Xs, Xt) * gamma) 
+    np.fill_diagonal(Kss, 0.0) 
+    np.fill_diagonal(Ktt, 0.0) 
+    return float((Kss.sum()/(Xs.shape[0]*(Xs.shape[0]-1))) 
+                 + (Ktt.sum()/(Xt.shape[0]*(Xt.shape[0]-1))) - 
+(2.0*Kst.mean())) 
+ 
+def coral_loss(Xs, Xt): 
+    
+if Xs.shape[0] < 2 or Xt.shape[0] < 2: 
+        return 0.0 
+    Xs = Xs - Xs.mean(0, keepdims=True) 
+    Xt = Xt - Xt.mean(0, keepdims=True) 
+    Cs = np.cov(Xs, rowvar=False) 
+    Ct = np.cov(Xt, rowvar=False) 
+    if (not np.isfinite(Cs).all()) or (not np.isfinite(Ct).all()): 
+        return 0.0 
+    return float(np.linalg.norm(Cs - Ct, ord='fro')**2) 
+ 
+def coral_align_source(Xs, Xt): 
+    
+Xs0 = Xs - Xs.mean(0, keepdims=True) 
+    Xt0 = Xt - Xt.mean(0, keepdims=True) 
+    Cs = np.cov(Xs0, rowvar=False) + 1e-6*np.eye(Xs0.shape[1]) 
+    Ct = np.cov(Xt0, rowvar=False) + 1e-6*np.eye(Xt0.shape[1]) 
+    def mat_sqrt(M): 
+        w, V = np.linalg.eigh(M) 
+        return (V*(np.sqrt(np.clip(w,1e-12,None)))) @ V.T 
+    def inv_mat_sqrt(M): 
+        w, V = np.linalg.eigh(M) 
+        return (V*(1.0/np.sqrt(np.clip(w,1e-12,None)))) @ V.T 
+.shape[0] 1)))
+0]*(Xt.shape[0]-
+hape[0] 
+Xs.mean(0
+ke
+Xt.mean(0
+np.cov(Xs, row
+= np.cov(Xt
+if ( ot np
+et
+retur
+ru )
+s=True)
+als )
+ar=False)
+inite(Cs).all())
+.0
+np.linalg.n
+
+--- PAGE 70 ---
+    As = inv_mat_sqrt(Cs) @ mat_sqrt(Ct)  
+Xs_aligned = Xs0 @ As 
+    Xt_kept = Xt0.copy()                   
+return Xs_aligned, Xt_kept 
+ 
+def tca_fit_transform(Xs, Xt, dim=30, lamb=1.0, kernel='rbf', gamma=1.0): 
+    
+ns, d = Xs.shape; nt = Xt.shape[0]; n = ns + nt 
+    X = np.vstack([Xs, Xt])  
+if kernel == 'linear': 
+        K = X @ X.T 
+    else: 
+        D2 = pairwise_sq_dists(X, X) 
+        K = np.exp(-D2 * gamma) 
+    
+e = np.vstack([np.ones((ns,1))/ns, -np.ones((nt,1))/nt]) 
+    L = e @ e.T 
+    H = np.eye(n) - np.ones((n,n))/n 
+    KLK = K @ L @ K 
+    KHK = K @ H @ K 
+    eps = 1e-6 
+    left  = KLK + (lamb + eps) * np.eye(n) 
+    right = KHK + eps * np.eye(n) 
+    M = np.linalg.pinv(left) @ right 
+    try: 
+        w, V = np.linalg.eigh(M) 
+    except np.linalg.LinAlgError: 
+        
+w, V = np.linalg.eigh(right) 
+    idx = np.argsort(w)[::-1][:dim] 
+    A = V[:, idx] 
+    Z = A.T @ K 
+    Zs = Z[:, :ns].T 
+    Zt = Z[:, ns:].T 
+    return Zs, Zt 
+ 
+if not os.path.exists(SRC_FEAT_CSV): 
+    print(f"
+{SRC_FEAT_CSV}
+1/2
+") 
+    sys.exit(1) 
+ 
+np.ones((nt,1))/
+))/n
+(lamb + eps) * np
+K + eps * np.
+alg.pinv(
+w, V = np.
+except np.
+i
+(n)
+ght
+.eigh(M)
+lg.LinAlgError:
+linalg.eig
+t(w)
+
+--- PAGE 71 ---
+src_df = pd.read_csv(SRC_FEAT_CSV) 
+ 
+if 'channel' in src_df.columns and USE_CHANNELS is not None: 
+    src_df = src_df[src_df['channel'].isin(USE_CHANNELS)].copy() 
+ 
+if 'label' not in src_df.columns: 
+    def parse_label_from_name(x): 
+        s = str(x).upper() 
+        for k in ['OR','IR','B','N']: 
+            if k in s: return k 
+        return None 
+    name_col = 'file' if 'file' in src_df.columns else ('file_rel' if 
+'file_rel' in src_df.columns else None) 
+    if name_col is None: 
+        print("
+ label 
+ file/file_rel 
+") 
+        sys.exit(1) 
+    src_df['label'] = src_df[name_col].map(parse_label_from_name) 
+ 
+src_df = src_df[~src_df['label'].isna()].copy() 
+src_df['label'] = src_df['label'].astype(str) 
+classes = sorted(np.unique(src_df['label']).tolist()) 
+print("
+", classes, "
+=", len(src_df)) 
+ 
+NONFEA = ['file','file_rel','file_safe','channel','la-
+bel','size_inch','rpm','fr_rps'] 
+src_num_cols = [c for c in src_df.columns if c not in NONFEA and np.is-
+subdtype(src_df[c].dtype, np.number)] 
+for extra in ['rpm','fr_rps','env_ratio_mean','env_ra-
+tio_std','dom_freq_over_fr','sum_band_energy_ratio']: 
+    if extra in src_df.columns and extra not in src_num_cols: 
+        src_num_cols.append(extra) 
+ 
+Xs_raw = src_df[src_num_cols].values.astype(float) 
+ys_str = src_df['label'].values 
+ 
+def safe_short_name(path): 
+    
+e ('file_rel' i
+ile/file_rel
+e_col].map(parse_l
+el'].isna()].co
+l'].asty
+p.unique(src_df['
+", classes
+= [
+ile',
+bel' 'size_inc
+src_num_col
+subdtype(
+el_from_nam
+tr)
+l ]).tolist())
+=", len(sr
+el','file_safe
+'
+rpm
+'fr_rps']
+c for 
+i
+src
+.dtype, np
+'f
+
+--- PAGE 72 ---
+base = os.path.basename(path) 
+    return os.path.splitext(base)[0] 
+ 
+tgt_rows = [] 
+missing_files = [] 
+for fn in TARGET_MATS: 
+    if not os.path.exists(fn): 
+        missing_files.append(fn); continue 
+    d = load_one_mat(fn) 
+    rpm = d['RPM'] 
+    short = safe_short_name(fn) 
+    for ch in USE_CHANNELS: 
+        x = d.get(ch, None) 
+        if x is None: 
+            print(f"[
+] {fn} 
+ {ch}
+") 
+            continue 
+        segs = window_signal(x, WIN_LEN, WIN_HOP) 
+        for k, seg in enumerate(segs): 
+            row = extract_feature_vector(seg, FS, rpm) 
+            row['file'] = fn 
+            row['short'] = short 
+            row['channel'] = ch 
+            row['win_id'] = k 
+            tgt_rows.append(row) 
+ 
+if missing_files: 
+    print("[
+] 
+") 
+    for mf in missing_files: 
+        print(" -", mf) 
+ 
+tgt_df = pd.DataFrame(tgt_rows) 
+if tgt_df.empty: 
+    print("
+/
+/
+") 
+    sys.exit(1) 
+ 
+for col in src_num_cols: 
+    if col not in tgt_df.columns: 
+        tgt_df[col] = np.nan 
+ 
+Xt_raw = tgt_df[src_num_cols].values.astype(float) 
+ 
+if Xt_raw.shape[0] == 0: 
+)
+WIN_HOP)
+)
+e_vector(seg, FS, 
+hort
+h
+in_id ]
+t_rows.append
+ng_files:
+nt(
+] 
+for f in 
+ri
+t d
+m)
+ing_files:
+ mf)
+me(tg
+
+--- PAGE 73 ---
+    raise RuntimeError("
+ USE_CHANNELS 
+ .mat 
+") 
+if Xt_raw.shape[0] < 3: 
+    print(f"[
+] 
+ {Xt_raw.shape[0]} 
+TCA/MMD 
+") 
+ 
+imputer = SimpleImputer(strategy='median') 
+Xs_imp = imputer.fit_transform(Xs_raw) 
+Xt_imp = imputer.transform(Xt_raw) 
+ 
+scaler = RobustScaler(quantile_range=(10.0, 90.0)) 
+Xs_scaled = scaler.fit_transform(Xs_imp) 
+Xt_scaled = scaler.transform(Xt_imp) 
+ 
+if (not np.isfinite(Xs_scaled).all()) or (not np.isfi-
+nite(Xt_scaled).all()): 
+    bad_src = np.any(~np.isfinite(Xs_scaled), axis=0) 
+    bad_tgt = np.any(~np.isfinite(Xt_scaled), axis=0) 
+    bad_cols = [c for c,b in zip(src_num_cols, (bad_src|bad_tgt)) if b] 
+    raise ValueError(f"
+{bad_cols}") 
+ 
+def median_heuristic_gamma(X): 
+    Xsamp = X[:min(2000, len(X))] 
+    d2 = pairwise_sq_dists(Xsamp, Xsamp) 
+    med = np.median(d2[d2>0]) 
+    if med <= 0 or np.isnan(med): 
+        return 1.0 
+    return 1.0 / (med + 1e-12) 
+ 
+gamma_est = (median_heuristic_gamma(np.vstack([Xs_scaled, Xt_scaled])) 
+             if (TCA_KERNEL=='rbf' and (TCA_GAMMA is None)) else 
+(TCA_GAMMA if TCA_GAMMA else 1.0)) 
+ 
+mmd_before = mmd_rbf_unbiased(Xs_scaled, Xt_scaled, gamma=gamma_est) 
+coral_before = coral_loss(Xs_scaled, Xt_scaled) 
+print(f"[
+-
+{mmd_before:.4f}  
+{coral_be-
+fore:.4f}") 
+ 
+ll()) or (not np.i
+inite(Xs_scaled
+ite(Xt_s
+fo
+,b
+(sr
+eError(f
+ian_heurist
+Xsamp = X[
+2 = pa
+med =
+i
+xis=0)
+ed), axis=0)
+m_cols, (bad_src
+ma(X):
+( 000, len(X))]
+e_sq_dists(Xsa
+an(d2[d2>0]
+np.is
+
+--- PAGE 74 ---
+Xs_coral, Xt_coral = coral_align_source(Xs_scaled, Xt_scaled) 
+mmd_coral = mmd_rbf_unbiased(Xs_coral, Xt_coral, gamma=gamma_est) 
+coral_after_coral = coral_loss(Xs_coral, Xt_coral) 
+print(f"[
+-CORAL
+{mmd_coral:.4f}  
+{coral_af-
+ter_coral:.4f}") 
+ 
+Zs, Zt = tca_fit_transform(Xs_coral, Xt_coral, dim=TCA_DIM, 
+lamb=TCA_LAMBDA, 
+                           kernel=TCA_KERNEL, gamma=(gamma_est if 
+TCA_KERNEL=='rbf' else 1.0)) 
+mmd_after = mmd_rbf_unbiased(Zs, Zt, gamma=median_heuris-
+tic_gamma(np.vstack([Zs, Zt]))) 
+coral_after = coral_loss(Zs, Zt) 
+print(f"[
+-TCA
+{mmd_after:.4f}  
+{coral_after:.4f}") 
+ 
+def plot_domain_shift_bars(vals, labels, title, fname): 
+    fig, ax = plt.subplots(figsize=(6.2, 3.0)) 
+    ax.bar(range(len(vals)), vals) 
+    ax.set_xticks(range(len(vals))); ax.set_xticklabels(labels) 
+    ax.set_ylabel("
+"); ax.set_title(title); ax.grid(True, 
+axis='y', alpha=0.35) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+    plt.show() 
+ 
+plot_domain_shift_bars( 
+    [mmd_before, mmd_coral, mmd_after], 
+    ['MMD-
+', 'MMD-CORAL', 'MMD-TCA'], 
+    '
+-
+MMD
+', 
+    'shift_mmd.png' 
+) 
+plot_domain_shift_bars( 
+    [coral_before, coral_after_coral, coral_after], 
+    ['CORAL-
+', 'CORAL-CORAL', 'CORAL-TCA'], 
+    '
+-
+F
+', 
+    'shift_coral.png' 
+) 
+_DIM,
+ma=(gamma_est 
+ma=median_heuris
+mmd_after:.4f}
+ift_bar
+la
+plt.subplots(
+e(len(va
+et_xticks(range
+set_ylabel
+axis='y'
+alph
+ig.tig
+print(f"[
+{coral_after:
+, title, fname)
+(6
+3.0))
+s)
+vals))); ax.set_x
+"); ax.set_tit
+)
+yout(); fig.sa
+name}")
+
+--- PAGE 75 ---
+ 
+def compute_class_weight(y): 
+    
+uniq, cnt = np.unique(y, return_counts=True) 
+    N = len(y); C = len(uniq) 
+    return {int(uniq[i]): N/(C*cnt[i]) for i in range(len(uniq))} 
+ 
+class2id = {c:i for i,c in enumerate(classes)} 
+y_int = np.array([class2id[s] for s in ys_str], dtype=int) 
+cls_weight = compute_class_weight(y_int) 
+ 
+base_clf = RandomForestClassifier( 
+    n_estimators=600, max_depth=None, class_weight=cls_weight, 
+    n_jobs=-1, random_state=RANDOM_STATE 
+) 
+base_clf.fit(Zs, y_int) 
+clf = CalibratedClassifierCV(base_clf, method='isotonic', cv=3, n_jobs=-
+1) 
+clf.fit(Zs, y_int) 
+ 
+proba = clf.predict_proba(Zt) 
+pred0 = np.argmax(proba, axis=1) 
+conf0 = np.max(proba, axis=1) 
+ 
+Zs_aug = Zs.copy(); ys_aug = y_int.copy() 
+for it in range(SELF_TRAIN_ITERS): 
+    mask = conf0 >= CONF_TH 
+    if not np.any(mask): 
+        print(f"[
+] 
+{it+1}
+") 
+        break 
+    idx_sel = np.where(mask)[0].tolist() 
+    keep = [] 
+    per_class = {c:0 for c in range(len(classes))} 
+    for idx in idx_sel: 
+        c = pred0[idx] 
+        if per_class[c] < MAX_PSEUDO_PER_CLASS: 
+ass_weight=cls_w
+TATE
+(base_clf, met
+clf.predict_prob
+np.argmax
+conf0 = np.max
+isotonic', c =3
+axis 1)
+ba, axis=1)
+
+--- PAGE 76 ---
+            keep.append(idx); per_class[c] += 1 
+    if len(keep) == 0: 
+        print(f"[
+] 
+{it+1}
+"); break 
+ 
+    
+Z_add = Zt[keep]; y_add = pred0[keep]; w_add = conf0[keep] 
+    rep = np.maximum(1, (w_add*3).astype(int)) 
+    Z_add_rep = np.repeat(Z_add, rep, axis=0) 
+    y_add_rep = np.repeat(y_add, rep, axis=0) 
+ 
+    Z_train = np.vstack([Zs_aug, Z_add_rep]) 
+    y_train = np.concatenate([ys_aug, y_add_rep]) 
+ 
+    base_clf = RandomForestClassifier( 
+        n_estimators=600, max_depth=None, class_weight=cls_weight, 
+        n_jobs=-1, random_state=RANDOM_STATE+it+1 
+    ) 
+    base_clf.fit(Z_train, y_train) 
+    clf = CalibratedClassifierCV(base_clf, method='isotonic', cv=3, 
+n_jobs=-1) 
+    clf.fit(Z_train, y_train) 
+ 
+    proba = clf.predict_proba(Zt) 
+    pred0 = np.argmax(proba, axis=1) 
+    conf0 = np.max(proba, axis=1) 
+    print(f"[
+] 
+{it+1}
+ {len(keep)} 
+") 
+ 
+tgt_df = tgt_df.reset_index(drop=True) 
+tgt_df['pred_id'] = pred0 
+tgt_df['pred_label'] = [classes[i] for i in pred0] 
+for i, c in enumerate(classes): 
+    tgt_df[f"proba_{c}"] = proba[:, i] 
+tgt_df['conf'] = conf0 
+ 
+tgt_df.to_csv("target_window_predictions.csv", index=False, encod-
+ing='utf-8-sig') 
+print("[
+] target_window_predictions.csv
+") 
+print(tgt_df.head()) 
+ 
+file_summ = [] 
+eight=cls_weig
+E+it+1
+(base_clf, method
+)
+edict_proba(Zt)
+.argmax(proba
+max(prob
+t(f"[
+] 
+t d
+otonic', c
+)
+l
+et_in
+pr
+
+--- PAGE 77 ---
+for (short, ch, fn), g in tgt_df.groupby(['short','channel','file']): 
+    counts = g['pred_label'].value_counts().to_dict() 
+    mean_proba = {c: g[f"proba_{c}"].mean() for c in classes} 
+    file_label = max(counts.items(), key=lambda kv: kv[1])[0] 
+    file_conf  = mean_proba[file_label] 
+    row = {'file': fn, 'short': short, 'channel': ch, 'n_windows': 
+len(g), 
+           'pred_file_label': file_label, 'file_confidence': file_conf} 
+    for c in classes: 
+        row[f"vote_{c}"] = counts.get(c, 0) 
+        row[f"meanP_{c}"] = mean_proba[c] 
+    file_summ.append(row) 
+file_df = pd.DataFrame(file_summ).sort_values(['short','channel']) 
+file_df.to_csv("target_file_predictions.csv", index=False, encoding='utf-
+8-sig') 
+print("[
+] target_file_predictions.csv
+") 
+print(file_df) 
+ 
+def plot_file_probs(file_df, classes, fname): 
+    
+fig, ax = plt.subplots(figsize=(6.6, 3.4)) 
+    xlabs, bars = [], [] 
+    for _, r in file_df.iterrows(): 
+        xlabs.append(f"{r['short']}-{r['channel']}") 
+        bars.append([r[f"meanP_{c}"] for c in classes]) 
+    bars = np.array(bars) 
+    x = np.arange(len(xlabs)) 
+    w = 0.75/len(classes) 
+    for i,c in enumerate(classes): 
+        ax.bar(x + i*w - (len(classes)-1)*w/2, bars[:,i], width=w, la-
+bel=c) 
+    ax.set_xticks(x); ax.set_xticklabels(xlabs) 
+    ax.set_ylim(0.0, 1.0) 
+    ax.set_ylabel("
+"); ax.set_title("
+") 
+    ax.legend(ncol=len(classes), fontsize=9) 
+    ax.grid(True, axis='y', alpha=0.35) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+    plt.show() 
+ 
+'channel ])
+alse, encoding
+lasses, 
+plt.subplots(
+s = [], [
+_, r in file_df
+xlabs.appe
+ars.a
+ars = 
+x = n
+me):
+(6
+3.4))
+rows():
+r['short']} {r['
+d([r[f"meanP_{c} ]
+ray(bars)
+(len(xlabs)
+asses
+ra
+
+--- PAGE 78 ---
+plot_file_probs(file_df, classes, "target_file_mean_proba.png") 
+ 
+def tsne_plot(Xs, Xt, y_str, title, fname): 
+    
+ns = min(800, Xs.shape[0]); nt = min(800, Xt.shape[0]) 
+    idxs = np.random.choice(Xs.shape[0], ns, replace=False) 
+    idxt = np.random.choice(Xt.shape[0], nt, replace=False) 
+    X_vis = np.vstack([Xs[idxs], Xt[idxt]]) 
+    y_vis = np.array([y_str[i] for i in idxs] + ['T']*nt, dtype=object) 
+ 
+    tsne = TSNE(n_components=2, init='random', learning_rate='auto', 
+                perplexity=30, random_state=RANDOM_STATE) 
+    Z = tsne.fit_transform(X_vis) 
+ 
+    fig, ax = plt.subplots(figsize=(6.8, 4.6)) 
+    colors = 
+{'OR':'#d62728','IR':'#ff7f0e','B':'#1f77b4','N':'#2ca02c','T':'#7f7f7f'} 
+    for cls in sorted(set(list(classes)+['T'])): 
+        mask = (y_vis==cls) 
+        ax.scatter(Z[mask,0], Z[mask,1], s=14, alpha=0.85, label=cls, 
+                   c=colors.get(cls, '#7f7f7f')) 
+    ax.set_title(title); ax.set_xlabel("Dim 1"); ax.set_ylabel("Dim 2") 
+    ax.legend(loc='best', fontsize=9, ncol=5) 
+    ax.grid(True, alpha=0.3) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print(f"[
+] {fname}") 
+    plt.show() 
+ 
+tsne_plot(Xs_scaled, Xt_scaled, ys_str, "t-SNE
+", 
+"tsne_before.png") 
+tsne_plot(Xs_coral, Xt_coral, ys_str, "t-SNE
+CORAL
+", 
+"tsne_coral.png") 
+tsne_plot(Zs, Zt, ys_str, "t-SNE
+TCA
+", "tsne_after.png") 
+ 
+print("\n=== 
+ + 
+ ===") 
+for _, r in file_df.iterrows(): 
+    probs = ", ".join([f"{c}:{r[f'meanP_{c}']:.3f}" for c in classes]) 
+    print(f"{r['short']}[{r['channel']}] -> 
+: {r['pred_file_label']}  
+dtype=obje
+ning_rate 'auto'
+M_STATE)
+6.8, 4.6)
+,'B' '#1f77b4'
+st(classes)+['T
+(Z[mask
+mas
+c=colors
+le(title)
+egend(loc='best'
+gri
+True, 
+fig.tight_
+prin (f
+plt.s
+#2ca02c' 'T' '#
+:
+, s=14, alpha=0
+,
+f7f7f'))
+xlabel("Dim 1"
+ntsize=9, ncol=5)
+0.3)
+ut(); fig.savefig(f
+fname}")
+X
+
+--- PAGE 79 ---
+{r['file_confidence']:.3f}  | {probs}") 
+ 
+meta = { 
+    "SRC_FEAT_CSV": SRC_FEAT_CSV, 
+    "TARGET_MATS": TARGET_MATS, 
+    "USE_CHANNELS": USE_CHANNELS, 
+    "FS": FS, 
+    "BANDPASS": BANDPASS, "ENV_FMAX": ENV_FMAX, "FFT_FMAX": FFT_FMAX, 
+"BAND_STEP": BAND_STEP, 
+    "WIN_LEN": WIN_LEN, "WIN_HOP": WIN_HOP, 
+    "TCA_DIM": TCA_DIM, "TCA_KERNEL": TCA_KERNEL, "TCA_LAMBDA": 
+TCA_LAMBDA, "TCA_GAMMA_effective": float(gamma_est), 
+    "SELF_TRAIN_ITERS": SELF_TRAIN_ITERS, "CONF_TH": CONF_TH, 
+    "classes": classes, 
+    "shift_metrics": { 
+        "MMD_before": mmd_before, "CORAL_before": coral_before, 
+        "MMD_after_CORAL": mmd_coral, "CORAL_after_CORAL": coral_af-
+ter_coral, 
+        "MMD_after_TCA": mmd_after, "CORAL_after_TCA": coral_after 
+    } 
+} 
+with open("transfer_run_meta.json", "w", encoding="utf-8") as f: 
+    json.dump(meta, f, ensure_ascii=False, indent=2) 
+print("[
+] transfer_run_meta.json
+") 
+ 
+print("\n
+") 
+print("- 
+target_window_predictions.csv") 
+print("- 
+target_file_predictions.csv
+") 
+print("- 
+shift_mmd.png, shift_coral.png") 
+print("- t-SNE
+tsne_before.png, tsne_coral.png, tsne_after.png") 
+print("- 
+target_file_mean_proba.png") 
+ 
+BDA
+: CONF_TH,
+_before": coral_
+, "CORAL_after_CO
+after, "CORAL_a
+r_run_meta.json"
+meta, f,
+su
+transfer_
+\n
+print( -
+prin (
+print("
+int
+: cor
+TCA": coral_afte
+, encodin ="utf
+False, indent=
+json
+")
+target_window_pr
+target_fi
+shift_mmd
+tsn
+ar
+
+--- PAGE 80 ---
+import os, sys, json, warnings, math, itertools 
+import numpy as np 
+import pandas as pd 
+import matplotlib.pyplot as plt 
+ 
+from scipy.io import loadmat 
+from scipy.signal import butter, filtfilt, hilbert, find_peaks 
+from numpy.fft import rfft, rfftfreq 
+ 
+from sklearn.preprocessing import RobustScaler 
+from sklearn.impute import SimpleImputer 
+from sklearn.feature_selection import mutual_info_classif 
+from sklearn.linear_model import LogisticRegression 
+from sklearn.metrics import brier_score_loss 
+from sklearn.manifold import TSNE 
+ 
+warnings.filterwarnings("ignore")  
+plt.style.use('ggplot')  
+plt.rcParams['figure.figsize'] = (8.5, 3.2)  
+plt.rcParams['figure.dpi'] = 130             
+plt.rcParams['font.sans-serif'] = ['SimHei', 'Arial Unicode MS', 'DejaVu 
+Sans']  
+math, itertools
+t
+import loadma
+nal impor
+py.fft import r
+from sklearn.p
+from sklear
+from skle
+om
+filtfilt, hil
+rfftfreq
+ocessing import 
+b
+ute impor
+Sim
+ure_selecti
+_mode
+i
+
+--- PAGE 81 ---
+plt.rcParams['axes.unicode_minus'] = False   
+RANDOM_STATE = 7 
+np.random.seed(RANDOM_STATE)  
+SRC_FEAT_CSV = "features_summary.csv"   
+TARGET_WIN_PRED = "target_window_predictions.csv"  
+TARGET_FILE_PRED = "target_file_predictions.csv"   
+TARGET_MATS = ["A.mat", "B.mat", "C.mat"]  
+USE_CHANNELS = ['DE','FE','BA']            
+FS = 12000.0                               
+WIN_LEN, WIN_HOP = 4096, 2048              
+BANDPASS = (2000.0, 5000.0)                
+ENV_FMAX = 300.0                           
+BAND_STEP = 500.0                          
+ENV_PEAK_PROM_RATIO = 6.0                  
+ENV_PEAK_MIN_DIST_HZ = 2.0                 
+TCA_DIM = 30 
+TCA_KERNEL = 'rbf'          
+TCA_LAMBDA = 1.0 
+TCA_GAMMA = None            
+TOPK_SHOW = 20              
+def _is_num_1d(v): 
+    
+try: 
+        a = np.asarray(v).squeeze() 
+        return (a.ndim == 1) and np.issubdtype(a.dtype, np.number) and 
+, 
+0.
+0
+0.0
+_PROM_RATIO = 6
+K_MIN_DIST_
+TCA_DIM =
+A K
+.0
+
+--- PAGE 82 ---
+(a.size > 0) 
+    except Exception: 
+        return False 
+ 
+def _pick_key(d, keys, *patterns): 
+    
+pats = [p.upper() for p in patterns] 
+    cand = [] 
+    for k in keys: 
+        ku = str(k).upper() 
+        if all(p in ku for p in pats) and _is_num_1d(d[k]): 
+            cand.append(k) 
+    if not cand: 
+        return None 
+    
+cand.sort(key=lambda name: (('TIME' in str(name).upper()), 
+                                np.asarray(d[name]).squeeze().size), re-
+verse=True) 
+    return cand[0] 
+ 
+def load_one_mat(path): 
+    
+out = {'DE': None, 'FE': None, 'BA': None, 'RPM': None} 
+    d = loadmat(path, squeeze_me=True, struct_as_record=False) 
+    keys = [k for k in d.keys() if not str(k).startswith('__')] 
+    
+key_de = _pick_key(d, keys, 'DE','TIME') or _pick_key(d, keys, 'DE') 
+    key_fe = _pick_key(d, keys, 'FE','TIME') or _pick_key(d, keys, 'FE') 
+    key_ba = _pick_key(d, keys, 'BA','TIME') or _pick_key(d, keys, 'BA') 
+    
+if key_de is None: key_de = _pick_key(d, keys, 'A','TIME') or 
+_pick_key(d, keys, 'A') or _pick_key(d, keys, 'SIG') or _pick_key(d, 
+keys, 'SIGNAL') or _pick_key(d, keys, 'X') 
+    if key_fe is None: key_fe = _pick_key(d, keys, 'B','TIME') or 
+_pick_key(d, keys, 'B') or _pick_key(d, keys, 'Y') 
+    if key_ba is None: key_ba = _pick_key(d, keys, 'C','TIME') or 
+_pick_key(d, keys, 'C') or _pick_key(d, keys, 'Z') 
+    
+if key_de is not None: out['DE'] = np.as-
+array(d[key_de]).squeeze().astype(float) 
+    if key_fe is not None: out['FE'] = np.as-
+array(d[key_fe]).squeeze().astype(float) 
+in str(name).upp
+sarray(d[name]).s
+: None, 
+E
+t(path, s
+= [k for k in 
+key_de = _
+ey_fe 
+key_b
+eze().
+B
+None, 'RP
+=True
+struct_
+s() if not tr k)
+_key(d, keys, 'DE'
+ck_key(d, keys
+k_key(d, ke
+
+--- PAGE 83 ---
+    if key_ba is not None: out['BA'] = np.as-
+array(d[key_ba]).squeeze().astype(float) 
+    
+key_rpm = next((k for k in keys if 'RPM' in str(k).upper()), None) 
+    if key_rpm is not None: 
+        try: 
+            rpm_arr = np.asarray(d[key_rpm]).squeeze() 
+            out['RPM'] = float(rpm_arr) if rpm_arr.size == 1 else 
+float(np.nanmean(rpm_arr)) 
+        except Exception: 
+            out['RPM'] = None 
+    
+if (out['DE'] is None) and (out['FE'] is None) and (out['BA'] is 
+None): 
+        raise ValueError(f"{os.path.basename(path)} 
+") 
+    return out 
+ 
+def butter_bandpass(low, high, fs, order=4): 
+    
+nyq = 0.5 * fs 
+    from scipy.signal import butter 
+    b, a = butter(order, [low/nyq, high/nyq], btype='band') 
+    return b, a 
+ 
+def envelope_spectrum(x, fs, band=(2000,5000), fmax=300.0): 
+    
+x = np.asarray(x, dtype=float) 
+    x = x - np.mean(x) 
+    b, a = butter_bandpass(band[0], band[1], fs, order=4) 
+    xf = filtfilt(b, a, x) 
+    env = np.abs(hilbert(xf)) 
+    A = np.abs(rfft(env)) 
+    f = rfftfreq(len(env), d=1.0/fs) 
+    m = f <= fmax 
+    return f[m], A[m], env 
+ 
+def time_features(x): 
+    
+x = np.asarray(x, dtype=float); x = x - np.mean(x) 
+    rms = np.sqrt(np.mean(x**2)); std = x.std(); mean_abs = 
+np.mean(np.abs(x)); peak = np.max(np.abs(x)) 
+    skew = np.mean((x/(std+1e-12))**3); kurt = np.mean((x/(std+1e-
+12))**4); p2p = np.ptp(x) 
+(out['BA ] s
+)}
+s, order=4):
+utter
+order, [low/nyq, 
+a
+lope_spectrum(x,
+x = np.asa
+= 
+-
+b, a 
+/nyq], btype='ba
+band=(2000 5000)
+(x, dtype=float)
+ean(x)
+_bandpass(b
+ a, 
+be
+
+--- PAGE 84 ---
+    crest = peak/(rms+1e-12); impulse = peak/(mean_abs+1e-12); shape = 
+rms/(mean_abs+1e-12) 
+    x0 = x - np.mean(x); acf1 = np.dot(x0[:-1], x0[1:])/(np.dot(x0, 
+x0)+1e-12) 
+    return 
+{'mean':np.mean(x),'std':std,'rms':rms,'skew':skew,'kurt':kurt, 
+            'peak2peak':p2p,'crest_factor':crest,'impulse_factor':im-
+pulse, 
+            'shape_fac-
+tor':shape,'acf_lag1':acf1,'abs_mean':mean_abs,'peak':peak} 
+ 
+def spectral_features(x, fs, band_step=500.0): 
+    
+x = np.asarray(x, dtype=float); x = x - np.mean(x) 
+    X = np.abs(rfft(x)); f = rfftfreq(len(x), d=1.0/fs) 
+    ps = (X**2)+1e-16; ps = ps/ps.sum() 
+    centroid = (f*ps).sum() 
+    spread = np.sqrt(((f-centroid)**2*ps).sum()) 
+    spec_entropy = -(ps*np.log(ps)).sum() 
+    bands = np.arange(0.0, fs/2+1e-9, band_step) 
+    band_energy = {} 
+    total = float((X**2).sum()+1e-16) 
+    for i in range(len(bands)-1): 
+        lo, hi = bands[i], bands[i+1] 
+        idx = np.where((f>=lo)&(f<hi))[0] 
+        e = float((X[idx]**2).sum()) 
+        band_energy[f'band_{int(lo)}_{int(hi)}_ratio'] = e/total 
+    dom_idx = np.argmax(X[1:])+1 if len(X)>1 else 0 
+    dom_freq = float(f[dom_idx]) if len(X)>1 else 0.0 
+    dom_amp  = float(X[dom_idx]) if len(X)>1 else 0.0 
+    feats = {'spec_centroid':float(centroid),'spec_spread':float(spread), 
+             'spec_entropy':float(spec_en-
+tropy),'dom_freq':dom_freq,'dom_amp':dom_amp, 
+             'spec_centroid_relfs': float(centroid/(fs/2.0+1e-12)), 
+             'dom_freq_relfs': float(dom_freq/(fs/2.0+1e-12))} 
+    feats.update(band_energy) 
+    return feats 
+ 
+def window_signal(x, win_len=4096, hop=2048): 
+    
+x = np.asarray(x, dtype=float) 
+    if len(x)<win_len: return [x.copy()] 
+    out = [] 
+    for st in range(0, len(x)-win_len+1, hop): 
+0/fs)
+2*ps).sum())
+s)).sum()
+/2+1e 9, band_s
++1e 16)
+(l
+ba
+:
+= bands[i], 
+np.where(
+e = float((X[idx
+band_energ
+dom_idx = 
+om_fre
+dom_a
+f
+1]
+f<hi))[0]
+.sum())
+nd_{int(lo)}_ i
+rgmax(X[1:])+1 i
+l
+loat(f[dom_idx
+oat(X[dom_i
+centr
+nt
+
+--- PAGE 85 ---
+        out.append(x[st:st+win_len].copy()) 
+    return out 
+ 
+def extract_feature_vector(x, fs, rpm=None): 
+    
+x = np.asarray(x, dtype=float) 
+    x = (x - x.mean())/(np.sqrt(np.mean((x-x.mean())**2))+1e-12) 
+    tfeat = time_features(x) 
+    sfeat = spectral_features(x, fs, band_step=BAND_STEP) 
+    f_env, A_env, env = envelope_spectrum(x, fs, band=BANDPASS, 
+fmax=ENV_FMAX) 
+    row = {}; row.update(tfeat); row.update(sfeat) 
+    row['rpm'] = rpm if rpm is not None else np.nan 
+    row['fr_rps'] = (rpm/60.0) if (rpm is not None and rpm>0) else np.nan 
+    row['dom_freq_over_fr'] = (row['dom_freq']/row['fr_rps']) if 
+(row['fr_rps'] and not np.isnan(row['fr_rps'])) else np.nan 
+    
+row['sum_band_energy_ratio'] = float(np.nansum([v for k,v in 
+row.items() if k.startswith('band_') and k.endswith('_ratio')])) 
+    return row 
+ 
+def safe_short_name(path): 
+    
+base = os.path.basename(path) 
+    return os.path.splitext(base)[0] 
+ 
+def pairwise_sq_dists(X, Y): 
+    
+X = np.asarray(X, float); Y = np.asarray(Y, float) 
+    XX = np.sum(X*X, axis=1, keepdims=True) 
+    YY = np.sum(Y*Y, axis=1, keepdims=True).T 
+    d2 = XX + YY - 2*np.dot(X, Y.T) 
+    d2[d2<0] = 0.0 
+    return d2 
+ 
+def mmd_rbf_unbiased(Xs, Xt, gamma=1.0): 
+    
+if Xs.shape[0]<2 or Xt.shape[0]<2: 
+        return 0.0 
+    Kss = np.exp(-pairwise_sq_dists(Xs, Xs)*gamma) 
+e and rpm> ) e
+q
+/row['fr_rps'])
+rps ])) else np.
+float(np.nansum
+band_')
+nd k.e
+e(path)
+path.basen
+rn os.path.spli
+f
+for k,v 
+th('_ratio')]))
+base)[0]
+ts(X,
+
+--- PAGE 86 ---
+    Ktt = np.exp(-pairwise_sq_dists(Xt, Xt)*gamma) 
+    Kst = np.exp(-pairwise_sq_dists(Xs, Xt)*gamma) 
+    np.fill_diagonal(Kss, 0.0) 
+    np.fill_diagonal(Ktt, 0.0) 
+    return float((Kss.sum()/(Xs.shape[0]*(Xs.shape[0]-1))) 
+                 + (Ktt.sum()/(Xt.shape[0]*(Xt.shape[0]-1))) - 
+(2.0*Kst.mean())) 
+ 
+def coral_loss(Xs, Xt): 
+    
+if Xs.shape[0]<2 or Xt.shape[0]<2: 
+        return 0.0 
+    Xs = Xs - Xs.mean(0, keepdims=True) 
+    Xt = Xt - Xt.mean(0, keepdims=True) 
+    Cs = np.cov(Xs, rowvar=False) 
+    Ct = np.cov(Xt, rowvar=False) 
+    if (not np.isfinite(Cs).all()) or (not np.isfinite(Ct).all()): 
+        return 0.0 
+    return float(np.linalg.norm(Cs-Ct, ord='fro')**2) 
+ 
+def zca_whiten(X): 
+    
+X0 = X - X.mean(0, keepdims=True) 
+    C = np.cov(X0, rowvar=False) + 1e-6*np.eye(X0.shape[1]) 
+    w, V = np.linalg.eigh(C) 
+    Xw = X0 @ (V*(1.0/np.sqrt(np.clip(w,1e-12,None)))) @ V.T 
+    return Xw 
+ 
+def median_heuristic_gamma(X): 
+    
+X = np.asarray(X, float) 
+    Xsamp = X[:min(2000, len(X))] 
+    d2 = pairwise_sq_dists(Xsamp, Xsamp) 
+    med = np.median(d2[d2>0]) 
+    if med<=0 or np.isnan(med): return 1.0 
+    return 1.0/(med+1e-12) 
+ 
+def tca_fit_transform(Xs, Xt, dim=30, lamb=1.0, kernel='rbf', gamma=1.0): 
+    
+ns, d = Xs.shape; nt = Xt.shape[0]; n = ns+nt 
+    X = np.vstack([Xs, Xt]) 
+    if kernel=='linear': 
+        K = X @ X.T 
+    else: 
+ot np.isfinite(C
+Cs Ct, ord='fro')*
+n(
+ke
+Tru
+(X0, rowv
+F
+linalg.ei
+X0 @ (V*(1.0/np
+urn
+w
+def edian_
+X
+1e
+np.eye(X0.
+t(np.clip(w 1e-1
+stic_gamm (X):
+X, fl
+00
+
+--- PAGE 87 ---
+        D2 = pairwise_sq_dists(X, X) 
+        K = np.exp(-D2*gamma) 
+    
+e = np.vstack([np.ones((ns,1))/ns, -np.ones((nt,1))/nt]) 
+    L = e @ e.T 
+    H = np.eye(n) - np.ones((n,n))/n 
+    KLK = K @ L @ K 
+    KHK = K @ H @ K 
+    eps = 1e-6 
+    left  = KLK + (lamb+eps)*np.eye(n) 
+    right = KHK + eps*np.eye(n) 
+    from numpy.linalg import pinv, eigh 
+    M = pinv(left) @ right 
+    try: 
+        w, V = eigh(M) 
+    except np.linalg.LinAlgError: 
+        w, V = eigh(right) 
+    idx = np.argsort(w)[::-1][:dim] 
+    A = V[:, idx] 
+    Z = A.T @ K 
+    Zs = Z[:, :ns].T 
+    Zt = Z[:, ns:].T 
+    return Zs, Zt 
+ 
+def hsic_rbf_1d(X, y): 
+    
+x = X.reshape(-1,1).astype(float) 
+    Y = y.astype(float) 
+    n = x.shape[0] 
+    if Y.ndim==1: Y = Y.reshape(-1,1) 
+    
+def rbf(D2, g): return np.exp(-g*D2) 
+    def kernel(A): 
+        D2 = pairwise_sq_dists(A, A) 
+        g = median_heuristic_gamma(A) 
+        return rbf(D2, g) 
+    K = kernel(x); L = kernel(Y) 
+    H = np.eye(n) - np.ones((n,n))/n 
+    KH = K @ H; LH = L @ H 
+    hsic = np.trace(KH @ LH) / ((n-1)**2 + 1e-12) 
+d(X, y):
+1).
+at
+
+--- PAGE 88 ---
+    
+hsic_norm = hsic / (np.linalg.norm(KH, 'fro')*np.linalg.norm(LH, 
+'fro') + 1e-12) 
+    return float(max(0.0, hsic_norm)) 
+ 
+if not os.path.exists(SRC_FEAT_CSV): 
+    print(f"
+{SRC_FEAT_CSV}
+1/2
+") 
+    sys.exit(1) 
+ 
+src_df = pd.read_csv(SRC_FEAT_CSV) 
+if 'label' not in src_df.columns: 
+    
+def parse_label_from_name(x): 
+        s = str(x).upper() 
+        for k in ['OR','IR','B','N']: 
+            if k in s: return k 
+        return None 
+    name_col = 'file' if 'file' in src_df.columns else ('file_rel' if 
+'file_rel' in src_df.columns else None) 
+    src_df['label'] = src_df[name_col].map(parse_label_from_name) 
+src_df = src_df.dropna(subset=['label']).copy() 
+classes = sorted(src_df['label'].unique().tolist()) 
+ 
+def feature_group(name: str) -> str: 
+    n = str(name) 
+    if n.startswith('band_') and n.endswith('_ratio'): 
+        return '
+' 
+    if n in ['spec_centroid','spec_spread','spec_entropy']: 
+        return '
+/
+' 
+    if n in ['dom_freq','dom_amp','spec_cen-
+troid_relfs','dom_freq_relfs']: 
+        return '
+/
+' 
+    if n in ['rpm','fr_rps','dom_freq_over_fr','env_ratio_mean','env_ra-
+tio_std']: 
+        return 'RPM
+/
+' 
+    if n in ['mean','std','rms','skew','kurt','peak2peak','crest_fac-
+tor','impulse_factor','shape_factor','acf_lag1','abs_mean','peak']: 
+        return '
+' 
+    return '
+' 
+ 
+:
+le' in src_df.
+lse None
+] = src_df[name_c
+f.dropna(
+bs
+ed(src_df
+def feature_gr
+= tr
+if n
+ns else ('file_
+map(parse_label_
+el ]).copy()
+unique().toli
+name: str) -> st
+)
+th('band_')
+en
+
+--- PAGE 89 ---
+NONFEA = ['file','file_rel','file_safe','channel','la-
+bel','size_inch','rpm','fr_rps'] 
+src_num_cols = [c for c in src_df.columns if c not in NONFEA and np.is-
+subdtype(src_df[c].dtype, np.number)] 
+for extra in ['rpm','fr_rps','env_ratio_mean','env_ra-
+tio_std','dom_freq_over_fr','sum_band_energy_ratio', 
+              'spec_centroid_relfs','dom_freq_relfs']: 
+    if extra in src_df.columns and extra not in src_num_cols: 
+        src_num_cols.append(extra) 
+ 
+Xs_raw = src_df[src_num_cols].values.astype(float) 
+ys_str = src_df['label'].values 
+cls2id = {c:i for i,c in enumerate(classes)} 
+y_int = np.array([cls2id[s] for s in ys_str], dtype=int) 
+ 
+if os.path.exists(TARGET_WIN_PRED): 
+    tgt_win_df = pd.read_csv(TARGET_WIN_PRED) 
+    
+for col in src_num_cols: 
+        if col not in tgt_win_df.columns: 
+            tgt_win_df[col] = np.nan 
+    Xt_raw = tgt_win_df[src_num_cols].values.astype(float) 
+else: 
+    
+rows = [] 
+    for fn in TARGET_MATS: 
+        if not os.path.exists(fn): 
+            print(f"[
+] 
+{fn}") 
+            continue 
+        d = load_one_mat(fn) 
+        rpm = d['RPM'] 
+        short = safe_short_name(fn) 
+        for ch in USE_CHANNELS: 
+            x = d.get(ch, None) 
+            if x is None: 
+                continue 
+            for k, seg in enumerate(window_signal(x, WIN_LEN, WIN_HOP)): 
+                row = extract_feature_vector(seg, FS, rpm) 
+                row['file'] = fn; row['short'] = short; row['channel'] = 
+ch; row['win_id'] = k 
+pe int)
+PRED):
+(TARGET_WIN_PRE
+_num_co
+not in tgt_w
+t_win_df[
+aw = tgt_win_df
+ows = 
+for f
+lumns:
+nan
+num_cols].values.
+GET_MATS:
+ath.e
+[
+
+--- PAGE 90 ---
+                rows.append(row) 
+    tgt_win_df = pd.DataFrame(rows) 
+    for col in src_num_cols: 
+        if col not in tgt_win_df.columns: 
+            tgt_win_df[col] = np.nan 
+    Xt_raw = tgt_win_df[src_num_cols].values.astype(float) 
+ 
+imp = SimpleImputer(strategy='median') 
+X_joint = np.vstack([Xs_raw, Xt_raw]) 
+X_joint_imp = imp.fit_transform(X_joint) 
+Xs_imp = X_joint_imp[:len(Xs_raw)] 
+Xt_imp = X_joint_imp[len(Xs_raw):] 
+ 
+scaler = RobustScaler(quantile_range=(10.0, 90.0)) 
+X_joint_sc = scaler.fit_transform(X_joint_imp) 
+Xs_sc = X_joint_sc[:len(Xs_raw)] 
+Xt_sc = X_joint_sc[len(Xs_raw):] 
+ 
+mu_s = np.nanmean(Xs_sc, axis=0); var_s = np.nanvar(Xs_sc, axis=0) 
+mu_t = np.nanmean(Xt_sc, axis=0); var_t = np.nanvar(Xt_sc, axis=0) 
+Delta = (mu_s - mu_t) / (np.sqrt(0.5*(var_s + var_t)) + 1e-12) 
+df_drift = pd.DataFrame({'feature': src_num_cols, 'Delta': np.abs(Delta), 
+'sign': np.sign(Delta), 
+                         'group': [feature_group(c) for c in 
+src_num_cols]}) 
+df_drift = df_drift.sort_values('Delta', ascending=False) 
+ 
+mi = mutual_info_classif(Xs_sc, y_int, random_state=RANDOM_STATE, dis-
+crete_features=False) 
+df_mi = pd.DataFrame({'feature': src_num_cols, 'MI': mi, 'group': [fea-
+ture_group(c) for c in src_num_cols]}) 
+df_drift = df_drift.merge(df_mi, on=['feature','group'], 
+how='left').fillna(0.0) 
+df_drift.to_csv("explain_feature_drift_mi.csv", index=False, encod-
+ing='utf-8-sig') 
+print("[
+] explain_feature_drift_mi.csv") 
+ 
+10.0, 90.0 )
+m(X_joint_imp)
+w)]
+w):]
+ean(Xs_sc
+ax
+ean(Xt_sc
+(mu_s - mu_t) / 
+t = pd.Data
+'sign': np.sig
+src_num_c
+dr
+ar_s = np.nanva
+ var_t = np.n
+sqrt(0.5*(var_s +
+{'feature': src_
+lta),
+grou
+sort
+
+--- PAGE 91 ---
+topk = df_drift.head(TOPK_SHOW) 
+fig, ax = plt.subplots(figsize=(8.6, 4.6)) 
+ax.barh(range(len(topk)), topk['Delta'][::-1], color='#1f77b4') 
+ax.set_yticks(range(len(topk))); ax.set_yticklabels(topk['feature'][::-
+1]) 
+ax.set_xlabel(
+"); ax.set_title("
+/
+ 
+Top-{}
+ 
+".format(TOPK_SHOW)) 
+fig.tight_layout(); fig.savefig("exp_drift_topk.png", 
+bbox_inches='tight'); print("[
+] exp_drift_topk.png") 
+plt.show() 
+ 
+fig, ax = plt.subplots(figsize=(6.8, 4.6)) 
+colors = {'
+':'#2ca02c','
+/
+':'#ff7f0e','
+/
+':'#9467bd','
+':'#1f77b4','RPM
+/
+':'#d62728','
+':'#7f7f7f'} 
+for g, sub in df_drift.groupby('group'): 
+    ax.scatter(sub['Delta'], sub['MI'], s=28, alpha=0.85, label=g, c=col-
+ors.get(g, '#7f7f7f')) 
+ax.set_xlabel(
+"); ax.set_ylabel("MI
+") 
+ax.set_title("
+-
+"); ax.legend(ncol=3, font-
+size=9) 
+fig.tight_layout(); fig.savefig("exp_drift_mi_scatter.png", 
+bbox_inches='tight'); print("[
+] exp_drift_mi_scatter.png") 
+plt.show() 
+ 
+gamma_est = median_heuristic_gamma(np.vstack([Xs_sc, Xt_sc])) if 
+(TCA_KERNEL=='rbf' and TCA_GAMMA is None) else (TCA_GAMMA if TCA_GAMMA 
+else 1.0) 
+mmd_before = mmd_rbf_unbiased(Xs_sc, Xt_sc, gamma=gamma_est) 
+coral_before = coral_loss(Xs_sc, Xt_sc) 
+print(f"[
+-
+{mmd_before:.4f}  
+{coral_be-
+fore:.4f}") 
+ 
+Xs_z = zca_whiten(Xs_sc); Xt_z = zca_whiten(Xt_sc) 
+mmd_z = mmd_rbf_unbiased(Xs_z, Xt_z, gamma=gamma_est) 
+coral_z = coral_loss(Xs_z, Xt_z) 
+print(f"[
+-ZCA
+{mmd_z:.4f}  
+{coral_z:.4f}") 
+ 
+Zs, Zt = tca_fit_transform(Xs_z, Xt_z, dim=TCA_DIM, lamb=TCA_LAMBDA, 
+/
+:'#d62728' '
+], s=28, alpha=0
+"); ax.set_
+;
+.s
+"ex
+ight'); print
+mma
+labe
+l("MI
+ax.legend(ncol=
+ift_mi_scatter.p
+exp_drift_mi_s
+heuri
+nd
+
+--- PAGE 92 ---
+                           kernel=TCA_KERNEL, gamma=(gamma_est if 
+TCA_KERNEL=='rbf' else 1.0)) 
+mmd_t = mmd_rbf_unbiased(Zs, Zt, gamma=median_heuris-
+tic_gamma(np.vstack([Zs, Zt]))) 
+coral_t = coral_loss(Zs, Zt) 
+print(f"[
+-TCA
+{mmd_t:.4f}  
+{coral_t:.4f}") 
+ 
+def plot_domain_shift(vals, labels, title, fname): 
+    fig, ax = plt.subplots(figsize=(6.4, 3.2)) 
+    ax.bar(range(len(vals)), vals) 
+    ax.set_xticks(range(len(vals))); ax.set_xticklabels(labels) 
+    ax.set_ylabel("
+"); ax.set_title(title); ax.grid(True, 
+axis='y', alpha=0.35) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print("[
+] {}".format(fname)) 
+    plt.show() 
+ 
+plot_domain_shift([mmd_before, mmd_z, mmd_t], ['MMD-
+','MMD-ZCA','MMD-
+TCA'], 
+                  "
+-
+MMD
+", "exp_shift_mmd.png") 
+plot_domain_shift([coral_before, coral_z, coral_t], ['CORAL-
+','CORAL-
+ZCA','CORAL-TCA'], 
+                  "
+-
+F
+", 
+"exp_shift_coral.png") 
+ 
+m = min(10, TCA_DIM)  
+X_joint_sc2 = np.vstack([Xs_sc, Xt_sc]) 
+Z_joint = np.vstack([Zs, Zt])[:, :m] 
+hsic_scores = [] 
+for j, col in enumerate(src_num_cols): 
+    s = hsic_rbf_1d(X_joint_sc2[:, j], Z_joint)  
+hsic_scores.append((col, s, feature_group(col))) 
+df_hsic = pd.DataFrame(hsic_scores, columns=['fea-
+ture','HSIC','group']).sort_values('HSIC', ascending=False) 
+df_hsic.to_csv("explain_hsic_feature2tca.csv", index=False, encod-
+ing='utf-8-sig') 
+print("[
+] explain_hsic_feature2tca.csv") 
+ 
+toph = df_hsic.head(TOPK_SHOW) 
+fig, ax = plt.subplots(figsize=(8.6, 4.6)) 
+colors_map = {'
+':'#2ca02c','
+/
+':'#ff7f0e','
+/
+bels)
+grid(True, 
+nches='tight')
+md_z, mmd_t], ['MM
+MMD
+"
+e, coral
+-
+al.png")
+m = min( 0, TC
+X_joint_sc2
+Z_joint =
+ic
+,'MMD ZC
+p_shift_mmd.png
+coral_t], ['CORA
+F
+M) 
+.vstack([Xs_sc
+ck([Zs, Zt]
+at
+
+--- PAGE 93 ---
+':'#9467bd','
+':'#1f77b4','RPM
+/
+':'#d62728','
+':'#7f7f7f'} 
+c = [colors_map.get(g, '#7f7f7f') for g in toph['group']] 
+ax.barh(range(len(toph)), toph['HSIC'][::-1], color=c[::-1]) 
+ax.set_yticks(range(len(toph))); ax.set_yticklabels(toph['feature'][::-
+1]) 
+ax.set_xlabel("HSIC
+TCA
+"); ax.set_title("
+ Top-
+{}
+HSIC 
+".format(TOPK_SHOW)) 
+fig.tight_layout(); fig.savefig("exp_hsic_topk.png", 
+bbox_inches='tight'); print("[
+] exp_hsic_topk.png") 
+plt.show() 
+ 
+group_hsic = df_hsic.groupby('group')['HSIC'].sum().sort_values(ascend-
+ing=False) 
+fig, ax = plt.subplots(figsize=(6.0, 3.2)) 
+ax.bar(group_hsic.index, group_hsic.values, color=[colors_map.get(g, 
+'#7f7f7f') for g in group_hsic.index]) 
+ax.set_ylabel("
+HSIC
+"); ax.set_title("
+HSIC
+") 
+for tick in ax.get_xticklabels(): tick.set_rotation(15) 
+fig.tight_layout(); fig.savefig("exp_hsic_group.png", 
+bbox_inches='tight'); print("[
+] exp_hsic_group.png") 
+plt.show() 
+ 
+protos = {} 
+for c in classes: 
+    idx = np.where(ys_str==c)[0] 
+    protos[c] = Zs[idx].mean(axis=0) 
+ 
+tau = np.median(np.linalg.norm(Zs - np.vstack([protos[ys_str[i]] for i in 
+range(len(Zs))]), axis=1)) + 1e-12 
+def proto_soft_prob(z): 
+    ds = np.array([np.linalg.norm(z - protos[c])**2 for c in classes]) 
+    ps = np.exp(-ds/tau); ps = ps/ps.sum() 
+    return ps 
+ 
+Zt_prob = np.vstack([proto_soft_prob(z) for z in Zt]) 
+tgt_win_df = tgt_win_df.reset_index(drop=True) 
+.sort_values(asce
+es, color=[color
+])
+set_title("
+ls(): tick.set_
+g("exp_h
+)
+ri
+]
+protos = 
+r
+tion(15)
+_group.png"
+_hsic_group.png"
+s
+
+--- PAGE 94 ---
+for i,c in enumerate(classes): 
+    tgt_win_df[f'protoP_{c}'] = Zt_prob[:, i] 
+tgt_win_df['proto_label'] = [classes[i] for i in np.argmax(Zt_prob, 
+axis=1)] 
+tgt_win_df['proto_conf'] = Zt_prob.max(axis=1) 
+ 
+file_rows = [] 
+for (short, ch, fn), g in tgt_win_df.groupby(['short','channel','file']): 
+    row = {'file':fn, 'short':short, 'channel':ch, 'n_windows':len(g)} 
+    for i,c in enumerate(classes): 
+        row[f'meanProtoP_{c}'] = g[f'protoP_{c}'].mean() 
+    row['proto_major'] = classes[np.argmax([row[f'meanProtoP_{c}'] for c 
+in classes])] 
+    row['proto_conf'] = max([row[f'meanProtoP_{c}'] for c in classes]) 
+    file_rows.append(row) 
+file_proto_df = pd.DataFrame(file_rows) 
+file_proto_df.to_csv("explain_file_proto_probs.csv", index=False, encod-
+ing='utf-8-sig') 
+print("[
+] explain_file_proto_probs.csv") 
+print(file_proto_df) 
+ 
+def plot_file_probs(df, classes, fname): 
+    fig, ax = plt.subplots(figsize=(6.8,3.6)) 
+    xlabels = [f"{r['short']}-{r['channel']}" for _,r in df.iterrows()] 
+    bars = np.array([[r[f'meanProtoP_{c}'] for c in classes] for _,r in 
+df.iterrows()]) 
+    x = np.arange(len(xlabels)); w = 0.75/len(classes) 
+    for i,c in enumerate(classes): 
+        ax.bar(x + i*w - (len(classes)-1)*w/2, bars[:,i], width=w, la-
+bel=c) 
+    ax.set_xticks(x); ax.set_xticklabels(xlabels) 
+    ax.set_ylim(0.0, 1.0); ax.set_ylabel("
+"); ax.set_title("
+") 
+    ax.legend(ncol=len(classes), fontsize=9); ax.grid(True, axis='y', al-
+pha=0.35) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print("[
+] {}".format(fname)) 
+    plt.show() 
+plot_file_probs(file_proto_df, classes, "exp_file_proto_probs.png") 
+ 
+ProtoP_{c '] for
+] for c i
+cl
+roto_probs.csv"
+oto_probs.csv")
+probs(df, cla
+plt.subpl
+els = f"{r['sho
+s = np.arra
+df.iterrows()]
+= np.
+for i
+x=Fal
+ame)
+ze=(6.8,3.6))
+-{ ['channel']}"
+f'meanProtoP_
+}'
+e( en(xlabels)
+umerat (cla
+i*w -
+
+--- PAGE 95 ---
+lr = LogisticRegression(penalty='l1', solver='saga', multi_class='multi-
+nomial', 
+                        C=1.0, max_iter=4000, random_state=RANDOM_STATE) 
+lr.fit(Zs, y_int) 
+ 
+proba_src = lr.predict_proba(Zs) 
+y_onehot = np.eye(len(classes))[y_int] 
+brier = np.mean(np.sum((y_onehot - proba_src)**2, axis=1)) 
+def expected_calibration_error(p, y, n_bins=10): 
+    conf = p.max(axis=1); pred = p.argmax(axis=1) 
+    acc = (pred==y).astype(float) 
+    bins = np.linspace(0,1,n_bins+1) 
+    ece = 0.0 
+    for i in range(n_bins): 
+        mask = (conf>=bins[i])&(conf<bins[i+1]) 
+        if mask.sum()==0: continue 
+        ece += (mask.mean())*abs(acc[mask].mean() - conf[mask].mean()) 
+    return float(ece) 
+ece = expected_calibration_error(proba_src, y_int, n_bins=10) 
+print(f"[
+] 
+{brier:.4f}  
+{ece:.4f}") 
+ 
+def entropy(p): return -np.sum(p*np.log(p+1e-12), axis=1) 
+proba_tgt_lr = lr.predict_proba(Zt) 
+H_tgt = entropy(proba_tgt_lr) 
+fig, ax = plt.subplots(figsize=(6.4,3.0)) 
+ax.hist(H_tgt, bins=20, alpha=0.85) 
+ax.set_xlabel("
+ H"); ax.set_ylabel("
+"); ax.set_title("
+") 
+fig.tight_layout(); fig.savefig("exp_target_entropy_hist.png", 
+bbox_inches='tight'); print("[
+] exp_target_entropy_hist.png") 
+plt.show() 
+ 
+def plot_sample_contrib(z, prob, title, fname, top=15): 
+    
+c = int(np.argmax(prob)) 
+    coef = lr.coef_[c]  
+contrib = coef * z 
+    order = np.argsort(np.abs(contrib))[::-1][:top] 
+    fig, ax = plt.subplots(figsize=(7.2,3.6)) 
+    vals = contrib[order]; labs = [f"z{idx+1}" for idx in order] 
+1 )
+[mask].mean(
+- c
+ror(proba_src, 
+{brier .4f}
+: return 
+p.
+lr.predi
+entropy(proba_tg
+= plt.subp
+ax.hist(H_tgt,
+ax.set_xlab
+g t
+[mask]
+, n_bins=10)
+ece:.4f}")
+.log(p+1e-12), 
+Zt)
+igsize=(6.4 3.0))
+20
+alpha=0.85)
+H");
+fig.
+
+--- PAGE 96 ---
+    colors = ['#d62728' if v>0 else '#1f77b4' for v in vals] 
+    ax.barh(range(len(order)), vals[::-1], color=colors[::-1]) 
+    ax.set_yticks(range(len(order))); ax.set_yticklabels(labs[::-1]) 
+    ax.set_title(title + f"  (p*={prob.max():.3f})"); ax.set_xlabel("
+") 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+print("[
+] {}".format(fname)) 
+    plt.show() 
+ 
+if {'file','channel','short'}.issubset(tgt_win_df.columns): 
+    for (short, ch), g in tgt_win_df.groupby(['short','channel']): 
+        idx = g['proto_conf'].values.argmax() 
+        ridx = g.index[idx] 
+        z = Zt[ridx] 
+        p = proba_tgt_lr[ridx] 
+        plot_sample_contrib(z, p, f"{short}-{ch} 
+LR
+", 
+                            f"exp_sample_contrib_{short}_{ch}.png", 
+top=15) 
+ 
+def tsne_plot(Xs, Xt, y_str, title, fname): 
+    
+ns = min(800, Xs.shape[0]); nt = min(800, Xt.shape[0]) 
+    idxs = np.random.choice(Xs.shape[0], ns, replace=False) 
+    idxt = np.random.choice(Xt.shape[0], nt, replace=False) 
+    X_vis = np.vstack([Xs[idxs], Xt[idxt]]) 
+    y_vis = np.array([y_str[i] for i in idxs] + ['T']*nt, dtype=object) 
+    
+tsne = TSNE(n_components=2, init='random', learning_rate='auto', 
+                perplexity=30, random_state=RANDOM_STATE) 
+    Z = tsne.fit_transform(X_vis) 
+    fig, ax = plt.subplots(figsize=(8.2,5.0)) 
+    colors = 
+{'OR':'#d62728','IR':'#ff7f0e','B':'#1f77b4','N':'#2ca02c','T':'#7f7f7f'} 
+    for cls in sorted(set(list(classes)+['T'])): 
+        mask = (y_vis==cls) 
+        ax.scatter(Z[mask,0], Z[mask,1], s=14, alpha=0.85, label=cls, 
+c=colors.get(cls,'#7f7f7f')) 
+    ax.set_title(title); ax.set_xlabel("Dim 1"); ax.set_ylabel("Dim 2"); 
+ax.legend(ncol=5, fontsize=9) 
+    ax.grid(True, alpha=0.3) 
+    fig.tight_layout(); fig.savefig(fname, bbox_inches='tight'); 
+]):
+{ h} 
+_contrib_{short}
+Xt, y_str, title,
+00, Xs.sh
+= np.random.cho
+t = np.rand
+X_vis = np
+_vis =
+t
+me):
+nt = min(800, X
+Xs.shape[0], ns,
+ice(Xt.shape[0]
+ack([Xs[idxs], Xt[i
+rray([y_str[i]
+mpon
+le
+
+--- PAGE 97 ---
+print("[
+] {}".format(fname)) 
+    plt.show() 
+ 
+tsne_plot(Xs_sc, Xt_sc, ys_str, "t-SNE
+", "exp_tsne_be-
+fore.png") 
+tsne_plot(Xs_z, Xt_z, ys_str, "t-SNE
+ZCA 
+", 
+"exp_tsne_zca.png") 
+tsne_plot(Zs, Zt, ys_str, "t-SNE
+TCA 
+", "exp_tsne_after.png") 
+ 
+print("\n=== 
+ ===") 
+print(f"MMD: 
+={mmd_before:.4f} 
+={mmd_z:.4f} 
+={mmd_t:.4f}") 
+print(f"CORAL: 
+={coral_before:.4f} 
+={coral_z:.4f} 
+={coral_t:.4f}") 
+print("
+LR
+.format(brier, 
+ece)) 
+print("Top-5 
+") 
+print(df_drift[['feature','Delta','MI','group']].head(5).to_string(in-
+dex=False)) 
+print("Top-5 
+HSIC
+") 
+print(df_hsic[['feature','HSIC','group']].head(5).to_string(index=False)) 
+ 
+print("\n
+") 
+print("- 
+exp_drift_topk.png / exp_drift_mi_scatter.png / ex-
+plain_feature_drift_mi.csv") 
+print("- 
+exp_shift_mmd.png / exp_shift_coral.png / 
+exp_hsic_topk.png / exp_hsic_group.png / explain_hsic_feature2tca.csv") 
+print("- 
+exp_file_proto_probs.png / exp_target_entropy_hist.png / 
+exp_sample_contrib_*.png") 
+print("- 
+exp_tsne_before.png / exp_tsne_zca.png / exp_tsne_af-
+ter.png") 
+md_z:.4f}
+={coral
+ta','MI'
+IC
+['feature
+\n
+print( -
+plain_featu
+print("
+p h
+.forma
+roup']].head(5) t
+)
+group']].head
+")
+_drift_topk.png / e
+ift_mi.cs
+)
+p_shift_mmd
+exp_
+il

@@ -1,0 +1,55 @@
+{
+  "paper_id": "S010",
+  "source": "figure/table captions and full-text context",
+  "explicit_caption_count": 32,
+  "table_caption_count": 33,
+  "pixel_level_audit": false,
+  "argumentation_roles": [
+    {
+      "role": "Q1 waveform representation and separability",
+      "examples": [
+        "图5-2 不同材料下波形可视化",
+        "图5-3 FFT示例",
+        "图5-6 峰度箱图",
+        "图5-8 相关性热力图"
+      ],
+      "lesson": "Start with representative raw waveforms, then show a small number of interpretable shape/frequency features. Perfect separability should be stress-tested across held-out operating regimes, not merely visualized."
+    },
+    {
+      "role": "Q2 physics-hypothesis progression",
+      "examples": [
+        "图6-2/6-3 三维分布",
+        "图6-5/6-6/6-7 修正方程预测"
+      ],
+      "lesson": "Use aligned panels for baseline and each added interaction, but pair them with leave-condition-out residual/error distributions; fitted surfaces alone only show calibration."
+    },
+    {
+      "role": "Q3 factor and interaction evidence",
+      "examples": [
+        "图7-4/7-5/7-6 均值对比",
+        "图7-7 热力图",
+        "图7-8 70C/90C频率分层"
+      ],
+      "lesson": "The frequency-stratified plot is more informative than a global heatmap because it reveals effect reversal. Prefer adjusted marginal effects over raw means when continuous covariates vary."
+    },
+    {
+      "role": "Q4 model/feature progression",
+      "examples": [
+        "表8-2 基本特征",
+        "表8-3 +峰度",
+        "表8-4 +IGSE",
+        "图8-4 综合比较"
+      ],
+      "lesson": "A staged ablation table is strong evidence when every stage uses the identical split and final code path. Radar charts should not replace direct error tables and uncertainty across splits."
+    },
+    {
+      "role": "Q5 optimization evidence",
+      "examples": [
+        "表9-1/9-2 optimizer comparison",
+        "表9-3~9-5 48组合LER"
+      ],
+      "lesson": "Show a Pareto/scalarization-normalization audit, categorical feasibility and repeated-run distributions. One best row is insufficient when stochastic optimizers and mixed categories are involved."
+    }
+  ],
+  "style_learning_boundary": "No source PDF pixels mounted; visual style/colors/fonts are not claimed learned."
+}

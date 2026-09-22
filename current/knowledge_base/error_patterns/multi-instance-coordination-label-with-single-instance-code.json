@@ -1,0 +1,11 @@
+{
+  "id": "multi-instance-coordination-label-with-single-instance-code",
+  "name": "Multi-instance collaboration label without joint-state implementation",
+  "severity": "high",
+  "trigger": "paper claims multi-sequence/multi-instance collaborative optimization but code processes each instance independently with no shared constraint/state",
+  "risk": "claimed coordination benefit is not evidenced by implementation",
+  "gate": "trace at least one decision variable/constraint/objective coupling across instances; otherwise label as per-instance optimization",
+  "source_examples": [
+    "2025-A-S027-Q3"
+  ]
+}

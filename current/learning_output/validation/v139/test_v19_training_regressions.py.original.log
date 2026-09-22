@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "passed": 16,
+  "tests": [
+    "S039 four questions",
+    "S039 figure argumentation",
+    "S040 four questions",
+    "S040 figure argumentation",
+    "S041 four questions",
+    "S041 figure argumentation",
+    "cross map Q1-Q4",
+    "teacher code identity boundary",
+    "two supplemental code cases",
+    "GTeacher2 Q3 CORAL",
+    "overlapping-window-split-leakage.json",
+    "unlabeled-target-metric-overclaim.json",
+    "preprocessing-before-split-leakage.json",
+    "five evidence figure templates",
+    "five nonempty smoke PNGs",
+    "2025E papers core-reviewed metadata"
+  ]
+}
+

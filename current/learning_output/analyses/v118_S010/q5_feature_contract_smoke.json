@@ -1,0 +1,333 @@
+{
+  "source": "exact helper-function semantics transcribed from S010 printed Q5 appendix",
+  "status": "PASS_AS_BUG_REPRODUCTION",
+  "finding": "objective_function converts integer category ids to Chinese strings, then calls one-hot helpers that compare against integer ids; all waveform/material one-hot bits become zero",
+  "all_12_pairs_collapse_to_zero_category_vectors": true,
+  "examples": [
+    {
+      "waveform_id": 1,
+      "material_id": 1,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        1,
+        0,
+        0
+      ],
+      "expected_material_vector": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 1,
+      "material_id": 2,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        1,
+        0,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 1,
+      "material_id": 3,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        1,
+        0,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 1,
+      "material_id": 4,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        1,
+        0,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 2,
+      "material_id": 1,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        1,
+        0
+      ],
+      "expected_material_vector": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 2,
+      "material_id": 2,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        1,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 2,
+      "material_id": 3,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        1,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 2,
+      "material_id": 4,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        1,
+        0
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 3,
+      "material_id": 1,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        0,
+        1
+      ],
+      "expected_material_vector": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 3,
+      "material_id": 2,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        0,
+        1
+      ],
+      "expected_material_vector": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 3,
+      "material_id": 3,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        0,
+        1
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "printed_all_zero_categories": true
+    },
+    {
+      "waveform_id": 3,
+      "material_id": 4,
+      "printed_wave_vector": [
+        0,
+        0,
+        0
+      ],
+      "printed_material_vector": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "expected_wave_vector": [
+        0,
+        0,
+        1
+      ],
+      "expected_material_vector": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "printed_all_zero_categories": true
+    }
+  ],
+  "implication": "the printed optimizer does not actually evaluate the intended material/waveform category features, even though the decision vector contains their ids"
+}

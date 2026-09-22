@@ -1,0 +1,14 @@
+{
+  "pattern": "frame-aggregation-paper-code-mismatch",
+  "description": "Paper states an FPS or frames-per-interval contract that differs from the actual code aggregation counter.",
+  "detection": [
+    "paper says N frames = Δt",
+    "code emits/aggregates after a different frame count",
+    "reported flow/speed/density depend on the interval"
+  ],
+  "remedy": [
+    "create one timebase registry with FPS, frame stride and aggregation seconds",
+    "derive counters and plot axes from the registry",
+    "replay a known-duration clip and verify record count"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "heuristic sensor relocation without optimization contract",
+  "trigger": "a sensor-placement task asks to optimize number/location/cost but prose proposes locations heuristically",
+  "gate": "define location/count decision variables, feasible domain, cost/coverage/accuracy objective, and replay the final placement",
+  "source_example": "S019 Q4 proposes moving B to E and optionally adding F without coordinates/objective/optimization"
+}

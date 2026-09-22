@@ -1,0 +1,143 @@
+{
+  "paper_id": "S009",
+  "case_group": "2024-C",
+  "year": 2024,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 71,
+  "title": "C24102890089",
+  "paper_title": "数据驱动下磁性元件的磁芯损耗建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_Q5_PRINTED_FRAGMENT_SMOKE",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "waveform feature engineering",
+        "MLP classifier",
+        "random forest classifier",
+        "claimed MLP-RF weighted ensemble"
+      ],
+      "strengths": [
+        "recognizes waveform geometry can be compressed into time/shape/frequency descriptors",
+        "uses confusion-matrix/classification metrics rather than accuracy alone in the paper narrative"
+      ],
+      "risks": [
+        "printed feature extractor is hard-coded to material1 rather than the full four-material training set",
+        "paper claims peak/kurtosis/skew/slope/frequency features while printed classifiers use an undefined X and inference selects mean/peak/std, so train/inference feature contract is not reproducible",
+        "printed RF uses 100 trees while prose says 500 and contains an unrelated copied sentence about selecting top-20 molecular descriptors",
+        "no printed implementation of the claimed MLP-RF probability-weighted ensemble",
+        "paper validation narrative and printed train_test_split path do not clearly describe the same evaluation sample source"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "original Steinmetz log-linear fit",
+        "Solow exponential temperature factor",
+        "logistic/saturation temperature factor",
+        "quadratic temperature correction"
+      ],
+      "strengths": [
+        "keeps a named physics model as the baseline",
+        "compares residual behavior and MAPE/R2 across several temperature corrections",
+        "recognizes nonlinear parameter instability as a model-selection concern"
+      ],
+      "risks": [
+        "all reported model-comparison metrics are in-sample fit evidence; no held-out-temperature validation is shown",
+        "polynomial table is described as unstable although the two displayed initializations give nearly identical estimates except transcription/rounding, so the stated reason is not fully supported by the displayed table",
+        "scientific-notation/parameter transcription drifts appear between equations and parameter tables",
+        "temperature-saturation formula signs/parameter signs are inconsistent between prose/equations and printed code",
+        "Bm is taken as row-wise maximum without an explicit max-absolute or half-peak-to-peak convention check"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "one-way ANOVA for temperature/waveform/material",
+        "two-way ANOVA interactions",
+        "three-way ANOVA in printed code",
+        "group-average enumeration for minimum-loss condition"
+      ],
+      "strengths": [
+        "maps the requested main effects and two-way interactions to explicit statistical terms",
+        "reports F and p values and provides interaction-model code rather than only descriptive means"
+      ],
+      "risks": [
+        "raw-loss ANOVA does not adjust for frequency and Bm, two strong continuous covariates, so factor and interaction effects can be confounded by operating-condition distributions",
+        "p values are treated as impact magnitude although statistical significance is not effect size",
+        "Table 19 is labeled waveform-material but its interaction row is labeled temperature-material and numerically repeats the temperature-waveform interaction, indicating likely copy/transcription drift",
+        "temperature-material interaction has p≈0.732, so any blanket claim that all factor pairs have significant synergy is unsupported",
+        "the minimum condition is selected by raw group-average loss without conditioning on frequency/Bm support"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "equivalent-sinusoidal-frequency Steinmetz correction",
+        "12 separate material×waveform Solow-style models",
+        "in-sample MAPE/R2 evaluation",
+        "attachment-3 prediction"
+      ],
+      "strengths": [
+        "retains an interpretable physics baseline across waveform types",
+        "explicitly separates material/waveform regimes instead of forcing one opaque global parameter set"
+      ],
+      "risks": [
+        "generalization is claimed from fitting metrics without an independent grouped/out-of-condition test",
+        "Table 27/28 contain parameter transcription mismatches, including material2 sine alpha 1.7181 vs 1.781 and trapezoid coefficients changing across the two tables",
+        "printed Q4 code fits one selected file/sheet rather than showing the full 12-model routing pipeline",
+        "a 12-piece model needs an applicability-domain and routing contract; boundary behavior and sparse-regime support are not evaluated"
+      ]
+    },
+    "Q5": {
+      "route": [
+        "ratio scalarization min(P/Q)",
+        "claimed mixed-integer PSO over temperature/frequency/Bm/waveform/material",
+        "printed scipy.optimize.minimize over f/Bm/U only"
+      ],
+      "strengths": [
+        "keeps both loss and transmitted-energy proxy in the paper-level objective definition",
+        "recognizes material and waveform as discrete decision variables in the mathematical formulation"
+      ],
+      "risks": [
+        "printed code is scipy.optimize.minimize, not PSO, and omits waveform/material discrete variables, so it does not implement the claimed mixed-integer 12-model search",
+        "printed power-loss exponent f**2.7181 conflicts with the nearby material2 sine parameter alpha≈1.7181",
+        "paper-reported frequencies 694891/813076 exceed the printed f_max=320000 and the linear-result temperature 22 is below printed U_min=25",
+        "paper text gives PSO temperature 90 while Table 33 gives 70",
+        "exact smoke of the printed code converges to the boundary [f≈50000,Bm≈0.1,U≈90], not the reported point",
+        "ratio scalarization P/Q imposes a fixed preference and can hide the Pareto tradeoff; no Pareto front/support-domain check is shown"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "15-19",
+      "claim": "Q1 prose describes RF/MLP/weighted ensemble and evaluation; appendix later shows only separate RF/MLP classifiers"
+    },
+    {
+      "pages": "53-57",
+      "claim": "Q1 printed feature/classifier code has material1-only extraction, undefined X, and mean/peak/std inference features"
+    },
+    {
+      "pages": "27-30",
+      "claim": "Q2 model metrics/parameter-stability rationale and table values"
+    },
+    {
+      "pages": "35,64-67",
+      "claim": "Q3 interaction tables and actual statsmodels formulas"
+    },
+    {
+      "pages": "42-43",
+      "claim": "Q4 parameter tables contain cross-table coefficient drifts"
+    },
+    {
+      "pages": "47-49,70-71",
+      "claim": "Q5 paper claims PSO/mixed variables while printed code uses scipy minimize with narrower continuous bounds"
+    }
+  ],
+  "transfer_lessons": [
+    "Freeze a feature schema: raw extraction, training matrix, inference matrix and paper feature list must be machine-checked for identical names/order/transformations.",
+    "For factor-effect questions, adjust strong continuous covariates before interpreting categorical main effects/interactions; report effect sizes and uncertainty, not p values alone.",
+    "Use a parameter registry so equations, tables, code and optimization all read the same fitted coefficients; reject manual coefficient re-entry.",
+    "Every reported optimum must be re-evaluated by the exact objective and checked against every bound/category/support constraint before paper export.",
+    "A claimed algorithm name (PSO/GA/NSGA-II/etc.) must map to executable code of that algorithm; a generic local optimizer is not equivalent.",
+    "Generalization requires held-out conditions/groups; in-sample R2/MAPE is calibration evidence only."
+  ]
+}

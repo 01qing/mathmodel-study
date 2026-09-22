@@ -1,0 +1,44 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "modules": [
+    {
+      "id": "S033_Q1_DEPLOYMENT_COST_MODEL_SELECTION",
+      "question": "Q1",
+      "transferable": "yes_after_validation",
+      "module": "separate best predictive model from best contest/deployment route by scoring accuracy, annotation burden, runtime and interpretability",
+      "compatibility": "requires at least a small independent labeled audit set to quantify predictive quality"
+    },
+    {
+      "id": "S033_Q2_FIXED_PERIOD_GEOMETRY",
+      "question": "Q2",
+      "transferable": "yes",
+      "module": "when borehole diameter is known, fix P=pi*D and fit only amplitude/phase/center with robust bounds",
+      "compatibility": "requires calibrated unfolded horizontal coordinate and consistent amplitude convention"
+    },
+    {
+      "id": "S033_Q3_PROFILE_CONTRACT",
+      "question": "Q3",
+      "transferable": "yes",
+      "module": "validate that roughness input is an ordered single-valued physical profile before applying dy/dx or d2y/dx2 estimators",
+      "compatibility": "if profile doubles back, reparameterize by arc length or extract centerline first"
+    },
+    {
+      "id": "S033_Q4_ACTIVE_MEASUREMENT_CONCEPT",
+      "question": "Q4",
+      "transferable": "yes_after_reformulation",
+      "module": "use uncertainty hotspots to generate candidate measurements, then rank by expected posterior uncertainty reduction under hard engineering constraints",
+      "compatibility": "needs an observation/update model; current local-entropy proxy is insufficient"
+    }
+  ],
+  "blocked_transfers": [
+    "copy fixed GMM n_components=3 to variable-fracture images",
+    "treat per-instance neural parameter optimization as cross-instance learned regression",
+    "use an arbitrary closed contour as y(x) roughness profile",
+    "copy Z3/JRC coefficients without calibration provenance",
+    "call -sum p log p Bernoulli uncertainty",
+    "call current local entropy information gain",
+    "use simulated/common-sense fracture inputs as attachment-4 evidence",
+    "copy 300 mm code threshold when contract says 500 mm"
+  ]
+}

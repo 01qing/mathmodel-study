@@ -1,0 +1,39 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "modules": [
+    {
+      "module_id": "S026-Q1-feasible-neighborhood-search",
+      "from_question": "Q1",
+      "input_contract": "valid topological schedule + DAG",
+      "output_contract": "valid neighboring schedule",
+      "keep": "topology-preserving swap/insert idea plus explicit post-move feasibility replay",
+      "repair_before_reuse": "store tabu moves as structured tokens/tuples; include size/criticality only if actually implemented and validated"
+    },
+    {
+      "module_id": "S026-Q2-event-driven-runtime-evaluator",
+      "from_question": "Q2 appendix",
+      "input_contract": "full schedule + node cycles + pipe assignment + dependency edges",
+      "output_contract": "makespan/finish time",
+      "keep": "resource timeline + predecessor finish-time recurrence is a useful reusable evaluator",
+      "repair_before_reuse": "validate pipeline concurrency semantics and synchronize result registry with transfer metric"
+    },
+    {
+      "module_id": "S026-Q2-feasibility-replay",
+      "from_question": "Q2 appendix",
+      "input_contract": "decoded offsets/spills/schedule",
+      "output_contract": "capacity, overlap, L0, topology and reuse violation counts",
+      "keep": "multi-gate feasibility replay before accepting objective value",
+      "repair_before_reuse": "use exact same lifecycle semantics after SPILL insertion as the decoder"
+    },
+    {
+      "module_id": "S026-Q3-dual-population-concept",
+      "from_question": "Q3",
+      "input_contract": "feasible encoded decisions + two objective functions",
+      "output_contract": "candidate nondominated archive",
+      "keep": "separate convergence/exploration populations as a high-risk optional module",
+      "repair_before_reuse": "must first restore correct transfer metric, hard cap and executable algorithm; benchmark against NSGA-II/epsilon baseline"
+    }
+  ],
+  "method_composer_rule": "S026 modules may be combined with S025 only after common-evaluator agreement on buffer lifecycle, SPILL bytes, runtime cycles, hard constraints and feasible decision encoding."
+}

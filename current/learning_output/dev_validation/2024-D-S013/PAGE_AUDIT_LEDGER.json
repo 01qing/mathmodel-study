@@ -1,0 +1,1061 @@
+{
+  "source_sha256": "a8c55b50f7be97971dc0b5844952dcbdc6929c07f52f841c0d0add83bec7628d",
+  "total_pages": 113,
+  "visual_count": 113,
+  "text_count": 113,
+  "basis": "Assistant actually inspected original-PDF renders and extracted text over continued turns; page images alone do not prove review.",
+  "precision_limit": "Contact sheets support page/layout review; only legible values transcribed. Unresolved small labels are not invented.",
+  "printed_code_static_pages": [
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113
+  ],
+  "pages": [
+    {
+      "physical_page": 1,
+      "printed_page": null,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch01.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 2,
+      "printed_page": 1,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch01.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 3,
+      "printed_page": 2,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch01.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 4,
+      "printed_page": 3,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch01.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 5,
+      "printed_page": 4,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch02.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 6,
+      "printed_page": 5,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch02.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 7,
+      "printed_page": 6,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch02.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 8,
+      "printed_page": 7,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch02.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 9,
+      "printed_page": 8,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch03.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 10,
+      "printed_page": 9,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch03.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 11,
+      "printed_page": 10,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch03.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 12,
+      "printed_page": 11,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch03.png",
+      "topic": "摘要、题目重述、数据和总体技术路线",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 13,
+      "printed_page": 12,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch04.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 14,
+      "printed_page": 13,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p014.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "年降水统计与日均×100聚合假设核对。"
+    },
+    {
+      "physical_page": 15,
+      "printed_page": 14,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch04.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 16,
+      "printed_page": 15,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch04.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 17,
+      "printed_page": 16,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch04.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 18,
+      "printed_page": 17,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch05.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 19,
+      "printed_page": 18,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p019.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "土地面积比例统计域未恢复，不能由单年吻合推广。"
+    },
+    {
+      "physical_page": 20,
+      "printed_page": 19,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch05.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 21,
+      "printed_page": 20,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch05.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 22,
+      "printed_page": 21,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch05.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 23,
+      "printed_page": 22,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p023.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "降水年度量/日尺度极端概念区分。"
+    },
+    {
+      "physical_page": 24,
+      "printed_page": 23,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p024.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "整数截断与打印round不一致；整数格不等于0.5度格。"
+    },
+    {
+      "physical_page": 25,
+      "printed_page": 24,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p025.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "年度气温概念与Jan1代码对照。"
+    },
+    {
+      "physical_page": 26,
+      "printed_page": 25,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch06.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 27,
+      "printed_page": 26,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch06.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 28,
+      "printed_page": 27,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch06.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 29,
+      "printed_page": 28,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch06.png",
+      "topic": "Q1时空统计、图例、土地与气候描述",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 30,
+      "printed_page": 29,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p030.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "浅树解释路径；随机行拆分不能替代时空留出。"
+    },
+    {
+      "physical_page": 31,
+      "printed_page": 30,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch07.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 32,
+      "printed_page": 31,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch07.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 33,
+      "printed_page": 32,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch07.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 34,
+      "printed_page": 33,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch07.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 35,
+      "printed_page": 34,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch08.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 36,
+      "printed_page": 35,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch08.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 37,
+      "printed_page": 36,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch08.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 38,
+      "printed_page": 37,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch08.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "分组最大值不等于单场事件极值。"
+    },
+    {
+      "physical_page": 39,
+      "printed_page": 38,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch09.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 40,
+      "printed_page": 39,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch09.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 41,
+      "printed_page": 40,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch09.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 42,
+      "printed_page": 41,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch09.png",
+      "topic": "Q2树模型、分组关系、验证口径",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 43,
+      "printed_page": 42,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p043.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "坡度单位与滚动降水标准差的地质含义不一致。"
+    },
+    {
+      "physical_page": 44,
+      "printed_page": 43,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p044.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "指数指标和方向审查。"
+    },
+    {
+      "physical_page": 45,
+      "printed_page": 44,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p045.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "熵归一化样本轴与指标轴。"
+    },
+    {
+      "physical_page": 46,
+      "printed_page": 45,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p046.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "指数标签与真实灾害结果分开。"
+    },
+    {
+      "physical_page": 47,
+      "printed_page": 46,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch10.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "正文重要性百分比与图F-score计数不同口径。"
+    },
+    {
+      "physical_page": 48,
+      "printed_page": 47,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch10.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "可见浅树与另一深度树作为独立run登记。"
+    },
+    {
+      "physical_page": 49,
+      "printed_page": 48,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch10.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "树阈值是样本内解释，不是独立灾害阈值。"
+    },
+    {
+      "physical_page": 50,
+      "printed_page": 49,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch10.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 51,
+      "printed_page": 50,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p051.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "表5.3数值；全国输入未给空间分解链。"
+    },
+    {
+      "physical_page": 52,
+      "printed_page": 51,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p052.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "草地0.003与表5.3草地0.020不一致。"
+    },
+    {
+      "physical_page": 53,
+      "printed_page": 52,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch11.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 54,
+      "printed_page": 53,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch11.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 55,
+      "printed_page": 54,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch11.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 56,
+      "printed_page": 55,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch11.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "湿地预测图可见负值，比例约束未保障。"
+    },
+    {
+      "physical_page": 57,
+      "printed_page": 56,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p057.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "SVR指标为作者报告；后续空间图目标来源待追。"
+    },
+    {
+      "physical_page": 58,
+      "printed_page": 57,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p058.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "图5.24显示年度降水Gi*，正文称易损性预测。"
+    },
+    {
+      "physical_page": 59,
+      "printed_page": 58,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p059.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "空间热点解释与预测指标不得互换。"
+    },
+    {
+      "physical_page": 60,
+      "printed_page": 59,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p060.png",
+      "topic": "Q3易损性指数、预测、结果图表",
+      "note": "Local Moran图与SVR结果的run映射缺失。"
+    },
+    {
+      "physical_page": 61,
+      "printed_page": 60,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch12.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 62,
+      "printed_page": 61,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch12.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 63,
+      "printed_page": 62,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p063.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "SDE角度/轴公式不保证正交；特征分解反例核验。"
+    },
+    {
+      "physical_page": 64,
+      "printed_page": 63,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch12.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "土地高密度阈值来源和百分比换算；外部统计未独立验证。"
+    },
+    {
+      "physical_page": 65,
+      "printed_page": 64,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch12.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 66,
+      "printed_page": 65,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch13.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "森林第二、第三阶段方向与经纬度增减矛盾。"
+    },
+    {
+      "physical_page": 67,
+      "printed_page": 66,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch13.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "椭圆范围面积与实际资源面积不可混同。"
+    },
+    {
+      "physical_page": 68,
+      "printed_page": 67,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch13.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "KDE变量是coverage_ratio，不能证明二维坐标正态。"
+    },
+    {
+      "physical_page": 69,
+      "printed_page": 68,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch13.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "覆盖率边际分布不等于空间联合分布。"
+    },
+    {
+      "physical_page": 70,
+      "printed_page": 69,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch14.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "同前；协方差描述与概率覆盖声明分开。"
+    },
+    {
+      "physical_page": 71,
+      "printed_page": 70,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p071.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "一维68%规则不能直接用于二维椭圆。"
+    },
+    {
+      "physical_page": 72,
+      "printed_page": 71,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p072.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "方向/覆盖解释应限定几何描述。"
+    },
+    {
+      "physical_page": 73,
+      "printed_page": 72,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p073.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "用途声明需独立任务验证。"
+    },
+    {
+      "physical_page": 74,
+      "printed_page": 73,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch14.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 75,
+      "printed_page": 74,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch14.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 76,
+      "printed_page": 75,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p076.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "人口/GDP/土地叠加支持描述，不证明独立效用提升。"
+    },
+    {
+      "physical_page": 77,
+      "printed_page": 76,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch14.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 78,
+      "printed_page": 77,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch15.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 79,
+      "printed_page": 78,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p079.png",
+      "topic": "Q4空间摘要、椭圆、用途和局限",
+      "note": "作者局限承认年度尺度难识别短时事件。"
+    },
+    {
+      "physical_page": 80,
+      "printed_page": 79,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch15.png",
+      "topic": "参考文献与附录衔接",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 81,
+      "printed_page": 80,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch15.png",
+      "topic": "参考文献与附录衔接",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 82,
+      "printed_page": 81,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch15.png",
+      "topic": "打印Python代码静态审计",
+      "note": "投影/TFW定义和函数调用边界。"
+    },
+    {
+      "physical_page": 83,
+      "printed_page": 82,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch16.png",
+      "topic": "打印Python代码静态审计",
+      "note": "返回命名DataFrame与整数列访问不兼容。"
+    },
+    {
+      "physical_page": 84,
+      "printed_page": 83,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch16.png",
+      "topic": "打印Python代码静态审计",
+      "note": "全文件处理函数存在，调用被注释，不能认定执行。"
+    },
+    {
+      "physical_page": 85,
+      "printed_page": 84,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p085.png",
+      "topic": "打印Python代码静态审计",
+      "note": "仅Jan1气温；像元中心+.1与+.5不同。"
+    },
+    {
+      "physical_page": 86,
+      "printed_page": 85,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch16.png",
+      "topic": "打印Python代码静态审计",
+      "note": "round取整与正文截断不一致。"
+    },
+    {
+      "physical_page": 87,
+      "printed_page": 86,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p087.png",
+      "topic": "打印Python代码静态审计",
+      "note": "降水Value乘100；不能据此认定完整Q1数据链。"
+    },
+    {
+      "physical_page": 88,
+      "printed_page": 87,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch16.png",
+      "topic": "打印Python代码静态审计",
+      "note": "合并输入列名与前段输出列名不一致。"
+    },
+    {
+      "physical_page": 89,
+      "printed_page": 88,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch17.png",
+      "topic": "打印Python代码静态审计",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 90,
+      "printed_page": 89,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch17.png",
+      "topic": "打印Python代码静态审计",
+      "note": "回归分支存在正确train/test分开。"
+    },
+    {
+      "physical_page": 91,
+      "printed_page": 90,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p091.png",
+      "topic": "打印Python代码静态审计",
+      "note": "阈值250与正文300不一致；拆分存在。"
+    },
+    {
+      "physical_page": 92,
+      "printed_page": 91,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p092.png",
+      "topic": "打印Python代码静态审计",
+      "note": "该分支随后全量拟合和评估。"
+    },
+    {
+      "physical_page": 93,
+      "printed_page": 92,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch17.png",
+      "topic": "打印Python代码静态审计",
+      "note": "按年最大记录不是单场事件最大。"
+    },
+    {
+      "physical_page": 94,
+      "printed_page": 93,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch17.png",
+      "topic": "打印Python代码静态审计",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 95,
+      "printed_page": 94,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch18.png",
+      "topic": "打印Python代码静态审计",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 96,
+      "printed_page": 95,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch18.png",
+      "topic": "打印Python代码静态审计",
+      "note": "三行滚动非三年；全时期分位数/趋势有泄漏风险。"
+    },
+    {
+      "physical_page": 97,
+      "printed_page": 96,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch18.png",
+      "topic": "打印Python代码静态审计",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 98,
+      "printed_page": 97,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p098.png",
+      "topic": "打印Python代码静态审计",
+      "note": "terrain跨年展开后仅坐标合并，有30倍重复风险。"
+    },
+    {
+      "physical_page": 99,
+      "printed_page": 98,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p099.png",
+      "topic": "打印Python代码静态审计",
+      "note": "实际五列minmax均值非正文熵权；无可见完整导入链。"
+    },
+    {
+      "physical_page": 100,
+      "printed_page": 99,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch18.png",
+      "topic": "打印Python代码静态审计",
+      "note": "High/Low字符串LabelEncoder；伪标签不是真实灾害。"
+    },
+    {
+      "physical_page": 101,
+      "printed_page": 100,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch19.png",
+      "topic": "打印Python代码静态审计",
+      "note": "XGB分支有训练测试拆分；重要性类型不统一。"
+    },
+    {
+      "physical_page": 102,
+      "printed_page": 101,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch19.png",
+      "topic": "打印Python代码静态审计",
+      "note": "class_names顺序逆于字符串编码。"
+    },
+    {
+      "physical_page": 103,
+      "printed_page": 102,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch19.png",
+      "topic": "打印Python代码静态审计",
+      "note": "已检查本页正文、可见公式、图表/图例或代码；结论按所在问题的证据链登记，不单凭本页赋予验证通过。"
+    },
+    {
+      "physical_page": 104,
+      "printed_page": 103,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch19.png",
+      "topic": "打印Python代码静态审计",
+      "note": "按Year全国汇总未来输入。"
+    },
+    {
+      "physical_page": 105,
+      "printed_page": 104,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p105.png",
+      "topic": "打印Python代码静态审计",
+      "note": "[4:5]仅湿地，ARIMA(3,0,6)17步；非六变量完整脚本。"
+    },
+    {
+      "physical_page": 106,
+      "printed_page": 105,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch20.png",
+      "topic": "打印Python代码静态审计",
+      "note": "拟合误差不能替代未来回测。"
+    },
+    {
+      "physical_page": 107,
+      "printed_page": 106,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch20.png",
+      "topic": "打印Python代码静态审计",
+      "note": "numeric High=1分支命名正确；实际DecisionTree而非注释XGB。"
+    },
+    {
+      "physical_page": 108,
+      "printed_page": 107,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/p108.png",
+      "topic": "打印Python代码静态审计",
+      "note": "SVR变量定义顺序不完整，误差变量可能陈旧；缺空间输入。"
+    },
+    {
+      "physical_page": 109,
+      "printed_page": 108,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch20.png",
+      "topic": "打印Python代码静态审计",
+      "note": "人口年份链不全，范围与多年均值描述不同。"
+    },
+    {
+      "physical_page": 110,
+      "printed_page": 109,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch20.png",
+      "topic": "打印Python代码静态审计",
+      "note": "人口/GDP投影返回轴顺序不一致，实际取决于版本；固定always_xy。"
+    },
+    {
+      "physical_page": 111,
+      "printed_page": 110,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch21.png",
+      "topic": "打印Python代码静态审计",
+      "note": "总量栅格均值聚合需注明测度；不能当守恒总量。"
+    },
+    {
+      "physical_page": 112,
+      "printed_page": 111,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch21.png",
+      "topic": "打印Python代码静态审计",
+      "note": "打印KDE覆盖率代码不构成SDE/GIS运行链。"
+    },
+    {
+      "physical_page": 113,
+      "printed_page": 112,
+      "text_review": "COMPLETED",
+      "visual_review": "COMPLETED",
+      "visual_evidence": "visual/sheets/batch21.png",
+      "topic": "打印Python代码静态审计",
+      "note": "KDE绘图结尾，未见SDE、Gi*、Local Moran完整执行代码。"
+    }
+  ]
+}

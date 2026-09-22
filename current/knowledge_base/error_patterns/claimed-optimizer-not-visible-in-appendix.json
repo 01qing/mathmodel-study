@@ -1,0 +1,6 @@
+{
+  "pattern": "claimed_optimizer_not_visible_in_appendix",
+  "definition": "Paper names an optimizer/solver as final method but visible code evidence implements only a simpler heuristic fragment.",
+  "example": "S025 claims ILP/CBC, SA and Pareto/2-opt, but corresponding printed program fragments do not expose those loops/solver calls.",
+  "gate": "Record paper-claimed versus implementation-visible separately; do not upgrade to reproduced until source and execution evidence exist."
+}

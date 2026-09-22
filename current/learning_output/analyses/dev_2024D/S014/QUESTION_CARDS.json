@@ -1,0 +1,195 @@
+{
+  "paper": "S014",
+  "split": "dev",
+  "cards": [
+    {
+      "question": "Q1",
+      "pdf_pages": [
+        6,
+        18
+      ],
+      "task": "降水与土地时空变化描述",
+      "target": "daily_mm→annual_total_mm；1990–2020降水/1990–2019土地，面积加权同一有效域",
+      "baseline": "冻结方案：共同支持域年累计/面积加权趋势与五类净变化；明确2020土地缺失",
+      "author": "逐日TIFF→递归平均→MK/Sen地图；五类覆盖度相对变化",
+      "alternatives": [
+        "带ties修正的MK+Sen描述趋势",
+        "OLS+块bootstrap置信区间；有季节性时季节分解"
+      ],
+      "not_recommended": [
+        "直接把显著趋势当未来预测优胜",
+        "零值全删、不同掩膜总量相减、逐月均值等权"
+      ],
+      "why_select": "先保证量纲、时间轴、面积权重；作者MK/Sen可补描述但不改变原冻结结果",
+      "why_not": "作者聚合/年份/分类/打印数组存在冲突；不复制地图比例当真值",
+      "switch_conditions": "仅在时间支持、mask、ties与自相关处理明确后采用MK；外推另需hindcast",
+      "six_hour_baseline": [
+        "0–1h数据日历/mask审计",
+        "1–3h年累计和面积总量",
+        "3–4h净变化/稳健斜率",
+        "4–5h局部数学校验",
+        "5–6h图及限制"
+      ],
+      "transferable_modules": [
+        "有tie的signed-pair统计量与exact小样本arbiter",
+        "效果方向和显著性分离",
+        "有效日数加权"
+      ],
+      "error_modes": [
+        "公式与代码分母不一致",
+        "效果阈值重叠",
+        "一维mask/二维栅格错配"
+      ],
+      "reproduction_level": "R2",
+      "reproduction_boundary": "只有Sen/MK打印代码；上游栅格生成缺失；未复现作者全国图",
+      "method_competition": "冻结描述基线保留；作者稳健趋势为条件模块，不比较不同量纲全国均值",
+      "skill_rule_action": "Dev候选规则，记录来源；不进入Train检索，不追改冻结解答",
+      "validation": "AUDIT_REPLAY.json local mechanisms; full author pipeline NOT_RUN",
+      "mini_transfer": "题组S015/S016未完成；final groupMiniTransfer待题组结束，当前fixture非盲测"
+    },
+    {
+      "question": "Q2",
+      "pdf_pages": [
+        19,
+        34
+      ],
+      "task": "地形气候与极端降水关系",
+      "target": "作者长时段暴雨次数；冻结方案年度Rx1day，两者不可直接比较分数",
+      "baseline": "冻结年度Rx1day气候态；若改计数任务，先按有效日数估计常数/分区事件率",
+      "author": "线性回归、RF、SVM、XGB、AdaBoost，地形与平均温度→累计暴雨次数",
+      "alternatives": [
+        "带exposure offset的Poisson/负二项计数模型",
+        "GAM含地形-温度交互",
+        "浅树/RF作为同预算非线性候选"
+      ],
+      "not_recommended": [
+        "按真实Y阈值选择预测分支",
+        "空间随机holdout支持未来或新区域外推",
+        "以importance作为因果机制"
+      ],
+      "why_select": "保持冻结验证选出的简单路线；新计数任务需新的独立评价合同",
+      "why_not": "作者XGB对RF表格MSE只降.441%，没有时空阻塞重复证据；与Rx1day分数不兼容",
+      "switch_conditions": "统一target/cohort/offset/时空划分及训练预算，多块稳定实质增益且尾部误差不恶化",
+      "six_hour_baseline": [
+        "0–1h事件定义与有效日",
+        "1–2h空间对齐和循环坡向",
+        "2–3h常数/分区率",
+        "3–4hGAM或计数基线",
+        "4–5h阻塞验证",
+        "5–6h残差/数据限制"
+      ],
+      "transferable_modules": [
+        "同一heldout实体集合竞争",
+        "坡向sin/cos对齐",
+        "事件率分母随表输出"
+      ],
+      "error_modes": [
+        "shape匹配冒充地理对齐",
+        "NoData哨兵未清理",
+        "改cohort后直接比较R2"
+      ],
+      "reproduction_level": "R2",
+      "reproduction_boundary": "RF/XGB打印主循环可审计，但作者暴雨次数、坡度/温度中间栅格及模型产物缺失",
+      "method_competition": "S014比冻结方案增加每日事件计数视角；不是用另一目标的高R2推翻冻结基线",
+      "skill_rule_action": "Dev候选规则，记录来源；不进入Train检索，不追改冻结解答",
+      "validation": "AUDIT_REPLAY.json local mechanisms; full author pipeline NOT_RUN",
+      "mini_transfer": "题组S015/S016未完成；final groupMiniTransfer待题组结束，当前fixture非盲测"
+    },
+    {
+      "question": "Q3",
+      "pdf_pages": [
+        34,
+        42
+      ],
+      "task": "危险-暴露-脆弱性及未来情景",
+      "target": "成灾标签缺失下的条件风险指数，不是校准灾害概率",
+      "baseline": "冻结Pcrit=K/[C(L)T]条件情景；持久性中心，历史rolling hindcast优于线性外推",
+      "author": "DEM排水网络+MK门控Sen预测+HEV/AHP/ArcGISWeightedSum",
+      "alternatives": [
+        "等权透明风险指数+权重敏感性",
+        "有观测时水文容量/损失模型",
+        "MK门控Sen参加同一滚动回测"
+      ],
+      "not_recommended": [
+        "无灾情真值硬称临界阈值",
+        "HEV乘积与加权和互换",
+        "未来GDP/pop无来源"
+      ],
+      "why_select": "冻结方案有情景假设边界和持久性比较；不把作者未来地图当观测",
+      "why_not": "作者AHP表格及算子未闭合，driver缺链；复杂叠加不等于验证",
+      "switch_conditions": "先统一目标、输入方向和HEV算子，未来驱动可执行；再做权重稳定性及独立损失验证",
+      "six_hour_baseline": [
+        "0–1h危险/暴露/损失分离",
+        "1–2h明确容量场景",
+        "2–3h持久性与滚动回测",
+        "3–4h透明指数",
+        "4–5h权重敏感性",
+        "5–6h地图和条件声明"
+      ],
+      "transferable_modules": [
+        "AHP矩阵/权重/一致性分别replay",
+        "indicator_id连接层级权重",
+        "记录聚合算子"
+      ],
+      "error_modes": [
+        "主特征向量名称掩盖实际列均值",
+        "GDP人口权重反转",
+        "显著趋势与可预测性混淆"
+      ],
+      "reproduction_level": "R2",
+      "reproduction_boundary": "Q3仅正文公式/表及GIS步骤，缺完整代码、专家判断原始记录、预测栅格",
+      "method_competition": "S013/S014评价指数思想可对照；作者权重和阈值不直接拼入冻结容量方案",
+      "skill_rule_action": "Dev候选规则，记录来源；不进入Train检索，不追改冻结解答",
+      "validation": "AUDIT_REPLAY.json local mechanisms; full author pipeline NOT_RUN",
+      "mini_transfer": "题组S015/S016未完成；final groupMiniTransfer待题组结束，当前fixture非盲测"
+    },
+    {
+      "question": "Q4",
+      "pdf_pages": [
+        42,
+        52
+      ],
+      "task": "土地变化特征结构与用途",
+      "target": "冻结10维特征低维结构；作者五类变化率监督预测，任务侧重点不同",
+      "baseline": "冻结PCA+K5分区；报告重构与时间迁移ARI，外部用途尚未建立",
+      "author": "地理分界线解释+五类变化率RF/XGB+2025–2035预测地图",
+      "alternatives": [
+        "标准化特征+层次聚类/空间约束聚类",
+        "含other类的组成变化模型",
+        "持久性/零变化作为预测基线"
+      ],
+      "not_recommended": [
+        "独立回归不检查份额可行性",
+        "预测地图看起来合理就称验证",
+        "crop/shrub标签手工复制"
+      ],
+      "why_select": "先满足紧凑描述任务；未来土地预测是额外目标，需不同验证",
+      "why_not": "作者未来驱动缺链、标签漂移、空间划分不清，不能拿训练后的地图证明用途",
+      "switch_conditions": "预测任务须时空阻塞比较零变化和持久性；结构任务须外部用途或下游指标证明",
+      "six_hour_baseline": [
+        "0–1h有效域与组成界限",
+        "1–2h净变化+均值特征",
+        "2–3hPCA/简单分区",
+        "3–4h留出重构",
+        "4–5h时间稳定性",
+        "5–6h区域解释/用途限制"
+      ],
+      "transferable_modules": [
+        "entity-keyed表格与正文",
+        "预测份额界限和other闭合",
+        "用途与数值拟合分开"
+      ],
+      "error_modes": [
+        "变化率正负编码混淆",
+        "以相关性解释因果",
+        "标签与MSE方向漂移"
+      ],
+      "reproduction_level": "R2",
+      "reproduction_boundary": "附录没有Q4训练数据构造/五模型预测链，故整体保持R2",
+      "method_competition": "S014提供更丰富地理叠图表达；不能替代冻结结构模型，也不证明Core净提升",
+      "skill_rule_action": "Dev候选规则，记录来源；不进入Train检索，不追改冻结解答",
+      "validation": "AUDIT_REPLAY.json local mechanisms; full author pipeline NOT_RUN",
+      "mini_transfer": "题组S015/S016未完成；final groupMiniTransfer待题组结束，当前fixture非盲测"
+    }
+  ]
+}

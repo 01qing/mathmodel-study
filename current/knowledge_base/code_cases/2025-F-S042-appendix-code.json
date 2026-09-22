@@ -1,0 +1,85 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "artifact_type": "printed_appendix_code",
+  "pages": "103-182",
+  "reproduction_level": "R2",
+  "files": [
+    "data_loader_draw.py",
+    "garden_network_builder.py",
+    "macro_graph_builder.py",
+    "multi_objective_path_planner.py",
+    "visibility_analysis.py",
+    "voronoi_path_builder.py",
+    "garden_grid_modeling.py",
+    "garden_illusion_evaluation.py",
+    "block_feature_extractor.py",
+    "feature_extractor.py",
+    "garden_similarity_analyzer.py",
+    "garden_vector_builder.py"
+  ],
+  "mapped_primitives": {
+    "Q1": [
+      "Voronoi/network construction",
+      "macro graph construction/pruning",
+      "ray visibility analyzer",
+      "Markov transition matrix",
+      "temporal anomaly -log(p)",
+      "Hamming spatial anomaly",
+      "NSGA-II/DEAP route planner",
+      "repeat-edge length"
+    ],
+    "Q2": [
+      "grid modeling",
+      "patch/landscape ecology metrics",
+      "illusion evaluation/normalization"
+    ],
+    "Q3": [
+      "block/grid feature extraction",
+      "convolutional autoencoder definition/training",
+      "179D vector builder",
+      "cosine similarity fusion",
+      "KMeans helper / clustering interface"
+    ]
+  },
+  "important_findings": [
+    {
+      "id": "CODE_Q1_SURPRISE",
+      "finding": "compute_anomaly_score uses -np.log(prob), resolving surprise direction in code but conflicting with paper Eq.(4) raw +p notation"
+    },
+    {
+      "id": "CODE_Q1_PATH_LIMIT",
+      "finding": "mutation constrains step_choices length <100, but _decode_individual may append a shortest-path bridge and evaluate() has no decoded-path <=100 rejection; reported 222-node paths are therefore compatible with an implementation-level constraint leak"
+    },
+    {
+      "id": "CODE_Q1_RANDOMNESS",
+      "finding": "path extension uses 1-3 detours, random walks of 3-12 steps, 30% random neighbor choice; seed/repeated-run uncertainty is not visible in the printed implementation excerpt"
+    },
+    {
+      "id": "CODE_VISIBILITY_OCCLUSION",
+      "finding": "VisibilityAnalyzer sets occlusion_elements={实体建筑}; all other classes are not full occluders in this implementation"
+    },
+    {
+      "id": "CODE_Q3_AUTOENCODER",
+      "finding": "autoencoder uses validation_split=0.2 on X with shuffle=True; printed evidence does not establish garden/source-group isolation for patches/grids"
+    },
+    {
+      "id": "CODE_Q3_DIMENSION_HANDCRAFT",
+      "finding": "vector builder comments explicitly reset semantic components and add PCA dimensions “为了凑够116维”; feature allocation is hand-engineered"
+    },
+    {
+      "id": "CODE_Q3_SILENT_FALLBACK",
+      "finding": "PCA/KMeans/shape helpers use broad except and return [0,0,0] or [0,0,1], potentially converting failures into plausible features"
+    },
+    {
+      "id": "CODE_Q3_ANALYZER_STUBS",
+      "finding": "printed garden_similarity_analyzer shows several method signatures/docstrings without visible bodies, so ANOVA/commonality/personality execution details cannot be fully verified from appendix alone"
+    }
+  ],
+  "not_claimed": [
+    "syntax/run success",
+    "R3 local smoke",
+    "original-data reproduction",
+    "full self-contained author project"
+  ]
+}

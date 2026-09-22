@@ -1,0 +1,7 @@
+{
+  "pattern_id": "cross-question-objective-semantic-drift",
+  "title": "Same metric changes mathematical definition across linked subquestions",
+  "trigger": "Q2 and Q3 both claim extra data movement but assign different spill coefficients to the same COPY_IN case",
+  "risk": "cross-question improvements and hard constraints become incomparable",
+  "gate": "centralize metric definition in Result Registry and reuse exactly across linked questions; fail validation on coefficient/condition drift"
+}

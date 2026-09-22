@@ -1,0 +1,6 @@
+Final pre-seal rerun failure (preserved):
+
+test_v132_s034_regressions.py failed assertion:
+  next transfer due after S036
+
+Cause: next_learning.md had been clarified to say the gate is NOT_DUE and must wait until S032-S036 are complete, but the specialist harness also requires the literal phrase "due only after S036". This was a wording/harness compatibility issue, not a protocol change. The file was updated to include the exact phrase while retaining NOT_DUE and the S036 boundary. No substantive gate was weakened.

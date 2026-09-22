@@ -1,0 +1,6 @@
+{
+  "id": "single-timestep-rnn-pseudosequence",
+  "trigger": "Tabular rows are reshaped to (n,1,p) and fed to LSTM/RNN, while claims attribute gains to temporal memory.",
+  "risk": "With one timestep the recurrent state has no temporal history to model; complexity/interpretation is misleading.",
+  "gate": "Define real sequence windows with order/group boundaries and T>1, compare against an MLP with equal feature input, and only claim temporal gains if sequence ablation supports them."
+}

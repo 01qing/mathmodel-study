@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="504pt" height="475.2pt" viewBox="0 0 504 475.2" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-09T08:11:47.077156</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 475.2 
+L 504 475.2 
+L 504 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 44.00024 212.6 
+L 497.994733 212.6 
+L 497.994733 36.453845 
+L 44.00024 36.453845 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m39a4cd4c07" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="48.495235" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="48.495235" y="228.19375" transform="rotate(-0 48.495235 228.19375)">1</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="93.445185" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="93.445185" y="228.19375" transform="rotate(-0 93.445185 228.19375)">11</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="138.395135" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="138.395135" y="228.19375" transform="rotate(-0 138.395135 228.19375)">21</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="183.345084" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="183.345084" y="228.19375" transform="rotate(-0 183.345084 228.19375)">31</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="228.295034" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="228.295034" y="228.19375" transform="rotate(-0 228.295034 228.19375)">41</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="273.244984" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="273.244984" y="228.19375" transform="rotate(-0 273.244984 228.19375)">51</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="318.194934" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="318.194934" y="228.19375" transform="rotate(-0 318.194934 228.19375)">61</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="363.144883" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="363.144883" y="228.19375" transform="rotate(-0 363.144883 228.19375)">71</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="408.094833" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="408.094833" y="228.19375" transform="rotate(-0 408.094833 228.19375)">81</text>
+     </g>
+    </g>
+    <g id="xtick_10">
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="453.044783" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_10">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="453.044783" y="228.19375" transform="rotate(-0 453.044783 228.19375)">91</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_11">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="493.499738" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_11">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="493.499738" y="228.19375" transform="rotate(-0 493.499738 228.19375)">100</text>
+     </g>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="270.997486" y="242.19375" transform="rotate(-0 270.997486 242.19375)">风机编号</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_12">
+      <path d="M 44.00024 212.6 
+L 497.994733 212.6 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_13">
+      <defs>
+       <path id="m1278d8695a" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="212.6" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_13">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="216.896875" transform="rotate(-0 37.00024 216.896875)">0.00</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_14">
+      <path d="M 44.00024 179.068031 
+L 497.994733 179.068031 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_15">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="179.068031" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_14">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="183.364906" transform="rotate(-0 37.00024 183.364906)">0.05</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_16">
+      <path d="M 44.00024 145.536062 
+L 497.994733 145.536062 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_17">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="145.536062" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_15">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="149.832937" transform="rotate(-0 37.00024 149.832937)">0.10</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_18">
+      <path d="M 44.00024 112.004094 
+L 497.994733 112.004094 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_19">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="112.004094" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_16">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="116.300969" transform="rotate(-0 37.00024 116.300969)">0.15</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_20">
+      <path d="M 44.00024 78.472125 
+L 497.994733 78.472125 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_21">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="78.472125" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_17">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="82.769" transform="rotate(-0 37.00024 82.769)">0.20</text>
+     </g>
+    </g>
+    <g id="ytick_6">
+     <g id="line2d_22">
+      <path d="M 44.00024 44.940156 
+L 497.994733 44.940156 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_23">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="44.940156" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_18">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="49.237031" transform="rotate(-0 37.00024 49.237031)">0.25</text>
+     </g>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="11.59399" y="124.526922" transform="rotate(-90 11.59399 124.526922)">功率预测MAPE（%）</text>
+    </g>
+   </g>
+   <g id="line2d_24">
+    <path d="M 48.495235 63.560724 
+L 52.99023 77.843004 
+L 57.485225 70.241966 
+L 61.98022 84.105637 
+L 66.475215 72.564215 
+L 70.97021 76.671789 
+L 75.465205 83.237932 
+L 79.9602 66.788647 
+L 84.455195 89.638848 
+L 88.95019 61.896044 
+L 93.445185 78.495825 
+L 97.94018 79.203198 
+L 102.435175 70.226412 
+L 106.93017 78.890495 
+L 111.425165 79.248371 
+L 115.92016 49.457806 
+L 120.415155 69.545963 
+L 124.91015 75.588873 
+L 129.405145 93.022825 
+L 133.90014 73.989993 
+L 138.395135 50.280855 
+L 142.89013 98.621243 
+L 147.385125 82.05098 
+L 151.880119 91.26471 
+L 156.375114 60.489536 
+L 160.870109 89.56965 
+L 165.365104 74.360451 
+L 169.860099 91.446822 
+L 174.355094 58.068162 
+L 178.850089 75.18364 
+L 183.345084 77.795993 
+L 187.840079 93.296446 
+L 192.335074 82.258066 
+L 196.830069 73.69814 
+L 201.325064 98.102073 
+L 205.820059 85.178599 
+L 210.315054 74.435915 
+L 214.810049 96.519322 
+L 219.305044 94.508556 
+L 223.800039 91.393781 
+L 228.295034 71.374425 
+L 232.790029 83.406136 
+L 237.285024 68.410239 
+L 241.780019 71.08995 
+L 246.275014 62.576086 
+L 250.770009 67.693828 
+L 255.265004 74.805444 
+L 259.759999 67.421417 
+L 264.254994 49.156572 
+L 268.749989 78.230262 
+L 273.244984 63.136872 
+L 277.739979 87.747622 
+L 282.234974 65.217526 
+L 286.729969 89.336777 
+L 291.224964 64.394565 
+L 295.719959 82.29575 
+L 300.214954 74.516943 
+L 304.709949 75.315527 
+L 309.204944 75.392899 
+L 313.699939 89.741214 
+L 318.194934 59.921202 
+L 322.689929 86.345939 
+L 327.184924 77.160775 
+L 331.679919 63.321204 
+L 336.174914 58.246885 
+L 340.669909 92.384004 
+L 345.164904 63.952795 
+L 349.659899 73.427004 
+L 354.154894 62.461362 
+L 358.649888 88.547351 
+L 363.144883 82.912468 
+L 367.639878 50.780263 
+L 372.134873 98.840204 
+L 376.629868 64.577911 
+L 381.124863 80.346901 
+L 385.619858 60.801345 
+L 390.114853 78.618288 
+L 394.609848 89.810666 
+L 399.104843 73.26242 
+L 403.599838 73.18556 
+L 408.094833 80.260409 
+L 412.589828 73.965001 
+L 417.084823 91.778081 
+L 421.579818 57.958322 
+L 426.074813 65.581756 
+L 430.569808 90.345101 
+L 435.064803 105.618012 
+L 439.559798 83.173774 
+L 444.054793 85.406056 
+L 448.549788 73.227855 
+L 453.044783 79.00698 
+L 457.539778 60.711005 
+L 462.034773 78.247372 
+L 466.529768 92.634446 
+L 471.024763 81.178271 
+L 475.519758 96.508544 
+L 480.014753 84.995088 
+L 484.509748 73.833463 
+L 489.004743 66.205313 
+L 493.499738 71.519112 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke: #999999; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_25">
+    <path d="M 48.495235 56.53036 
+L 52.99023 71.565992 
+L 57.485225 65.207253 
+L 61.98022 74.666284 
+L 66.475215 76.931783 
+L 70.97021 77.223423 
+L 75.465205 86.568514 
+L 79.9602 70.548559 
+L 84.455195 82.56731 
+L 88.95019 60.146562 
+L 93.445185 77.733453 
+L 97.94018 82.543902 
+L 102.435175 71.175598 
+L 106.93017 81.81401 
+L 111.425165 66.689552 
+L 115.92016 39.747377 
+L 120.415155 65.553693 
+L 124.91015 80.941754 
+L 129.405145 84.34727 
+L 133.90014 74.119924 
+L 138.395135 49.893662 
+L 142.89013 81.491458 
+L 147.385125 75.836462 
+L 151.880119 89.96943 
+L 156.375114 61.17172 
+L 160.870109 78.438437 
+L 165.365104 71.933866 
+L 169.860099 85.252056 
+L 174.355094 64.282105 
+L 178.850089 74.694483 
+L 183.345084 64.768463 
+L 187.840079 83.311435 
+L 192.335074 76.421877 
+L 196.830069 71.481542 
+L 201.325064 96.18138 
+L 205.820059 85.987055 
+L 210.315054 73.1445 
+L 214.810049 88.83675 
+L 219.305044 83.578801 
+L 223.800039 82.667418 
+L 228.295034 69.527288 
+L 232.790029 77.812446 
+L 237.285024 72.690135 
+L 241.780019 68.640059 
+L 246.275014 62.695113 
+L 250.770009 72.970476 
+L 255.265004 72.578253 
+L 259.759999 62.775535 
+L 264.254994 51.586366 
+L 268.749989 80.030278 
+L 273.244984 57.424619 
+L 277.739979 74.281997 
+L 282.234974 68.706165 
+L 286.729969 89.456072 
+L 291.224964 64.441887 
+L 295.719959 81.415195 
+L 300.214954 70.93248 
+L 304.709949 67.975382 
+L 309.204944 78.775894 
+L 313.699939 83.283415 
+L 318.194934 54.509402 
+L 322.689929 65.485908 
+L 327.184924 84.128449 
+L 331.679919 63.511791 
+L 336.174914 56.908152 
+L 340.669909 92.281101 
+L 345.164904 62.41394 
+L 349.659899 65.42783 
+L 354.154894 51.399436 
+L 358.649888 86.947558 
+L 363.144883 73.815343 
+L 367.639878 54.594434 
+L 372.134873 93.368863 
+L 376.629868 54.856638 
+L 381.124863 85.651042 
+L 385.619858 61.967976 
+L 390.114853 71.853957 
+L 394.609848 82.457248 
+L 399.104843 64.089394 
+L 403.599838 56.782726 
+L 408.094833 86.723734 
+L 412.589828 73.449163 
+L 417.084823 71.517147 
+L 421.579818 57.434707 
+L 426.074813 72.776194 
+L 430.569808 97.301977 
+L 435.064803 98.500277 
+L 439.559798 86.342621 
+L 444.054793 75.020884 
+L 448.549788 53.799377 
+L 453.044783 85.34961 
+L 457.539778 55.058427 
+L 462.034773 75.065751 
+L 466.529768 82.327814 
+L 471.024763 87.967845 
+L 475.519758 90.346826 
+L 480.014753 77.2982 
+L 484.509748 56.01678 
+L 489.004743 62.215641 
+L 493.499738 63.957098 
+" clip-path="url(#p981f7a406e)" style="fill: none; stroke: #3979d5; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 44.00024 212.6 
+L 44.00024 36.453845 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 44.00024 212.6 
+L 497.994733 212.6 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11px; font-family: 'SimSun'; text-anchor: middle" x="270.997486" y="30.453845" transform="rotate(-0 270.997486 30.453845)">WF_1：前1399对训练，后600对测试</text>
+   </g>
+   <g id="legend_1">
+    <g id="line2d_26">
+     <path d="M 52.10024 186.584375 
+L 61.10024 186.584375 
+L 70.10024 186.584375 
+" style="fill: none; stroke: #999999; stroke-width: 0.9; stroke-linecap: square"/>
+    </g>
+    <g id="text_21">
+     <text style="font-size: 9px; font-family: 'SimSun'; text-anchor: start" x="77.30024" y="189.734375" transform="rotate(-0 77.30024 189.734375)">上一拍功率指令基线</text>
+    </g>
+    <g id="line2d_27">
+     <path d="M 52.10024 200.084375 
+L 61.10024 200.084375 
+L 70.10024 200.084375 
+" style="fill: none; stroke: #3979d5; stroke-width: 0.9; stroke-linecap: square"/>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 9px; font-family: 'SimSun'; text-anchor: start" x="77.30024" y="203.234375" transform="rotate(-0 77.30024 203.234375)">上一拍指令＋风速三次项＋截距</text>
+    </g>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 44.00024 441.19976 
+L 497.994733 441.19976 
+L 497.994733 265.053605 
+L 44.00024 265.053605 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_12">
+     <g id="line2d_28">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="48.495235" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_23">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="48.495235" y="456.79351" transform="rotate(-0 48.495235 456.79351)">1</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_29">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="93.445185" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_24">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="93.445185" y="456.79351" transform="rotate(-0 93.445185 456.79351)">11</text>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_30">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="138.395135" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_25">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="138.395135" y="456.79351" transform="rotate(-0 138.395135 456.79351)">21</text>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_31">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="183.345084" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_26">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="183.345084" y="456.79351" transform="rotate(-0 183.345084 456.79351)">31</text>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_32">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="228.295034" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_27">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="228.295034" y="456.79351" transform="rotate(-0 228.295034 456.79351)">41</text>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_33">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="273.244984" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_28">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="273.244984" y="456.79351" transform="rotate(-0 273.244984 456.79351)">51</text>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_34">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="318.194934" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_29">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="318.194934" y="456.79351" transform="rotate(-0 318.194934 456.79351)">61</text>
+     </g>
+    </g>
+    <g id="xtick_19">
+     <g id="line2d_35">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="363.144883" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_30">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="363.144883" y="456.79351" transform="rotate(-0 363.144883 456.79351)">71</text>
+     </g>
+    </g>
+    <g id="xtick_20">
+     <g id="line2d_36">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="408.094833" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_31">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="408.094833" y="456.79351" transform="rotate(-0 408.094833 456.79351)">81</text>
+     </g>
+    </g>
+    <g id="xtick_21">
+     <g id="line2d_37">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="453.044783" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_32">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="453.044783" y="456.79351" transform="rotate(-0 453.044783 456.79351)">91</text>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_38">
+      <g>
+       <use xlink:href="#m39a4cd4c07" x="493.499738" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_33">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="493.499738" y="456.79351" transform="rotate(-0 493.499738 456.79351)">100</text>
+     </g>
+    </g>
+    <g id="text_34">
+     <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="270.997486" y="470.79351" transform="rotate(-0 270.997486 470.79351)">风机编号</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4">
+    <g id="ytick_7">
+     <g id="line2d_39">
+      <path d="M 44.00024 441.19976 
+L 497.994733 441.19976 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_40">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="441.19976" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_35">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="445.496635" transform="rotate(-0 37.00024 445.496635)">0.00</text>
+     </g>
+    </g>
+    <g id="ytick_8">
+     <g id="line2d_41">
+      <path d="M 44.00024 411.21329 
+L 497.994733 411.21329 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_42">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="411.21329" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_36">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="415.510165" transform="rotate(-0 37.00024 415.510165)">0.05</text>
+     </g>
+    </g>
+    <g id="ytick_9">
+     <g id="line2d_43">
+      <path d="M 44.00024 381.22682 
+L 497.994733 381.22682 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_44">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="381.22682" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_37">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="385.523695" transform="rotate(-0 37.00024 385.523695)">0.10</text>
+     </g>
+    </g>
+    <g id="ytick_10">
+     <g id="line2d_45">
+      <path d="M 44.00024 351.24035 
+L 497.994733 351.24035 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_46">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="351.24035" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_38">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="355.537225" transform="rotate(-0 37.00024 355.537225)">0.15</text>
+     </g>
+    </g>
+    <g id="ytick_11">
+     <g id="line2d_47">
+      <path d="M 44.00024 321.253879 
+L 497.994733 321.253879 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_48">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="321.253879" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_39">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="325.550754" transform="rotate(-0 37.00024 325.550754)">0.20</text>
+     </g>
+    </g>
+    <g id="ytick_12">
+     <g id="line2d_49">
+      <path d="M 44.00024 291.267409 
+L 497.994733 291.267409 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke-dasharray: 0.5,0.825; stroke-dashoffset: 0; stroke: #e8a0a0; stroke-width: 0.5"/>
+     </g>
+     <g id="line2d_50">
+      <g>
+       <use xlink:href="#m1278d8695a" x="44.00024" y="291.267409" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_40">
+      <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: end" x="37.00024" y="295.564284" transform="rotate(-0 37.00024 295.564284)">0.25</text>
+     </g>
+    </g>
+    <g id="text_41">
+     <text style="font-size: 10px; font-family: 'SimSun'; text-anchor: middle" x="11.59399" y="353.126682" transform="rotate(-90 11.59399 353.126682)">功率预测MAPE（%）</text>
+    </g>
+   </g>
+   <g id="line2d_51">
+    <path d="M 48.495235 297.45972 
+L 52.99023 330.090305 
+L 57.485225 313.720012 
+L 61.98022 336.358908 
+L 66.475215 326.890813 
+L 70.97021 335.717644 
+L 75.465205 302.763264 
+L 79.9602 332.810997 
+L 84.455195 306.270841 
+L 88.95019 302.387676 
+L 93.445185 319.549063 
+L 97.94018 312.684447 
+L 102.435175 298.5308 
+L 106.93017 322.246381 
+L 111.425165 316.28843 
+L 115.92016 313.861374 
+L 120.415155 329.21956 
+L 124.91015 343.082317 
+L 129.405145 309.061107 
+L 133.90014 310.810696 
+L 138.395135 294.287057 
+L 142.89013 317.419541 
+L 147.385125 303.505448 
+L 151.880119 311.189029 
+L 156.375114 332.471919 
+L 160.870109 330.902618 
+L 165.365104 313.501812 
+L 169.860099 323.775302 
+L 174.355094 330.769517 
+L 178.850089 309.555298 
+L 183.345084 312.333411 
+L 187.840079 319.285795 
+L 192.335074 321.751527 
+L 196.830069 321.718131 
+L 201.325064 326.444838 
+L 205.820059 336.160345 
+L 210.315054 313.68059 
+L 214.810049 301.839088 
+L 219.305044 326.349694 
+L 223.800039 332.248897 
+L 228.295034 315.351552 
+L 232.790029 326.043197 
+L 237.285024 307.009796 
+L 241.780019 313.439531 
+L 246.275014 313.687323 
+L 250.770009 327.525078 
+L 255.265004 297.181329 
+L 259.759999 340.560257 
+L 264.254994 333.897921 
+L 268.749989 318.425211 
+L 273.244984 329.94656 
+L 277.739979 328.282905 
+L 282.234974 322.384222 
+L 286.729969 304.577761 
+L 291.224964 316.002302 
+L 295.719959 310.309058 
+L 300.214954 310.734348 
+L 304.709949 326.798457 
+L 309.204944 329.602879 
+L 313.699939 335.306261 
+L 318.194934 302.075512 
+L 322.689929 318.47195 
+L 327.184924 322.029463 
+L 331.679919 328.460965 
+L 336.174914 311.944674 
+L 340.669909 320.594881 
+L 345.164904 323.479226 
+L 349.659899 329.350701 
+L 354.154894 310.263155 
+L 358.649888 329.90499 
+L 363.144883 306.244196 
+L 367.639878 321.874626 
+L 372.134873 315.230229 
+L 376.629868 332.862349 
+L 381.124863 312.6938 
+L 385.619858 326.543724 
+L 390.114853 313.337579 
+L 394.609848 307.795312 
+L 399.104843 331.375112 
+L 403.599838 322.358653 
+L 408.094833 319.220142 
+L 412.589828 303.883187 
+L 417.084823 324.109361 
+L 421.579818 326.234529 
+L 426.074813 273.347056 
+L 430.569808 308.571616 
+L 435.064803 302.597347 
+L 439.559798 307.543673 
+L 444.054793 310.021699 
+L 448.549788 332.181306 
+L 453.044783 340.884481 
+L 457.539778 331.009704 
+L 462.034773 319.831904 
+L 466.529768 314.098537 
+L 471.024763 315.659584 
+L 475.519758 323.213948 
+L 480.014753 303.029062 
+L 484.509748 310.027712 
+L 489.004743 340.331523 
+L 493.499738 323.318442 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke: #999999; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_52">
+    <path d="M 48.495235 298.940079 
+L 52.99023 316.641176 
+L 57.485225 310.498128 
+L 61.98022 326.23779 
+L 66.475215 320.159286 
+L 70.97021 336.384966 
+L 75.465205 294.08088 
+L 79.9602 324.94213 
+L 84.455195 306.572536 
+L 88.95019 295.733207 
+L 93.445185 310.00607 
+L 97.94018 299.868685 
+L 102.435175 297.748155 
+L 106.93017 316.983868 
+L 111.425165 318.641485 
+L 115.92016 308.234484 
+L 120.415155 325.616382 
+L 124.91015 321.409494 
+L 129.405145 309.633186 
+L 133.90014 287.094209 
+L 138.395135 292.023537 
+L 142.89013 301.916503 
+L 147.385125 308.943047 
+L 151.880119 312.047635 
+L 156.375114 321.198647 
+L 160.870109 327.444641 
+L 165.365104 313.114394 
+L 169.860099 308.967975 
+L 174.355094 320.066477 
+L 178.850089 314.129519 
+L 183.345084 304.686746 
+L 187.840079 308.816521 
+L 192.335074 312.639479 
+L 196.830069 304.658244 
+L 201.325064 328.102334 
+L 205.820059 331.136438 
+L 210.315054 313.302458 
+L 214.810049 307.435292 
+L 219.305044 318.818223 
+L 223.800039 329.766103 
+L 228.295034 314.433882 
+L 232.790029 327.274465 
+L 237.285024 309.511914 
+L 241.780019 314.101807 
+L 246.275014 309.908293 
+L 250.770009 310.949042 
+L 255.265004 293.071743 
+L 259.759999 319.78187 
+L 264.254994 324.517296 
+L 268.749989 321.889545 
+L 273.244984 317.691804 
+L 277.739979 319.645621 
+L 282.234974 310.349912 
+L 286.729969 306.199257 
+L 291.224964 311.988436 
+L 295.719959 304.82343 
+L 300.214954 321.528901 
+L 304.709949 320.331091 
+L 309.204944 322.541767 
+L 313.699939 323.885554 
+L 318.194934 305.166759 
+L 322.689929 304.164537 
+L 327.184924 304.879174 
+L 331.679919 330.434128 
+L 336.174914 312.746433 
+L 340.669909 317.519657 
+L 345.164904 307.677072 
+L 349.659899 318.761894 
+L 354.154894 310.481866 
+L 358.649888 333.929787 
+L 363.144883 315.209517 
+L 367.639878 314.045882 
+L 372.134873 309.112923 
+L 376.629868 330.024355 
+L 381.124863 308.176287 
+L 385.619858 323.52262 
+L 390.114853 313.995944 
+L 394.609848 307.825095 
+L 399.104843 319.642059 
+L 403.599838 319.001963 
+L 408.094833 311.347988 
+L 412.589828 306.893691 
+L 417.084823 319.570175 
+L 421.579818 318.548523 
+L 426.074813 268.769258 
+L 430.569808 309.50417 
+L 435.064803 307.453133 
+L 439.559798 311.556342 
+L 444.054793 311.941956 
+L 448.549788 332.444596 
+L 453.044783 327.50866 
+L 457.539778 334.763522 
+L 462.034773 314.003 
+L 466.529768 315.509355 
+L 471.024763 305.076034 
+L 475.519758 321.996652 
+L 480.014753 305.099084 
+L 484.509748 297.726713 
+L 489.004743 338.453763 
+L 493.499738 322.031125 
+" clip-path="url(#pa46f23b9e0)" style="fill: none; stroke: #3979d5; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 44.00024 441.19976 
+L 44.00024 265.053605 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 44.00024 441.19976 
+L 497.994733 441.19976 
+" style="fill: none; stroke: #000000; stroke-width: 0.7; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 11px; font-family: 'SimSun'; text-anchor: middle" x="270.997486" y="259.053605" transform="rotate(-0 270.997486 259.053605)">WF_2：前1399对训练，后600对测试</text>
+   </g>
+   <g id="legend_2">
+    <g id="line2d_53">
+     <path d="M 52.10024 415.184135 
+L 61.10024 415.184135 
+L 70.10024 415.184135 
+" style="fill: none; stroke: #999999; stroke-width: 0.9; stroke-linecap: square"/>
+    </g>
+    <g id="text_43">
+     <text style="font-size: 9px; font-family: 'SimSun'; text-anchor: start" x="77.30024" y="418.334135" transform="rotate(-0 77.30024 418.334135)">上一拍功率指令基线</text>
+    </g>
+    <g id="line2d_54">
+     <path d="M 52.10024 428.684135 
+L 61.10024 428.684135 
+L 70.10024 428.684135 
+" style="fill: none; stroke: #3979d5; stroke-width: 0.9; stroke-linecap: square"/>
+    </g>
+    <g id="text_44">
+     <text style="font-size: 9px; font-family: 'SimSun'; text-anchor: start" x="77.30024" y="431.834135" transform="rotate(-0 77.30024 431.834135)">上一拍指令＋风速三次项＋截距</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_45">
+   <text style="font-size: 12px; font-family: 'SimSun'; text-anchor: middle" x="252" y="13.31274" transform="rotate(-0 252 13.31274)">新增验证 · 按时间留出，逐机组比较</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p981f7a406e">
+   <rect x="44.00024" y="36.453845" width="453.994493" height="176.146155"/>
+  </clipPath>
+  <clipPath id="pa46f23b9e0">
+   <rect x="44.00024" y="265.053605" width="453.994493" height="176.146155"/>
+  </clipPath>
+ </defs>
+</svg>

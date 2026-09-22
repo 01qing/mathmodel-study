@@ -1,0 +1,139 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "status": "AUDIT_WITH_FORMULA_CODE_VALIDATION_CONTRADICTIONS",
+  "entries": [
+    {
+      "id": "Q1_COST_FORMULA_LENGTH_OMISSION",
+      "surface": "Eq.(5.67) and surrounding prose",
+      "finding": "prose says edge cost balances length, scenic interest and repeat penalty and lists lambda1-3, but displayed W=-lambda2*S+lambda3*R contains no length/lambda1 term",
+      "status": "formula_prose_contract_drift"
+    },
+    {
+      "id": "Q1_FITNESS_OBJECTIVE_DRIFT",
+      "surface": "Eq.(5.68)-(5.71)",
+      "finding": "earlier Cost(P) is scenic-interest/repeat edge sum, while GA fitness denominator is described using path length and repetition, dropping the scenic component from the visible fitness definition",
+      "status": "objective_semantic_drift"
+    },
+    {
+      "id": "Q1_GA_OPERATOR_FEASIBILITY",
+      "surface": "Sec.5.6",
+      "finding": "one-point crossover and random unused-node replacement do not preserve graph adjacency by construction; final repair/constraint replay is underspecified",
+      "status": "feasibility_contract_unresolved"
+    },
+    {
+      "id": "Q1_PAPER_CODE_OPTIMIZER_COLLAPSE",
+      "surface": "paper Sec.5.6 vs printed pp62-82",
+      "finding": "paper claims improved GA, printed path optimizer is dijkstra_adj() and contains no genetic loop",
+      "status": "contradicted_by_printed_code"
+    },
+    {
+      "id": "Q1_SCENIC_PAPER_CODE_DRIFT",
+      "surface": "paper Sec.5.4 vs printed exoticness code",
+      "finding": "printed exoticness counts nearby element types, divides by segment length and log1p-compresses; this is not the paper's full composition/area/distance weighting model",
+      "status": "paper_code_metric_drift"
+    },
+    {
+      "id": "Q1_ABSTRACT_OFFICIAL_OVERSTATE",
+      "surface": "abstract vs Sec.5.8",
+      "finding": "abstract says best route has better interest; Sec.5.8 says official route is better on turns/scenic change and overall interest scores are similar",
+      "status": "headline_overclaim"
+    },
+    {
+      "id": "Q2_GMM_MRF_CODE_COLLAPSE",
+      "surface": "Sec.6.2.3 vs printed pp83-92",
+      "finding": "paper GMM-MRF/EM/ICM/BIC model is absent; code uses coordinate-only KMeans/MiniBatchKMeans",
+      "status": "contradicted_by_printed_code"
+    },
+    {
+      "id": "Q2_RANDOM_PLACEHOLDER",
+      "surface": "printed Q2 code",
+      "finding": "openness is np.random.random() and assumed score arrays are used in nominal validation path",
+      "status": "synthetic_placeholder_contamination"
+    },
+    {
+      "id": "Q2_K_SELECTION_DRIFT",
+      "surface": "paper BIC K vs code",
+      "finding": "paper searches K by BIC under GMM-MRF; code hard-codes K=5/6 and separately scans KMeans K by unrelated diagnostics",
+      "status": "paper_code_parameter_drift"
+    },
+    {
+      "id": "Q2_ANCHOR_CIRCULAR",
+      "surface": "Sec.6.3-6.4",
+      "finding": "Jichang supplies thresholds/reference and is forced to 100, so its own rank/score cannot independently validate the model",
+      "status": "circular_calibration"
+    },
+    {
+      "id": "Q2_TABLE66_ARITHMETIC",
+      "surface": "Table 6.6",
+      "finding": "all ten published comprehensive scores replay from 0.45*element+0.55*open-close to one decimal",
+      "status": "arithmetic_pass"
+    },
+    {
+      "id": "Q2_SENSITIVITY_RANKING_AXIS_MISMATCH",
+      "surface": "printed sensitivity code",
+      "finding": "scores is indexed by alpha scenarios, but np.argsort(scores) is called a garden ranking and compared with np.argsort(total_scores), whose axis is gardens",
+      "status": "invalid_validation_axis"
+    },
+    {
+      "id": "Q2_INTERVAL_SEMANTICS",
+      "surface": "Eq.(6.76)",
+      "finding": "mu±1.96*sigma uses perturbation-score SD; absent an SE/estimand clarification this is not a confidence interval for the mean, at most a Normal distribution/reference interval",
+      "status": "interval_semantic_drift"
+    },
+    {
+      "id": "Q3_MIXED_SCALE_COSINE",
+      "surface": "Eq.(7.1)-(7.2)",
+      "finding": "feature vector mixes route lengths/counts and bounded proportions; visible method does not expose fitted standardization before cosine, so unit-scale dominance is unresolved",
+      "status": "preprocessing_contract_unresolved"
+    },
+    {
+      "id": "Q3_JACCARD_SEMANTIC_DRIFT",
+      "surface": "Eq.(7.3) vs Eq.(7.11)",
+      "finding": "training cohort uses set Jaccard on thresholded dominant-element sets; Heyuan equation uses sum(min)/sum(max), a continuous weighted min-max coefficient",
+      "status": "metric_semantic_drift"
+    },
+    {
+      "id": "Q3_ALPHA_INTERNAL_SELECTION",
+      "surface": "Sec.7.2.1",
+      "finding": "alpha≈0.7 is selected on the same ten gardens using internal clustering/stability criteria; this is model selection/internal stability, not external aesthetic validity",
+      "status": "internal_validation_only"
+    },
+    {
+      "id": "Q3_EXTERNAL_VALIDATION_TRUTH_GAP",
+      "surface": "Sec.7.3",
+      "finding": "Heyuan has no independent target similarity/aesthetic truth; applying the pipeline and obtaining plausible neighbors is applicability/face validity rather than accuracy proof",
+      "status": "evidence_overclaim"
+    },
+    {
+      "id": "Q3_CODE_HARDCODED_ADJUSTED_SIM",
+      "surface": "printed p94",
+      "finding": "Heyuan similarity Series is hard-coded and two negative values are individually changed -0.791→0.209 and -0.857→0.143 without a registered global transform",
+      "status": "posthoc_output_rewriting"
+    },
+    {
+      "id": "Q3_SIMILARITY_CODE_MISSING",
+      "surface": "printed pp93-94",
+      "finding": "no cosine/Jaccard/alpha-scan similarity computation is printed; only contour extraction and fixed plotting data appear",
+      "status": "implementation_provenance_missing"
+    },
+    {
+      "id": "Q3_EQ713_VISUAL_FORMULA",
+      "surface": "Eq.(7.13), p59",
+      "finding": "visual PDF confirms F_fusion = 1 - |A_natural/A_total - A_artificial/A_total|; text extraction omitted the absolute bars",
+      "status": "visual_formula_resolution"
+    }
+  ],
+  "global_gates": [
+    "route genetic operators require feasibility-preserving representation or final decoded-route replay",
+    "all named objective components must appear in the displayed/executable objective registry",
+    "paper spatial-model labels require actual likelihood/adjacency/optimization primitives",
+    "sensitivity ranking arrays must share the same entity axis and run identifiers",
+    "calibration anchor cannot validate itself",
+    "heterogeneous similarity features require scale/preprocessing contract",
+    "set Jaccard and continuous min/max similarity must be named distinctly",
+    "external application without independent truth is applicability evidence, not accuracy/generalization proof",
+    "post-hoc pair-specific similarity edits invalidate result provenance",
+    "visual PDF inspection overrides lossy text extraction for equation symbols"
+  ]
+}

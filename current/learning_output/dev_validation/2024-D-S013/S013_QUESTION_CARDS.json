@@ -1,0 +1,177 @@
+{
+  "paper_id": "S013",
+  "case_group": "2024-D",
+  "split": "dev",
+  "source": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24103850092.pdf",
+  "source_sha256": "a8c55b50f7be97971dc0b5844952dcbdc6929c07f52f841c0d0add83bec7628d",
+  "reproduction_level": "R2",
+  "visual_audit": "113/113 separately recorded",
+  "question_cards": {
+    "Q1": {
+      "input_data_and_independent_unit": "Official raster/cell-year with explicit temporal support; repeated cover-type rows are not independent observations. Freeze predates S013 access.",
+      "validation_protocol": "Use frozen pre-S013 independent evidence for baseline; any additional diagnostics are Dev-informed. No causal or clean-blind Core gain inference.",
+      "failure_and_abandon_conditions": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "recommended_rebuild": "Implement minimal primitive with declared units/support, independent validation, run IDs and replayable results; do not copy author thresholds.",
+      "problem_type_and_essence": "多源气候与土地覆盖的描述统计；关键在时间聚合与空间测度。",
+      "target_and_constraints": "年累计降水、年均温、面积比例；共同有效域、缺失年不伪造。",
+      "author_method_chain": "栅格转点/整度汇总、GIS地图、均值极值与趋势。",
+      "why_author_method_fits": "描述统计和地图能展示空间差异，前提是支持域和单位一致。",
+      "six_hour_baseline": [
+        "1小时核对单位、缺失和年份",
+        "2小时共同域面积权重与年度聚合",
+        "1小时趋势/分位数",
+        "1小时3张以内核心图",
+        "1小时跨表核对与限制说明"
+      ],
+      "data_to_model_mapping": "daily precipitation→sum/year；daily temperature→mean/year；cell_area×cover_fraction→resource area。",
+      "assumptions_formulas_parameters": "P_y=sum_day P；mean_area=sum(w*x)/sum(w)；nodata≠0。",
+      "code_paper_mapping": "pp82–89；Jan1路径、round、Value×100和列名缺失映射。",
+      "figure_decisions": "选择趋势/空间格局/土地变化；每图附单位、年份、分母和nodata。",
+      "result_metrics": "降水5/5聚合假设吻合，耕地3年未完整恢复；见Registry。",
+      "cross_surface_consistency": "年/日尺度、温度Jan1/年均、整数格/0.5度格不一致。",
+      "risks_and_errors": "空间支持域、分母选择、重采样非守恒。",
+      "applicability": "多源栅格描述与官方统计审计。",
+      "transferable_modules": [
+        "单位与时间支持合同",
+        "面积守恒聚合"
+      ],
+      "candidate_model_competition": {
+        "baseline": "原始网格有效域面积加权年统计",
+        "author_route": "栅格转点/整度汇总、GIS地图、均值极值与趋势。",
+        "major_alternatives": [
+          "分区分位数与稳健趋势",
+          "有来源边界的面积相交守恒汇总"
+        ],
+        "not_recommended": "以平滑插值图反算总量；日均×100称年累计",
+        "why_select": "保留网格统计，GIS只作为有边界证据的表达模块",
+        "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+        "switch_conditions": "裁剪来源和守恒误差经过验证才升级空间精度"
+      }
+    },
+    "Q2": {
+      "input_data_and_independent_unit": "Official raster/cell-year with explicit temporal support; repeated cover-type rows are not independent observations. Freeze predates S013 access.",
+      "validation_protocol": "Use frozen pre-S013 independent evidence for baseline; any additional diagnostics are Dev-informed. No causal or clean-blind Core gain inference.",
+      "failure_and_abandon_conditions": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "recommended_rebuild": "Implement minimal primitive with declared units/support, independent validation, run IDs and replayable results; do not copy author thresholds.",
+      "problem_type_and_essence": "极端降水预测与地形气候交互解释，应区分预测、描述和因果。",
+      "target_and_constraints": "以Rx1/Rx5日尺度目标比较；时间/空间独立单位，不用年累计替代暴雨。",
+      "author_method_chain": "树回归/分类、分组阈值和相关关系；代码有正确拆分及全量拟合不同分支。",
+      "why_author_method_fits": "浅树便于解释非线性与交互，但阈值需分块稳定性检验。",
+      "six_hour_baseline": [
+        "1小时目标和时间合同",
+        "1小时气候态",
+        "2小时加性/交互/浅树同切分",
+        "1小时分块误差与分层图",
+        "1小时限制和误差审计"
+      ],
+      "data_to_model_mapping": "cell-year日极值←DEM/relief/temperature；土地不替代地形。",
+      "assumptions_formulas_parameters": "冻结气候态、加性/交互与HGB；新解释检验未执行。",
+      "code_paper_mapping": "pp90–98；p92全量拟合只归该分支；坐标合并与三行rolling有风险。",
+      "figure_decisions": "留出误差、分层关系、残差空间图；不以单树图证明机制。",
+      "result_metrics": "冻结验证MAE气候态9.52876，HGB10.15481；复杂模型不升级。",
+      "cross_surface_consistency": "250/300年阈值不一致；年度最大记录非单场极值。",
+      "risks_and_errors": "时间泄漏、空间相关、伪重复、因果过度解释。",
+      "applicability": "有明确目标和留出合同的环境回归及解释。",
+      "transferable_modules": [
+        "实体-时间合并验证",
+        "解释稳定性门槛"
+      ],
+      "candidate_model_competition": {
+        "baseline": "气候态预测＋地形温度分层描述",
+        "author_route": "树回归/分类、分组阈值和相关关系；代码有正确拆分及全量拟合不同分支。",
+        "major_alternatives": [
+          "加性与交互回归同切分对比",
+          "浅树或HGB配合分块重采样"
+        ],
+        "not_recommended": "随机重复行划分、高拟合分数称因果机理",
+        "why_select": "保留冻结气候态；复杂候选时间验证未胜出",
+        "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+        "switch_conditions": "时空留出稳定实质改善，且交互方向/阈值跨块稳定"
+      }
+    },
+    "Q3": {
+      "input_data_and_independent_unit": "Official raster/cell-year with explicit temporal support; repeated cover-type rows are not independent observations. Freeze predates S013 access.",
+      "validation_protocol": "Use frozen pre-S013 independent evidence for baseline; any additional diagnostics are Dev-informed. No causal or clean-blind Core gain inference.",
+      "failure_and_abandon_conditions": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "recommended_rebuild": "Implement minimal primitive with declared units/support, independent validation, run IDs and replayable results; do not copy author thresholds.",
+      "problem_type_and_essence": "未来成灾风险应拆分危险度、暴露与易损性，识别无标签限制。",
+      "target_and_constraints": "无独立灾损标签只能情景指数/排序；比例非负且有定义。",
+      "author_method_chain": "易损性指数→伪标签树/XGB→ARIMA未来输入→SVR→空间分析。",
+      "why_author_method_fits": "分层指数具有组织价值，预测链必须有区域输入和真实评价支持。",
+      "six_hour_baseline": [
+        "1小时分开H/E/V与数据缺口",
+        "1小时持续性对照",
+        "2小时少量可解释情景",
+        "1小时敏感性和排序稳定性",
+        "1小时注册假设与不确定性"
+      ],
+      "data_to_model_mapping": "历史统计→未来情景，不把预测量当观测；伪标签与灾损标签分栏。",
+      "assumptions_formulas_parameters": "作者ARIMA(3,0,6)仅可见湿地分支；minmax平均≠熵权；>.37为指数阈值。",
+      "code_paper_mapping": "pp99–108；LabelEncoder类别顺序、旧变量、无空间输入和不完整六变量链。",
+      "figure_decisions": "情景范围与非负约束检查；Gi*/LocalMoran不可替代SVR预测图。",
+      "result_metrics": "作者SVR train/test R2 .8579/.8565未复现；MSE/MAE仅通过必要算术条件。",
+      "cross_surface_consistency": "grass .003/.020；预测目标与空间图标题不同；重要性gain/weight不可直接比较。",
+      "risks_and_errors": "自生成目标泄漏、跨年特征泄漏、run来源混淆、无约束外推。",
+      "applicability": "缺少观测标签时的透明情景分析；不适用于已校准概率宣称。",
+      "transferable_modules": [
+        "标签来源登记",
+        "结果身份与run追溯",
+        "未来输入空间支持合同"
+      ],
+      "candidate_model_competition": {
+        "baseline": "持续性中心情景＋显式风险假设与多情景范围",
+        "author_route": "易损性指数→伪标签树/XGB→ARIMA未来输入→SVR→空间分析。",
+        "major_alternatives": [
+          "区域化输入与滚动回测",
+          "有真实灾损标签后的时空校准模型"
+        ],
+        "not_recommended": "伪标签准确率当灾害预测精度；全国输入直接生成空间图",
+        "why_select": "保留冻结36情景，标注假设；不导入作者阈值或SVR精度",
+        "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+        "switch_conditions": "独立灾害标签、区域输入、优于持续性的回测三项齐备"
+      }
+    },
+    "Q4": {
+      "input_data_and_independent_unit": "Official raster/cell-year with explicit temporal support; repeated cover-type rows are not independent observations. Freeze predates S013 access.",
+      "validation_protocol": "Use frozen pre-S013 independent evidence for baseline; any additional diagnostics are Dev-informed. No causal or clean-blind Core gain inference.",
+      "failure_and_abandon_conditions": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "recommended_rebuild": "Implement minimal primitive with declared units/support, independent validation, run IDs and replayable results; do not copy author thresholds.",
+      "problem_type_and_essence": "土地结构压缩、地理摘要与用途评价是三个不同任务。",
+      "target_and_constraints": "重建误差/时间稳定性/下游用途分别验证；空间面积用合适投影。",
+      "author_method_chain": "阈值筛选→重心/SDE→人口GDP降水叠加→地理界线。",
+      "why_author_method_fits": "重心和方向便于沟通，不能把椭圆范围视为土地总面积或最优界线。",
+      "six_hour_baseline": [
+        "1小时覆盖率测度审计",
+        "2小时K分区与单区/PCA对照",
+        "1小时空间重建及窗口稳定性",
+        "1小时重心/分区图",
+        "1小时用途边界和报告"
+      ],
+      "data_to_model_mapping": "w=cell_area×cover_fraction；投影坐标→加权中心/协方差；单独sum(w)。",
+      "assumptions_formulas_parameters": "eigh对称协方差；概率覆盖须明确维度/分布，普通描述不要求正态。",
+      "code_paper_mapping": "pp109–113仅人口/GDP汇总及coverage_ratio KDE，缺SDE/Gi*/LocalMoran可运行链。",
+      "figure_decisions": "分区图、误差图、描述椭圆；覆盖率KDE不能验证二维坐标正态。",
+      "result_metrics": "冻结K5空间RMSE .07583，单区 .15134，PCA2 .08154；独立下游效用尚未建立。",
+      "cross_surface_consistency": "森林方向两处矛盾；湿地阈值条件换算100倍；年份/统计变量有漂移。",
+      "risks_and_errors": "度与公里混用、面积概念替代、事后选线、混合分布过度解释。",
+      "applicability": "可解释空间摘要；需要独立用途才能作决策建议。",
+      "transferable_modules": [
+        "正交主轴与面积分账",
+        "下游用途独立验证门槛"
+      ],
+      "candidate_model_competition": {
+        "baseline": "冻结K=5土地结构分区＋重建误差和时间稳定性",
+        "author_route": "阈值筛选→重心/SDE→人口GDP降水叠加→地理界线。",
+        "major_alternatives": [
+          "面积加权重心与协方差摘要",
+          "独立下游任务对比K分区、单区、经纬度简单分区"
+        ],
+        "not_recommended": "一维68%用于二维；用参与选线数据重复验证用途",
+        "why_select": "冻结K分区保持，SDE仅候选描述模块",
+        "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+        "switch_conditions": "七门合同满足且独立用途有稳定实质提升才组合"
+      }
+    }
+  },
+  "core_promoted": false
+}

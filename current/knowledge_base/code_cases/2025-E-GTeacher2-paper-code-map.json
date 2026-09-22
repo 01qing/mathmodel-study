@@ -1,0 +1,136 @@
+{
+  "case_id": "2025-E-GTeacher2-paper-code-map",
+  "identity": "teacher_or_expert_material_not_excellent_paper",
+  "source_pdf_sha256": "491687f7691b5300f00eab1dcd9c0625b1bc9416cbb20cfa95c8cc0d6a0be266",
+  "physical_pages": 185,
+  "review_scope": "PDF无可提取正文文本；本轮对正文/结果页做低分辨率视觉审查，并抽查代码附录多个跨度页。实际代码以随包可读源文件静态审计为主，而非从截图OCR。",
+  "source_hygiene": {
+    "content_body_pages": "约1–17、21–35",
+    "non_content_pages": [
+      18,
+      19,
+      20
+    ],
+    "non_content_note": "第18–20物理页为科研服务/竞赛培训广告，与建模解答无关，训练时必须排除。",
+    "appendix_code_pages": "约36–185；大部分为代码截图/代码清单，已通过独立代码包而非截图OCR核验主要实现。"
+  },
+  "question_to_paper_code": {
+    "Q1": {
+      "paper_visual_pages": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "paper_chain": [
+        "采样率/转速与阶次域处理",
+        "故障特征频率BPFI/BPFO/BSF/FTF",
+        "包络/阶次谱",
+        "谱峭度自适应频带",
+        "时频/统计特征与筛选"
+      ],
+      "code": [
+        "preprocess_and_viz.py",
+        "batch_preprocess_target_domain.m"
+      ],
+      "correspondence": "strong_method_level"
+    },
+    "Q2": {
+      "paper_visual_pages": [
+        11,
+        12,
+        13,
+        16,
+        21,
+        22,
+        23,
+        24
+      ],
+      "paper_chain": [
+        "机理滤波组",
+        "门控/注意",
+        "1D特征编码与分类",
+        "源域训练",
+        "源域混淆矩阵/损失与类别分布"
+      ],
+      "code": [
+        "main5.py",
+        "main6.py",
+        "main7.py",
+        "main8.py"
+      ],
+      "correspondence": "strong_method_level"
+    },
+    "Q3": {
+      "paper_visual_pages": [
+        14,
+        15,
+        16,
+        17,
+        31,
+        32,
+        33
+      ],
+      "paper_chain": [
+        "CORAL协方差对齐",
+        "目标熵最小化/SHOT相关适配",
+        "训练循环与损失",
+        "两次目标推断与融合表"
+      ],
+      "code": [
+        "main5.py",
+        "main6.py",
+        "main7.py",
+        "main8.py",
+        "make_fusion_from_quick.m",
+        "plot_fusion_results.m"
+      ],
+      "correspondence": "strong_method_level"
+    },
+    "Q4": {
+      "paper_visual_pages": [
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "paper_chain": [
+        "源/目标包络谱机理核验",
+        "source/target gate weights",
+        "特征相关性/重要性",
+        "t-SNE嵌入",
+        "adapt loss曲线",
+        "两次预测融合与置信度",
+        "模型优缺点与推广"
+      ],
+      "code": [
+        "main*.py",
+        "plot_fusion_results.m"
+      ],
+      "correspondence": "strong_method_level"
+    }
+  },
+  "observed_alignment": [
+    "正文出现谱峭度/包络/故障频率，与preprocess_and_viz.py对应",
+    "正文出现机理滤波组与gate/通道权重解释，与BearingNet/MechanismFilterBank/ChannelSE/GateExplain对应",
+    "正文明确CORAL与目标熵项，与代码coral_loss/entropy_minimization对应",
+    "正文两次预测结果表与随包fusion_result/plot_fusion_results对应"
+  ],
+  "known_mismatches_or_risks": [
+    "代码存在48kHz大小写回退错误和缺信号默认N类风险，正文未显式暴露这些工程风险",
+    "正文/结果图只能说明作者方案输出；缺原始数据时不能把结果重新标记为verified",
+    "目标域置信度与融合一致性仍不是目标域真实accuracy"
+  ],
+  "training_value": "高：该资料把“机理预处理→1D网络→域适应→文件级推断→融合→解释图”连成可读代码链，可作为2025 E的实现骨架补充；但不能替代三篇优秀论文的独立方法比较。"
+}

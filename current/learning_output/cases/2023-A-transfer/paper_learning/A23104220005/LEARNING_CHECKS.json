@@ -1,0 +1,2016 @@
+{
+  "scope": "our Python probes and frozen-model diagnostics; no MATLAB or PDF parsing",
+  "seeds": [
+    101,
+    202,
+    303,
+    404,
+    505
+  ],
+  "seconds_per_run": 10,
+  "sources": {
+    "code\\wlan.py": "f881e1f42072f5c8d427298664a9735508dfb7f57d927ab766795b79c6b4a42a",
+    "code\\analytic.py": "22e91315dfc6fcafad8fa48a096270fe4100bdba0b0f3558d4ceac1a0a9dc96d",
+    "paper_learning\\A23104220005\\run_learning_checks.py": "19bb5ddf062325ac0e7dec3fbeb4be40d37f53ecc7eb0b156d87b3b0a71229f4"
+  },
+  "analytical": {
+    "q1": {
+      "p": 0.10462063228196894,
+      "tau": 0.10462063228196894,
+      "idle": 0.8017042121351411,
+      "success": 0.18735031116577996,
+      "collision": 0.010945476699078943,
+      "total_mbps": 67.17440023670187,
+      "Ts": 131.4538832821413,
+      "Tc": 148.4538832821413
+    },
+    "q2": {
+      "total_mbps": 68.94874821624553,
+      "decoupled_mbps": 70.5584636464047,
+      "stationary": [
+        0.0625,
+        0.12447916666666665,
+        0.11562499999999999,
+        0.10677083333333333,
+        0.09791666666666665,
+        0.08906249999999999,
+        0.08020833333333333,
+        0.07135416666666666,
+        0.0625,
+        0.05364583333333334,
+        0.044791666666666674,
+        0.035937500000000004,
+        0.02708333333333334,
+        0.018229166666666678,
+        0.009375000000000012,
+        0.0005208333333333471
+      ],
+      "iterations": 12,
+      "stationary_residual": 1.3877787807814457e-17,
+      "mean_payloads_per_epoch": 1.0625,
+      "mean_idle_us": 35.859375
+    }
+  },
+  "deadline_probes": [
+    {
+      "q": 1,
+      "seed": 101,
+      "tolerant": false,
+      "total_mbps": 65.1216,
+      "collisions": 3417,
+      "joint_events": 3417,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 101,
+      "tolerant": true,
+      "total_mbps": 65.1216,
+      "collisions": 3417,
+      "joint_events": 3417,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 202,
+      "tolerant": false,
+      "total_mbps": 65.2944,
+      "collisions": 3333,
+      "joint_events": 3333,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 202,
+      "tolerant": true,
+      "total_mbps": 65.2944,
+      "collisions": 3333,
+      "joint_events": 3333,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 303,
+      "tolerant": false,
+      "total_mbps": 65.184,
+      "collisions": 3383,
+      "joint_events": 3383,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 303,
+      "tolerant": true,
+      "total_mbps": 65.184,
+      "collisions": 3383,
+      "joint_events": 3383,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 404,
+      "tolerant": false,
+      "total_mbps": 68.028,
+      "collisions": 2092,
+      "joint_events": 2092,
+      "near_equal_events": 1398,
+      "first_near_equal": {
+        "time_us": 2099647.980430015,
+        "gap_us": 4.656612873077393e-10
+      }
+    },
+    {
+      "q": 1,
+      "seed": 404,
+      "tolerant": true,
+      "total_mbps": 65.3316,
+      "collisions": 3324,
+      "joint_events": 3324,
+      "near_equal_events": 700,
+      "first_near_equal": {
+        "time_us": 2099647.980430015,
+        "gap_us": 4.656612873077393e-10
+      }
+    },
+    {
+      "q": 1,
+      "seed": 505,
+      "tolerant": false,
+      "total_mbps": 65.364,
+      "collisions": 3315,
+      "joint_events": 3315,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 1,
+      "seed": 505,
+      "tolerant": true,
+      "total_mbps": 65.364,
+      "collisions": 3315,
+      "joint_events": 3315,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 101,
+      "tolerant": false,
+      "total_mbps": 68.3088,
+      "collisions": 0,
+      "joint_events": 2737,
+      "near_equal_events": 687,
+      "first_near_equal": {
+        "time_us": 2098406.5277155614,
+        "gap_us": 4.656612873077393e-10
+      }
+    },
+    {
+      "q": 2,
+      "seed": 101,
+      "tolerant": true,
+      "total_mbps": 68.9748,
+      "collisions": 0,
+      "joint_events": 3415,
+      "near_equal_events": 683,
+      "first_near_equal": {
+        "time_us": 2098406.5277155614,
+        "gap_us": 4.656612873077393e-10
+      }
+    },
+    {
+      "q": 2,
+      "seed": 202,
+      "tolerant": false,
+      "total_mbps": 68.928,
+      "collisions": 0,
+      "joint_events": 3387,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 202,
+      "tolerant": true,
+      "total_mbps": 68.928,
+      "collisions": 0,
+      "joint_events": 3387,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 303,
+      "tolerant": false,
+      "total_mbps": 67.6284,
+      "collisions": 0,
+      "joint_events": 2055,
+      "near_equal_events": 1399,
+      "first_near_equal": {
+        "time_us": 12090.81707228479,
+        "gap_us": 1.8189894035458565e-12
+      }
+    },
+    {
+      "q": 2,
+      "seed": 303,
+      "tolerant": true,
+      "total_mbps": 68.9856,
+      "collisions": 0,
+      "joint_events": 3443,
+      "near_equal_events": 3,
+      "first_near_equal": {
+        "time_us": 12090.81707228479,
+        "gap_us": 1.8189894035458565e-12
+      }
+    },
+    {
+      "q": 2,
+      "seed": 404,
+      "tolerant": false,
+      "total_mbps": 68.9028,
+      "collisions": 0,
+      "joint_events": 3320,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 404,
+      "tolerant": true,
+      "total_mbps": 68.9028,
+      "collisions": 0,
+      "joint_events": 3320,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 505,
+      "tolerant": false,
+      "total_mbps": 68.9772,
+      "collisions": 0,
+      "joint_events": 3360,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    },
+    {
+      "q": 2,
+      "seed": 505,
+      "tolerant": true,
+      "total_mbps": 68.9772,
+      "collisions": 0,
+      "joint_events": 3360,
+      "near_equal_events": 0,
+      "first_near_equal": null
+    }
+  ],
+  "q4_probability_probe": {
+    "tau1": 0.1,
+    "tau2": 0.1,
+    "Ps": 1.2789473684210535,
+    "interpretation": "expression not a probability on entire unit square; attainable solver domain not proved"
+  },
+  "q4_local_branch_probe": {
+    "total_success_increment": 2,
+    "per_ap_success_increment": [
+      0,
+      0,
+      0
+    ],
+    "stages_after_success_branch": [
+      2,
+      0,
+      3
+    ],
+    "expected_stage_reset": [
+      0,
+      0,
+      0
+    ],
+    "scope": "local branch arithmetic, not complete MATLAB execution"
+  },
+  "continuous_windows": [
+    {
+      "q": 1,
+      "seed": 101,
+      "whole_run": {
+        "mbps": [
+          32.6136,
+          32.6484
+        ],
+        "total_mbps": 65.262,
+        "attempts": [
+          30509,
+          30538
+        ],
+        "successes": [
+          27178,
+          27207
+        ],
+        "failures": [
+          3331,
+          3331
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 181751,
+        "seed": 101,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9999997156602309
+      },
+      "windows_per_node_mbps": [
+        [
+          33.024,
+          32.364
+        ],
+        [
+          32.448,
+          32.508
+        ],
+        [
+          32.988,
+          32.328
+        ],
+        [
+          32.496,
+          33.036
+        ],
+        [
+          32.796,
+          32.784
+        ],
+        [
+          32.544000000000004,
+          32.688
+        ],
+        [
+          32.844,
+          32.664
+        ],
+        [
+          32.316,
+          33.288000000000004
+        ],
+        [
+          31.944,
+          32.52
+        ],
+        [
+          32.736000000000004,
+          32.304
+        ]
+      ],
+      "total_window_min": 64.464,
+      "total_window_max": 65.60400000000001,
+      "total_window_sd": 0.3576031319773388,
+      "minimum_window_jain": 0.9997805292920307,
+      "completed_attempt_failure_fraction": 0.10912903172965092,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 1,
+      "seed": 202,
+      "whole_run": {
+        "mbps": [
+          32.8164,
+          32.5368
+        ],
+        "total_mbps": 65.3532,
+        "attempts": [
+          30686,
+          30453
+        ],
+        "successes": [
+          27347,
+          27114
+        ],
+        "failures": [
+          3339,
+          3339
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 182136,
+        "seed": 202,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9999816965621077
+      },
+      "windows_per_node_mbps": [
+        [
+          32.64,
+          32.928
+        ],
+        [
+          33.156,
+          31.86
+        ],
+        [
+          32.892,
+          32.388
+        ],
+        [
+          32.832,
+          32.124
+        ],
+        [
+          32.556,
+          33.24
+        ],
+        [
+          32.352000000000004,
+          32.484
+        ],
+        [
+          32.808,
+          32.472
+        ],
+        [
+          33.468,
+          32.268
+        ],
+        [
+          33.024,
+          32.772
+        ],
+        [
+          32.436,
+          32.832
+        ]
+      ],
+      "total_window_min": 64.83600000000001,
+      "total_window_max": 65.79599999999999,
+      "total_window_sd": 0.3561774838475863,
+      "minimum_window_jain": 0.9996028112139633,
+      "completed_attempt_failure_fraction": 0.10922651662604883,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 1,
+      "seed": 303,
+      "whole_run": {
+        "mbps": [
+          32.4936,
+          32.7444
+        ],
+        "total_mbps": 65.238,
+        "attempts": [
+          30435,
+          30644
+        ],
+        "successes": [
+          27078,
+          27287
+        ],
+        "failures": [
+          3357,
+          3357
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 181763,
+        "seed": 303,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.999985220921056
+      },
+      "windows_per_node_mbps": [
+        [
+          32.172000000000004,
+          33.096000000000004
+        ],
+        [
+          32.688,
+          31.908
+        ],
+        [
+          32.94,
+          32.424
+        ],
+        [
+          32.688,
+          32.832
+        ],
+        [
+          32.868,
+          32.112
+        ],
+        [
+          31.92,
+          33.024
+        ],
+        [
+          32.412,
+          33.264
+        ],
+        [
+          31.488,
+          33.924
+        ],
+        [
+          33.024,
+          33.0
+        ],
+        [
+          32.736000000000004,
+          31.86
+        ]
+      ],
+      "total_window_min": 64.596,
+      "total_window_max": 66.024,
+      "total_window_sd": 0.4611030253641803,
+      "minimum_window_jain": 0.9986150381403086,
+      "completed_attempt_failure_fraction": 0.10992321419800587,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 1,
+      "seed": 404,
+      "whole_run": {
+        "mbps": [
+          32.4804,
+          32.7144
+        ],
+        "total_mbps": 65.1948,
+        "attempts": [
+          30456,
+          30651
+        ],
+        "successes": [
+          27067,
+          27262
+        ],
+        "failures": [
+          3389,
+          3389
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 181800,
+        "seed": 404,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9999871174983946
+      },
+      "windows_per_node_mbps": [
+        [
+          32.316,
+          33.252
+        ],
+        [
+          32.4,
+          32.58
+        ],
+        [
+          33.12,
+          32.376
+        ],
+        [
+          31.788,
+          32.724000000000004
+        ],
+        [
+          33.204,
+          32.832
+        ],
+        [
+          32.088,
+          32.844
+        ],
+        [
+          32.328,
+          33.036
+        ],
+        [
+          32.304,
+          33.204
+        ],
+        [
+          32.28,
+          32.412
+        ],
+        [
+          32.976,
+          31.884
+        ]
+      ],
+      "total_window_min": 64.512,
+      "total_window_max": 66.036,
+      "total_window_sd": 0.4726588621828658,
+      "minimum_window_jain": 0.9997166205842893,
+      "completed_attempt_failure_fraction": 0.11092018917636277,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 1,
+      "seed": 505,
+      "whole_run": {
+        "mbps": [
+          32.5068,
+          32.67
+        ],
+        "total_mbps": 65.1768,
+        "attempts": [
+          30493,
+          30629
+        ],
+        "successes": [
+          27089,
+          27225
+        ],
+        "failures": [
+          3404,
+          3404
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 181824,
+        "seed": 505,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9999937302313221
+      },
+      "windows_per_node_mbps": [
+        [
+          32.52,
+          32.952
+        ],
+        [
+          31.464000000000002,
+          33.312
+        ],
+        [
+          32.364,
+          32.136
+        ],
+        [
+          32.232,
+          32.676
+        ],
+        [
+          32.544000000000004,
+          33.324
+        ],
+        [
+          33.288000000000004,
+          32.304
+        ],
+        [
+          32.352000000000004,
+          32.568
+        ],
+        [
+          33.372,
+          32.316
+        ],
+        [
+          32.676,
+          32.544000000000004
+        ],
+        [
+          32.256,
+          32.568
+        ]
+      ],
+      "total_window_min": 64.5,
+      "total_window_max": 65.868,
+      "total_window_sd": 0.45726841132971513,
+      "minimum_window_jain": 0.9991867532264459,
+      "completed_attempt_failure_fraction": 0.11138378979745427,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 2,
+      "seed": 101,
+      "whole_run": {
+        "mbps": [
+          34.3884,
+          34.5252
+        ],
+        "total_mbps": 68.9136,
+        "attempts": [
+          28657,
+          28771
+        ],
+        "successes": [
+          28657,
+          28771
+        ],
+        "failures": [
+          0,
+          0
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 170394,
+        "seed": 101,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 58.060588448964765,
+        "fairness": 0.9999960594158347
+      },
+      "windows_per_node_mbps": [
+        [
+          34.392,
+          34.584
+        ],
+        [
+          34.248,
+          34.596000000000004
+        ],
+        [
+          34.296,
+          34.704
+        ],
+        [
+          34.584,
+          34.32
+        ],
+        [
+          34.368,
+          34.272
+        ],
+        [
+          34.704,
+          34.284
+        ],
+        [
+          34.536,
+          34.92
+        ],
+        [
+          34.272,
+          34.308
+        ],
+        [
+          34.188,
+          34.5
+        ],
+        [
+          34.296,
+          34.764
+        ]
+      ],
+      "total_window_min": 68.58,
+      "total_window_max": 69.456,
+      "total_window_sd": 0.2526531218884906,
+      "minimum_window_jain": 0.9999540782305271,
+      "completed_attempt_failure_fraction": 0.0,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 2,
+      "seed": 202,
+      "whole_run": {
+        "mbps": [
+          34.5204,
+          34.4028
+        ],
+        "total_mbps": 68.92320000000001,
+        "attempts": [
+          28767,
+          28669
+        ],
+        "successes": [
+          28767,
+          28669
+        ],
+        "failures": [
+          0,
+          0
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 170419,
+        "seed": 202,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 58.060588448964765,
+        "fairness": 0.9999970887298107
+      },
+      "windows_per_node_mbps": [
+        [
+          35.088,
+          33.84
+        ],
+        [
+          34.944,
+          33.936
+        ],
+        [
+          34.800000000000004,
+          34.032000000000004
+        ],
+        [
+          34.092,
+          34.5
+        ],
+        [
+          34.512,
+          34.452
+        ],
+        [
+          34.452,
+          34.776
+        ],
+        [
+          34.128,
+          34.764
+        ],
+        [
+          34.404,
+          34.56
+        ],
+        [
+          33.984,
+          34.752
+        ],
+        [
+          34.800000000000004,
+          34.416000000000004
+        ]
+      ],
+      "total_window_min": 68.592,
+      "total_window_max": 69.22800000000001,
+      "total_window_sd": 0.193758612711799,
+      "minimum_window_jain": 0.9996722856428145,
+      "completed_attempt_failure_fraction": 0.0,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 2,
+      "seed": 303,
+      "whole_run": {
+        "mbps": [
+          34.5672,
+          34.3332
+        ],
+        "total_mbps": 68.90039999999999,
+        "attempts": [
+          28806,
+          28611
+        ],
+        "successes": [
+          28806,
+          28611
+        ],
+        "failures": [
+          0,
+          0
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 170348,
+        "seed": 303,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 58.060588448964765,
+        "fairness": 0.9999884659130984
+      },
+      "windows_per_node_mbps": [
+        [
+          34.644,
+          34.38
+        ],
+        [
+          34.56,
+          34.32
+        ],
+        [
+          34.764,
+          34.38
+        ],
+        [
+          33.84,
+          34.896
+        ],
+        [
+          34.632,
+          34.236000000000004
+        ],
+        [
+          35.1,
+          34.176
+        ],
+        [
+          35.076,
+          34.092
+        ],
+        [
+          34.128,
+          34.644
+        ],
+        [
+          34.476,
+          33.96
+        ],
+        [
+          34.452,
+          34.248
+        ]
+      ],
+      "total_window_min": 68.436,
+      "total_window_max": 69.27600000000001,
+      "total_window_sd": 0.2556278545072925,
+      "minimum_window_jain": 0.9997640299779438,
+      "completed_attempt_failure_fraction": 0.0,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 2,
+      "seed": 404,
+      "whole_run": {
+        "mbps": [
+          34.56,
+          34.4556
+        ],
+        "total_mbps": 69.0156,
+        "attempts": [
+          28800,
+          28713
+        ],
+        "successes": [
+          28800,
+          28713
+        ],
+        "failures": [
+          0,
+          0
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 170409,
+        "seed": 404,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 58.060588448964765,
+        "fairness": 0.9999977117394804
+      },
+      "windows_per_node_mbps": [
+        [
+          34.416000000000004,
+          34.26
+        ],
+        [
+          34.848,
+          34.452
+        ],
+        [
+          34.452,
+          34.368
+        ],
+        [
+          34.56,
+          34.584
+        ],
+        [
+          34.416000000000004,
+          34.368
+        ],
+        [
+          34.26,
+          34.656
+        ],
+        [
+          34.536,
+          34.536
+        ],
+        [
+          34.56,
+          34.536
+        ],
+        [
+          34.776,
+          34.356
+        ],
+        [
+          34.776,
+          34.44
+        ]
+      ],
+      "total_window_min": 68.676,
+      "total_window_max": 69.3,
+      "total_window_sd": 0.20490387990470185,
+      "minimum_window_jain": 0.999963091677321,
+      "completed_attempt_failure_fraction": 0.0,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 2,
+      "seed": 505,
+      "whole_run": {
+        "mbps": [
+          34.4004,
+          34.6104
+        ],
+        "total_mbps": 69.01079999999999,
+        "attempts": [
+          28667,
+          28842
+        ],
+        "successes": [
+          28667,
+          28842
+        ],
+        "failures": [
+          0,
+          0
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 170361,
+        "seed": 505,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 58.060588448964765,
+        "fairness": 0.9999907402247856
+      },
+      "windows_per_node_mbps": [
+        [
+          33.828,
+          34.848
+        ],
+        [
+          33.972,
+          35.208
+        ],
+        [
+          34.5,
+          34.296
+        ],
+        [
+          34.596000000000004,
+          34.932
+        ],
+        [
+          34.788000000000004,
+          34.188
+        ],
+        [
+          34.764,
+          34.476
+        ],
+        [
+          34.524,
+          34.548
+        ],
+        [
+          34.608000000000004,
+          34.308
+        ],
+        [
+          34.296,
+          34.596000000000004
+        ],
+        [
+          34.128,
+          34.704
+        ]
+      ],
+      "total_window_min": 68.676,
+      "total_window_max": 69.528,
+      "total_window_sd": 0.25097888357390163,
+      "minimum_window_jain": 0.9996808923487981,
+      "completed_attempt_failure_fraction": 0.0,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 3,
+      "seed": 101,
+      "whole_run": {
+        "mbps": [
+          26.8536,
+          27.7908
+        ],
+        "total_mbps": 54.644400000000005,
+        "attempts": [
+          33994,
+          34922
+        ],
+        "successes": [
+          22378,
+          23159
+        ],
+        "failures": [
+          11616,
+          11763
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 216659,
+        "seed": 101,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9997059335314352
+      },
+      "windows_per_node_mbps": [
+        [
+          22.944,
+          30.648
+        ],
+        [
+          26.928,
+          28.212
+        ],
+        [
+          26.568,
+          26.676000000000002
+        ],
+        [
+          27.96,
+          26.916
+        ],
+        [
+          29.268,
+          25.716
+        ],
+        [
+          24.624,
+          30.036
+        ],
+        [
+          28.212,
+          27.108
+        ],
+        [
+          26.916,
+          26.76
+        ],
+        [
+          27.96,
+          27.54
+        ],
+        [
+          27.156,
+          28.296
+        ]
+      ],
+      "total_window_min": 53.244,
+      "total_window_max": 55.5,
+      "total_window_sd": 0.8341328431371109,
+      "minimum_window_jain": 0.9797535235482865,
+      "completed_attempt_failure_fraction": 0.3392390736548842,
+      "noise_marked_completed_attempts": 6843,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 3,
+      "seed": 202,
+      "whole_run": {
+        "mbps": [
+          28.0476,
+          26.6508
+        ],
+        "total_mbps": 54.6984,
+        "attempts": [
+          35554,
+          34194
+        ],
+        "successes": [
+          23373,
+          22209
+        ],
+        "failures": [
+          12181,
+          11985
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 219273,
+        "seed": 202,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9993483174491915
+      },
+      "windows_per_node_mbps": [
+        [
+          29.184,
+          27.060000000000002
+        ],
+        [
+          27.996000000000002,
+          26.784
+        ],
+        [
+          26.82,
+          26.928
+        ],
+        [
+          27.012,
+          26.688
+        ],
+        [
+          26.868000000000002,
+          27.66
+        ],
+        [
+          28.104,
+          26.904
+        ],
+        [
+          27.828,
+          28.224
+        ],
+        [
+          27.384,
+          27.168
+        ],
+        [
+          28.404,
+          25.632
+        ],
+        [
+          30.876,
+          23.46
+        ]
+      ],
+      "total_window_min": 53.7,
+      "total_window_max": 56.244,
+      "total_window_sd": 0.8720513746333972,
+      "minimum_window_jain": 0.9817127440805011,
+      "completed_attempt_failure_fraction": 0.34647588461317885,
+      "noise_marked_completed_attempts": 6943,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 3,
+      "seed": 303,
+      "whole_run": {
+        "mbps": [
+          27.5436,
+          27.0552
+        ],
+        "total_mbps": 54.5988,
+        "attempts": [
+          34899,
+          34437
+        ],
+        "successes": [
+          22953,
+          22546
+        ],
+        "failures": [
+          11946,
+          11891
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 218327,
+        "seed": 303,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9999199888771066
+      },
+      "windows_per_node_mbps": [
+        [
+          29.112000000000002,
+          25.368000000000002
+        ],
+        [
+          27.54,
+          27.288
+        ],
+        [
+          29.676000000000002,
+          24.876
+        ],
+        [
+          29.112000000000002,
+          25.536
+        ],
+        [
+          27.192,
+          26.1
+        ],
+        [
+          25.848,
+          29.304000000000002
+        ],
+        [
+          28.356,
+          27.288
+        ],
+        [
+          29.028000000000002,
+          27.168
+        ],
+        [
+          25.524,
+          28.404
+        ],
+        [
+          24.048000000000002,
+          29.22
+        ]
+      ],
+      "total_window_min": 53.268,
+      "total_window_max": 56.196,
+      "total_window_sd": 0.9398289206020426,
+      "minimum_window_jain": 0.9906608095268883,
+      "completed_attempt_failure_fraction": 0.3437896619360794,
+      "noise_marked_completed_attempts": 6887,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 3,
+      "seed": 404,
+      "whole_run": {
+        "mbps": [
+          27.15,
+          28.0596
+        ],
+        "total_mbps": 55.209599999999995,
+        "attempts": [
+          34545,
+          35379
+        ],
+        "successes": [
+          22625,
+          23383
+        ],
+        "failures": [
+          11920,
+          11996
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 219724,
+        "seed": 404,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9997286349993231
+      },
+      "windows_per_node_mbps": [
+        [
+          28.104,
+          28.26
+        ],
+        [
+          24.6,
+          31.992
+        ],
+        [
+          28.14,
+          26.628
+        ],
+        [
+          28.668,
+          25.308
+        ],
+        [
+          27.396,
+          26.94
+        ],
+        [
+          25.968,
+          28.716
+        ],
+        [
+          26.556,
+          27.948
+        ],
+        [
+          26.892,
+          29.52
+        ],
+        [
+          25.776,
+          29.64
+        ],
+        [
+          29.400000000000002,
+          25.644000000000002
+        ]
+      ],
+      "total_window_min": 53.976,
+      "total_window_max": 56.592,
+      "total_window_sd": 0.9436066977295149,
+      "minimum_window_jain": 0.9832248399123753,
+      "completed_attempt_failure_fraction": 0.3420284880727647,
+      "noise_marked_completed_attempts": 6933,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 3,
+      "seed": 505,
+      "whole_run": {
+        "mbps": [
+          25.5552,
+          28.824
+        ],
+        "total_mbps": 54.3792,
+        "attempts": [
+          33103,
+          36014
+        ],
+        "successes": [
+          21296,
+          24020
+        ],
+        "failures": [
+          11807,
+          11994
+        ],
+        "drops": [
+          0,
+          0
+        ],
+        "events": 217818,
+        "seed": 505,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.9963996507041432
+      },
+      "windows_per_node_mbps": [
+        [
+          24.900000000000002,
+          28.788
+        ],
+        [
+          26.388,
+          28.848
+        ],
+        [
+          26.928,
+          26.964000000000002
+        ],
+        [
+          25.8,
+          28.092000000000002
+        ],
+        [
+          24.912,
+          28.5
+        ],
+        [
+          25.092,
+          30.468
+        ],
+        [
+          27.168,
+          27.612000000000002
+        ],
+        [
+          26.676000000000002,
+          28.38
+        ],
+        [
+          23.748,
+          30.156000000000002
+        ],
+        [
+          23.94,
+          30.432000000000002
+        ]
+      ],
+      "total_window_min": 53.412,
+      "total_window_max": 55.56,
+      "total_window_sd": 0.7349165939070909,
+      "minimum_window_jain": 0.9859440987363658,
+      "completed_attempt_failure_fraction": 0.34435811739514155,
+      "noise_marked_completed_attempts": 6993,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 4,
+      "seed": 101,
+      "whole_run": {
+        "mbps": [
+          49.4412,
+          11.9688,
+          49.3992
+        ],
+        "total_mbps": 110.8092,
+        "attempts": [
+          42334,
+          12167,
+          42362
+        ],
+        "successes": [
+          41201,
+          9974,
+          41166
+        ],
+        "failures": [
+          1133,
+          2193,
+          1196
+        ],
+        "drops": [
+          0,
+          0,
+          0
+        ],
+        "events": 293805,
+        "seed": 101,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.8140256776196069
+      },
+      "windows_per_node_mbps": [
+        [
+          49.428000000000004,
+          12.108,
+          49.536
+        ],
+        [
+          49.344,
+          12.252,
+          48.864000000000004
+        ],
+        [
+          49.824,
+          11.268,
+          49.86
+        ],
+        [
+          49.596000000000004,
+          12.048,
+          49.332
+        ],
+        [
+          49.104,
+          12.66,
+          49.092
+        ],
+        [
+          49.02,
+          12.144,
+          49.224000000000004
+        ],
+        [
+          49.764,
+          11.64,
+          49.56
+        ],
+        [
+          49.392,
+          11.844,
+          49.476
+        ],
+        [
+          49.764,
+          11.592,
+          49.788000000000004
+        ],
+        [
+          49.176,
+          12.132,
+          49.26
+        ]
+      ],
+      "total_window_min": 110.388,
+      "total_window_max": 111.144,
+      "total_window_sd": 0.26299505698776793,
+      "minimum_window_jain": 0.805321260369904,
+      "completed_attempt_failure_fraction": 0.046684492530687675,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 4,
+      "seed": 202,
+      "whole_run": {
+        "mbps": [
+          49.5096,
+          11.8836,
+          49.4976
+        ],
+        "total_mbps": 110.8908,
+        "attempts": [
+          42417,
+          12083,
+          42402
+        ],
+        "successes": [
+          41258,
+          9903,
+          41248
+        ],
+        "failures": [
+          1159,
+          2180,
+          1154
+        ],
+        "drops": [
+          0,
+          0,
+          0
+        ],
+        "events": 293978,
+        "seed": 202,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.8128860213609398
+      },
+      "windows_per_node_mbps": [
+        [
+          49.704,
+          11.388,
+          49.728
+        ],
+        [
+          49.212,
+          12.192,
+          49.056000000000004
+        ],
+        [
+          49.824,
+          11.82,
+          49.776
+        ],
+        [
+          49.332,
+          12.108,
+          49.596000000000004
+        ],
+        [
+          49.368,
+          12.156,
+          49.272
+        ],
+        [
+          49.272,
+          12.156,
+          49.152
+        ],
+        [
+          49.548,
+          11.52,
+          49.788000000000004
+        ],
+        [
+          49.572,
+          11.604000000000001,
+          49.704
+        ],
+        [
+          49.5,
+          12.312,
+          48.996
+        ],
+        [
+          49.764,
+          11.58,
+          49.908
+        ]
+      ],
+      "total_window_min": 110.46000000000001,
+      "total_window_max": 111.42,
+      "total_window_sd": 0.2859622352689248,
+      "minimum_window_jain": 0.8069489355904682,
+      "completed_attempt_failure_fraction": 0.04636643206538565,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 4,
+      "seed": 303,
+      "whole_run": {
+        "mbps": [
+          49.4016,
+          11.8764,
+          49.314
+        ],
+        "total_mbps": 110.592,
+        "attempts": [
+          42361,
+          12085,
+          42239
+        ],
+        "successes": [
+          41168,
+          9897,
+          41095
+        ],
+        "failures": [
+          1193,
+          2188,
+          1144
+        ],
+        "drops": [
+          0,
+          0,
+          0
+        ],
+        "events": 293346,
+        "seed": 303,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.8131872478417939
+      },
+      "windows_per_node_mbps": [
+        [
+          48.984,
+          12.564,
+          48.804
+        ],
+        [
+          49.932,
+          11.052,
+          49.872
+        ],
+        [
+          49.248,
+          11.856,
+          49.356
+        ],
+        [
+          49.788000000000004,
+          11.028,
+          49.896
+        ],
+        [
+          49.68,
+          11.892,
+          49.416000000000004
+        ],
+        [
+          49.464,
+          11.544,
+          49.14
+        ],
+        [
+          49.392,
+          12.048,
+          49.26
+        ],
+        [
+          49.392,
+          11.976,
+          49.536
+        ],
+        [
+          49.008,
+          12.456,
+          48.864000000000004
+        ],
+        [
+          49.128,
+          12.348,
+          48.996
+        ]
+      ],
+      "total_window_min": 110.148,
+      "total_window_max": 110.988,
+      "total_window_sd": 0.28011426240018644,
+      "minimum_window_jain": 0.8026831862771973,
+      "completed_attempt_failure_fraction": 0.04680146868697316,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 4,
+      "seed": 404,
+      "whole_run": {
+        "mbps": [
+          49.5912,
+          11.826,
+          49.638
+        ],
+        "total_mbps": 111.0552,
+        "attempts": [
+          42485,
+          12012,
+          42499
+        ],
+        "successes": [
+          41326,
+          9855,
+          41365
+        ],
+        "failures": [
+          1159,
+          2157,
+          1134
+        ],
+        "drops": [
+          0,
+          0,
+          0
+        ],
+        "events": 294311,
+        "seed": 404,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.8119745207040046
+      },
+      "windows_per_node_mbps": [
+        [
+          50.148,
+          11.172,
+          50.496
+        ],
+        [
+          48.984,
+          12.48,
+          48.9
+        ],
+        [
+          49.812,
+          12.156,
+          50.112
+        ],
+        [
+          49.248,
+          11.88,
+          49.152
+        ],
+        [
+          49.44,
+          11.616,
+          49.632
+        ],
+        [
+          49.236000000000004,
+          12.168000000000001,
+          49.332
+        ],
+        [
+          49.800000000000004,
+          11.712,
+          49.128
+        ],
+        [
+          49.608000000000004,
+          11.808,
+          49.788000000000004
+        ],
+        [
+          49.932,
+          11.664,
+          49.86
+        ],
+        [
+          49.704,
+          11.604000000000001,
+          49.980000000000004
+        ]
+      ],
+      "total_window_min": 110.28,
+      "total_window_max": 112.08,
+      "total_window_sd": 0.6104477045578932,
+      "minimum_window_jain": 0.8030871578957648,
+      "completed_attempt_failure_fraction": 0.04587818054352757,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    },
+    {
+      "q": 4,
+      "seed": 505,
+      "whole_run": {
+        "mbps": [
+          49.3092,
+          12.012,
+          49.29
+        ],
+        "total_mbps": 110.6112,
+        "attempts": [
+          42305,
+          12236,
+          42226
+        ],
+        "successes": [
+          41091,
+          10010,
+          41075
+        ],
+        "failures": [
+          1214,
+          2226,
+          1151
+        ],
+        "drops": [
+          0,
+          0,
+          0
+        ],
+        "events": 293469,
+        "seed": 505,
+        "duration_us": 10000000.0,
+        "warmup_us": 500000.0,
+        "data_time_us": 40.45388328214129,
+        "fairness": 0.814810154606264
+      },
+      "windows_per_node_mbps": [
+        [
+          49.176,
+          12.168000000000001,
+          48.9
+        ],
+        [
+          49.776,
+          11.976,
+          49.5
+        ],
+        [
+          49.02,
+          12.0,
+          49.248
+        ],
+        [
+          49.116,
+          12.072000000000001,
+          49.272
+        ],
+        [
+          49.32,
+          12.3,
+          49.488
+        ],
+        [
+          49.752,
+          11.484,
+          49.464
+        ],
+        [
+          49.332,
+          12.192,
+          49.152
+        ],
+        [
+          48.936,
+          12.648,
+          49.02
+        ],
+        [
+          49.92,
+          11.256,
+          49.884
+        ],
+        [
+          48.744,
+          12.024000000000001,
+          48.972
+        ]
+      ],
+      "total_window_min": 109.74000000000001,
+      "total_window_max": 111.25200000000001,
+      "total_window_sd": 0.460128677654415,
+      "minimum_window_jain": 0.8050414518452877,
+      "completed_attempt_failure_fraction": 0.04744385999359286,
+      "noise_marked_completed_attempts": 0,
+      "conservation_checks": "PASS"
+    }
+  ]
+}

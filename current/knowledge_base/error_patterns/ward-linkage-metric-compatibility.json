@@ -1,0 +1,6 @@
+{
+  "id": "ward-linkage-metric-compatibility",
+  "name": "Ward linkage used without Euclidean metric contract",
+  "trigger": "Ward clustering is described on an arbitrary similarity/dissimilarity matrix or mixed metric without showing Euclidean feature embedding/squared-Euclidean compatibility.",
+  "gate": "Run Ward on a valid Euclidean feature representation (with preprocessing provenance) or choose a linkage compatible with the supplied distance; record exact distance input."
+}

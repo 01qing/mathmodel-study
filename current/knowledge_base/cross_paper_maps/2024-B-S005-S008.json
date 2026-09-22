@@ -1,0 +1,70 @@
+{
+  "case_group": "2024-B",
+  "papers": [
+    "S005",
+    "S006",
+    "S007",
+    "S008"
+  ],
+  "papers_reviewed": [
+    "S005",
+    "S006",
+    "S007",
+    "S008"
+  ],
+  "papers_pending": [],
+  "questions": {
+    "Q1": {
+      "S005": "random forest regression + feature importance; claims weighted forest but visible code standard RF",
+      "S006": "DBSCAN/randomness narrative + RF-vs-GBDT comparison + feature importance; target-encoding leakage and post-hoc output noise",
+      "selection_lesson": "Prefer group-aware tree/boosting baselines. Use LSTM only when a real ordered sequence (T>1) exists and temporal ablation beats a matched MLP/tree baseline.",
+      "S007": "nine-regressor result comparison + CDF; random row split after merged experiment files and custom P90-error complement called accuracy",
+      "S008": "RF + deep LSTM; RF pipeline split is safer, but LSTM fits preprocessing before split and uses only one timestep"
+    },
+    "Q2": {
+      "S005": "predict PHY Rate then infer MCS/NSS; risks non-injective inverse mapping",
+      "S006": "directly fuse (NSS,MCS) into multiclass label, compare BP/CNN, oversample minority classes",
+      "selection_lesson": "Best composite route: S007 linear-power SINR + S006 joint (MCS,NSS) representation + group-aware/train-only imbalance-safe validation. Avoid S005/S008 PHY-rate inverse mapping.",
+      "S007": "physically correct dBm→mW SINR, but predicts MCS/NSS independently; NSS has ~0.98 accuracy with only ~0.55 F1/precision/recall",
+      "S008": "predict PHY Rate then floor-invert to (MCS,NSS); duplicate PHY rates make inverse ambiguous; multi-interferer SINR subtracts dBm values directly"
+    },
+    "Q3": {
+      "S005": "direct CNN throughput regression",
+      "S006": "two-stage RF intermediate prediction -> residual network throughput regression",
+      "selection_lesson": "Start from the mechanistic throughput formula. Compare direct ML and any OOF cascade on untouched experiment groups; validate metric algebra before model selection.",
+      "S007": "physical/protocol feature engineering + GradientBoostingRegressor; uses true MCS/NSS but aggregates RSSI in dBm and has cross-section metric contradictions",
+      "S008": "physics throughput baseline + RF/SVR/LSTM; downstream uses upstream predictions at deployment but training evidence uses oracle intermediates; metric table contains algebraically impossible MSE/MAE pair"
+    }
+  },
+  "shared_gates": [
+    "group-aware split",
+    "train-only preprocessing",
+    "dBm linear power calculations",
+    "standard regression/classification metrics",
+    "model-claim implementation evidence"
+  ],
+  "new_gates_from_S006": [
+    "train-only/cross-fit target encoding",
+    "train-only oversampling",
+    "resampler shape contract",
+    "OOF cascade training",
+    "no post-hoc random-noise robustness claim"
+  ],
+  "new_gates_from_S007": [
+    "structured-output pair validity",
+    "imbalance-aware metrics",
+    "linear-domain RSSI/power aggregation",
+    "cross-section metric consistency"
+  ],
+  "new_gates_from_S008": [
+    "real sequence axis for RNN/LSTM",
+    "metric algebra sanity",
+    "physics baseline before black-box",
+    "OOF upstream predictions for deployment-consistent cascades"
+  ],
+  "final_2024B_recommendation": {
+    "Q1": "group-aware RF/GBDT/XGBoost baseline; temporal model only if true ordered sequences exist",
+    "Q2": "S007-style linear-power SINR + S006-style joint valid-pair prediction + imbalance-aware metrics",
+    "Q3": "mechanistic PHYRate*(1-PER)*airtime baseline + residual/direct ML; upstream predictions generated OOF for training and full-chain holdout evaluation"
+  }
+}

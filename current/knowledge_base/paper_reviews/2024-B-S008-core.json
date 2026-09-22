@@ -1,0 +1,121 @@
+{
+  "paper_id": "S008",
+  "case_group": "2024-B",
+  "year": 2024,
+  "problem_id": "B",
+  "split": "train",
+  "pages": 69,
+  "title": "B24116640167",
+  "paper_title": "WLAN 组网中网络吞吐量建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "correlation/rank-correlation feature screening",
+        "RF regression",
+        "deep stacked LSTM regression"
+      ],
+      "target": "seq_time",
+      "strengths": [
+        "RF pipeline keeps StandardScaler/OneHotEncoder inside fitted pipeline after outer train/test split",
+        "reports RF and LSTM MSE for both 2AP and 3AP"
+      ],
+      "risks": [
+        "LSTM preprocessing is fit on the whole data before train_test_split",
+        "LSTM reshapes tabular rows to one timestep, so it cannot learn actual temporal dependencies despite the LSTM name",
+        "rows from multiple WLAN experiments are not group-held-out"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "handcrafted transmission mode/SINR features",
+        "RF / SGD linear regression / LSTM predict PHY Rate",
+        "floor-map predicted PHY Rate back to (MCS,NSS)"
+      ],
+      "target": "PHY Rate then (MCS,NSS)",
+      "strengths": [
+        "recognizes high SINR should permit higher MCS and more streams",
+        "compares multiple regression families"
+      ],
+      "risks": [
+        "multi-interferer SINR code subtracts several negative dBm vectors directly instead of summing linear interference power",
+        "mixed-mode SINR is formed by adding two SINR quantities without time weighting/physical derivation",
+        "PHY Rate to (MCS,NSS) inverse is non-injective; floor lookup resolves equal-rate ties by dictionary/order, not evidence",
+        "StandardScaler for SGD is fit before split",
+        "LSTM uses one-timestep pseudo-sequences and full-data preprocessing"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "formula baseline from PHY Rate, PER, seq_time/test_dur",
+        "RF regression",
+        "SVR with linear/rbf/poly kernels",
+        "LSTM regression"
+      ],
+      "target": "throughput",
+      "strengths": [
+        "states a useful physical baseline throughput ≈ PHYRate*(1-PER)*airtime fraction",
+        "compares several regressors and kernel choices"
+      ],
+      "risks": [
+        "training uses true seq_time/PHY-related intermediates while test construction uses Q1/Q2 predictions, creating oracle-intermediate deployment shift unless OOF predictions train the final model",
+        "SVR preprocessor is fit before train_test_split",
+        "LSTM again has one timestep and preprocessing leakage",
+        "reported 3AP polynomial-SVR MSE=12.48 with MAE=7.30 violates MSE >= MAE^2",
+        "paper says RBF is best among kernels and later LSTM is best overall, but its own polynomial-SVR 3AP MSE=12.48 would contradict those selections if the number were correct",
+        "several Q3 figure captions incorrectly say PHY_Rate although section claims throughput"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "lines": "789-836",
+      "claim": "Q1 selects 10-layer/5-layer LSTM by validation MSE"
+    },
+    {
+      "lines": "4387-4469",
+      "claim": "visible LSTM code fits preprocessing before split and reshapes each row to one timestep"
+    },
+    {
+      "lines": "1005-1065",
+      "claim": "Q2 formulas mix ratio-domain and dB-style SINR descriptions across synchronous/asynchronous/mixed modes"
+    },
+    {
+      "lines": "4550-4580",
+      "claim": "visible multi-AP SINR code returns rssi_0-rssi_1-rssi_2 directly"
+    },
+    {
+      "lines": "4477-4482",
+      "claim": "SGD StandardScaler fit_transform occurs before split"
+    },
+    {
+      "lines": "4630-4645",
+      "claim": "PHY-rate inverse lookup selects the last lower/equal tuple from a table containing duplicate rates"
+    },
+    {
+      "lines": "1631-1640",
+      "claim": "Q3 explicitly uses predicted seq_time and mapped PHY Rate in formula-based test throughput construction"
+    },
+    {
+      "lines": "4505-4512",
+      "claim": "SVR ColumnTransformer fit_transform occurs before split"
+    },
+    {
+      "lines": "1755-1795",
+      "claim": "3AP polynomial SVM table reports MSE 12.48 and MAE 7.30"
+    },
+    {
+      "lines": "1790-1851",
+      "claim": "narrative selects RBF among SVMs and LSTM overall despite conflicting polynomial-SVM table value"
+    }
+  ],
+  "transfer_lessons": [
+    "An LSTM/RNN needs a real ordered sequence axis. Shape (n,1,p) is a one-step nonlinear network, not evidence of learned temporal memory.",
+    "For multiple interferers, convert every dBm power to linear mW/W and sum there before computing SINR.",
+    "Never invert a non-injective PHY-rate table to a unique (MCS,NSS) tuple without additional constraints/evidence.",
+    "For Q1/Q2→Q3 cascades, train downstream models on OOF upstream predictions and report full-chain holdout performance.",
+    "Automatically apply metric identities such as MSE >= MAE^2 and RMSE=sqrt(MSE) to catch impossible tables before paper export.",
+    "If a simple physics formula exists, keep it as an explicit baseline and justify any ML layer by residual improvement on untouched groups."
+  ]
+}

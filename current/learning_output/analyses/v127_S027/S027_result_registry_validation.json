@@ -1,0 +1,54 @@
+{
+  "paper_id": "S027",
+  "status": "PASS",
+  "checks": 9,
+  "details": [
+    {
+      "name": "Q1 aggregate claim vs random",
+      "status": "PASS",
+      "detail": 89.24301802945823
+    },
+    {
+      "name": "Q1 macro differs materially from headline",
+      "status": "PASS",
+      "detail": 76.55185427587448
+    },
+    {
+      "name": "Q2 Table5.11 aggregation unresolved",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Q3 aggregate cycle reduction ~12.62",
+      "status": "PASS",
+      "detail": 12.619720916796151
+    },
+    {
+      "name": "Q3 aggregate traffic increase ~7.18",
+      "status": "PASS",
+      "detail": 7.1787731105438235
+    },
+    {
+      "name": "Q3 15pct cap feasible",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "Q3 10pct cap has violation",
+      "status": "PASS",
+      "detail": [
+        "FlashAttention_Case0"
+      ]
+    },
+    {
+      "name": "Q3 sign drift caught",
+      "status": "PASS",
+      "detail": null
+    },
+    {
+      "name": "Q3 Conv0 baseline drift caught",
+      "status": "PASS",
+      "detail": null
+    }
+  ]
+}

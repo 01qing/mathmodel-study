@@ -1,0 +1,56 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "questions": {
+    "Q1": {
+      "baseline": "walkable weighted graph + explicit local geometry/visibility/change descriptors + k-shortest/beam/simple feasible route pool + raw two-objective registry (interest, repeated distance) + transparent operating-point selection",
+      "author_route": "claimed improved genetic algorithm with guided random-walk initialization, route crossover/mutation, elite retention and Pareto comparison; printed appendix instead returns a Dijkstra shortest path",
+      "alternatives": [
+        "epsilon-constraint or multiobjective label-setting on reduced graph",
+        "orienteering/MILP/CP-SAT for a smaller candidate graph",
+        "NSGA-II/GA only if genuine nondominated search is implemented and exact methods are infeasible"
+      ],
+      "not_recommended": [
+        "treating a scalar weighted-fitness GA as a Pareto method without nondominated archive",
+        "accepting convergence plots as global optimality proof",
+        "using printed Dijkstra code as implementation evidence for IGA"
+      ],
+      "why_select": "the reusable value is the interpretable graph/scene-change representation; optimizer complexity should follow graph size and the need for a tradeoff set, not the paper label",
+      "switch_condition": "use exact/bounded route search when reduced graph is tractable; promote evolutionary Pareto search only when many feasible routes remain and the implementation preserves feasibility/objective vectors"
+    },
+    "Q2": {
+      "baseline": "deterministic geometry/spatial/open-close descriptors + declared dimensionless ranges + independently sourced AHP pairwise judgments and/or entropy/CRITIC weights + fixed calibration scale + sensitivity + held-out expert/measurement validation",
+      "author_route": "element distribution + open-close dynamics + AHP-entropy combination + final 0-100 ranking; printed code includes random surrogate features, AHP-CRITIC wording/fixed weights and hard-coded final scores",
+      "alternatives": [
+        "CRITIC or entropy weighting alone with full provenance",
+        "PCA/factor reduction after redundancy analysis",
+        "ordinal/pairwise preference model when independent human labels are sufficient"
+      ],
+      "not_recommended": [
+        "random surrogate feature generation inside a real-data result path",
+        "hard-coded ranking dictionaries overriding computed model output",
+        "using the anchor/ranking itself as proof of validity"
+      ],
+      "why_select": "with n≈10, transparent deterministic scoring is safer than a high-capacity predictor; the first priority is provenance and independent calibration/validation",
+      "switch_condition": "move to supervised preference/ranking only with more independent gardens and labels; use latent reduction when multicollinearity makes weights unstable"
+    },
+    "Q3": {
+      "baseline": "compact garden-level geometric/path descriptors + optional pretrained image/text embeddings when actual modalities exist + simple standardized similarity; garden-level holdout before generating pairs; external expert pair labels or downstream retrieval/classification target",
+      "author_route": "geometry/image/text extractors -> MKL -> contrastive deep embedding -> feature + persistent-homology topology + HMM behavior similarity; perspective extension adds ray scoring + NeRF/STGCN/multitask regularization",
+      "alternatives": [
+        "PCA/factor + cosine/Gower similarity on compact features",
+        "regularized metric learning with grouped garden holdout",
+        "pretrained CLIP/text/image embedding fusion without training a new deep network when n is tiny",
+        "average/spectral clustering with bootstrap stability"
+      ],
+      "not_recommended": [
+        "training a new deep multimodal metric model on ~10 independent gardens without entity-level validation",
+        "pair-level random CV where the same garden appears on both sides",
+        "calling an untrained embedding or shared proxy distances topology/HMM evidence",
+        "NeRF/STGCN without real multiview/time data"
+      ],
+      "why_select": "the paper’s modality decomposition is conceptually useful, but its sample scale and printed-code incompleteness make a compact pretrained/transparent baseline substantially safer",
+      "switch_condition": "promote learned multimodal metric/NeRF/STGCN only when enough independent gardens, real modalities, garden-level holdout and method-defining executable code exist"
+    }
+  }
+}

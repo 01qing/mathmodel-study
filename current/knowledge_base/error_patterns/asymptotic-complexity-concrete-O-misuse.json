@@ -1,0 +1,11 @@
+{
+  "id": "asymptotic-complexity-concrete-O-misuse",
+  "name": "Asymptotic O-notation replaced by concrete numeric values",
+  "severity": "medium",
+  "trigger": "tables contain O(0), O(1.39), O(3.30) or ignore E/evaluation count",
+  "risk": "gives invalid scalability evidence",
+  "gate": "derive symbolic complexity first; separately plot empirical runtime",
+  "source_examples": [
+    "2025-A-S028 Q1 Table10"
+  ]
+}

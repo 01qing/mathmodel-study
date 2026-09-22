@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v132_s034_regressions.py", line 135, in <module>
+    ck('next pointer advanced legally',('S035 / 2025-C' in nexttxt) or ('S036 / 2025-C' in nexttxt) or ('2025-F' in nexttxt))
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v132_s034_regressions.py", line 7, in ck
+    assert cond, name
+           ^^^^
+AssertionError: next pointer advanced legally

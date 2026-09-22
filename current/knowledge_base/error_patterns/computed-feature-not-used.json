@@ -1,0 +1,9 @@
+{
+  "id": "computed-feature-not-used",
+  "name": "Computed feature is not fed into the model",
+  "symptom": "Code calculates a feature cited in the paper but never appends/passes it to model input.",
+  "gate": "Trace each claimed feature from computation to final X column; reject claimed ablation/final-model results if the feature has no dataflow edge.",
+  "source_examples": [
+    "2024-C S010 Q4 kurtosis/skewness"
+  ]
+}

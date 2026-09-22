@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "learning_state.schema.json",
+  "title": "Graduate MathModel Learning State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "learner",
+    "current_focus",
+    "methods",
+    "weak_points",
+    "next_actions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.4"
+    },
+    "learner": {
+      "type": "object",
+      "required": [
+        "profile_id"
+      ],
+      "properties": {
+        "profile_id": {
+          "type": "string"
+        },
+        "preferred_depth": {
+          "enum": [
+            "concise",
+            "standard",
+            "deep"
+          ]
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "current_focus": {
+      "type": "object",
+      "required": [
+        "competition",
+        "year",
+        "problem_id",
+        "mode"
+      ],
+      "properties": {
+        "competition": {
+          "type": "string"
+        },
+        "year": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "problem_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "question_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mode": {
+          "enum": [
+            "learn",
+            "competition",
+            "paper-review",
+            "review",
+            "practice"
+          ]
+        },
+        "session_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "methods": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "level",
+          "evidence"
+        ],
+        "properties": {
+          "level": {
+            "enum": [
+              "unseen",
+              "introduced",
+              "can_explain",
+              "can_apply_with_help",
+              "can_apply_independently",
+              "can_compare_and_adapt"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "last_updated": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "weak_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "error_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "completed_problems": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pending_replications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

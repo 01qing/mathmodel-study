@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "model_benchmark.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "profile",
+    "data_audit_status",
+    "q1_q2",
+    "q3",
+    "recommendations",
+    "test_isolation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.9"
+    },
+    "case_id": {
+      "const": "gmcm-2021-D"
+    },
+    "profile": {
+      "enum": [
+        "smoke",
+        "standard",
+        "deep"
+      ]
+    },
+    "data_audit_status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "BLOCKED"
+      ]
+    },
+    "q1_q2": {
+      "type": "object"
+    },
+    "q3": {
+      "type": "object"
+    },
+    "recommendations": {
+      "type": "object"
+    },
+    "test_isolation": {
+      "type": "object"
+    }
+  }
+}

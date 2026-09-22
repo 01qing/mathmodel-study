@@ -1,0 +1,10 @@
+{
+  "name": "declared-method-not-implemented",
+  "trigger": "paper names an algorithmic component but available code has no executable path for it",
+  "checks": [
+    "map every named component to file/function/call site",
+    "distinguish omitted appendix from confirmed nonimplementation",
+    "do not claim reproduction from narrative alone"
+  ],
+  "example": "S003 Q3/Q4: Pareto-region-LSTM-MPC and Kalman/PSO/delay components are not represented in printed key code."
+}

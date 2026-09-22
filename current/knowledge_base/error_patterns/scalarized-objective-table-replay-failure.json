@@ -1,0 +1,6 @@
+{
+  "id": "scalarized-objective-table-replay-failure",
+  "trigger": "reported scalarized objective value cannot be recomputed from the reported component objectives and stated weight/formula.",
+  "risk": "lambda labels, rows, units or formulas may have drifted; optimizer ranking and final choice become untraceable.",
+  "gate": "Regenerate every result-table row from exact component outputs + run config; block publication on objective replay mismatch and store lambda/seed/budget in the result registry."
+}

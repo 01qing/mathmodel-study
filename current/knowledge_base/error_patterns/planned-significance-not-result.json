@@ -1,0 +1,6 @@
+{
+  "id": "PLANNED_SIGNIFICANCE_NOT_RESULT",
+  "source": "Dev generic correction",
+  "rule": "A statement that a t-test/Wilcoxon test will be used is not a significance result. Require the statistic, p-value and preferably effect size/CI.",
+  "scope": "generic"
+}

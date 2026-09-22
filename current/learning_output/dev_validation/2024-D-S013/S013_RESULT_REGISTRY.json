@@ -1,0 +1,668 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "S013",
+  "split": "dev",
+  "scope": "Audited key claims across all four questions, not an exhaustive transcription of every plotted pixel.",
+  "entries": [
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-PRE-1990",
+      "source_surface": {
+        "physical_pdf_pages": [
+          14
+        ]
+      },
+      "value_or_record": {
+        "year": 1990,
+        "days": 365,
+        "paper_mm": 166.62,
+        "valid_cells": 16171,
+        "annual_sum_valid_cell_unweighted_mean_mm": 608.1631135797534,
+        "daily_mean_times100": 166.62003111774064,
+        "difference": 3.111774063313533e-05,
+        "match_rounded_2dp": true
+      },
+      "units": "paper mm; alternative contracts explicitly recorded",
+      "status": "partially_verified",
+      "verification_scope": "Official raw data daily mean times100 matches at2dp; annual-total interpretation not supported. No author workbook/GIS reconstruction.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author aggregation script, workbook, crop boundary",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-PRE-1998",
+      "source_surface": {
+        "physical_pdf_pages": [
+          14
+        ]
+      },
+      "value_or_record": {
+        "year": 1998,
+        "days": 365,
+        "paper_mm": 178.08,
+        "valid_cells": 16171,
+        "annual_sum_valid_cell_unweighted_mean_mm": 649.9880804619867,
+        "daily_mean_times100": 178.07892615396895,
+        "difference": -0.0010738460310619757,
+        "match_rounded_2dp": true
+      },
+      "units": "paper mm; alternative contracts explicitly recorded",
+      "status": "partially_verified",
+      "verification_scope": "Official raw data daily mean times100 matches at2dp; annual-total interpretation not supported. No author workbook/GIS reconstruction.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author aggregation script, workbook, crop boundary",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-PRE-2011",
+      "source_surface": {
+        "physical_pdf_pages": [
+          14
+        ]
+      },
+      "value_or_record": {
+        "year": 2011,
+        "days": 365,
+        "paper_mm": 142.51,
+        "valid_cells": 16171,
+        "annual_sum_valid_cell_unweighted_mean_mm": 520.1611124777905,
+        "daily_mean_times100": 142.50989382953165,
+        "difference": -0.0001061704683422704,
+        "match_rounded_2dp": true
+      },
+      "units": "paper mm; alternative contracts explicitly recorded",
+      "status": "partially_verified",
+      "verification_scope": "Official raw data daily mean times100 matches at2dp; annual-total interpretation not supported. No author workbook/GIS reconstruction.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author aggregation script, workbook, crop boundary",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-PRE-2016",
+      "source_surface": {
+        "physical_pdf_pages": [
+          14
+        ]
+      },
+      "value_or_record": {
+        "year": 2016,
+        "days": 366,
+        "paper_mm": 186.32,
+        "valid_cells": 16171,
+        "annual_sum_valid_cell_unweighted_mean_mm": 681.949427331067,
+        "daily_mean_times100": 186.32498014510026,
+        "difference": 0.004980145100262234,
+        "match_rounded_2dp": true
+      },
+      "units": "paper mm; alternative contracts explicitly recorded",
+      "status": "partially_verified",
+      "verification_scope": "Official raw data daily mean times100 matches at2dp; annual-total interpretation not supported. No author workbook/GIS reconstruction.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author aggregation script, workbook, crop boundary",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-PRE-2020",
+      "source_surface": {
+        "physical_pdf_pages": [
+          14
+        ]
+      },
+      "value_or_record": {
+        "year": 2020,
+        "days": 366,
+        "paper_mm": 177.59,
+        "valid_cells": 16171,
+        "annual_sum_valid_cell_unweighted_mean_mm": 649.9801601400486,
+        "daily_mean_times100": 177.59020768853787,
+        "difference": 0.00020768853786989894,
+        "match_rounded_2dp": true
+      },
+      "units": "paper mm; alternative contracts explicitly recorded",
+      "status": "partially_verified",
+      "verification_scope": "Official raw data daily mean times100 matches at2dp; annual-total interpretation not supported. No author workbook/GIS reconstruction.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author aggregation script, workbook, crop boundary",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-CROP-1990",
+      "source_surface": {
+        "physical_pdf_pages": [
+          19
+        ]
+      },
+      "value_or_record": {
+        "year": 1990,
+        "paper_percent": 21.51,
+        "finite_cell_mean_percent": 6.183866465770452,
+        "positive_cell_mean_percent": 21.40369713833756,
+        "finite_cells": 9906,
+        "positive_cells": 2862
+      },
+      "units": "percent",
+      "status": "not_reproducible_from_visible_evidence",
+      "verification_scope": "Positive-cell mean hypothesis does not recover all3values.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author support domain and spatial weights",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-CROP-2006",
+      "source_surface": {
+        "physical_pdf_pages": [
+          19
+        ]
+      },
+      "value_or_record": {
+        "year": 2006,
+        "paper_percent": 20.51,
+        "finite_cell_mean_percent": 5.926024081417427,
+        "positive_cell_mean_percent": 20.504084719008397,
+        "finite_cells": 9906,
+        "positive_cells": 2863
+      },
+      "units": "percent",
+      "status": "not_reproducible_from_visible_evidence",
+      "verification_scope": "Positive-cell mean hypothesis does not recover all3values.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author support domain and spatial weights",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-CROP-2019",
+      "source_surface": {
+        "physical_pdf_pages": [
+          19
+        ]
+      },
+      "value_or_record": {
+        "year": 2019,
+        "paper_percent": 21.04,
+        "finite_cell_mean_percent": 6.079515397437822,
+        "positive_cell_mean_percent": 20.533133149341655,
+        "finite_cells": 9906,
+        "positive_cells": 2933
+      },
+      "units": "percent",
+      "status": "not_reproducible_from_visible_evidence",
+      "verification_scope": "Positive-cell mean hypothesis does not recover all3values.",
+      "evidence_file": "Q1_AGGREGATION_RESULTS.json",
+      "missing_for_full_reproduction": "Author support domain and spatial weights",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q1",
+      "result_id": "Q1-TEMP",
+      "source_surface": {
+        "physical_pdf_pages": [
+          25,
+          85
+        ]
+      },
+      "value_or_record": {
+        "Jan1_C": -8.593109,
+        "annual_C": 6.875655,
+        "MAE_C": 15.468764
+      },
+      "units": "degC",
+      "status": "partially_verified",
+      "verification_scope": "Official-data counterexample; not author workbook reproduction.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q2",
+      "result_id": "Q2-TARGET",
+      "source_surface": {
+        "physical_pdf_pages": [
+          23,
+          34,
+          91,
+          93
+        ]
+      },
+      "value_or_record": "annual thresholds300/250 and annual maxima do not identify daily extremes",
+      "units": "mm with incompatible temporal support",
+      "status": "contradicted",
+      "verification_scope": "Target-definition conflict.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q2",
+      "result_id": "Q2-SPLIT",
+      "source_surface": {
+        "physical_pdf_pages": [
+          90,
+          91,
+          92
+        ]
+      },
+      "value_or_record": "Some branches split correctly; p92 evaluates full fitting data",
+      "units": "validation contract",
+      "status": "partially_verified",
+      "verification_scope": "Static branch-specific audit; do not generalize to all branches.",
+      "evidence_file": "PAGE_AUDIT_LEDGER.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-MERGE",
+      "source_surface": {
+        "physical_pdf_pages": [
+          98
+        ]
+      },
+      "value_or_record": {
+        "fixture_input": 2,
+        "bad_rows": 60,
+        "fixed_rows": 2
+      },
+      "units": "rows",
+      "status": "recomputed_verified",
+      "verification_scope": "Conditional duplicate-join mechanism only.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-ENTROPY",
+      "source_surface": {
+        "physical_pdf_pages": [
+          45,
+          99
+        ]
+      },
+      "value_or_record": "printed entropy formula vs five-feature minmax mean",
+      "units": "index",
+      "status": "contradicted",
+      "verification_scope": "Formula normalization counterexample; printed code does not execute entropy weighting.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-PSEUDOLABEL",
+      "source_surface": {
+        "physical_pdf_pages": [
+          100,
+          101
+        ]
+      },
+      "value_or_record": "V_index threshold defines label from input-derived index",
+      "units": "class",
+      "status": "partially_verified",
+      "verification_scope": "Accuracy measures imitation, no independent disaster outcome.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-IMPORTANCE",
+      "source_surface": {
+        "physical_pdf_pages": [
+          47,
+          101
+        ]
+      },
+      "value_or_record": {
+        "rain_text_percent": 63.63,
+        "visible_rain_split_count": 69,
+        "visible_trend_split_count": 78
+      },
+      "units": "gain/weight unspecified",
+      "status": "not_reproducible_from_visible_evidence",
+      "verification_scope": "Different metrics may both be valid; need importance_type and run linkage.",
+      "evidence_file": "FINAL_PRIMITIVE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-LABELS",
+      "source_surface": {
+        "physical_pdf_pages": [
+          100,
+          102,
+          107
+        ]
+      },
+      "value_or_record": {
+        "string_branch": [
+          "High",
+          "Low"
+        ],
+        "plotted": [
+          "Low",
+          "High"
+        ],
+        "numeric_p107": "correct"
+      },
+      "units": "class order",
+      "status": "contradicted",
+      "verification_scope": "Only string-encoded branch is reversed.",
+      "evidence_file": "FINAL_PRIMITIVE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-LAND-TABLE",
+      "source_surface": {
+        "physical_pdf_pages": [
+          51,
+          52
+        ]
+      },
+      "value_or_record": {
+        "grass_table2020": 0.02,
+        "forest_table2020": 0.003,
+        "grass_prose2020": 0.003
+      },
+      "units": "fraction",
+      "status": "contradicted",
+      "verification_scope": "Table/prose identity conflict; neither supplies original model arrays.",
+      "evidence_file": "SPATIAL_PROVENANCE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-SVR-TRAIN",
+      "source_surface": {
+        "physical_pdf_pages": [
+          57,
+          108
+        ]
+      },
+      "value_or_record": {
+        "MSE": 0.0029,
+        "MAE": 0.0443,
+        "R2": 0.8579
+      },
+      "units": "index squared/index/dimensionless",
+      "status": "author_reported",
+      "verification_scope": "MSE>=MAE² sanity only; data and runnable chain absent.",
+      "evidence_file": "PAGE_AUDIT_LEDGER.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-SVR-TEST",
+      "source_surface": {
+        "physical_pdf_pages": [
+          57,
+          108
+        ]
+      },
+      "value_or_record": {
+        "MSE": 0.0029,
+        "MAE": 0.0442,
+        "R2": 0.8565
+      },
+      "units": "index squared/index/dimensionless",
+      "status": "author_reported",
+      "verification_scope": "Cannot independently replay original evaluation.",
+      "evidence_file": "PAGE_AUDIT_LEDGER.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-SPATIAL",
+      "source_surface": {
+        "physical_pdf_pages": [
+          51,
+          104,
+          108
+        ]
+      },
+      "value_or_record": {
+        "same_inputs_prediction_range": 0.0
+      },
+      "units": "index",
+      "status": "partially_verified",
+      "verification_scope": "Conditional invariant; missing regional future inputs prevents recovery of spatial output.",
+      "evidence_file": "SPATIAL_PROVENANCE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-FIGURE-IDENTITY",
+      "source_surface": {
+        "physical_pdf_pages": [
+          57,
+          58,
+          59,
+          60
+        ]
+      },
+      "value_or_record": {
+        "prose": "SVR vulnerability",
+        "figure": "annual precipitation Gi* / Local Moran"
+      },
+      "units": "different target/statistic",
+      "status": "contradicted",
+      "verification_scope": "Result-source mismatch; no replacement numbers invented.",
+      "evidence_file": "SPATIAL_PROVENANCE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q3",
+      "result_id": "Q3-FORECAST",
+      "source_surface": {
+        "physical_pdf_pages": [
+          56,
+          105,
+          106
+        ]
+      },
+      "value_or_record": "Only wetland forecast slice printed; negative future values visible; fitted errors not forecast validation",
+      "units": "fraction",
+      "status": "not_reproducible_from_visible_evidence",
+      "verification_scope": "Qualitative plot and code audit; missing all-six-variable run and prediction intervals.",
+      "evidence_file": "PAGE_AUDIT_LEDGER.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-AXES",
+      "source_surface": {
+        "physical_pdf_pages": [
+          63
+        ]
+      },
+      "value_or_record": {
+        "printed_axis_dot": 0.9230769231,
+        "fixed_crosscov": 1.6208867e-16
+      },
+      "units": "fixture units",
+      "status": "recomputed_verified",
+      "verification_scope": "Literal formula counterexample/eigendecomposition repair, not GIS reproduction.",
+      "evidence_file": "SPATIAL_PROVENANCE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-AREA",
+      "source_surface": {
+        "physical_pdf_pages": [
+          67
+        ]
+      },
+      "value_or_record": "doubling total weights leaves covariance ellipse unchanged",
+      "units": "area vs distribution extent",
+      "status": "recomputed_verified",
+      "verification_scope": "Counterexample to equating ellipse area with resource area.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-COVERAGE",
+      "source_surface": {
+        "physical_pdf_pages": [
+          68,
+          69,
+          70,
+          71
+        ]
+      },
+      "value_or_record": {
+        "2D_mass_radius1": 0.39346934,
+        "2D_mass_radius_sqrt2": 0.63212056
+      },
+      "units": "probability conditional on Gaussian",
+      "status": "recomputed_verified",
+      "verification_scope": "Dimension-specific analytic contract; not measured author empirical coverage.",
+      "evidence_file": "COUNTEREXAMPLE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-DIRECTION",
+      "source_surface": {
+        "physical_pdf_pages": [
+          66
+        ]
+      },
+      "value_or_record": {
+        "printed": [
+          "SW",
+          "NW",
+          "SW"
+        ],
+        "replay": [
+          "SW",
+          "SW",
+          "NW"
+        ]
+      },
+      "units": "direction",
+      "status": "contradicted",
+      "verification_scope": "Signed coordinate replay for forest only.",
+      "evidence_file": "FINAL_PRIMITIVE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-WET-THRESHOLD",
+      "source_surface": {
+        "physical_pdf_pages": [
+          64
+        ]
+      },
+      "value_or_record": {
+        "printed_percent": 5.87e-06,
+        "conditional_percent": 0.0005869791667
+      },
+      "units": "percent",
+      "status": "partially_verified",
+      "verification_scope": "Conditional unit mismatch; external statistic5635ha unverified.",
+      "evidence_file": "FINAL_PRIMITIVE_RESULTS.json",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    },
+    {
+      "paper_id": "S013",
+      "question": "Q4",
+      "result_id": "Q4-UTILITY",
+      "source_surface": {
+        "physical_pdf_pages": [
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ]
+      },
+      "value_or_record": "geographical line proposed by overlays",
+      "units": "descriptive claim",
+      "status": "author_reported",
+      "verification_scope": "No independent downstream utility comparison; do not adopt as optimum.",
+      "evidence_file": "DEV_METHOD_GAP_REVIEW.md",
+      "missing_for_full_reproduction": "Author executable intermediates and complete run provenance unavailable",
+      "run_id": "AUTHOR_RUN_UNAVAILABLE",
+      "evaluator_id": "UNAVAILABLE_UNLESS_EXPLICIT_IN_VALUE"
+    }
+  ],
+  "unresolved_policy": "Keep conflicts/unverified claims; no automatic promotion to verified.",
+  "independent_baseline_registry": "../../v1.39-work/learning_output/analyses/dev_2024D_presolution/results/RESULT_REGISTRY.json"
+}

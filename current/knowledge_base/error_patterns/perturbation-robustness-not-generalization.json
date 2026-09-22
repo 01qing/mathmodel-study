@@ -1,0 +1,6 @@
+{
+  "id": "perturbation-robustness-not-generalization",
+  "trigger": "Small synthetic feature/output noise on an IID test split is called “generalization”.",
+  "risk": "Local perturbation stability is confused with performance on unseen domains/conditions/entities.",
+  "gate": "Name it perturbation robustness; for generalization, hold out the claimed domain/condition/entity and evaluate separately."
+}

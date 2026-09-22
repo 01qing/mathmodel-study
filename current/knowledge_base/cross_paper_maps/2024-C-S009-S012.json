@@ -1,0 +1,98 @@
+{
+  "case_group": "2024-C",
+  "papers": [
+    "S009",
+    "S010",
+    "S011",
+    "S012"
+  ],
+  "papers_reviewed": [
+    "S009",
+    "S010",
+    "S011",
+    "S012"
+  ],
+  "papers_pending": [],
+  "retrospective_independent_route": "assets/cases/2024_C_independent_model_competition.json",
+  "questions": {
+    "Q1": {
+      "S009": "engineered waveform features + MLP/RF + claimed ensemble; printed feature contract is inconsistent",
+      "independent_reference": "normalized shape/time/slope/harmonic features + RF/SVM with grouped stress tests",
+      "selection_lesson": "Use S010 interpretable kurtosis/FFT descriptors as a simple baseline, but freeze one schema and stress-test by held-out material/frequency/Bm regimes.",
+      "S010": "19 statistical/FFT/shape features + DT/RF/logistic + six-model vote; nearly perfect row-level metrics but incomplete printed final pipeline",
+      "S011": "13 time/frequency/PCA features → nonparametric screening → peak-factor+kurtosis → SVM/DT/stacking; 100% metrics but nested-screening/grouped validation not evidenced",
+      "S012": "shape-threshold baseline → 5D statistics SVM → noise stress → Hilbert-Huang/bispectrum multi-domain SVM; printed feature scaling leaks validation extrema before split"
+    },
+    "Q2": {
+      "S009": "Steinmetz + three temperature corrections; selects Solow mainly by in-sample MAPE/stability",
+      "independent_reference": "log-linear temperature correction with leave-one-temperature-out selection",
+      "selection_lesson": "Combine S010 explicit hypothesis ladder with leave-temperature-out/leave-region-out selection and one parameter registry.",
+      "S010": "six explicit temperature corrections with shuffled 5-fold KFold; better evaluation than pure in-sample fitting but not leave-temperature-out",
+      "S011": "five temperature corrections + LS/SA/PSO/dynamic PSO; strong fit but model selection is on the same temperature support without leave-condition-out evidence",
+      "S012": "SE → log-linear LSE → TLSE temperature correction → TLSEDSR adaptive coefficient network; strongest hypothesis ladder in group but validated by same-support random row split"
+    },
+    "Q3": {
+      "S009": "one/two/three-way ANOVA on raw core loss + group-average enumeration",
+      "independent_reference": "log P ANCOVA/robust model with log f/log Bm + factors + requested two-way interactions",
+      "selection_lesson": "Keep S010 effect-size reporting and frequency-stratified diagnosis, but estimate adjusted effects with log f/log Bm covariates before optimization.",
+      "S010": "log-loss ANOVA/Welch + effect sizes + pairwise interactions; recognizes frequency-dependent 70C/90C reversal but does not fully control f/Bm",
+      "S011": "Kruskal-Wallis + raw cross-tab mean/variance “synergy”; descriptive interaction claim remains confounded by f/Bm",
+      "S012": "explicit three-factor ANOVA with interactions + one-way F ranking + sequential Mann-Whitney condition tournament; true interaction model is a strength, but F is misused as effect size and 47 tests are uncorrected/order-dependent"
+    },
+    "Q4": {
+      "S009": "12 material×waveform equivalent-frequency/Solow models",
+      "independent_reference": "physics baseline + linear/tree/boosting competitors with grouped and leave-condition-out validation",
+      "selection_lesson": "Use physics-derived IGSE as a baseline/residual feature only after an identical group-aware validation protocol and an executable final feature-transform contract.",
+      "S010": "nine ML regressors + kurtosis ablation + claimed IGSE prior stacking; CatBoost best, but printed code only shows simpler five-feature CatBoost",
+      "S011": "claimed feature-weight Bi-LSTM with 8:1:1 split; printed “Bi-LSTM” code is CNN-only and 1033-vs-10 feature contract disagrees",
+      "S012": "DM/DMSDR/TDM → LMSE/LMSESDR → TLMSESDR → MTLMSESDR → WMTLMSEDSR; printed embeddings/code path are stronger implementation evidence, but validation remains random-row rather than leave-condition-out"
+    },
+    "Q5": {
+      "S009": "P/Q scalarization, claimed mixed-integer PSO; printed code is bounded 3-variable local minimize",
+      "independent_reference": "enumeration/LHS Pareto baseline + NSGA-II or epsilon-constraint with explicit two-objective vector",
+      "selection_lesson": "Do not inherit Q3 categories as fixed decisions before Pareto search; normalize objectives or retain Pareto front, unit-test categorical encoding, run repeated stochastic trials and replay feasibility.",
+      "S010": "weighted sum + GA/PSO/GWO + 48 category sweep; printed code has unnormalized raw objective, missing GWO, category encoder type bug and hard-coded category settings",
+      "S011": "weighted scalarization + claimed GA/PSO + NSGA-II/MOPSO; Pareto idea is stronger, but weight is endogenous, no Q5 code is printed and sample MOPSO points violate bounds",
+      "S012": "weighted subtraction/ratio + printed GA/PSO on six variables; paper/code frequency bound drift (50000 vs 5000), continuous relaxation of discrete variables, and lambda=10/100 result-table replay mismatch invalidate reported optimum evidence"
+    }
+  },
+  "new_gates_from_S009": [
+    "feature schema contract",
+    "continuous-covariate adjustment for factor analysis",
+    "parameter registry",
+    "reported-optimum feasibility replay",
+    "algorithm-name implementation evidence",
+    "held-out-condition generalization"
+  ],
+  "current_recommendation": "Across S009-S012, build Q1 with an interpretable waveform baseline plus multi-domain features only after split/group-first preprocessing; build Q2 as a physics Steinmetz/log-linear baseline plus temperature correction and, only if leave-condition-out folds justify it, adaptive coefficient learning; build Q3 with one covariate-adjusted factorial model, explicit interactions, effect sizes/intervals and multiplicity-corrected post-hoc contrasts; build Q4 as a physics/empirical baseline plus a fixed-schema ablation ladder tested on leave-material/temperature/waveform/frequency-region folds; build Q5 from one machine-readable mixed-variable domain registry, retain a true Pareto/epsilon-constraint structure or normalized scalarization, and replay every reported point. S012 contributes the strongest printed implementation evidence for the adaptive empirical model, but its optimizer bounds/discreteness and lambda table cannot be trusted without correction.",
+  "new_gates_from_S010": [
+    "generalization-unit-aligned cross-validation",
+    "non-significance is not independence",
+    "feature-transform schema contract",
+    "final-model code-path evidence",
+    "metric accumulator mean-vs-sum check",
+    "objective-scale normalization",
+    "categorical encoder domain contract",
+    "stochastic optimizer repeated-run evidence"
+  ],
+  "new_gates_from_S011": [
+    "nested feature-screening evidence",
+    "descriptive crosstab is not interaction",
+    "architecture-name implementation evidence",
+    "perturbation robustness versus domain generalization",
+    "endogenous preference weight prohibition",
+    "Pareto feasibility replay",
+    "Pareto quality metrics beyond visual concentration",
+    "test-statistic versus p-value semantics"
+  ],
+  "new_gates_from_S012": [
+    "train-only cross-sample scaling",
+    "ANOVA F statistic is not effect size",
+    "multiple-testing correction",
+    "sequential pairwise tournament order-invariance",
+    "mixed-variable discrete feasibility",
+    "paper/code domain-registry equality",
+    "scalarized objective table replay",
+    "lambda/seed/budget result-registry traceability"
+  ]
+}

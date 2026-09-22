@@ -1,0 +1,11 @@
+{
+  "id": "baseline-source-mixed-across-final-table",
+  "name": "Final improvement uses mixed upstream baselines",
+  "severity": "critical",
+  "trigger": "one final row references a non-final/alternate upstream result while others use final baseline",
+  "risk": "percentage improvements are not comparable",
+  "gate": "all downstream results reference upstream run_id, not copied numbers",
+  "source_examples": [
+    "2025-A-S028 Q3 Conv0"
+  ]
+}

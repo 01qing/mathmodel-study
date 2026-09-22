@@ -1,0 +1,14 @@
+{
+  "pattern": "threshold-boolean-policy-drift",
+  "description": "The same operational rule changes between OR/AND logic or leaves threshold gaps across abstract, methods and implementation.",
+  "detection": [
+    "abstract says A OR B but body/code says A AND B",
+    "different cutoffs create an untreated gray zone",
+    "no hysteresis/state transition registry exists"
+  ],
+  "remedy": [
+    "define one state-machine/Boolean policy registry",
+    "specify gray-zone and hysteresis behavior",
+    "generate prose, code and figures from the same registry"
+  ]
+}

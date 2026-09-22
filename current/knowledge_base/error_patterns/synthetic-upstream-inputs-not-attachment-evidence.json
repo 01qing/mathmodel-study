@@ -1,0 +1,5 @@
+{
+  "id": "SYNTHETIC_UPSTREAM_INPUTS_NOT_ATTACHMENT_EVIDENCE",
+  "rule": "If a downstream result is generated from simulated, hand-set or engineering-common-sense upstream parameters rather than the task attachment/data, label it scenario/sensitivity evidence. Do not present it as a reproduced attachment result.",
+  "scope": "generic"
+}

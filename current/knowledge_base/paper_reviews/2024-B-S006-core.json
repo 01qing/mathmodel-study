@@ -1,0 +1,123 @@
+{
+  "paper_id": "S006",
+  "case_group": "2024-B",
+  "year": 2024,
+  "problem_id": "B",
+  "split": "train",
+  "pages": 104,
+  "title": "B24103530099",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_API_SMOKE",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "target/one-hot encoding",
+        "DBSCAN sync-vs-async description",
+        "random perturbation description",
+        "random forest vs GBDT",
+        "feature importance",
+        "Gaussian perturbation of final predictions in visible code"
+      ],
+      "target": "seq_time / AP transmit opportunity proxy",
+      "strengths": [
+        "explicit RF-vs-GBDT comparison with MSE and R2",
+        "separates 2AP and 3AP regimes"
+      ],
+      "risks": [
+        "TargetEncoder is fit on full data using seq_time before split",
+        "visible appendix contains no DBSCAN implementation path",
+        "post-hoc Gaussian noise is added to final predictions without seed; this does not train robustness",
+        "tiny RF-vs-GBDT metric gaps are not uncertainty-tested"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "fuse (NSS,MCS) as one multiclass label",
+        "derive SINR feature",
+        "BP vs CNN",
+        "class balancing by random oversampling",
+        "CNN classification"
+      ],
+      "target": "joint (NSS,MCS) class",
+      "strengths": [
+        "direct joint-label classification avoids S005 PHY-rate reverse-mapping ambiguity",
+        "recognizes severe class imbalance"
+      ],
+      "risks": [
+        "SINR arithmetic is performed directly on dBm-like values",
+        "ambiguous sync/async samples use unseeded random choices",
+        "TargetEncoder and StandardScaler fit before split",
+        "RandomOverSampler is applied before split causing duplicate leakage",
+        "printed code calls RandomOverSampler on 3D X and one-hot y; current imbalanced-learn rejects 3D X"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "stage-1 random forests predict num_ppdu/ppdu_dur/seq_time/other_air_time",
+        "convert (MCS,NSS) to PHYRate",
+        "stage-2 dense residual network predicts throughput"
+      ],
+      "target": "system throughput",
+      "strengths": [
+        "explicitly models useful intermediate frame statistics",
+        "more interpretable causal-ish decomposition than direct black-box throughput prediction"
+      ],
+      "risks": [
+        "stage-1 target encoding uses full target before split",
+        "stage-2 scaler fit before split",
+        "stage-2 validation uses true intermediate variables but deployment uses stage-1 predicted intermediates",
+        "no out-of-fold cross-fitting for training stage-2 on realistic intermediate predictions",
+        "near-1 stage-2 R2 therefore is not end-to-end cascade performance",
+        "intermediate prediction errors and uncertainty are not propagated"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "lines": "4525-4563",
+      "claim": "Q1 TargetEncoder is fit on all rows with seq_time before train_test_split"
+    },
+    {
+      "lines": "4667-4677",
+      "claim": "Q1 final RF test predictions receive unseeded Gaussian output noise"
+    },
+    {
+      "lines": "5030-5042",
+      "claim": "Q2 sync/async fallback uses unseeded np.random.choice and dBm-style arithmetic"
+    },
+    {
+      "lines": "5118-5124",
+      "claim": "Q2 StandardScaler fit_transform occurs before split"
+    },
+    {
+      "lines": "5292-5313",
+      "claim": "Q2 RandomOverSampler occurs before split and after CNN reshape in printed code"
+    },
+    {
+      "lines": "2478-2580",
+      "claim": "Q3 paper trains stage-1 models then stage-2 ResNet and reports stage-2 curves"
+    },
+    {
+      "lines": "5885-5900",
+      "claim": "Q3 stage-2 scaler is fit before split in visible code"
+    },
+    {
+      "lines": "5729-5813",
+      "claim": "Q3 stage-1 TargetEncoder/RF path is fit and evaluated separately rather than cross-fitted into stage-2 training"
+    }
+  ],
+  "api_smoke": {
+    "library": "imbalanced-learn 0.14.1",
+    "test": "RandomOverSampler.fit_resample on X shape (10,3,1) and one-hot y",
+    "result": "ValueError: Found array with dim 3, while dim <= 2 is required",
+    "scope": "API compatibility smoke only; not an execution of the author code bundle"
+  },
+  "transfer_lessons": [
+    "For joint discrete targets with non-injective physical-rate mapping, direct joint-label prediction can be preferable to predict-rate-then-invert.",
+    "Oversampling/SMOTE belongs inside each training fold only; validation/test must retain natural class distribution.",
+    "Target encoding must be train-only and preferably cross-fitted/out-of-fold for training rows.",
+    "For cascaded/stacked models, stage-2 training features should be out-of-fold predictions from stage 1, not ground-truth intermediates, if deployment receives predicted intermediates.",
+    "Report end-to-end cascade metrics in addition to per-stage metrics and propagate intermediate uncertainty.",
+    "Adding random noise after prediction is not robustness training; stochastic outputs require a modeled distribution, fixed seeds for reproducibility, and calibrated evaluation."
+  ]
+}

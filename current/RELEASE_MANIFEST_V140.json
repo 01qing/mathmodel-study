@@ -1,0 +1,23 @@
+{
+  "version": "1.40.0",
+  "status": "SEALED",
+  "sealed_at": "2026-09-13T14:43:32.408405+08:00",
+  "scope": "S014 Dev numerical/evaluation contract increment;2024-D group incomplete",
+  "latest_dev": "S014:R2",
+  "train_reviewed": 32,
+  "dev_group_complete": false,
+  "new_papers_stop": [
+    "S015",
+    "S016"
+  ],
+  "test_access": "HISTORICALLY_EXPOSED_AFTER_FROZEN_SOLUTIONS_NOT_FRESH_BLIND",
+  "test_knowledge_promoted": false,
+  "core_gain": "NOT_ESTABLISHED",
+  "ablation": "NOT_RUN",
+  "baseline_zip_sha256": "b6c47da3a61c16e9ac3cf1ec2e834d05951db60ea4fd7854762d7ee456feef82",
+  "content_files": 1949,
+  "hash_list": "FILES_V140.sha256",
+  "hash_list_sha256": "06914fcf9c63f5e195e6d261024c844ef8879e28baaaf92681440791e5ccd6bc",
+  "release_contract_checks": 28,
+  "scope_note": "Historical manifests and stage closure notes retain their original dated status"
+}

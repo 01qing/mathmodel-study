@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "method_card.schema.json",
+  "title": "Method Card",
+  "type": "object",
+  "required": [
+    "method_id",
+    "name",
+    "core_idea",
+    "suitable_for",
+    "not_suitable_for",
+    "alternatives",
+    "validation",
+    "sources"
+  ],
+  "properties": {
+    "method_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "problem_families": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "core_idea": {
+      "type": "string"
+    },
+    "key_assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "data_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suitable_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_suitable_for": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "baseline_against": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alternatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "switch_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "common_failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "competition_risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "context-dependent"
+      ]
+    },
+    "learning_level": {
+      "enum": [
+        "unseen",
+        "introduced",
+        "can_explain",
+        "can_apply_with_help",
+        "can_apply_independently",
+        "can_compare_and_adapt"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

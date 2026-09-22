@@ -1,0 +1,36 @@
+{
+  "paper_id": "S035",
+  "visual_audit": "91/91 original PDF visual audit (recovered evidence)",
+  "key_figures": [
+    {
+      "question": "Q1",
+      "figure": "Frangi/preprocessing/ML comparison panels",
+      "role": "show deterministic pipeline and ML transfer failure including suspicious overlap case",
+      "cannot_prove": "independent generalization if source duplicates cross splits"
+    },
+    {
+      "question": "Q2",
+      "figure": "DBSCAN/initial-fit/anomaly/refit panels and parameter tables",
+      "role": "show fragment repair and fixed-period fit",
+      "cannot_prove": "validity of poor/high-missingness fits without reject criteria"
+    },
+    {
+      "question": "Q3",
+      "figure": "JRC vs sampling density/equal-arc plots",
+      "role": "show numerical stability and sampling sensitivity",
+      "cannot_prove": "physical truth without external reference"
+    },
+    {
+      "question": "Q4",
+      "figure": "3D planes/connectivity and IDW uncertainty map",
+      "role": "show scenario sensitivity and placement narrative",
+      "cannot_prove": "calibrated probability/posterior uncertainty"
+    }
+  ],
+  "recommended_figure_rules": [
+    "mark source-group split/duplicates on learned-model comparisons",
+    "period-fit figures include residual, missingness and reject state",
+    "sampling plots label dense result numerical reference unless external truth",
+    "Monte-Carlo probability figures show calibration target or use score terminology"
+  ]
+}

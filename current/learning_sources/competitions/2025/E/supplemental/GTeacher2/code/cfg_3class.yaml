@@ -1,0 +1,91 @@
+dataset_name: "BearingTransfer161to16"
+version: "v1.0"
+
+paths:
+  root_dir: "E:/BaiduNetdiskDownload/数据集/数据集"
+  source_dir: "E:/BaiduNetdiskDownload/数据集/数据集/源域数据集"
+  target_dir: "E:/BaiduNetdiskDownload/数据集/数据集/目标域数据集"
+
+# 直接使用 preprocess_and_viz.py 生成的窗口数据（.npy）
+preprocessed:
+  use: true
+  dir: "E:/dg/sjwl/preprocessed_all"
+  source_index: "E:/dg/sjwl/preprocessed_all/index.csv"
+  target_index: "E:/dg/sjwl/preprocessed_all/index.csv"
+
+target_domain:
+  description: "列车滚动轴承振动信号（OR/IR/B，标签未知）"
+  format: "mat"
+  files_pattern: "[A-P].mat"
+  fs_hz: 32000
+  duration_sec: 8
+  rpm_approx: 600
+  channels:
+    - "signal"
+
+source_domain:
+  description: "电机台架数据；DE/FE/BA 三测点，含 12kHz 与 48kHz 采样"
+  format: "mat"
+  folder_layout:
+    - path: "12kHz_DE_data"
+      classes: ["B","IR","OR"]
+    - path: "12kHz_FE_data"
+      classes: ["B","IR","OR"]
+    - path: "48kHz_DE_data"
+      classes: ["B","IR","OR"]
+    # 注意：不再使用 Normal（N）类，因此去掉了 48kHz_Normal_data 的 files
+  variables:
+    # 依次尝试这些键作为信号（适配 *_value / X_* 变体）
+    signal_keys: ["DE","FE","BA","DE_value","FE_value","BA_value","X_DE","X_FE","X_BA"]
+    time_key: "time"
+    rpm_key: "RPM"
+  fs_hz: [12000, 48000]
+  sensors:
+    DE: {location: "drive_end", role: "near_fault"}
+    FE: {location: "fan_end",   role: "near_fault"}
+    BA: {location: "base",      role: "global_structure"}
+
+classes:
+  names: ["OR","IR","B"]  # 仅三类
+  labels_target_known: false
+
+conditions:
+  loads_hp: [0, 1, 2, 3]
+  rpm_source_candidates: [1797, 1772, 1750, 1730]
+  notes: "OR 有 Centered(6h) / Orthogonal(3h) / Opposite(12h)"
+
+bearings:
+  DE: {model: "SKF6205", n: 9, d_in: 0.3126, D_in: 1.537, theta_deg: 0}
+  FE: {model: "SKF6203", n: 9, d_in: 0.2656, D_in: 1.122, theta_deg: 0}
+  units: "inch"
+
+# 该段在使用预处理数据时不会实际生效，但保留以便需要时关闭 preprocessed.use 后仍可在线预处理
+preprocess_default:
+  detrend: true
+  bandpass_hz: [50, 12000]     # 需要时可调回 [500, 10000]
+  envelope: true
+  normalize: "zscore"
+  use_spectral_kurtosis: true
+  sk_nfft: 2048
+  sk_fmin: 50
+  sk_fmax: 12000
+  sk_topk: 1
+  sk_bw_frac: 0.15
+  use_order_tracking: true
+  order_spr: 200
+  segment:
+    do_segment: true
+    win_sec: 1.0
+    overlap: 0.5
+    drop_edges_sec: 0.0
+
+io_hints:
+  tolerant_missing_channels: true
+  autodetect_vars_if_missing: true
+
+model:
+  in_ch_input: 1   # 预处理窗口为单通道
+
+outputs:
+  prediction_granularity: "file"
+  want_visualizations: ["tsne","confusion","envelope_spectrum"]

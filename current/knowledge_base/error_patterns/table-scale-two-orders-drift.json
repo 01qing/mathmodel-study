@@ -1,0 +1,11 @@
+{
+  "id": "table-scale-two-orders-drift",
+  "name": "Same result changes by orders of magnitude across tables",
+  "severity": "critical",
+  "trigger": "matching solution has 201731 in one table and 2017 in another",
+  "risk": "can reverse model selection and invalidate percentages",
+  "gate": "range/unit and cross-table identity checks in Result Registry",
+  "source_examples": [
+    "2025-A-S028 Q3 FlashAttention0 time"
+  ]
+}

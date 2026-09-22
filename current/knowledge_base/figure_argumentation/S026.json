@@ -1,0 +1,68 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "visual_status": "ORIGINAL_98_PAGE_PDF_ALL-PAGE CONTACT-SHEET AUDIT + SELECTED INDIVIDUAL PAGE INSPECTION",
+  "figure_count_numbered": 15,
+  "table_count_numbered": 8,
+  "body_appendix_boundary": "main analytical body pages 1-37; Appendix A MATLAB listings occupy roughly pages 38-98",
+  "argumentation_roles": [
+    {
+      "figure_type": "problem/method flow diagrams",
+      "examples": [
+        "Fig 4.1",
+        "Fig 4.2",
+        "Fig 5.9",
+        "Fig 6.13"
+      ],
+      "why_draw": "make the nested Q1→Q2→Q3 decision pipeline and optimizer stages auditable",
+      "supports_claim": "method decomposition and algorithm workflow",
+      "cannot_prove": "algorithm superiority or correctness",
+      "new_problem_use_conditions": "use when there are multiple linked decision layers or a complex metaheuristic pipeline"
+    },
+    {
+      "figure_type": "operation-type distribution charts",
+      "examples": [
+        "Fig 4.3-4.5"
+      ],
+      "why_draw": "show graph-family structural differences before optimization",
+      "supports_claim": "workloads differ in node-operation composition",
+      "cannot_prove": "optimizer scalability or why one method is best",
+      "new_problem_use_conditions": "use only when structural covariates plausibly explain optimizer behavior"
+    },
+    {
+      "figure_type": "cache-residency trajectories",
+      "examples": [
+        "Fig 4.6-4.8"
+      ],
+      "why_draw": "show when peak live memory occurs and whether peaks flatten under schedule",
+      "supports_claim": "temporal shape and reported Cmax for a given schedule",
+      "cannot_prove": "global optimality or improvement without baseline trajectory on same graph",
+      "new_problem_use_conditions": "use whenever peak-over-time is the actual objective; bind peak marker to Result Registry"
+    },
+    {
+      "figure_type": "cache occupancy Gantt",
+      "examples": [
+        "Fig 5.10-5.12"
+      ],
+      "why_draw": "explain overlap, occupancy duration and spill timing by cache type",
+      "supports_claim": "qualitative lifecycle/spill pattern",
+      "cannot_prove": "optimality, scalability, or causal correspondence to operator semantics without trace linkage",
+      "new_problem_use_conditions": "use for representative graphs; for very large graphs prefer zoomed windows plus summary statistics"
+    },
+    {
+      "figure_type": "actual Pareto front / feasibility tradeoff plot",
+      "paper_gap": "paper uses a generic Pareto schematic (Fig 6.14) and before/after radar (Fig 6.15), not an actual nondominated front",
+      "why_draw": "show feasible nondominated solutions, hard transfer cap, chosen operating point and diversity",
+      "supports_claim": "multi-objective tradeoff and operating-point selection",
+      "cannot_prove": "generalization beyond evaluated graph instances",
+      "new_problem_use_conditions": "required when claiming Pareto/DPEA/NSGA-II results; radar chart is not a substitute"
+    }
+  ],
+  "style_observations": [
+    "academic blue/teal algorithm boxes and table accents",
+    "dense pseudocode/algorithm blocks",
+    "cache Gantt plots use many categorical colors and become visually dense",
+    "body is formula-heavy; figures mainly serve structure and trajectory evidence rather than decorative illustration"
+  ],
+  "figure_decision_lesson": "For algorithmic scheduling papers, the minimum evidence set should be: graph/workload structure summary, matched baseline-vs-optimizer objective trajectory or result table, feasibility replay, runtime/quality budget comparison, and for multi-objective Q3 an actual feasible Pareto plot rather than only radar before/after."
+}

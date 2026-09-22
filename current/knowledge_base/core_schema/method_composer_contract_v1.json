@@ -1,0 +1,21 @@
+{
+  "schema_name": "MathModel-Core Method Composer Contract",
+  "schema_version": "1.0",
+  "compatibility_gates": [
+    "input_output_interface",
+    "variable_definition",
+    "data_distribution",
+    "mathematical_assumptions",
+    "units_and_dimensions",
+    "training_vs_execution_stage",
+    "evaluation_metric"
+  ],
+  "decision_values": [
+    "compatible",
+    "compatible_after_adapter",
+    "incompatible",
+    "unknown"
+  ],
+  "rule": "Two locally strong modules must not be composed until all seven gates are resolved; unknown blocks recommendation-mainline use.",
+  "future_role_note": "This remains inside shared MathModel-Core; no Architect/Engineer/Writer/Reviewer skill split is created in v1.25."
+}

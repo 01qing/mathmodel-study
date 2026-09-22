@@ -1,0 +1,6 @@
+{
+  "id": "reference-self-score-closure-failure",
+  "name": "Reference calibration does not reproduce its own declared score",
+  "trigger": "A reference/anchor is fixed to a score, but substituting the anchor back into similarity/adjustment formulas yields a different score.",
+  "gate": "Replay the anchor end-to-end; define clipping/renormalization once; block downstream ranking until the reference self-score closes."
+}

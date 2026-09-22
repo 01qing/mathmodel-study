@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "levels": {
+    "R0": "index only",
+    "R1": "full-text close reading completed",
+    "R2": "paper plus printed/attached code static audit completed",
+    "R3": "API or local-code smoke test completed",
+    "R4": "partial reproduction on real data",
+    "R5": "end-to-end reproduction on original data",
+    "R6": "independent reimplementation without directly copying author code reaches similar conclusions",
+    "R7": "method successfully transfers to a new/variant/independent problem"
+  },
+  "rules": [
+    "Use the highest fully evidenced level only.",
+    "Visual audit is recorded separately and never raises R-level.",
+    "Missing source code, original data, or original PDF must be explicit.",
+    "Synthetic contract replay alone does not upgrade author-code reproduction level."
+  ]
+}

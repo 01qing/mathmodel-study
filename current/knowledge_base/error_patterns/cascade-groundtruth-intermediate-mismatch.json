@@ -1,0 +1,11 @@
+{
+  "name": "cascade-groundtruth-intermediate-mismatch",
+  "trigger": "stage 2 is trained/validated on true intermediate variables but production inference receives stage-1 predictions",
+  "risk": "stage-2 validation is optimistic because training-serving distributions differ and stage-1 errors are absent",
+  "gate": [
+    "create out-of-fold stage-1 predictions for all stage-2 training rows",
+    "fit stage 2 on predicted rather than oracle intermediates",
+    "evaluate untouched end-to-end groups",
+    "report per-stage plus cascade metrics and uncertainty propagation"
+  ]
+}

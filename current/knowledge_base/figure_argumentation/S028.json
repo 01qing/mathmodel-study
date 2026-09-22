@@ -1,0 +1,92 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "visual_audit": "ORIGINAL_77_PAGE_PDF_ALL_PAGE_CONTACT_SHEET_AUDIT",
+  "key_figures": [
+    {
+      "figure": "Fig11",
+      "question": "Q1",
+      "type": "cache-residency trajectory comparison",
+      "input": "replayed Vstay over schedule steps for three greedy policies",
+      "x_axis": "schedule step",
+      "y_axis": "cache residency (bytes required)",
+      "why_draw": "shows when/where peak forms, not only final max",
+      "supports": "policy changes lifetime overlap and peak behavior",
+      "cannot_prove": "global optimality or cross-workload superiority from one workload",
+      "better_or_complement": "add shared y-scale and mark peak step/value for all six workloads",
+      "use_when": "schedule/order decisions change resource occupancy trajectory"
+    },
+    {
+      "figure": "Fig12-14",
+      "question": "Q1",
+      "type": "optimizer convergence curves",
+      "input": "best/max Vstay over iterations/generations",
+      "x_axis": "iteration/generation",
+      "y_axis": "max Vstay",
+      "why_draw": "shows marginal gain and saturation under search budget",
+      "supports": "some graph families have more remaining search room",
+      "cannot_prove": "fair optimizer ranking unless evaluation counts/runtime/seeds are matched",
+      "better_or_complement": "median+IQR over seeds with wall-clock x-axis",
+      "use_when": "stochastic refiner is proposed over deterministic baseline"
+    },
+    {
+      "figure": "Fig15-16",
+      "question": "Q1",
+      "type": "complexity growth illustration",
+      "input": "claimed asymptotic functions",
+      "x_axis": "N",
+      "y_axis": "relative operation count",
+      "why_draw": "communicates scalability intuition",
+      "supports": "factorial enumeration becomes infeasible quickly",
+      "cannot_prove": "the paper's specific O(N log N)/O(N^2) claims when E/evaluation count are omitted",
+      "better_or_complement": "empirical runtime vs N/E plus fitted slope",
+      "use_when": "algorithm choice depends on contest runtime budget"
+    },
+    {
+      "figure": "Fig25",
+      "question": "Q2",
+      "type": "GP fitness convergence",
+      "input": "best and mean fitness by generation for graph families",
+      "x_axis": "generation",
+      "y_axis": "fitness/transfer objective",
+      "why_draw": "shows search stabilization and population behavior",
+      "supports": "optimizer reached a plateau on fitted graph families",
+      "cannot_prove": "generalization to unseen graph family",
+      "better_or_complement": "held-out graph performance vs deterministic baseline",
+      "use_when": "hyper-heuristic/rule evolution is used"
+    },
+    {
+      "figure": "Fig32-33",
+      "question": "Q3",
+      "type": "strategy comparison dashboard",
+      "input": "transfer,time,weighted fitness and before/after changes",
+      "x_axis": "strategy/sample depending panel",
+      "y_axis": "normalized metric / raw metric",
+      "why_draw": "makes tradeoff direction explicit",
+      "supports": "best_fit dominates first/worst in shown Conv0 comparison",
+      "cannot_prove": "global best rule across all workloads",
+      "better_or_complement": "small multiples across all six cases and error bars/seeds",
+      "use_when": "allocator strategies are compared on multiple objectives"
+    },
+    {
+      "figure": "Fig34",
+      "question": "Q3",
+      "type": "Pareto evidence dashboard",
+      "input": "feasible candidate transfer/time pairs + convergence history",
+      "x_axis": "transfer bytes",
+      "y_axis": "execution cycles",
+      "why_draw": "shows nondomination, correlation and search convergence",
+      "supports": "existence/shape of tradeoff if points are feasible and registry-consistent",
+      "cannot_prove": "best deployment point without an explicit selection rule; cannot survive table inconsistencies",
+      "better_or_complement": "highlight infeasible points/cap line, chosen point, hypervolume/spacing across seeds",
+      "use_when": "multiobjective search genuinely returns multiple feasible operating points"
+    }
+  ],
+  "layout_lessons": [
+    "algorithm-heavy paper uses flowcharts/pseudocode before result curves",
+    "Q1 evidence sequence: graph/data exploration → greedy trajectories → stochastic convergence → final table/complexity",
+    "Q2 evidence sequence: rule representation → fitness convergence → allocator table → final table",
+    "Q3 evidence sequence: method schematic → strategy dashboard → Pareto/convergence → operating-point tables"
+  ],
+  "style_lesson": "learn evidence density and ordering; do not copy fixed blue styling or decorative radar charts when a direct 2-D tradeoff plot is clearer"
+}

@@ -1,0 +1,14 @@
+{
+  "pattern": "dimensionally-inconsistent-state-update",
+  "description": "A recurrence/state equation has output units inconsistent with the named state variable under the paper definitions.",
+  "detection": [
+    "derive units of numerator and denominator",
+    "resulting units differ from variable label",
+    "undefined correction terms obscure conservation law"
+  ],
+  "remedy": [
+    "define every variable and unit",
+    "derive update from conservation/balance law",
+    "add dimensional unit tests and limiting-case tests"
+  ]
+}

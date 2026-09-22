@@ -1,0 +1,8 @@
+{
+  "pattern": "Categorical ANOVA/interaction conclusions confounded by strong continuous covariates",
+  "trigger": "raw response is compared across factors while frequency, amplitude, dose, baseline severity, exposure or other strong continuous drivers differ across groups",
+  "gate": "Use ANCOVA/robust regression or a balanced design: include key continuous covariates, transform response if needed, report adjusted contrasts/effect sizes/CI, and only then interpret factor interactions.",
+  "source_cases": [
+    "2024-C-S009"
+  ]
+}

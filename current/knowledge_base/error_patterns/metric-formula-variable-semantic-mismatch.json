@@ -1,0 +1,14 @@
+{
+  "pattern": "metric-formula-variable-semantic-mismatch",
+  "description": "A reported metric formula uses a variable whose defined physical/statistical meaning does not match the metric numerator/denominator.",
+  "detection": [
+    "metric name has a clear definition",
+    "formula references a symbol defined for a different quantity",
+    "arithmetic may run but semantic units do not match"
+  ],
+  "remedy": [
+    "maintain symbol registry with name/unit/definition",
+    "dimension+semantic test every derived metric",
+    "generate formula/table labels from registry"
+  ]
+}

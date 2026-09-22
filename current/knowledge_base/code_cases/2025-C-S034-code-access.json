@@ -1,0 +1,24 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "artifact_type": "CODE_ACCESS_AUDIT",
+  "status": "CODE_REFERENCED_BUT_NOT_AVAILABLE",
+  "paper_evidence": "Appendix A Table 13 states Attachment 9 = code for each question; Attachments 1-11 are referenced, but source code is not printed in the 68-page PDF.",
+  "available_collection_audit": "2025年研究生数学建模竞赛优秀论文选.zip contains 22 PDF files and no non-PDF author attachment/code artifacts in the available package.",
+  "consequence": {
+    "reproduction_level": "R1",
+    "reason": "R2 requires paper plus printed/attachment code static audit; the referenced code artifact is not accessible."
+  },
+  "algorithm_contracts_still_audited_from_paper": [
+    "Q1 six-detector voting + 12-feature score threshold",
+    "Q2 DBSCAN/horizontal-band merge/RANSAC pseudocode and reduced Hough description",
+    "Q3 Fourier/DWT/Bootstrap/sampling formulas",
+    "Q4 connectivity/DFS/coverage/greedy pseudocode"
+  ],
+  "do_not_claim": [
+    "implementation fidelity",
+    "code-to-paper correspondence",
+    "R2 or R3",
+    "runtime reproduction"
+  ]
+}

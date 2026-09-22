@@ -1,0 +1,58 @@
+{
+  "pattern_id": "unsupervised-bearing-domain-adaptation",
+  "problem_family": "旋转机械/振动信号：有标签源域→无标签目标域故障诊断",
+  "learned_from": [
+    "S039",
+    "S040",
+    "S041",
+    "2025-E-GTeacher1-code",
+    "2025-E-GTeacher2-code"
+  ],
+  "recognition_signals": [
+    "源域台架数据有标签",
+    "目标域实测数据无标签/少标签",
+    "采样率或工况不同",
+    "目标是文件级故障分类与可解释性"
+  ],
+  "recommended_ladder": [
+    {
+      "level": "baseline-0",
+      "route": "统一采样率+基本滤波/包络+手工特征+RF/MLP",
+      "purpose": "建立可解释低成本下限"
+    },
+    {
+      "level": "baseline-1",
+      "route": "源模型直接推断目标域",
+      "purpose": "量化不迁移时域偏移损失"
+    },
+    {
+      "level": "adapt-1",
+      "route": "CORAL或MMD",
+      "purpose": "最小域对齐"
+    },
+    {
+      "level": "adapt-2",
+      "route": "MMD+CORAL或DANN+MMD",
+      "purpose": "复杂域偏移时联合对齐"
+    },
+    {
+      "level": "adapt-3",
+      "route": "伪标签/熵最小化/BN适配",
+      "purpose": "仅在内部稳定性足够时升级"
+    }
+  ],
+  "validation": [
+    "源域按文件/工况分组验证",
+    "目标无真值时只报内部证据",
+    "复杂预处理做消融",
+    "多随机种子稳定性"
+  ],
+  "figure_plan": [
+    "机理信号四联图",
+    "源/目标域差异图",
+    "模型混淆矩阵+稳定性箱线图",
+    "迁移前后embedding+数值域距离",
+    "目标概率热图",
+    "SHAP/attention/gate解释（如需要）"
+  ]
+}

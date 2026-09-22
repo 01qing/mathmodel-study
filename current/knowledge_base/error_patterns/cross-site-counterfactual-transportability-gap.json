@@ -1,0 +1,14 @@
+{
+  "pattern": "cross-site-counterfactual-transportability-gap",
+  "description": "Treatment-response learned at one site/regime is transferred to another site and reported as intervention benefit without overlap/transport validation.",
+  "detection": [
+    "treated observations exist only at source site",
+    "target treatment outcome is predicted not observed",
+    "covariate overlap/effect invariance not tested"
+  ],
+  "remedy": [
+    "compare covariate support and propensity/treatment regimes",
+    "validate on any target-site intervention if available",
+    "otherwise report transferred counterfactual with sensitivity bounds, not observed effect"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "cross-section-metric-drift",
+  "trigger": "Abstract, result table, narrative conclusion or code output report different values for the same metric/model/question.",
+  "risk": "Copy/paste or stale-result drift can invalidate the claimed conclusion even when individual tables look plausible.",
+  "gate": "Maintain one machine-readable result registry and automatically cross-check abstract/table/conclusion/code values before final paper export."
+}

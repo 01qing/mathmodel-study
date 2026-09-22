@@ -1,0 +1,6 @@
+{
+  "id": "GROUP_INDEPENDENCE_NOT_ROW_BALANCE",
+  "source": "Dev generic correction",
+  "rule": "Preserving group proportions in a random row split is not evidence of independent generalization. Prefer group/trajectory/location/file/time-block holdout when rows are correlated.",
+  "scope": "generic"
+}

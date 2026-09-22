@@ -1,0 +1,61 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "printed_pages": "62-94",
+  "reproduction_level": "R2",
+  "Q1": {
+    "printed_primitives": [
+      "geometry/path plotting and CSV heatmap utilities",
+      "angle/cluster helpers",
+      "dijkstra_adj() shortest path",
+      "force_connect_components() nearest-component bridge insertion",
+      "compute_exoticness() counts distinct nearby element categories and log-compresses per-segment score"
+    ],
+    "missing_or_drift": [
+      "no printed GA population/roulette/crossover/mutation/iteration implementation despite paper Sec.5.6",
+      "Dijkstra returns a shortest path rather than the paper-described interest/repetition GA optimum",
+      "force_connect_components() adds nearest straight-line edges without a displayed walkability/obstacle-intersection check",
+      "paper scene-change model uses richer spatial composition; code exoticness is category-count/radius proxy divided by segment length"
+    ]
+  },
+  "Q2": {
+    "printed_primitives": [
+      "KMeans/MiniBatchKMeans on X,Y coordinates",
+      "silhouette/CH/DB/purity diagnostic K scan",
+      "calculate_opening_closure() with random openness",
+      "simple 0.6/0.4 illusion score",
+      "hard-coded example element/openness/total score arrays for sensitivity",
+      "Kendall tau on generated ranking arrays"
+    ],
+    "missing_or_drift": [
+      "no GaussianMixture likelihood, no Potts/MRF energy, no EM+ICM loop and no BIC likelihood K selection matching Sec.6.2.3",
+      "one branch hard-codes K=5, external/new-garden branch K=6; paper says adaptive BIC K",
+      "same Jichang landscape_data is reused while looping over all garden names in evaluate_gardens()",
+      "sensitivity ranking operates on alpha-scenario scores rather than a garden score vector"
+    ],
+    "random_or_placeholder": [
+      "openness = np.random.random()",
+      "comments explicitly say simulated calculation",
+      "element_scores/openness_scores/total_scores are assumed from figure rather than generated from model"
+    ]
+  },
+  "Q3": {
+    "printed_primitives": [
+      "OpenCV contour extraction from yulin.jpg",
+      "hard-coded pandas Series of Heyuan similarities",
+      "bar plotting"
+    ],
+    "missing_or_drift": [
+      "no implementation of Eq.(7.2)-(7.4) cosine/set-Jaccard fusion",
+      "no alpha scan/silhouette/cophenetic/bootstrap-ARI computation for similarity fusion",
+      "no registered preprocessing/feature scaling pipeline",
+      "no recomputation of Heyuan similarities from extracted geometry"
+    ],
+    "posthoc_output_edit": [
+      "Qiyuan comment: original -0.791 changed to 0.209",
+      "Yuyuan comment: original -0.857 changed to 0.143",
+      "the two edits are exactly +1 offsets but no global transformation contract is stated"
+    ]
+  },
+  "evidence_ceiling": "Printed appendix supports static method-to-primitive comparison only. It is not a self-contained end-to-end implementation and was not executed on original attachments."
+}

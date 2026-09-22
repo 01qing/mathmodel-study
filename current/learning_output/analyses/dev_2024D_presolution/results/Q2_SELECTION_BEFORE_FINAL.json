@@ -1,0 +1,57 @@
+{
+  "selected": "climatology",
+  "validation_only": [
+    {
+      "model": "climatology",
+      "validation_MAE_mm": 9.528760525335777,
+      "spatial_MAE_mm": [
+        24.24933700411613,
+        20.555921859260536,
+        22.004901201607876,
+        21.782389851777072,
+        21.292756403333613
+      ],
+      "validation_gain_vs_climatology": 0.0,
+      "spatial_wins": 0
+    },
+    {
+      "model": "additive",
+      "validation_MAE_mm": 11.10932937126025,
+      "spatial_MAE_mm": [
+        11.537843845835539,
+        10.72062020269968,
+        10.942302462050904,
+        12.231014351882363,
+        10.787714544678765
+      ],
+      "validation_gain_vs_climatology": -0.16587349862785827,
+      "spatial_wins": 5
+    },
+    {
+      "model": "interaction",
+      "validation_MAE_mm": 11.006352711794259,
+      "spatial_MAE_mm": [
+        11.500131740744276,
+        10.531383080086306,
+        11.104552560443603,
+        12.162449846174734,
+        10.600710866201377
+      ],
+      "validation_gain_vs_climatology": -0.1550665674228826,
+      "spatial_wins": 5
+    },
+    {
+      "model": "boosting",
+      "validation_MAE_mm": 10.154811492154844,
+      "spatial_MAE_mm": [
+        11.392418083611595,
+        10.313616376080384,
+        10.740381729259024,
+        11.827626005367923,
+        10.668116617745916
+      ],
+      "validation_gain_vs_climatology": -0.06570119641001315,
+      "spatial_wins": 5
+    }
+  ]
+}

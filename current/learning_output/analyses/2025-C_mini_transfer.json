@@ -1,0 +1,188 @@
+{
+  "scope": "synthetic non-paper mechanism transfer; not Dev/Test and not author reproduction",
+  "first_run_status": "FAIL",
+  "diagnosis": "fixed physical period was correct, but nonlinear amplitude/phase optimization remained brittle; with known frequency the model can be linearized as a*sin(wx)+b*cos(wx)+C",
+  "rule_fix": "solve fixed-frequency sinusoid in a linear basis with robust IRLS, then recover amplitude/phase; retain reject gate",
+  "status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+  "summary": {
+    "free_period_robust_mean_clean_rmse": 4.29735321071767,
+    "first_fixed_nonlinear_mean_clean_rmse": 10.04147104210471,
+    "repaired_fixed_linear_irls_mean_clean_rmse": 0.04150850899701269,
+    "repaired_wins_vs_free": 18,
+    "cases": 18,
+    "invalid_rejects": 12,
+    "invalid_cases": 12
+  },
+  "rows": [
+    {
+      "case": 1,
+      "free_period_robust_rmse": 8.464728284191814,
+      "first_fixed_nonlinear_rmse": 4.391991695536948,
+      "repaired_fixed_linear_irls_rmse": 0.06617240697127166
+    },
+    {
+      "case": 2,
+      "free_period_robust_rmse": 9.726733111412765,
+      "first_fixed_nonlinear_rmse": 7.638124806936568,
+      "repaired_fixed_linear_irls_rmse": 0.02962617117197076
+    },
+    {
+      "case": 3,
+      "free_period_robust_rmse": 0.06851496351954237,
+      "first_fixed_nonlinear_rmse": 10.830816024052876,
+      "repaired_fixed_linear_irls_rmse": 0.06127401141169635
+    },
+    {
+      "case": 4,
+      "free_period_robust_rmse": 0.037755741359961036,
+      "first_fixed_nonlinear_rmse": 13.347344635065406,
+      "repaired_fixed_linear_irls_rmse": 0.023425130735276647
+    },
+    {
+      "case": 5,
+      "free_period_robust_rmse": 0.07053574499354778,
+      "first_fixed_nonlinear_rmse": 15.047450516126435,
+      "repaired_fixed_linear_irls_rmse": 0.022416207602276125
+    },
+    {
+      "case": 6,
+      "free_period_robust_rmse": 0.051208310281801755,
+      "first_fixed_nonlinear_rmse": 16.679860994206962,
+      "repaired_fixed_linear_irls_rmse": 0.033300499766981476
+    },
+    {
+      "case": 7,
+      "free_period_robust_rmse": 0.0751095963307186,
+      "first_fixed_nonlinear_rmse": 18.300229649167658,
+      "repaired_fixed_linear_irls_rmse": 0.03542706330348802
+    },
+    {
+      "case": 8,
+      "free_period_robust_rmse": 0.03872350976267716,
+      "first_fixed_nonlinear_rmse": 19.84373805375662,
+      "repaired_fixed_linear_irls_rmse": 0.004810669879434338
+    },
+    {
+      "case": 9,
+      "free_period_robust_rmse": 0.0424861464298516,
+      "first_fixed_nonlinear_rmse": 21.421356232720804,
+      "repaired_fixed_linear_irls_rmse": 0.020100973412437988
+    },
+    {
+      "case": 10,
+      "free_period_robust_rmse": 0.10825486373921545,
+      "first_fixed_nonlinear_rmse": 0.10318088669339283,
+      "repaired_fixed_linear_irls_rmse": 0.08013144465651069
+    },
+    {
+      "case": 11,
+      "free_period_robust_rmse": 0.07370942783818796,
+      "first_fixed_nonlinear_rmse": 24.70122830559746,
+      "repaired_fixed_linear_irls_rmse": 0.0321856020666008
+    },
+    {
+      "case": 12,
+      "free_period_robust_rmse": 0.11431487094955158,
+      "first_fixed_nonlinear_rmse": 0.1004655468692187,
+      "repaired_fixed_linear_irls_rmse": 0.07382950392104204
+    },
+    {
+      "case": 13,
+      "free_period_robust_rmse": 0.04725387217771458,
+      "first_fixed_nonlinear_rmse": 28.06252309321552,
+      "repaired_fixed_linear_irls_rmse": 0.02991055359537339
+    },
+    {
+      "case": 14,
+      "free_period_robust_rmse": 0.06279939006771205,
+      "first_fixed_nonlinear_rmse": 0.06255104629219156,
+      "repaired_fixed_linear_irls_rmse": 0.0532866012817952
+    },
+    {
+      "case": 15,
+      "free_period_robust_rmse": 21.86290821609687,
+      "first_fixed_nonlinear_rmse": 0.06039062804242173,
+      "repaired_fixed_linear_irls_rmse": 0.06541288126391152
+    },
+    {
+      "case": 16,
+      "free_period_robust_rmse": 0.041475191669620125,
+      "first_fixed_nonlinear_rmse": 0.04148154044126722,
+      "repaired_fixed_linear_irls_rmse": 0.02546724707382585
+    },
+    {
+      "case": 17,
+      "free_period_robust_rmse": 0.08148697173462657,
+      "first_fixed_nonlinear_rmse": 0.06965785157442667,
+      "repaired_fixed_linear_irls_rmse": 0.06065724302412795
+    },
+    {
+      "case": 18,
+      "free_period_robust_rmse": 36.384359580361895,
+      "first_fixed_nonlinear_rmse": 0.04408725158865545,
+      "repaired_fixed_linear_irls_rmse": 0.029718950808207613
+    }
+  ],
+  "reject_fixtures": [
+    {
+      "case": 1,
+      "residual_rmse": 6.156895342962457,
+      "reject": true
+    },
+    {
+      "case": 2,
+      "residual_rmse": 6.254329455986818,
+      "reject": true
+    },
+    {
+      "case": 3,
+      "residual_rmse": 6.335947214359768,
+      "reject": true
+    },
+    {
+      "case": 4,
+      "residual_rmse": 6.348365844493693,
+      "reject": true
+    },
+    {
+      "case": 5,
+      "residual_rmse": 6.347110083422911,
+      "reject": true
+    },
+    {
+      "case": 6,
+      "residual_rmse": 6.4097867482503865,
+      "reject": true
+    },
+    {
+      "case": 7,
+      "residual_rmse": 6.439025956950902,
+      "reject": true
+    },
+    {
+      "case": 8,
+      "residual_rmse": 6.326365880064402,
+      "reject": true
+    },
+    {
+      "case": 9,
+      "residual_rmse": 6.0266983883014875,
+      "reject": true
+    },
+    {
+      "case": 10,
+      "residual_rmse": 5.486634727261613,
+      "reject": true
+    },
+    {
+      "case": 11,
+      "residual_rmse": 4.898239712597779,
+      "reject": true
+    },
+    {
+      "case": 12,
+      "residual_rmse": 4.294746266478243,
+      "reject": true
+    }
+  ]
+}

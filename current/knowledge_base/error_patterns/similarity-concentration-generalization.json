@@ -1,0 +1,6 @@
+{
+  "name": "similarity concentration mistaken for generalization",
+  "trigger": "nearly all pairs have very high cosine/similarity and this is interpreted as model validity/universality",
+  "rule": "compare against null/permutation/between-class references and downstream discrimination; all-high similarity may reflect normalization/high-dimensional concentration",
+  "source_example": "S042 Q3 all 45/55 garden pairs >0.85, mean ~0.985-0.986"
+}

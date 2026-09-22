@@ -1,0 +1,130 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "evidence_type": "printed appendix static audit",
+  "appendix_pages": "52-78",
+  "reproduction_level": "R2",
+  "visible_components": [
+    "Q1 Canny + morphology fragment",
+    "Q2 GMM pixel/region clustering and BIC helper",
+    "Q3 Z/JRC contour routines",
+    "Q4 fixed/simulated borehole config, plane conversion, connectivity score, voxel entropy and borehole candidate logic"
+  ],
+  "findings": [
+    {
+      "id": "Q1_HEADLINE_METHODS_MISSING",
+      "severity": "critical",
+      "evidence": "Appendix A visibly contains only a Canny/morphology fragment. No data-augmentation pipeline, illumination correction/NLM/Gabor/LBP feature fusion, K-Means implementation or YOLOv8 training/evaluation is shown.",
+      "risk": "Q1 three-way method comparison is not code-traceable."
+    },
+    {
+      "id": "Q1_CROSS_QUESTION_PATH",
+      "severity": "high",
+      "evidence": "The visible Q1 main points to fujian3/output/3-3.jpg/step3_denoised.png rather than an attachment-1 input path.",
+      "risk": "printed example provenance drifts across questions and cannot substantiate attachment-1 outputs."
+    },
+    {
+      "id": "Q2_FIXED_GMM_COUNT_MISMATCH",
+      "severity": "critical",
+      "evidence": "Visible example calls analyze_all_images(..., n_components=3) for all images, while the paper reports 5, 1 and 3 fractures for figures 2-1/2-2/2-3.",
+      "risk": "visible code cannot produce the reported variable instance counts under the shown call."
+    },
+    {
+      "id": "Q2_DIRECTION_FEATURE_ABSENT",
+      "severity": "high",
+      "evidence": "Pixel mode feeds only row/column coordinates to GMM; region mode uses centroid/area/perimeter/eccentricity/bbox but no explicit tangent/orientation-consistency feature stated in the body.",
+      "risk": "paper grouping contract is not implemented as described."
+    },
+    {
+      "id": "Q2_BIC_HELPER_INACTIVE",
+      "severity": "medium",
+      "evidence": "estimate_optimal_components exists but is bypassed when n_components=3 is explicitly supplied in the visible example.",
+      "risk": "claimed/model-selectable cluster count does not govern shown output."
+    },
+    {
+      "id": "Q2_TOTAL_FRACTURES_MISLABEL",
+      "severity": "medium",
+      "evidence": "generate_cluster_report stores Total_Fractures=len(labels), which is pixel/region assignment count rather than number of GMM components/fractures.",
+      "risk": "report field semantic drift can inflate fracture counts."
+    },
+    {
+      "id": "Q2_OPTIMIZERS_NOT_VISIBLE",
+      "severity": "critical",
+      "evidence": "Appendix B shows GMM clustering only; no gradient-descent/Newton hybrid, Adam parameter optimization or neural-network sine fitting is visible.",
+      "risk": "headline Q2 optimizer comparison blocks R3."
+    },
+    {
+      "id": "Q3_HEADLINE_ADAPTIVE_Z3_ABSENT",
+      "severity": "critical",
+      "evidence": "Appendix C implements calculate_z_stable/calculate_z_smooth and JRC=51.85*Z^0.6-10.37 only; no curvature-compactness adaptive sampling, second-derivative Z3 or area correction is visible.",
+      "risk": "Q3 innovation claims are not executable from printed code."
+    },
+    {
+      "id": "Q3_CLOSED_CONTOUR_PROFILE_MISMATCH",
+      "severity": "high",
+      "evidence": "cv2.findContours(..., RETR_EXTERNAL, CHAIN_APPROX_NONE) returns a closed 2D boundary, but Z is computed from successive dy/dx as if points form an ordered y(x) roughness profile.",
+      "risk": "slope-based JRC estimator assumptions can be violated by double-valued/vertical contour sections."
+    },
+    {
+      "id": "Q3_MIN_ESTIMATOR_UNDOCUMENTED",
+      "severity": "high",
+      "evidence": "Visible code sets Z=min(Z1,Z2), choosing the smaller raw/smoothed roughness statistic without a corresponding body estimator definition.",
+      "risk": "systematically downward selection can alter JRC without provenance."
+    },
+    {
+      "id": "Q4_SIMULATED_FIXED_INPUTS",
+      "severity": "critical",
+      "evidence": "Body section 6.5 states six simulated boreholes/parameters are set by engineering common sense; Appendix D load_prev_fissure_params uses fixed_fissure_data rather than a visible attachment-4 ingestion path.",
+      "risk": "Q4 numeric outputs are scenario analysis, not demonstrated attachment-data results."
+    },
+    {
+      "id": "Q4_DEPTH_FILTER_BODY_DRIFT",
+      "severity": "critical",
+      "evidence": "Printed loader keeps f only when depth_max<=500 mm, while body Table 6 reports connectivity intervals at 2000-7000 mm.",
+      "risk": "visible code/data contract cannot generate the body depth results."
+    },
+    {
+      "id": "Q4_BINARY_ENTROPY_INCOMPLETE",
+      "severity": "critical",
+      "evidence": "Voxel accumulator uses -prob*log2(prob) only for each binary connectivity pair and omits -(1-prob)*log2(1-prob).",
+      "risk": "quantity is not standard Bernoulli Shannon uncertainty and peaks at the wrong probability."
+    },
+    {
+      "id": "Q4_UNCERTAINTY_STATE_NOT_ASSIGNED",
+      "severity": "critical",
+      "evidence": "Visible identify_high_uncertainty_regions builds entropy_grid/high_uncertainty_idx but does not assign self.uncertainty_data before reading/returning it.",
+      "risk": "printed main chain cannot feed visualization or borehole optimization."
+    },
+    {
+      "id": "Q4_SPACING_THRESHOLD_DRIFT",
+      "severity": "critical",
+      "evidence": "Body/docstring requires minimum spacing >=500 mm, but candidate/midpoint/fallback code checks min_dist>=300 and Table 8 reports a 412.3105 mm third recommendation.",
+      "risk": "reported optimum violates the stated hard feasibility contract."
+    },
+    {
+      "id": "Q4_PSEUDO_INFORMATION_GAIN",
+      "severity": "critical",
+      "evidence": "Candidate info_gain is current local mean entropy; fallback/midpoint branches even assign constants 0.5/0.6/0.7. No observation or posterior-update model is used.",
+      "risk": "hotspot score is mislabeled as information gain and cannot quantify expected uncertainty reduction."
+    },
+    {
+      "id": "Q4_MAIN_OMITS_OPTIMIZATION",
+      "severity": "high",
+      "evidence": "Visible main calls plane conversion, connection probability and uncertainty identification, but not optimize_supplement_boreholes.",
+      "risk": "printed entrypoint does not reproduce Table 8 recommendations."
+    },
+    {
+      "id": "Q4_JRC_RANGE_MISMATCH",
+      "severity": "high",
+      "evidence": "Body states conventional JRC range 0-20 and Q3 reports values up to 38.01; Appendix D computes jrc_similarity = 1 - abs(f1_jrc-f2_jrc)/20.",
+      "risk": "Without a range contract or clipping/calibration, the similarity may be negative and cannot safely act as a bounded fusion term."
+    }
+  ],
+  "r3_blockers": [
+    "Q1 method-comparison code absent",
+    "Q2 fitting optimizers absent and visible GMM count conflicts with results",
+    "Q3 adaptive/Z3/area headline code absent",
+    "Q4 fixed input data omitted and printed uncertainty/optimization chain incomplete",
+    "no original-data execution"
+  ]
+}

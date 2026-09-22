@@ -1,0 +1,6 @@
+{
+  "name": "decoded-object constraint leak",
+  "trigger": "encoding/mutation obeys a length/feasibility bound, but decode/repair/bridge can violate it and final evaluator does not re-check",
+  "rule": "all hard constraints are checked on the final decoded/repaired object, not only on genotype/intermediate representation",
+  "source_example": "S042 Q1 step_choices <100 yet decoded path can bridge beyond 100; reported max 222 vs hard <=100"
+}

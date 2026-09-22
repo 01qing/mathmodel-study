@@ -1,0 +1,9 @@
+# Pre-fit implementation decisions
+
+Written before the first model run. The initial protocol remains preserved.
+
+- Q2 fixed configurations: Ridge alpha=10 with four-knot degree-2 marginal splines, explicit elevation×temperature and relief×temperature product features in the interaction candidate; histogram boosting 60 iterations/15 leaves/minimum leaf80/L2=10. No hyperparameter sweep. Mean absolute error is unweighted across common cells and years; Q1 national summaries are area-weighted. Temporal baseline uses each cell's 1990–2005 mean; unseen spatial cells use the training-global mean. Both contracts are reported, not presented as identical tasks.
+- Q4 selects the smallest K within 10% of the best development reconstruction RMSE, using block0 for development, block1 for final testing, others for training. Ten fraction-valued features: five 1990–2010 averages and five net changes. This explicit threshold fills an unspecified implementation detail before numerical fitting.
+- Q3 supplements the draft runoff-pressure equation with an assumed low-elevation/relief multiplier and percentile-based population exposure/GDP-person capacity proxy. These are scenario assumptions, not calibrated drainage physics. Coefficients, capacity values, and all 36 scenario combinations per future year are recorded in code and registry. Historical precipitation trend backtests may select no-trend as central; both remain in scenarios. Socioeconomics stay at2015. Residual land type gets an explicit uncertain coefficient, never labeled impervious area.
+- Raw data preparation first failed due to missing pyproj, then installed dependency and reran. The -99.9 precipitation missing attribute generates a library warning because stored as text; code explicitly masks all negative precipitation before calculations.
+- No excellent-paper candidate is visible before freezing. It is recorded as PROTECTED_NOT_READ rather than supplied from a guess.

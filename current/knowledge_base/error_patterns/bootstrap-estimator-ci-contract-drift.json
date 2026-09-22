@@ -1,0 +1,5 @@
+{
+  "id": "BOOTSTRAP_ESTIMATOR_CI_CONTRACT_DRIFT",
+  "scope": "generic",
+  "rule": "Bootstrap resampling must use a clearly defined estimator consistent with the fitted model, and percentile intervals must be ordered [q(alpha/2), q(1-alpha/2)] unless another interval construction is explicitly stated."
+}

@@ -1,0 +1,46 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "modules": [
+    {
+      "module": "walkable_geometry_to_graph",
+      "transferability": "HIGH",
+      "guard": "all auto-bridges/repair edges must intersect-check feasible space and final path replay constraints"
+    },
+    {
+      "module": "local_scene_change_descriptor",
+      "transferability": "MEDIUM_HIGH",
+      "guard": "declare exact proxy and validate against independent human/target outcomes; do not mix paper formula and simpler code proxy"
+    },
+    {
+      "module": "feasibility_first_route_candidate_pool",
+      "transferability": "HIGH",
+      "guard": "use k-shortest/beam/RCSP/exact small-case arbiter before complex GA; evolutionary operators must preserve/repair path validity"
+    },
+    {
+      "module": "spatial_cluster_plus_semantic_region",
+      "transferability": "MEDIUM",
+      "guard": "start simple; only call GMM-MRF when actual probabilistic and spatial primitives are implemented and improve independent diagnostics"
+    },
+    {
+      "module": "two_dimension_interpretable_score",
+      "transferability": "MEDIUM_HIGH",
+      "guard": "freeze normalization/calibration separately from validation; anchor cannot validate itself"
+    },
+    {
+      "module": "full_entity_sensitivity_matrix",
+      "transferability": "HIGH",
+      "guard": "every perturbation run outputs scores for every entity with stable entity_id/run_id before rank metrics"
+    },
+    {
+      "module": "mixed_type_similarity",
+      "transferability": "HIGH",
+      "guard": "standardize continuous blocks; distinguish set-Jaccard from weighted min-max/Gower; no pair-specific edits"
+    },
+    {
+      "module": "external_case_application",
+      "transferability": "HIGH",
+      "guard": "classify as applicability unless independent external truth exists; external preprocessing uses frozen reference parameters"
+    }
+  ]
+}

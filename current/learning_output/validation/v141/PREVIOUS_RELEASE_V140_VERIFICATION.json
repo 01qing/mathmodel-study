@@ -1,0 +1,9 @@
+{
+  "status": "VERIFIED_PREVIOUS_RELEASE",
+  "version": "1.40.0",
+  "artifact": "/mnt/data/v140_release/release-v140/Graduate-MathModel-Learning-Skill-v1.40.zip",
+  "sha256": "beaa23ed9210be9c3075e13b84732598a27c25ed0f58ff0759e5b68f74da470c",
+  "expected_sha256": "beaa23ed9210be9c3075e13b84732598a27c25ed0f58ff0759e5b68f74da470c",
+  "match": true,
+  "scope": "Previous-Core release identity only; not capability comparison."
+}

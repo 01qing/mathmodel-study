@@ -1,0 +1,158 @@
+{
+  "schema_version": "0.5",
+  "competition": "中国研究生数学建模竞赛（华为杯）",
+  "scope": {
+    "years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ]
+  },
+  "generated_at": "2026-09-08T03:16:22.751762+00:00",
+  "source_policy": {
+    "store_large_files_inside_skill": false,
+    "default_verification_status": "not_verified",
+    "resolve_conflicts_silently": false
+  },
+  "years": {
+    "2021": {
+      "problems": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛试题/2021年研究生数学建模竞赛试题"
+      },
+      "excellent_papers": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "extra": [
+          "获数模之星提名奖（12篇）"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛论文/2021年优秀论文"
+      },
+      "notes": [
+        "适合作为第一批核心学习年份"
+      ]
+    },
+    "2022": {
+      "problems": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛试题/2022年研究生数学建模竞赛试题"
+      },
+      "excellent_papers": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛论文/2022年优秀论文"
+      }
+    },
+    "2023": {
+      "problems": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛试题/2023年研究生数学建模竞赛试题"
+      },
+      "excellent_papers": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛论文/2023年优秀论文"
+      }
+    },
+    "2024": {
+      "problems": {
+        "status": "confirmed_repository_directory",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "zhanwen/MathModel",
+        "path": "国赛试题/2024年研究生数学建模竞赛试题"
+      },
+      "excellent_papers": {
+        "status": "external_archive_link_confirmed_contents_not_indexed",
+        "source": "zhanwen/MathModel README",
+        "access_note": "README 提供百度网盘入口，当前 Skill 尚未逐篇建立论文索引",
+        "verification_status": "partially_verified"
+      }
+    },
+    "2025": {
+      "problems": {
+        "status": "official_release_page_confirmed",
+        "source": "公开竞赛题目发布页",
+        "coverage": "six_problems",
+        "download": "external_archive",
+        "verification_status": "partially_verified"
+      },
+      "expert_qa": {
+        "status": "confirmed",
+        "coverage": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "source": "shumo 2025答疑论坛"
+      },
+      "excellent_papers": {
+        "status": "gap_not_yet_indexed",
+        "note": "当前找到的公开优秀论文汇总页标明覆盖 2004-2023；不能据此假定 2025 优秀论文公开合集已齐。",
+        "verification_status": "not_verified"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "visual_audit": "116/116",
+  "key_figures": [
+    {
+      "paper_area": "Q1",
+      "pages": "15-33",
+      "figure_types": [
+        "route graph maps",
+        "scene-change curves",
+        "IGA convergence/diversity",
+        "route overlays",
+        "expert-correlation/Pareto comparison/sensitivity"
+      ],
+      "why": "connect geometry and visual-change descriptors to route selection",
+      "supports": "descriptive route structure and claimed heuristic search behavior",
+      "cannot_prove": "IGA implementation fidelity/global optimality because printed code only shows Dijkstra; correlation/Pareto significance without raw expert/route registry"
+    },
+    {
+      "paper_area": "Q2",
+      "pages": "34-61",
+      "figure_types": [
+        "element radar/KDE/NNI maps",
+        "open-close heatmaps/sequences",
+        "score radars/ranking",
+        "validation indicator chart"
+      ],
+      "why": "decompose illusion score into element distribution and open-close dynamics",
+      "supports": "the paper-defined descriptive score decomposition",
+      "cannot_prove": "objective aesthetic truth because several code features are random and final scores are fixed dictionaries; validation metrics lack printed computation path"
+    },
+    {
+      "paper_area": "Q3",
+      "pages": "62-82",
+      "figure_types": [
+        "multimodal flowchart",
+        "t-SNE",
+        "similarity heatmaps/rankings",
+        "PCA/learning curves",
+        "perspective diagrams",
+        "loss curve",
+        "new-garden score bars"
+      ],
+      "why": "present claimed multimodal representation/generalization and perspective extension",
+      "supports": "conceptual architecture and descriptive visualizations",
+      "cannot_prove": "multimodal deep training, PH/HMM similarity or generalization because printed code omits/contradicts these primitives and hard-codes some validation metrics"
+    },
+    {
+      "paper_area": "Appendix",
+      "pages": "86-116",
+      "figure_types": [
+        "printed source pages"
+      ],
+      "why": "paper-code correspondence audit",
+      "supports": "static evidence about actual implemented/stubbed primitives",
+      "cannot_prove": "successful execution or original-data reproduction"
+    }
+  ],
+  "figure_decision_rules": [
+    "route convergence plots must name the actual executable optimizer and link to raw objective/feasibility registry",
+    "validation charts must be generated from computed metric objects, not typed constants",
+    "self-similarity diagonal should never be cited as external-validity evidence",
+    "t-SNE/PCA visual separation is descriptive and needs held-out downstream criterion",
+    "code appendix should be audited for reachable method-defining primitives before model labels are learned"
+  ]
+}

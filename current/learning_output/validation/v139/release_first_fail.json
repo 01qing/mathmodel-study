@@ -1,0 +1,8 @@
+{
+  "first": "FAIL",
+  "check": "baseline changes confined to release allowlist",
+  "diagnosis": "Four Python 3.13 compiled cache files were deliberately excluded from portable release packaging; the first validator treated their absence as missing knowledge assets.",
+  "repair": "Separate absent __pycache__/*.pyc files from source/content deltas and list them explicitly. Continue hashing every remaining baseline file; no source or evidence exclusion added.",
+  "retest_evidence": "release_contract.json",
+  "original_baseline_modified": false
+}

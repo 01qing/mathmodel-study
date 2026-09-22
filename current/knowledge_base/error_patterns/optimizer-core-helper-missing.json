@@ -1,0 +1,12 @@
+{
+  "id": "optimizer-core-helper-missing",
+  "name": "Optimizer/core helper omitted from executable evidence",
+  "severity": "critical",
+  "trigger": "main algorithm calls helper(s) that define priority/repair/update but definitions are absent",
+  "risk": "printed code volume creates false reproducibility; named algorithm cannot be traced or run",
+  "gate": "build code-symbol coverage map; every algorithm-defining primitive must resolve to an implementation before R3",
+  "source_examples": [
+    "2025-A-S027-Q1 priority/cache helpers",
+    "2025-A-S027-Q3 _apply_optimization_strategies"
+  ]
+}

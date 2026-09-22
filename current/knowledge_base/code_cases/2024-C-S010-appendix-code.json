@@ -1,0 +1,64 @@
+{
+  "paper_id": "S010",
+  "source": "printed appendix text plus exact helper-function smoke for Q5 category encoding",
+  "run_status": "PARTIAL: Q5_CATEGORY_ENCODER_HELPERS_RAN; AUTHOR_PIPELINE_NOT_RUN_DUE_TO_MISSING_ORIGINAL_DATA/COMPLETE_SCRIPTS",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "visible appendix only shows an FFT exploratory fragment on train_2 rows 2000:2500",
+        "no visible complete 19-feature extraction + six-classifier voting pipeline"
+      ],
+      "risk": "paper final vote cannot be reproduced from the printed fragment"
+    },
+    "Q2": {
+      "findings": [
+        "printed code uses LinearRegression with KFold(n_splits=5, shuffle=True, random_state=42)",
+        "it reports both log-domain MSE/R2 and exp-domain MSE/R2",
+        "final coefficients are then refit on all visible data"
+      ],
+      "risk": "random folds do not evaluate unseen-temperature generalization; the full four-material table pipeline is not visible"
+    },
+    "Q3": {
+      "findings": [
+        "SPSSPRO is disclosed as the main ANOVA tool; no corresponding executable appendix code is provided"
+      ],
+      "risk": "sampling/ANOVA result cannot be reproduced from printed code and remains sensitive to frequency/Bm distribution"
+    },
+    "Q4": {
+      "findings": [
+        "printed CatBoost code uses random train_test_split",
+        "text says Bm is log-transformed but code appends raw maxB",
+        "kurtosis/skewness are computed but not appended",
+        "no IGSE output is appended despite the claimed best stacked feature set",
+        "true_mse is a sum of squared errors, not a mean"
+      ],
+      "risk": "the printed code corresponds to a simpler feature ablation, not the claimed final CatBoost+IGSE model"
+    },
+    "Q5": {
+      "findings": [
+        "printed objective uses predicted_loss - transmission_energy without objective normalization",
+        "printed code only provides PSO, not GA/GWO",
+        "Q5 retrains the simple five-feature CatBoost",
+        "wave_dict/material_dict convert ids to strings before integer-domain one-hot helpers; exact smoke shows all category bits become zero",
+        "PSO function hard-codes temperature=25, waveform=3, material=1 in the visible fragment"
+      ],
+      "risk": "the printed optimizer does not faithfully evaluate the paper-defined mixed categorical feature vector or reproduce the claimed GWO/48-combination workflow"
+    }
+  },
+  "smoke_report": "learning_output/analyses/v118_S010/q5_feature_contract_smoke.json",
+  "replication_requirements": [
+    "official 2024-C attachments or author CSV conversions",
+    "complete Q1 feature/voting script",
+    "Q3 sampling/ANOVA script or SPSS export",
+    "final Q4 CatBoost+IGSE feature pipeline",
+    "GA/GWO and 48-combination optimization scripts"
+  ],
+  "safe_reimplementation_order": [
+    "immutable raw data + condition/group IDs",
+    "single feature/transform registry",
+    "leave-condition-out Steinmetz evaluation",
+    "covariate-adjusted Q3 effects",
+    "physics baseline + group-aware ML/IGSE residual comparison",
+    "normalized Pareto or epsilon-constraint optimization with categorical encoder unit tests and feasibility replay"
+  ]
+}

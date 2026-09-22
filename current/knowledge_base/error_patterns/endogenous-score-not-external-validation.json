@@ -1,0 +1,5 @@
+{
+  "id": "ENDOGENOUS_SCORE_NOT_EXTERNAL_VALIDATION",
+  "rule": "Optimizing/reweighting a composite score and then showing a higher value of that score is not independent evidence that recommendations are better. Validate against held-out outcome, simulation recovery, information gain or external utility.",
+  "scope": "generic"
+}

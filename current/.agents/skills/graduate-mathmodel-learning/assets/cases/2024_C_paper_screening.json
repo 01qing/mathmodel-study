@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.4",
+  "case_id": "gmcm-2024-C",
+  "excellent_paper_pair_status": "NOT_YET_SELECTED",
+  "reason": "A 2024 excellent-paper archive is publicly indexed, but two full, readable C-problem excellent-paper bodies have not yet been materialized and audited. Public award/team summaries are not substitutes for full papers.",
+  "archive": {
+    "source": "zhanwen/MathModel README",
+    "status": "EXTERNAL_ARCHIVE_INDEXED_NOT_MATERIALIZED",
+    "role": "candidate excellent-paper corpus"
+  },
+  "solution_profiles": [
+    {
+      "profile_id": "2024C-shandong-star-champion",
+      "source_type": "university_official_summary",
+      "status": "VERIFIED_PROFILE_NOT_FULL_PAPER",
+      "team": "山东大学 Lucky Dog",
+      "title": "基于多因素分析与深度学习的磁芯损耗建模",
+      "award": "数模之星冠军",
+      "reported_route": [
+        "consider temperature/waveform/material/frequency/peak flux density",
+        "multi-factor bidirectional LSTM for cross-material multi-condition prediction",
+        "ideal-point-guided non-dominated sorting genetic algorithm for high-efficiency optimization"
+      ],
+      "teaching_value": [
+        "strong contrast with physics-informed Tereaslle route",
+        "Q5 explicitly uses non-dominated sorting, closer to the stated multiobjective structure"
+      ],
+      "limitations": [
+        "no full contest paper body materialized",
+        "cannot verify Q1-Q5 formulas, validation splits, numerical claims or code"
+      ]
+    },
+    {
+      "profile_id": "2024C-jiangsu-star-runner-up",
+      "source_type": "university_official_summary",
+      "status": "VERIFIED_TEAM_PROFILE_METHOD_DETAILS_INSUFFICIENT",
+      "team": "江苏科技大学 天生我材必有用",
+      "award": "数模之星亚军",
+      "reported_route": [],
+      "limitations": [
+        "public profile confirms C-problem team and award but does not expose enough method details for paper-level comparison"
+      ]
+    }
+  ],
+  "excluded_as_excellent_papers": [
+    {
+      "type": "competition-time_solution_blog",
+      "examples": [
+        "CSDN/阿里云等赛时思路与代码文章"
+      ],
+      "reason": "secondary solution material; useful for code/risk comparison but not an excellent-paper corpus"
+    }
+  ],
+  "selection_gate": [
+    "materialize/read at least two full 2024 C excellent papers",
+    "verify paper identity/award source",
+    "build Q1-Q5 method profiles",
+    "choose pair by methodological diversity rather than award alone"
+  ]
+}

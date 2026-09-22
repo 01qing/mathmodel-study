@@ -1,0 +1,195 @@
+{
+  "schema_version": "1.4",
+  "case_id": "gmcm-2024-C",
+  "audit_id": "external-code-Tereaslle-2024-CPGMCM",
+  "repository": "Tereaslle/2024-CPGMCM",
+  "repository_status": "public_participant_code_and_data_mirror",
+  "audit_status": "PARTIAL_REAL_CODE_AUDIT",
+  "audited_files": [
+    {
+      "path": "C-1.ipynb",
+      "git_blob_sha1": "20cc99bec9758e0f501c4984e178626186307bb0",
+      "question": "Q1"
+    },
+    {
+      "path": "C-2-Ultimate/问题2终极版.ipynb",
+      "git_blob_sha1": "ea2fe27a5754a9bbfd46b45869b0567bc51c2b3c",
+      "question": "Q2"
+    },
+    {
+      "path": "C-3/问题3 .ipynb",
+      "git_blob_sha1": "c5f217f891bc02f6df6c5308318c04dc5a61aec2",
+      "question": "Q3",
+      "readability": "connector_content_unavailable"
+    },
+    {
+      "path": "C-4/问题4_最终版.ipynb",
+      "git_blob_sha1": "0714b7fef4a16511f9b6558362ab9cf69b8f8170",
+      "question": "Q4"
+    },
+    {
+      "path": "C-5/问题5_最终版.ipynb",
+      "git_blob_sha1": "5262301473ff4da15a92ffcdc0ac93eaa5b27362",
+      "question": "Q5"
+    }
+  ],
+  "findings": [
+    {
+      "id": "Q1-waveform-feature-engineering",
+      "question": "Q1",
+      "severity": "low",
+      "finding_type": "strength",
+      "status": "verified_from_code",
+      "evidence": "C-1.ipynb builds waveform-level mean/std/max/min/amplitude/energy/skewness/kurtosis features and uses a RandomForestClassifier.",
+      "impact": "The solution recognizes that a waveform needs shape-level representation rather than relying only on operating-condition columns.",
+      "skill_rule": "Preserve simple, interpretable waveform-feature baselines before advanced sequence models."
+    },
+    {
+      "id": "Q1-expanding-dataframe-feature-contamination",
+      "question": "Q1",
+      "severity": "high",
+      "status": "verified_from_code",
+      "evidence": "The notebook assigns mean to `features`, then computes std/max/min/amplitude/energy/skewness/kurtosis on the already-expanded `features` dataframe.",
+      "impact": "Later summary features are not all calculated from the original 1024 waveform points; they can include previously created summary columns, changing their intended mathematical meaning.",
+      "skill_rule": "Compute every waveform statistic from an immutable raw waveform matrix, then concatenate derived features."
+    },
+    {
+      "id": "Q1-random-holdout-perfect-score",
+      "question": "Q1",
+      "severity": "medium",
+      "status": "verified_from_code",
+      "evidence": "The notebook uses train_test_split(test_size=0.3, random_state=42) and reports Accuracy=1.0 with a perfect confusion matrix on 1020 held-out rows.",
+      "impact": "A perfect random-row holdout can indicate easy class separation, but it does not by itself prove robustness across materials, temperatures, frequencies or unseen operating regimes.",
+      "skill_rule": "Treat random holdout as one validation regime; add group/condition diagnostics before making broad generalization claims."
+    },
+    {
+      "id": "Q1-notebook-state-reproducibility",
+      "question": "Q1",
+      "severity": "low",
+      "status": "verified_from_notebook_history",
+      "evidence": "A stored execution records a RandomForest fit TypeError caused by mixed integer/string feature names, while later stored cells contain successful model evaluation and test prediction.",
+      "impact": "The notebook may depend on execution state or an unrecorded repair; a clean top-to-bottom rerun must be verified.",
+      "skill_rule": "Notebook outputs are not reproducibility evidence until a clean restart-and-run succeeds."
+    },
+    {
+      "id": "Q2-interpretable-temperature-correction",
+      "question": "Q2",
+      "severity": "low",
+      "finding_type": "strength",
+      "status": "verified_from_code",
+      "evidence": "The final notebook compares temperature functions and constructs an interpretable corrected Steinmetz form P=k*f^alpha*Bm^beta*log(T)^gamma.",
+      "impact": "The approach respects the problem's requirement to extend the physical Steinmetz equation rather than replacing it with a black box.",
+      "skill_rule": "For physics-extension questions, retain the named physical baseline and make added terms interpretable."
+    },
+    {
+      "id": "Q2-temperature-form-confounding",
+      "question": "Q2",
+      "severity": "high",
+      "status": "verified_from_code",
+      "evidence": "Temperature functional forms are compared by fitting core loss P directly as a function of T alone before the selected log(T) term is inserted into Steinmetz.",
+      "impact": "Because core loss also changes strongly with frequency and peak flux density, the apparent P-vs-T functional shape can be confounded by f and Bm distributions.",
+      "skill_rule": "Choose temperature correction conditional on f and Bm, not from marginal P-vs-T fit alone."
+    },
+    {
+      "id": "Q2-in-sample-model-comparison",
+      "question": "Q2",
+      "severity": "high",
+      "status": "verified_from_inspected_section",
+      "evidence": "The inspected final section fits original/corrected equations on the material-1 sinusoidal dataset and then computes their predictions and MSE/RMSE/MAE/R2 on that same dataset.",
+      "impact": "The demonstrated error improvement is in-sample and cannot establish temperature extrapolation/generalization.",
+      "skill_rule": "Add per-temperature and leave-one-temperature-out validation for temperature correction."
+    },
+    {
+      "id": "Q2-Bm-definition-needs-justification",
+      "question": "Q2",
+      "severity": "medium",
+      "status": "verified_from_code",
+      "evidence": "Bm is computed as row-wise maximum of the 1024 B samples.",
+      "impact": "If waveforms contain offset/asymmetry, max(B) differs from max(|B|) or half peak-to-peak amplitude; the physical definition must be aligned with the problem/model.",
+      "skill_rule": "State and verify the peak-flux-density definition before fitting Steinmetz parameters."
+    },
+    {
+      "id": "Q3-code-body-not-readable",
+      "question": "Q3",
+      "severity": "medium",
+      "status": "unresolved",
+      "evidence": "Repository metadata confirms the Q3 notebook and outputs such as causal_model.png, correlation/P-value plots and factor-specific figures, but the connector did not return readable notebook content.",
+      "impact": "Cannot verify whether frequency/Bm confounding is controlled, whether pairwise interactions are modeled correctly, or whether effect sizes are reported.",
+      "skill_rule": "Do not infer a statistical method from plot filenames; keep implementation claims unresolved until code/text is readable."
+    },
+    {
+      "id": "Q4-physics-informed-hybrid",
+      "question": "Q4",
+      "severity": "low",
+      "finding_type": "strength",
+      "status": "verified_from_code",
+      "evidence": "The final route combines a temperature-corrected Steinmetz equation with a loss-separation model and fits separate parameter sets by material and waveform.",
+      "impact": "This creates a physics-informed alternative to a purely black-box predictor and respects known heterogeneity across material/waveform groups.",
+      "skill_rule": "Keep physics-informed comparators in engineering prediction problems."
+    },
+    {
+      "id": "Q4-parameter-identifiability-risk",
+      "question": "Q4",
+      "severity": "high",
+      "status": "verified_from_code",
+      "evidence": "Because conductivity/effective-area related physical quantities are absent, the notebook collapses them into a fitted free parameter b4.",
+      "impact": "The model can fit numerically while individual physical parameters lose direct physical identifiability.",
+      "skill_rule": "Distinguish predictive calibration parameters from physically identified parameters."
+    },
+    {
+      "id": "Q4-generalization-evidence-gap",
+      "question": "Q4",
+      "severity": "high",
+      "status": "not_found_in_inspected_sections",
+      "evidence": "Inspected final code fits material×waveform parameter groups and ensemble weights; no explicit random/group/leave-condition-out validation was found in the inspected sections used for the prediction model.",
+      "impact": "The question explicitly asks for prediction accuracy and generalization; in-sample fit quality alone is insufficient.",
+      "skill_rule": "Q4 must include declared validation regimes, especially cross-condition diagnostics."
+    },
+    {
+      "id": "Q5-discrete-groups-explicitly-enumerated",
+      "question": "Q5",
+      "severity": "low",
+      "finding_type": "strength",
+      "status": "verified_from_code",
+      "evidence": "Optimization loops over every material and excitation-waveform combination while optimizing frequency, Bm and temperature within numeric bounds.",
+      "impact": "Discrete material/waveform variables are not incorrectly relaxed to arbitrary continuous values.",
+      "skill_rule": "Keep categorical engineering decisions discrete."
+    },
+    {
+      "id": "Q5-second-objective-omitted",
+      "question": "Q5",
+      "severity": "critical",
+      "status": "verified_from_code",
+      "evidence": "`objective_function(x)` returns only `a*steinmetz_eq_adjust(x)+b*separate(x)` and PSO minimizes that scalar core-loss prediction. No f*Bm term or Pareto objective appears in the verified objective code.",
+      "impact": "The implemented optimization does not solve the stated bi-objective requirement of minimizing core loss while maximizing transmitted magnetic energy f*Bm.",
+      "skill_rule": "Before choosing PSO/GA/NSGA, encode every stated objective explicitly and preserve Pareto trade-offs unless preferences are justified."
+    },
+    {
+      "id": "Q5-box-domain-only",
+      "question": "Q5",
+      "severity": "high",
+      "status": "verified_from_code",
+      "evidence": "PSO searches a rectangular box over frequency [49990,501180], Bm [0.00963815,0.313284469], temperature [25,90].",
+      "impact": "Global min/max bounds prevent gross extrapolation but still permit sparse or unsupported combinations inside the box.",
+      "skill_rule": "Surrogate optimization should add support-density / nearest-neighbor / group-validity constraints, not only min-max clipping."
+    },
+    {
+      "id": "Q5-method-label-inconsistency",
+      "question": "Q5",
+      "severity": "low",
+      "status": "verified_from_code",
+      "evidence": "Markdown says a genetic algorithm will be used, while the implemented optimizer class and iteration are PSO.",
+      "impact": "The method description and executable implementation disagree, reducing reproducibility and paper-code traceability.",
+      "skill_rule": "Algorithm names in the paper must match the actual executable solver."
+    }
+  ],
+  "summary": {
+    "critical": 1,
+    "high": 6,
+    "medium": 3,
+    "low": 6,
+    "strengths": 4,
+    "unresolved": 1,
+    "overall": "The public solution contains useful physics-aware and waveform-aware ideas, but several validation/identifiability issues remain and Q5's verified implementation fails to encode the required second objective."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "pattern_id": "heterogeneous-cosine-without-scaling",
+  "name": "Heterogeneous cosine without scaling contract",
+  "trigger": "cosine similarity directly mixes large-unit counts/lengths and bounded proportions/scores",
+  "risk": "large-scale features dominate direction even though cosine is invariant only to common vector scaling, not feature-wise unit changes",
+  "gate": "fit standardization/robust scaling or block weights on train/reference cohort; register feature units and sensitivity",
+  "evidence": [
+    "S045 Q3 Eq.7.1-7.2"
+  ]
+}

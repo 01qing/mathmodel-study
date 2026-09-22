@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "single_node_renewal",
+      "pass_": true,
+      "exact": 60.31548518699939,
+      "simulation": 60.3984
+    },
+    {
+      "name": "two_independent_links",
+      "pass_": true,
+      "exact": 120.63097037399878,
+      "simulation": 120.6648
+    },
+    {
+      "name": "certain_loss_retry_reset",
+      "pass_": true
+    },
+    {
+      "name": "finite_retry_fixed_point_limits",
+      "pass_": true
+    },
+    {
+      "name": "q2_stationary_chain",
+      "pass_": true
+    },
+    {
+      "name": "q1_independent_event_reconstruction",
+      "pass_": true,
+      "report": {
+        "status": "PASS",
+        "checks": 4747,
+        "errors": [],
+        "error_count": 0,
+        "packets": 678
+      }
+    },
+    {
+      "name": "q2_independent_event_reconstruction",
+      "pass_": true,
+      "report": {
+        "status": "PASS",
+        "checks": 4411,
+        "errors": [],
+        "error_count": 0,
+        "packets": 630
+      }
+    },
+    {
+      "name": "q3_independent_event_reconstruction",
+      "pass_": true,
+      "report": {
+        "status": "PASS",
+        "checks": 4894,
+        "errors": [],
+        "error_count": 0,
+        "packets": 699
+      }
+    },
+    {
+      "name": "q4_independent_event_reconstruction",
+      "pass_": true,
+      "report": {
+        "status": "PASS",
+        "checks": 7503,
+        "errors": [],
+        "error_count": 0,
+        "packets": 1072
+      }
+    },
+    {
+      "name": "reject_tampered_backoff",
+      "pass_": true
+    },
+    {
+      "name": "reject_tampered_outcome",
+      "pass_": true
+    },
+    {
+      "name": "reject_tampered_stage",
+      "pass_": true
+    },
+    {
+      "name": "data_only_sensing_alternative_trace",
+      "pass_": true,
+      "report": {
+        "status": "PASS",
+        "checks": 8203,
+        "errors": [],
+        "error_count": 0,
+        "packets": 1172
+      }
+    }
+  ]
+}

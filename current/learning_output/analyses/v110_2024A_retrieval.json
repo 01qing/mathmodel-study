@@ -1,0 +1,124 @@
+{
+  "mode": "production",
+  "query": "风电场 有功功率 优化分配 疲劳 雨流 BiLSTM NSGA-II 通信延迟",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-D",
+    "2024-E",
+    "2024-F",
+    "2025-A",
+    "2025-B",
+    "2025-C",
+    "2025-D",
+    "2025-E",
+    "2025-F"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [
+      "optimization"
+    ],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S002",
+      "case_group": "2024-A",
+      "title": "A24103350007",
+      "page": 3,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S002-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103350007.pdf",
+      "source_sha256": "7fe2813d94da5d72676dd6c8fe0ff6cfead155b8aeb67918be9269de1a0cab5e",
+      "chunk_id": "S002-p3-0",
+      "excerpt": "2\n型；然后，通过NSGA-II 算法进行模型求解，实现风电场内各风机有功功率的优化调度和\n实时更新，保证各个风机的疲劳损伤程度和功率分配的合理性；最后，验证了所求功率优\n化分配方案可以满足计算实时性和约束条件，将所求功率优化分配方案的运行效果与平均\n功率分配方案进行对比，验证建立的优化模型和模型求解方法的有效性。\n针对问题四，首先，将噪声干扰和通信延迟作用下的采集数据输入问题三所建立的有\n功功率优化分配模型进行优化计算，将计算结果与问题三的优化结果进行对比，分析噪声\n干扰和通信延迟为计算精度和优化效果带来的影响；随后，针对噪声和延迟问题设计优化\n方案，对采集数据进行合理的预处理，其中，针对噪声干扰问题，采用奇异值分解SVD\n进行降噪处理，针对通信延迟问题，基于相位差进行时间序列滞后性判断判断、筛选，并\n基于改进三次样条插值法进行缺失数据恢复；最后，将经过预处理后的采集数据输入问题\n三所建立的有功功率优化分配模型进行优化计算，将得到的计算结果与基于未处理的采集\n数据的计算结果、基于无噪声和延迟的采集数据的计算结果进行对比，验证基于滤波和预\n测的预处理环节对于消除噪声干扰和通信延迟为计算精度和优化效果带来的影响的有效\n性。\n关键词：风机疲劳损伤程度；雨流计数法；滑动时间窗；BiLSTM 拟合；\nNSGA-II 算法；噪声干扰；通信延迟；SVD 分解；改进三次样条插值",
+      "lexical_cosine": 0.30168310826431377,
+      "matched_keyword_tags": {
+        "tasks": [
+          "optimization"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S002.json",
+        "papers": [
+          "S001",
+          "S002"
+        ]
+      }
+    },
+    {
+      "paper_id": "S011",
+      "case_group": "2024-C",
+      "title": "C24104220149",
+      "page": 50,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+      "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+      "chunk_id": "S011-p50-700",
+      "excerpt": "，本节采用NSGA-II[3]、多目标粒子群\n智能算法进行求解。 \nNSGA 算法是在简单遗传算法的基础上进行改进的，其核心思想是引入了\nPareto 最优的概念。NSGA-II 算法是对NSGA 的改进版本。NSGA-II 算法广泛应\n用于多目标优化领域，旨在有效寻找多个目标函数的最优解集。采用了快速非支\n配排序策略和精英策略，并用拥挤度函数替代共享函数，从而显著减少了计算时\n间和复杂性。 \nNSGA-II 算法的主要步骤包括：初始化种群、评估适应度、快速非支配排序、\n选择、交叉与变异、合并父代和子代、更新种群。该算法通过在后代中持续筛选\n最佳个体，获取每个优化目标函数的最小解。其关键步骤包括快速非支配排序和\n拥挤度排序。 \nNSGA-II 算法的基本步骤如下： \n步骤 1：设置算法参数，包括终止条件、种群数量、交叉率、变异率以及决\n策变量的约束条件。 \n步骤 2：根据决策变量的上下限初始化种群Pt，并设定t=0。 \n步骤 3：计算每个个体的适应度函数值。 \n步骤 4：进行非支配排序后，使用交叉和变异算子生成子代种群 Qt，并计算\n子代中每个个体的适应度函数值。",
+      "lexical_cosine": 0.24476247584839786,
+      "matched_keyword_tags": {
+        "tasks": [
+          "optimization"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    },
+    {
+      "paper_id": "S042",
+      "case_group": "2025-F",
+      "title": "F题-1-江南古典园林的美学特征建模",
+      "page": 30,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-1-江南古典园林的美学特征建模.pdf",
+      "source_sha256": "b1132adba756118ab037d8af0af25cf5cd110e51092288042d5c5ae9b3b72a0c",
+      "chunk_id": "S042-p30-0",
+      "excerpt": "30\na.寄畅园\nb.留园\nc.耦园\nd.绮园\ne.秋霞圃\nf.沈园\ng.怡园\nh.豫园\ni.瞻园\n图21 帕累托前沿图-拙政园\n4.4.4 游园路线可视化展示与关键位置异景程度分析\nNSGA-II 算法最终输出的帕累托前沿（pareto_front）覆盖所有合理的权衡方案，如“高\n异景-低重复”“中异-极低重复”等，符合园林游线的多样化需求；结合NSGA-II 的拥挤\n度距离，避免最优解在目标空间中聚集，确保前沿解的空间多样性，可满足不同游客的偏\n好。以拙政园为例，由于篇幅原因，仅展示具有代表性的11 条最优路径可供游客自行选择，\n其中包含了重复度最高的方案和路线无重复的方案。下面重点对路线无重复的方案进行深\n入分析。\na.路径1\nb.路径12\nc.路径34",
+      "lexical_cosine": 0.1822203061232479,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    },
+    {
+      "paper_id": "S028",
+      "case_group": "2025-A",
+      "title": "A题-面向 Davinci 架构的 NPU 核内调度算法研究",
+      "page": 44,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-面向 Davinci 架构的 NPU 核内调度算法研究.pdf",
+      "source_sha256": "42c5fb495eadd637e6a90263675157f5a0d75d868f5ace69b06d266d86892130",
+      "chunk_id": "S028-p44-1400",
+      "excerpt": "具体数学形式，具有广泛的适用性，适合本题设计具有良好通用性和泛化性模型的要求。\nNAGA-II 算法的关键思想如下：",
+      "lexical_cosine": 0.16900810181909365,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

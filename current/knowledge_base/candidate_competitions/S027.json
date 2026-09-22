@@ -1,0 +1,208 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "precedence-constrained DAG scheduling that reduces peak live-buffer residency without violating cache/topology constraints",
+      "input_target_constraints": {
+        "input": "DAG nodes/edges with Op/Type/Size/cycles/dependencies",
+        "decision": "one legal topological linearization",
+        "objective": "minimize peak Vstay/Cmax",
+        "independent_evaluation_unit": "one complete workload graph",
+        "hard_constraints": [
+          "topological order",
+          "each node scheduled once",
+          "cache/L0 legality"
+        ]
+      },
+      "baseline": {
+        "name": "Kahn ready-set list scheduling + FREE-first + critical-path/slack + incremental-memory tie-break",
+        "six_hour_plan": [
+          "parse DAG and replay topology",
+          "maintain ready set; execute legal FREE early",
+          "rank remaining nodes by critical path/slack and incremental live-memory delta",
+          "replay Cmax on all six workloads and save one result registry"
+        ],
+        "why": "deterministic, transparent, near-linear/log-linear and gives a strong contest baseline before stochastic search"
+      },
+      "author_route": {
+        "method": "MCBGS multi-constraint balanced greedy scheduling",
+        "why_fit": [
+          "greedy list scheduling scales to large DAGs",
+          "type/size/criticality can directly encode memory-pressure and path urgency",
+          "determinism is attractive under contest time constraints"
+        ],
+        "evidence_boundary": "paper describes Type+Size+Criticality, but printed appendix calls undefined priority/critical-path/cache helpers, so the claimed composite priority is not implementation-traceable"
+      },
+      "major_alternatives": [
+        {
+          "model": "S025 topology-preserving simulated annealing",
+          "why_can_work": "same feasible topological-order search and can escape greedy local choices",
+          "when_prefer": "only when matched-budget multi-seed evaluation materially beats deterministic baseline"
+        },
+        {
+          "model": "S026 tabu/local-neighborhood search",
+          "why_can_work": "discrete feasible local refinement is natural after a deterministic schedule",
+          "when_prefer": "when structured move-level tabu implementation is repaired and wins on common evaluator"
+        },
+        {
+          "model": "CP-SAT / MILP small-instance benchmark",
+          "why_can_work": "provides exact/near-exact gap rather than another heuristic label",
+          "when_prefer": "small/contracted graphs or sampled subgraphs"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "deep RL",
+          "why_not_now": "no large graph-instance training distribution or evidence that policy training pays back within contest budget"
+        },
+        {
+          "model": "random/unconstrained permutation search",
+          "why_not_now": "spends most evaluations on weak or infeasible schedules and gives poor reproducibility"
+        }
+      ],
+      "switch_conditions": [
+        "retain MCBGS only if explicit components are implemented and ablation shows stable value",
+        "add stochastic refiner only if it beats baseline under same evaluator/time budget",
+        "use exact solver calibration whenever graph size permits"
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "buffer-lifetime/cache-address allocation with spill/reload decisions to minimize extra DDR movement under capacity and overlap constraints",
+      "input_target_constraints": {
+        "input": "fixed schedule + buffer size/type/lifetime/use pattern + cache capacities",
+        "decision": [
+          "cache/offset",
+          "spill victim/timing",
+          "reload placement"
+        ],
+        "objective": "minimize true incremental transfer bytes, with runtime secondary/lexicographic unless explicitly normalized",
+        "independent_evaluation_unit": "one complete workload graph",
+        "hard_constraints": [
+          "cache capacity",
+          "overlap address non-collision",
+          "spill/reload dependency legality",
+          "cache-type compatibility"
+        ]
+      },
+      "baseline": {
+        "name": "lifetime sweep + deterministic Best-Fit free-list + min incremental-transfer spill victim + farthest-next-use tie-break",
+        "six_hour_plan": [
+          "derive lifetimes from Q1",
+          "allocate with Best-Fit or linear-scan free list",
+          "on overflow compute exact additional spill bytes for each legal victim",
+          "choose minimum-cost victim and replay all constraints/bytes"
+        ],
+        "why": "simple, debuggable and directly tied to the real byte objective"
+      },
+      "author_route": {
+        "method": "MOACADSA-style First-Fit allocation + dynamic spill/caching reuse heuristic",
+        "why_fit": [
+          "fast online allocation",
+          "spill score can use lifetime and COPY_IN semantics",
+          "cache reuse can reduce repeated movement"
+        ],
+        "evidence_boundary": "abstract says Best-Fit, body/code use First-Fit; paper victim equation uses argmin while code reverse-sorts a different size*lifetime score and picks the largest"
+      },
+      "major_alternatives": [
+        {
+          "model": "interval-graph coloring / linear-scan allocator",
+          "why_can_work": "buffer lifetimes are intervals and memory reuse resembles register allocation",
+          "when_prefer": "large deterministic workloads where speed/reproducibility matter"
+        },
+        {
+          "model": "S025 hierarchical allocator",
+          "why_can_work": "reports lower transfer than S027 on Conv_Case0 and provides another audited heuristic route",
+          "when_prefer": "only after shared evaluator aligns spill semantics"
+        },
+        {
+          "model": "CP-SAT / MILP exact small cases",
+          "why_can_work": "can benchmark allocator/spill quality and validate constraints",
+          "when_prefer": "small buffer sets or decomposed time windows"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "random spill",
+          "why_not_now": "poor transfer efficiency and unstable evidence"
+        },
+        {
+          "model": "unnormalized Bytes+Cycles weighted sum",
+          "why_not_now": "units/scales make weights non-interpretable; hard byte objective should not be hidden"
+        }
+      ],
+      "switch_conditions": [
+        "do not call allocator Best-Fit unless code actually chooses smallest fitting hole",
+        "do not promote spill heuristic until paper/code choose same score direction and variables",
+        "use sophisticated search only if deterministic allocator materially misses shared-evaluator optimum/benchmark"
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "minimize total execution cycles while bounding additional transfer generated by a resource-aware reschedule",
+      "input_target_constraints": {
+        "input": "Q2 feasible mapping/baseline + schedule/resource timing model",
+        "decision": "resource-aware scheduling/local transformations",
+        "objective": "minimize cycles",
+        "independent_evaluation_unit": "one workload graph; cross-workload joint optimization requires explicit shared-resource coupling",
+        "hard_constraints": [
+          "all Q1/Q2 feasibility",
+          "transfer growth <= official tolerance epsilon",
+          "topological and resource constraints"
+        ]
+      },
+      "baseline": {
+        "name": "epsilon-constraint lexicographic local search: enforce transfer cap first, then minimize cycles",
+        "six_hour_plan": [
+          "freeze Q2 baseline from same Result Registry",
+          "set official transfer cap epsilon and reject any violating candidate",
+          "apply resource-aware topological swap/insert or list rescheduling",
+          "choose lowest-cycle feasible result and report per-case cap slack"
+        ],
+        "why": "matches the hard-constraint nature of the task and avoids arbitrary unit-weight scalarization"
+      },
+      "author_route": {
+        "method": "DOSA incremental dual-objective scheduling / multi-sequence collaborative optimization narrative",
+        "why_fit": [
+          "explicitly acknowledges cycle-vs-transfer trade-off",
+          "incremental transformations can preserve feasibility",
+          "resource-aware strategies can reduce stalls"
+        ],
+        "evidence_boundary": "printed appendix calls undefined _apply_optimization_strategies; most evaluation code processes each task case independently, and 10%/15% transfer tolerance drifts across sections"
+      },
+      "major_alternatives": [
+        {
+          "model": "Large Neighborhood Search under epsilon cap",
+          "why_can_work": "can destroy/repair local schedule blocks while enforcing hard transfer limit",
+          "when_prefer": "medium-large DAG where exact solve is too slow"
+        },
+        {
+          "model": "NSGA-II / MOEA only after shared evaluator",
+          "why_can_work": "can map the actual cycle-transfer frontier",
+          "when_prefer": "when stakeholders need multiple operating points and all hard constraints are replayed"
+        },
+        {
+          "model": "CP-SAT/MILP small-instance exact reference",
+          "why_can_work": "gives optimality gap and cap verification",
+          "when_prefer": "small/contracted graphs"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "unconstrained weighted-sum optimization",
+          "why_not_now": "can trade away a hard transfer limit and weights depend on unit scaling"
+        },
+        {
+          "model": "paper-labeled multi-sequence joint optimizer without shared-state code",
+          "why_not_now": "naming coordination without executable coupling overstates evidence"
+        }
+      ],
+      "switch_conditions": [
+        "source one official epsilon from problem contract; do not mix 10% and 15%",
+        "only call result multi-sequence collaborative if code/evaluator jointly couples multiple sequences/resources",
+        "only use Pareto/MOEA when actual feasible nondominated points and selection rule are shown"
+      ]
+    }
+  }
+}

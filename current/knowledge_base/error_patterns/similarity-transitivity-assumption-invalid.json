@@ -1,0 +1,6 @@
+{
+  "id": "similarity-transitivity-assumption-invalid",
+  "name": "Unjustified transitivity assumption for similarity",
+  "trigger": "A method assumes A~B and B~C imply A~C merely because a similarity metric or clustering is used.",
+  "gate": "Do not assume transitivity unless the relation is explicitly constructed as an equivalence relation; clustering algorithms operate on pairwise distances/similarities without this axiom."
+}

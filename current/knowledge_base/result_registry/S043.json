@@ -1,0 +1,164 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_END_TO_END_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_GLOBAL_OPTIMUM_GAP0",
+      "surface": "abstract vs visible optimization evidence",
+      "finding": "abstract says the GA obtains a global optimum with Gap=0 in 1.5 h; no exact bound/certificate/reference optimum establishing a zero optimality gap is visible",
+      "status": "global_optimum_claim_unverified"
+    },
+    {
+      "id": "Q1_WEIGHTED_SUM_MULTI_OBJECTIVE",
+      "surface": "Q1 Eq.(4-34)/(4-36)",
+      "finding": "three objectives are scalarized into one weighted utility (0.5/0.3/0.2 in Table 4.11); this is one preference point, not a Pareto multiobjective solution",
+      "status": "objective_semantic_scope_downgraded"
+    },
+    {
+      "id": "Q1_MOVING_NORMALIZATION",
+      "surface": "Eqs.(4-37)-(4-39)",
+      "finding": "S/R normalization uses current population minima/maxima, so objective scaling and fitness semantics can move between generations; cross-generation score comparability is not fixed",
+      "status": "population_dependent_scale_contract"
+    },
+    {
+      "id": "Q1_ADAPTIVE_MUTATION_DIRECTION",
+      "surface": "Eqs.(4-43)-(4-44) vs prose",
+      "finding": "Pmutation=Pbase+alpha*(1-ConvergenceRate) becomes smaller as convergence/similarity-to-best increases, opposite the prose statement that mutation should rise when diversity falls",
+      "status": "formula_prose_direction_contradiction"
+    },
+    {
+      "id": "Q1_OX_FEASIBILITY",
+      "surface": "OX discussion",
+      "finding": "order crossover can preserve permutation uniqueness/order fragments but does not guarantee that consecutive vertices are connected by valid graph edges; final route feasibility/repair must be explicit",
+      "status": "feasibility_primitive_missing_from_visible_contract"
+    },
+    {
+      "id": "Q1_FITNESS_CORRELATION_REPLAY",
+      "surface": "Table 4.12 vs reported r=0.89",
+      "finding": "Pearson correlation recomputed from the 10 table rows is r=0.989714, not 0.89. Because scenic score is itself a positive component of fitness, this correlation is also endogenous rather than independent validation.",
+      "status": "table_statistic_replay_failure"
+    },
+    {
+      "id": "Q2_LAYOUT_SCORE_RANGE",
+      "surface": "Eq.(5-14), Table 5.3, Table 5.7",
+      "finding": "Eq.(5-14) weights sum to 1 and its I1-I5 components are defined/intended with maxima <=1, implying Aestheticlayout<=1; grade thresholds 1.5-3.6 and reported 4.620 cannot be produced by the displayed scale contract",
+      "status": "equation_result_scale_impossibility"
+    },
+    {
+      "id": "Q2_THEME_ENTROPY_NORMALIZER",
+      "surface": "Eqs.(5-5)-(5-6), Table 5.1, Eq.(5-14)",
+      "finding": "the paper defines five landscape themes but normalizes both Hspatial and Htheme with Hmax=log2(6); theme entropy maximum should depend on K (five here) unless a sixth theme exists",
+      "status": "normalization_denominator_contract_drift"
+    },
+    {
+      "id": "Q2_OPENNESS_RANGE",
+      "surface": "Eqs.(5-16),(5-18), Table 5.4",
+      "finding": "recursive O_ij multiplies sqrt(open-area fraction) by 1+neighbor previous openness and has no visible initialization, convergence, or clipping rule; it can exceed 1 while later Openness thresholds assume a 0-1 scale",
+      "status": "bounded_scale_not_guaranteed"
+    },
+    {
+      "id": "Q2_RHYTHM_NORMALIZATION",
+      "surface": "Eqs.(5-24)-(5-25)",
+      "finding": "R(tau) is an autocovariance-like quantity; dividing by sqrt(R(0)) does not produce the usual dimensionless normalized autocorrelation and does not establish a [0,1] rhythm index",
+      "status": "dimensionless_index_contract_unresolved"
+    },
+    {
+      "id": "Q2_SCALE_FACTOR_SEMANTICS",
+      "surface": "Eq.(5-34) and prose",
+      "finding": "Ascale=1+beta*ln(A/A_Jichang) is monotone increasing in area, so it rewards larger gardens rather than expressing an optimum at a moderate scale as the prose claims",
+      "status": "formula_semantic_direction_mismatch"
+    },
+    {
+      "id": "Q2_100_MAX_CONTRADICTION",
+      "surface": "Eqs.(5-30),(5-37)-(5-39) vs Table 5.9",
+      "finding": "Sstd anchors Jichang at 100, but Srelative multiplies this by 1+gamma*Similarity and final score multiplies additional factors that may exceed 1; without an unshown cap/renormalization, 100 is not a theoretical maximum and Jichang would generally exceed 100",
+      "status": "declared_score_bound_not_closed"
+    },
+    {
+      "id": "Q2_TABLE_SCORE_PROVENANCE",
+      "surface": "Table 5.9",
+      "finding": "component columns (element-distribution score, openness score, adjustment coefficient) are insufficient by themselves to replay the final score because similarity and anchor-normalization terms are not registered per garden",
+      "status": "result_provenance_incomplete"
+    },
+    {
+      "id": "Q3_AHP_CIRCULAR_MATRIX",
+      "surface": "Eqs.(6-12)-(6-13)",
+      "finding": "the judgment matrix is defined as a_ij=w_i/w_j and then w is obtained as its eigenvector; if w is unknown this is circular, while if w is already known the eigenproblem does not derive expert weights",
+      "status": "weight_derivation_circular"
+    },
+    {
+      "id": "Q3_WARD_METRIC_CONTRACT",
+      "surface": "Eq.(6-14) then Ward clustering",
+      "finding": "the model fuses cosine, set Jaccard and weighted-Euclidean similarity, then describes Ward minimum-variance clustering. Direct Ward use on arbitrary fused similarity is not justified without a Euclidean feature embedding/distance contract",
+      "status": "clustering_geometry_contract_unresolved"
+    },
+    {
+      "id": "Q3_NONSIGNIFICANCE_COMMONALITY",
+      "surface": "Eqs.(6-19)-(6-20) and Kruskal-Wallis rule",
+      "finding": "p-value>0.05 is used to confirm a feature as common across groups; non-significance does not establish equivalence/commonality, especially with only ten gardens",
+      "status": "non_significance_overclaim"
+    },
+    {
+      "id": "Q3_ALL_GT_093_CONTRADICTION",
+      "surface": "text immediately after Table 6.2",
+      "finding": "text says all garden similarities are above 0.93, but Table 6.2 off-diagonal values range from 0.523 to 0.847",
+      "status": "hard_cross_surface_contradiction"
+    },
+    {
+      "id": "Q3_MATRIX_SUMMARY_REPLAY",
+      "surface": "Table 6.2 and following distribution paragraph",
+      "finding": "45-pair replay gives mean=0.664267, sample SD=0.068578; paper reports mean 0.632 and SD 0.089. The displayed matrix therefore does not reproduce the stated summary statistics.",
+      "status": "table_statistic_replay_failure"
+    },
+    {
+      "id": "Q3_CLUSTER_MEAN_REPLAY",
+      "surface": "Tables 6.2-6.4",
+      "finding": "from the table memberships, pairwise means are large=0.660667, medium=0.740333, small=0.673333; reported 0.721/0.741/0.735 only matches the medium group closely",
+      "status": "group_summary_replay_failure"
+    },
+    {
+      "id": "Q3_ABSTRACT_TOP_RANK_DRIFT",
+      "surface": "abstract/Q3 text/Table 6.6",
+      "finding": "opening abstract says Zhuozheng Garden score 6.353 ranks first; the Q3 abstract paragraph and Table 6.6 assign 6.353/rank 1 to Jichang Garden",
+      "status": "headline_result_provenance_drift"
+    },
+    {
+      "id": "Q3_POST_TABLE_RANK_DRIFT",
+      "surface": "text after Table 6.6",
+      "finding": "Table 6.6 ranks Jichang, Lingering, Yiyuan first-three; following prose instead says Zhuozheng and Lingering are first-two and Shen Garden ranks third",
+      "status": "narrative_table_contradiction"
+    },
+    {
+      "id": "Q3_TYPE_TAXONOMY_DRIFT",
+      "surface": "Table 6.4 cluster groups vs Table 6.6 type labels",
+      "finding": "Table 6.6 reassigns several gardens to different type labels than the Ward cluster groups in Table 6.4 without a new taxonomy contract",
+      "status": "cluster_label_taxonomy_drift"
+    },
+    {
+      "id": "Q3_EXTERNAL_ACCURACY_PROVENANCE",
+      "surface": "Section 6.4.2",
+      "finding": "2/3=66.7% arithmetic is correct, but “correct classification” ground-truth labels are not predeclared/independently sourced and Huanxiu is described as an independent category outside the learned three-group scheme",
+      "status": "accuracy_target_provenance_unresolved"
+    },
+    {
+      "id": "Q3_SIMILARITY_ERROR_PROVENANCE",
+      "surface": "Section 6.4.1 validation",
+      "finding": "mean similarity prediction error 0.078 is reported without a visible ground-truth similarity label or target definition against which prediction error is computed",
+      "status": "unlabeled_similarity_accuracy_overclaim"
+    }
+  ],
+  "global_gates": [
+    "weighted-sum preference point != Pareto/global optimum",
+    "adaptive formulas must be direction-checked against their prose intent",
+    "GA crossover/repair must replay graph feasibility on final routes",
+    "constructed score ranges must be algebraically compatible with component ranges",
+    "entropy/rhythm/open-score normalizers require correct support and units",
+    "score anchors/adjustment factors must close the declared output range",
+    "AHP weights require independent pairwise-judgment provenance",
+    "Ward requires valid Euclidean geometry or an appropriate linkage for the chosen distance",
+    "p>alpha does not prove equivalence/commonality",
+    "pairwise similarity statistics and cluster means must be replayed from one matrix registry",
+    "external accuracy needs a predeclared truth target"
+  ]
+}

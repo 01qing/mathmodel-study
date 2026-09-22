@@ -1,0 +1,6 @@
+{
+  "id": "architecture-name-implementation-mismatch",
+  "trigger": "Paper names an architecture/component (Bi-LSTM, attention, feature weighting, transformer, etc.) but executable/printed final model does not instantiate the corresponding layers/data flow.",
+  "risk": "Performance is attributed to a component that is not supported by implementation evidence.",
+  "gate": "Generate/check a layer graph from code and trace compute→tensor→layer→output. Missing claimed component means the final-model claim is unverified."
+}

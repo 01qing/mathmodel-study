@@ -1,0 +1,14 @@
+{
+  "pattern": "temporal-count-spatial-density-confusion",
+  "description": "A count of unique passages over a time window is divided by road length and interpreted as simultaneous spatial density.",
+  "detection": [
+    "N(t) counts vehicles seen during Δt",
+    "density is N/L",
+    "no snapshot occupancy or trajectory-time correction is defined"
+  ],
+  "remedy": [
+    "define flow q=N/Δt separately from occupancy/density k",
+    "estimate simultaneous vehicles in a road segment or use calibrated trajectories",
+    "check q≈kv only under declared aggregation assumptions"
+  ]
+}

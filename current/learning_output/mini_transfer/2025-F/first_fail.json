@@ -1,0 +1,35 @@
+{
+  "fixture": "warehouse-inspection-route",
+  "parents": [
+    [
+      "S",
+      "A",
+      "B",
+      "E",
+      "T"
+    ],
+    [
+      "S",
+      "C",
+      "D",
+      "E",
+      "T"
+    ]
+  ],
+  "theta": 2,
+  "child": [
+    "S",
+    "A",
+    "D",
+    "E",
+    "T"
+  ],
+  "invalid_edges": [
+    [
+      "A",
+      "D"
+    ]
+  ],
+  "status": "FAIL",
+  "diagnosis": "arbitrary positional crossover does not preserve graph adjacency; node-sequence length compatibility is not path feasibility"
+}

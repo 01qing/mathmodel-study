@@ -1,0 +1,6 @@
+{
+  "id": "test-statistic-pvalue-confusion",
+  "trigger": "A test statistic is compared directly with alpha=0.05 or interpreted as the p-value.",
+  "risk": "Hypothesis-test conclusion may be mathematically invalid.",
+  "gate": "Record statistic, p-value, test assumptions and decision separately; compare p-value (or critical statistic) using the correct rule."
+}

@@ -1,0 +1,19 @@
+{
+  "method_id": "replace-me",
+  "name": "",
+  "aliases": [],
+  "problem_families": [],
+  "core_idea": "",
+  "key_assumptions": [],
+  "data_requirements": [],
+  "suitable_for": [],
+  "not_suitable_for": [],
+  "baseline_against": [],
+  "alternatives": [],
+  "switch_conditions": [],
+  "validation": [],
+  "common_failures": [],
+  "competition_risk": "context-dependent",
+  "learning_level": "unseen",
+  "sources": []
+}

@@ -1,0 +1,14 @@
+{
+  "pattern": "heuristic-controller-weight-without-calibration",
+  "description": "Controller weights are attributed to correlation/distance but no fitting rule, objective or sensitivity evidence is provided.",
+  "detection": [
+    "weighted state score controls an action",
+    "weights are hand-picked",
+    "no calibration/sensitivity/decision-cost analysis"
+  ],
+  "remedy": [
+    "fit weights on training scenarios or derive from explicit utility",
+    "validate across held-out events",
+    "report sensitivity and robust region, not one arbitrary pair"
+  ]
+}

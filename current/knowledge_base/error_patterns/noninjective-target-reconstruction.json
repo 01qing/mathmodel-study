@@ -1,0 +1,10 @@
+{
+  "name": "noninjective-target-reconstruction",
+  "trigger": "predict an intermediate scalar then map it back to a structured/discrete label",
+  "risk": "many labels may share the same intermediate value; perfect scalar prediction does not imply unique label recovery",
+  "gate": [
+    "test one-to-one mapping on reference table",
+    "if collisions exist predict structured label directly or keep candidate set",
+    "score ambiguity-aware metrics"
+  ]
+}

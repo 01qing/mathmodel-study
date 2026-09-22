@@ -1,0 +1,1077 @@
+{
+  "result11": {
+    "status": "FAIL",
+    "errors": [
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          99,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          126,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          150,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          168,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          180,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          273,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          292,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          310,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          334,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          373,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          481,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          583,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          613,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          637,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          667,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          697,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          733,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          757,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          781,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          793,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          937,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1105,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1123,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1141,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1165,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1189,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1207,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1225,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1243,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1273,
+          {
+            "3": 2
+          }
+        ]
+      }
+    ],
+    "error_count": 67,
+    "checks": {
+      "input_order": 1,
+      "permutation": 1,
+      "no_return_subset": 1,
+      "machine_duration": 636,
+      "pickup_time": 636,
+      "unload_time": 636,
+      "machine_nonoverlap": 634,
+      "completion": 1,
+      "sequence_from_actions": 1,
+      "nine_moves_each": 1,
+      "lane_fifo": 6,
+      "independent_fifo_recurrence": 2862,
+      "sender_only_parked": 318,
+      "entry_timestamp_exclusive": 312,
+      "chosen_head_present": 318,
+      "q1_earliest_priority": 318,
+      "sender_no_idle": 3277,
+      "lane_capacity": 19662,
+      "independent_score": 4,
+      "matrix_shape": 1,
+      "matrix_times": 1,
+      "matrix_row_id": 318,
+      "every_matrix_cell": 318,
+      "transit_blank": 2862,
+      "region_codes": 3277,
+      "no_duplicate_regions": 3277
+    },
+    "independent_score": {
+      "hbad": 172,
+      "dbad": 19,
+      "s4": 96.58,
+      "total": 25.158,
+      "capped_s4_total": 25.158
+    },
+    "scope": "No-return schedules under explicit endpoint and source-queue assumptions; not a proof of global optimality or validation of return-route dynamics."
+  },
+  "result12": {
+    "status": "FAIL",
+    "errors": [
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          126,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          147,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          171,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          189,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          225,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          255,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          276,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          294,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          318,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          342,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          360,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          396,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          492,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          558,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          582,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          600,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          624,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          645,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          672,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          696,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          714,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          732,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          756,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          780,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          810,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          846,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          876,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          894,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          924,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          984,
+          {
+            "3": 2
+          }
+        ]
+      }
+    ],
+    "error_count": 92,
+    "checks": {
+      "input_order": 1,
+      "permutation": 1,
+      "no_return_subset": 1,
+      "machine_duration": 636,
+      "pickup_time": 636,
+      "unload_time": 636,
+      "machine_nonoverlap": 634,
+      "completion": 1,
+      "sequence_from_actions": 1,
+      "nine_moves_each": 1,
+      "lane_fifo": 6,
+      "independent_fifo_recurrence": 2862,
+      "sender_only_parked": 318,
+      "entry_timestamp_exclusive": 312,
+      "chosen_head_present": 318,
+      "q1_earliest_priority": 318,
+      "sender_no_idle": 2917,
+      "lane_capacity": 17502,
+      "independent_score": 4,
+      "matrix_shape": 1,
+      "matrix_times": 1,
+      "matrix_row_id": 318,
+      "every_matrix_cell": 318,
+      "transit_blank": 2862,
+      "region_codes": 2917,
+      "no_duplicate_regions": 2917
+    },
+    "independent_score": {
+      "hbad": 95,
+      "dbad": 24,
+      "s4": 100.18,
+      "total": 54.818,
+      "capped_s4_total": 54.8
+    },
+    "scope": "No-return schedules under explicit endpoint and source-queue assumptions; not a proof of global optimality or validation of return-route dynamics."
+  },
+  "result21": {
+    "status": "FAIL",
+    "errors": [
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          90,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          118,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          145,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          176,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          194,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          224,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          236,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          266,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          293,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          311,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          323,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          350,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          368,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          416,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          428,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          482,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          506,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          536,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          560,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          572,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          614,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          650,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          662,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          674,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          692,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          710,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          734,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          752,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          764,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          776,
+          {
+            "3": 2
+          }
+        ]
+      }
+    ],
+    "error_count": 107,
+    "checks": {
+      "input_order": 1,
+      "permutation": 1,
+      "no_return_subset": 1,
+      "machine_duration": 636,
+      "pickup_time": 636,
+      "unload_time": 636,
+      "machine_nonoverlap": 634,
+      "completion": 1,
+      "sequence_from_actions": 1,
+      "nine_moves_each": 1,
+      "lane_fifo": 6,
+      "independent_fifo_recurrence": 2862,
+      "sender_only_parked": 318,
+      "entry_timestamp_exclusive": 312,
+      "chosen_head_present": 318,
+      "sender_no_idle": 2604,
+      "lane_capacity": 15624,
+      "independent_score": 4,
+      "matrix_shape": 1,
+      "matrix_times": 1,
+      "matrix_row_id": 318,
+      "every_matrix_cell": 318,
+      "transit_blank": 2862,
+      "region_codes": 2604,
+      "no_duplicate_regions": 2604
+    },
+    "independent_score": {
+      "hbad": 169,
+      "dbad": 18,
+      "s4": 103.31,
+      "total": 27.330999999999996,
+      "capped_s4_total": 26.999999999999996
+    },
+    "scope": "No-return schedules under explicit endpoint and source-queue assumptions; not a proof of global optimality or validation of return-route dynamics."
+  },
+  "result22": {
+    "status": "FAIL",
+    "errors": [
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          942,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          1615,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          2623,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          2749,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          2845,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3139,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3571,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3619,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3697,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3715,
+          {
+            "3": 2
+          }
+        ]
+      },
+      {
+        "check": "no_duplicate_regions",
+        "detail": [
+          3895,
+          {
+            "3": 2
+          }
+        ]
+      }
+    ],
+    "error_count": 11,
+    "checks": {
+      "input_order": 1,
+      "permutation": 1,
+      "no_return_subset": 1,
+      "machine_duration": 636,
+      "pickup_time": 636,
+      "unload_time": 636,
+      "machine_nonoverlap": 634,
+      "completion": 1,
+      "sequence_from_actions": 1,
+      "nine_moves_each": 1,
+      "lane_fifo": 6,
+      "independent_fifo_recurrence": 2862,
+      "sender_only_parked": 318,
+      "entry_timestamp_exclusive": 312,
+      "chosen_head_present": 318,
+      "sender_no_idle": 4010,
+      "lane_capacity": 24060,
+      "independent_score": 4,
+      "matrix_shape": 1,
+      "matrix_times": 1,
+      "matrix_row_id": 318,
+      "every_matrix_cell": 318,
+      "transit_blank": 2862,
+      "region_codes": 4010,
+      "no_duplicate_regions": 4010
+    },
+    "independent_score": {
+      "hbad": 91,
+      "dbad": 21,
+      "s4": 89.25,
+      "total": 56.224999999999994,
+      "capped_s4_total": 56.224999999999994
+    },
+    "scope": "No-return schedules under explicit endpoint and source-queue assumptions; not a proof of global optimality or validation of return-route dynamics."
+  }
+}

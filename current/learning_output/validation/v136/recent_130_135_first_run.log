@@ -1,0 +1,25 @@
+===== test_v130_s032_regressions.py =====
+PASS 75/75
+RC=0 test_v130_s032_regressions.py
+===== test_v131_s033_regressions.py =====
+PASS 119/119
+RC=0 test_v131_s033_regressions.py
+===== test_v132_s034_regressions.py =====
+PASS 163/163
+RC=0 test_v132_s034_regressions.py
+===== test_v133_s035_regressions.py =====
+PASS 31/31
+RC=0 test_v133_s035_regressions.py
+===== test_v134_s036_regressions.py =====
+PASS 45/45
+RC=0 test_v134_s036_regressions.py
+===== test_v135_s042_regressions.py =====
+Traceback (most recent call last):
+  File "/mnt/data/Graduate-MathModel-Learning-Skill-v1.36-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v135_s042_regressions.py", line 10, in <module>
+    ck('version',st['current_version']=='1.35.0'); ck('latest',st['latest_completed_paper']=='S042'); ck('R2 latest',st['reproduction_level_latest']=='S042:R2')
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/Graduate-MathModel-Learning-Skill-v1.36-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v135_s042_regressions.py", line 6, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: version
+RC=1 test_v135_s042_regressions.py

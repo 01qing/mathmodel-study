@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "session_record.schema.json",
+  "title": "Learning Session Record",
+  "type": "object",
+  "required": [
+    "session_id",
+    "mode",
+    "focus",
+    "decisions",
+    "learning_updates",
+    "next_actions"
+  ],
+  "properties": {
+    "session_id": {
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "learn",
+        "competition",
+        "paper-review",
+        "review",
+        "practice"
+      ]
+    },
+    "focus": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_used": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "learning_updates": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,4 @@
+Executed frozen test_v138_2025F_retrieval.py from v1.39-work, PYTHONDONTWRITEBYTECODE=1.
+Exit code: 0
+PASS v1.38 2025-F retrieval: S045 found; evaluation/production reviewed-Train-only; final 4/4 map attached
+Scope: retrieval filtering/relevance smoke, not Core-level capability improvement. No protected answer text returned to the assistant.

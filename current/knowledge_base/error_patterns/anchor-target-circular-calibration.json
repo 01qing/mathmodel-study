@@ -1,0 +1,6 @@
+{
+  "name": "anchor-target circular calibration",
+  "trigger": "a benchmark/anchor is forced to a desired score and agreement with that same desired ranking is used as validation",
+  "rule": "calibration priors/anchors and validation targets must be separated; if not, label result constructed/anchored rather than independently validated",
+  "source_example": "S042 Q2 forces Jichang indicators to 100 and later cites its first-place ranking as validation"
+}

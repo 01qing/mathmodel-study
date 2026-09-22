@@ -1,0 +1,7 @@
+{
+  "pattern_id": "pairwise-entity-split-leakage",
+  "name": "成对样本扩增掩盖实体级泄漏",
+  "trigger": "pairs/triplets from a small entity set are randomly split so the same entity appears in both training and validation",
+  "example": "S044 Q3 contrastive garden pairs; garden is independent generalization unit, not pair row",
+  "gate": "split/group entities first, then construct pairs within each fold; report unseen-entity metrics separately"
+}

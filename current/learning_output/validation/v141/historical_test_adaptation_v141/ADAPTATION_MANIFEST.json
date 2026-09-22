@@ -1,0 +1,68 @@
+[
+  {
+    "script": "test_v120_regressions.py",
+    "original_sha256": "4c5e4f4b1336702700907c1260bd7f2f9e245e38a0fd1868bfc7d49866628964",
+    "adapted_sha256": "3cef36821f50ec8a6d4009c08e01a74e5629d681da6011bc0e6ac33fc3d4a353",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v121_regressions.py",
+    "original_sha256": "3695286b33d7816c14e6326a2205814011ca54c364b2a0f8c89274faf9115d5f",
+    "adapted_sha256": "9f1d2b0fa6d0d8afdc30716a787790c59379a324d646719a487e57af80459fa1",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v122_regressions.py",
+    "original_sha256": "bc71a35216c538832b5056edc928ceda58f17f8d7a8e6707d15c8a7a02dc6fb2",
+    "adapted_sha256": "452c3efa808041504a7a2f3c93f252302efd53ffda8aa74a6f3853614925496c",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v123_regressions.py",
+    "original_sha256": "d6860fa4149605e2f032557117d147b6e0e1df8a57857a8c0eb66e7ea7d89673",
+    "adapted_sha256": "7f3e7c2209056dfbd73cef690cd3157a8728a3b7249178df4e352a1d7326014d",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v124_regressions.py",
+    "original_sha256": "015192a4055f9aed707530570ece1d85e5a90186c3e45d33f68709ad102416fe",
+    "adapted_sha256": "fe4742b07cd442ec9f51ba7477baa0e12207987e1a2e8b2974fe892c20185b6e",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v132_s034_regressions.py",
+    "original_sha256": "2f8314d5da9b45b495f1d0e95c240321788533e07696b4714c82380b5277cf24",
+    "adapted_sha256": "79b8db3ff0728e32c7366fa6c27c8582ab9215cd33bbf074dbc52b5e5e05c8d1",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v134_s036_regressions.py",
+    "original_sha256": "7c6bc0ba1c55b66dbaaed38f064df372760f9b35ba42e4288f68d086a0b79f07",
+    "adapted_sha256": "612bcc115efabe6aeaf096f2dd61c1f495d7f5cc408ff7bac344a8c52389aea6",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v135_s042_regressions.py",
+    "original_sha256": "a2ad4b2d2f8e6b5aada5af92c2a71d23d7c91a634cfde588047bca3a92df08b3",
+    "adapted_sha256": "dc260d368c16f79e79d17ef609b5f6d9607b0760b3a78293999371d3b0a7e01f",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v136_s043_regressions.py",
+    "original_sha256": "e6a8ac9d14a28d004be993506b813b158f61c2e277de696537b199d3ead1ff46",
+    "adapted_sha256": "6142b638bf0022eefbaad99dc1a1d965fdbd844ed6bfbe4bd893ec253d2146a2",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v137_s044_regressions.py",
+    "original_sha256": "399b55b27b16d88b83b9459899e8b01e6979f94762a603a5d255e4d8f3942498",
+    "adapted_sha256": "ef9b6bc53cf18a777599a4da528e94678fc199d8b2585669433019b491e5912e",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  },
+  {
+    "script": "test_v138_s045_regressions.py",
+    "original_sha256": "e23192e909a29a549c4054634f0c9d8bfed9633b1638886ed336e2173e11c871",
+    "adapted_sha256": "65d838bf3105bafc371e3db29d8bb6c7edfe5b8b9e570dd8385b9a913923b320",
+    "adaptation_scope": "legal-timepoint only: later Dev review/version/next-pointer; substantive paper/code/result assertions unchanged; Test unread protection retained"
+  }
+]

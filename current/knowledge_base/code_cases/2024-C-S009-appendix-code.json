@@ -1,0 +1,67 @@
+{
+  "paper_id": "S009",
+  "source": "printed appendix text plus exact isolated smoke of the self-contained Q5 fragment",
+  "run_status": "PARTIAL: Q5_PRINTED_FRAGMENT_RAN; Q1-Q4 NOT_RUN_AS_AUTHOR_PIPELINE_DUE_TO_MISSING_ORIGINAL_DATA/INTERMEDIATE_FILES",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "feature extraction hard-coded to sheet 材料1",
+        "MLP/RF code references X without defining it in the visible block",
+        "inference uses mean/peak/std while preceding extractor writes slope/FFT/kurtosis/skew",
+        "RF n_estimators=100 differs from prose K=500",
+        "no visible weighted MLP-RF ensemble code"
+      ],
+      "risk": "paper-method/feature-contract mismatch; printed blocks are not a reproducible end-to-end classifier"
+    },
+    "Q2": {
+      "findings": [
+        "curve_fit is performed on the same data later used for fit metrics",
+        "saturation-form code uses a temperature-sign convention that differs from the displayed equation",
+        "polynomial metrics are computed after scaling fitted and actual values using a scaler fit on actual values, but no holdout is created"
+      ],
+      "risk": "calibration evidence is presented as model-selection evidence; parameter/formula registry is not locked"
+    },
+    "Q3": {
+      "findings": [
+        "statsmodels formulas correctly include categorical interaction terms",
+        "model formulas omit log-frequency/log-Bm covariates",
+        "printed interaction plotting computes raw group means"
+      ],
+      "risk": "requested factor effects are statistically confounded by continuous operating conditions unless design balance is proven"
+    },
+    "Q4": {
+      "findings": [
+        "printed code reads q4_data4.xlsx and one sheet 梯形",
+        "visible code fits one parameter set with curve_fit",
+        "no visible routing loop covering all 12 material×waveform regimes"
+      ],
+      "risk": "full 12-model deployment pipeline is not demonstrated by the printed appendix"
+    },
+    "Q5": {
+      "findings": [
+        "visible code imports scipy.optimize.minimize, not a PSO package/implementation",
+        "decision vector is only f,Bm,U",
+        "bounds are f=[50000,320000], Bm=[0.1,0.3], U=[25,90]",
+        "exact isolated run returns approximately f=50000,Bm=0.1,U=90",
+        "paper-reported points violate these printed bounds"
+      ],
+      "risk": "claimed mixed-integer PSO result is not reproduced by the printed implementation; feasibility and parameter consistency fail"
+    }
+  },
+  "smoke_report": "learning_output/analyses/v117_S009/q5_printed_code_smoke.json",
+  "replication_requirements": [
+    "official 2024-C attachments/intermediate files",
+    "original scripts/notebooks rather than printed fragments",
+    "exact feature schema and ensemble weights",
+    "parameter registry for all 12 Q4 models",
+    "declared validation split/group protocol"
+  ],
+  "safe_reimplementation_order": [
+    "immutable raw waveform matrix",
+    "feature schema contract + grouped validation",
+    "Steinmetz calibration with leave-one-temperature-out",
+    "ANCOVA/robust model with log f/log Bm covariates and factor interactions",
+    "physics + ML Q4 comparison on held-out regimes",
+    "explicit Pareto/epsilon-constraint Q5 with support-domain feasibility audit"
+  ]
+}

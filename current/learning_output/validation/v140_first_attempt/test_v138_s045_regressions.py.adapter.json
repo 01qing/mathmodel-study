@@ -1,0 +1,15 @@
+{
+  "edits": [
+    {
+      "old": "ck('version',st['current_version']=='1.38.0'); ck('latest S045',st['latest_completed_paper']=='S045'); ck('latest R2',st['reproduction_level_latest']=='S045:R2')",
+      "new": "ck('version',st['current_version']=='1.40.0'); ck('latest S045',st['latest_completed_train_paper']=='S045' and st['latest_completed_dev_paper']=='S014'); ck('latest R2',st['reproduction_level_latest']=='S014:R2')"
+    },
+    {
+      "old": "for pid in ['S013','S014','S015','S016','S030','S031']: ck(pid+' dev unread/reserve',P[pid]['split']=='dev' and P[pid].get('reviewed_pages',[])==[])",
+      "new": "for pid in ['S015','S016','S030','S031']: ck(pid+' dev unread/reserve',P[pid]['split']=='dev' and P[pid].get('reviewed_pages',[])==[])"
+    }
+  ],
+  "extra": "\n_pp=json.loads((Path(__file__).resolve().parents[4]/'.agents/skills/mathmodel-case-retriever/assets/papers.json').read_text(encoding='utf-8'))\nfor _pid,_n in [('S013',113),('S014',62)]:\n _p=next(x for x in _pp if x['paper_id']==_pid);assert _p['split']=='dev' and _p['reviewed_pages']==list(range(1,_n+1)) and _p['dev_boundary']=='DEV_ONLY_NOT_TRAIN_RETRIEVAL'\n",
+  "reason": "Version/latestDev and full-review metadata changed; no substantive modeling assertions waived",
+  "source_sha256": "e23192e909a29a549c4054634f0c9d8bfed9633b1638886ed336e2173e11c871"
+}

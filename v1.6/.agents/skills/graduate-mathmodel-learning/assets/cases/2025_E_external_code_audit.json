@@ -1,0 +1,127 @@
+{
+  "schema_version": "1.1",
+  "case_id": "gmcm-2025-E",
+  "audit_id": "local-2025-E-v16",
+  "repository": "user-provided-local-reference-archives",
+  "audited_files": [
+    {
+      "source_id": "S048",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师\\问题2代码-G老师.zip",
+      "archive_sha256": "eb2f1d787d12ddfd1204e1f8bd1ba84688be865deb16673901ba9b2362fd30f7",
+      "member_or_location": "问题2随机森林代码.py"
+    },
+    {
+      "source_id": "S051",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师2\\E题 问题建模求解代码包-G老师2.zip",
+      "archive_sha256": "9ae367199f38d1c3ceeca36ab570e4bca783624015aac14e6b59b2918816bd24",
+      "member_or_location": "main8.py:SourceBearingDS.__init__"
+    },
+    {
+      "source_id": "S051",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师2\\E题 问题建模求解代码包-G老师2.zip",
+      "archive_sha256": "9ae367199f38d1c3ceeca36ab570e4bca783624015aac14e6b59b2918816bd24",
+      "member_or_location": "main8.py:SourceBearingDS.__getitem__"
+    },
+    {
+      "source_id": "S054",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题代码结果与可视化.zip",
+      "archive_sha256": "23e14cd9815fbb9161dbaa8ee5136fbb3ab48b6509020266b9d09fddc5b3ee2e",
+      "member_or_location": "solve1.ipynb:MinMaxScaler/PCA before train_test_split"
+    },
+    {
+      "source_id": "S054",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题代码结果与可视化.zip",
+      "archive_sha256": "23e14cd9815fbb9161dbaa8ee5136fbb3ab48b6509020266b9d09fddc5b3ee2e",
+      "member_or_location": "solve3.ipynb:USED_PROXY_TARGET"
+    },
+    {
+      "source_id": "S054",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题代码结果与可视化.zip",
+      "archive_sha256": "23e14cd9815fbb9161dbaa8ee5136fbb3ab48b6509020266b9d09fddc5b3ee2e",
+      "member_or_location": "solve4.ipynb:maha_score"
+    },
+    {
+      "source_id": "S054",
+      "archive": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题代码结果与可视化.zip",
+      "archive_sha256": "23e14cd9815fbb9161dbaa8ee5136fbb3ab48b6509020266b9d09fddc5b3ee2e",
+      "member_or_location": "source raw MAT to features"
+    }
+  ],
+  "findings": [
+    {
+      "id": "g-template",
+      "source_id": "S048",
+      "location": "问题2随机森林代码.py",
+      "finding_type": "limitation",
+      "status": "partially_verified",
+      "severity": "medium",
+      "observation": "代码使用例子数据.csv和X1/X2，尚非完整赛题数据流",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "g2-group",
+      "source_id": "S051",
+      "location": "main8.py:SourceBearingDS.__init__",
+      "finding_type": "strength",
+      "status": "verified",
+      "severity": "info",
+      "observation": "先按原文件划分，保留优点；仍需类别与副本检查",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "g2-fs",
+      "source_id": "S051",
+      "location": "main8.py:SourceBearingDS.__getitem__",
+      "finding_type": "implementation",
+      "status": "verified",
+      "severity": "critical",
+      "observation": "48kHz与lower()大小写不一致，回退分支误判采样率；局部表达式已复现",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "x-pca",
+      "source_id": "S054",
+      "location": "solve1.ipynb:MinMaxScaler/PCA before train_test_split",
+      "finding_type": "leakage",
+      "status": "verified",
+      "severity": "critical",
+      "observation": "PCA分支在全体特征拟合后划分；静态数据流确认，非全部模型分支结论",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "x-fallback",
+      "source_id": "S054",
+      "location": "solve3.ipynb:USED_PROXY_TARGET",
+      "finding_type": "scope",
+      "status": "verified",
+      "severity": "high",
+      "observation": "目标缺失时源测试信号和生成特征只能标为代理实验",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "x-maha",
+      "source_id": "S054",
+      "location": "solve4.ipynb:maha_score",
+      "finding_type": "implementation",
+      "status": "verified",
+      "severity": "high",
+      "observation": "距离二次型下标错误，局部原函数产生负平方距离",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    },
+    {
+      "id": "raw-missing",
+      "source_id": "S054",
+      "location": "source raw MAT to features",
+      "finding_type": "evidence_gap",
+      "status": "unresolved",
+      "severity": "high",
+      "observation": "未从原始MAT重做特征链路，派生表实验不等于完整复现",
+      "verification_scope": "Specific observation only; no whole-pipeline correctness claim"
+    }
+  ],
+  "summary": {
+    "full_reproduction": false,
+    "raw_signal_reproduction": "NOT_RUN",
+    "evidence": "assets/cases/2025_E_regression_results.json"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_END_TO_END_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_LD_SIGN_CONTRACT",
+      "surface": "Q1 Eq.(4) vs prose vs printed visibility code",
+      "finding": "prose defines low transition probability as high temporal anomaly; Eq.(4) uses +p, whereas printed code uses -log(prob), which is directionally consistent with the prose",
+      "status": "paper_formula_code_semantic_drift"
+    },
+    {
+      "id": "Q1_PATH_LENGTH_CONSTRAINT",
+      "surface": "Q1 Eq.(13), reported Pareto range and multi_objective_path_planner.py",
+      "finding": "constraint says 2<=n<=100, but report says Pareto path node counts 30-222; printed code limits step-choice length, then shortest-path bridge can extend decoded path, and evaluate() does not reject decoded paths >100",
+      "status": "contradicted_hard_constraint"
+    },
+    {
+      "id": "Q1_HV_CLAIM",
+      "surface": "Q1 optimization result and validation",
+      "finding": "reported Hypervolume=0.4884; later text says HV volume coverage >=90% without visible normalization/reference-point mapping from 0.4884 to >=90%",
+      "status": "unresolved_metric_provenance"
+    },
+    {
+      "id": "Q1_GD_REFERENCE_FRONT",
+      "surface": "Q1 validation",
+      "finding": "GD is said to approach zero relative to a theoretical optimal Pareto front, but the visible method does not establish how that reference front is obtained",
+      "status": "reference_front_not_established"
+    },
+    {
+      "id": "Q1_CORRELATION_VALIDATION",
+      "surface": "Q1 validation",
+      "finding": "turning-density correlations r=0.78/0.82/0.85 with p<0.001 are author-reported; they show association but do not independently validate perceptual “移步异景” correctness because the score and route geometry share constructed structure",
+      "status": "evidence_scope_downgraded"
+    },
+    {
+      "id": "Q2_ANCHOR_CIRCULARITY",
+      "surface": "Q2 Eq.(31) and validation",
+      "finding": "the same 10 gardens define min/max; Jichang Garden indicators are additionally calibrated to 100; later agreement with Jichang Garden ranking first is used as validation",
+      "status": "circular_calibration_validation"
+    },
+    {
+      "id": "Q2_COLLINEARITY",
+      "surface": "Q2 Fig.86 / validation",
+      "finding": "AI vs connectivity and AI vs IIC are both reported at 0.99. Even if semantic roles differ, numerical independence/nonredundancy is not established and double-counting sensitivity is required",
+      "status": "near_collinearity_risk"
+    },
+    {
+      "id": "Q3_PAIR_COUNT_10",
+      "surface": "Q3 10-garden similarity",
+      "finding": "all 45 garden pairs = C(10,2)=45; arithmetic is consistent",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q3_PAIR_COUNT_11",
+      "surface": "Q3 Near Garden extension",
+      "finding": "all 55 garden pairs = C(11,2)=55; arithmetic is consistent",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q3_COMMONALITY_COUNT",
+      "surface": "Q3 11-garden commonality",
+      "finding": "80 strong + 74 medium + 25 differential = 179 dimensions; arithmetic is consistent",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q3_88_SHARE",
+      "surface": "Q3 10-garden commonality",
+      "finding": "88/179 = 49.1620%, consistent with the reported about 49.2%",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q3_SIMILARITY_CONCENTRATION",
+      "surface": "Q3 similarity results",
+      "finding": "10-garden mean comprehensive similarity is reported 0.986 and all 45 pairs >0.85; 11-garden mean 0.985 and all 55 pairs high. This is not an external accuracy/generalization criterion and may indicate representation/normalization concentration",
+      "status": "discrimination_not_established"
+    },
+    {
+      "id": "Q3_CLUSTER_ANOVA_DOUBLE_DIP",
+      "surface": "Q3 KMeans/ANOVA",
+      "finding": "KMeans clusters are created from the same high-dimensional vectors and one-way ANOVA on those same features is then used to establish cluster significance",
+      "status": "post_selection_inference_invalid_as_independent_validation"
+    },
+    {
+      "id": "Q3_ZERO_VARIANCE_DIVISION",
+      "surface": "Q3 commonality vs personality formula",
+      "finding": "some features are reported CV=0 / 100.000±0.000, while PI uses |v-mu|/sigma; zero sigma requires an explicit guard or those dimensions are undefined",
+      "status": "zero_variance_guard_required"
+    },
+    {
+      "id": "Q3_COHORT_DEPENDENT_PERSONALITY",
+      "surface": "Q3 personality values",
+      "finding": "Coupling Garden personality is reported 1.188 in the 10-garden analysis and 1.157 after Near Garden is added. Because PI is standardized to cohort mean/std, this can change with cohort and must be tagged by cohort rather than treated as one immutable result",
+      "status": "cohort_provenance_required"
+    },
+    {
+      "id": "CODE_STUBS_AND_DEFAULTS",
+      "surface": "printed appendix pp171-182",
+      "finding": "several garden-similarity analyzer methods are printed as signatures/docstrings without visible bodies; PCA/KMeans helper failures fall back to zero/default features under broad except blocks",
+      "status": "static_code_completeness_and_silent_failure_risk"
+    }
+  ],
+  "global_gates": [
+    "construction metric != independent validation",
+    "hard constraints replayed on decoded final objects",
+    "metric scales/reference points must be registered",
+    "anchor/prior cannot both define and validate the target score",
+    "near-collinear indicators need redundancy/weight sensitivity",
+    "post-selection tests are not independent evidence",
+    "zero-variance features need explicit denominator policy",
+    "broad exception fallbacks must emit failure state, not plausible silent features"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "paper_id": "S018",
+  "source": "81-page indexed full text + printed Python appendix fragments pages 67-81",
+  "run_status": "STATIC_AUDIT_PLUS_MACHINE_CONTRACT_REPLAY_ONLY; AUTHOR_PIPELINE_NOT_RUN_DUE_TO MISSING ORIGINAL VIDEOS/DERIVED DATA/MODEL WEIGHTS/COMPLETE TRAINING CODE",
+  "questions": {
+    "Q1": {
+      "visible_fragments": [
+        "YOLOv8 tracking/counting fragment",
+        "YOLOv5/SORT line-crossing fragment",
+        "CNN_BIGRU_Attention TensorFlow fragment"
+      ],
+      "findings": [
+        "paper timebase says 25 frames per second; visible aggregation counter uses 33",
+        "BiGRU input is reshaped to one timestep",
+        "attention declares W_omega but references undefined W",
+        "no visible multi-head implementation",
+        "no complete visible TCN-SVR/PSO ensemble training route",
+        "perspective calibration and physical speed extraction are not reconstructed by the visible code",
+        "video metadata in the paper indicates about 10× acceleration, but the visible code/prose do not expose one authoritative conversion from video seconds to real seconds",
+        "warning code uses gradient threshold 0.85 only, not the paper-described mean-window condition plus gradient 1.3",
+        "the fragment titled traffic-speed extraction visibly counts line crossings; the visible section does not reconstruct a calibrated physical-speed calculation"
+      ]
+    },
+    "Q2": {
+      "findings": [
+        "appendix problem-2 section contains ResNet/Mask-RCNN/FPN/RPN-style detection code rather than the paper-described Weibull/MLE threshold policy",
+        "no complete executable MLE-to-threshold trace is visible"
+      ]
+    },
+    "Q3": {
+      "findings": [
+        "no complete executable real-time open/close policy and cross-site counterfactual evaluation chain is visible"
+      ]
+    },
+    "Q4": {
+      "findings": [
+        "no complete Kriging surrogate + GA camera-placement implementation is visible",
+        "visible appendix does not reconstruct the reported camera-location optimization"
+      ]
+    }
+  },
+  "machine_replay": [
+    "Table 8 metric algebra",
+    "Q3/Q4 percentage changes",
+    "25-frame prose vs 33-counter printed code",
+    "architecture visibility flags",
+    "threshold Boolean logic drift",
+    "appendix method relevance",
+    "Q4 decision-variable contract"
+  ],
+  "safe_reuse": [
+    "cross-video holdout as a validation direction, after exact pipeline reconstruction",
+    "explicit temporal/spatial controller constraints",
+    "YOLO tracking only after frame/time/scale validation",
+    "multi-objective camera placement only with placement variables and mediated sensing-to-control evidence"
+  ]
+}

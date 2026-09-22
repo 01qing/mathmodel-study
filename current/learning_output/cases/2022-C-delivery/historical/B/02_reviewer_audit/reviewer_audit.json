@@ -1,0 +1,163 @@
+{
+  "reviewed_version": "ROLE-P1-2022C-RUNB-ARCH-INITIAL-v1",
+  "source_problem_data_version": "OFFICIAL_SOURCE_IDENTITY.json matched by size+Git blob SHA1; upload display-name aliases recorded",
+  "scope": "Frozen Architect ADR, solver note, results JSON; official problem/data used only for independent score/data checks.",
+  "first_fail": {
+    "severity": "MATERIAL",
+    "location": "01_architect_initial/architect_initial_solver.py and missing action/event trace",
+    "original_claim": "Implementation map and frozen headline results are replay-valid under the stated PBS constraints.",
+    "evidence": "Frozen solver file is an implementation note only (no executable simulator/event-loop definitions); frozen result JSON contains output sequences and aggregate return counts/T but no action/event trace. Therefore resource exclusivity, lane capacity, movement timing, Q1 priority 6/7, common non-idling constraint 8, and the reported T cannot be independently replayed from the frozen Architect artifact.",
+    "failure_class": "implementation_visibility_and_constraint_replay_gap",
+    "downstream_consequence": "Reviewer can verify sequence-based score components and arithmetic, but cannot certify schedule feasibility or time provenance; PASS is blocked.",
+    "minimal_repair": "Provide the exact executable discrete-event simulator used for the reported runs plus deterministic run configuration and action/event log sufficient for independent hard-constraint replay; regenerate result matrices from that same run_id.",
+    "retest_required": [
+      "hash frozen revised code",
+      "execute exact four runs",
+      "recompute score independently",
+      "replay Q1 priority gates",
+      "replay resource/capacity/non-idling",
+      "cross-check result matrices against event states"
+    ]
+  },
+  "formula_findings": {
+    "weighted_score_formula": "PASS",
+    "hybrid_gap_denominator_domain": "PASS; consecutive hybrids only, first hybrid exempt",
+    "drive_block_rule": "PASS on independent implementation",
+    "time_formula": "ARITHMETIC_PASS / FEASIBILITY_PROVENANCE_HOLD",
+    "constant_objective_conservation_gate": "PASS; objective not fixed by hard constraints"
+  },
+  "code_findings": {
+    "actual_primitives_claimed": "discrete-event greedy; no mislabeled GA/PSO/MILP claim",
+    "executable_visibility": "FAIL_MATERIAL",
+    "solver_identity": "described but not executable in frozen artifact",
+    "objective_constraint_replay": "sequence objective replay PASS; schedule constraint replay NOT_POSSIBLE"
+  },
+  "data_eval_findings": {
+    "row_semantics": "318 bodies per dataset, unique input order",
+    "same_target": "Policy tuning is in-instance and is labeled as such; PASS",
+    "leakage": "No reference-solution material in frozen artifact; exposure boundary consistent",
+    "split": "not applicable to deterministic instance optimization"
+  },
+  "result_registry": {
+    "Q1_附件1": {
+      "reported": {
+        "total": 16.397999999999996,
+        "s1": -87,
+        "s2": 79,
+        "s3": 88,
+        "s4": 98.98,
+        "hbad": 187,
+        "dbad": 21,
+        "return_uses": 12,
+        "T": 3036,
+        "base": 2934,
+        "deltaT": 102,
+        "blocks": 24
+      },
+      "independent_recalc": {
+        "total": 16.398,
+        "hbad": 187,
+        "dbad": 21,
+        "return_uses": 12,
+        "T": 3036,
+        "base": 2934
+      },
+      "status": "SEQUENCE_SCORE_RECALC_PASS_TIME_FEASIBILITY_NOT_REPLAYED"
+    },
+    "Q2_附件1": {
+      "reported": {
+        "total": 21.704,
+        "s1": -72,
+        "s2": 79,
+        "s3": 86,
+        "s4": 96.04,
+        "hbad": 172,
+        "dbad": 21,
+        "return_uses": 14,
+        "T": 3330,
+        "base": 2934,
+        "deltaT": 396,
+        "blocks": 21
+      },
+      "independent_recalc": {
+        "total": 21.704,
+        "hbad": 172,
+        "dbad": 21,
+        "return_uses": 14,
+        "T": 3330,
+        "base": 2934
+      },
+      "status": "SEQUENCE_SCORE_RECALC_PASS_TIME_FEASIBILITY_NOT_REPLAYED"
+    },
+    "Q1_附件2": {
+      "reported": {
+        "total": 37.858000000000004,
+        "s1": -39,
+        "s2": 81,
+        "s3": 96,
+        "s4": 99.58,
+        "hbad": 139,
+        "dbad": 19,
+        "return_uses": 4,
+        "T": 2976,
+        "base": 2934,
+        "deltaT": 42,
+        "blocks": 23
+      },
+      "independent_recalc": {
+        "total": 37.858,
+        "hbad": 139,
+        "dbad": 19,
+        "return_uses": 4,
+        "T": 2976,
+        "base": 2934
+      },
+      "status": "SEQUENCE_SCORE_RECALC_PASS_TIME_FEASIBILITY_NOT_REPLAYED"
+    },
+    "Q2_附件2": {
+      "reported": {
+        "total": 51.17100000000001,
+        "s1": -1,
+        "s2": 81,
+        "s3": 90,
+        "s4": 92.71,
+        "hbad": 101,
+        "dbad": 19,
+        "return_uses": 10,
+        "T": 3663,
+        "base": 2934,
+        "deltaT": 729,
+        "blocks": 20
+      },
+      "independent_recalc": {
+        "total": 51.17099999999999,
+        "hbad": 101,
+        "dbad": 19,
+        "return_uses": 10,
+        "T": 3663,
+        "base": 2934
+      },
+      "status": "SEQUENCE_SCORE_RECALC_PASS_TIME_FEASIBILITY_NOT_REPLAYED"
+    }
+  },
+  "reproduction_level": "R1",
+  "transferable_modules": [
+    "official score evaluator",
+    "source identity gate",
+    "event-state contract specification",
+    "candidate model competition"
+  ],
+  "rejected_modules": [
+    "headline schedule feasibility as evidence until executable replay exists"
+  ],
+  "retest_plan": [
+    "hash frozen revised code",
+    "execute exact four runs",
+    "recompute score independently",
+    "replay Q1 priority gates",
+    "replay resource/capacity/non-idling",
+    "cross-check result matrices against event states"
+  ],
+  "decision": "HOLD",
+  "pass_scope": "No Reviewer PASS. Only source identity, sequence permutation, and score arithmetic from the frozen output sequences are independently verified."
+}

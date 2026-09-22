@@ -1,0 +1,6 @@
+{
+  "pattern": "multi-metric-overall-win-overclaim",
+  "symptom": "A method is described as overall/best on all criteria even though at least one reported metric materially worsens.",
+  "risk": "Hides objective trade-offs and may select an operationally unacceptable solution.",
+  "check": "Declare metric direction, normalize only for visualization, show all raw metrics, and use Pareto/explicit utility when no method dominates."
+}

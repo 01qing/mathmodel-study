@@ -1,0 +1,81 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "version": "1.31.0",
+  "scope": "Audit/replay checks only. PASS means the registered arithmetic/semantic inconsistency was reproducibly checked; it is not author-code reproduction and does not raise S033 above R2.",
+  "checks": [
+    {
+      "check": "Q2 table has nine rows",
+      "status": "PASS",
+      "observed": 9,
+      "expected": 9
+    },
+    {
+      "check": "Q2 GD/Newton mean replay",
+      "status": "PASS",
+      "observed": 0.5864111111111111,
+      "expected": 0.5864111111111111
+    },
+    {
+      "check": "Q2 NN/Adam mean replay",
+      "status": "PASS",
+      "observed": 0.7969777777777778,
+      "expected": 0.7969777777777778
+    },
+    {
+      "check": "Q2 reported 0.587 is rounding-compatible",
+      "status": "PASS",
+      "observed": 0.5864111111111111,
+      "expected": 0.587
+    },
+    {
+      "check": "Q2 reported 0.795 is only approximate",
+      "status": "PASS",
+      "observed": 0.7969777777777778,
+      "expected": 0.795
+    },
+    {
+      "check": "Q4 author row3 violates stated 500mm spacing",
+      "status": "PASS",
+      "observed": 412.3105,
+      "expected": "<500"
+    },
+    {
+      "check": "Q4 printed code threshold differs from body hard constraint",
+      "status": "PASS",
+      "observed": 300.0,
+      "expected": 500.0
+    },
+    {
+      "check": "Q4 paper entropy term differs from Bernoulli entropy",
+      "status": "PASS",
+      "observed": 0.5,
+      "expected": 1.0
+    },
+    {
+      "check": "Q4 Bernoulli entropy at p=.5 equals 1 bit",
+      "status": "PASS",
+      "observed": 1.0,
+      "expected": 1.0
+    },
+    {
+      "check": "Q4 deep body intervals excluded by visible loader",
+      "status": "PASS",
+      "observed": [
+        2000,
+        3000,
+        4000,
+        6000
+      ],
+      "expected": "> 500"
+    },
+    {
+      "check": "Q2 final displayed period constant across rows",
+      "status": "PASS",
+      "observed": 94.25,
+      "expected": "single fixed value"
+    }
+  ],
+  "pass_count": 11,
+  "status": "PASS"
+}

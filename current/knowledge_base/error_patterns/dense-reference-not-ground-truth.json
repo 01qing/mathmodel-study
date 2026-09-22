@@ -1,0 +1,5 @@
+{
+  "id": "DENSE_REFERENCE_NOT_GROUND_TRUTH",
+  "scope": "generic",
+  "rule": "Convergence toward a dense-grid/high-resolution numerical estimate demonstrates numerical stability, not physical accuracy. Call it a numerical reference unless independent ground truth or external measurement exists."
+}

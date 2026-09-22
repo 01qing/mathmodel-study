@@ -1,0 +1,6 @@
+{
+  "name": "reported regression equation scale impossibility",
+  "trigger": "reported coefficients plus a displayed input row imply predictions orders of magnitude outside displayed targets",
+  "gate": "substitute at least one real row into each final equation and compare scale/units to the target",
+  "source_example": "S019 Eq.(39) gives ~21940 veh/km for a Table 7 row whose target is ~310.9"
+}

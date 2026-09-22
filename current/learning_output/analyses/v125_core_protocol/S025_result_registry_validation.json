@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "registry": "/mnt/data/Graduate-MathModel-Learning-Skill-v1.25-work/knowledge_base/result_registry/S025.json",
+  "checks": 12,
+  "issues": [
+    {
+      "path": "root.Q3.rows[0].transfer_improvement",
+      "type": "REPORTED_PERCENT_MISMATCH",
+      "reported": -74.3,
+      "recomputed": 74.31795217244863
+    }
+  ]
+}

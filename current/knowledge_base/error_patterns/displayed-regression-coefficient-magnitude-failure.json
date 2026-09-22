@@ -1,0 +1,14 @@
+{
+  "pattern": "displayed-regression-coefficient-magnitude-failure",
+  "description": "A displayed regression equation cannot reproduce a displayed sample row because coefficients/scaling/decimal placement are inconsistent.",
+  "detection": [
+    "take one published feature row",
+    "recompute y from printed coefficients",
+    "prediction differs by orders of magnitude"
+  ],
+  "remedy": [
+    "export coefficients directly from fitted artifact",
+    "store preprocessing/scaling with coefficients",
+    "machine-replay at least one table row before paper generation"
+  ]
+}

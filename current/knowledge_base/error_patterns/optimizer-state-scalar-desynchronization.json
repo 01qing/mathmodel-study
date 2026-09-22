@@ -1,0 +1,7 @@
+{
+  "pattern_id": "optimizer-state-scalar-desynchronization",
+  "title": "Optimizer best-state object and scalar score desynchronize",
+  "trigger": "local search updates best solution fields but not the scalar best score used by later comparison/logging",
+  "risk": "improvements can be overwritten, convergence curves can report stale values, and final provenance becomes ambiguous",
+  "gate": "maintain one source of truth for best solution + score and update atomically; regression-test monotonic best-score history"
+}

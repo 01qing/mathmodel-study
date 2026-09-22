@@ -1,0 +1,10 @@
+{
+  "paper_id": "S032",
+  "source_pdf": "/mnt/data/next_s032/S032_canonical.pdf",
+  "sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+  "expected_registry_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+  "pages": 71,
+  "full_text_file": "/mnt/data/next_s032/S032.txt",
+  "visual_audit": "12 contact sheets covering 71/71 pages",
+  "split": "train"
+}

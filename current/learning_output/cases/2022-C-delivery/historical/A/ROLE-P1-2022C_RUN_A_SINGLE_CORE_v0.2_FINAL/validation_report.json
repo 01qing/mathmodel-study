@@ -1,0 +1,353 @@
+{
+  "benchmark_id": "ROLE-P1-2022C-v0.2",
+  "condition": "Run A Single-Core Generalist",
+  "core_sha256": "a4ef5b69d31ab2b5de032e9fa9e8c78f15a09b773bfca3ace57870cdb418016f",
+  "core_gate_pass": true,
+  "source_identity": [
+    {
+      "name": "2022C_官方题面_汽车制造公司涂装-总装缓存区调序调度优化问题.docx",
+      "bytes": 388087,
+      "git_blob_sha1": "d11123561801c4f15e308b55b72ff97a7f4e24b8",
+      "pass": true
+    },
+    {
+      "name": "2022C_附件1.xlsx",
+      "bytes": 15262,
+      "git_blob_sha1": "3ad2e09e579bf65c0435789e101fd7d2c9a0d9e5",
+      "pass": true
+    },
+    {
+      "name": "2022C_附件2.xlsx",
+      "bytes": 15402,
+      "git_blob_sha1": "c5747522b104cc1fb2c2814feeec2ab215a76be7",
+      "pass": true
+    },
+    {
+      "name": "2022C_附件3.xlsx",
+      "bytes": 10138,
+      "git_blob_sha1": "a297c0a708cdaf88769614f01b9b5dc177d01535",
+      "pass": true
+    },
+    {
+      "name": "2022C_附件4.xlsx",
+      "bytes": 9196,
+      "git_blob_sha1": "50d1da619d1269949833614935d5eb0cba75219d",
+      "pass": true
+    }
+  ],
+  "runs": [
+    {
+      "key": "result11",
+      "question": 1,
+      "hard_failures": [],
+      "warnings": [
+        {
+          "code": "SAMPLED_CODE_DUPLICATE",
+          "detail": [
+            [
+              198,
+              410,
+              21,
+              22
+            ],
+            [
+              1332,
+              410,
+              137,
+              138
+            ],
+            [
+              1350,
+              410,
+              141,
+              143
+            ]
+          ],
+          "interpretation": "same-second last-region sampling can show both a departing body and a newly admitted body at the same parking code; independent event-level kinematics passed"
+        }
+      ],
+      "evidence": [
+        "all 318 output attributes match the corresponding official input snapshot",
+        "all nonblank per-second states use one of the 74 official region codes",
+        "receiving events preserve official painted-body input order",
+        "selected schedule uses no return-lane operation",
+        "both transverse-machine action streams satisfy lane durations and non-overlap",
+        "all six incoming lanes preserve FIFO order",
+        "independent FIFO-blocking reconstruction matches all recorded lane parking arrival/move times",
+        "constraint 8 no-idle rule passes for the complete sending stream",
+        "Question-1 priority rule 7 passes for the complete sending stream",
+        "Question-1 priority rule 6 is vacuously satisfied because the return lane is unused",
+        "all four score components and weighted total reproduce independently from the frozen output sequence/log"
+      ],
+      "score_recomputed": {
+        "C": 318,
+        "p1_penalty": 175,
+        "p2_penalty": 18,
+        "return_uses": 0,
+        "T": 3531,
+        "theoretical_fastest": 2934,
+        "score1": -75,
+        "score2": 82,
+        "score3": 100,
+        "score4_literal": 94.03,
+        "weighted_literal": 24.003,
+        "score4_capped_sensitivity": 94.03,
+        "weighted_capped_sensitivity": 24.003,
+        "drive_blocks": 23
+      }
+    },
+    {
+      "key": "result12",
+      "question": 1,
+      "hard_failures": [],
+      "warnings": [
+        {
+          "code": "TIME_SCORE_GT_100",
+          "detail": {
+            "score4_literal": 100.15,
+            "T": 2919,
+            "9C+72": 2934,
+            "capped_weighted_sensitivity": 52.7
+          }
+        },
+        {
+          "code": "SAMPLED_CODE_DUPLICATE",
+          "detail": [
+            [
+              174,
+              410,
+              21,
+              22
+            ],
+            [
+              474,
+              410,
+              56,
+              57
+            ],
+            [
+              882,
+              410,
+              107,
+              108
+            ],
+            [
+              1086,
+              410,
+              141,
+              143
+            ],
+            [
+              1980,
+              410,
+              229,
+              231
+            ]
+          ],
+          "interpretation": "same-second last-region sampling can show both a departing body and a newly admitted body at the same parking code; independent event-level kinematics passed"
+        }
+      ],
+      "evidence": [
+        "all 318 output attributes match the corresponding official input snapshot",
+        "all nonblank per-second states use one of the 74 official region codes",
+        "receiving events preserve official painted-body input order",
+        "selected schedule uses no return-lane operation",
+        "both transverse-machine action streams satisfy lane durations and non-overlap",
+        "all six incoming lanes preserve FIFO order",
+        "independent FIFO-blocking reconstruction matches all recorded lane parking arrival/move times",
+        "constraint 8 no-idle rule passes for the complete sending stream",
+        "Question-1 priority rule 7 passes for the complete sending stream",
+        "Question-1 priority rule 6 is vacuously satisfied because the return lane is unused",
+        "all four score components and weighted total reproduce independently from the frozen output sequence/log"
+      ],
+      "score_recomputed": {
+        "C": 318,
+        "p1_penalty": 104,
+        "p2_penalty": 19,
+        "return_uses": 0,
+        "T": 2919,
+        "theoretical_fastest": 2934,
+        "score1": -4,
+        "score2": 81,
+        "score3": 100,
+        "score4_literal": 100.15,
+        "weighted_literal": 52.715,
+        "score4_capped_sensitivity": 100,
+        "weighted_capped_sensitivity": 52.7,
+        "drive_blocks": 24
+      }
+    },
+    {
+      "key": "result21",
+      "question": 2,
+      "hard_failures": [],
+      "warnings": [
+        {
+          "code": "TIME_SCORE_GT_100",
+          "detail": {
+            "score4_literal": 103.09,
+            "T": 2625,
+            "9C+72": 2934,
+            "capped_weighted_sensitivity": 26.599999999999998
+          }
+        },
+        {
+          "code": "SAMPLED_CODE_DUPLICATE",
+          "detail": [
+            [
+              6,
+              410,
+              2,
+              3
+            ],
+            [
+              54,
+              410,
+              9,
+              10
+            ],
+            [
+              84,
+              410,
+              13,
+              14
+            ],
+            [
+              102,
+              410,
+              17,
+              18
+            ],
+            [
+              330,
+              410,
+              46,
+              47
+            ]
+          ],
+          "interpretation": "same-second last-region sampling can show both a departing body and a newly admitted body at the same parking code; independent event-level kinematics passed"
+        }
+      ],
+      "evidence": [
+        "all 318 output attributes match the corresponding official input snapshot",
+        "all nonblank per-second states use one of the 74 official region codes",
+        "receiving events preserve official painted-body input order",
+        "selected schedule uses no return-lane operation",
+        "both transverse-machine action streams satisfy lane durations and non-overlap",
+        "all six incoming lanes preserve FIFO order",
+        "independent FIFO-blocking reconstruction matches all recorded lane parking arrival/move times",
+        "constraint 8 no-idle rule passes for the complete sending stream",
+        "all four score components and weighted total reproduce independently from the frozen output sequence/log"
+      ],
+      "score_recomputed": {
+        "C": 318,
+        "p1_penalty": 167,
+        "p2_penalty": 22,
+        "return_uses": 0,
+        "T": 2625,
+        "theoretical_fastest": 2934,
+        "score1": -67,
+        "score2": 78,
+        "score3": 100,
+        "score4_literal": 103.09,
+        "weighted_literal": 26.909,
+        "score4_capped_sensitivity": 100,
+        "weighted_capped_sensitivity": 26.599999999999998,
+        "drive_blocks": 23
+      }
+    },
+    {
+      "key": "result22",
+      "question": 2,
+      "hard_failures": [],
+      "warnings": [
+        {
+          "code": "SAMPLED_CODE_DUPLICATE",
+          "detail": [
+            [
+              1026,
+              410,
+              115,
+              116
+            ],
+            [
+              1704,
+              410,
+              191,
+              192
+            ],
+            [
+              1926,
+              410,
+              216,
+              217
+            ],
+            [
+              2478,
+              410,
+              278,
+              279
+            ]
+          ],
+          "interpretation": "same-second last-region sampling can show both a departing body and a newly admitted body at the same parking code; independent event-level kinematics passed"
+        }
+      ],
+      "evidence": [
+        "all 318 output attributes match the corresponding official input snapshot",
+        "all nonblank per-second states use one of the 74 official region codes",
+        "receiving events preserve official painted-body input order",
+        "selected schedule uses no return-lane operation",
+        "both transverse-machine action streams satisfy lane durations and non-overlap",
+        "all six incoming lanes preserve FIFO order",
+        "independent FIFO-blocking reconstruction matches all recorded lane parking arrival/move times",
+        "constraint 8 no-idle rule passes for the complete sending stream",
+        "all four score components and weighted total reproduce independently from the frozen output sequence/log"
+      ],
+      "score_recomputed": {
+        "C": 318,
+        "p1_penalty": 93,
+        "p2_penalty": 20,
+        "return_uses": 0,
+        "T": 3003,
+        "theoretical_fastest": 2934,
+        "score1": 7,
+        "score2": 80,
+        "score3": 100,
+        "score4_literal": 99.31,
+        "weighted_literal": 56.730999999999995,
+        "score4_capped_sensitivity": 99.31,
+        "weighted_capped_sensitivity": 56.730999999999995,
+        "drive_blocks": 24
+      }
+    }
+  ],
+  "workbook_checks": [
+    {
+      "key": "result11",
+      "portable_recalc_status": "NOT_VERIFIED",
+      "artifact_tool_observation": "Sheet1 B2 evaluated as #VALUE!",
+      "formula_family": "LET + XLOOKUP dynamic array"
+    },
+    {
+      "key": "result12",
+      "portable_recalc_status": "NOT_VERIFIED",
+      "artifact_tool_observation": "Sheet1 B2 evaluated as #VALUE!",
+      "formula_family": "LET + XLOOKUP dynamic array"
+    },
+    {
+      "key": "result21",
+      "portable_recalc_status": "NOT_VERIFIED",
+      "artifact_tool_observation": "Sheet1 B2 evaluated as #VALUE!",
+      "formula_family": "LET + XLOOKUP dynamic array"
+    },
+    {
+      "key": "result22",
+      "portable_recalc_status": "NOT_VERIFIED",
+      "artifact_tool_observation": "Sheet1 B2 evaluated as #VALUE!",
+      "formula_family": "LET + XLOOKUP dynamic array"
+    }
+  ],
+  "materialized_static_matrices": "created as gzip CSV; canonical frozen per-second values independent of workbook formula recalculation",
+  "overall_hard_failure_count": 0,
+  "overall_status": "EVENT_AND_SCORE_VALIDATION_PASS"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "correlation-paired-axis-undefined",
+  "name": "Correlation statistic lacks a paired observation axis",
+  "trigger": "corr(x,y) is defined between aggregate/scalar quantities without stating the repeated paired samples over which covariance is computed.",
+  "gate": "Register the atomic paired unit and vectors; if only one aggregate value per object exists, do not report within-object correlation."
+}

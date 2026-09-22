@@ -1,0 +1,106 @@
+{
+  "paper_id": "S034",
+  "status": "PASS",
+  "scope": "arithmetic/contract replay only; not author-code reproduction and not proof of result validity",
+  "checks": [
+    {
+      "id": "Q1_1-1_precision",
+      "value": 0.8931203931203932,
+      "reported": 0.893,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-1_recall",
+      "value": 0.9196710942441493,
+      "reported": 0.92,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-1_f1",
+      "value": 0.9062013088189468,
+      "reported": 0.906,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-2_precision",
+      "value": 0.8931686046511628,
+      "reported": 0.893,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-2_recall",
+      "value": 0.9180776892430279,
+      "reported": 0.918,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-2_f1",
+      "value": 0.9054518664047151,
+      "reported": 0.905,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-3_precision",
+      "value": 0.9002458728486126,
+      "reported": 0.9,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-3_recall",
+      "value": 0.9282868525896414,
+      "reported": 0.928,
+      "pass": true
+    },
+    {
+      "id": "Q1_1-3_f1",
+      "value": 0.9140513552068473,
+      "reported": 0.914,
+      "pass": true
+    },
+    {
+      "id": "Q1_macro_precision",
+      "value": 0.8955116235400561,
+      "reported": 0.895,
+      "pass": true
+    },
+    {
+      "id": "Q1_macro_recall",
+      "value": 0.9220118786922727,
+      "reported": 0.922,
+      "pass": true
+    },
+    {
+      "id": "Q1_macro_f1",
+      "value": 0.9085681768101698,
+      "reported": 0.908,
+      "pass": true
+    },
+    {
+      "id": "Q4_32_of_50",
+      "value": 0.64,
+      "reported": 0.64,
+      "pass": true
+    },
+    {
+      "id": "Q4_uncertainty_reduction",
+      "value": 24.47418738049713,
+      "reported": 24.5,
+      "pass": true
+    },
+    {
+      "id": "Q4_new_new_spacing",
+      "value": 800.0,
+      "reported_constraint": 500,
+      "pass": true
+    },
+    {
+      "id": "Q4_existing_new_spacing_diagnostic",
+      "value": 424.26406871192853,
+      "reported_constraint_text": 500,
+      "pass": "AMBIGUOUS_FORMAL_CONTRACT_ONLY_NEW_NEW"
+    }
+  ],
+  "pass_count": 15,
+  "nonboolean_diagnostics": 1,
+  "boolean_check_count": 15
+}

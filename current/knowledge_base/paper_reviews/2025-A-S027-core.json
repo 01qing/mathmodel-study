@@ -1,0 +1,83 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "year": 2025,
+  "problem_id": "A",
+  "split": "train",
+  "pages": 120,
+  "title": "NPU 核内调度算法设计与优化研究",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_120_PAGE_PDF_PIXEL_CONTACT_SHEET_PLUS_PRINTED_PYTHON_APPENDIX_STATIC_AUDIT",
+  "visual_status": "ORIGINAL_120_PAGE_PDF_ALL-PAGE CONTACT-SHEET AUDIT; appendix pages 92-120 are printed Python code",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "one complete computation-graph workload instance; graph nodes/edges and buffers are dependent components",
+    "input_structure": "six NPU DAG workloads (Conv/FlashAttention/Matmul Case0/Case1), node operation/type/size/cycles/dependencies, cache hierarchy and buffer lifetimes",
+    "standard_ml_split": "NOT_APPLICABLE; combinatorial optimization should be validated by held-out graph families/sizes, synthetic perturbations and/or exact small-instance gaps rather than row-wise random split",
+    "author_evaluation_scope": "six fixed provided workload instances; no external graph-family holdout and no matched-budget exact-gap benchmark shown"
+  },
+  "questions": {
+    "Q1": "precedence-constrained topological scheduling minimizing peak live-buffer residency with cache constraints",
+    "Q2": "lifetime-aware cache allocation and spill victim selection minimizing extra movement/runtime under capacity/non-overlap constraints",
+    "Q3": "execution-time reduction under transfer-growth tolerance using resource-aware schedule/optimization strategies"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S027.json",
+  "result_registry_ref": "knowledge_base/result_registry/S027.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-A-S027-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-A-S027-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S027.json",
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "120/120 full-text close reading",
+      "original 120-page PDF rendered across all pages and visually scanned",
+      "printed Python Appendix Q1/Q2/Q3 statically audited"
+    ],
+    "not_achieved": [
+      "R3: printed appendix omits core helper functions and runnable data bundle; Q3 optimizer core helper is absent",
+      "R4/R5: no original data/code bundle executed end-to-end",
+      "R6: no independent full reimplementation yet",
+      "R7: 2025-A case group incomplete; Mini Transfer Test not due until S028 is completed"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 deterministic multi-constraint greedy framing is contest-friendly if its priority components are made explicit and ablated",
+    "Q2 clearly decomposes allocation, spill and cache-lifetime reasoning and reports six-workload results",
+    "Q3 uses an explicit transfer-tolerance concept instead of unconstrained weighted-sum trade-off",
+    "appendix provides substantial Python structure that exposes implementation contracts and therefore supports deep static auditing"
+  ],
+  "key_risks": [
+    "Q1 appendix omits algorithm-defining helper functions, so Type/Size/Criticality MCBGS priority cannot be traced end-to-end",
+    "Q1 paper calls 89.2% an average reduction although the matching computation is aggregate-sum weighted reduction, not mean per-workload reduction",
+    "Q2 abstract says best-fit while body/code implement first-fit",
+    "Q2 spill-victim formula chooses argmin/lowest cost in paper but visible code reverse-sorts a different score and selects highest",
+    "Q2 Table 5.11 MOACADSA row is not the simple mean or total of Table 5.12 six workloads",
+    "Q3 uses 15% transfer tolerance in most text/code but one quality-guarantee equation states 10%",
+    "Q3 table reports transfer-change values with negative signs although transfer bytes increased",
+    "Q3 appendix hard-coded Q2 baseline values drift from Tables 5.12/6.14 and calls an undefined optimizer-core helper",
+    "visible Q3 processing is per-case and does not evidence cross-workload joint resource coordination despite multi-sequence wording"
+  ],
+  "recommended_redo": [
+    "use one shared DAG/parser/evaluator and Result Registry for S025-S028 before ranking any cross-paper numbers",
+    "Q1: implement the claimed Type/Size/Criticality priority explicitly, ablate each term, and compare with a Kahn FREE-first/critical-path baseline under matched evaluation budget",
+    "Q2: choose and name one allocator (Best-Fit or First-Fit), define spill cost once, select the true minimum incremental transfer victim, and replay all capacity/non-overlap constraints",
+    "Q3: source the official transfer cap from the original problem contract, encode it as a hard epsilon constraint, then minimize cycles; only show feasible nondominated points",
+    "calibrate heuristics on small CP-SAT/MILP instances and report runtime-quality trade-off rather than optimizer labels alone",
+    "produce executable functions for every algorithm-defining helper before raising reproduction level above R2"
+  ],
+  "applicable_conditions": [
+    "DAG scheduling with buffer lifetime/resource pressure",
+    "hierarchical cache allocation with spill/reload decisions",
+    "contest settings where transparent graph heuristics are competitive"
+  ],
+  "failure_or_abandon_conditions": [
+    "advanced heuristic does not beat deterministic baseline materially under matched budget",
+    "core helper implementation is missing or metric contract differs across questions",
+    "candidate violates topology/capacity/transfer hard constraints",
+    "cross-paper numbers cannot be normalized to a shared evaluator"
+  ]
+}

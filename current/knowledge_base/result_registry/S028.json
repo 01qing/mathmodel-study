@@ -1,0 +1,343 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "registry_version": "1.0",
+  "source_policy": "raw table values, selected final rows and recomputed claims are distinct until provenance is reconciled",
+  "Q1": {
+    "table6_greedy": {
+      "MinPeak": {
+        "Conv_Case0": 150587,
+        "Conv_Case1": 316032,
+        "FlashAttention_Case0": 64264,
+        "FlashAttention_Case1": 248976,
+        "Matmul_Case0": 163840,
+        "Matmul_Case1": 1179648
+      },
+      "EarlyFree": {
+        "Conv_Case0": 14664,
+        "Conv_Case1": 14048,
+        "FlashAttention_Case0": 5140,
+        "FlashAttention_Case1": 8228,
+        "Matmul_Case0": 9728,
+        "Matmul_Case1": 35328
+      },
+      "LateAlloc": {
+        "Conv_Case0": 128616,
+        "Conv_Case1": 310048,
+        "FlashAttention_Case0": 22784,
+        "FlashAttention_Case1": 79874,
+        "Matmul_Case0": 23808,
+        "Matmul_Case1": 96512
+      }
+    },
+    "table9_final": {
+      "Conv_Case0": 14664,
+      "Conv_Case1": 14048,
+      "FlashAttention_Case0": 5140,
+      "FlashAttention_Case1": 8228,
+      "Matmul_Case0": 9728,
+      "Matmul_Case1": 35328
+    },
+    "consistency": {
+      "status": "PASS",
+      "note": "Table 9 equals Table 6 EarlyFree across all six workloads"
+    },
+    "cross_paper_note": "S028 final Q1 values are worse than the best reported values in S025-S027 on several workloads; direct ranking still requires a common evaluator."
+  },
+  "Q2": {
+    "table14_allocator_rows": {
+      "Conv_Case0": {
+        "first_fit": 230496,
+        "best_fit": 275212,
+        "worst_fit": 269692
+      },
+      "Conv_Case1": {
+        "first_fit": 840904,
+        "best_fit": 850164,
+        "worst_fit": 867010
+      },
+      "FlashAttention_Case0": {
+        "first_fit": 5984,
+        "best_fit": 4096,
+        "worst_fit": 5720
+      },
+      "FlashAttention_Case1": {
+        "first_fit": 62036,
+        "best_fit": 61184,
+        "worst_fit": 54720
+      },
+      "Matmul_Case0": {
+        "first_fit": 41600,
+        "best_fit": 54400,
+        "worst_fit": 54400
+      },
+      "Matmul_Case1": {
+        "first_fit": 518400,
+        "best_fit": 568400,
+        "worst_fit": 568400
+      }
+    },
+    "table14_per_task_min": {
+      "Conv_Case0": 230496,
+      "Conv_Case1": 840904,
+      "FlashAttention_Case0": 4096,
+      "FlashAttention_Case1": 54720,
+      "Matmul_Case0": 41600,
+      "Matmul_Case1": 518400
+    },
+    "table15_vnsa": {
+      "Conv_Case0": 242072,
+      "Conv_Case1": 901460,
+      "FlashAttention_Case0": 6048,
+      "FlashAttention_Case1": 56042,
+      "Matmul_Case0": 42876,
+      "Matmul_Case1": 572694
+    },
+    "table16_final": {
+      "Conv_Case0": 230496,
+      "Conv_Case1": 840904,
+      "FlashAttention_Case0": 4096,
+      "FlashAttention_Case1": 33792,
+      "Matmul_Case0": 41600,
+      "Matmul_Case1": 518400
+    },
+    "table14_to_table16_provenance": {
+      "Conv_Case0": {
+        "table14_min": 230496,
+        "table16_final": 230496,
+        "status": "MATCH"
+      },
+      "Conv_Case1": {
+        "table14_min": 840904,
+        "table16_final": 840904,
+        "status": "MATCH"
+      },
+      "FlashAttention_Case0": {
+        "table14_min": 4096,
+        "table16_final": 4096,
+        "status": "MATCH"
+      },
+      "FlashAttention_Case1": {
+        "table14_min": 54720,
+        "table16_final": 33792,
+        "status": "UNRESOLVED"
+      },
+      "Matmul_Case0": {
+        "table14_min": 41600,
+        "table16_final": 41600,
+        "status": "MATCH"
+      },
+      "Matmul_Case1": {
+        "table14_min": 518400,
+        "table16_final": 518400,
+        "status": "MATCH"
+      }
+    },
+    "critical_issue": {
+      "task": "FlashAttention_Case1",
+      "table14_best_visible": 54720,
+      "table16_final": 33792,
+      "status": "UNRESOLVED",
+      "difference_bytes": 20928
+    },
+    "weighted_objective_contract": {
+      "eq_4_10": "normalized transfer + normalized peak residency",
+      "later_algorithm_step": "lambda1*T_total + lambda2*DeltaD",
+      "status": "SEMANTIC_DRIFT"
+    }
+  },
+  "Q3": {
+    "paper_stage1_cap": 0.1,
+    "cross_paper_problem_contract_candidate": 0.05,
+    "cap_status": "REQUIRES_ORIGINAL_PROBLEM_CONTRACT_RESOLUTION; S025 explicitly uses 1.05 while S028 uses 1.10",
+    "table20_algorithm_representatives": {
+      "Conv_Case0": {
+        "NSGA-II": {
+          "transfer": 206410,
+          "time": 113755
+        },
+        "MOPSO": {
+          "transfer": 207131,
+          "time": 113635
+        }
+      },
+      "Conv_Case1": {
+        "NSGA-II": {
+          "transfer": 821735,
+          "time": 405967
+        },
+        "MOPSO": {
+          "transfer": 801311,
+          "time": 419323
+        }
+      },
+      "Matmul_Case0": {
+        "NSGA-II": {
+          "transfer": 38610,
+          "time": 13284
+        },
+        "MOPSO": {
+          "transfer": 40021,
+          "time": 13131
+        }
+      },
+      "Matmul_Case1": {
+        "NSGA-II": {
+          "transfer": 500311,
+          "time": 201731
+        },
+        "MOPSO": {
+          "transfer": 501832,
+          "time": 200311
+        }
+      },
+      "FlashAttention_Case0": {
+        "NSGA-II": {
+          "transfer": 3917,
+          "time": 201731
+        },
+        "MOPSO": {
+          "transfer": 3847,
+          "time": 2047
+        }
+      },
+      "FlashAttention_Case1": {
+        "NSGA-II": {
+          "transfer": 30131,
+          "time": 14743
+        },
+        "MOPSO": {
+          "transfer": 29031,
+          "time": 14317
+        }
+      }
+    },
+    "lexicographic_rule": "choose lower transfer first; use time only as tie-break",
+    "lexicographic_expected_algorithm": {
+      "Conv_Case0": "NSGA-II",
+      "Conv_Case1": "MOPSO",
+      "Matmul_Case0": "NSGA-II",
+      "Matmul_Case1": "NSGA-II",
+      "FlashAttention_Case0": "MOPSO",
+      "FlashAttention_Case1": "MOPSO"
+    },
+    "table21_selected_algorithm_inferred": {
+      "Conv_Case0": "NSGA-II",
+      "Conv_Case1": "MOPSO",
+      "Matmul_Case0": "NSGA-II",
+      "Matmul_Case1": "NSGA-II",
+      "FlashAttention_Case0": "NSGA-II",
+      "FlashAttention_Case1": "MOPSO"
+    },
+    "lexicographic_consistency": {
+      "Conv_Case0": "MATCH",
+      "Conv_Case1": "MATCH",
+      "Matmul_Case0": "MATCH",
+      "Matmul_Case1": "MATCH",
+      "FlashAttention_Case0": "MISMATCH",
+      "FlashAttention_Case1": "MATCH"
+    },
+    "table21": {
+      "Conv_Case0": {
+        "old_transfer": 242072,
+        "new_transfer": 206410,
+        "reported_transfer_improvement_pct": 14.73,
+        "old_time": 124223,
+        "new_time": 113755,
+        "reported_time_improvement_pct": 8.43
+      },
+      "Conv_Case1": {
+        "old_transfer": 840904,
+        "new_transfer": 801311,
+        "reported_transfer_improvement_pct": 4.71,
+        "old_time": 438127,
+        "new_time": 419323,
+        "reported_time_improvement_pct": 4.29
+      },
+      "Matmul_Case0": {
+        "old_transfer": 41600,
+        "new_transfer": 38610,
+        "reported_transfer_improvement_pct": 7.19,
+        "old_time": 15378,
+        "new_time": 13284,
+        "reported_time_improvement_pct": 13.62
+      },
+      "Matmul_Case1": {
+        "old_transfer": 518400,
+        "new_transfer": 500311,
+        "reported_transfer_improvement_pct": 3.49,
+        "old_time": 230131,
+        "new_time": 201731,
+        "reported_time_improvement_pct": 12.34
+      },
+      "FlashAttention_Case0": {
+        "old_transfer": 4096,
+        "new_transfer": 3917,
+        "reported_transfer_improvement_pct": 4.37,
+        "old_time": 2381,
+        "new_time": 2017,
+        "reported_time_improvement_pct": 15.29
+      },
+      "FlashAttention_Case1": {
+        "old_transfer": 33792,
+        "new_transfer": 29031,
+        "reported_transfer_improvement_pct": 14.09,
+        "old_time": 15317,
+        "new_time": 14317,
+        "reported_time_improvement_pct": 6.53
+      }
+    },
+    "q2_final_baseline_replay": {
+      "Conv_Case0": {
+        "q2_final_baseline_transfer": 230496,
+        "table21_old_transfer": 242072,
+        "recomputed_improvement_from_q2_final_pct": 10.449639039289185,
+        "paper_reported_improvement_pct": 14.73
+      },
+      "Conv_Case1": {
+        "q2_final_baseline_transfer": 840904,
+        "table21_old_transfer": 840904,
+        "recomputed_improvement_from_q2_final_pct": 4.708385261575638,
+        "paper_reported_improvement_pct": 4.71
+      },
+      "Matmul_Case0": {
+        "q2_final_baseline_transfer": 41600,
+        "table21_old_transfer": 41600,
+        "recomputed_improvement_from_q2_final_pct": 7.187499999999999,
+        "paper_reported_improvement_pct": 7.19
+      },
+      "Matmul_Case1": {
+        "q2_final_baseline_transfer": 518400,
+        "table21_old_transfer": 518400,
+        "recomputed_improvement_from_q2_final_pct": 3.489390432098766,
+        "paper_reported_improvement_pct": 3.49
+      },
+      "FlashAttention_Case0": {
+        "q2_final_baseline_transfer": 4096,
+        "table21_old_transfer": 4096,
+        "recomputed_improvement_from_q2_final_pct": 4.3701171875,
+        "paper_reported_improvement_pct": 4.37
+      },
+      "FlashAttention_Case1": {
+        "q2_final_baseline_transfer": 33792,
+        "table21_old_transfer": 33792,
+        "recomputed_improvement_from_q2_final_pct": 14.089133522727273,
+        "paper_reported_improvement_pct": 14.09
+      }
+    },
+    "critical_issues": [
+      {
+        "id": "Q3_CONV0_BASELINE_SOURCE_DRIFT",
+        "detail": "Table21 Conv0 old transfer 242072 comes from Table15 VN-SA, while Q2 final Table16 is 230496; 14.73% becomes 10.45% when replayed from Q2 final."
+      },
+      {
+        "id": "Q3_FA0_LEXICOGRAPHIC_SELECTION_DRIFT",
+        "detail": "paper says choose lower transfer first; MOPSO has 3847 < NSGA-II 3917, but Table21 selects 3917."
+      },
+      {
+        "id": "Q3_FA0_TIME_SCALE_DRIFT",
+        "detail": "Table20 NSGA-II FlashAttention0 execution_time is 201731 while Table21 reports 2017 for the selected 3917-transfer solution."
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "pattern_id": "posthoc-pairwise-similarity-rewrite",
+  "name": "Post-hoc pairwise similarity rewrite",
+  "trigger": "selected similarity values are manually shifted/sign-adjusted after model output without one global registered transformation",
+  "risk": "ranking/heatmap loses provenance and may be tuned to desired narrative",
+  "gate": "all transformations are global, predeclared/train-fitted and applied to every pair; raw and transformed values share Result Registry",
+  "evidence": [
+    "S045 Q3 -0.791→0.209 and -0.857→0.143"
+  ]
+}

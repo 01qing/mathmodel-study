@@ -1,0 +1,142 @@
+[
+  {
+    "test": "test_v110_regressions.py",
+    "status": "PASS",
+    "seconds": 1.08,
+    "stdout_tail": "h.json\",\n    \"aggregate-feasibility-overclaim.json\",\n    \"pareto-operating-point-selection.json\",\n    \"metric-definition-code-mismatch.json\",\n    \"arithmetic-sanity-check.json\",\n    \"prediction evidence template\",\n    \"constraint validation template\",\n    \"two nonempty v110 smoke PNGs\",\n    \"S002 metadata core reviewed\",\n    \"S002 all pages reviewed\",\n    \"method selection reference exists\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v111_regressions.py",
+    "status": "PASS",
+    "seconds": 0.99,
+    "stdout_tail": "4-A group map contains S001-S003\",\n    \"Pareto selected-point template available\",\n    \"robustness severity template available\",\n    \"two nonempty v111 smoke PNGs\",\n    \"S003 train split retained\",\n    \"S003 metadata core reviewed\",\n    \"S003 all 73 pages reviewed\",\n    \"S003 review file linked\",\n    \"S003 paper-code audit reference exists\",\n    \"v1.11 implementation-evidence gate in Skill\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v112_regressions.py",
+    "status": "PASS",
+    "seconds": 0.87,
+    "stdout_tail": "papers\",\n    \"same problem map Q1-Q4\",\n    \"group map points S001-S004\",\n    \"group has 4 papers\",\n    \"S004 train split retained\",\n    \"S004 core reviewed metadata\",\n    \"S004 all 59 pages reviewed\",\n    \"S004 review linked\",\n    \"S004 audit ref\",\n    \"v1.12 state/metric gate in skill\",\n    \"runtime latency template\",\n    \"multi-metric tradeoff template\",\n    \"two nonempty v112 smoke PNGs\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v113_regressions.py",
+    "status": "PASS",
+    "seconds": 0.63,
+    "stdout_tail": "reconstruction.json\",\n    \"regression-accuracy-pseudometric.json\",\n    \"loss-input-contract-mismatch.json\",\n    \"predictive-importance-causal-overclaim.json\",\n    \"2024-B map retains S005\",\n    \"2024-B group map linked\",\n    \"S005 train retained\",\n    \"S005 all 90 pages reviewed\",\n    \"S005 review link\",\n    \"S005 audit reference\",\n    \"v1.13 WLAN gate in skill\",\n    \"version at least 1.13\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v114_regressions.py",
+    "status": "PASS",
+    "seconds": 0.93,
+    "stdout_tail": "contract.json\",\n    \"2024-B S005/S006 remain reviewed\",\n    \"2024-B Q1-Q3 map\",\n    \"S006 train retained\",\n    \"S006 all 104 pages reviewed\",\n    \"S006 review linked\",\n    \"S006 audit reference\",\n    \"v1.14 OOF gate in skill\",\n    \"selector integrates cascade gate\",\n    \"cascade figure template\",\n    \"resampling diagnostic template\",\n    \"two v114 smoke figures\",\n    \"version at least 1.14\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v115_regressions.py",
+    "status": "PASS",
+    "seconds": 1.01,
+    "stdout_tail": "ft.json\",\n    \"2024-B historical S005-S007 retained\",\n    \"2024-B group membership retained\",\n    \"S007 train retained\",\n    \"S007 all pages reviewed\",\n    \"S007 review linked\",\n    \"S007 audit reference\",\n    \"v1.15 gate in skill\",\n    \"selector structured label gate\",\n    \"imbalance figure template\",\n    \"structured pair template\",\n    \"two v115 smoke figures\",\n    \"version at least 1.15\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v116_regressions.py",
+    "status": "PASS",
+    "seconds": 0.65,
+    "stdout_tail": "\",\n    \"physics-baseline-before-blackbox.json\",\n    \"2024-B four papers reviewed\",\n    \"2024-B no pending\",\n    \"2024-B final recommendation exists\",\n    \"S008 train retained\",\n    \"S008 all pages reviewed\",\n    \"S008 review linked\",\n    \"S008 code linked\",\n    \"S008 figure linked\",\n    \"S008 audit reference\",\n    \"v1.16 gate in skill\",\n    \"selector v1.16 gate\",\n    \"version at least 1.16\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v117_regressions.py",
+    "status": "PASS",
+    "seconds": 0.59,
+    "stdout_tail": "ed\",\n    \"S009 all pages reviewed\",\n    \"S009 review linked\",\n    \"S009 code linked\",\n    \"S009 figure linked\",\n    \"S009 audit reference\",\n    \"v1.17 gate in skill\",\n    \"selector v1.17 gate\",\n    \"learning_output/analyses/v117_figure_template_smoke/01_adjusted_interaction.png\",\n    \"learning_output/analyses/v117_figure_template_smoke/02_feasibility_replay.png\",\n    \"version at least 1.17\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v118_regressions.py",
+    "status": "PASS",
+    "seconds": 0.57,
+    "stdout_tail": "1.18 gate\",\n    \"learning_output/analyses/v118_figure_template_smoke/01_cv_generalization_units.png\",\n    \"learning_output/analyses/v118_figure_template_smoke/02_objective_scale_audit.png\",\n    \"learning_output/analyses/v118_figure_template_smoke/01_category_contract.png\",\n    \"learning_output/analyses/v118_figure_template_smoke/02_scalarization_sensitivity.png\",\n    \"version at least 1.18\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v119_regressions.py",
+    "status": "PASS",
+    "seconds": 0.65,
+    "stdout_tail": "\"S011 included all Q\",\n    \"S011 remains train\",\n    \"S011 all pages reviewed\",\n    \"S011 links review/code/figure\",\n    \"S011 audit reference\",\n    \"v1.19 gates in skill\",\n    \"v1.19 selector gates\",\n    \"learning_output/analyses/v119_figure_template_smoke/01_interaction_evidence.png\",\n    \"learning_output/analyses/v119_figure_template_smoke/02_pareto_feasibility.png\",\n    \"version >=1.19\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v120_regressions.py",
+    "status": "PASS",
+    "seconds": 0.65,
+    "stdout_tail": "reviewed by v1.20\",\n    \"S021 not reviewed by v1.20\",\n    \"S022 not reviewed by v1.20\",\n    \"S023 not reviewed by v1.20\",\n    \"S024 not reviewed by v1.20\",\n    \"S037 not reviewed by v1.20\",\n    \"S038 not reviewed by v1.20\",\n    \"S012 audit reference\",\n    \"v1.20 gates in skill\",\n    \"v1.20 selector gates\",\n    \"S017 progressed or remains next\",\n    \"dev S013-S016 held\",\n    \"version >=1.20\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v121_regressions.py",
+    "status": "PASS",
+    "seconds": 0.7,
+    "stdout_tail": "s unread at v1.21\",\n    \"S022 remains unread at v1.21\",\n    \"S023 remains unread at v1.21\",\n    \"S024 remains unread at v1.21\",\n    \"S037 remains unread at v1.21\",\n    \"S038 remains unread at v1.21\",\n    \"2024-E retrieval map registered\",\n    \"v1.21 gates in skill\",\n    \"v1.21 selector gates\",\n    \"learning state has advanced beyond v1.21\",\n    \"S017 history preserved\",\n    \"version >=1.21\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v122_regressions.py",
+    "status": "PASS",
+    "seconds": 0.62,
+    "stdout_tail": "5 protected unread\",\n    \"S016 protected unread\",\n    \"S021 protected unread\",\n    \"S022 protected unread\",\n    \"S023 protected unread\",\n    \"S024 protected unread\",\n    \"S037 protected unread\",\n    \"S038 protected unread\",\n    \"S020 stays train\",\n    \"S018 audit reference\",\n    \"v1.22 gates in skill\",\n    \"v1.22 selector gates\",\n    \"learning state advanced past S018\",\n    \"version >=1.22\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v123_regressions.py",
+    "status": "PASS",
+    "seconds": 0.66,
+    "stdout_tail": "\n    \"S015 protected unread\",\n    \"S016 protected unread\",\n    \"S021 protected unread\",\n    \"S022 protected unread\",\n    \"S023 protected unread\",\n    \"S024 protected unread\",\n    \"S037 protected unread\",\n    \"S038 protected unread\",\n    \"S020 remains train\",\n    \"S019 audit reference\",\n    \"v1.23 gates in skill\",\n    \"v1.23 selector gates\",\n    \"S019 history preserved\",\n    \"version >=1.23\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v124_regressions.py",
+    "status": "PASS",
+    "seconds": 0.65,
+    "stdout_tail": "015 protected unread\",\n    \"S016 protected unread\",\n    \"S021 protected unread\",\n    \"S022 protected unread\",\n    \"S023 protected unread\",\n    \"S024 protected unread\",\n    \"S037 protected unread\",\n    \"S038 protected unread\",\n    \"45 paper inventory\",\n    \"32/7/6 split\",\n    \"S020 audit reference\",\n    \"v1.24 gates in skill\",\n    \"v1.24 selector gates\",\n    \"S025 next\",\n    \"version >=1.24\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v125_regressions.py",
+    "status": "PASS",
+    "seconds": 0.65,
+    "stdout_tail": "ed unread\",\n    \"S023 protected unread\",\n    \"S024 protected unread\",\n    \"S029 protected unread\",\n    \"S030 protected unread\",\n    \"S037 protected unread\",\n    \"S038 protected unread\",\n    \"no role dir mathmodel-master\",\n    \"no role dir mathmodel-architect\",\n    \"no role dir mathmodel-engineer\",\n    \"no role dir mathmodel-writer\",\n    \"no role dir mathmodel-reviewer\",\n    \"version >=1.25\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v126_regressions.py",
+    "status": "PASS",
+    "seconds": 0.62,
+    "stdout_tail": "R2\",\n    \"S027 train pending unread\",\n    \"S028 train pending unread\",\n    \"S029 dev protected unread\",\n    \"S030 dev protected unread\",\n    \"S021 test protected unread\",\n    \"S022 test protected unread\",\n    \"S023 test protected unread\",\n    \"S024 test protected unread\",\n    \"S037 test protected unread\",\n    \"S038 test protected unread\",\n    \"state latest S026\",\n    \"mini transfer not due\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v16_regressions.py",
+    "status": "PASS",
+    "seconds": 7.51,
+    "stdout_tail": " closed\",\n    \"zero papers valid\",\n    \"real nonzero PDF count valid\",\n    \"wrong hash blocked\",\n    \"wrong page count blocked\",\n    \"full review without coverage blocked\",\n    \"full declared review with coverage accepted\",\n    \"missing PDF blocked\",\n    \"duplicate source blocked\",\n    \"historical validator accepts evidenced nonzero inventory\"\n  ],\n  \"independent_modeling_evaluation\": \"NOT_RUN\"\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v19_training_regressions.py",
+    "status": "PASS",
+    "seconds": 0.99,
+    "stdout_tail": "igure argumentation\",\n    \"cross map Q1-Q4\",\n    \"teacher code identity boundary\",\n    \"two supplemental code cases\",\n    \"GTeacher2 Q3 CORAL\",\n    \"overlapping-window-split-leakage.json\",\n    \"unlabeled-target-metric-overclaim.json\",\n    \"preprocessing-before-split-leakage.json\",\n    \"five evidence figure templates\",\n    \"five nonempty smoke PNGs\",\n    \"2025E papers core-reviewed metadata\"\n  ]\n}\n",
+    "stderr_tail": ""
+  },
+  {
+    "test": "test_v18_code_learning.py",
+    "status": "PASS",
+    "seconds": 0.69,
+    "stdout_tail": "per/figure learning regressions\",\n  \"passed\": 10,\n  \"tests\": [\n    \"valid python passes syntax\",\n    \"invalid python fails syntax\",\n    \"data dependency found\",\n    \"windows absolute path found\",\n    \"plotting file found\",\n    \"split-related file found\",\n    \"GTeacher1 code card exists\",\n    \"GTeacher2 code card exists\",\n    \"GTeacher2 figure card exists\",\n    \"supplemental sources indexed\"\n  ]\n}\n",
+    "stderr_tail": ""
+  }
+]

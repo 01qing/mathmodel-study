@@ -1,0 +1,15 @@
+{
+  "id": "global-best-state-score-desynchronization",
+  "name": "Global-best state/score desynchronization",
+  "severity": "high",
+  "trigger": "optimizer updates the best solution object but fails to update its scalar score, or vice versa",
+  "risk": "later comparisons/logging can overwrite a true improvement or report stale convergence",
+  "checks": [
+    "assert score(solution)==stored_score after every update",
+    "centralize best-state update",
+    "replay convergence log from registry"
+  ],
+  "source_examples": [
+    "2025-A-S026-Q2"
+  ]
+}

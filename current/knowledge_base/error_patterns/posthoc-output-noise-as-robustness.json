@@ -1,0 +1,10 @@
+{
+  "name": "posthoc-output-noise-as-robustness",
+  "trigger": "random noise is added after model prediction and described as robustness/generalization improvement",
+  "risk": "post-hoc perturbation changes submitted outputs but does not train a robust predictor; without seed it destroys reproducibility",
+  "gate": [
+    "if robustness is desired perturb training inputs/model during controlled augmentation or optimize a robust objective",
+    "if output is stochastic model a calibrated predictive distribution",
+    "fix/random-seed and report repeated-run uncertainty"
+  ]
+}

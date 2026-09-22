@@ -1,0 +1,198 @@
+{
+  "status": "PASS",
+  "passed": 38,
+  "total": 38,
+  "checks": [
+    {
+      "name": "S015 source",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 final review",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 registry final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 visual count",
+      "passed": true,
+      "detail": "96"
+    },
+    {
+      "name": "S015 text page claim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 visual page claim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 audit count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 source hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 source",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 final review",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 registry final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 visual count",
+      "passed": true,
+      "detail": "114"
+    },
+    {
+      "name": "S016 text page claim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 visual page claim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 audit count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 source hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "group final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "four papers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "four questions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no capability overclaim",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seven gates",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "composer rejects direct author pipelines",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "v141 reference exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "v141 reference routed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "error patterns",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mini transfer mechanism pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mini transfer not capability",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "frozen independent files intact",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "freeze status",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "v140 release identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-master",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-architect",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-engineer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-writer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-reviewer",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "scope": "2024-D group closure/release-contract assets; not author end-to-end reproduction or Core capability gain"
+}

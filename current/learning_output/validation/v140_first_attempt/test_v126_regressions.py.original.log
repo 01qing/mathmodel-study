@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v126_regressions.py", line 86, in <module>
+    ok('mini transfer protocol preserved','Mini Transfer Test' in (R/'learning_output/context/next_learning.md').read_text(encoding='utf-8'))
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v126_regressions.py", line 8, in ok
+    assert cond,name; checks.append(name)
+           ^^^^
+AssertionError: mini transfer protocol preserved

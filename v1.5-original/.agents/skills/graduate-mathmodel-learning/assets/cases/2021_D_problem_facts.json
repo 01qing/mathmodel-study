@@ -1,0 +1,108 @@
+{
+  "schema_version": "0.7",
+  "case_id": "gmcm-2021-D",
+  "source_scope": "problem_statement_only",
+  "title": "抗乳腺癌候选药物的优化建模",
+  "dataset": {
+    "training_compounds": 1974,
+    "test_compounds": 50,
+    "molecular_descriptors": 729,
+    "activity_file": {
+      "name": "ERα_activity.xlsx",
+      "training_columns": [
+        "SMILES",
+        "IC50_nM",
+        "pIC50"
+      ],
+      "test_has_smiles": true
+    },
+    "descriptor_file": {
+      "name": "Molecular_Descriptor.xlsx",
+      "training_structure": "SMILES + 729 descriptors",
+      "test_structure": "SMILES + 729 descriptors"
+    },
+    "admet_file": {
+      "name": "ADMET.xlsx",
+      "training_structure": "SMILES + 5 binary labels",
+      "labels": [
+        "Caco-2",
+        "CYP3A4",
+        "hERG",
+        "HOB",
+        "MN"
+      ]
+    }
+  },
+  "target_semantics": {
+    "activity": {
+      "IC50": "smaller_is_more_active",
+      "pIC50": "larger_is_more_active",
+      "recommended_primary_target_for_QSAR": "pIC50",
+      "unit_note": "If IC50 is in nM, pIC50 = 9 - log10(IC50_nM). Verify against raw file before applying."
+    },
+    "admet": {
+      "Caco-2": {
+        "1": "better intestinal epithelial permeability",
+        "0": "worse permeability",
+        "favorable_class": 1,
+        "ambiguity": false
+      },
+      "CYP3A4": {
+        "1": "can be metabolized by CYP3A4",
+        "0": "cannot be metabolized by CYP3A4",
+        "favorable_class": null,
+        "ambiguity": true,
+        "required_action": "Q4 must state an explicit desirability convention or conduct sensitivity analysis; do not silently assume 1 is always better."
+      },
+      "hERG": {
+        "1": "cardiotoxic",
+        "0": "not cardiotoxic",
+        "favorable_class": 0,
+        "ambiguity": false
+      },
+      "HOB": {
+        "1": "better oral bioavailability",
+        "0": "worse oral bioavailability",
+        "favorable_class": 1,
+        "ambiguity": false
+      },
+      "MN": {
+        "1": "genotoxic",
+        "0": "not genotoxic",
+        "favorable_class": 0,
+        "ambiguity": false
+      }
+    }
+  },
+  "questions": {
+    "Q1": {
+      "task": "feature_selection_and_importance_ranking",
+      "input": "1974 x 729 molecular descriptors + activity",
+      "output": "top 20 descriptors and justification"
+    },
+    "Q2": {
+      "task": "regression_QSAR",
+      "constraint": "use no more than 20 descriptors",
+      "output": "predict pIC50 and IC50 for 50 test compounds"
+    },
+    "Q3": {
+      "task": "five_binary_classification_tasks",
+      "input": "729 descriptors + five ADMET labels",
+      "output": "five predictions for 50 test compounds"
+    },
+    "Q4": {
+      "task": "interpretable_feasible_region_or_optimization",
+      "goal": "better ERα activity and at least three favorable ADMET properties",
+      "critical_ambiguity": "CYP3A4 label is descriptive, not explicitly designated favorable/unfavorable by the statement."
+    }
+  },
+  "forbidden_prior_knowledge": [
+    "excellent-paper method choices",
+    "paper award labels as model priors",
+    "paper-specific selected descriptors",
+    "paper-specific predicted test results"
+  ],
+  "source_urls": [
+    "https://cenjinglun.github.io/pdf/%E3%80%902021%E5%B9%B4-D%E9%A2%98-%E9%A2%98%E7%9B%AE%E3%80%91%E6%8A%97%E4%B9%B3%E8%85%BA%E7%99%8C%E5%80%99%E9%80%89%E8%8D%AF%E7%89%A9%E7%9A%84%E4%BC%98%E5%8C%96%E5%BB%BA%E6%A8%A1.pdf"
+  ]
+}

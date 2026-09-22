@@ -1,0 +1,5 @@
+{
+  "id": "CLUSTER_COUNT_CONTRACT_RESULT_MISMATCH",
+  "rule": "If a clustering call fixes K/components, reported instance counts must be compatible with that K. If instance count is unknown/variable, activate BIC/AIC/nonparametric selection or a topology-based instance extraction and record the selected K per sample.",
+  "scope": "generic"
+}

@@ -1,0 +1,41 @@
+{
+  "paper_id": "S025",
+  "paper_title": "A题-1-通用神经网络处理器下的核内调度问题",
+  "figure_count_curated": 16,
+  "table_count_curated": 5,
+  "visual_status": "ORIGINAL_59_PAGE_PDF_RENDERED_ALL_PAGES_90DPI_CONTACT_SHEET_PLUS_SELECTED_PAGES_160DPI",
+  "argumentation_roles": [
+    {
+      "role": "problem/architecture decomposition",
+      "lesson": "use a compact architecture or flow diagram to establish DAG, cache hierarchy and three-question dependency before mathematical detail"
+    },
+    {
+      "role": "memory-residency trajectory evidence",
+      "lesson": "plot Vstay across schedule steps for every workload family with the same semantic axes; peak marker must be sourced from the result registry"
+    },
+    {
+      "role": "optimizer convergence evidence",
+      "lesson": "show current/best objective trajectories only when plotted values can be machine-reconciled with the textual start/final values and final table"
+    },
+    {
+      "role": "cache composition evidence",
+      "lesson": "paired utilization bar + allocation-share pie can separate capacity utilization from allocation composition; captions must name which metric each panel means"
+    },
+    {
+      "role": "final trade-off evidence",
+      "lesson": "Q3 should emphasize a feasibility/trade-off table or Pareto view, explicitly flagging workloads that worsen or violate the 1.05 transfer cap rather than hiding them in an average"
+    }
+  ],
+  "style_observations": [
+    "Vstay plots use light filled area under a thin line, with a red peak marker and compact highlighted Max label",
+    "SA convergence uses one current-cost line and a dashed best-cost line with grid and a small legend",
+    "Q2 cache analysis pairs a per-cache utilization bar chart with an allocation-share pie chart for each workload",
+    "tables use sparse horizontal-rule academic typesetting; no decorative 3D charts"
+  ],
+  "visual_contract_issue": "Figure 5.7 pixel values and the following 14000→7760 paragraph are inconsistent; future plots must be generated from the same result registry as narrative/table values.",
+  "derived_template_smoke": [
+    "learning_output/analyses/v125_figure_template_smoke/01_q3_constraint_replay.png",
+    "learning_output/analyses/v125_figure_template_smoke/02_victim_policy_drift.png",
+    "learning_output/analyses/v125_figure_template_smoke/03_metric_sign_replay.png"
+  ]
+}

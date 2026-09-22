@@ -1,0 +1,51 @@
+{
+  "case": "2022-C-delivery",
+  "files": [
+    {
+      "name": "汽车制造公司涂装-总装缓存区调序调度优化问题.docx",
+      "source": "D:\\BaiduNetdiskDownload\\竞赛真题(2004-2025)\\2022年中国研究生数学建模竞赛赛题\\2022年C题\\汽车制造公司涂装-总装缓存区调序调度优化问题.docx",
+      "local": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_sources\\cases\\2022-C-delivery\\official\\汽车制造公司涂装-总装缓存区调序调度优化问题.docx",
+      "bytes": 388087,
+      "sha256": "157226574e34a5a02fc805ff1c0db400a2e28aa3c40c63a75582fd27f83e7c55",
+      "git_blob_sha1": "d11123561801c4f15e308b55b72ff97a7f4e24b8",
+      "identity": "PASS"
+    },
+    {
+      "name": "附件1.xlsx",
+      "source": "D:\\BaiduNetdiskDownload\\竞赛真题(2004-2025)\\2022年中国研究生数学建模竞赛赛题\\2022年C题\\附件1.xlsx",
+      "local": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_sources\\cases\\2022-C-delivery\\official\\附件1.xlsx",
+      "bytes": 15262,
+      "sha256": "6e972f0a62f61e88bec60d36d2f63c79060d88146ce3844198ea7c32cad93459",
+      "git_blob_sha1": "3ad2e09e579bf65c0435789e101fd7d2c9a0d9e5",
+      "identity": "PASS"
+    },
+    {
+      "name": "附件2.xlsx",
+      "source": "D:\\BaiduNetdiskDownload\\竞赛真题(2004-2025)\\2022年中国研究生数学建模竞赛赛题\\2022年C题\\附件2.xlsx",
+      "local": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_sources\\cases\\2022-C-delivery\\official\\附件2.xlsx",
+      "bytes": 15402,
+      "sha256": "e379230b44ec24fff254515d1ddcf1489fdc6adc596c03434212ea015521460b",
+      "git_blob_sha1": "c5747522b104cc1fb2c2814feeec2ab215a76be7",
+      "identity": "PASS"
+    },
+    {
+      "name": "附件3.xlsx",
+      "source": "D:\\BaiduNetdiskDownload\\竞赛真题(2004-2025)\\2022年中国研究生数学建模竞赛赛题\\2022年C题\\附件3.xlsx",
+      "local": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_sources\\cases\\2022-C-delivery\\official\\附件3.xlsx",
+      "bytes": 10138,
+      "sha256": "44b2f6d99ef57f1792fc7205716c1bcdf49d183dbd5e014bc5bb01e19a63eb37",
+      "git_blob_sha1": "a297c0a708cdaf88769614f01b9b5dc177d01535",
+      "identity": "PASS"
+    },
+    {
+      "name": "附件4.xlsx",
+      "source": "D:\\BaiduNetdiskDownload\\竞赛真题(2004-2025)\\2022年中国研究生数学建模竞赛赛题\\2022年C题\\附件4.xlsx",
+      "local": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_sources\\cases\\2022-C-delivery\\official\\附件4.xlsx",
+      "bytes": 9196,
+      "sha256": "adaca8aeeb3bf85b8928506d511cb691d1717d9ad3451a0756116a052c600679",
+      "git_blob_sha1": "50d1da619d1269949833614935d5eb0cba75219d",
+      "identity": "PASS"
+    }
+  ],
+  "scope": "Input byte identity only; this setup has not parsed the problem, rerun models or inspected worksheet values."
+}

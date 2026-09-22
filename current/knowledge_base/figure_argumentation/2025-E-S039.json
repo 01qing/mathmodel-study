@@ -1,0 +1,76 @@
+{
+  "paper_id": "S039",
+  "case_group": "2025-E",
+  "visual_scope": "93页低分辨率全页视觉扫描；关键图表按文本页码与版面位置核对，未对每个子图做像素级复刻。",
+  "figure_count_estimate": 37,
+  "argumentation": [
+    {
+      "stage": "data_and_mechanism",
+      "pages": [
+        8,
+        9,
+        10,
+        11,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21
+      ],
+      "purpose": "先证明信号形态、源目标差异和窗口构造有物理/数据依据",
+      "learned_layout": "同类信号用多面板保持坐标语义一致；域差异图先于特征筛选图"
+    },
+    {
+      "stage": "feature_selection",
+      "pages": [
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33
+      ],
+      "purpose": "相关性/PCA/特征重要性/互信息卡方形成互补证据",
+      "learned_layout": "热力图→解释方差→重要性条形/排名→交集/最终表，按筛选逻辑排列",
+      "cannot_prove": "特征筛选图本身不能证明独立测试泛化"
+    },
+    {
+      "stage": "model_competition",
+      "pages": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        41,
+        42,
+        43,
+        44
+      ],
+      "purpose": "让传统模型和深度模型在同一指标体系下竞争",
+      "cannot_prove": "训练曲线收敛或t-SNE分离不能替代防泄漏的独立验证"
+    },
+    {
+      "stage": "transfer_and_target",
+      "pages": [
+        45,
+        46,
+        47,
+        50,
+        51,
+        52,
+        53,
+        55,
+        56
+      ],
+      "purpose": "展示迁移结构、目标样本信号/包络和迁移后嵌入",
+      "learned_layout": "代表目标样本采用四联图；迁移解释采用源/目标不同marker的统一嵌入",
+      "cannot_prove": "无标签目标域图不能证明预测标签正确"
+    }
+  ]
+}

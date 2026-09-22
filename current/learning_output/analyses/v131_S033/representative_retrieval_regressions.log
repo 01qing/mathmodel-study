@@ -1,0 +1,17 @@
+=== test_v112_2024A_retrieval.py ===
+v1.12 2024-A S004 retrieval regression PASS
+=== test_v116_2024B_retrieval.py ===
+v1.16 2024-B S008 retrieval regression PASS
+=== test_v120_2024C_retrieval.py ===
+v1.20 2024-C S012 retrieval regression PASS
+=== test_v124_2024E_retrieval.py ===
+v1.24 2024-E S020 retrieval regression PASS
+=== test_v128_2025A_retrieval.py ===
+BATCH_NOTE: the monolithic batch timed out after the first four PASS results while entering the 2025-A test. Timeout is not counted as PASS or FAIL for remaining checks; they were run individually below.
+=== test_v128_2025A_retrieval.py (individual rerun) ===
+v1.28 2025-A S028 MathModel-Core retrieval regression PASS
+=== test_v19_code_links.py (correct retriever-script path) ===
+v1.9 code-link regression PASS
+=== test_v131_2025C_retrieval.py ===
+PASS v1.31 2025-C retrieval: S033 top; evaluation/production reviewed-Train-only
+RETRIEVAL_SUMMARY PASS 7/7 representative checks

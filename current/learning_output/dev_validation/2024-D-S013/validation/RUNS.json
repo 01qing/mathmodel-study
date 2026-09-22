@@ -1,0 +1,164 @@
+[
+  {
+    "script": "audit_counterexamples.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "audit_spatial_provenance.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "audit_q1_units.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "audit_final_primitives.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v16_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v18_code_learning.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v19_training_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v110_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v111_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v112_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v113_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v114_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v115_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v116_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v117_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v118_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v119_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v120_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v121_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v122_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v123_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v124_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v125_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v126_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v127_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v128_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "scope": "named audit/regression only"
+  },
+  {
+    "script": "test_v138_s045_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "scope": "named audit/regression only"
+  }
+]

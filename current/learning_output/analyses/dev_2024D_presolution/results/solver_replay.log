@@ -1,0 +1,10 @@
+Q2 temporal validation {'model': 'climatology', 'validation_MAE_mm': 9.528760525335777}
+Q2 temporal validation {'model': 'additive', 'validation_MAE_mm': 11.10932937126025}
+Q2 temporal validation {'model': 'interaction', 'validation_MAE_mm': 11.006352711794259}
+Q2 temporal validation {'model': 'boosting', 'validation_MAE_mm': 10.154811492154844}
+Q2 spatial fold 0
+Q2 spatial fold 1
+Q2 spatial fold 2
+Q2 spatial fold 3
+Q2 spatial fold 4
+INDEPENDENT NUMERICAL RUN COMPLETE

@@ -1,0 +1,18 @@
+{
+  "benchmark_id": "ROLE-P1-2022C-v0.2",
+  "status": "SOURCE_FROZEN",
+  "problem": "2022-C 汽车制造公司涂装-总装缓存区调序调度优化问题",
+  "files": [
+    {"name":"2022C_官方题面_汽车制造公司涂装-总装缓存区调序调度优化问题.docx","bytes":388087,"git_blob_sha1":"d11123561801c4f15e308b55b72ff97a7f4e24b8"},
+    {"name":"2022C_附件1.xlsx","bytes":15262,"git_blob_sha1":"3ad2e09e579bf65c0435789e101fd7d2c9a0d9e5"},
+    {"name":"2022C_附件2.xlsx","bytes":15402,"git_blob_sha1":"c5747522b104cc1fb2c2814feeec2ab215a76be7"},
+    {"name":"2022C_附件3.xlsx","bytes":10138,"git_blob_sha1":"a297c0a708cdaf88769614f01b9b5dc177d01535"},
+    {"name":"2022C_附件4.xlsx","bytes":9196,"git_blob_sha1":"50d1da619d1269949833614935d5eb0cba75219d"}
+  ],
+  "exposure_boundary": [
+    "No 2022-C excellent paper opened",
+    "No 2022-C reference answer opened",
+    "No 2022-C solution article or solution code opened",
+    "Preparation/orchestration chat does not parse or solve the benchmark body"
+  ]
+}

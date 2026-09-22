@@ -1,0 +1,6 @@
+{
+  "id": "log-domain-rssi-aggregation",
+  "trigger": "dBm/RSSI values are directly summed or averaged as if they were linear powers.",
+  "risk": "Log-domain arithmetic changes physical meaning and can corrupt SINR/throughput features.",
+  "gate": "Convert each dBm value to mW/W before power aggregation; document antenna combining semantics; convert back to dBm only after aggregation if needed."
+}

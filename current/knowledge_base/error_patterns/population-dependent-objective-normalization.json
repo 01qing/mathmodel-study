@@ -1,0 +1,7 @@
+{
+  "pattern_id": "population-dependent-objective-normalization",
+  "name": "种群内动态归一化导致目标语义漂移",
+  "trigger": "candidate fitness uses current-population min/max, making identical raw objectives receive different normalized values across generations/runs",
+  "example": "S043 Eqs.(4-37)-(4-39)",
+  "gate": "fit normalization on a fixed reference/train range or store raw objective vector and use Pareto/declared utility; never compare moving-scale fitness as one stable metric"
+}

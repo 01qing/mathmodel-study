@@ -1,0 +1,10 @@
+{
+  "name": "loss-input-contract-mismatch",
+  "trigger": "framework loss has specific input contract, e.g. CrossEntropyLoss expects logits",
+  "risk": "applying softmax/sigmoid twice changes gradients/numerical stability",
+  "gate": [
+    "verify model output domain against loss API",
+    "unit-test tensor shapes/dtypes/ranges",
+    "compute probabilities only for evaluation/visualization when loss expects logits"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "categorical-encoder-domain-mismatch",
+  "name": "Categorical encoder input domain/type mismatch",
+  "trigger": "Optimization/inference maps category ids to strings but the encoder compares against ints (or vice versa), producing all-zero/invalid category vectors.",
+  "gate": "Freeze category vocabulary + dtype contract and unit-test every legal category before optimization/inference."
+}

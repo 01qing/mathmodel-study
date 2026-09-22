@@ -1,0 +1,6 @@
+{
+  "id": "mixed-variable-continuous-relaxation",
+  "trigger": "categorical/integer/discrete decision variables are passed to an optimizer as unconstrained continuous coordinates.",
+  "risk": "reported solutions may violate the declared feasible set or invoke embeddings/encoders at unsupported fractional values.",
+  "gate": "Use integer/mixed-variable operators or explicit enumeration/repair/round-trip decoding; feasibility replay must assert every discrete variable belongs to its legal vocabulary/set."
+}

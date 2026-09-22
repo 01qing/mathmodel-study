@@ -1,0 +1,23 @@
+status=PASS passed=22/22
+test_v16_regressions: PASS
+test_v18_code_learning: PASS (first wrong-CWD FAIL preserved, root rerun PASS)
+test_v19_training_regressions: PASS
+test_v110_regressions: PASS
+test_v111_regressions: PASS
+test_v112_regressions: PASS
+test_v113_regressions: PASS
+test_v114_regressions: PASS
+test_v115_regressions: PASS
+test_v116_regressions: PASS
+test_v117_regressions: PASS
+test_v118_regressions: PASS
+test_v119_regressions: PASS
+test_v120_regressions: PASS
+test_v121_regressions: PASS
+test_v122_regressions: PASS
+test_v123_regressions: PASS
+test_v124_regressions: PASS
+test_v125_regressions: PASS
+test_v126_regressions: PASS
+test_v127_regressions: PASS
+test_v128_regressions: PASS

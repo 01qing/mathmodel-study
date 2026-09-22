@@ -1,0 +1,6 @@
+{
+  "pattern": "unit-insensitive-event-threshold",
+  "symptom": "One absolute threshold is used for change detection across variables with different units/scales (e.g. wind speed and power).",
+  "risk": "Can mark nearly every sample or none as an event for one variable while appearing plausible for another.",
+  "check": "Use per-variable physically meaningful thresholds or dimensionless/robust standardized change scores calibrated only on training data."
+}

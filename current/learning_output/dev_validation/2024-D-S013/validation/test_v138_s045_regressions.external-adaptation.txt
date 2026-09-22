@@ -1,0 +1,6 @@
+{
+  "reason": "ZIP-extracted filename has reversible UTF8-as-CP437 mojibake. Resolve existing file only; do not rename baseline.",
+  "old": "S045_v1.38_训练摘要.md",
+  "new": "S045_v1.38_Φ«¡τ╗âµæÿΦªü.md",
+  "frozen_source_edited": false
+}

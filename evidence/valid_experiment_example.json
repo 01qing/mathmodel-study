@@ -1,0 +1,83 @@
+{
+  "samples": [
+    {
+      "id": "tr-a",
+      "group": "file-a",
+      "split": "train",
+      "label": "N",
+      "fs_hz": 12000
+    },
+    {
+      "id": "tr-b",
+      "group": "file-b",
+      "split": "train",
+      "label": "B",
+      "fs_hz": 12000
+    },
+    {
+      "id": "te-a",
+      "group": "file-c",
+      "split": "test",
+      "label": "N",
+      "fs_hz": 12000
+    },
+    {
+      "id": "te-b",
+      "group": "file-d",
+      "split": "test",
+      "label": "B",
+      "fs_hz": 12000
+    },
+    {
+      "id": "target",
+      "group": "file-e",
+      "split": "target",
+      "label": null,
+      "fs_hz": 32000
+    }
+  ],
+  "task_classes": [
+    "N",
+    "B"
+  ],
+  "target_mode": "transductive",
+  "fit_events": [
+    {
+      "name": "scaler",
+      "sample_ids": [
+        "tr-a",
+        "tr-b"
+      ],
+      "purpose": "preprocessing",
+      "uses_labels": false
+    },
+    {
+      "name": "adapt",
+      "sample_ids": [
+        "target"
+      ],
+      "purpose": "adaptation",
+      "uses_labels": false
+    }
+  ],
+  "metrics": [
+    {
+      "name": "accuracy",
+      "split": "test",
+      "truth": "independent_ground_truth",
+      "sample_ids": [
+        "te-a",
+        "te-b"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "id": "A",
+      "label": "B"
+    }
+  ],
+  "required_target_ids": [
+    "A"
+  ]
+}

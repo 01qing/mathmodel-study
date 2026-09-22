@@ -1,0 +1,6 @@
+### python /mnt/data/mathmodel_v130_build/Graduate-MathModel-Learning-Skill-v1.30-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v130_s032_regressions.py
+Traceback (most recent call last):
+  File "/mnt/data/mathmodel_v130_build/Graduate-MathModel-Learning-Skill-v1.30-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v130_s032_regressions.py", line 43, in <module>
+    assert len(checks)==62, len(checks)
+           ^^^^^^^^^^^^^^^
+AssertionError: 63

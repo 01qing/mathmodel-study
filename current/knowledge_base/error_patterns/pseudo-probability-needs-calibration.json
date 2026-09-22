@@ -1,0 +1,5 @@
+{
+  "id": "PSEUDO_PROBABILITY_NEEDS_CALIBRATION",
+  "rule": "A weighted score constrained to [0,1] is not automatically a probability. Use calibrated probabilistic evidence or call it a compatibility/risk score.",
+  "scope": "generic"
+}

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/data/release_build_v135/Graduate-MathModel-Learning-Skill-v1.35-work/.agents/skills/graduate-mathmodel-learning/scripts/_snapshot_replay_tmp.py", line 41, in <module>
+    ck('post-S032 future reserve', P['S035'].get('reviewed_pages',[])==[] and P['S036'].get('reviewed_pages',[])==[] and P['S034'].get('reviewed_pages',[]) in [[],list(range(1,69))])
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/release_build_v135/Graduate-MathModel-Learning-Skill-v1.35-work/.agents/skills/graduate-mathmodel-learning/scripts/_snapshot_replay_tmp.py", line 7, in ck
+    if not cond: raise AssertionError(name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: post-S032 future reserve

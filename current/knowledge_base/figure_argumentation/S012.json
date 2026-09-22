@@ -1,0 +1,61 @@
+{
+  "paper_id": "S012",
+  "source": "105-page text figure/table captions and context",
+  "pixel_level_audit": false,
+  "explicit_unique_figure_id_count": 27,
+  "explicit_unique_table_id_count": 38,
+  "numbering_notes": [
+    "text extraction has stray numeric “图24/图34/图59” matches from prose/layout; canonical manuscript figure numbering runs 图5.1–图5.27, so 27 is used as the stable explicit figure-id count"
+  ],
+  "argumentation_roles": [
+    {
+      "role": "Q1 representation and robustness ladder",
+      "examples": [
+        "waveform/feature distribution plots",
+        "confusion matrices for time-domain and multi-domain features",
+        "clean-vs-noisy classification comparison"
+      ],
+      "lesson": "A useful figure sequence is baseline representation → failure under perturbation → enriched representation → same split/metric recovery. Keep the noise severity explicit and do not turn one SNR into broad robustness."
+    },
+    {
+      "role": "Q2 physics correction and adaptive parameter evidence",
+      "examples": [
+        "SE/LSE/TLSE fit/prediction plots",
+        "NAdam convergence/parameter trends",
+        "summary performance tables"
+      ],
+      "lesson": "Align every correction model on the same held-out-condition folds; training curves support optimization convergence, while leave-condition residual plots support generalization."
+    },
+    {
+      "role": "Q3 interaction and condition-selection evidence",
+      "examples": [
+        "ANOVA tables 5.18–5.22",
+        "rank comparison tables 5.23–5.25"
+      ],
+      "lesson": "Use interaction-effect plots with uncertainty and adjusted covariates; replace a long sequential pairwise-test narrative by corrected all-cell/post-hoc summaries and effect-size intervals."
+    },
+    {
+      "role": "Q4 ablation ladder",
+      "examples": [
+        "DM→DMSDR→TDM→LMSE→LMSESDR→TLMSESDR→MTLMSESDR→WMTLMSEDSR tables",
+        "prediction examples"
+      ],
+      "lesson": "Ablation ladders are valuable when feature/schema/split stay fixed. Add grouped generalization panels, not only random-row validation."
+    },
+    {
+      "role": "Q5 optimization evidence",
+      "examples": [
+        "图5.26 GA convergence",
+        "图5.27 PSO convergence",
+        "表5.37/5.38 optimizer result tables"
+      ],
+      "lesson": "Convergence plots do not establish feasibility. Pair convergence with a domain-feasibility dashboard and objective-replay table; label every lambda from the exact run config."
+    }
+  ],
+  "style_learning_boundary": "Source PDF pixels are not mounted in this worktree; colors/fonts/layout are not claimed learned, only caption/context argumentation structure.",
+  "derived_template_smoke": [
+    "learning_output/analyses/v120_figure_template_smoke/01_effect_size_corrected_tests.png",
+    "learning_output/analyses/v120_figure_template_smoke/02_domain_feasibility_replay.png",
+    "learning_output/analyses/v120_figure_template_smoke/03_scalarized_objective_replay.png"
+  ]
+}

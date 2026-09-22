@@ -1,0 +1,5 @@
+{
+  "id": "PVALUE_WITHOUT_TEST_PROVENANCE",
+  "scope": "generic",
+  "rule": "A p-value must be tied to a named test, statistic, sample unit, sample size, pairing/independence structure and hypotheses. A table containing only p<... is not auditable significance evidence."
+}

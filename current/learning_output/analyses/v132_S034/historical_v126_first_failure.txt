@@ -1,0 +1,15 @@
+MathModel-Core v1.32 / S034 historical compatibility first failure
+
+Context: During the first 22-script historical regression rerun after legitimate S034 integration,
+test_v126_regressions.py failed because learning_output/context/next_learning.md contained the
+shorthand phrase "2025-C Mini Transfer" instead of the exact historical contract phrase
+"Mini Transfer Test".
+
+Classification: historical harness/timepoint wording compatibility failure; NOT a modelling-rule
+failure, NOT a split-boundary relaxation, and NOT evidence that the Mini Transfer protocol was absent.
+
+Action: restore the explicit literal phrase "Mini Transfer Test" in next_learning.md, then rerun the
+unweakened v1.26 test and the full historical 22-script suite with per-script exit-code enforcement.
+
+Important: the earlier bulk log ended with an invalid ALL_22_PASS marker because the shell pipeline
+did not enforce pipefail. That marker is superseded and must not be used as validation evidence.

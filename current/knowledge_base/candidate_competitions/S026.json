@@ -1,0 +1,214 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "precedence-constrained DAG scheduling to minimize peak live-buffer residency under L0 exclusivity constraints",
+      "input_target_constraints": {
+        "input": "DAG nodes/edges with Op, Type, Size and dependency relationships",
+        "decision": "one valid topological linearization",
+        "objective": "minimize max cache residency Cmax(S)",
+        "independent_evaluation_unit": "one complete workload graph instance",
+        "hard_constraints": [
+          "topological order",
+          "all nodes exactly once",
+          "paper-specific L0 single-residency"
+        ]
+      },
+      "baseline": {
+        "name": "Kahn topological list scheduling with FREE-first + critical-path/slack tie-break",
+        "six_hour_plan": [
+          "parse DAG and verify acyclicity",
+          "maintain ready set and prefer legal FREE nodes",
+          "tie-break computation nodes by critical-path/slack and ALLOC by incremental peak cost",
+          "replay Cmax and all constraints on six workloads"
+        ],
+        "why": "simple, deterministic, easy to debug, O((N+E)logN) with a heap, and provides a fair floor before metaheuristics"
+      },
+      "author_route": {
+        "method": "type-priority greedy initialization + tabu/neighborhood search using swap/insert/reverse",
+        "why_fit": [
+          "large combinatorial topological-order space",
+          "local moves can improve buffer lifetime overlap",
+          "tabu search is a natural non-gradient optimizer for discrete schedules"
+        ],
+        "evidence_boundary": "paper claims size and criticality terms and adaptive tabu length, but appendix greedy code only uses coarse Op-type scores and fixed tabu_length=20"
+      },
+      "major_alternatives": [
+        {
+          "model": "S025 topology-preserving simulated annealing",
+          "why_can_work": "same discrete feasible-order search and already available in same case group",
+          "when_prefer": "when matched-budget experiments show better Cmax or better robustness across seeds"
+        },
+        {
+          "model": "CP-SAT / MILP on reduced/small graphs",
+          "why_can_work": "can provide exact/near-exact gap for validating heuristic quality",
+          "when_prefer": "small or compressed DAGs where exact solve is tractable"
+        },
+        {
+          "model": "beam search / A* with admissible or problem-specific lower bound",
+          "why_can_work": "keeps multiple promising partial topological orders and can exploit peak-memory lower bounds",
+          "when_prefer": "medium graphs when deterministic quality is more valuable than stochastic search"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "deep RL",
+          "why_not_now": "no large training distribution of graph instances and no evidence that policy training beats simple graph heuristics under contest time budget"
+        },
+        {
+          "model": "unconstrained arbitrary permutation GA",
+          "why_not_now": "wastes search on topologically invalid schedules unless feasibility-preserving encoding/repair dominates runtime"
+        }
+      ],
+      "switch_conditions": [
+        "use CP-SAT exact gap on small sampled subgraphs to calibrate heuristic quality",
+        "retain tabu only if it beats the six-hour baseline and S025 SA under matched evaluation budget and multiple seeds",
+        "if local feasible move generation rate collapses on large DAGs, switch to partial-order-aware insertion/beam search"
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "interval/lifetime-aware multi-cache address allocation with spill decisions minimizing extra DDR movement under capacity and non-overlap constraints",
+      "input_target_constraints": {
+        "input": "Q1 schedule + buffer lifetimes/sizes/types + cache capacities + COPY_IN usage",
+        "decision": [
+          "offset per buffer",
+          "spill flag",
+          "spill timing",
+          "post-spill offset"
+        ],
+        "objective": "minimize extra data movement; runtime is secondary only if explicitly normalized/lexicographically handled",
+        "hard_constraints": [
+          "capacity",
+          "lifetime-overlap address non-overlap",
+          "L0 exclusivity",
+          "topological/SPILL dependencies",
+          "reuse dependency"
+        ]
+      },
+      "baseline": {
+        "name": "lifetime sweep + Best-Fit allocator + deterministic spill victim by incremental transfer cost and next-use distance",
+        "six_hour_plan": [
+          "build buffer lifetimes from fixed Q1 schedule",
+          "allocate each cache with Best-Fit/free-list sweep",
+          "on overflow choose legal victim with lowest true incremental spill bytes, tie-break by farthest next use",
+          "replay capacity/non-overlap and exact extra-transfer metric"
+        ],
+        "why": "transparent and produces a strong deterministic baseline before population metaheuristics"
+      },
+      "author_route": {
+        "method": "paper-labeled ABQPSO with sequence/offset/spill mixed encoding + repair + local search",
+        "why_fit": [
+          "high-dimensional mixed discrete decisions",
+          "repair operators can enforce hard cache constraints",
+          "population search can explore spill/address interactions"
+        ],
+        "evidence_boundary": "appendix has a long Q2 MATLAB listing, but Mbest and local attractor P are computed and never used; update equations are velocity-style PSO, so the claimed quantum-behaved mechanism is not implementation-verified"
+      },
+      "major_alternatives": [
+        {
+          "model": "ILP/CP-SAT for small buffer sets",
+          "why_can_work": "address/spill decisions can be exact benchmarks and produce optimality gaps",
+          "when_prefer": "small instances or decomposed windows"
+        },
+        {
+          "model": "S025 hierarchical heuristic/ILP-rounding route",
+          "why_can_work": "reported transfer is much lower on all six workloads, although common-evaluator verification is still required",
+          "when_prefer": "when same evaluator confirms lower transfer with valid constraints"
+        },
+        {
+          "model": "simulated annealing / large-neighborhood search around deterministic allocator",
+          "why_can_work": "keeps a feasible allocator as decoder and searches only spill/victim decisions",
+          "when_prefer": "when direct mixed-code population search is too expensive"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "raw scalarized Bytes + Cycles without normalization",
+          "why_not_now": "units and magnitudes are incomparable; 0.1*Cycles can dominate the primary Bytes objective unpredictably"
+        },
+        {
+          "model": "ABQPSO name without active quantum update",
+          "why_not_now": "algorithm label does not justify extra complexity when its defining Mbest/P terms are dead in the visible implementation"
+        }
+      ],
+      "switch_conditions": [
+        "keep population metaheuristic only after common-evaluator comparison against deterministic Best-Fit and S025 route",
+        "use lexicographic optimization or normalized epsilon constraint if runtime is truly secondary",
+        "if QPSO is retained, implement and test the actual quantum position-update primitive and ablate it"
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "resource-constrained multi-objective scheduling: reduce makespan while keeping extra data movement within the problem-defined hard tolerance",
+      "input_target_constraints": {
+        "input": "feasible Q2 schedule/allocation/spill plan + node cycles/pipes/dependencies",
+        "decision": [
+          "schedule",
+          "address allocation",
+          "spill plan"
+        ],
+        "objectives": [
+          "extra transfer",
+          "total runtime/makespan"
+        ],
+        "hard_constraints": [
+          "all Q2 feasibility constraints",
+          "official transfer-tolerance cap must be explicit before Pareto ranking"
+        ]
+      },
+      "baseline": {
+        "name": "epsilon-constraint local search from Q2 feasible solution",
+        "six_hour_plan": [
+          "freeze Q2 transfer baseline C2",
+          "set transfer <= 1.05*C2 as hard feasibility gate",
+          "use critical-path/earliest-start resource-aware list scheduling to reduce makespan",
+          "perform small topology-preserving local moves and accept only feasible improvements",
+          "report feasible Pareto/operating points and exact replay"
+        ],
+        "why": "matches the contest requirement that transfer cannot significantly increase and avoids returning attractive but infeasible Pareto points"
+      },
+      "author_route": {
+        "method": "DPEA dual-population multi-objective evolutionary algorithm with LHS initialization, nondominated sorting, crowding and external archive",
+        "why_fit": [
+          "two conflicting objectives",
+          "dual populations conceptually separate convergence and exploration"
+        ],
+        "evidence_boundary": "DPEA is described only in prose/pseudocode; Appendix A contains no Q3 implementation. Eq.6.67 also changes the spill-cost semantics from Q2 by assigning zero cost to COPY_IN-used spills."
+      },
+      "major_alternatives": [
+        {
+          "model": "NSGA-II / MOEA-D with explicit feasibility-first rules",
+          "why_can_work": "standard, well-audited Pareto baselines",
+          "when_prefer": "when multiple trade-off points are genuinely required"
+        },
+        {
+          "model": "single-objective epsilon-constraint + LNS/CP-SAT",
+          "why_can_work": "directly encodes the hard transfer cap and minimizes runtime",
+          "when_prefer": "when contest statement prioritizes runtime under a fixed transfer tolerance"
+        },
+        {
+          "model": "resource-constrained critical-path scheduling + deterministic spill allocator",
+          "why_can_work": "strong six-hour baseline with clear causal relation to makespan",
+          "when_prefer": "when evolutionary budget is limited"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "unconstrained Pareto optimization without the transfer cap",
+          "why_not_now": "a hard contest constraint must be enforced before dominance ranking"
+        },
+        {
+          "model": "radar chart as Pareto evidence",
+          "why_not_now": "a radar plot of before/after metrics does not demonstrate nondominance, diversity or operating-point selection"
+        }
+      ],
+      "switch_conditions": [
+        "DPEA enters the mainline only when executable implementation exists and feasible nondominated fronts beat NSGA-II/epsilon baseline under matched budgets",
+        "if only one final operating point is required, prefer epsilon-constraint over a complex MOEA",
+        "reconcile Eq.6.67 to the Q2 spill-cost definition before any Q3 metric is trusted"
+      ]
+    }
+  }
+}

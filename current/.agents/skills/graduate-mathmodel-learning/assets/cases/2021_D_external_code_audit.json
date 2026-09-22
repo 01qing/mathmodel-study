@@ -1,0 +1,230 @@
+{
+  "schema_version": "1.1",
+  "case_id": "gmcm-2021-D",
+  "audit_id": "external-code-Bureaux-Tao-modeling2021-D",
+  "repository": "Bureaux-Tao/modeling2021-D",
+  "repository_status": "public_participant_code",
+  "award_status": "not_used_as_quality_prior",
+  "audited_files": [
+    {
+      "path": "models/t1.py",
+      "sha": "90a317482d335111e7e5249ee40ea4fd319e4a64"
+    },
+    {
+      "path": "models/t2_rf.py",
+      "sha": "faf5f67378d552a35278fc84d70c380ce9d0b232"
+    },
+    {
+      "path": "models/t2_xgboost.py",
+      "sha": "65d236a36d15dbbf00357f94ef3e90dad65767dd"
+    },
+    {
+      "path": "models/t3_svm.py",
+      "sha": "e4bc8659525f1e66280c9146e68866073a81ec40"
+    },
+    {
+      "path": "models/t3_keras.py",
+      "sha": "63bdba5b93146df839a3b09ae2bba762e8d3f534"
+    },
+    {
+      "path": "models/t4.py",
+      "sha": "f94acd48a6a00d1c48667ac9dc8a158229f677fb"
+    },
+    {
+      "path": "utils/pic50_to_ic50.py",
+      "sha": "dd4f1b82def31cd88d5a048b7a23ab0c4e217c70"
+    }
+  ],
+  "findings": [
+    {
+      "id": "Q1-full-data-scaling-before-cv",
+      "question": "Q1",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t1.py",
+      "evidence": "MinMaxScaler.fit_transform is applied to the full descriptor+target dataframe before GridSearchCV/cross_val_score.",
+      "impact": "CV folds inherit preprocessing parameters estimated using validation-fold rows; reported validation is not fully leakage-safe.",
+      "skill_rule": "Fit preprocessing inside each training fold."
+    },
+    {
+      "id": "Q1-full-data-supervised-top20",
+      "question": "Q1/Q2",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t1.py",
+      "evidence": "RandomForestRegressor is fit on all training rows and its feature_importances_ are used to print the top 20 descriptors.",
+      "impact": "If these Top20 are then reused in Q2 CV, Q2 validation has feature-selection leakage.",
+      "skill_rule": "When evaluating Q2, selector and regressor must be one nested-CV pipeline."
+    },
+    {
+      "id": "Q2-full-data-scaling-before-validation",
+      "question": "Q2",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t2_rf.py",
+      "evidence": "x_scaler.fit_transform(x_train) and y_scaler.fit_transform(y_train) occur before cross_val_score/GridSearchCV and before the later 80/20 holdout.",
+      "impact": "Validation rows affect preprocessing parameters.",
+      "skill_rule": "Fit scaler inside CV/holdout training partition only."
+    },
+    {
+      "id": "Q2-refit-scaler-on-official-test",
+      "question": "Q2",
+      "severity": "critical",
+      "status": "verified_from_code",
+      "file": "models/t2_rf.py",
+      "evidence": "Official-test descriptors are transformed with x_scaler.fit_transform(x_test), not x_scaler.transform(x_test).",
+      "impact": "Test coordinates are mapped with test-specific min/max while the saved model was trained in train-specific coordinates; predictions are not in the same feature space.",
+      "skill_rule": "Never refit train-fitted transforms on test."
+    },
+    {
+      "id": "Q2-sequential-hyperparameter-tuning",
+      "question": "Q2",
+      "severity": "medium",
+      "status": "verified_from_code",
+      "file": "models/t2_rf.py",
+      "evidence": "n_estimators, max_depth, max_features, min_samples_leaf and min_samples_split are tuned in separate sequential sweeps.",
+      "impact": "Parameter interactions are not jointly optimized; the final combination is not established as globally best.",
+      "skill_rule": "Use a declared joint/random/Bayesian search or state the sequential-search limitation."
+    },
+    {
+      "id": "Q2-order-dependent-holdout",
+      "question": "Q2",
+      "severity": "medium",
+      "status": "verified_from_code",
+      "file": "models/t2_rf.py",
+      "evidence": "train_test_split(..., shuffle=False) is used without an explicit order/group rationale in the audited file.",
+      "impact": "Performance can depend on arbitrary file order.",
+      "skill_rule": "Use random/group/time split according to data-generating structure and document why."
+    },
+    {
+      "id": "Q2-xgb-preprocessing-leakage",
+      "question": "Q2",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t2_xgboost.py",
+      "evidence": "MinMaxScaler is fit on the full X/y before the 80/20 split; subsequent tuning and holdout evaluation therefore use transforms estimated with holdout data.",
+      "impact": "Holdout estimate can be optimistic or otherwise contaminated.",
+      "skill_rule": "Split before fit or use a pipeline."
+    },
+    {
+      "id": "Q3-pca-fit-before-split",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "PCA.fit(x_train).transform(x_train) occurs before train_test_split.",
+      "impact": "Holdout rows influence PCA basis.",
+      "skill_rule": "PCA must be fitted only on training folds."
+    },
+    {
+      "id": "Q3-reuse-same-holdout-for-selection",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "The same 20% split is repeatedly evaluated while selecting n_components, kernel and C.",
+      "impact": "The nominal test split becomes a validation set; its best observed accuracy is selection-biased.",
+      "skill_rule": "Nested CV or separate train/validation/test."
+    },
+    {
+      "id": "Q3-accuracy-primary",
+      "question": "Q3",
+      "severity": "medium",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "Model-selection loops maximize accuracy_score.",
+      "impact": "Under label imbalance, model ranking can favor majority-class performance.",
+      "skill_rule": "Use balanced accuracy/MCC/PR-AUC and class-specific metrics."
+    },
+    {
+      "id": "Q3-precision-recall-arguments-reversed",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "precision_score(y_pred, test_y) and recall_score(y_pred, test_y) pass prediction as y_true.",
+      "impact": "Reported precision/recall semantics are wrong; in binary classification they effectively swap roles relative to the intended arguments.",
+      "skill_rule": "Metric APIs must be checked as metric(y_true, y_pred)."
+    },
+    {
+      "id": "Q3-refit-pca-on-official-test",
+      "question": "Q3",
+      "severity": "critical",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "x_pca_pred = pca_model.fit(pred_x).transform(pred_x) refits PCA on the test descriptors.",
+      "impact": "The SVM receives components in a different PCA basis from the one used for training; final predictions are not comparable in feature space.",
+      "skill_rule": "Use pca_model.transform(test) from the train-fitted PCA."
+    },
+    {
+      "id": "Q3-test-duplication-workaround",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_svm.py",
+      "evidence": "For a 'hERG/HOB - special' block, test rows are vertically duplicated before refitting PCA, then predictions are truncated back to half.",
+      "impact": "This does not repair the train/test PCA-basis mismatch and lacks a statistical justification in the audited code.",
+      "skill_rule": "Do not use data duplication to satisfy transform fitting requirements on test."
+    },
+    {
+      "id": "Q3-keras-pca-before-split",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_keras.py",
+      "evidence": "For each candidate n_components, PCA is fit on all rows before the 80/20 split.",
+      "impact": "The holdout influences feature construction.",
+      "skill_rule": "Preprocessing belongs inside training partition."
+    },
+    {
+      "id": "Q3-keras-holdout-model-selection",
+      "question": "Q3",
+      "severity": "high",
+      "status": "verified_from_code",
+      "file": "models/t3_keras.py",
+      "evidence": "n_components from 20 to 49 are compared by model.evaluate on the same held-out 20%.",
+      "impact": "The held-out set is used for model selection and is no longer an unbiased test.",
+      "skill_rule": "Use validation/nested CV and reserve final test."
+    },
+    {
+      "id": "Q4-admet-composite-provenance-missing",
+      "question": "Q4",
+      "severity": "high",
+      "status": "unresolved",
+      "file": "models/t4.py",
+      "evidence": "t4.py consumes a prebuilt column named ADMET from data_all_train.csv, but the audited repository search did not reveal how that composite label was constructed.",
+      "impact": "Cannot verify whether favorable directions, CYP3A4 ambiguity, and the 'at least 3 favorable properties' rule were implemented correctly.",
+      "skill_rule": "Composite target derivation must be explicit and reproducible."
+    },
+    {
+      "id": "Q4-observed-subset-range-strength",
+      "question": "Q4",
+      "severity": "low",
+      "status": "verified_from_code",
+      "file": "models/t4.py",
+      "evidence": "The code filters observed samples by pIC50 > 9, applies IsolationForest, then reports min/max ranges of selected descriptors.",
+      "impact": "Unlike unconstrained continuous optimization, the reported ranges are anchored to observed molecules; this is a useful feasibility-oriented idea, although the ADMET composite remains unresolved.",
+      "skill_rule": "Prefer observed/manifold-supported feasibility when direct molecular design is unavailable.",
+      "finding_type": "strength"
+    },
+    {
+      "id": "Q2-pic50-ic50-conversion",
+      "question": "Q2",
+      "severity": "low",
+      "status": "verified_from_code",
+      "file": "utils/pic50_to_ic50.py",
+      "evidence": "IC50 is computed as 10^(9-pIC50), consistent with IC50 in nM.",
+      "impact": "Target back-transformation is internally consistent with the stated nM convention.",
+      "finding_type": "strength"
+    }
+  ],
+  "summary": {
+    "critical": 2,
+    "high": 11,
+    "medium": 3,
+    "low": 2,
+    "strengths": 2,
+    "unresolved": 1,
+    "overall": "The repository is valuable as a real learning artifact, but its validation/test transformation chain contains issues serious enough that numerical results should not be treated as independently verified."
+  }
+}

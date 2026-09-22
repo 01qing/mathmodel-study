@@ -1,0 +1,48 @@
+{
+  "method_id": "grouped-signal-validation",
+  "name": "以原始采集文件为单位验证信号模型",
+  "aliases": [],
+  "problem_families": [
+    "signal classification"
+  ],
+  "core_idea": "同文件的窗口和通道继承组，训练折内拟合预处理，按文件汇总预测",
+  "key_assumptions": [
+    "group identifies independent acquisition; duplicate copies mapped to same group"
+  ],
+  "data_requirements": [
+    "raw-file identity",
+    "labels",
+    "window/channel provenance"
+  ],
+  "suitable_for": [
+    "多窗口设备诊断"
+  ],
+  "not_suitable_for": [
+    "缺少来源映射时直接宣称已隔离"
+  ],
+  "baseline_against": [
+    "random row split used only as diagnostic"
+  ],
+  "alternatives": [
+    "leave-device-out",
+    "leave-condition-out"
+  ],
+  "switch_conditions": [
+    "目标推广到新设备或工况时改用对应留组验证"
+  ],
+  "validation": [
+    "组交集为空",
+    "每折类别覆盖",
+    "文件级Macro-F1与少数类召回"
+  ],
+  "common_failures": [
+    "切窗后随机拆分",
+    "全体PCA后拆分"
+  ],
+  "competition_risk": "context-dependent",
+  "learning_level": "unseen",
+  "sources": [
+    "gmcm-2025-E:S054",
+    "2025_E_feature_benchmark.json：仅参考派生特征局部实验；用户掌握度未升级"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "case_group": "2025-C",
+  "status": "PROVISIONAL_AFTER_S032_S033_S034_S035",
+  "rules": [
+    "Q1 segmentation: pair qualitative overlays with per-original-image/borehole metrics, reference-mask provenance and holdout identity; report annotation/runtime cost separately from predictive quality",
+    "Q2 periodic fit: show calibrated physical period reference, inlier/residual diagnostics, parameter bounds, reject cases and whether P is fixed/free; significance labels require test/statistic/sample-unit provenance",
+    "Q3 roughness: plot ordered physical centerline, selected sampling points, canonical JRC statistic and estimate-vs-sampling-budget convergence; call dense estimate a numerical reference unless external truth exists",
+    "Q4 connectivity: label heuristic matrices as compatibility scores unless calibrated; show denominator/aggregation for cluster summaries",
+    "Q4 drilling: show existing + candidate coordinates, exclusion-radius feasibility map and marginal coverage/posterior reduction separately; do not call coverage reduction EIG without an observation-update model",
+    "Learned-vs-deterministic image comparisons must disclose duplicate/source overlap and use source-grouped holdout; a suspiciously perfect overlapped sample is a leakage diagnostic, not a success example."
+  ]
+}

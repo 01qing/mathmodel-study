@@ -1,0 +1,74 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "year": 2025,
+  "problem_id": "F",
+  "split": "train",
+  "pages": 71,
+  "title": "江南古典园林的美学特征建模",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_71_PAGE_VISUAL_AUDIT_CODE_REFERENCED_UNAVAILABLE",
+  "visual_status": "ORIGINAL 71-PAGE PDF ALL-PAGE VISUAL AUDIT; no printed code appendix",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1 garden/path-route candidate; Q2 garden-level constructed aesthetic/illusion score; Q3 garden as the independent unit for pairwise similarity, clustering and external-garden validation",
+    "input_structure": "10 representative Jiangnan gardens with geometry/element/path information; Q3 additionally uses three validation gardens (Wangshi Garden, Yipu, Huanxiu Villa); code is referenced as an attachment but unavailable in the current package",
+    "validation_priority": "separate constructed-score agreement from visitor/expert perceptual validation; keep route feasibility after crossover/mutation; calibrate weights/anchors outside the evaluation set; validate similarity/clusters with external labels or resampling rather than self-defined expected intervals/classes",
+    "author_evaluation_scope": "within-10-garden route/score/ranking statistics, correlations and clustering; three additional gardens used for claimed generalization; no accessible author code execution evidence"
+  },
+  "questions": {
+    "Q1": "walkable-region/centerline path graph -> 50m/180° fan visibility + ray tracing -> Shannon richness + weighted Jaccard scene change -> four-index interest score -> weighted-sum GA route planning with scene-change, repetition and length terms",
+    "Q2": "grid element densities -> theme clustering/labels -> Shannon diversity + theme harmony + complexity suitability -> ray-based openness/enclosure + autocorrelation rhythm -> Jichang Garden anchor + similarity/scale/culture/environment adjustments -> illusion score ranking",
+    "Q3": "20D path/scenic/spatial descriptor -> Z-score -> cosine + Jaccard + weighted-Euclidean fusion -> Ward hierarchical clustering + CV commonality/Kruskal-Wallis -> eight extended aesthetics + fuzzy aggregation -> three-garden validation"
+  },
+  "reproduction": {
+    "level": "R1",
+    "evidence": [
+      "71/71 full-text and original-PDF visual audit",
+      "formula/pseudocode/table/result static audit from the PDF"
+    ],
+    "not_achieved": [
+      "R2: Appendix A references all Q1-Q3 code but the code artifact is not available and no source listing is printed",
+      "R3-R7: no author-code smoke test, original-data reproduction or independent reimplementation attributable to S043"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 explicitly decomposes subjective route interest into walkability, visibility, richness, scene change, repetition and path length, producing an inspectable route-scoring chain.",
+    "Q2 uses interpretable element-distribution and open/closed-space descriptors rather than immediately fitting a black-box predictor to only ten gardens.",
+    "Q3 begins from a compact 20D descriptor, materially safer than the d>>n 179D route seen in S042, and uses an external-garden extension rather than only the original ten gardens.",
+    "The paper provides many tables/maps/heatmaps that make internal score construction and ranking surfaces auditable."
+  ],
+  "key_risks": [
+    "Q1 calls the route problem multiobjective but Eq.(4-34) scalarizes all three objectives into one weighted sum; weights and moving population min/max normalization define the tradeoff and can change selection pressure across generations.",
+    "Q1 mutation formula Pmutation=Pbase+alpha*(1-ConvergenceRate) decreases mutation when ConvergenceRate rises, contradicting the prose claim that mutation increases when population diversity falls/convergence rises.",
+    "Q1 roulette probability Fitness_i/sum Fitness_j assumes nonnegative fitness, yet Eq.(4-36) can become negative after penalties; OX preserves permutations but does not by itself preserve graph-edge reachability.",
+    "Q1 abstract claims a global optimum with Gap=0, but no exact lower/upper bound, exact solver or certified optimality gap is established in the visible paper; correlation between fitness and a component already inside fitness is endogenous rather than independent validation.",
+    "Q2 Eq.(5-14) is a weighted sum of quantities intended/defined on approximately [0,1] with weights summing to 1, but the grade scale is 1.5-3.6 and reported scores reach 4.620; the displayed formula/result scale does not close.",
+    "Q2 Htheme is normalized by Hmax=log2(6) even though the theme taxonomy has five themes; the denominator is not the stated theme-space maximum.",
+    "Q2 openness recursion can exceed 1 and lacks an explicit initialization/convergence/bounding contract, while later openness thresholds assume a 0-1 scale.",
+    "Q2 rhythm index divides an autocovariance-like R(tau) by sqrt(R(0)), leaving units and no [0,1] normalization; the claimed optimal lag 8-12 also lacks a physical step-length/time contract.",
+    "Q2 Ascale=1+beta*ln(A/A_Jichang) monotonically rewards larger area, inconsistent with the prose claim of a preferred moderate scale for “small-in-large”.",
+    "Q2 declares 100 a theoretical maximum, yet the Jichang self-score formula multiplies its 100 anchor by positive similarity and adjustment factors that can exceed 1; a hidden cap/renormalization would be required to reproduce the 100-point table.",
+    "Q3 AHP Eq.(6-12) defines a_ij=w_i/w_j and then solves for w, which is circular if w is supposed to be derived from expert pairwise judgments.",
+    "Q3 uses Ward clustering after presenting a fused similarity of cosine/Jaccard/weighted-Euclidean components. Ward’s minimum-variance interpretation requires Euclidean feature geometry; direct use of an arbitrary fused similarity/distance needs a valid Euclidean embedding/contract.",
+    "Q3 treats Kruskal-Wallis p>0.05 as confirmation of commonality. Non-significance in n=10 does not prove equality/commonality and has low power.",
+    "Q3 Table 6.2 contains similarities 0.523-0.847, contradicting the text claim that all similarities exceed 0.93; replay of the 45 off-diagonal pairs also contradicts reported overall mean/std and two of three group means.",
+    "Q3 abstract says Zhuozheng Garden has aesthetic score 6.353 and ranks first, whereas Table 6.6 assigns 6.353/rank 1 to Jichang Garden; post-table prose also names Zhuozheng/Lingering first-two and Shen third, conflicting with the table.",
+    "Q3 three-garden “66.7% accuracy” and similarity prediction error 0.078 lack a clearly predeclared external ground-truth class/similarity target; they are insufficient as independent predictive accuracy evidence."
+  ],
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S043.json",
+  "result_registry_ref": "knowledge_base/result_registry/S043.json",
+  "code_access_ref": "knowledge_base/code_cases/2025-F-S043-code-access.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-F-S043-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S043.json",
+  "recommended_redo": [
+    "Q1 keep transparent walkable/visibility/Jaccard descriptors, but use fixed train-derived normalization and either an explicit Pareto/epsilon contract or a documented utility; enforce graph continuity after every genetic operation and do not claim Gap=0 without a certified bound.",
+    "Q2 place every component on a registered bounded scale, fix theme-entropy normalization, define openness recursion/bounds, use dimensionless normalized autocorrelation, and separate Jichang/expert calibration from held-out visitor/expert validation.",
+    "Q3 keep the compact descriptor idea, standardize on a reference/train cohort, use Gower/Euclidean or a demonstrably Euclidean embedding for Ward, validate clusters by resampling/external criteria, and predefine labels/targets before reporting external-garden accuracy.",
+    "Across all questions, generate all rankings/statistics from Result Registry and run sensitivity analysis for manually selected thresholds/weights."
+  ]
+}

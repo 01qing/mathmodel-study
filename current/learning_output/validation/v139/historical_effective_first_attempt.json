@@ -1,0 +1,198 @@
+[
+  {
+    "script": "test_v16_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v18_code_learning.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v19_training_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v110_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v111_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v112_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v113_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v114_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v115_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v116_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v117_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v118_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v119_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v120_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "FAIL",
+    "source_sha256": "4c5e4f4b1336702700907c1260bd7f2f9e245e38a0fd1868bfc7d49866628964",
+    "edits": [
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+        "new": "for pid in ['S014','S015','S016','S021','S022','S023','S024','S037','S038']:"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  },
+  {
+    "script": "test_v121_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "PASS_ADAPTED",
+    "source_sha256": "3695286b33d7816c14e6326a2205814011ca54c364b2a0f8c89274faf9115d5f",
+    "edits": [
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+        "new": "for pid in ['S014','S015','S016','S021','S022','S023','S024','S037','S038']:"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  },
+  {
+    "script": "test_v122_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "PASS_ADAPTED",
+    "source_sha256": "bc71a35216c538832b5056edc928ceda58f17f8d7a8e6707d15c8a7a02dc6fb2",
+    "edits": [
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+        "new": "for pid in ['S014','S015','S016','S021','S022','S023','S024','S037','S038']:"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  },
+  {
+    "script": "test_v123_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "PASS_ADAPTED",
+    "source_sha256": "d6860fa4149605e2f032557117d147b6e0e1df8a57857a8c0eb66e7ea7d89673",
+    "edits": [
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+        "new": "for pid in ['S014','S015','S016','S021','S022','S023','S024','S037','S038']:"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  },
+  {
+    "script": "test_v124_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "PASS_ADAPTED",
+    "source_sha256": "015192a4055f9aed707530570ece1d85e5a90186c3e45d33f68709ad102416fe",
+    "edits": [
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+        "new": "for pid in ['S014','S015','S016','S021','S022','S023','S024','S037','S038']:"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  },
+  {
+    "script": "test_v125_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v126_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v127_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v128_regressions.py",
+    "exit_code": 0,
+    "status": "PASS",
+    "effective_status": "PASS_UNMODIFIED"
+  },
+  {
+    "script": "test_v138_s045_regressions.py",
+    "exit_code": 1,
+    "status": "FAIL",
+    "effective_status": "PASS_ADAPTED",
+    "source_sha256": "e23192e909a29a549c4054634f0c9d8bfed9633b1638886ed336e2173e11c871",
+    "edits": [
+      {
+        "old": "ck('version',st['current_version']=='1.38.0'); ck('latest S045',st['latest_completed_paper']=='S045'); ck('latest R2',st['reproduction_level_latest']=='S045:R2')",
+        "new": "ck('version',st['current_version']=='1.39.0'); ck('latest S045',st['latest_completed_train_paper']=='S045' and st['latest_completed_dev_paper']=='S013'); ck('latest R2',st['reproduction_level_latest']=='S013:R2')"
+      },
+      {
+        "old": "for pid in ['S013','S014','S015','S016','S030','S031']: ck(pid+' dev unread/reserve',P[pid]['split']=='dev' and P[pid].get('reviewed_pages',[])==[])",
+        "new": "for pid in ['S014','S015','S016','S030','S031']: ck(pid+' dev unread/reserve',P[pid]['split']=='dev' and P[pid].get('reviewed_pages',[])==[])"
+      }
+    ],
+    "added_assertion": "S013 must now be completed113-page Dev-only; not simply exempted from protection",
+    "reason": "Current version legitimately changes S013 exposure and latest version; other unread Dev/Test checks unchanged."
+  }
+]

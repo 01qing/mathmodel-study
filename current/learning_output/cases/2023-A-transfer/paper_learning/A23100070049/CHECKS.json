@@ -1,0 +1,1086 @@
+{
+  "scope": "our bounded numerical checks; author MATLAB NOT_RUN",
+  "topology_cases": [
+    {
+      "left_interference": true,
+      "right_interference": true,
+      "params": {
+        "n": 3,
+        "rate": 455.8,
+        "hear": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ],
+        "interfere": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ]
+      },
+      "runs": [
+        {
+          "mbps": [
+            49.4592,
+            12.0672,
+            49.3368
+          ],
+          "total_mbps": 110.8632,
+          "attempts": [
+            21180,
+            6130,
+            21158
+          ],
+          "successes": [
+            20608,
+            5028,
+            20557
+          ],
+          "failures": [
+            572,
+            1102,
+            601
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 154026,
+          "seed": 101,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8151460623642248,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.488,
+            11.9328,
+            49.4856
+          ],
+          "total_mbps": 110.90639999999999,
+          "attempts": [
+            21189,
+            6055,
+            21200
+          ],
+          "successes": [
+            20620,
+            4972,
+            20619
+          ],
+          "failures": [
+            569,
+            1083,
+            581
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153992,
+          "seed": 202,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.813462301141011,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.5264,
+            11.6784,
+            49.4688
+          ],
+          "total_mbps": 110.67360000000001,
+          "attempts": [
+            21256,
+            5968,
+            21161
+          ],
+          "successes": [
+            20636,
+            4866,
+            20612
+          ],
+          "failures": [
+            620,
+            1102,
+            549
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153858,
+          "seed": 303,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8106728202777802,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.5264,
+            11.8608,
+            49.6584
+          ],
+          "total_mbps": 111.04560000000001,
+          "attempts": [
+            21222,
+            6025,
+            21251
+          ],
+          "successes": [
+            20636,
+            4942,
+            20691
+          ],
+          "failures": [
+            586,
+            1083,
+            560
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 154147,
+          "seed": 404,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8124074408933016,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.2816,
+            12.1032,
+            49.2816
+          ],
+          "total_mbps": 110.6664,
+          "attempts": [
+            21121,
+            6143,
+            21115
+          ],
+          "successes": [
+            20534,
+            5043,
+            20534
+          ],
+          "failures": [
+            587,
+            1100,
+            581
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153816,
+          "seed": 505,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8158436288968267,
+          "trace": null
+        }
+      ],
+      "total": {
+        "mean": 110.83104,
+        "ci95_halfwidth": 0.20083034470748398
+      },
+      "per_node": [
+        {
+          "mean": 49.45632,
+          "ci95_halfwidth": 0.12626173432821722
+        },
+        {
+          "mean": 11.92848,
+          "ci95_halfwidth": 0.21227513277143362
+        },
+        {
+          "mean": 49.446239999999996,
+          "ci95_halfwidth": 0.18222606012173012
+        }
+      ],
+      "fairness": {
+        "mean": 0.8135064507146289,
+        "ci95_halfwidth": 0.0025889484488895486
+      }
+    },
+    {
+      "left_interference": true,
+      "right_interference": false,
+      "params": {
+        "n": 3,
+        "rate": 455.8,
+        "hear": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ],
+        "interfere": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ]
+        ]
+      },
+      "runs": [
+        {
+          "mbps": [
+            48.5184,
+            14.364,
+            50.5728
+          ],
+          "total_mbps": 113.4552,
+          "attempts": [
+            20888,
+            6657,
+            21072
+          ],
+          "successes": [
+            20216,
+            5985,
+            21072
+          ],
+          "failures": [
+            672,
+            672,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153874,
+          "seed": 101,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8383589655793358,
+          "trace": null
+        },
+        {
+          "mbps": [
+            48.2952,
+            14.7576,
+            50.3952
+          ],
+          "total_mbps": 113.44800000000001,
+          "attempts": [
+            20773,
+            6799,
+            20998
+          ],
+          "successes": [
+            20123,
+            6149,
+            20998
+          ],
+          "failures": [
+            650,
+            650,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153606,
+          "seed": 202,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8428767953010077,
+          "trace": null
+        },
+        {
+          "mbps": [
+            48.1848,
+            14.7768,
+            50.3688
+          ],
+          "total_mbps": 113.3304,
+          "attempts": [
+            20705,
+            6785,
+            20987
+          ],
+          "successes": [
+            20077,
+            6157,
+            20987
+          ],
+          "failures": [
+            628,
+            628,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153665,
+          "seed": 303,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8432416324409764,
+          "trace": null
+        },
+        {
+          "mbps": [
+            48.2016,
+            14.7336,
+            50.5536
+          ],
+          "total_mbps": 113.4888,
+          "attempts": [
+            20742,
+            6797,
+            21064
+          ],
+          "successes": [
+            20084,
+            6139,
+            21064
+          ],
+          "failures": [
+            658,
+            658,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153957,
+          "seed": 404,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8424486325511843,
+          "trace": null
+        },
+        {
+          "mbps": [
+            48.2928,
+            14.8128,
+            50.4504
+          ],
+          "total_mbps": 113.556,
+          "attempts": [
+            20743,
+            6793,
+            21021
+          ],
+          "successes": [
+            20122,
+            6172,
+            21021
+          ],
+          "failures": [
+            621,
+            621,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153881,
+          "seed": 505,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8433279936580368,
+          "trace": null
+        }
+      ],
+      "total": {
+        "mean": 113.45568,
+        "ci95_halfwidth": 0.1018530249365918
+      },
+      "per_node": [
+        {
+          "mean": 48.29856,
+          "ci95_halfwidth": 0.16509541048134063
+        },
+        {
+          "mean": 14.68896,
+          "ci95_halfwidth": 0.2284082959822014
+        },
+        {
+          "mean": 50.468160000000005,
+          "ci95_halfwidth": 0.11407188167184099
+        }
+      ],
+      "fairness": {
+        "mean": 0.8420508039061082,
+        "ci95_halfwidth": 0.00259857210660877
+      }
+    },
+    {
+      "left_interference": false,
+      "right_interference": true,
+      "params": {
+        "n": 3,
+        "rate": 455.8,
+        "hear": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ],
+        "interfere": [
+          [
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ]
+      },
+      "runs": [
+        {
+          "mbps": [
+            50.58,
+            14.6064,
+            48.3456
+          ],
+          "total_mbps": 113.532,
+          "attempts": [
+            21075,
+            6730,
+            20788
+          ],
+          "successes": [
+            21075,
+            6086,
+            20144
+          ],
+          "failures": [
+            0,
+            644,
+            644
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 154019,
+          "seed": 101,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8409711341561878,
+          "trace": null
+        },
+        {
+          "mbps": [
+            50.3832,
+            14.7984,
+            48.1536
+          ],
+          "total_mbps": 113.3352,
+          "attempts": [
+            20993,
+            6813,
+            20711
+          ],
+          "successes": [
+            20993,
+            6166,
+            20064
+          ],
+          "failures": [
+            0,
+            647,
+            647
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153649,
+          "seed": 202,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8434652557002933,
+          "trace": null
+        },
+        {
+          "mbps": [
+            50.7048,
+            14.3784,
+            48.5712
+          ],
+          "total_mbps": 113.6544,
+          "attempts": [
+            21127,
+            6634,
+            20881
+          ],
+          "successes": [
+            21127,
+            5991,
+            20238
+          ],
+          "failures": [
+            0,
+            643,
+            643
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153922,
+          "seed": 303,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8382086137565931,
+          "trace": null
+        },
+        {
+          "mbps": [
+            50.6112,
+            14.6568,
+            48.3984
+          ],
+          "total_mbps": 113.6664,
+          "attempts": [
+            21088,
+            6737,
+            20796
+          ],
+          "successes": [
+            21088,
+            6107,
+            20166
+          ],
+          "failures": [
+            0,
+            630,
+            630
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153902,
+          "seed": 404,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8413593822896596,
+          "trace": null
+        },
+        {
+          "mbps": [
+            50.3568,
+            14.8488,
+            48.1248
+          ],
+          "total_mbps": 113.3304,
+          "attempts": [
+            20982,
+            6834,
+            20699
+          ],
+          "successes": [
+            20982,
+            6187,
+            20052
+          ],
+          "failures": [
+            0,
+            647,
+            647
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153678,
+          "seed": 505,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8440486243172078,
+          "trace": null
+        }
+      ],
+      "total": {
+        "mean": 113.50368,
+        "ci95_halfwidth": 0.20441105273002635
+      },
+      "per_node": [
+        {
+          "mean": 50.5272,
+          "ci95_halfwidth": 0.18744372909426388
+        },
+        {
+          "mean": 14.65776,
+          "ci95_halfwidth": 0.2297553803953561
+        },
+        {
+          "mean": 48.31872,
+          "ci95_halfwidth": 0.22868805583989707
+        }
+      ],
+      "fairness": {
+        "mean": 0.8416106020439883,
+        "ci95_halfwidth": 0.002873939061360583
+      }
+    },
+    {
+      "left_interference": false,
+      "right_interference": false,
+      "params": {
+        "n": 3,
+        "rate": 455.8,
+        "hear": [
+          [
+            false,
+            true,
+            false
+          ],
+          [
+            true,
+            false,
+            true
+          ],
+          [
+            false,
+            true,
+            false
+          ]
+        ],
+        "interfere": [
+          [
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ],
+          [
+            false,
+            false,
+            false
+          ]
+        ]
+      },
+      "runs": [
+        {
+          "mbps": [
+            49.9224,
+            17.604,
+            49.7448
+          ],
+          "total_mbps": 117.2712,
+          "attempts": [
+            20801,
+            7335,
+            20727
+          ],
+          "successes": [
+            20801,
+            7335,
+            20727
+          ],
+          "failures": [
+            0,
+            0,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153962,
+          "seed": 101,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8687598493640232,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.5456,
+            17.9136,
+            49.5528
+          ],
+          "total_mbps": 117.012,
+          "attempts": [
+            20644,
+            7464,
+            20647
+          ],
+          "successes": [
+            20644,
+            7464,
+            20647
+          ],
+          "failures": [
+            0,
+            0,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153744,
+          "seed": 202,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8724547548622696,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.6176,
+            17.7624,
+            49.6392
+          ],
+          "total_mbps": 117.01920000000001,
+          "attempts": [
+            20674,
+            7401,
+            20683
+          ],
+          "successes": [
+            20674,
+            7401,
+            20683
+          ],
+          "failures": [
+            0,
+            0,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153872,
+          "seed": 303,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8708448346769494,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.6488,
+            17.8968,
+            49.6152
+          ],
+          "total_mbps": 117.1608,
+          "attempts": [
+            20687,
+            7457,
+            20673
+          ],
+          "successes": [
+            20687,
+            7457,
+            20673
+          ],
+          "failures": [
+            0,
+            0,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153710,
+          "seed": 404,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8720373386364514,
+          "trace": null
+        },
+        {
+          "mbps": [
+            49.4664,
+            18.036,
+            49.4592
+          ],
+          "total_mbps": 116.9616,
+          "attempts": [
+            20611,
+            7515,
+            20608
+          ],
+          "successes": [
+            20611,
+            7515,
+            20608
+          ],
+          "failures": [
+            0,
+            0,
+            0
+          ],
+          "drops": [
+            0,
+            0,
+            0
+          ],
+          "events": 153492,
+          "seed": 505,
+          "duration_us": 5000000.0,
+          "warmup_us": 500000.0,
+          "data_time_us": 40.45388328214129,
+          "fairness": 0.8738262980224804,
+          "trace": null
+        }
+      ],
+      "total": {
+        "mean": 117.08496,
+        "ci95_halfwidth": 0.158649328810953
+      },
+      "per_node": [
+        {
+          "mean": 49.64016,
+          "ci95_halfwidth": 0.21450365671714125
+        },
+        {
+          "mean": 17.84256,
+          "ci95_halfwidth": 0.20472794572530473
+        },
+        {
+          "mean": 49.60224,
+          "ci95_halfwidth": 0.1313497885858249
+        }
+      ],
+      "fairness": {
+        "mean": 0.8715846151124348,
+        "ci95_halfwidth": 0.0023651842028498756
+      }
+    }
+  ],
+  "short_trace_validation": [
+    {
+      "topology": "11",
+      "status": "PASS",
+      "checks": 7428,
+      "errors": [],
+      "error_count": 0,
+      "packets": 1061
+    },
+    {
+      "topology": "10",
+      "status": "PASS",
+      "checks": 7442,
+      "errors": [],
+      "error_count": 0,
+      "packets": 1063
+    },
+    {
+      "topology": "01",
+      "status": "PASS",
+      "checks": 7421,
+      "errors": [],
+      "error_count": 0,
+      "packets": 1060
+    },
+    {
+      "topology": "00",
+      "status": "PASS",
+      "checks": 7498,
+      "errors": [],
+      "error_count": 0,
+      "packets": 1071
+    }
+  ],
+  "symmetry": {
+    "structural_relabeling": "PASS",
+    "total_mean_difference": -0.04800000000000182,
+    "total_sum_of_ci_halfwidths": 0.3062640776666182,
+    "reversed_node_mean_differences": [
+      -0.02015999999999707,
+      0.031200000000000117,
+      -0.059039999999995985
+    ],
+    "scope": "finite sample comparison, not equality of random trajectories; CI overlap is diagnostic only"
+  },
+  "q2_formula": {
+    "tau": 0.11764705882352941,
+    "idle_probability": 0.7785467128027681,
+    "author_q2_numerator_2tau1minus_tau_mbps": 62.257467923298265,
+    "corrected_independence_reward_mbps": 70.5584636464047,
+    "residual_chain_mbps": 68.94874821624553,
+    "omitted_expected_packets_per_virtual_slot": 0.02768166089965398
+  },
+  "appendix_overlap_probes": [
+    {
+      "local": [
+        10,
+        20
+      ],
+      "interferer": [
+        20,
+        30
+      ],
+      "author_branch": true,
+      "positive_overlap": false
+    },
+    {
+      "local": [
+        10,
+        20
+      ],
+      "interferer": [
+        5,
+        25
+      ],
+      "author_branch": false,
+      "positive_overlap": true
+    },
+    {
+      "local": [
+        10,
+        20
+      ],
+      "interferer": [
+        15,
+        25
+      ],
+      "author_branch": true,
+      "positive_overlap": true
+    },
+    {
+      "local": [
+        10,
+        20
+      ],
+      "interferer": [
+        0,
+        10
+      ],
+      "author_branch": true,
+      "positive_overlap": false
+    }
+  ],
+  "appendix_unhold_probe": {
+    "author_unhold_after_first_neighbor_end": "BACK_OFF",
+    "remaining_busy_neighbors": [
+      2
+    ],
+    "required_state_with_all_neighbor_sensing": "HOLD",
+    "scope": "constructed local state; not author trajectory reachability proof"
+  },
+  "source_sha256": {
+    "wlan.py": "f881e1f42072f5c8d427298664a9735508dfb7f57d927ab766795b79c6b4a42a",
+    "check_trace.py": "b935a069c4b01c9d7f7bf8593ca24fcddf32f13d2b4c834397422f6fcab54e4f",
+    "analytic.py": "22e91315dfc6fcafad8fa48a096270fe4100bdba0b0f3558d4ceac1a0a9dc96d",
+    "run_checks.py": "c573466cf48a5cd03bea56339a40884eaa1906dceff1b51f69a8e974f6f78ef2"
+  }
+}

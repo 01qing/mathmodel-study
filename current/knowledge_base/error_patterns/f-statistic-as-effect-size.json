@@ -1,0 +1,6 @@
+{
+  "id": "f-statistic-as-effect-size",
+  "trigger": "F statistics from separate ANOVA models are directly ranked as “influence strength/effect size”.",
+  "risk": "F depends on residual variance, df, sample size and model specification; rankings across different models/factors can be misleading.",
+  "gate": "Report an actual effect size (partial eta-squared/omega-squared/standardized contrast) with CI under one coherent adjusted model; use F primarily for hypothesis testing."
+}

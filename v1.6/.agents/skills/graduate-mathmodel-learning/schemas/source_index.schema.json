@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_index.schema.json",
+  "title": "Learning Source Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.4"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "$ref": "source_record.schema.json"
+      }
+    }
+  },
+  "additionalProperties": false
+}

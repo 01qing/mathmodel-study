@@ -1,0 +1,98 @@
+{
+  "scope": "LOCAL_ARITHMETIC_AND_SYNTHETIC_AUDIT_ONLY",
+  "timestamp_utc": "2026-09-17T07:39:28.297374+00:00",
+  "script_sha256": "e0f7b7dc4ab338b31b44af54d81318a901c67f449b2f159e6166c289c0cac663",
+  "source_pdf_sha256": "01a6fe09f175de99159d78bdf8aa5997bc4564d85ae7f931f5715df5f2603db4",
+  "checks": [
+    {
+      "id": "original_count_closure",
+      "passed": true,
+      "scope": "table p35 arithmetic"
+    },
+    {
+      "id": "sample_count_closure",
+      "passed": true,
+      "scope": "table p35 arithmetic"
+    },
+    {
+      "id": "sampling_changes_prevalence",
+      "passed": true,
+      "scope": "detect changed statistical population"
+    },
+    {
+      "id": "detect_composition_nonclosure_1990",
+      "passed": true,
+      "scope": "detect author contradiction, not endorse result"
+    },
+    {
+      "id": "detect_composition_nonclosure_2019",
+      "passed": true,
+      "scope": "detect author contradiction, not endorse result"
+    },
+    {
+      "id": "detect_sum_variance_mismatch",
+      "passed": true,
+      "scope": "table versus code identity"
+    },
+    {
+      "id": "missing_square_counterexample",
+      "passed": true,
+      "scope": "synthetic formula witness, not author execution"
+    },
+    {
+      "id": "logvariance_direction",
+      "passed": true,
+      "scope": "coefficient sign witness; arrow semantic issue"
+    },
+    {
+      "id": "median_not_necessary_threshold",
+      "passed": true,
+      "scope": "table p39 falsifies all-cases-above-median interpretation"
+    },
+    {
+      "id": "svm_matrix_count",
+      "passed": true,
+      "scope": "printed matrix sample count"
+    },
+    {
+      "id": "svm_hard_auc_identity",
+      "passed": true,
+      "scope": "single operating-point interpolation"
+    },
+    {
+      "id": "svm_minority_weakness",
+      "passed": true,
+      "scope": "accuracy can obscure low minority recall"
+    },
+    {
+      "id": "rf_matrix_count",
+      "passed": true,
+      "scope": "printed matrix sample count"
+    },
+    {
+      "id": "rf_hard_auc_identity",
+      "passed": true,
+      "scope": "single operating-point interpolation"
+    },
+    {
+      "id": "rf_not_perfect",
+      "passed": true,
+      "scope": "retain one error despite displayed rounding"
+    },
+    {
+      "id": "auc_one_not_every_threshold",
+      "passed": true,
+      "scope": "synthetic counterexample, not paper predictions"
+    },
+    {
+      "id": "regional_sign_contract",
+      "passed": true,
+      "scope": "table/summary sign replay"
+    }
+  ],
+  "passed": 17,
+  "total": 17,
+  "author_end_to_end_reproduction": "NOT_RUN",
+  "core_gain": "NOT_ESTABLISHED",
+  "history_note": "Synthetic fault witnesses are not claimed as historical first failed runs."
+}

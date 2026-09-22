@@ -1,0 +1,239 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "thin-structure fracture segmentation/detection under structured texture artifacts, with a label-budget deployment tradeoff",
+      "input_target_constraints": {
+        "input": "original unfolded borehole images; optional pixel/box labels",
+        "decision": "same-size fracture mask/edge map",
+        "objective": "recover true fractures while controlling texture/drilling/mud false positives",
+        "independent_evaluation_unit": "original image/borehole-depth segment",
+        "hard_constraints": [
+          "split original images/boreholes before augmentation",
+          "do not rank methods only by visual examples",
+          "separate predictive quality from annotation/runtime deployment cost"
+        ]
+      },
+      "baseline": {
+        "name": "Canny/ridge filter + morphology/connected-component cleanup",
+        "six_hour_plan": [
+          "correct illumination and denoise",
+          "run Canny/line-ridge baseline with directional and component filters",
+          "hand-audit a small labeled subset or use available masks for IoU/F1",
+          "if labels are sufficient, add a compact U-Net baseline and compare on held-out images"
+        ],
+        "why": "no training and strong interpretability; directly tests whether labels/deep models are actually necessary"
+      },
+      "author_route": {
+        "method": "multi-feature K-Means, direction-enhanced Canny and YOLOv8 comparison; final practical recommendation is Canny + post-processing",
+        "why_fit": [
+          "Canny is cheap and interpretable under limited annotation budget",
+          "YOLOv8 can learn complex appearance if high-quality labels exist",
+          "multi-feature classical cues can suppress texture"
+        ],
+        "evidence_boundary": "YOLOv8 is described as visually better in the body but no quantitative held-out metric is reported; appendix only shows a Canny fragment."
+      },
+      "major_alternatives": [
+        {
+          "model": "compact U-Net/Dice+BCE",
+          "why_can_work": "pixel output matches task better than box-only detection",
+          "when_prefer": "enough independent pixel masks and stable held-out IoU/F1 gain"
+        },
+        {
+          "model": "SegFormer-small/DeepLabV3+",
+          "why_can_work": "multi-scale context under texture noise",
+          "when_prefer": "larger independent labeled set and compute budget"
+        },
+        {
+          "model": "YOLO segmentation rather than box detection",
+          "why_can_work": "learned object-level cues plus mask output",
+          "when_prefer": "annotation budget supports masks and classical false positives remain high"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "YOLOv8 by default",
+          "why_not_now": "no quantitative independent comparison and labeling cost is the paper's own reason for rejecting it"
+        },
+        {
+          "model": "random pixel/patch split",
+          "why_not_now": "leaks borehole texture and acquisition identity"
+        }
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "instance grouping followed by constrained nonlinear geometric fitting of a periodic trace",
+      "input_target_constraints": {
+        "input": "Q1 fracture mask/centerline coordinates",
+        "decision": "fracture instances and R,beta,C with known/fixed P where geometry permits",
+        "objective": "low robust residual with physically plausible parameters",
+        "independent_evaluation_unit": "one fracture trace/image",
+        "hard_constraints": [
+          "period semantics fixed-vs-estimated must be explicit",
+          "cluster count must match actual instances or be model-selected",
+          "phase/amplitude canonicalization and reject state required"
+        ]
+      },
+      "baseline": {
+        "name": "connected components/topology merge + bounded robust fixed-period least_squares",
+        "six_hour_plan": [
+          "merge fragments by endpoint distance and tangent orientation",
+          "fix P=pi*D if borehole circumference is known",
+          "multi-start bounded least_squares/Huber or RANSAC+refit",
+          "report R2, residual plots and rejected fits"
+        ],
+        "why": "directly solves the four-parameter geometry with far fewer degrees of freedom than a pseudo-neural optimizer"
+      },
+      "author_route": {
+        "method": "GMM grouping + gradient-descent/Newton hybrid vs no-hidden-layer linear neural parameterization optimized with Adam",
+        "why_fit": [
+          "GMM can offer soft clusters",
+          "Newton-like local refinement can be fast near optimum",
+          "Adam can optimize differentiable sine parameters"
+        ],
+        "evidence_boundary": "printed appendix shows only GMM clustering; no GD/Newton or neural fitting code. R2 is evaluated on the same fitted traces and does not demonstrate cross-fracture generalization."
+      },
+      "major_alternatives": [
+        {
+          "model": "DBSCAN/HDBSCAN on spatial+tangent features",
+          "why_can_work": "unknown instance count and non-Gaussian curve-shaped clusters",
+          "when_prefer": "fragment count varies and curves are elongated/non-Gaussian"
+        },
+        {
+          "model": "RANSAC/Huber robust sine fit",
+          "why_can_work": "handles contamination/outlier pixels",
+          "when_prefer": "edge masks contain mud/branch noise"
+        },
+        {
+          "model": "GMM",
+          "why_can_work": "soft assignment with roughly elliptical feature clusters",
+          "when_prefer": "cluster count can be selected by BIC and feature geometry is compatible"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "per-fracture no-hidden-layer 'neural network' as learned regressor",
+          "why_not_now": "same-instance residual optimization does not create demonstrated transferable supervised learning and adds non-identifiable W,b around a single output vector"
+        }
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "roughness estimation from an ordered physical profile under sampling-scale sensitivity",
+      "input_target_constraints": {
+        "input": "one fracture centerline/profile in physical coordinates",
+        "decision": "raw roughness statistic and JRC under a canonical formula",
+        "objective": "stable roughness estimate with sensitivity and calibration provenance",
+        "independent_evaluation_unit": "one physical fracture profile",
+        "hard_constraints": [
+          "profile must be ordered/single-valued for dy/dx-type estimator",
+          "one canonical JRC formula per registry",
+          "adaptive/Z3/area correction needs calibration evidence"
+        ]
+      },
+      "baseline": {
+        "name": "physical centerline + equal-arc-length sampling + official Z2/JRC + density sensitivity",
+        "six_hour_plan": [
+          "extract ordered centerline rather than closed outer contour",
+          "convert x,y to consistent physical units",
+          "compute raw Z2/JRC across several sampling densities",
+          "report sensitivity and rejected/non-function profiles"
+        ],
+        "why": "transparent and exposes sampling dependence before adding an unvalidated second-derivative model"
+      },
+      "author_route": {
+        "method": "equal-spacing and curvature/compactness adaptive sampling plus second-derivative Z3 JRC improvement",
+        "why_fit": [
+          "curvature-aware sampling targets local geometry",
+          "second derivative is sensitive to local bending"
+        ],
+        "evidence_boundary": "appendix implements neither adaptive sampling nor Z3/area correction; body switches JRC formulas and the claimed area correction is absent from the displayed improved equation."
+      },
+      "major_alternatives": [
+        {
+          "model": "spline-smoothed centerline + multi-scale derivative roughness",
+          "why_can_work": "controls noise amplification of derivatives",
+          "when_prefer": "raw pixel profile is jagged/noisy"
+        },
+        {
+          "model": "wavelet/multiscale roughness descriptor",
+          "why_can_work": "separates roughness scales",
+          "when_prefer": "scale dependence is central and enough profiles exist for calibration"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "arbitrary closed contour slope RMS",
+          "why_not_now": "closed boundary can double back in x and violates single-valued profile assumptions"
+        },
+        {
+          "model": "new Z3 coefficients without held-out calibration",
+          "why_not_now": "coefficients have no demonstrated provenance/generalization"
+        }
+      ]
+    },
+    "Q4": {
+      "problem_type_and_essence": "3D geometry inference plus uncertain connectivity scoring and active measurement placement",
+      "input_target_constraints": {
+        "input": "attachment-derived borehole coordinates, fracture-plane parameters, roughness and upstream uncertainties",
+        "decision": "connectivity score/probability, uncertainty map, three feasible new boreholes",
+        "objective": "reduce expected posterior uncertainty subject to geometry/engineering constraints",
+        "independent_evaluation_unit": "fracture pair/network and candidate drilling site",
+        "hard_constraints": [
+          "use real/declared scenario inputs with provenance",
+          "uncalibrated weighted score is not probability",
+          "minimum spacing >=500 mm",
+          "information gain requires posterior-update model"
+        ]
+      },
+      "baseline": {
+        "name": "geometry compatibility + bootstrap/Monte-Carlo uncertainty + feasible-grid expected information gain",
+        "six_hour_plan": [
+          "reconstruct planes from fixed-period fits",
+          "compute transparent distance/orientation/depth compatibility and weight sensitivity",
+          "propagate Q1-Q3 uncertainty by resampling",
+          "generate only >=500 mm feasible candidates",
+          "simulate/approximate observation outcomes and rank by expected entropy reduction"
+        ],
+        "why": "keeps uncertainty semantics and hard constraints explicit"
+      },
+      "author_route": {
+        "method": "weighted distance/orientation/JRC/depth score -> sigmoid 'probability'; voxel entropy; local-entropy 'information gain' drilling recommendation",
+        "why_fit": [
+          "simple multi-factor fusion is easy to interpret",
+          "uncertainty hotspots are useful for active sampling"
+        ],
+        "evidence_boundary": "Q4 uses simulated/common-sense fracture inputs, binary entropy is incomplete, local prior entropy is not information gain, and one final recommended hole violates the stated 500 mm spacing."
+      },
+      "major_alternatives": [
+        {
+          "model": "Bayesian/logistic connectivity model",
+          "why_can_work": "can produce calibrated probabilities if labeled/physics-simulation connectivity examples exist",
+          "when_prefer": "calibration data available"
+        },
+        {
+          "model": "robust MCDA score",
+          "why_can_work": "honest when probability labels are unavailable",
+          "when_prefer": "only expert/geometry criteria exist; report weight sensitivity"
+        },
+        {
+          "model": "Gaussian-process/ensemble uncertainty for active sampling",
+          "why_can_work": "supports posterior variance reduction",
+          "when_prefer": "spatial field representation and observation model are available"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "mean current entropy called information gain",
+          "why_not_now": "does not model what a new observation will reveal or the posterior after observing it"
+        },
+        {
+          "model": "unconstrained top-k hotspot selection",
+          "why_not_now": "can violate minimum spacing or cluster candidates"
+        }
+      ]
+    }
+  }
+}

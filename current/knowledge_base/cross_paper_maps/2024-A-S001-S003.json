@@ -1,0 +1,44 @@
+{
+  "case_group": "2024-A",
+  "papers": [
+    "S001",
+    "S002",
+    "S003"
+  ],
+  "purpose": "same-problem method competition plus paper-code consistency learning",
+  "questions": {
+    "Q1": {
+      "S001": "stateful online/streaming fatigue emphasis",
+      "S002": "TW-Rainflow-Goodman-Miner window approximation",
+      "S003": "adaptive three-stage sliding-window narrative, but printed code is fixed-window diff",
+      "selection_rule": "Use exact batch rainflow as gold standard; prefer an explicitly stateful online algorithm or a window approximation only after nonnegative increment/boundary-cycle tests and runtime-fidelity benchmarking."
+    },
+    "Q2": {
+      "S001": "low-parameter physics + causal regression",
+      "S002": "physics features + BiLSTM vs Nelder-Mead",
+      "S003": "segmented high-order physics-inspired nonlinear regression + random search",
+      "selection_rule": "Start with unit-consistent low-parameter physics/residual models; upgrade complexity only if chronological/group holdout demonstrates gain. Do not mix standardized variables directly with raw-unit physical equations."
+    },
+    "Q3": {
+      "S001": "DDPG policy + safety layer",
+      "S002": "NSGA-II explicit Pareto solver",
+      "S003": "Pareto/regional/MPC narrative + SLSQP, but printed code collapses to static per-second optimization",
+      "selection_rule": "Use an explicit solver as interpretable benchmark. Call a method MPC only when horizon, dynamics/forecast, rolling execution and cross-time constraints are all implemented; call a method Pareto only when a front and operating-point rule are actually produced."
+    },
+    "Q4": {
+      "S001": "prediction/robust optimization route",
+      "S002": "SVD denoise + phase delay + spline reconstruction",
+      "S003": "Kalman + delay compensation + robust MPC/PSO narrative",
+      "selection_rule": "Separate corruption identification, preprocessing/state estimation, and downstream optimization. Validate each stage independently and sweep noise/delay severity."
+    }
+  },
+  "new_consistency_checks": [
+    "summary vs body method name",
+    "body vs appendix parameter count",
+    "physical units vs scaling",
+    "named algorithm vs executable call graph",
+    "inequality sign convention",
+    "figure evidence for Pareto/robustness claims"
+  ],
+  "figure_design_lesson": "S003 has 42 captioned figures but no actual numbered Pareto-front figure despite Pareto being central; figure count is secondary to whether each central claim has direct evidence."
+}

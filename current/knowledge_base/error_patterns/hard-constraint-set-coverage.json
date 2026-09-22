@@ -1,0 +1,5 @@
+{
+  "id": "HARD_CONSTRAINT_SET_COVERAGE",
+  "scope": "generic",
+  "rule": "Hard pairwise constraints must enumerate every interacting set. For adding new facilities/measurements, distinguish new-new constraints from existing-new constraints and replay both when the physical rule applies to all sites."
+}

@@ -1,0 +1,101 @@
+{
+  "scope": "KNOWN_DEFECT_REGRESSION_AND_METADATA_TESTS",
+  "checks": [
+    {
+      "test": "legitimate_unlabeled_target_adaptation_allowed",
+      "pass": true,
+      "errors": []
+    },
+    {
+      "test": "same_acquisition_across_split_blocked",
+      "pass": true,
+      "errors": [
+        "GROUP_CROSSES_SPLITS:file-a"
+      ]
+    },
+    {
+      "test": "test_fitted_PCA_or_scaler_blocked",
+      "pass": true,
+      "errors": [
+        "FIT_BOUNDARY:scaler:te-a"
+      ]
+    },
+    {
+      "test": "pseudo_label_accuracy_blocked",
+      "pass": true,
+      "errors": [
+        "METRIC_TRUTH_MISSING",
+        "TARGET_TRUTH_MISSING",
+        "UNSUPPORTED_ACCURACY:target"
+      ]
+    },
+    {
+      "test": "unknown_sampling_rate_blocked",
+      "pass": true,
+      "errors": [
+        "UNKNOWN_SAMPLING_RATE:tr-a"
+      ]
+    },
+    {
+      "test": "target_labels_for_unsupervised_adaptation_blocked",
+      "pass": true,
+      "errors": [
+        "FIT_BOUNDARY:adapt:target"
+      ]
+    },
+    {
+      "test": "missing_target_predictions_blocked",
+      "pass": true,
+      "errors": [
+        "TARGET_OUTPUT_COVERAGE"
+      ]
+    },
+    {
+      "test": "missing_test_class_blocked",
+      "pass": true,
+      "errors": [
+        "CLASS_COVERAGE:test"
+      ]
+    },
+    {
+      "test": "missing_record_field_blocked",
+      "pass": true,
+      "errors": [
+        "MISSING_FIELD:metrics"
+      ]
+    },
+    {
+      "test": "metric_on_wrong_population_blocked",
+      "pass": true,
+      "errors": [
+        "METRIC_POPULATION_MISMATCH",
+        "METRIC_TRUTH_MISSING"
+      ]
+    },
+    {
+      "test": "real_main8_sampling_fallback_case_bug",
+      "pass": true,
+      "observed": 12000,
+      "expected": 48000
+    },
+    {
+      "test": "real_solve4_mahalanobis_nonnegative_invariant",
+      "pass": true,
+      "reference_squared_distance": -0.07142857142857145,
+      "correct_squared_distance": 1.6428571428571428
+    },
+    {
+      "test": "S040_table_6_2_mean_recomputed",
+      "pass": true,
+      "computed_mean": 0.9246875,
+      "prose_mean": 0.992,
+      "scope": "Equal-file arithmetic mean of visually verified PDF pages 37-38; alternative weighting unspecified"
+    }
+  ],
+  "count": 13,
+  "not_proven": [
+    "Independent skill effectiveness",
+    "Real target accuracy",
+    "Full third-party pipeline reproducibility"
+  ]
+}

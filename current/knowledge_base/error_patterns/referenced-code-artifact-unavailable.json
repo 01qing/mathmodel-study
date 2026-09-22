@@ -1,0 +1,5 @@
+{
+  "id": "REFERENCED_CODE_ARTIFACT_UNAVAILABLE",
+  "scope": "generic",
+  "rule": "A paper saying 'code is in attachment/supplement' does not justify static code audit if that artifact is not actually available. Keep reproduction at R1 until the code text/files can be inspected."
+}

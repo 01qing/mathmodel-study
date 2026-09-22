@@ -1,0 +1,23 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "artifact_type": "CODE_ACCESS_AUDIT",
+  "status": "CODE_REFERENCED_BUT_NOT_AVAILABLE",
+  "paper_evidence": "Appendix A p71 says the attachment contains all Q1-Q3 code; the PDF itself contains no printed source listing.",
+  "available_collection_audit": "In the available 2025 excellent-paper ZIP, 2025-F is represented by four PDF papers; no author .py/.ipynb/.zip attachment associated with S043 is available.",
+  "consequence": {
+    "reproduction_level": "R1",
+    "reason": "R2 requires printed/attached source-code static audit; algorithm prose, formulas and pseudocode are not a substitute."
+  },
+  "contracts_still_audited_from_paper": [
+    "Q1 walkable-path extraction, fan visibility, Jaccard scene change and weighted-sum genetic route optimization",
+    "Q2 theme entropy/harmony/complexity, openness-rhythm model, Jichang-anchored score and adjustment factors",
+    "Q3 20D descriptor, cosine/Jaccard/weighted-Euclidean fusion, Ward clustering/CV commonality and extended fuzzy aesthetics"
+  ],
+  "do_not_claim": [
+    "implementation fidelity",
+    "code-paper correspondence",
+    "R2/R3",
+    "author runtime reproduction"
+  ]
+}

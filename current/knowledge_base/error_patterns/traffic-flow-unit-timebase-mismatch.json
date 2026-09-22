@@ -1,0 +1,15 @@
+{
+  "pattern": "traffic-flow-unit-timebase-mismatch",
+  "description": "Traffic flow, density and speed use incompatible time units in the same conservation/fundamental-diagram equation.",
+  "detection": [
+    "q declared veh/min",
+    "rho declared veh/km",
+    "u declared km/h",
+    "equation uses q=rho*u without explicit conversion"
+  ],
+  "remedy": [
+    "store q/rho/u units in one registry",
+    "convert speed to km/min or flow to veh/h before algebra",
+    "unit-test representative rows before fitting/thresholding"
+  ]
+}

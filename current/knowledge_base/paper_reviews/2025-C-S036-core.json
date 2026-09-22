@@ -1,0 +1,63 @@
+{
+  "paper_id": "S036",
+  "case_group": "2025-C",
+  "year": 2025,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 76,
+  "title": "基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_76_PAGE_VISUAL_AUDIT; NOTEBOOKS/SCRIPTS_REFERENCED_BUT_SOURCE_FILES_ABSENT",
+  "visual_status": "ORIGINAL 76-PAGE PDF ALL-PAGE VISUAL AUDIT; recovered mega-sheet evidence retained",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1 original borehole image/source; Q2 fracture instance; Q3 standard/profile case; Q4 fracture-pair edge registry / connected component / candidate borehole",
+    "input_structure": "10 project borehole images, 117 external labeled images, periodic fracture masks, Barton standard profiles, six borehole spatial data",
+    "validation_priority": "Q1 split original project images before any augmentation/ConcatDataset; Q2 fixed geometry and residual/reject; Q3 predeclare primary metric when metrics conflict; Q4 build components only from thresholded edge registry and distinguish heuristic score from calibrated probability/EIG",
+    "author_evaluation_scope": "project/external image segmentation comparison, periodic fit results, Barton-profile sampling metrics, heuristic 3D connectivity/uncertainty/drilling results; source notebooks/scripts are referenced but not available"
+  },
+  "questions": {
+    "Q1": "traditional segmentation vs transfer-learned DeepLabV3+ with 117 external labeled images and manually labeled project images",
+    "Q2": "DBSCAN fragments + largest-fragment seed + fixed 94.25 mm sinusoid model + model-driven merge/refit",
+    "Q3": "baseline-normal profile extraction + JRC, compare equal/adaptive/keypoint sampling on Barton standard profiles",
+    "Q4": "3D plane geometry + weighted space/orientation/JRC similarity, threshold graph, uncertainty hotspots and three-hole sequential recommendation"
+  },
+  "reproduction": {
+    "level": "R1",
+    "evidence": [
+      "76/76 full-text and original-PDF visual review",
+      "formulas/tables/result surfaces audited"
+    ],
+    "not_achieved": [
+      "R2: paper references notebooks/scripts but actual source files are unavailable in current PDF-only collection",
+      "R3-R7: no executable author code/data chain"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q2 enforces P=94.25 mm and uses model-driven fragment merging",
+    "Q3 evaluates sampling methods against Barton standard profiles rather than only dense self-reference",
+    "Q4 provides explicit edge score decomposition and threshold sensitivity"
+  ],
+  "key_risks": [
+    "Q1 states all project images are integrated with the external set for training, then evaluates all 10 project images; without an untouched project split the 0.8435/0.9356/0.8779 metrics are not independent test evidence",
+    "Q3 keypoint sampling wins R2/RMSE but has 10 ±5% outliers, worse than equal sampling 8 and adaptive 9; \"best\" depends on predeclared metric utility",
+    "Q4 weighted similarity in [0,1] is called connectivity probability without calibration",
+    "Q4 says only one edge exceeds >0.5 but later claims a large connected component spanning holes 3,6,2,5; one undirected edge cannot generate a four-hole component",
+    "Q4 uncertainty/information-gain language lacks a visible likelihood/posterior update contract"
+  ],
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S036.json",
+  "result_registry_ref": "knowledge_base/result_registry/S036.json",
+  "code_access_ref": "knowledge_base/code_cases/2025-C-S036-code-access.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-C-S036-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S036.json",
+  "recommended_redo": [
+    "Q1 freeze original-image/borehole/source holdout before augmentation; compare classical vs compact pretrained segmentation on untouched project images",
+    "Q2 use DBSCAN/topology fragments + fixed-frequency linear/robust model merge and explicit reject",
+    "Q3 predeclare primary metric or Pareto selection among RMSE/R2/tail outliers; report all without calling a metric-conflicting winner universally best",
+    "Q4 generate a machine-readable thresholded edge registry, replay components/paths automatically, label weighted fusion compatibility score unless calibrated, and use true EIG only after observation-model/posterior machinery exists"
+  ]
+}

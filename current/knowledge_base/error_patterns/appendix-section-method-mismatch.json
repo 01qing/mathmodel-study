@@ -1,0 +1,14 @@
+{
+  "pattern": "appendix-section-method-mismatch",
+  "description": "Appendix code under a question/section does not implement the method claimed for that question.",
+  "detection": [
+    "section heading and code family are unrelated",
+    "key declared algorithm has no corresponding execution path",
+    "code can run but answers another subproblem"
+  ],
+  "remedy": [
+    "map every subsection claim to file/function/call site",
+    "label unrelated utilities as supplemental only",
+    "downgrade reproduction evidence when the declared path is absent"
+  ]
+}

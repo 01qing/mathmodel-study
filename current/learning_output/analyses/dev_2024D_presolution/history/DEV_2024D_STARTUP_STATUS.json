@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-09-11T10:29:19.400812+08:00",
+  "project": "MathModel-Core",
+  "stable_baseline": "1.38.0 SEALED",
+  "baseline_zip_sha256": "b887893513205db26f22cceccce7e998d86a2b1997066d282b1fc19c4f3f3d1a",
+  "worktree": "v1.39-work",
+  "phase": "PRE_SOLUTION",
+  "status": "AWAITING_OFFICIAL_INPUTS_AND_EXPOSURE_PROVENANCE",
+  "core_rules_modified": false,
+  "original_core_files_verified": 1470,
+  "train_reviewed": "32/32",
+  "independent_solution_frozen": false,
+  "missing_inputs": [
+    "2024-D official problem statement",
+    "2024-D complete official attachments/data; exact inventory cannot be established until statement is supplied"
+  ],
+  "metadata_conflict": {
+    "papers": [
+      "S013",
+      "S014",
+      "S015",
+      "S016"
+    ],
+    "reviewed_pages": [],
+    "handoff_claim": "unread, pristine",
+    "legacy_prior_exposure": "Some excerpts of this collection were read before split; not a clean blind holdout",
+    "interpretation": "collection-wide boilerplate; does not identify exposed paper/page. Historical clean status UNKNOWN, not confirmed contaminated.",
+    "resolution": "Use prior exposure/access logs only; never inspect held-out answers to resolve this."
+  },
+  "current_session_protected_answer_read": false,
+  "test_answer_read": false,
+  "prior_conversation_fetch": "read_thread attempted but did not return; cancelled read-only request. Local verified handoff used.",
+  "verification_scope": "ZIP hash/CRC/entry count, handoff-file equality, metadata counts and frozen-copy hashes only; historical 127/127 etc remain inherited release evidence, not rerun here.",
+  "next_step": "User supplies official statement and complete data; resolve/label historical exposure status without opening solutions; keep all outputs separate from frozen Core."
+}

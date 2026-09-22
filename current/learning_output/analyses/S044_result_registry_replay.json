@@ -1,0 +1,48 @@
+{
+  "paper_id": "S044",
+  "status": "PASS_AUDIT_REPLAY_WITH_IDENTIFIED_FAILURES",
+  "checks": {
+    "source_sha256_matches_registry": true,
+    "Q2_table13_component_sum_exact_all_10": true,
+    "Q2_table13_component_sums": {
+      "寄畅园": 100.0,
+      "拙政园": 96.5,
+      "留园": 92.3,
+      "绮园": 89.1,
+      "瞻园": 85.7,
+      "豫园": 82.4,
+      "耦园": 80.2,
+      "秋霞圃": 78.9,
+      "沈园": 75.6,
+      "怡园": 73.2
+    },
+    "Q2_kappa_reported": 0.833,
+    "Q2_kappa_criterion_strict_gt": 0.833,
+    "Q2_kappa_strict_pass": false,
+    "Q3_prose_pvalues": {
+      "Pearson": 0.012,
+      "Spearman": 0.018
+    },
+    "Q3_table17_pvalues": {
+      "Pearson": 0.018,
+      "Spearman": 0.012
+    },
+    "Q3_pvalue_labels_swapped": true,
+    "Q3_table19_cv_metrics": {
+      "mse": 30.0,
+      "mae": 4.5,
+      "r2": 0.78
+    },
+    "Q3_printed_code_cv_constants": {
+      "mse": 30.0,
+      "mae": 4.5,
+      "r2": 0.78
+    },
+    "Q3_table19_equals_code_constants": true,
+    "Q3_printed_r2_clamp": [
+      0.75,
+      0.95
+    ]
+  },
+  "scope": "replays visible arithmetic/cross-surface/code constants only; it does not reproduce author model execution or validate aesthetic truth"
+}

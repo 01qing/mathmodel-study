@@ -1,0 +1,41 @@
+{
+  "version": "1.41.0",
+  "status": "SEALED",
+  "artifact": "Graduate-MathModel-Learning-Skill-v1.41.zip",
+  "sha256": "191c4dad37c811049516c66862bd2d45d1364784ff277ec73e5667d07cb64d6f",
+  "bytes": 206263605,
+  "zip_entries": 2341,
+  "zip_test": "PASS",
+  "internal_version": "1.41.0",
+  "internal_manifest_status": "SEALED",
+  "internal_hash_list_sha256": "d8f60d6020c24870269a80d52cd46affc7cb1f6471d2393bedf843a96de2bd8f",
+  "previous_stable": "v1.40.0 SEALED",
+  "previous_sha256": "beaa23ed9210be9c3075e13b84732598a27c25ed0f58ff0759e5b68f74da470c",
+  "scope": "2024-D Dev S013-S016 full case-group closure after frozen independent solution",
+  "validation": {
+    "specialist": "38/38 PASS",
+    "release_contract": "87/87 PASS",
+    "mini_transfer": "6/6 PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+    "library": "45 papers / 6752 chunks / 32 Train / 7 Dev / 6 Test PASS",
+    "workspace": "PASS after preserved wrong-CWD first fail",
+    "retrieval": "reviewed-Train-only PASS",
+    "historical_recent_regressions": "34/34 final scripts no substantive failure; timepoint adaptations preserved"
+  },
+  "reproduction_levels": {
+    "S013": "R2",
+    "S014": "R2",
+    "S015": "R2",
+    "S016": "R2"
+  },
+  "capability_evidence": {
+    "clean_blind_core_gain": "NOT_ESTABLISHED",
+    "controlled_no_core_previous_new": "NOT_RUN",
+    "mini_transfer_class": "POST_DEV_SYNTHETIC_MECHANISM_TRANSFER_NOT_CLEAN_BLIND_NOT_R7"
+  },
+  "boundaries": {
+    "S030_S031": "unread Dev reserve",
+    "test": "current library entries unread/frozen from further learning; historically exposed Test is NOT_FRESH_BLIND",
+    "role_split": "not created; one shared MathModel-Core"
+  },
+  "evidence_scope": "Archive integrity and registered audit/regression/retrieval contracts pass; does not claim S013-S016 author end-to-end execution, R3+, R7, or causal superiority over v1.40/No-Core."
+}

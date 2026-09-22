@@ -1,0 +1,87 @@
+{
+  "checks": [
+    {
+      "name": "frozen_core_1470_files",
+      "pass": true,
+      "scope": "original Core bytes unchanged; not historical regression rerun"
+    },
+    {
+      "name": "land_fraction_simplex",
+      "pass": true,
+      "scope": "five-type fraction sums <=1.001"
+    },
+    {
+      "name": "DEM_missing_sentinel_removed",
+      "pass": true,
+      "scope": "prepared DEM physical range for this source"
+    },
+    {
+      "name": "temperature_complete_years",
+      "pass": true,
+      "scope": "1990\u20132018 daily file count"
+    },
+    {
+      "name": "socio_mass_conservation",
+      "pass": true,
+      "scope": "eight anchor raster sums, within target rectangle"
+    },
+    {
+      "name": "annual_rain_ge_daily_max",
+      "pass": true,
+      "scope": "physical precipitation aggregation inequality"
+    },
+    {
+      "name": "daily_max_nonnegative",
+      "pass": true,
+      "scope": "negative sentinels excluded"
+    },
+    {
+      "name": "independent_precipitation_overlap_replay",
+      "pass": true,
+      "scope": "direct source-cell spherical intersection, three interior cells,365days1990"
+    },
+    {
+      "name": "model_selection_gate",
+      "pass": true,
+      "scope": "predefined development and spatial promotion thresholds"
+    },
+    {
+      "name": "scenario_frequency_bounds",
+      "pass": true,
+      "scope": "36 scenario frequency is a fraction, not disaster probability"
+    },
+    {
+      "name": "all_figures_exist",
+      "pass": true,
+      "scope": "file existence, visual review separately"
+    }
+  ],
+  "independent_precipitation_errors": [
+    {
+      "row": 27,
+      "column": 86,
+      "annual_error": 1.1368683772161603e-13,
+      "Rx1_error": 0.0
+    },
+    {
+      "row": 38,
+      "column": 8,
+      "annual_error": 7.105427357601002e-15,
+      "Rx1_error": 0.0
+    },
+    {
+      "row": 49,
+      "column": 31,
+      "annual_error": 2.2737367544323206e-13,
+      "Rx1_error": 0.0
+    }
+  ],
+  "pass": true,
+  "not_claimed": [
+    "Core capability gain",
+    "disaster forecast accuracy",
+    "causal terrain effect",
+    "historical pristine exposure",
+    "full historical Core test rerun"
+  ]
+}

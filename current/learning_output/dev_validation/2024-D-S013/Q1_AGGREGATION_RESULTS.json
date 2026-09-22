@@ -1,0 +1,81 @@
+{
+  "scope": "aggregation hypotheses, not full author reproduction",
+  "precipitation": [
+    {
+      "year": 1990,
+      "days": 365,
+      "paper_mm": 166.62,
+      "valid_cells": 16171,
+      "annual_sum_valid_cell_unweighted_mean_mm": 608.1631135797534,
+      "daily_mean_times100": 166.62003111774064,
+      "difference": 3.111774063313533e-05,
+      "match_rounded_2dp": true
+    },
+    {
+      "year": 1998,
+      "days": 365,
+      "paper_mm": 178.08,
+      "valid_cells": 16171,
+      "annual_sum_valid_cell_unweighted_mean_mm": 649.9880804619867,
+      "daily_mean_times100": 178.07892615396895,
+      "difference": -0.0010738460310619757,
+      "match_rounded_2dp": true
+    },
+    {
+      "year": 2011,
+      "days": 365,
+      "paper_mm": 142.51,
+      "valid_cells": 16171,
+      "annual_sum_valid_cell_unweighted_mean_mm": 520.1611124777905,
+      "daily_mean_times100": 142.50989382953165,
+      "difference": -0.0001061704683422704,
+      "match_rounded_2dp": true
+    },
+    {
+      "year": 2016,
+      "days": 366,
+      "paper_mm": 186.32,
+      "valid_cells": 16171,
+      "annual_sum_valid_cell_unweighted_mean_mm": 681.949427331067,
+      "daily_mean_times100": 186.32498014510026,
+      "difference": 0.004980145100262234,
+      "match_rounded_2dp": true
+    },
+    {
+      "year": 2020,
+      "days": 366,
+      "paper_mm": 177.59,
+      "valid_cells": 16171,
+      "annual_sum_valid_cell_unweighted_mean_mm": 649.9801601400486,
+      "daily_mean_times100": 177.59020768853787,
+      "difference": 0.00020768853786989894,
+      "match_rounded_2dp": true
+    }
+  ],
+  "cropland": [
+    {
+      "year": 1990,
+      "paper_percent": 21.51,
+      "finite_cell_mean_percent": 6.183866465770452,
+      "positive_cell_mean_percent": 21.40369713833756,
+      "finite_cells": 9906,
+      "positive_cells": 2862
+    },
+    {
+      "year": 2006,
+      "paper_percent": 20.51,
+      "finite_cell_mean_percent": 5.926024081417427,
+      "positive_cell_mean_percent": 20.504084719008397,
+      "finite_cells": 9906,
+      "positive_cells": 2863
+    },
+    {
+      "year": 2019,
+      "paper_percent": 21.04,
+      "finite_cell_mean_percent": 6.079515397437822,
+      "positive_cell_mean_percent": 20.533133149341655,
+      "finite_cells": 9906,
+      "positive_cells": 2933
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "schema_version": "1.0",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_RECOMMENDATION_SEMANTICS",
+      "question": "Q1",
+      "source": "abstract + section 3.1 + section 3.7",
+      "reported": {
+        "section_3_1": "YOLOv8 effect is better",
+        "abstract_and_3_7": "final practical choice is Canny + post-processing due annotation cost/interpretability"
+      },
+      "audit": "Not necessarily a contradiction if accuracy and deployment utility are different objectives, but the paper does not quantify either tradeoff. Registry must distinguish predictive winner from recommended practical route."
+    },
+    {
+      "id": "Q2_R2_TABLE_REPLAY",
+      "question": "Q2",
+      "source": "Table 1 and comparison paragraph",
+      "reported": {
+        "rows": 9,
+        "text_says_groups": 7,
+        "gd_newton_mean_reported": 0.587,
+        "nn_mean_reported": 0.795,
+        "wording": "significantly higher"
+      },
+      "recomputed": {
+        "gd_newton_mean": 0.5864111111111111,
+        "nn_mean": 0.7969777777777778
+      },
+      "audit": "Means are broadly consistent after rounding, but the table contains nine rows rather than seven and no significance test/effect-size uncertainty is reported."
+    },
+    {
+      "id": "Q2_CLUSTER_COUNT_RESULT_CONTRACT",
+      "question": "Q2",
+      "source": "abstract/results vs printed Appendix B",
+      "reported": {
+        "fracture_counts": {
+          "2-1": 5,
+          "2-2": 1,
+          "2-3": 3
+        },
+        "visible_example_n_components": 3
+      },
+      "audit": "Visible fixed 3-component GMM call cannot generate the 5/1/3 reported instance counts without a different hidden execution path."
+    },
+    {
+      "id": "Q2_PERIOD_FIXED_VS_ESTIMATED",
+      "question": "Q2",
+      "source": "model description vs Table 2",
+      "reported": {
+        "model": "outputs/fits R,P,beta,C",
+        "final_P_mm": "all displayed rows 94.25"
+      },
+      "audit": "Treat P as a known physical constant when diameter is fixed, or provide evidence it was estimated. Do not describe a fixed value as learned/fitted."
+    },
+    {
+      "id": "Q3_JRC_FORMULA_DRIFT",
+      "question": "Q3",
+      "source": "sections 5.3.3, 5.5.1, 5.5.3 and Appendix C",
+      "reported": {
+        "formula_A": "JRC=51.85*Z2^0.6-10.37",
+        "formula_B": "JRC=32.2+32.47*log10(Z2)",
+        "improved": "JRC_improved=alpha*Z3^beta-gamma; alpha=69.83,beta=0.5,gamma=-12.31",
+        "appendix": "implements formula_A only"
+      },
+      "audit": "Multiple JRC mappings coexist without a canonical source/calibration/evaluation contract. Cross-paper comparison must freeze one official/canonical formula before judging values."
+    },
+    {
+      "id": "Q3_AREA_CORRECTION_CLAIM",
+      "question": "Q3",
+      "source": "section 5.5 summary vs displayed improved formula",
+      "reported": {
+        "claim": "introduces curvature Z3 and area correction factor",
+        "displayed_formula": "contains Z3 and alpha/beta/gamma only, no area A"
+      },
+      "audit": "Area analysis is descriptive; the displayed improved estimator does not contain an area term, so an area-correction claim is not formula-supported."
+    },
+    {
+      "id": "Q4_SIMULATED_DATA_PROVENANCE",
+      "question": "Q4",
+      "source": "section 6.5 + Appendix D",
+      "reported": {
+        "body": "six simulated boreholes; mouth/depth/fracture parameters set with engineering common sense",
+        "code": "load_prev_fissure_params uses fixed_fissure_data"
+      },
+      "audit": "Q4 tables/figures are scenario-model outputs unless an attachment-derived mapping is separately demonstrated; they cannot be registered as direct attachment-4 results."
+    },
+    {
+      "id": "Q4_CONNECTIVITY_PROBABILITY_CALIBRATION",
+      "question": "Q4",
+      "source": "section 6.3.3",
+      "reported": {
+        "score": "0.4*distance+0.3*angle+0.2*JRC+0.1*overlap",
+        "mapping": "sigmoid k=5,T0=0.5 called connectivity probability"
+      },
+      "audit": "Without labeled connectivity outcomes or a calibrated generative model this is a monotone compatibility score, not verified probability."
+    },
+    {
+      "id": "Q4_ENTROPY_CONTRACT",
+      "question": "Q4",
+      "source": "section 6.4.1 + Appendix D",
+      "reported": {
+        "formula": "H(V)=-sum_i p_i log2 p_i",
+        "interpretation": "uncertainty of binary fracture-pair connectivity"
+      },
+      "audit": "For a binary event Shannon entropy also includes -(1-p)log2(1-p). The printed quantity is an additive hotspot score, not standard Bernoulli entropy."
+    },
+    {
+      "id": "Q4_INFORMATION_GAIN_CONTRACT",
+      "question": "Q4",
+      "source": "section 6.4.2 + Appendix D",
+      "reported": {
+        "IG": "mean current entropy around candidate",
+        "goal": "maximum information gain / maximum global uncertainty reduction"
+      },
+      "audit": "Current prior entropy does not equal expected information gain; true IG requires expected posterior entropy after possible observations."
+    },
+    {
+      "id": "Q4_SPACING_HARD_CONSTRAINT",
+      "question": "Q4",
+      "source": "section 6.4.2, Table 8 and Appendix D",
+      "reported": {
+        "required_min_spacing_mm": 500,
+        "table_row3_min_spacing_mm": 412.3105,
+        "code_threshold_mm": 300
+      },
+      "audit": "The third reported recommendation violates the stated 500 mm hard constraint and the code threshold itself drifts to 300 mm. Feasibility must be enforced before ranking."
+    },
+    {
+      "id": "Q4_DEPTH_RESULT_CODE_DRIFT",
+      "question": "Q4",
+      "source": "Table 6 vs Appendix D",
+      "reported": {
+        "body_depth_intervals_mm": [
+          "2000-3000",
+          "3000-4000",
+          "4000-5000",
+          "6000-7000"
+        ],
+        "code_accepts": "depth_max<=500"
+      },
+      "audit": "The visible fixed-data loader cannot support the deep body intervals; result provenance is unresolved."
+    },
+    {
+      "id": "Q4_PRINTED_CHAIN_INCOMPLETE",
+      "question": "Q4",
+      "source": "Appendix D",
+      "reported": {
+        "identify_high_uncertainty": "uses self.uncertainty_data after no visible assignment",
+        "main": "does not call optimize_supplement_boreholes"
+      },
+      "audit": "Printed code cannot reproduce the uncertainty table and drilling recommendation as a self-contained chain."
+    },
+    {
+      "id": "Q4_JRC_RANGE_CONTRACT",
+      "question": "Q3/Q4",
+      "source": "Q3 JRC definition/results + Q4 section 6.3.3 + Appendix D",
+      "reported": {
+        "declared_JRC_range": "0-20",
+        "Q3_reported_examples": "up to 38.01",
+        "Q4_similarity": "1-abs(JRC1-JRC2)/20"
+      },
+      "audit": "The paper declares the conventional JRC range 0-20 but reports Q3 values above 20 and then uses 20 as the Q4 similarity normalization denominator. Without clipping/calibration or an explicit extended scale, the similarity contract can become negative and is not range-safe."
+    }
+  ],
+  "global_gates": [
+    "model recommendation must separate predictive evidence from deployment cost",
+    "same-instance curve fitting is not cross-instance generalization",
+    "reported instance count must be compatible with clustering configuration",
+    "roughness derivative estimator requires an ordered profile contract",
+    "binary entropy requires complement probability or a normalized categorical distribution",
+    "information gain requires a posterior-update expectation",
+    "simulated/assumed inputs must be labeled scenario evidence",
+    "hard constraints must be replayed against every final recommendation"
+  ]
+}

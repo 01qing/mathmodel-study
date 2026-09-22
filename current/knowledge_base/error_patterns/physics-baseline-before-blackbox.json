@@ -1,0 +1,6 @@
+{
+  "id": "physics-baseline-before-blackbox",
+  "trigger": "A direct mechanistic formula can compute/approximate the target, but ML is presented without comparing against it.",
+  "risk": "The black-box layer may add no real value and can hide leakage or deployment shift.",
+  "gate": "Implement the mechanistic baseline first, then model residuals or compare direct ML on the exact same untouched groups; retain ML only if improvement is material and stable."
+}

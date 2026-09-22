@@ -1,0 +1,767 @@
+{
+  "mode": "production",
+  "query": "降水 土地利用 风险 预测",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E",
+    "2025-F"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [
+      "regression"
+    ],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S007",
+      "case_group": "2024-B",
+      "title": "B24104760033",
+      "page": 58,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S007-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24104760033.pdf",
+      "source_sha256": "4489b34abb9b14010c621a9804b2b8f69dace4d99afd86606a512513925bcdb3",
+      "chunk_id": "S007-p58-0",
+      "excerpt": "图7.52\n2AP 下测试结果分析\n图7.53\n3AP 下测试结果分析\nAP 的网络环境下，较高的MCS 值（特别是11）占据主导，表示该测试网络的性能较好，\n能维持高效的编码模式。\n2. NSS 预测分布（NSS Prediction Distribution）：\n右上图显示在2 AP 测试中，NSS 预测值完全集中在2，没有其他NSS 值的出现。这\n表明在2 AP 网络中，系统始终采用两个空间流来传输数据，可能是由于硬件限制或网络\n57",
+      "lexical_cosine": 0.08881173818089312,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S017",
+      "case_group": "2024-E",
+      "title": "高速公路应急车道启用管控优化与决策模型研究",
+      "page": 14,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_TIME_UNIT_INTERVENTION_CONTRACT",
+      "review_file": "knowledge_base/paper_reviews/2024-E-S017-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24101480006.pdf",
+      "source_sha256": "84047e2dd922687d05f1ff326408c32dda51bc95ca1d1cd568ca8eac409ab9e4",
+      "chunk_id": "S017-p14-700",
+      "excerpt": "4 的Neck 结构\n中，使用普通的卷积运算，而在YOLOv5 的Neck 结构中，使用CSPNet 设计的CSP2 结构\n来增强网络特征结合能力。\n4) 预测\n最后是预测部分，算法处理过程如下：\n13",
+      "lexical_cosine": 0.08733498802100717,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-E-S017-S020.json",
+        "papers": [
+          "S017",
+          "S018",
+          "S019",
+          "S020"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S020",
+      "case_group": "2024-E",
+      "title": "高速公路应急车道紧急启用模型",
+      "page": 4,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_TARGET_LEAKAGE_SEQUENCE_COUNTERFACTUAL_LAYOUT_CONTRACT",
+      "review_file": "knowledge_base/paper_reviews/2024-E-S020-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24106980067.pdf",
+      "source_sha256": "bedf322a5d2d3b75099112c0b670905eead989e7cc23905e7696dacaf432aafb",
+      "chunk_id": "S020-p4-2100",
+      "excerpt": ".................................................. 36 \n3.2.3 时序预测模型结构 ..................................................................................... 38 \n3.2.4 预测系统框架 ............................................................................................. 41 \n3.2.5 消融对比实验 ............................................................................................. 43 \n3.2.6 车流量和车流速度预测与分析 ................................................................. 43 \n3.2.7 预测结果实时预警建模 ............................................................................. 46 \n3.3 子问题（3） ........................................................................................................... 49 \n3.3.1 问题分析 ..................................................................................................... 49 \n3.3.2 验证模型有效性 ...........................................................................",
+      "lexical_cosine": 0.08446217732429817,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-E-S017-S020.json",
+        "papers": [
+          "S017",
+          "S018",
+          "S019",
+          "S020"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S008",
+      "case_group": "2024-B",
+      "title": "B24116640167",
+      "page": 24,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S008-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24116640167.pdf",
+      "source_sha256": "26a34f2fa048e06f40e4d7981e25fc6f5f01067ceafc5e98af48916e4a51c637",
+      "chunk_id": "S008-p24-0",
+      "excerpt": "23 \n \n证集对200 趟训练模型进行择优选择，并评判分析，以下是验证集下的模型效果分析，\n图中展示了LSTM 模型对50 个测试用例的预测值与真实值的对比： \n \n图3.26 2AP 下LSTM 预测与真实seq_time 对比图 \n \n图3.27 3AP 下LSTM 预测与真实seq_time 对比图 \n \n表3.6 LSTM 效果分析 \nAP 数量 \nLSTM 层数 \n隐藏神经元 \nMSE \n2 \n1 \n50 \n10.04 \n5 \n50 \n8.99 \n10 \n50 \n8.12 \n3 \n1 \n50 \n41.81",
+      "lexical_cosine": 0.08029909046850303,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S006",
+      "case_group": "2024-B",
+      "title": "B24103530099",
+      "page": 4,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S006-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24103530099.pdf",
+      "source_sha256": "db528311404cb848e166fe9f837b20ebafab91f8b3ee6307677a8e7d56d09b1f",
+      "chunk_id": "S006-p4-2800",
+      "excerpt": "....................... 21 \n4.4.2 模型建立 ...................................................................................................... 22 \n4.4.3 指标相关性分析——热力图 ...................................................................... 23 \n4.4.4 模型分析 ...................................................................................................... 25 \n4.4.5 预测结果分析 .............................................................................................. 26 \n4.5 3ap 情况下模型建立与求解 ................................................................................... 28 \n4.5.1 特征选择与处理 .......................................................................................... 28 \n4.5.2 指标相关性分析——热力图 ...................................................................... 28 \n4.5.3 模型建立与重要性排序 .............................................................................. 29 \n4.5.4 预测结果分析 .......",
+      "lexical_cosine": 0.07228996610664681,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S010",
+      "case_group": "2024-C",
+      "title": "C24103860012",
+      "page": 68,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q5_CATEGORY_SMOKE",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S010-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24103860012.pdf",
+      "source_sha256": "20aa9ecb0164fd4e11130590da00f8e0a22a1147dc43b1b85ba9aa4f951a56d3",
+      "chunk_id": "S010-p68-0",
+      "excerpt": "67\n表9-3 三种不同优化模型的LER 预测结果(正弦波)\n材料1\n材料2\n材料3\n材料4\nT=25℃\n50.50%\n53.00%\n50.83%\n53.01%\nT=50℃\n40.07%\n40.10%\n42.38%\n40.18%\nT=70℃\n58.15%\n58.62%\n58.47%\n38.87%\nT=90℃\n40.34%\n56.94%\n40.34%\n36.81%\n表9-4 三种不同优化模型的LER 预测结果(三角波)\n材料1\n材料2\n材料3\n材料4\nT=25℃\n50.87%\n53.25%\n52.99%\n53.01%\nT=50℃\n40.62%\n40.15%\n41.13%\n40.05%\nT=70℃\n43.18%\n57.36%\n43.91%\n43.45%\nT=90℃\n58.31%\n58.23%\n58.22%\n58.56%\n表9-5 三种不同优化模型的LER 预测结果(梯形波)\n材料1\n材料2\n材料3\n材料4\nT=25℃\n53.01%\n50.80%\n53.00%\n50.91%\nT=50℃\n48.08%\n40.00%\n42.38%\n40.30%\nT=70℃\n57.32%\n57.29%\n36.74%\n43.89%\nT=90℃\n55.78%\n39.46%\n58.24%\n58.15%",
+      "lexical_cosine": 0.06472068837185557,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S004",
+      "case_group": "2024-A",
+      "title": "A24107120016",
+      "page": 5,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S004-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24107120016.pdf",
+      "source_sha256": "daa73a15a67fe912cebe0948f9db9c2ad8e985032f55212eecd64393308ca9e6",
+      "chunk_id": "S004-p5-700",
+      "excerpt": "......................... 40\n7.4 问题四的模型建立.............................................................................................................................. 40\n7.4.1 风速去噪模型.......................................................................................................................... 40\n7.4.2 传输延迟预测模型.................................................................................................................. 42\n7.5 模型求解与回答.................................................................................................................................. 43\n7.5.1 风速去噪：.............................................................................................................................. 44\n7.5.2 传输延迟预测.......................................................................................................................... 44\n7.5.3 风机有功功率的优化分配..................",
+      "lexical_cosine": 0.05874605672545104,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S012",
+      "case_group": "2024-C",
+      "title": "多变量复杂环境下的磁芯损耗建模",
+      "page": 25,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q1_Q5_CONTRACT_REPLAY",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S012-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24106130096.pdf",
+      "source_sha256": "2a817dbee1c712b58c164164eea329cec49d8c3f4233792b20d484e9ffd81626",
+      "chunk_id": "S012-p25-0",
+      "excerpt": "最小化，其中P 为真实磁芯损耗，ˆP 为磁芯损耗预测值，ˆk1，ˆα1 和ˆβ1 是迭代求解出的最\n优参数。\n（3）评价指标\n为了衡量模型的预测效果，这里主要使用七种统计指标进行度量，具体如下：\nA. R2\nR2 也称作决定系数，代表预测值对P 的方差的解释比例，它经常被用来衡量回归模\n型的拟合程度，并且计算公式为\nR2 = 1 −\nPn\ni=1(Pi −ˆPi)2\nPn\ni=1(Pi −¯P)2\n(5.36)\n其中¯P 为所有样本P 值的均值。通常R2 的取值都在0 到1 之间，R2 越接近1 代表模型\n的拟合程度越好，反之越接近0 代表模型不能很好解释P 的变化情况。\nB. MRE\nMRE 是平均相对误差，代表P 预测值与真实值之间的相对偏差的平均水平，它的计\n算公式为\nMRE = 1\nn\nn\nX\ni=1\n\f\f\f\f\f\nPi −ˆPi\nPi\n\f\f\f\f\f\n(5.37)\nMRE 的值越小，代表模型预测精度越高，拟合效果越好。\nC. MAE\nMAE 是平均绝对误差，代表P 预测值与真实值之间的绝对偏差的平均水平，它的计\n算公式为\nMAE = 1\nn\nn\nX\ni=1\n\f\f\fPi −ˆPi\n\f\f\f\n(5.38)\nMAE 的值越小，代表模型预测精度越高，拟合效果越好。\nD. MSE\nMSE 是均方误差，代表P 预测值与真实值之间的差异程度，它的计算公式为\nMSE = 1\nn\nn\nX\ni=1\n\u0010\nPi −ˆPi\n\u00112\n(5.39)\nMSE 的值越小，代表模型预测精度越高，拟合效果越好。有许多优化算法如NAdam 都将\nMSE 作为损失函数。\nE. RMSE\nRMSE 是均方根误差，简单来说就是MSE 的幂，它的计算公式为\nRMSE =\nv\nu\nu\nt1\nn\nn\nX\ni=1\n\u0010\nPi −ˆPi\n\u00112\n(5.40)\n24",
+      "lexical_cosine": 0.05732777518380039,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S043",
+      "case_group": "2025-F",
+      "title": "F题-2-江南古典园林的美学特征建模",
+      "page": 3,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_CODE_REFERENCED_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-F-S043-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-2-江南古典园林的美学特征建模.pdf",
+      "source_sha256": "692c9e30cd2ce0765b17bfbe3a5b1265e32c2ddae42b636a8ad261090e8b73c1",
+      "chunk_id": "S043-p3-700",
+      "excerpt": "人的经验性传承。随着传统园林营造技艺\n式微，这种“可意不可言传”的隐性知识体系正面临断裂风险。信息化时代的到来为当前\n中国园林艺术可持续发展提供了前所未有的发展契机，通过数字化方式与智能化方法挖掘\n3",
+      "lexical_cosine": 0.05250125264167645,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-F-S042-S045.json",
+        "figure_decision_rules": "knowledge_base/figure_decision_rules/2025-F-final.json",
+        "papers": [
+          "S042",
+          "S043",
+          "S044",
+          "S045"
+        ],
+        "status": "FINAL_FOUR_OF_FOUR_TRAIN_PAPERS_REVIEWED",
+        "reviewed_papers": [
+          "S042",
+          "S043",
+          "S044",
+          "S045"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "walkable graph + transparent visibility/scene-change descriptors + exact/k-shortest or epsilon-constrained route shortlist before GA",
+          "Q2": "small dimensionless descriptor score with externally declared ranges and held-out/external preference validation; no forced anchor-as-proof",
+          "Q3": "compact standardized garden descriptor + metric-compatible clustering + pairwise registry + stability/external-label validation"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S043.json",
+        "result_registry_file": "knowledge_base/result_registry/S043.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-F-S043-modules.json",
+        "decision_warning": [
+          "Interest and Q2 score formula ranges contradict published scales",
+          "GA Gap=0/global optimum lacks visible certificate",
+          "Jichang reference self-score does not close under its own similarity/adjustment formula",
+          "Table 6.2 mean/std/group means and several narratives do not replay",
+          "Ward metric contract and external ground truth remain unresolved",
+          "p71 attachment code unavailable, so R1"
+        ]
+      }
+    },
+    {
+      "paper_id": "S003",
+      "case_group": "2024-A",
+      "title": "A24103530117",
+      "page": 46,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S003-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103530117.pdf",
+      "source_sha256": "f6e0e476017750c9c13d03d1b103d32f32d74d2fe96feb40760c5b3bb3dff17c",
+      "chunk_id": "S003-p46-0",
+      "excerpt": "45 \n \n \nStep3 并行优化求解： \n每个区域独立地求解优化问题，基于当前的风速预测和目标函数，进行功率分配优化，\n基于风速波动进行区域划分：区域1（风速波动大的区域，主轴疲劳损伤优先）、区域2\n（风速较稳定的区域，主轴与塔架均衡优化）优化的目标是在未来时间窗口内最小化疲劳\n损伤，同时确保满足所有约束条件。每个区域都独立求解优化问题，确保时效性，并得到\n相应每台风机在每秒的最优功率分配Pref\ni (t + k)。 \nStep4 风速预测模型： \n预测是MPC（模型预测控制）中核心的一部分，主要是为了帮助系统提前规划未来的\n操作，并确保在不确定的条件下进行优化。每个区域根据当前的风速数据，使用LSTM 进\n行风速预测，预测未来时间窗口内的风速变化。 \n每个区域根据当前的风速数据Vw\ni ，进行风速预测，预测未来时间窗口内的风速变化。\n这是MPC 的重要环节，依赖于风速时序数据的历史趋势来预测未来： \n \n其中V̂w\ni (t + k)为未来第V̂w\ni (t + k)秒的风速预测值，每个区域基于风速预测，计算未来\n的疲劳损伤情况。 \nStep5 滚动时域功率优化： \n基于未来风速预测，系统会基于这些风速数据为未来10 秒的每台风机计算最优的功\n率分配策略。具体来说，系统会在时间窗口内优化每秒的功率分配，但由于未来风速存在\n不确定性，因此系统每秒更新并滚动应用,并应用于当前时刻的风机控制。 \n系统使用MPC 模型，根据预测的未来风速数据，优化未来每秒的功率分配，即优化第\ni 台风机在未来10 秒内的功率分配，但仅确立当前时刻功率分配，确保计算复杂度同时考\n虑，未来时域变化，避免大浮动功率变化带来的疲劳损害。 \n时域内部，根据式（5-15）、（5-16）求得主轴扭矩以及塔架推力，基于自适应动态\n三阶段滑动窗口算法以及改进式雨流计数法求得疲劳损伤，通过有功优化分配策略，确保\n疲劳损伤的最小化。 \nStep6 全局验证与反馈调整： \n每个区域完成局部优化后，系统在全局层面进行验证，检查所有区域的功率分配是否\n满足全局功率限制，首先进行全局功率平衡验证： \n \n \n  \n",
+      "lexical_cosine": 0.0483319731214857,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S040",
+      "case_group": "2025-E",
+      "title": "E题-无监督迁移学习下的轴承故障诊断建模与优化",
+      "page": 8,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2025-E-S040-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+      "source_sha256": "4b5875eb3b83395e54d5e8b9d033b045bb2e2ef54f9ada6a061588b311467eb2",
+      "chunk_id": "S040-p8-700",
+      "excerpt": "下采样到目标域采样率\n（32kHz），以实现采样率一致化而不丢失关键故障带信息。相比之下，直接使用12kHz\n数据将迫使丢弃高频诊断信息或进行风险更高的频谱外推，且难以通过插值恢复丢失信",
+      "lexical_cosine": 0.047939915206272485,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [
+        {
+          "case_id": "2025-E-GTeacher1-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "PARTIAL_CODE_REVIEW",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+          "question_links": {
+            "Q1": [
+              "MAT→CSV/时域可视化",
+              "小波软阈值去噪",
+              "自定义EMD"
+            ],
+            "Q2": [
+              "RandomForestClassifier最小监督基线"
+            ],
+            "Q3": [],
+            "Q4": [
+              "基础信号/去噪可视化仅可作事前解释"
+            ]
+          },
+          "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+        },
+        {
+          "case_id": "2025-E-GTeacher2-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+          "question_links": {
+            "Q1": [
+              "detrend/bandpass/Hilbert envelope/resample/windowing",
+              "spectral-kurtosis band",
+              "order tracking"
+            ],
+            "Q2": [
+              "1D特征网络",
+              "MechanismFilterBank",
+              "Channel-SE",
+              "文件级train/val/test划分"
+            ],
+            "Q3": [
+              "CORAL loss",
+              "entropy minimization",
+              "BN recalibration/SHOT相关入口",
+              "目标文件聚合与融合"
+            ],
+            "Q4": [
+              "embedding/t-SNE",
+              "gate/channel weight",
+              "envelope example",
+              "adapt-loss/fusion-confidence图"
+            ]
+          },
+          "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+          "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+        }
+      ],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+        "papers": [
+          "S039",
+          "S040",
+          "S041"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S001",
+      "case_group": "2024-A",
+      "title": "考虑机组实时疲劳损伤的风电场有功功率优化分配",
+      "page": 24,
+      "reading_status": "full_text_read_visual_audit_partial",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S001-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24102940057.pdf",
+      "source_sha256": "6dbfb9e08c3234f8f7e40e678912fd0d2f55ec0dd200e5e464ada6db4ca35be3",
+      "chunk_id": "S001-p24-0",
+      "excerpt": "23 \n4.8\n5\n5.2\n5.4\n5.6\n5.8\n6\n6.2\n6.4\n6.6\n1\n11\n21\n31\n41\n51\n61\n71\n81\n91\n主轴扭矩平均绝对误差百分比（%）\n机组编号\n \n图5.9 风场1 风机主轴扭矩估计平均绝对误差百分比 \n5\n5.2\n5.4\n5.6\n6\n6.2\n6.4\n6.6\n1\n11\n21\n31\n41\n51\n61\n71\n81\n91\n主轴扭矩估计平均绝\n  对误差百分比（%）\n机组编号\n5.8\n \n图5.10 风场2 风机主轴扭矩估计平均绝对误差百分比 \n从上述两幅图可以明显的看出所估计的主轴扭矩与真实主轴扭矩的误差不超过6.6%，\n说明了所提估计方法的准确性。 \n5.4.3 风机塔架推力估计模型求解结果展示 \n风场1、风场2 中100 台风机在100 个时刻下的塔架推力估计的误差平方和如图5.11、\n图5.12 所示：",
+      "lexical_cosine": 0.04463493373427753,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S019",
+      "case_group": "2024-E",
+      "title": "基于目标检测的高速公路应急车道实时启用策略研究",
+      "page": 43,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_MANIFEST_AUDITED_UNIT_FORECAST_INVENTORY_INTERVENTION_SENSOR_CONTRACT",
+      "review_file": "knowledge_base/paper_reviews/2024-E-S019-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24102910005.pdf",
+      "source_sha256": "7420d18869b74b8f8a5d036e57ac0fa7b3a94fc54313e1729bbd97e578cfe2cd",
+      "chunk_id": "S019-p43-0",
+      "excerpt": "43 \n \n表 10 预警验证结果 \n拥堵\n段 \n拥堵时刻 \n实际拥堵\n持续时间 \n是否持续\n拥堵 \n最短拥堵\n持续时间 \n是否发出\n预警 \n预警时\n刻te \nCD \n12:57 \n60min \n是 \n25 \n是 \n13:16 \nBC \n13:26 \n35min \n否 \n38 \n否 \n无 \n根据上述结果，根据交通流拥堵模型都作为了正确的预警行为，进一步验证\n了预警模型的有效性。",
+      "lexical_cosine": 0.04195065534475532,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-E-S017-S020.json",
+        "papers": [
+          "S017",
+          "S018",
+          "S019",
+          "S020"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S011",
+      "case_group": "2024-C",
+      "title": "C24104220149",
+      "page": 46,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q4_Q5_CONTRACT_SMOKE",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S011-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+      "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+      "chunk_id": "S011-p46-0",
+      "excerpt": "45 \n最后，本文对附件三中样本的磁芯损耗进行了预测，表7.3 展示了附件三中\n样本序号为：16、76、98、126、168、230、271、338、348、379 的磁芯损耗\n预测结果，保留一位小数。 \n表7.3 十个样本序列的磁芯损耗测结果 \n样本序号 \n预测结果（T） \n16 \n1012.1 \n76 \n1483766.5 \n98 \n12225.0 \n126 \n1858.0 \n168 \n97589.4 \n230 \n76859.7 \n271 \n1876748.3 \n338 \n17495.8 \n348 \n865953.1 \n379 \n1525.8 \n \n \n7.3 本章小结 \n本节旨在开发出一个能够跨越不同材料类型与工况条件的磁芯损耗预测模\n型，提升磁性元件设计的精确性与效率，为电力电子技术的进一步发展奠定坚实\n基础。 \n本文首先根据斯坦麦茨方程先验公式，提取了磁通密度最大值特征，并且加\n入了材料类型、温度、频率、波形特征，共五个特征作为磁芯损耗模型的训练集。\n接着，本文针对数据集提出一种特征重要性提取的双向长短时记忆回归网络对磁\n芯损耗进行预测，并与CNN 网络，梯度提升决策树进行对比。最后，本文对网\n络预测结果进行预测精度和泛化能力分析。",
+      "lexical_cosine": 0.04129156189566317,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S018",
+      "case_group": "2024-E",
+      "title": "高速公路应急车道紧急启用模型",
+      "page": 28,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_FRAME_METRIC_THRESHOLD_OPTIMIZATION_CONTRACT",
+      "review_file": "knowledge_base/paper_reviews/2024-E-S018-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24102870008.pdf",
+      "source_sha256": "2e6f5daacb7ce9f16e11239545f4b2b3d7bdee97ebc0b28ff32d5a5db9d20e25",
+      "chunk_id": "S018-p28-700",
+      "excerpt": "树进\n行修剪通过修剪以构建关键特征集合。随机森林中的决策树均未将所有的观察值或特征\n纳入考虑范围，显著降低了该方法的过拟合风险程度。 \n（3）时空自适应支持向量回归 \n支持向量机（SVM）是一种基于统计学习理论和VC 维理论的机器学习算法。该算\n法在特征空间搜寻不同种类样本的最优分类超平面，适用于多因素回归拟合问题。SVM\n通过核函数将输入空间中的非线性分类问题转化为高维空间中的线性分类问题，克服了\n维数灾难和非线性可分问题。支持向量机最终的决策函数仅由少数支持向量所确定，因\n此算法的计算复杂度取决于支持向量的数目而非样本空间维数，具有较强的鲁棒性。\nSVM 在分类和预测场景中分别对应于支持向量分类和支持向量回归。本文针对TPI 预\n测场景，在传统支持向量回归模型的基础上提出了时空自适应支持向量回归。在时空自\n适应支持向量回归中，我们引入了时间卷积核的概念，各核函数分量对预测过程的影响\n程度取决于交通流相关特征。通过时间卷积网络（TCN）组件从交通流相关特征中学习\n出最优的时间卷积核参数，并通过时间卷积核将输入空间映射到特征空间，并在特征空\n间中找到最优分类曲面以最小化其中缺失训练样本集的误差。首先定义输入的样本数据\n如下式所示。",
+      "lexical_cosine": 0.03856122843814783,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-E-S017-S020.json",
+        "papers": [
+          "S017",
+          "S018",
+          "S019",
+          "S020"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S036",
+      "case_group": "2025-C",
+      "title": "C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究",
+      "page": 24,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_CODE_REFERENCED_BUT_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S036-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究.pdf",
+      "source_sha256": "b1cdd0efccde759c990a385d0aa613f9e2fe2b7222a60e87452352b9440ebb98",
+      "chunk_id": "S036-p24-700",
+      "excerpt": "∑\n \n𝑁\n𝑖=1 𝑦𝑖+𝜖 \n(3-19) \n此处，∑piyi 近似于预测区滤与真实区滤的交集面积，而∑pi 和∑yi 分别代表\n预测区滤和真实区滤的总面积。ϵ 是一个极小的平滑常数，用以防止分母为零。\n最终，本文采用的复合损失函数将两者进行等权重加权求和： \n \n𝐿𝑡𝑜𝑡𝑎𝑙= 0.5 × 𝐿𝐵𝐶𝐸+ 0.5 × 𝐿𝐷𝑖𝑐𝑒 \n(3-20) \n该复合损失函数引导模型在训练时既关注像素级别的分类精度，又兼顾裂隙\n区滤的分割完整性，从而显著提升了召回能力。 \n模型的训练与实现基于PyTorch 深度学习框架，并利用CUDA 技术在\nRTX3060 上进行加速。本研究采用的训练方法是基于迁移学习的端到端微调。具\n体而言，在加载了ImageNet 预训练权重后，本文并未冻结编码器层的参数，而\n是允许整个网络的所有参数在训练过程中都进行更新。训练采用Adam 优化器，",
+      "lexical_cosine": 0.0376736595492525,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_76_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "source-group holdout then deterministic/compact segmentation competition",
+          "Q2": "DBSCAN fragments + fixed P=pi*D physical merge/refit + reject",
+          "Q3": "ordered profile + canonical JRC + explicit multi-metric utility",
+          "Q4": "thresholded edge registry + component replay + transparent compatibility/coverage; calibrated probability/EIG only with probabilistic machinery"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S036.json",
+        "result_registry_file": "knowledge_base/result_registry/S036.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S036-modules.json",
+        "decision_warning": [
+          "all project images appear in training then are evaluated; headline DeepLab metrics are not independent test evidence",
+          "keypoint sampling has best R2/RMSE but worst ±5% outlier count among the three",
+          "one >0.5 edge cannot support the claimed four-hole component",
+          "source notebooks/scripts unavailable, so R1"
+        ]
+      }
+    },
+    {
+      "paper_id": "S033",
+      "case_group": "2025-C",
+      "title": "C题-2-围岩裂隙精准识别与三维模型重构",
+      "page": 50,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S033-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-2-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "bc6529349c3a053b7774731f2fa3e383f6337807fd33954ee7726b04949878fd",
+      "chunk_id": "S033-p50-0",
+      "excerpt": "7 . 3 模型的推广\n本模型具有良好的通用性及其扩展性，其应用范围不仅能够适用于煤矿巷道裂隙分\n析，而且还能拓展至各类矿产资源的地下开采与地质勘探领域。同时在需要进行裂隙网络\n精准识别、地下水渗流预测以及工程岩体稳定性评估的复杂地质工程中，该模型展现出广\n泛的应用潜力。\n随着地质探测技术的不断革新，未来可通过将本模型与无人机遥感、地质雷达、三维\n激光扫描等先进技术进行融合，达到更大尺度、更高精度的地质勘探及其分析。基于多源\n异构数据的进一步融合，模型的预测精度及其可靠性将进一步得到提升，为服务深部资源\n开采、地下空间开发等复杂工程提供更加有科学依据的技术支撑。\n从长远角度来看，本模型有望集成在智能化矿山综合管理平台上，从而形成集地质数\n据采集、三维建模以及稳定性分析与风险预警于一体的综合性决策支持系统，从而为实现\n矿山安全、高效以及绿色开发提供更为实时且精准的地质信息化服务。\n50",
+      "lexical_cosine": 0.03423971977039978,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_78_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "no-label Canny/ridge + morphology baseline; compact segmentation model only after grouped held-out gain",
+          "Q2": "topology-aware unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+          "Q3": "ordered physical centerline + canonical JRC formula + sampling-density sensitivity",
+          "Q4": "attachment-derived 3D geometry + transparent/calibrated connectivity + propagated uncertainty + feasible expected-information-gain drilling"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S033.json",
+        "result_registry_file": "knowledge_base/result_registry/S033.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S033-modules.json",
+        "decision_warning": [
+          "Q1 method ranking is mainly visual and appendix exposes only a Canny fragment with cross-question path drift",
+          "Q2 visible fixed 3-component GMM cannot explain reported 5/1/3 fractures; pseudo-neural same-instance fitting is not held-out learning",
+          "Q3 JRC formula/area-correction claims drift and printed code treats a closed contour as an ordered profile",
+          "Q4 uses simulated fixed inputs, incomplete binary entropy/pseudo information gain, and a reported point violates the stated 500 mm spacing constraint"
+        ]
+      }
+    },
+    {
+      "paper_id": "S032",
+      "case_group": "2025-C",
+      "title": "C题-1-围岩裂隙精准识别与三维模型重构",
+      "page": 12,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S032-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+      "chunk_id": "S032-p12-700",
+      "excerpt": "缝像素数量”与“图像中全部真实裂\n缝像素数量”的比例。公式为：\nRecall\nTP\nTP\nFN\n\n\n(1-9)\n召回率直接关联算法对裂缝的“漏检风险”：召回率越高，说明算法越能精准捕捉图像\n中各类裂缝特征，即便对于宽度小于2 像素的微裂隙、受噪声干扰的模糊裂缝，也能有效\n识别，避免因裂缝分割不完整导致的结构安全评估遗漏；尤其在建筑结构裂缝检测、地质\n钻孔裂隙分析等需全面覆盖裂缝的场景中，高召回率是算法满足工程需求的核心前提。\n精确率（Precision）与召回率共同构成F1 分数（F1-Score）的计算基础，其中精确率\n代表“被正确预测为裂缝的像素数量”与“所有被预测为裂缝的像素数量”的比例公式为：",
+      "lexical_cosine": 0.03330701074098651,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+          "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+          "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+          "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+        "result_registry_file": "knowledge_base/result_registry/S032.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+        "decision_warning": [
+          "Q1 independent split/loss provenance missing",
+          "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+          "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+          "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+        ]
+      }
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

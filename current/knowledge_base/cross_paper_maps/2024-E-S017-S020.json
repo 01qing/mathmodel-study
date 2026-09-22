@@ -1,0 +1,92 @@
+{
+  "case_group": "2024-E",
+  "papers": [
+    "S017",
+    "S018",
+    "S019",
+    "S020"
+  ],
+  "papers_reviewed": [
+    "S017",
+    "S018",
+    "S019",
+    "S020"
+  ],
+  "papers_pending": [],
+  "questions": {
+    "Q1": {
+      "S017": "YOLOv5+DeepSORT extraction → HA/SVR/DT/LSTM density forecast → Greenberg speed threshold; useful end-to-end framing but temporal leakage, physical-scale and selected-event validation risks",
+      "selection_lesson": "Combine validated video extraction with S019-style upstream→downstream 10-minute target; enforce calibration, time/group split, train-only preprocessing, target-leakage check, T>1 windows and worst-group reporting.",
+      "S018": "YOLO/OpenCV state extraction → TPI/warning → CNN/TCN-SVR/BiGRU-attention narrative; stronger cross-video prose validation, but 25-vs-33 frame contract, T=1 recurrent input, metric algebra and implementation-visibility risks",
+      "S019": "YOLOv10+ByteTrack → 1-min traffic states → fundamental diagrams/ARIMA → lagged linear/AdaBoost 10-min D-density forecast; strong lead-time framing but unit closure, coefficient replay and split-provenance risks",
+      "S020": "YOLOv5+DeepSORT → Sigmoid congestion index → TCNAt-BiGRU narrative; printed code has direct target leakage, global scaling, T=1 pseudo-sequence and SK-Net implementation drift"
+    },
+    "Q2": {
+      "S017": "legal/safety principles + synchronized multi-point flow/density + correlation-based upstream opening idea",
+      "selection_lesson": "Keep signed shockwave for propagation direction, use |D/w| for elapsed time, combine with calibrated inventory/hysteresis and explicit downstream safety guard in one state machine.",
+      "S018": "Weibull/MLE capacity narrative + speed/flow trigger policy; operationally explicit, but OR/AND/gray-zone logic drifts and appendix code does not implement the threshold model",
+      "S019": "normalized segment inventory K(t) from cumulative inflow-outflow + 0.8/0.6 hysteresis + downstream-density guard; interpretable but Qmax/threshold calibration is partly circular/heuristic",
+      "S020": "signed shockwave open/close rules with travel-time threshold; useful directional logic but D/w sign convention can yield negative elapsed time and no executable controller is printed"
+    },
+    "Q3": {
+      "S017": "correlations + LSTM/Greenberg + threshold rules + fixed multipliers to simulate opening effect",
+      "selection_lesson": "Use a calibrated fundamental diagram or validated simulator to generate counterfactual states; machine-replay q/k/v consistency and label capacity assumptions as scenario evidence.",
+      "S018": "temporal/spatial safety constraints + open/close policy + transfer of observed open-state response from point2 to point4; stronger than arbitrary multipliers but transportability is unvalidated",
+      "S019": "0.4K_AB+0.6K_BC controller + 30% capacity multiplier counterfactual; arithmetic duration reduction is correct but treatment effect is assumption-driven and Eq53 sign is inconsistent",
+      "S020": "Greenshields two→three lane scenario; governing-model inconsistency in assigned post-opening state and table percentage/utilization overclaims"
+    },
+    "Q4": {
+      "S017": "camera pinhole geometry + heuristic binary segment search + speed-difference localization",
+      "selection_lesson": "Formulate location/count as decision variables and optimize coverage/state-estimation/warning lead-time/control value/cost under feasible siting constraints; compare with current and equal-spacing layouts.",
+      "S018": "Kriging+GA multi-objective camera-placement narrative with reported locations; decision-variable contract and sensing→control→traffic mediation are incomplete, implementation not visible",
+      "S019": "move B→E, optionally add F, use heatmap lane utilization and overhead view; cost-aware heuristic but moving B breaks old K_AB/K_BC inputs and no quantitative placement optimization is executed",
+      "S020": "heuristic 2–3 cameras every 1000–1500m + mobile/UAV sensing; engineering checklist but not an explicit optimization"
+    }
+  },
+  "new_gates_from_S017": [
+    "proxy-to-physical-unit calibration",
+    "temporal overlapping-window split safety",
+    "timestamp-aligned forecast visualization",
+    "selected-positive validation prohibition",
+    "association versus intervention-effect evidence",
+    "assumed intervention multiplier labeling",
+    "dimensional analysis of state equations",
+    "architecture-name implementation evidence"
+  ],
+  "current_recommendation": "Final 2024-E route: calibrated detector/tracker→unit-closed traffic states→chronological/grouped upstream-to-downstream forecasting with target-leakage and T>1 checks→signed shockwave direction plus nonnegative travel time→calibrated inventory/hysteresis state machine with downstream safety guard→intervention effects from observed data or validated simulation/fundamental-diagram-consistent scenarios→camera placement solved quantitatively over location/count/cost/coverage/control-value objectives.",
+  "new_gates_from_S018": [
+    "frame/timebase paper-code contract",
+    "flow versus spatial-density semantics",
+    "metric algebra replay",
+    "single-timestep recurrent architecture check",
+    "threshold Boolean/state-machine consistency",
+    "appendix-section method relevance",
+    "cross-site treatment transportability",
+    "percentage-change denominator registry",
+    "optimization-variable/task-output contract",
+    "sensor-placement benefit mediation"
+  ],
+  "new_gates_from_S019": [
+    "traffic flow unit/time closure",
+    "displayed regression row replay",
+    "time-series split provenance",
+    "jam/critical/alarm density semantic registry",
+    "inventory Qmax circular-calibration check",
+    "inventory state-equation sign replay",
+    "heuristic controller-weight calibration",
+    "sensor-removal policy-input compatibility",
+    "appendix manifest versus executable source evidence"
+  ],
+  "new_gates_from_S020": [
+    "target-feature identity leakage",
+    "train-only preprocessing",
+    "single-timestep sequence-model check",
+    "architecture-name implementation contract",
+    "worst-group conclusion gate",
+    "shockwave sign/time contract",
+    "fundamental-diagram counterfactual replay",
+    "machine-recomputed percentage/utilization claims",
+    "cross-domain template contamination",
+    "heuristic-layout versus solved-optimization gate"
+  ]
+}

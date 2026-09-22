@@ -1,0 +1,64 @@
+{
+  "status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+  "evidence_class": "POST_DEV_SYNTHETIC_MECHANISM_TRANSFER_NOT_CLEAN_BLIND_NOT_R7",
+  "checks": [
+    {
+      "name": "first_fail_sample_prevalence",
+      "passed": true,
+      "detail": {
+        "naive": 0.1,
+        "truth": 0.01
+      }
+    },
+    {
+      "name": "repair_weighted_prevalence",
+      "passed": true,
+      "detail": {
+        "weighted": 0.01,
+        "truth": 0.01
+      }
+    },
+    {
+      "name": "first_fail_marginal_flow_identifiability",
+      "passed": true,
+      "detail": {
+        "row_margins": [
+          0.6,
+          0.4
+        ],
+        "col_margins": [
+          0.6,
+          0.4
+        ],
+        "flow_A_to_B_M1": 0.0,
+        "flow_A_to_B_M2": 0.2
+      }
+    },
+    {
+      "name": "repair_flow_claim_retracted",
+      "passed": true,
+      "detail": {
+        "decision": "marginals_only -> transition flow UNIDENTIFIED"
+      }
+    },
+    {
+      "name": "first_fail_target_lineage_leakage",
+      "passed": true,
+      "detail": {
+        "leaked_accuracy": 1.0,
+        "meaning": "rule reconstruction, not future validation"
+      }
+    },
+    {
+      "name": "repair_available_at_gate",
+      "passed": true,
+      "detail": {
+        "safe_baseline_accuracy": 0.95,
+        "minority_recall": 0.0,
+        "decision": "do not promote leaked predictor"
+      }
+    }
+  ],
+  "core_gain": "NOT_ESTABLISHED",
+  "controlled_ablation": "NOT_RUN"
+}

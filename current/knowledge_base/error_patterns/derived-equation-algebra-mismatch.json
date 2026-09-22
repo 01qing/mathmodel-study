@@ -1,0 +1,6 @@
+{
+  "name": "derived equation algebra mismatch",
+  "trigger": "a numbered equation is algebraically rearranged into a later equation",
+  "gate": "symbolically or numerically replay the transformation; stop if the inverse/rearrangement does not reproduce the previous equation",
+  "source_example": "S019 Eq.(32)->Eq.(33) uses rho0 rather than rhom in the denominator"
+}

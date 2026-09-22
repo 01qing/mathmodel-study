@@ -1,0 +1,280 @@
+{
+  "schema_version": "1.2",
+  "case_id": "gmcm-2021-D",
+  "competition": "中国研究生数学建模竞赛（华为杯）",
+  "year": 2021,
+  "problem_id": "D",
+  "canonical_working_title": "2021 D 抗乳腺癌候选药物的优化建模",
+  "title_status": "resolved",
+  "title_variants": [
+    {
+      "title": "抗胰腺癌候选药物的优化建模",
+      "source_type": "primary_official/repository_filename",
+      "status": "confirmed_as_published"
+    },
+    {
+      "title": "抗乳腺癌候选药物的优化建模",
+      "source_type": "secondary_index/expert_material",
+      "status": "confirmed_as_published"
+    }
+  ],
+  "conflicts": [
+    {
+      "conflict_id": "title-cancer-type",
+      "field": "problem_title",
+      "status": "resolved",
+      "policy": "do_not_silently_normalize",
+      "note": "镜像文件名/索引中的“胰腺癌”不再作为题目正式语义；保留为source-conflict历史记录。",
+      "resolution": "乳腺癌"
+    }
+  ],
+  "problem_assets": [
+    {
+      "name": "题面 DOCX",
+      "remote_name": "抗胰腺癌候选药物的优化建模.docx",
+      "source": "zhanwen/MathModel mirror",
+      "sha": "b970fb60d85c0dd650d1152463cabbabf3cfe619",
+      "status": "confirmed_remote"
+    },
+    {
+      "name": "ADMET.xlsx",
+      "source": "zhanwen/MathModel mirror",
+      "sha": "08cee79e5e3beffe574e327b877c6028add92dc6",
+      "status": "confirmed_remote"
+    },
+    {
+      "name": "ERα_activity.xlsx",
+      "source": "zhanwen/MathModel mirror",
+      "sha": "a8cbbe3620d7794d475cf85b2351f6dba2a931e3",
+      "status": "confirmed_remote"
+    },
+    {
+      "name": "Molecular_Descriptor.xlsx",
+      "source": "zhanwen/MathModel mirror",
+      "sha": "21ee480d930e3befc65e55bdb283a01294a48bde",
+      "status": "confirmed_remote"
+    },
+    {
+      "name": "分子描述符含义解释.xlsx",
+      "source": "zhanwen/MathModel mirror",
+      "sha": "29e813b8da02985a8043e1cee03120e65378cbd8",
+      "status": "confirmed_remote"
+    }
+  ],
+  "excellent_papers": [
+    {
+      "file": "D21101080006.pdf",
+      "sha": "578f9f8a3b3f030bd0b4e7b8456627d0eadbd045",
+      "status": "confirmed_remote"
+    },
+    {
+      "file": "D21102700119.pdf",
+      "sha": "731850f70e41f036e2edfe53f206c2dfc8873779",
+      "status": "confirmed_remote"
+    },
+    {
+      "file": "D21102980066.pdf",
+      "sha": "7f000f3664b534cde53be98fbcbf3f842683693d",
+      "status": "confirmed_remote"
+    },
+    {
+      "file": "D21104860088.pdf",
+      "sha": "c33f967f2510a8202e400fb3f630d9f06936a61e",
+      "status": "confirmed_remote"
+    },
+    {
+      "file": "D21116460003.pdf",
+      "sha": "aece8efce5d3e7ab22d74c851b3ecc754b017fe9",
+      "status": "confirmed_remote"
+    }
+  ],
+  "supplementary_material": [
+    {
+      "type": "public_solution_with_code",
+      "title_variant": "抗乳腺癌候选药物的优化建模",
+      "status": "secondary_material_not_verified_as_standard_solution"
+    },
+    {
+      "type": "participant_repo_readme_claim",
+      "award_claim": "一等奖",
+      "award_verified": false,
+      "status": "author_claim"
+    }
+  ],
+  "method_family_expectations": {
+    "Q1": [
+      "feature_selection",
+      "variable_importance",
+      "high_dimensional_data"
+    ],
+    "Q2": [
+      "regression",
+      "QSAR_prediction"
+    ],
+    "Q3": [
+      "multiple_binary_classification",
+      "ADMET_prediction"
+    ],
+    "Q4": [
+      "interpretable_rules",
+      "range_search",
+      "multiobjective_or_constrained_optimization"
+    ]
+  },
+  "first_pass_requirements": {
+    "minimum_papers_to_download": 2,
+    "prefer_method_diversity": true,
+    "must_download_all_official_attachments": true,
+    "award_label_not_required": true,
+    "must_resolve_or_document_title_conflict": true
+  },
+  "status": "V1_2_SOURCE_PIPELINE_READY_REAL_DATA_MATERIALIZATION_PENDING",
+  "title_resolution": {
+    "resolution": "乳腺癌",
+    "reason": "可直接读取的2021 D题面正文以“抗乳腺癌候选药物的优化建模”为题，正文围绕ERα与乳腺癌展开；多所高校公开获奖信息亦使用“乳腺癌”。zhanwen/MathModel中“抗胰腺癌...”文件名与题面内容冲突，按source-governance规则降为镜像命名错误。",
+    "evidence_types": [
+      "problem_statement_content",
+      "excellent_paper_content",
+      "university_award_notice"
+    ],
+    "resolved_at": "2026-09-08T03:33:25.334748+00:00"
+  },
+  "paper_screening": {
+    "screening_status": "PRIMARY_PAIR_SELECTED",
+    "selection_rule": "prefer method diversity and readable evidence over award label alone",
+    "selected_primary_papers": [
+      "D21102700119.pdf",
+      "D21104860088.pdf"
+    ],
+    "profiles": {
+      "D21102700119.pdf": {
+        "team": "上海师范大学 21102700119",
+        "screening_status": "selected_primary_contrast",
+        "readability": "full_text_verified",
+        "route": {
+          "Q1": "LASSO + Pearson + RandomForest + Mutual Information -> weighted voting -> high-correlation backward filtering -> 20 variables",
+          "Q2": "HGBRT regression; compare SVR/MLP/RF etc.; K-fold CV + grid search",
+          "Q3": "HGBCT; class-imbalance penalty C; compare SVM/RF/MLP/AdaBoost/DecisionTree",
+          "Q4": "HGBRT + HGBCT dual-objective formulation -> NSGA-III; lambda preference parameter"
+        },
+        "strengths": [
+          "Q1 explicitly combines linear and nonlinear feature evidence rather than relying on one importance score",
+          "Q2 has model comparison and hyperparameter search",
+          "Q3 recognizes class imbalance and introduces a penalty mechanism",
+          "Q4 provides a clear multi-objective evolutionary optimization chain"
+        ],
+        "risks": [
+          "Q3 ultimately emphasizes Accuracy despite class imbalance; metrics such as balanced accuracy, F1, PR-AUC should also be considered",
+          "Q4 manually assigns ADMET combination utility scores (10/8/5/2/1/0), introducing an artificial utility scale",
+          "Q4 searches inside descriptor min-max ranges without proving that arbitrary descriptor combinations correspond to realizable molecules",
+          "paper itself notes the simplifying independence assumption may conflict with physical/chemical coupling"
+        ]
+      },
+      "D21104860088.pdf": {
+        "team": "武汉大学 21104860088",
+        "screening_status": "selected_primary_contrast",
+        "readability": "full_text_verified",
+        "route": {
+          "Q1": "data cleaning + Spearman filtering -> RandomForest built-in importance + permutation importance + SHAP -> 20 variables",
+          "Q2": "12 regression models -> LightGBM selected; SHAP cross-check; GridSearchCV",
+          "Q3": "WOE/IV feature screening + oversampling -> 13 classifiers; XGBoost for Caco-2/CYP3A4/hERG, RandomForest for HOB/MN; 10-fold CV",
+          "Q4": "multi-objective optimization -> PSO Pareto set -> goal-programming/primary-objective cross-check"
+        },
+        "strengths": [
+          "Q1 combines predictive importance with post-hoc interpretability",
+          "Q2 conducts broad model competition instead of selecting an algorithm a priori",
+          "Q3 allows different ADMET labels to use different best classifiers",
+          "Q3 uses multiple classification metrics and 10-fold cross-validation",
+          "Q4 adds a second optimization method as a consistency check"
+        ],
+        "risks": [
+          "the exact placement of oversampling relative to cross-validation must be checked to rule out leakage",
+          "Q4 still optimizes in descriptor space and does not establish molecular realizability of all candidate combinations",
+          "paper explicitly observes PSO can fall into local optima and is parameter-sensitive",
+          "large model menus can become algorithm stacking unless selection logic and statistical uncertainty are made explicit"
+        ]
+      }
+    },
+    "not_selected_yet": [
+      {
+        "file": "D21102980066.pdf",
+        "reason": "award status can be verified as first prize, but a sufficiently complete readable method profile has not yet been established; award alone is not a selection reason"
+      },
+      {
+        "file": "D21101080006.pdf",
+        "reason": "binary PDF exists in repository, but current readable full-text evidence is insufficient for a fair method comparison"
+      },
+      {
+        "file": "D21116460003.pdf",
+        "reason": "binary PDF exists in repository, but current readable full-text evidence is insufficient for a fair method comparison"
+      }
+    ]
+  },
+  "blind_eval": {
+    "true_blind_status": "NOT_RUN",
+    "current_reference_baseline": "CONTAMINATED_REFERENCE_BASELINE",
+    "bundle_script": "scripts/prepare_blind_eval.py",
+    "rubric": "assets/cases/2021_D_blind_eval_rubric.json",
+    "required_next_step": "run in a fresh isolated conversation/context with only problem statement + attachments"
+  },
+  "data_audit": {
+    "status": "READY_AWAITING_BINARY_FILES",
+    "required_files": [
+      "ERα_activity.xlsx",
+      "Molecular_Descriptor.xlsx",
+      "ADMET.xlsx",
+      "分子描述符含义解释.xlsx"
+    ],
+    "script": "scripts/audit_2021_D_data.py",
+    "output": "learning_output/data_audit/gmcm-2021-D/data_audit.json",
+    "must_pass_before_model_benchmark": true
+  },
+  "model_benchmark": {
+    "status": "READY_AWAITING_REAL_DATA_AUDIT_PASS",
+    "script": "scripts/benchmark_2021_D_models.py",
+    "validator": "scripts/validate_model_benchmark.py",
+    "contract": "schemas/model_benchmark.schema.json",
+    "reference": "references/leakage-safe-model-benchmark.md",
+    "output": "learning_output/model_benchmark/gmcm-2021-D/model_benchmark.json",
+    "profiles": [
+      "smoke",
+      "standard",
+      "deep"
+    ],
+    "selection_rule": "lexicographic_metrics_with_practical_tie",
+    "must_explain": [
+      "why_recommended",
+      "runner_up",
+      "switch_condition"
+    ]
+  },
+  "final_fit": {
+    "status": "READY_AWAITING_REAL_BENCHMARK",
+    "script": "scripts/finalize_2021_D_models.py",
+    "validator": "scripts/validate_final_fit.py",
+    "output": "learning_output/final_fit/gmcm-2021-D/final_fit.json"
+  },
+  "paper_benchmark_comparison": {
+    "status": "READY_AWAITING_REAL_BENCHMARK_AND_AGENT_REVIEW",
+    "script": "scripts/prepare_paper_benchmark_comparison.py",
+    "validator": "scripts/validate_paper_benchmark_comparison.py",
+    "knowledge_extractor": "scripts/extract_case_knowledge.py"
+  },
+  "external_code_audit": {
+    "status": "REAL_PUBLIC_CODE_AUDITED",
+    "repository": "Bureaux-Tao/modeling2021-D",
+    "asset": "assets/cases/2021_D_external_code_audit.json",
+    "validator": "scripts/validate_external_code_audit.py",
+    "static_scanner": "scripts/scan_ml_code_risks.py",
+    "numerical_reproduction_status": "NOT_RUN"
+  },
+  "source_acquisition": {
+    "status": "REMOTE_METADATA_CONFIRMED_LOCAL_MATERIALIZATION_PENDING",
+    "manifest": "assets/cases/2021_D_source_acquisition_manifest.json",
+    "acquire_script": "scripts/acquire_2021_D_sources.py",
+    "verify_script": "scripts/verify_2021_D_sources.py",
+    "csv_audit": "scripts/audit_2021_D_csv_mirror.py",
+    "crosscheck": "scripts/crosscheck_2021_D_xlsx_csv.py",
+    "csv_benchmark_permission": "DENIED_UNTIL_CROSSCHECK_PASS"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "split": "dev",
+  "promotion": "CANDIDATE_ONLY",
+  "modules": [
+    {
+      "question": "Q1",
+      "modules": [
+        "单位与时间支持合同",
+        "面积守恒聚合"
+      ],
+      "entry_condition": "多源栅格描述与官方统计审计。",
+      "reject_condition": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "status": "LOCAL_CONTRACTS_TESTED_WHERE_REFERENCED; INTEGRATED_GAIN_NOT_ESTABLISHED"
+    },
+    {
+      "question": "Q2",
+      "modules": [
+        "实体-时间合并验证",
+        "解释稳定性门槛"
+      ],
+      "entry_condition": "有明确目标和留出合同的环境回归及解释。",
+      "reject_condition": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "status": "LOCAL_CONTRACTS_TESTED_WHERE_REFERENCED; INTEGRATED_GAIN_NOT_ESTABLISHED"
+    },
+    {
+      "question": "Q3",
+      "modules": [
+        "标签来源登记",
+        "结果身份与run追溯",
+        "未来输入空间支持合同"
+      ],
+      "entry_condition": "缺少观测标签时的透明情景分析；不适用于已校准概率宣称。",
+      "reject_condition": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "status": "LOCAL_CONTRACTS_TESTED_WHERE_REFERENCED; INTEGRATED_GAIN_NOT_ESTABLISHED"
+    },
+    {
+      "question": "Q4",
+      "modules": [
+        "正交主轴与面积分账",
+        "下游用途独立验证门槛"
+      ],
+      "entry_condition": "可解释空间摘要；需要独立用途才能作决策建议。",
+      "reject_condition": "Reject target/unit/join leakage; discard complex model without stable material holdout gain; retain unresolved provenance.",
+      "status": "LOCAL_CONTRACTS_TESTED_WHERE_REFERENCED; INTEGRATED_GAIN_NOT_ESTABLISHED"
+    }
+  ],
+  "error_patterns": [
+    {
+      "question": "Q1",
+      "patterns": "空间支持域、分母选择、重采样非守恒。",
+      "evidence": "S013_RESULT_REGISTRY.json"
+    },
+    {
+      "question": "Q2",
+      "patterns": "时间泄漏、空间相关、伪重复、因果过度解释。",
+      "evidence": "S013_RESULT_REGISTRY.json"
+    },
+    {
+      "question": "Q3",
+      "patterns": "自生成目标泄漏、跨年特征泄漏、run来源混淆、无约束外推。",
+      "evidence": "S013_RESULT_REGISTRY.json"
+    },
+    {
+      "question": "Q4",
+      "patterns": "度与公里混用、面积概念替代、事后选线、混合分布过度解释。",
+      "evidence": "S013_RESULT_REGISTRY.json"
+    }
+  ],
+  "mini_transfer": {
+    "status": "DEV_INFORMED_MECHANISM_ONLY",
+    "fixture": "cross_domain_panel_join_transfer",
+    "evidence": "FINAL_PRIMITIVE_RESULTS.json",
+    "history": "2 rows→4 duplicated rows (FAIL); add entity+period keys→2 rows (PASS contract only)",
+    "full_case_group_transfer": "NOT_DUE; S014-S016 not read",
+    "R7": false,
+    "core_gain": "NOT_ESTABLISHED"
+  }
+}

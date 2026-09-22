@@ -1,0 +1,435 @@
+{
+  "mode": "evaluation",
+  "query": "94.25 fixed period fracture DBSCAN edge registry",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S032",
+      "case_group": "2025-C",
+      "title": "C题-1-围岩裂隙精准识别与三维模型重构",
+      "page": 58,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S032-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+      "chunk_id": "S032-p58-700",
+      "excerpt": ".centroid for reg in regions])\n# DBSCAN 聚类\ndbscan\n=\nDBSCAN(eps=DBSCAN_EPS,\nmin_samples=DBSCAN_MIN_SAMPLES)\ncluster_labels = dbscan.fit_predict(centroids)\n# 构建聚类标记图像\ncluster_labeled = np.zeros_like(filtered_labeled)\nfor idx, reg in enumerate(regions):\ncurrent_cluster_id = cluster_labels[idx] + 1\ncluster_labeled[reg.coords[:, 0], reg.coords[:, 1]] = current_cluster_id\nreturn cluster_labeled, len(set(cluster_labels))\n# 中心线提取模块\ndef get_fracture_skeleton(cluster_labeled, target_cluster_id):\n# 提取目标聚类的掩码\ntarget_mask = (cluster_labeled == target_cluster_id)\n# 计算裂隙中心线\nfracture_skeleton = morphology.skeletonize(target_mask)\n# 提取骨架点坐标\nskeleton_y, skeleton_x = np.where(fracture_skeleton)\nif len(skeleton_x) < MIN_SKELETON_POINTS:",
+      "lexical_cosine": 0.20377868740193547,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+          "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+          "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+          "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+        "result_registry_file": "knowledge_base/result_registry/S032.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+        "decision_warning": [
+          "Q1 independent split/loss provenance missing",
+          "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+          "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+          "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+        ]
+      }
+    },
+    {
+      "paper_id": "S006",
+      "case_group": "2024-B",
+      "title": "B24103530099",
+      "page": 21,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S006-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24103530099.pdf",
+      "source_sha256": "db528311404cb848e166fe9f837b20ebafab91f8b3ee6307677a8e7d56d09b1f",
+      "chunk_id": "S006-p21-0",
+      "excerpt": "20 \n \n核心点的条件，但它位于某个核心点的邻域内。公式(4.4)表示如果点 P 既不是核心点，也\n不是边界点，则它是噪声点。 \nDBSCAN 的方法优势如下：与 K-means 不同，DBSCAN 不需要提前知道簇的数量，\n它通过局部密度来自动发现簇的数量。同时，DBSCAN 通过密度连接点来发现簇，因此\n能识别任意形状的簇，适合处理形状不规则的数据集。本团队使用的方法示意图如图4-6\n所示。 \n在基础的DBSCAN 方法上，我们额外添加了扰动因素，公式如下所示： \n \n(4.5) \n在公式(4.5)中，\n为加入扰动后的标签，\n属于选中进行扰动的集合。 \nRSSI数据\nDBSCAN\nRSSI数据更新\n分类重构\n \n图4-6 DBSCAN 数据处理示意图",
+      "lexical_cosine": 0.17137462781768814,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S033",
+      "case_group": "2025-C",
+      "title": "C题-2-围岩裂隙精准识别与三维模型重构",
+      "page": 54,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S033-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-2-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "bc6529349c3a053b7774731f2fa3e383f6337807fd33954ee7726b04949878fd",
+      "chunk_id": "S033-p54-0",
+      "excerpt": "if f.endswith(('.png', '.jpg', '.jpeg', '.tif',\n'.bmp'))]\nself.images = {}\nfor img_file in image_files:\nimg_path = os.path.join(self.image_folder, img_file)\n# 读取图像\nimg = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)\n# 确保是二值图像：黑色裂隙(0)，白色背景(255)\n_, binary_img = cv2.threshold(img, 127, 255,\ncv2.THRESH_BINARY)\nself.images[img_file] = binary_img\nreturn self.images\ndef extract_fracture_pixels(self, image):\n\"\"\"提取裂隙像素的坐标\"\"\"\n# 找到黑色像素（裂隙）的位置\nfracture_coords = np.column_stack(np.where(image == 0))\nreturn fracture_coords\ndef extract_fracture_features(self, image):\n\"\"\"提取裂隙的特征（位置和几何特征）\"\"\"\n# 方法1：直接使用像素坐标\ncoords = self.extract_fracture_pixels(image)\nif len(coords) == 0:\nreturn np.array([])\n# 方法2：提取连通区域的特征\nlabeled_image = measure.label(image == 0, connectivity=2)\nregions = measure.regionprops(labeled_image)\nfeatures = []\nfor region in regions:\n# 提取每个裂隙区域的多种特征\ncentroid = region.centroid # 质心坐标\n54",
+      "lexical_cosine": 0.1580250450155858,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_78_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "no-label Canny/ridge + morphology baseline; compact segmentation model only after grouped held-out gain",
+          "Q2": "topology-aware unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+          "Q3": "ordered physical centerline + canonical JRC formula + sampling-density sensitivity",
+          "Q4": "attachment-derived 3D geometry + transparent/calibrated connectivity + propagated uncertainty + feasible expected-information-gain drilling"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S033.json",
+        "result_registry_file": "knowledge_base/result_registry/S033.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S033-modules.json",
+        "decision_warning": [
+          "Q1 method ranking is mainly visual and appendix exposes only a Canny fragment with cross-question path drift",
+          "Q2 visible fixed 3-component GMM cannot explain reported 5/1/3 fractures; pseudo-neural same-instance fitting is not held-out learning",
+          "Q3 JRC formula/area-correction claims drift and printed code treats a closed contour as an ordered profile",
+          "Q4 uses simulated fixed inputs, incomplete binary entropy/pseudo information gain, and a reported point violates the stated 500 mm spacing constraint"
+        ]
+      }
+    },
+    {
+      "paper_id": "S036",
+      "case_group": "2025-C",
+      "title": "C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究",
+      "page": 68,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_CODE_REFERENCED_BUT_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S036-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究.pdf",
+      "source_sha256": "b1cdd0efccde759c990a385d0aa613f9e2fe2b7222a60e87452352b9440ebb98",
+      "chunk_id": "S036-p68-0",
+      "excerpt": "68 \n \n附录 \n附件1： \n数据集来自roboflow.com \n具体网址：Fracture and Borehole - v 9 2024-06-21 2:27am > Images",
+      "lexical_cosine": 0.13899651798631688,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_76_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "source-group holdout then deterministic/compact segmentation competition",
+          "Q2": "DBSCAN fragments + fixed P=pi*D physical merge/refit + reject",
+          "Q3": "ordered profile + canonical JRC + explicit multi-metric utility",
+          "Q4": "thresholded edge registry + component replay + transparent compatibility/coverage; calibrated probability/EIG only with probabilistic machinery"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S036.json",
+        "result_registry_file": "knowledge_base/result_registry/S036.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S036-modules.json",
+        "decision_warning": [
+          "all project images appear in training then are evaluated; headline DeepLab metrics are not independent test evidence",
+          "keypoint sampling has best R2/RMSE but worst ±5% outlier count among the three",
+          "one >0.5 edge cannot support the claimed four-hole component",
+          "source notebooks/scripts unavailable, so R1"
+        ]
+      }
+    },
+    {
+      "paper_id": "S034",
+      "case_group": "2025-C",
+      "title": "C题-3-围岩裂隙精准识别与三维模型重构",
+      "page": 27,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_CODE_REFERENCED_BUT_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S034-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-3-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "23dfbdeb5af6468a92428c0171ccfd569b6571066837df96b1960f47248b1d1f",
+      "chunk_id": "S034-p27-0",
+      "excerpt": "图19\n问题二技术框架图\n4 . 2\n基于多层次聚类的鲁棒拟合\n由于图像采用像素坐标系，故需要将图像中的像素坐标转换为实际的物理坐标，以\n便进行实际意义的分析。由问题的数据说明可知横轴x 表示周向展开距离（范围从0\n到钻孔周长，单位：mm），纵轴y 表示轴向深度（单位：mm），坐标系的原点位于图\n像的左下角。图像的宽度和高度分别为244 像素和1350 像素，而钻孔的实际周长和深\n度分别为94.25mm 和500 mm。因此，横向和纵向的像素到物理坐标的转换系数分别为\n0.386mm/pixel、0.370mm/pixel。\n本算法首先通过问题一中的裂隙智能识别模型从钻孔图像中提取完整的裂隙区域，\n并利用连通域分析标记每个潜在裂隙；接着采用DBSCAN 密度聚类根据空间分布对裂\n隙进行初步分组，再通过水平带合并策略整合垂直方向相邻的簇，形成完整的裂隙实例；\n然后针对每个裂隙簇，使用RANSAC 鲁棒拟合算法结合最小二乘法，优化正弦模型参\n数（振幅、周期、相位和中心线），以抵抗噪声干扰；最后通过计算拟合优度等性能指\n标评估模型准确性，完成对” 正弦状” 裂隙的定量表征[1]。\n4 . 2 . 1 DBSCAN 密度聚类与水平带合并\n1、第一层聚类：DBSCAN 聚类算法\nDBSCAN 聚类算法是一种基于密度的空间聚类算法，其核心思想是簇是数据空间\n中密度相连点的最大集合。该算法通过定义领域半径和最小点数来刻画密度这一概念。\n相较于K-Means 等基于距离的算法，DBSCAN 的优势在于无需预先指定簇的数量，并\n且能够发现任意形状的簇和有效识别离群点。\n在问题一裂隙识别模型对附件2 中原始图像处理后得到的二值图像中，全体像素\n点构成了一个密度不均匀的空间数据集。一条连续的“正弦状”裂隙其像素点会聚集\n27",
+      "lexical_cosine": 0.12179621094049281,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_68_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "classical ridge/edge ensemble + morphology/component rules; learn weights only with grouped held-out masks",
+          "Q2": "unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+          "Q3": "ordered physical centerline + canonical JRC + sampling convergence; adaptive sampling as efficiency diagnostic",
+          "Q4": "transparent geometry compatibility + coverage surrogate + complete-feasibility greedy placement; probabilistic/EIG wording only after calibration/update model"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S034.json",
+        "result_registry_file": "knowledge_base/result_registry/S034.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S034-modules.json",
+        "decision_warning": [
+          "Q1 metrics replay but ground-truth mask and threshold-tuning provenance are absent",
+          "Q2 RANSAC period primitive/test p-value provenance are incomplete and axis semantics drift",
+          "Q3 Bootstrap CI/estimator contract and dense-reference/RAF calibration claims are not fully supported",
+          "Q4 heuristic probability/uncertainty/EIG semantics, 64%-85% result drift and all-hole spacing contract require repair",
+          "Attachment 9 code is referenced but not available, so reproduction remains R1"
+        ]
+      }
+    },
+    {
+      "paper_id": "S028",
+      "case_group": "2025-A",
+      "title": "A题-面向 Davinci 架构的 NPU 核内调度算法研究",
+      "page": 65,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-A-S028-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-面向 Davinci 架构的 NPU 核内调度算法研究.pdf",
+      "source_sha256": "42c5fb495eadd637e6a90263675157f5a0d75d868f5ace69b06d266d86892130",
+      "chunk_id": "S028-p65-0",
+      "excerpt": "65 \n    pos_map = {} \n    for idx, node_id in enumerate(sequence): \n        pos_map[node_id] = idx \n    for edge in edges: \n        u, v = edge \n        if u not in pos_map or v not in pos_map: \n            continue \n        if pos_map[u] > pos_map[v]: \n            return False  \n    return True \n \nclass TabuList: \n    def __init__(self, max_size=50): \n        self.tabu_list = deque(maxlen=max_size) \n        self.max_size = max_size \n    def add(self, move):  \n        self.tabu_list.append(move) \n    def is_tabu(self, move): \n        return move in self.tabu_list \n    def size(self):  \n        return len(self.tabu_list) \n    def clear(self):  \n        self.tabu_list.clear() \nclass TabuSearch: \n    def __init__(self, nodes_dict, edges, tabu_size=50, aspiration_criteria=True): \n        self.nodes_dict = nodes_dict \n        self.edges = edges \n        self.tabu_list = TabuList(tabu_size) \n ",
+      "lexical_cosine": 0.11141837144724943,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+        "papers": [
+          "S025",
+          "S026",
+          "S027",
+          "S028"
+        ],
+        "status": "FINAL_TRAIN_GROUP_COMPLETE",
+        "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+        "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_77_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "Kahn/FREE-first + critical-path/slack urgency before incremental-memory tie-break",
+          "Q2": "lifetime sweep + coalescing free-list + deficit-aware minimum incremental-transfer spill subset",
+          "Q3": "canonical epsilon hard cap + feasibility-first cycle minimization"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S028.json",
+        "result_registry_file": "knowledge_base/result_registry/S028.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-A-S028-modules.json",
+        "decision_warning": [
+          "Q1 MinPeak/LateAlloc printed heap priorities put larger ALLOC earlier than prose implies; complexity table misuses Big-O.",
+          "Q2 FlashAttention_Case1 final 33792 is not traceable to Table14 visible minimum 54720; objective semantics drift Peak+transfer to Time+transfer.",
+          "Q3 10% hard cap conflicts with S025 5% contract candidate; Conv0 baseline source drifts, FlashAttention0 violates transfer-first lexicographic selection, and 201731 vs 2017 time values conflict.",
+          "2025-A Mini Transfer passed only after revising Q1 priority ordering; this validates Core rules, not S028 author method R7."
+        ]
+      }
+    },
+    {
+      "paper_id": "S035",
+      "case_group": "2025-C",
+      "title": "C题-基于 Frangi 滤波的钻孔裂隙识别与三维概率重构",
+      "page": 46,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_CODE_REFERENCED_BUT_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S035-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于 Frangi 滤波的钻孔裂隙识别与三维概率重构.pdf",
+      "source_sha256": "6f0541dcef1669d18a2a4626def5d216545860e5dd5f3cf5f5891bf983ab1cf2",
+      "chunk_id": "S035-p46-700",
+      "excerpt": "数据。其核心思想是通过识别高密\n度区域形成聚类，并将低密度区的点标记为噪声。算法根据邻域密度将数据点分为核心点、\n边界点与噪声点：核心点在其𝜀𝜀 邻域内包含至少𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀 个点；边界点位于核心点邻域内但\n自身不满足核心点条件；噪声点则为未被任何核心点密度可达的点。 \nDBSCAN 的优势在于无需预设聚类数量，能识别任意形状的聚类，并对噪声具有鲁棒\n性，适用于裂隙分布未知且形态多样的地质场景。在裂隙分析中，算法基于裂隙的轴向深\n度特征进行聚类，首先对特征点进行标准化以消除尺度差异，随后通过𝜀𝜀 和𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀𝑀 参数控\n制聚类粒度与密度阈值。通过密度可达与密度相连的机制，DBSCAN 将裂隙特征点划分为\n不同聚类，为后续正弦曲线拟合提供分组数据基础。 \n注：代码中涉及到DBSCAN 密度聚类的函数路径为：附件：源代码\\src\\core\\crack_an\nalysis.py — perform_dbscan_clustering()、附件：源代码\\src\\core\\crack_analysis.py — Stan\ndardScaler.fit_transform()、附件：源代码\\src\\core\\crack_analysis.py — DBSCAN.fit_predict\n()。具体代码见附件。 \n5.2.3 正弦状裂隙表征模型 \n裂隙表征是钻孔裂隙图像分析的核心环节，旨在从图像数据中定量识别裂隙与钻孔交\n线的平面属性，包括振幅𝑅𝑅、周期𝑃𝑃、相位𝛽𝛽和中心线位置𝐶𝐶，本研究采用正弦函数模型对裂\n隙进行参数化表征，如式(5.1)所示： \n \n \n(2.1) \n其中，其中，𝑅𝑅为振幅（单位：mm），𝑃𝑃为周期（对于完整的正弦状裂隙，等同于钻孔\n周长，单位：mm），𝛽𝛽为相位（单位：rad），𝐶𝐶为中心线位置（单位：mm）。",
+      "lexical_cosine": 0.10708310162283453,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_91_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "Frangi/Otsu/morphology no-label baseline; learned model only after source dedup/group holdout",
+          "Q2": "DBSCAN/instance repair + fixed P=pi*D robust fit + reject",
+          "Q3": "ordered centerline + canonical JRC + sampling sensitivity",
+          "Q4": "geometry compatibility + MC sensitivity + feasible placement; probability/EIG only after calibration"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S035.json",
+        "result_registry_file": "knowledge_base/result_registry/S035.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S035-modules.json",
+        "decision_warning": [
+          "paper explicitly identifies an overlapping source/test image in ML experiment",
+          "some Q2 fits have residual near 1 and missingness >70%",
+          "Monte Carlo propagation/IDW uncertainty are not calibrated probability/posterior by themselves",
+          "source code paths are cited but actual files unavailable"
+        ]
+      }
+    },
+    {
+      "paper_id": "S019",
+      "case_group": "2024-E",
+      "title": "基于目标检测的高速公路应急车道实时启用策略研究",
+      "page": 59,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_MANIFEST_AUDITED_UNIT_FORECAST_INVENTORY_INTERVENTION_SENSOR_CONTRACT",
+      "review_file": "knowledge_base/paper_reviews/2024-E-S019-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24102910005.pdf",
+      "source_sha256": "7420d18869b74b8f8a5d036e57ac0fa7b3a94fc54313e1729bbd97e578cfe2cd",
+      "chunk_id": "S019-p59-1400",
+      "excerpt": "one-captured Scenarios[M]. \n2021: 2788. \n[17] Zhang Y, Sun P, Jiang Y, et al. ByteTrack: Multi-Object Tracking by Associating \nEvery Detection Box[A]. arXiv, 2022. \n[18] 郭鹏宇. 轨迹和车流量预测研究及应用[D]. 电子科技大学, 2022. \n[19] Kalman R E. A new approach to linear filtering and prediction problems[J]. \n1960.[J]. \n[20] Kuhn H W. The Hungarian method for the assignment problem[J]. Naval \nResearch Logistics Quarterly, 1955, 2(1-2): 83-97. \n[21] 杨东龙. 基于arima 模型的区间道路短时车流量预测研究[J]. 电子设计工程, \n2021, 29(13): 38-42. \n[22] 姜启源, 谢金星, 叶俊. 数学模型[M]. 北京: 高等教育出版社, 2003. \n[23] Freund Y, Schapire R E. Experiments with a New Boosting Algorithm[J]. \n[24] Zhi N, An Y, Zhao Y, et al. Intelligent Island detection method of DC microgrid \nbased on Adaboost algorithm[J]. Energy Reports, 2023, 9: 970-982. \n[25] Miller K. Boosting Algorithm in Python[EB/OL]. [2023-10-26]. https://python-\ncourse.eu/machine-learning/boosting-algorithm",
+      "lexical_cosine": 0.0945993477689751,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-E-S017-S020.json",
+        "papers": [
+          "S017",
+          "S018",
+          "S019",
+          "S020"
+        ]
+      },
+      "mathmodel_core_summary": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

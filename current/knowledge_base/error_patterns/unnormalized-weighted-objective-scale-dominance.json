@@ -1,0 +1,9 @@
+{
+  "id": "unnormalized-weighted-objective-scale-dominance",
+  "name": "Raw-scale weighted-sum objective dominance",
+  "symptom": "Different-unit objectives are combined with equal/raw weights, so numeric scale rather than preference determines the compromise.",
+  "gate": "Normalize/nondimensionalize objectives or show Pareto/epsilon-constraint sensitivity; report how selected point changes with preference.",
+  "source_examples": [
+    "2024-C S010 Q5 loss - f*Bm"
+  ]
+}

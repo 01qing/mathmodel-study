@@ -1,0 +1,7 @@
+{
+  "pattern_id": "hardcoded-result-overrides-computation",
+  "name": "固定结果字典覆盖模型计算输出",
+  "trigger": "code computes a score/prediction then returns manually fixed values matching the desired report/table",
+  "example": "S044 Q2 fixed illusion/element/openness score dictionaries after computed features",
+  "gate": "Result Registry must ingest model output before presentation; hard-coded expected values may exist only as tests, never as production evidence"
+}

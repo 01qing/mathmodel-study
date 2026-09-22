@@ -1,0 +1,8 @@
+{
+  "pattern": "Feature extraction / training / inference schema drift",
+  "trigger": "paper lists one feature set, training code uses another/undefined matrix, or inference selects a different set/order",
+  "gate": "Create a machine-readable feature schema with names, order, units, transformations and source columns. Training and inference matrices must validate against the same schema before fitting/predicting.",
+  "source_cases": [
+    "2024-C-S009"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "modules": [
+    {
+      "id": "S028_Q1_GREEDY_AS_MAINLINE",
+      "question": "Q1",
+      "module": "compare multiple cheap greedy policies, choose a deterministic contest mainline, retain SA/TS/GA only as budgeted refiners",
+      "transfer_value": "high",
+      "conditions": [
+        "same DAG evaluator",
+        "topology-safe ready-set implementation",
+        "matched budget for refiners"
+      ]
+    },
+    {
+      "id": "S028_Q1_GRAPH_FLEXIBILITY_GATE",
+      "question": "Q1",
+      "module": "use graph ready-set flexibility/lifetime overlap to decide whether expensive local search is worth attempting",
+      "transfer_value": "high",
+      "conditions": [
+        "measurable baseline gap",
+        "not inferred from optimizer name alone"
+      ]
+    },
+    {
+      "id": "S028_Q2_RULE_FAMILY_SEARCH",
+      "question": "Q2",
+      "module": "separate address-allocation rule family from spill-victim rule and evaluate combinations",
+      "transfer_value": "medium-high",
+      "conditions": [
+        "held-out graph validation",
+        "one canonical transfer simulator"
+      ]
+    },
+    {
+      "id": "S028_Q2_FREE_BLOCK_COALESCING",
+      "question": "Q2",
+      "module": "coalesce adjacent freed blocks to reduce fragmentation before escalating to spill",
+      "transfer_value": "high",
+      "conditions": [
+        "address alignment and cache-type rules preserved"
+      ]
+    },
+    {
+      "id": "S028_Q3_PARETO_DASHBOARD",
+      "question": "Q3",
+      "module": "frontier scatter + all-candidate scatter + per-objective convergence curves",
+      "transfer_value": "high for evidence",
+      "conditions": [
+        "only feasible points",
+        "same evaluator and units",
+        "operating-point rule shown"
+      ]
+    },
+    {
+      "id": "S028_Q3_LEXICOGRAPHIC_SELECTION",
+      "question": "Q3",
+      "module": "when engineering preference is transfer-first, explicitly choose lexicographically rather than hide preference in arbitrary weights",
+      "transfer_value": "high",
+      "conditions": [
+        "selection applied consistently",
+        "hard cap resolved first"
+      ]
+    }
+  ],
+  "blocked_or_conditional": [
+    "per-workload GP as general rule without held-out graph families",
+    "weighted objective whose secondary metric drifts Peak→Time",
+    "printed random schedule generators without visible DAG repair",
+    "direct cross-paper byte ranking before common evaluator"
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper_review.schema.json",
+  "title": "Excellent Paper Review",
+  "type": "object",
+  "required": [
+    "review_id",
+    "source_id",
+    "problem_id",
+    "questions",
+    "overall_transferable_lessons"
+  ],
+  "properties": {
+    "review_id": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "problem_id": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "question_id",
+          "author_approach",
+          "model_choice_reasoning",
+          "verification_status",
+          "risks",
+          "our_assessment"
+        ],
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "author_approach": {
+            "type": "string"
+          },
+          "model_choice_reasoning": {
+            "type": "string"
+          },
+          "assumptions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data_mapping": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "verification_status": {
+            "enum": [
+              "author_claim",
+              "verified",
+              "partially_verified",
+              "not_verified",
+              "contradicted",
+              "our_inference"
+            ]
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "strengths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "risks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "our_assessment": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "overall_transferable_lessons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "do_not_copy_blindly": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

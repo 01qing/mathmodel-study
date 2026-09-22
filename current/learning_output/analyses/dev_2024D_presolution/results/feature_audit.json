@@ -1,0 +1,220 @@
+{
+  "failures_and_repairs": [
+    {
+      "first_fail": "inventory parser treated CRLF records as one record",
+      "diagnosis": "line endings not normalized before blank-line split",
+      "repair": "normalize CRLF; rerun six inventories",
+      "retest": "counts 71/29263/6/1204/133/109"
+    },
+    {
+      "first_fail": "netCDF4 could not open Unicode full path",
+      "diagnosis": "native Windows path encoding; first lookup also selected .nc directory",
+      "repair": "require is_file; open ASCII basename from file parent",
+      "retest": "dimensions and variables loaded"
+    },
+    {
+      "first_fail": "DEM nodata absent in metadata",
+      "diagnosis": "-32768 sentinel would bias mean elevation",
+      "repair": "explicitly mask -32768, record source CRS mismatch",
+      "retest": "physical-range and mask checks below"
+    }
+  ],
+  "land": {
+    "types": [
+      "cropland",
+      "forest",
+      "grass",
+      "shrub",
+      "wetland"
+    ],
+    "shape": [
+      30,
+      5,
+      78,
+      127
+    ],
+    "years": [
+      1990,
+      2019
+    ],
+    "sum_max": 1.0000001192092896,
+    "sum_above_1_001": 0,
+    "zero_is_not_automatically_missing": true
+  },
+  "dem": {
+    "crs": "GEOGCS[\"Krasovsky\",DATUM[\"Krasovsky\",SPHEROID[\"Krasovsky\",6378245,298.300000376014]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST]]",
+    "metadata_nodata": null,
+    "masked_sentinel_count": 46324966,
+    "valid_range_m": [
+      0.0,
+      8848.0
+    ],
+    "relief_definition": "within-cell elevation standard deviation; not hydrological slope"
+  },
+  "precip": {
+    "raw_shape": [
+      22645,
+      144,
+      256
+    ],
+    "units": "mm/day",
+    "missing_attr": "-99.9",
+    "product": "IDW + PRISM; terrain-conditioned target, not independent causal evidence",
+    "annual_days": {
+      "1990": 365,
+      "1991": 365,
+      "1992": 366,
+      "1993": 365,
+      "1994": 365,
+      "1995": 365,
+      "1996": 366,
+      "1997": 365,
+      "1998": 365,
+      "1999": 365,
+      "2000": 366,
+      "2001": 365,
+      "2002": 365,
+      "2003": 365,
+      "2004": 366,
+      "2005": 365,
+      "2006": 365,
+      "2007": 365,
+      "2008": 366,
+      "2009": 365,
+      "2010": 365,
+      "2011": 365,
+      "2012": 366,
+      "2013": 365,
+      "2014": 365,
+      "2015": 365,
+      "2016": 366,
+      "2017": 365,
+      "2018": 365,
+      "2019": 365,
+      "2020": 366,
+      "2021": 365,
+      "2022": 365
+    }
+  },
+  "common_support": {
+    "cells": 4040,
+    "area_km2": 9951521.433508676,
+    "boundary_rule": "precip coverage >=0.5, finite DEM and five cover fractions; analytical support, not administrative boundary",
+    "coverage_min": 0.5248061890683323
+  },
+  "socio": {
+    "method": "conservative by source-cell centre assignment; no fractional boundary overlap; ~1 km support uncertainty",
+    "checks": [
+      {
+        "variable": "pop",
+        "year": 1990,
+        "source_total": 1097752868.6948133,
+        "source_in_target_extent": 1097752868.6948133,
+        "aggregated_total": 1097752868.6948133,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 1094860454.247797
+      },
+      {
+        "variable": "pop",
+        "year": 2000,
+        "source_total": 1378525389.0118742,
+        "source_in_target_extent": 1378525389.0118742,
+        "aggregated_total": 1378525389.0118742,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 1373819595.0432181
+      },
+      {
+        "variable": "pop",
+        "year": 2010,
+        "source_total": 1332858423.6875975,
+        "source_in_target_extent": 1332858423.6875975,
+        "aggregated_total": 1332858423.6875975,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 1329102650.3587122
+      },
+      {
+        "variable": "pop",
+        "year": 2015,
+        "source_total": 1371893361.3039167,
+        "source_in_target_extent": 1371893361.3039167,
+        "aggregated_total": 1371893361.3039167,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 1367842912.5112095
+      },
+      {
+        "variable": "gdp",
+        "year": 1990,
+        "source_total": 5792688174.090624,
+        "source_in_target_extent": 5792688174.090624,
+        "aggregated_total": 5792688174.090624,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 5757521299.150625
+      },
+      {
+        "variable": "gdp",
+        "year": 2000,
+        "source_total": 1024140744.7834004,
+        "source_in_target_extent": 1024140744.7834004,
+        "aggregated_total": 1024140744.7834003,
+        "relative_conservation_error": 1.163993231965332e-16,
+        "common_mask_total": 1019706505.3589675
+      },
+      {
+        "variable": "gdp",
+        "year": 2010,
+        "source_total": 3363175435.6802444,
+        "source_in_target_extent": 3363175435.6802444,
+        "aggregated_total": 3363175435.6802444,
+        "relative_conservation_error": 0.0,
+        "common_mask_total": 3349969882.4115753
+      },
+      {
+        "variable": "gdp",
+        "year": 2015,
+        "source_total": 5.157467645559245e+16,
+        "source_in_target_extent": 3.1709112691046708e+16,
+        "aggregated_total": 3.170911269104671e+16,
+        "relative_conservation_error": 1.2614670233675218e-16,
+        "common_mask_total": 1145859106856187.0
+      }
+    ],
+    "GDP_price_basis": "not established: do not interpret nominal GDP growth as real adaptive capacity growth"
+  },
+  "temperature": {
+    "annual_days": {
+      "1990": 365,
+      "1991": 365,
+      "1992": 366,
+      "1993": 365,
+      "1994": 365,
+      "1995": 365,
+      "1996": 366,
+      "1997": 365,
+      "1998": 365,
+      "1999": 365,
+      "2000": 366,
+      "2001": 365,
+      "2002": 365,
+      "2003": 365,
+      "2004": 366,
+      "2005": 365,
+      "2006": 365,
+      "2007": 365,
+      "2008": 366,
+      "2009": 365,
+      "2010": 365,
+      "2011": 365,
+      "2012": 366,
+      "2013": 365,
+      "2014": 365,
+      "2015": 365,
+      "2016": 366,
+      "2017": 365,
+      "2018": 365
+    },
+    "missing_requirement": "native pixel >=95% daily validity before annual mean",
+    "units": "degrees C",
+    "regrid": "area-overlap average via GDAL; native 0.1-degree cells"
+  },
+  "feature_preparation_completed": true
+}

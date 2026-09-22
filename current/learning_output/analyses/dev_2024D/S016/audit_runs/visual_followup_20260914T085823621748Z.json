@@ -1,0 +1,286 @@
+{
+  "timestamp_utc": "2026-09-14T08:58:23.536943+00:00",
+  "scope": "LOCAL_ARITHMETIC_AND_SYNTHETIC_MECHANISMS_ONLY",
+  "passed": 11,
+  "total": 11,
+  "checks": [
+    {
+      "id": "csv_numeric_header_detected",
+      "passed": true,
+      "detail": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.2,
+          0.8
+        ],
+        [
+          0.7,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "csv_roundtrip_shape_and_values",
+      "passed": true,
+      "detail": [
+        [
+          0.2,
+          0.8
+        ],
+        [
+          0.7,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "same_length_can_misalign",
+      "passed": true,
+      "detail": [
+        [
+          "g1",
+          10,
+          300
+        ],
+        [
+          "g2",
+          20,
+          100
+        ],
+        [
+          "g3",
+          30,
+          200
+        ]
+      ]
+    },
+    {
+      "id": "coordinate_join_restores_identity",
+      "passed": true,
+      "detail": [
+        [
+          "g1",
+          10,
+          100
+        ],
+        [
+          "g2",
+          20,
+          200
+        ],
+        [
+          "g3",
+          30,
+          300
+        ]
+      ]
+    },
+    {
+      "id": "shap_output_not_probability",
+      "passed": true,
+      "detail": "p79 f(x)=4.67 and p80 roughly 1–7 cannot directly be probabilities."
+    },
+    {
+      "id": "known_binary_link_probability_control",
+      "passed": true,
+      "detail": {
+        "synthetic_binary_margin": 4.67,
+        "linked_probability": 0.9907147542983346,
+        "paper_link": "UNRESOLVED"
+      }
+    },
+    {
+      "id": "contribution_direction_and_sum",
+      "passed": true,
+      "detail": {
+        "base": 0.2,
+        "contributions": {
+          "a": 0.5,
+          "b": -0.1
+        },
+        "output": 0.6000000000000001
+      }
+    },
+    {
+      "id": "positive_contribution_cannot_mean_decrease",
+      "passed": true,
+      "detail": "Reject a verbal decrease for a positive additive contribution in the same declared output space."
+    },
+    {
+      "id": "sd_normalizer_counterexample",
+      "passed": true,
+      "detail": {
+        "printed": 2.581988897471611,
+        "sample_stdev": 1.2909944487358056,
+        "ratio": 2.0
+      }
+    },
+    {
+      "id": "confusion_matrix_arithmetic",
+      "passed": true,
+      "detail": {
+        "n": 18991,
+        "accuracy": 0.783002474856511,
+        "precision": 0.7254625052958622,
+        "recall": 0.7023516543614985,
+        "specificity": 0.8335188832748137,
+        "f1": 0.7137200416811393,
+        "majority_accuracy": 0.6148702016744774
+      }
+    },
+    {
+      "id": "regression_and_classification_runs_not_mergeable",
+      "passed": true,
+      "detail": {
+        "classification_n": 18991,
+        "p63_OLS_n": 501301,
+        "link": "UNRESOLVED; could be different sampling, not automatically an error"
+      }
+    }
+  ],
+  "first_fail_diagnosis_repair_retest": [
+    {
+      "id": "numeric_header_becomes_pixel",
+      "origin": "DESIGNED_MICRO_FIXTURE_NOT_HISTORICAL_AUTHOR_RUN",
+      "first_fail": {
+        "status": "FAIL",
+        "expected_rows": 2,
+        "actual_rows": 3
+      },
+      "diagnosis": "p92 writer retains numeric column header; p93 reader parses every numeric line as a pixel row.",
+      "repair": "Declare header contract; this fixture writes header=False and asserts original shape and values.",
+      "retest": {
+        "status": "PASS",
+        "rows": 2
+      },
+      "scope": "Local pandas CSV path plus Python transcription; actual author files/compiled chain not available."
+    },
+    {
+      "id": "same_length_is_not_same_pixel",
+      "origin": "DESIGNED_MICRO_FIXTURE_NOT_HISTORICAL_AUTHOR_RUN",
+      "first_fail": {
+        "status": "FAIL",
+        "joined": [
+          [
+            "g1",
+            10,
+            300
+          ],
+          [
+            "g2",
+            20,
+            100
+          ],
+          [
+            "g3",
+            30,
+            200
+          ]
+        ]
+      },
+      "diagnosis": "Equal-length arrays can have different coordinate order, as allowed by p45 min_length pseudocode.",
+      "repair": "Join validated unique coordinate/time keys and assert support equality; never truncate to minimum length.",
+      "retest": {
+        "status": "PASS",
+        "joined": [
+          [
+            "g1",
+            10,
+            100
+          ],
+          [
+            "g2",
+            20,
+            200
+          ],
+          [
+            "g3",
+            30,
+            300
+          ]
+        ]
+      },
+      "scope": "Synthetic three-cell dataset."
+    },
+    {
+      "id": "shap_probability_semantics",
+      "origin": "DESIGNED_MICRO_FIXTURE_NOT_HISTORICAL_AUTHOR_RUN",
+      "first_fail": {
+        "status": "FAIL",
+        "claimed": "probability",
+        "value": 4.67
+      },
+      "diagnosis": "A plot output was called a probability without an output/link/class contract.",
+      "repair": "Reject the probability claim; leave author output space UNRESOLVED. Link only a separately declared binary-logit control.",
+      "retest": {
+        "status": "PASS",
+        "author_probability_claim": "REJECTED",
+        "author_output_space": "UNRESOLVED"
+      },
+      "scope": "Range audit and independent known-link control; no author probability reconstructed."
+    }
+  ],
+  "result_registry": [
+    {
+      "id": "S016_Q3_FIG537",
+      "pdf_pages": [
+        63,
+        64
+      ],
+      "source": "Figure 5.37",
+      "matrix": [
+        [
+          9733,
+          1944
+        ],
+        [
+          2177,
+          5137
+        ]
+      ],
+      "row_axis": "true_label",
+      "column_axis": "predicted_label",
+      "positive_class": "storm",
+      "metrics": {
+        "n": 18991,
+        "accuracy": 0.783002474856511,
+        "precision": 0.7254625052958622,
+        "recall": 0.7023516543614985,
+        "specificity": 0.8335188832748137,
+        "f1": 0.7137200416811393,
+        "majority_accuracy": 0.6148702016744774
+      },
+      "model_id": "UNRESOLVED: RF heading but preceding numerical output is OLS",
+      "split_id": "UNRESOLVED",
+      "scope": "PRINTED_CONFUSION_MATRIX_ARITHMETIC_ONLY",
+      "forbidden_inference": "Does not validate future disaster prediction or matching frozen Rx1day task."
+    },
+    {
+      "id": "S016_Q4_SHAP_OUTPUT",
+      "pdf_pages": [
+        78,
+        79,
+        80
+      ],
+      "force_output": 4.67,
+      "decision_axis_approx": [
+        1,
+        7
+      ],
+      "author_claim": "probability",
+      "status": "PROBABILITY_SEMANTICS_CONTRADICTED",
+      "actual_output_space": "UNRESOLVED",
+      "class_id": "UNRESOLVED",
+      "feature_map": "UNRESOLVED: NDVI not in earlier list; QW label differs from prose",
+      "scope": "VISUAL_RANGE_AND_LABEL_AUDIT_ONLY"
+    }
+  ],
+  "script_sha256": "1dfe0ead60b0c87cee354bcd78ff1c07ad485d48c4979fc16636fc5d35225589",
+  "source_sha256": "7d86005f5321da9836ebb158952d8ad3eb65c9a1e73b7f6d4fe6c1d7fb9e67af",
+  "pandas_version": "3.0.5",
+  "author_reproduction": "NOT_RUN",
+  "core_gain": "NOT_ESTABLISHED"
+}

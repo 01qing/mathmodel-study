@@ -1,0 +1,197 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "schema_version": "1.0",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_METRIC_TABLE",
+      "question": "Q1",
+      "source": "Table 4",
+      "reported": {
+        "morphology": {
+          "Accuracy_pct": 90.3,
+          "IoU_pct": 61.6,
+          "Recall_pct": 72.2,
+          "F1_pct": 76.6
+        },
+        "UNet": {
+          "Accuracy_pct": 93.1,
+          "IoU_pct": 65.4,
+          "Recall_pct": 77.6,
+          "F1_pct": 80.4
+        },
+        "improved_UNet": {
+          "Accuracy_pct": 98.7,
+          "IoU_pct": 73.1,
+          "Recall_pct": 79.1,
+          "F1_pct": 84.8
+        }
+      },
+      "audit": "For one pooled confusion matrix, F1=2*IoU/(1+IoU). Expected from listed IoU: morphology 76.24%, U-Net 79.08%, improved 84.46%. Small/medium discrepancies may arise from macro-vs-pooled averaging or rounding; aggregation provenance is not stated, so mark unresolved rather than automatically wrong."
+    },
+    {
+      "id": "Q2_EXTREME_FIT",
+      "question": "Q2",
+      "source": "Table 5",
+      "reported": {
+        "image": "2-8",
+        "fracture": 2,
+        "R_mm": 975.632,
+        "P_mm": 94.24778,
+        "beta_rad": -4.61046,
+        "C_mm": 1320.7852,
+        "R2": 0.6207
+      },
+      "audit": "Extreme amplitude and low R² should trigger plausibility/reject gate; author narrative that amplitudes are mostly 10-25 mm does not cover this row."
+    },
+    {
+      "id": "Q2_GOOD_FIT_EXAMPLE",
+      "question": "Q2",
+      "source": "Table 5",
+      "reported": {
+        "image": "2-1",
+        "fracture": 2,
+        "R2": 0.9936
+      },
+      "audit": "Matches abstract example."
+    },
+    {
+      "id": "Q3_JRC_RANGE_CONFLICT",
+      "question": "Q3",
+      "source": "body vs printed code",
+      "reported": {
+        "body_example": "page around Fig 4.14 says mean JRC about 75",
+        "appendix": "np.clip(jrc,0,20)",
+        "abstract_example": "Fig 3-3 fracture 1 JRC=20"
+      },
+      "audit": "A mean around 75 is incompatible with the stated/code-clipped 0-20 JRC range; preserve as cross-section numeric conflict."
+    },
+    {
+      "id": "Q3_SCALE_FACTOR_INJECTION",
+      "question": "Q3",
+      "source": "printed appendix",
+      "reported": {
+        "SCALE_FACTORS": {
+          "图 3-1": 0.15,
+          "图 3-2": 0.12,
+          "图 3-3": 0.18,
+          "default": 0.15
+        }
+      },
+      "audit": "Per-image multipliers enter Z2 before empirical JRC formula but are not part of the body formula/provenance; cannot treat final JRC as directly task-formula-derived without justification."
+    },
+    {
+      "id": "Q4_SCORE_COMPARISON",
+      "question": "Q4",
+      "source": "body/abstract",
+      "reported": {
+        "projection_pursuit_mean_score": 9.95,
+        "AHP_mean_score": 8.4,
+        "wording": "significantly higher"
+      },
+      "audit": "Scores arise under different/reweighted composite scoring procedures and no external outcome/statistical test is reported; cannot establish better drilling quality or statistical significance."
+    },
+    {
+      "id": "Q4_ENTROPY_IMPLEMENTATIONS",
+      "question": "Q4",
+      "source": "printed appendix",
+      "reported": {
+        "implementation1": "counts normalized to sum 1",
+        "implementation2": "np.histogram(..., density=True) then -sum(height*log2(height))"
+      },
+      "audit": "Second implementation does not convert density heights to probability masses; Shannon entropy is invalid unless normalized/multiplied by bin widths."
+    },
+    {
+      "id": "Q4_GA_CROSSOVER",
+      "question": "Q4",
+      "source": "Eq 4-39/4-40",
+      "reported": {
+        "child1": "0.5*w1p+0.5*w2p",
+        "child2": "0.5*w1p+0.5*w2p"
+      },
+      "audit": "Both children are identical; crossover alone adds no sibling diversity and relies on mutation."
+    },
+    {
+      "id": "Q4_DDENSITY_DIRECTION",
+      "question": "Q4",
+      "source": "Eq 4-36/4-38",
+      "reported": {
+        "fitness": "sigma_proj + Ddensity",
+        "Ddensity": "mean 1/(1+adjacent projection gap)"
+      },
+      "audit": "If fitness is maximized, Ddensity increases when adjacent gaps shrink, which can conflict with a stated discrimination objective; direction/intent needs clarification."
+    },
+    {
+      "id": "Q2_AMPLITUDE_SEMANTICS",
+      "question": "Q2",
+      "source": "body definition vs later initialization/code",
+      "reported": {
+        "early_definition": "R=max(y)-min(y)",
+        "later_initialization": "R_init=(max(y)-min(y))/2",
+        "printed_code": "initial amplitude=(max(y)-min(y))/2"
+      },
+      "audit": "The same parameter name R changes from full vertical range to half-range sine amplitude. Canonicalize R before comparing tables, formulas or code."
+    },
+    {
+      "id": "Q3_CURVATURE_SAMPLING_DIRECTION",
+      "question": "Q3",
+      "source": "printed appendix sample_contour",
+      "reported": {
+        "weight": "1+5*normalized_curvature",
+        "transformed_segment_length": "distance/weight"
+      },
+      "audit": "Larger curvature yields smaller transformed segment length, so uniform sampling in transformed length tends to allocate fewer points to high-curvature segments, opposite to the stated densification objective."
+    },
+    {
+      "id": "Q4_PJRC_FORMULA_CONFLICT",
+      "question": "Q4",
+      "source": "Eq. 4-21 and adjacent prose",
+      "reported": {
+        "prose": "remaining 0.7 part determined by geometric mean of k1,k2",
+        "equation": "Pjrc=0.3+0.7*k1+k2",
+        "prose_label": "k1+k2 is geometric mean"
+      },
+      "audit": "Formula and prose cannot simultaneously be correct. Pjrc semantics are unresolved; clipping does not repair provenance."
+    },
+    {
+      "id": "Q4_ADJACENCY_CONTRACT",
+      "question": "Q4",
+      "source": "body vs printed appendix",
+      "reported": {
+        "appendix_pairs": [
+          "1-2",
+          "2-3",
+          "3-4",
+          "4-5",
+          "5-6",
+          "1-6"
+        ],
+        "body_mentions": [
+          "1-4",
+          "3-6"
+        ]
+      },
+      "audit": "Neighbor graph used in code differs from relationships analyzed in the body; 2x3 array adjacency must be derived from coordinates, not hard-coded cyclic pairs."
+    },
+    {
+      "id": "Q2_Q3_ORACLE_INTERMEDIATE_BYPASS",
+      "question": "Q2-Q3",
+      "source": "printed appendix",
+      "reported": {
+        "Q2": "binary mask drawn from JSON annotation polygons",
+        "Q3": "binary mask drawn from JSON annotation polygons",
+        "paper_chain": "Q2/Q3 described as based on Q1 identified/binarized fractures"
+      },
+      "audit": "Printed downstream code uses ground-truth-style annotations as intermediate masks rather than Q1 predictions. Treat these as oracle-intermediate analyses, not end-to-end pipeline validation."
+    }
+  ],
+  "global_gates": [
+    "all headline metrics need source/aggregation provenance",
+    "segmentation split unit must be original image/borehole before patches",
+    "robust-fit methods require executable primitive mapping",
+    "physical parameters need plausibility bounds/reject status",
+    "calibration constants must be train-only or externally justified",
+    "ranking quality needs external/held-out utility evidence"
+  ]
+}

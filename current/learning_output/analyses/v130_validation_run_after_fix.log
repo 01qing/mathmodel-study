@@ -1,0 +1,39 @@
+### python /mnt/data/mathmodel_v130_build/Graduate-MathModel-Learning-Skill-v1.30-work/.agents/skills/graduate-mathmodel-learning/scripts/replay_s032_registry.py
+{
+  "paper_id": "S032",
+  "scope": "arithmetic replay only; not author reproduction",
+  "checks": [
+    {
+      "model": "morphology",
+      "reported_F1_pct": 76.6,
+      "F1_from_reported_IoU_pct": 76.2376,
+      "difference_pct_point": 0.3624,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    },
+    {
+      "model": "UNet",
+      "reported_F1_pct": 80.4,
+      "F1_from_reported_IoU_pct": 79.081,
+      "difference_pct_point": 1.319,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    },
+    {
+      "model": "improved_UNet",
+      "reported_F1_pct": 84.8,
+      "F1_from_reported_IoU_pct": 84.4598,
+      "difference_pct_point": 0.3402,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    }
+  ],
+  "known_conflicts": [
+    "Q3 body JRC≈75 vs code clip 0..20",
+    "Q4 duplicate arithmetic-crossover children",
+    "Q4 density=True entropy misuse"
+  ],
+  "pass_scope": "arithmetic replay completed"
+}
+### python /mnt/data/mathmodel_v130_build/Graduate-MathModel-Learning-Skill-v1.30-work/.agents/skills/mathmodel-case-retriever/scripts/validate_library.py
+{"status": "PASS", "papers": 45, "chunks_verified": 6752, "split_counts": {"train": 32, "dev": 7, "test": 6}, "checks": ["group isolation", "frozen split hash", "all chunk/page roundtrips", "review page bounds", "invalid input rejection", "train-only retrieval smoke"], "quality_evaluation": "NOT_RUN; no gold labels or unseen-problem modeling evaluation", "smoke_matches": [{"paper_id": "S001", "case_group": "2024-A", "page": 32}, {"paper_id": "S003", "case_group": "2024-A", "page": 20}, {"paper_id": "S004", "case_group": "2024-A", "page": 15}]}
+### python /mnt/data/mathmodel_v130_build/Graduate-MathModel-Learning-Skill-v1.30-work/.agents/skills/graduate-mathmodel-learning/scripts/validate_paper_inventory.py
+usage: validate_paper_inventory.py [-h] --manifest MANIFEST
+validate_paper_inventory.py: error: the following arguments are required: --manifest

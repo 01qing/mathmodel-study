@@ -1,0 +1,208 @@
+{
+  "status": "FAIL",
+  "scope": "v1.32 release contract",
+  "passed": 49,
+  "failed": "map 3/5",
+  "checks": [
+    {
+      "name": "version 1.32.0",
+      "pass": true
+    },
+    {
+      "name": "exists PROGRESS_V132.md",
+      "pass": true
+    },
+    {
+      "name": "exists VALIDATION_V132.md",
+      "pass": true
+    },
+    {
+      "name": "exists S034_v1.32_训练摘要.md",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/paper_reviews/2025-C-S034-core.json",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/candidate_competitions/S034.json",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/result_registry/S034.json",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/code_cases/2025-C-S034-code-access.json",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/method_modules/2025-C-S034-modules.json",
+      "pass": true
+    },
+    {
+      "name": "exists knowledge_base/figure_argumentation/S034.json",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/S034_source_audit.json",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/S034_result_registry_replay.json",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/historical_v126_first_failure.txt",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/historical_22_regressions_final.log",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/test_v132_s034_regressions_rerun.log",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/test_v132_2025C_retrieval_rerun.log",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/validate_library_rerun.log",
+      "pass": true
+    },
+    {
+      "name": "exists learning_output/analyses/v132_S034/validate_learning_workspace_rerun.log",
+      "pass": true
+    },
+    {
+      "name": "S034 source sha",
+      "pass": true
+    },
+    {
+      "name": "S034 68 pages",
+      "pass": true
+    },
+    {
+      "name": "S034 R1 source boundary",
+      "pass": true
+    },
+    {
+      "name": "45 papers",
+      "pass": true
+    },
+    {
+      "name": "S034 Train",
+      "pass": true
+    },
+    {
+      "name": "S034 all pages reviewed",
+      "pass": true
+    },
+    {
+      "name": "S034 R1 registry",
+      "pass": true
+    },
+    {
+      "name": "S035 future Train unread",
+      "pass": true
+    },
+    {
+      "name": "S036 future Train unread",
+      "pass": true
+    },
+    {
+      "name": "S030 Dev reserve unread",
+      "pass": true
+    },
+    {
+      "name": "S031 Dev reserve unread",
+      "pass": true
+    },
+    {
+      "name": "S021 Test unread",
+      "pass": true
+    },
+    {
+      "name": "S022 Test unread",
+      "pass": true
+    },
+    {
+      "name": "S023 Test unread",
+      "pass": true
+    },
+    {
+      "name": "S024 Test unread",
+      "pass": true
+    },
+    {
+      "name": "S037 Test unread",
+      "pass": true
+    },
+    {
+      "name": "S038 Test unread",
+      "pass": true
+    },
+    {
+      "name": "frozen split sha",
+      "pass": true
+    },
+    {
+      "name": "state version",
+      "pass": true
+    },
+    {
+      "name": "state latest S034",
+      "pass": true
+    },
+    {
+      "name": "state latest R1",
+      "pass": true
+    },
+    {
+      "name": "next S035",
+      "pass": true
+    },
+    {
+      "name": "Mini Transfer Test explicit",
+      "pass": true
+    },
+    {
+      "name": "Dev reserve explicit",
+      "pass": true
+    },
+    {
+      "name": "Test frozen explicit",
+      "pass": true
+    },
+    {
+      "name": "historical 22/22 strict",
+      "pass": true
+    },
+    {
+      "name": "specialist 163/163",
+      "pass": true
+    },
+    {
+      "name": "retrieval pass",
+      "pass": true
+    },
+    {
+      "name": "library pass",
+      "pass": true
+    },
+    {
+      "name": "workspace pass",
+      "pass": true
+    },
+    {
+      "name": "registry replay pass",
+      "pass": true
+    },
+    {
+      "name": "map 3/5",
+      "pass": false
+    }
+  ]
+}

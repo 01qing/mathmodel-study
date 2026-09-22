@@ -1,0 +1,14 @@
+{
+  "pattern": "inventory-state-equation-sign-reversal",
+  "description": "A stock-flow counterfactual reverses inflow/outflow signs, violating monotonic inventory behavior.",
+  "detection": [
+    "baseline derivative is inflow-outflow",
+    "intervention increases outflow",
+    "counterfactual formula becomes increased_outflow-inflow"
+  ],
+  "remedy": [
+    "write conservation equation once in a state registry",
+    "unit-test more outflow => lower inventory",
+    "derive counterfactual by parameter substitution rather than retyping equation"
+  ]
+}

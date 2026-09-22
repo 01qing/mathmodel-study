@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "external_code_audit.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "audit_id",
+    "repository",
+    "audited_files",
+    "findings",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.1"
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "audit_id": {
+      "type": "string"
+    },
+    "repository": {
+      "type": "string"
+    },
+    "audited_files": {
+      "type": "array",
+      "minItems": 1
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1
+    },
+    "summary": {
+      "type": "object"
+    }
+  }
+}

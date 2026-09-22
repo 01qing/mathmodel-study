@@ -1,0 +1,15 @@
+{
+  "id": "algorithm-defining-primitives-dead-code",
+  "name": "Algorithm-defining primitives computed but unused",
+  "severity": "critical",
+  "trigger": "variables/equations that define the named optimizer are computed but never affect state update or objective",
+  "risk": "implementation may be a different algorithm despite the paper label",
+  "checks": [
+    "trace defining primitives to next-state update",
+    "compare actual update equation with canonical family",
+    "rename/benchmark implementation by behavior if primitives are inactive"
+  ],
+  "source_examples": [
+    "2025-A-S026-Q2 Mbest/local attractor P"
+  ]
+}

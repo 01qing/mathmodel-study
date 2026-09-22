@@ -1,0 +1,263 @@
+{
+  "schema_version": "1.5",
+  "case_id": "gmcm-2024-C",
+  "analysis_status": "RETROSPECTIVE_INDEPENDENT_ROUTE_NOT_FRESH_BLIND",
+  "evidence_policy": "Model choices below are justified from the problem structure and engineering/statistical requirements, not from public-solution scores.",
+  "questions": {
+    "Q1": {
+      "problem_structure": "waveform representation + multiclass classification",
+      "mathematical_translation": {
+        "sample": "one 1024-point magnetic-flux-density waveform plus operating-condition metadata",
+        "target": "three waveform classes",
+        "key_invariance": [
+          "classification should depend mainly on shape, not absolute amplitude",
+          "representation should be robust to moderate scale and phase/start-index differences"
+        ]
+      },
+      "baseline": {
+        "model": "template/rule classifier on normalized shape descriptors",
+        "features": [
+          "normalized waveform",
+          "piecewise slope statistics",
+          "flat-top proportion",
+          "peak/turning-point pattern",
+          "low-order harmonic ratios"
+        ],
+        "why": "Three classes have strong geometric signatures; a transparent baseline reveals whether complex ML is even necessary."
+      },
+      "primary": {
+        "model": "SVM or RandomForest on immutable engineered waveform features",
+        "recommended_default": "RandomForest if nonlinear feature interactions dominate; SVM if features are compact and standardized",
+        "feature_groups": [
+          "time-domain: range, RMS, crest factor, skewness, kurtosis",
+          "shape: slope quantiles, slope sign changes, flat-top ratio, derivative dispersion",
+          "frequency-domain: first several harmonic-energy ratios",
+          "optional normalized template correlations"
+        ],
+        "why": [
+          "small-to-medium sample regime",
+          "strong hand-engineerable shape structure",
+          "easy to validate and explain under contest time"
+        ]
+      },
+      "alternative": {
+        "model": "1D CNN / sequence classifier",
+        "use_when": [
+          "engineered features fail on ambiguous or phase-shifted waveforms",
+          "sample size is sufficient and grouped validation shows a real gain"
+        ],
+        "reject_as_default_because": [
+          "less interpretable",
+          "greater tuning risk",
+          "higher chance of learning incidental sampling details"
+        ]
+      },
+      "validation": [
+        "stratified CV for class balance",
+        "confusion matrix and macro-F1",
+        "group/diagnostic splits by material, temperature or frequency bands",
+        "stress test after amplitude normalization and small circular phase shifts"
+      ],
+      "decision_rule": "Use the simplest feature representation that preserves grouped-validation performance. A random holdout score alone does not justify a stronger generalization claim."
+    },
+    "Q2": {
+      "problem_structure": "named physics-model calibration and interpretable temperature extension",
+      "baseline": {
+        "model": "original Steinmetz equation",
+        "equation": "P = k * f^alpha * Bm^beta",
+        "fit": "material-1 sinusoidal subset only"
+      },
+      "primary": {
+        "model": "log-linear temperature-corrected Steinmetz",
+        "equation": "log P = c0 + alpha log f + beta log Bm + gamma1*DeltaT + gamma2*DeltaT^2",
+        "equivalent": "P = k*f^alpha*Bm^beta*exp(gamma1*DeltaT + gamma2*DeltaT^2)",
+        "why": [
+          "keeps multiplicative Steinmetz structure",
+          "temperature correction is interpretable",
+          "linearized fitting is stable",
+          "quadratic term can capture monotone or curved temperature effect without making every exponent temperature-dependent"
+        ],
+        "complexity_guard": "Drop gamma2 when not supported by leave-one-temperature-out validation."
+      },
+      "alternatives": [
+        {
+          "model": "temperature-dependent k(T) only",
+          "use_when": "residuals show temperature changes mainly scale but not frequency/Bm elasticity",
+          "strength": "most parsimonious"
+        },
+        {
+          "model": "temperature-dependent alpha(T), beta(T)",
+          "use_when": "clear residual interaction T×log(f) or T×log(Bm) is reproducible",
+          "risk": "parameter identifiability and overfitting"
+        },
+        {
+          "model": "GAM/residual correction",
+          "use_when": "parametric temperature form is consistently inadequate",
+          "role": "diagnostic/benchmark, not first replacement for the requested interpretable correction"
+        }
+      ],
+      "validation": [
+        "in-sample fit only as descriptive",
+        "five-fold CV",
+        "leave-one-temperature-out: hold out 25/50/70/90 C in turn",
+        "residual vs temperature/frequency/Bm",
+        "parameter stability and confidence intervals"
+      ],
+      "Bm_definition": "Prefer half peak-to-peak Bm=(max B-min B)/2 unless the problem statement or engineering convention clearly specifies otherwise; compare with max(|B|) if offset exists.",
+      "decision_rule": "Choose the least complex temperature correction that improves held-out-temperature error, not the one with the lowest training SSE."
+    },
+    "Q3": {
+      "problem_structure": "factor main effects + requested two-way interactions under important continuous covariates",
+      "response": "log(core loss) unless diagnostics show raw-scale residuals are acceptable",
+      "covariates": [
+        "log frequency",
+        "log Bm"
+      ],
+      "factors": [
+        "temperature",
+        "waveform",
+        "material"
+      ],
+      "primary": {
+        "model": "ANCOVA / robust linear model with categorical main effects and all requested two-way interactions",
+        "formula": "log P ~ log f + log Bm + T + W + M + T:W + T:M + W:M",
+        "why": [
+          "directly maps to the question",
+          "separates main and interaction effects",
+          "controls frequency/Bm confounding",
+          "supports interpretable adjusted means and effect sizes"
+        ],
+        "inference": [
+          "HC3 robust standard errors",
+          "effect size such as partial eta-squared / standardized contrasts",
+          "confidence intervals"
+        ]
+      },
+      "baseline": {
+        "model": "adjusted group means after simple covariate regression",
+        "why": "easy sanity check; not enough alone for interaction conclusions"
+      },
+      "alternative": {
+        "model": "GAM or tree ensemble + grouped permutation importance",
+        "role": "nonlinear robustness check",
+        "not_for": "replacing the explicit inferential interaction model"
+      },
+      "validation": [
+        "residual heteroscedasticity diagnostics",
+        "multicollinearity check",
+        "cross-validated predictive sanity check",
+        "bootstrap/robustness of factor ranking"
+      ],
+      "interpretation_guard": "Call results conditional associations/effects within the fitted model, not causal effects unless a causal design is justified."
+    },
+    "Q4": {
+      "problem_structure": "heterogeneous engineering regression with waveform + operating conditions",
+      "target": "log(core loss) as default candidate because loss spans orders of magnitude; verify by residual diagnostics",
+      "feature_groups": [
+        "temperature and log frequency",
+        "material and predicted/known waveform class",
+        "Bm and peak-to-peak/RMS",
+        "waveform shape statistics",
+        "derivative/slope features",
+        "low-order harmonic-energy ratios"
+      ],
+      "required_comparators": [
+        {
+          "model": "corrected Steinmetz / physics-informed baseline",
+          "why": "interpretable engineering reference"
+        },
+        {
+          "model": "Ridge/ElasticNet",
+          "why": "simple statistical baseline"
+        },
+        {
+          "model": "ExtraTrees/RandomForest",
+          "why": "nonlinear low-tuning tree baseline"
+        },
+        {
+          "model": "HistGradientBoosting or XGBoost",
+          "why": "strong structured-data candidate"
+        }
+      ],
+      "primary": {
+        "model": "gradient-boosted trees on engineered features, with a physics baseline retained",
+        "upgrade": "physics + residual model if cross-condition validation is more stable than pure black-box prediction",
+        "why": [
+          "mixed numeric/categorical engineered features",
+          "nonlinear interactions expected",
+          "contest-time reproducibility is good"
+        ]
+      },
+      "validation": {
+        "regime_A": "stratified random CV by temperature x material x waveform",
+        "regime_B": "leave-one-condition diagnostics such as leave-one-temperature-out and, if supported by data, leave-one-material-out",
+        "metrics": [
+          "RMSE/MAE on original loss scale",
+          "R2",
+          "group-wise error",
+          "log-scale error"
+        ],
+        "distribution_check": "compare train/test ranges and nearest-neighbor/support distance"
+      },
+      "decision_rule": "Do not call a model 'best' from random CV alone. Prefer the model that preserves accuracy under the deployment-relevant grouped regime."
+    },
+    "Q5": {
+      "problem_structure": "mixed discrete-continuous bi-objective optimization over a learned surrogate",
+      "objectives": {
+        "minimize": "predicted core loss P_hat",
+        "maximize": "transmitted magnetic-energy proxy f*Bm"
+      },
+      "variables": {
+        "discrete": [
+          "material",
+          "waveform",
+          "temperature if restricted to experimental levels"
+        ],
+        "continuous": [
+          "frequency",
+          "Bm"
+        ]
+      },
+      "baseline": {
+        "model": "enumerate discrete groups + Latin-hypercube/dense sampling in (f,Bm) + nondominated filtering",
+        "why": [
+          "only two principal continuous variables",
+          "transparent Pareto construction",
+          "easy to audit"
+        ]
+      },
+      "primary": {
+        "model": "NSGA-II / nondominated evolutionary search with explicit two-objective vector",
+        "objective_vector": "[P_hat(x), -f*Bm]",
+        "why": "directly preserves the multiobjective structure and mixed-variable search"
+      },
+      "alternative": {
+        "model": "epsilon-constraint method",
+        "form": "min P_hat subject to f*Bm >= E0, sweep E0",
+        "strength": "high interpretability and no arbitrary fixed weights"
+      },
+      "avoid_as_default": {
+        "model": "single weighted sum",
+        "reason": "requires preference/normalization assumptions and may miss non-convex Pareto regions"
+      },
+      "support_constraints": [
+        "per material/waveform experimental frequency and Bm ranges",
+        "nearest-neighbor/support-density threshold in feature space",
+        "no extrapolation to unobserved categorical combinations",
+        "report whether an optimum sits on a boundary"
+      ],
+      "output": [
+        "Pareto front",
+        "representative knee/ideal-distance solution only after declaring the preference rule",
+        "sensitivity of recommended condition to model uncertainty"
+      ],
+      "decision_rule": "Optimizer choice comes after objective completeness and feasible-domain definition."
+    }
+  },
+  "cross_question_consistency": [
+    "Q1 waveform representation should feed Q4/Q5 consistently when test waveform labels are unknown.",
+    "Q2 physical baseline should be retained as a comparator in Q4.",
+    "Q3 factor findings can guide interpretation but must not leak test labels or replace Q4 validation.",
+    "Q4 predictor used in Q5 must carry an applicability/support-domain contract."
+  ]
+}

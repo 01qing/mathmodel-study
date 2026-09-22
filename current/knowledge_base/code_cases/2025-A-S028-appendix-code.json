@@ -1,0 +1,114 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "evidence_type": "printed appendix static audit",
+  "appendix_pages": "59-77",
+  "visible_components": [
+    "Q1 greedy MinPeak/EarlyFree/LateAlloc",
+    "Q1 TabuSearch fragment",
+    "Q2 GA/GP hooks",
+    "Q2 CacheSimulator + spill",
+    "Q3 joint GP fragment",
+    "Q3 NSGA2Optimizer fragment",
+    "Q3 MOPSOOptimizer fragment"
+  ],
+  "findings": [
+    {
+      "id": "Q1_MINPEAK_ALLOC_PRIORITY_DIRECTION",
+      "severity": "high",
+      "evidence": "greedy_min_peak uses ALLOC priority (1,-Size), so larger ALLOC is popped earlier by min-heap",
+      "risk": "implementation can increase, not minimize, live-memory pressure and conflicts with the method name"
+    },
+    {
+      "id": "Q1_LATEALLOC_LARGE_ALLOC_DIRECTION",
+      "severity": "high",
+      "evidence": "greedy_late_alloc also uses (1,-Size); among ready ALLOC nodes larger buffers run earlier",
+      "risk": "contradicts prose that large ALLOC should be delayed"
+    },
+    {
+      "id": "Q1_TABU_ITERATION_COMMENT_DRIFT",
+      "severity": "medium",
+      "evidence": "max_iterations=200 while comment says set to 300 generations",
+      "risk": "reported budget/curve reproducibility is ambiguous"
+    },
+    {
+      "id": "Q1_COMPLEXITY_NOTATION_MISUSE",
+      "severity": "medium",
+      "evidence": "Table10 writes O(0), O(1.39), O(3.30) for concrete N and intentionally ignores candidate-count/edge differences",
+      "risk": "asymptotic comparison is not a valid complexity proof"
+    },
+    {
+      "id": "Q2_TABLE14_TABLE16_PROVENANCE_GAP",
+      "severity": "critical",
+      "evidence": "FlashAttention_Case1 visible Table14 minimum is 54720, but narrative/Table16 final is 33792",
+      "risk": "final result cannot be traced to visible allocator rows"
+    },
+    {
+      "id": "Q2_OBJECTIVE_SEMANTIC_DRIFT",
+      "severity": "critical",
+      "evidence": "Eq4-10 defines normalized transfer+Peak; later VN-SA step defines J=lambda1*T_total+lambda2*DeltaD",
+      "risk": "optimizer may solve a different problem than the stated Q2 objective"
+    },
+    {
+      "id": "Q2_VNSA_CORE_PRIMITIVES_INCOMPLETE",
+      "severity": "high",
+      "evidence": "appendix shows a variable_neighborhood_search call and CacheSimulator, but not a complete temperature/acceptance/neighborhood/reheat implementation",
+      "risk": "algorithm label cannot be elevated beyond static evidence"
+    },
+    {
+      "id": "Q2_SPILL_TIME_PROXY",
+      "severity": "medium",
+      "evidence": "get_last_use_time scans node Id rather than current schedule position/time and trigger_spill takes min of that proxy",
+      "risk": "victim ranking can diverge from true next-use/recency semantics after rescheduling"
+    },
+    {
+      "id": "Q3_NAGA_NSAG_NAME_DRIFT",
+      "severity": "medium",
+      "evidence": "paper repeatedly says NAGA-II while appendix and standard mechanism are NSGA-II",
+      "risk": "algorithm identity and references are ambiguous"
+    },
+    {
+      "id": "Q3_CAP_CONTRACT_DRIFT",
+      "severity": "critical",
+      "evidence": "S028 uses 110%/10%; S025 explicitly records 1.05 and other papers drift again",
+      "risk": "changes feasible set; original problem statement must be the sole canonical source"
+    },
+    {
+      "id": "Q3_BASELINE_SOURCE_DRIFT",
+      "severity": "critical",
+      "evidence": "Table21 Conv0 old transfer=242072 (Table15 VN-SA), not Q2 final Table16=230496",
+      "risk": "reported 14.73% transfer gain is not relative to the declared Q2 final baseline"
+    },
+    {
+      "id": "Q3_LEXICOGRAPHIC_SELECTION_DRIFT",
+      "severity": "critical",
+      "evidence": "paper says choose lower transfer first, but FlashAttention0 MOPSO 3847 is lower than NSGA-II 3917 while Table21 selects 3917",
+      "risk": "operating-point selection contradicts declared decision rule"
+    },
+    {
+      "id": "Q3_FA0_TIME_SCALE_DRIFT",
+      "severity": "critical",
+      "evidence": "Table20 NSGA-II FlashAttention0 time=201731, while Table21 selected 3917-transfer row uses time=2017",
+      "risk": "two-order-of-magnitude inconsistency invalidates direct table comparison"
+    },
+    {
+      "id": "Q3_GP_TREE_RECONSTRUCTION_IGNORES_SOLUTION",
+      "severity": "high",
+      "evidence": "_generate_solution_based_gp_tree(spill_operations) simply returns a random GP tree in both NSGA2/MOPSO excerpts",
+      "risk": "loaded existing solution is not faithfully reconstructed"
+    },
+    {
+      "id": "Q3_RANDOM_PERMUTATION_FEASIBILITY_GAP",
+      "severity": "high",
+      "evidence": "MOPSO generate_random_individual random.shuffle(schedule); visible excerpt does not show the claimed ready-set/repair before evaluation",
+      "risk": "candidate schedules may violate DAG precedence unless an omitted repair exists"
+    }
+  ],
+  "r3_blockers": [
+    "no original source bundle or input dataset in runnable project form",
+    "SA/GA/VN-SA/NSGA/MOPSO helper chains are incomplete in printed appendix",
+    "several imported modules/helpers are external to the printed excerpt",
+    "result tables contain provenance/selection contradictions"
+  ],
+  "reproduction_level": "R2"
+}

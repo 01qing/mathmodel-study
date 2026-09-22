@@ -1,0 +1,21 @@
+{
+  "case_group": "2025-A",
+  "status": "NOT_DUE_CASE_GROUP_INCOMPLETE",
+  "train_papers": [
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "reviewed_train_papers": [
+    "S025"
+  ],
+  "pending_train_papers": [
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "dev_access": "NOT_OPENED_FOR_THIS_CASE_GROUP",
+  "test_access": "FROZEN",
+  "trigger": "Run Mini Transfer Test only after S025-S028 train review closure and method-map stabilization."
+}

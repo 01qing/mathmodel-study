@@ -1,0 +1,811 @@
+{
+  "paper_id": "S016",
+  "source_sha256": "7d86005f5321da9836ebb158952d8ad3eb65c9a1e73b7f6d4fe6c1d7fb9e67af",
+  "visual_review_count": 114,
+  "page_count": 114,
+  "text_read_count": 114,
+  "review_method": "Actual original PDF rendered pages viewed using view_image; not OCR-only or file existence.",
+  "timestamp_utc": "2026-09-14T09:01:04.752562+00:00",
+  "scope": "VISUAL_AND_STATIC_AUDIT_ONLY",
+  "reproduction_level": "R2",
+  "pages": [
+    {
+      "physical_page": 1,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "ad3c3f37a7ea87eea2aa6aead2c6f31ab469443b58b7796d6717ba757f1688de",
+      "note": "封面身份核验。"
+    },
+    {
+      "physical_page": 2,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "bbd76bafb6e5d4e0076999bfed1de3a37cf068a3d69e97c5b84e20c6f367dd62",
+      "note": "摘要Q1方法与损失/显著性主张。"
+    },
+    {
+      "physical_page": 3,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1ef7628c29d0969518d51c87af822e7843e233dd1216295e1a62f74104739d6a",
+      "note": "摘要Q2–Q4与风险40%主张，来源未闭合。"
+    },
+    {
+      "physical_page": 4,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "59dedcdd7b5fa72b758be10a0f8d477f7562c584d5ab6f2f2868dae6e486fa81",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 5,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "38d0c4403188b42546819e73d85b275d7a1572de79ed72f53377ad48c93f49dc",
+      "note": "六类数据说明，西经/南纬标记不当。"
+    },
+    {
+      "physical_page": 6,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "133bfcf7127a0c375abb03b50ad02af755f51e5bff3234f41480c04ffe68f6fb",
+      "note": "分辨率1km与0.1km文字冲突。"
+    },
+    {
+      "physical_page": 7,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "bf8d7379e355f3c9d58d6eee6fd8944741eb294bd56f54d3d701970e912e460e",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 8,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "66198ea6bfab3c8c69639ba3c8a6038e0b621ab3449c8904fdd406938b1d1d98",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 9,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "a0ec7a139c1b9ac048872df4f6368ddddd4a2e4cb3a946afe7ac390d8a5b894d",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 10,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "9ddfa66afb7d314682a96bd852659f204978cc034242ffab5b137df227ca4a85",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 11,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c4ed465218951a87ef0f28dac363dead989a6bb2e6491a2c2ac66f351a107a34",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 12,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "bbef490767662568e686968b5abf16e8ee76a8072677ea448dc2b135271f9253",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 13,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "61ff006004993525e15159fcccece44097e8a080f2c8c2c3998b81b446543bdb",
+      "note": "季节图色标范围不同。"
+    },
+    {
+      "physical_page": 14,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "6121f6d9b6cab77de3e203bfa0e732f732c3cabc4d7e9c15e0f782e0865d4804",
+      "note": "异常值处理与箱线图，年与日尺度待核对。"
+    },
+    {
+      "physical_page": 15,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "f338792dfbc99c2eea0468421ca0d5ffcf7cd96fc77af7a26a0f6c508eccfd49",
+      "note": "Eq3.1日均定义与年降水名称不一致。"
+    },
+    {
+      "physical_page": 16,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1874730a77dc1e20a7cecfd6cc982ffcc66bbe2c173704d12dc54de9be2a8f83",
+      "note": "Eq3.2 n/(n−1)系数；年累积文字与公式不一致。"
+    },
+    {
+      "physical_page": 17,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "860ecdfe9193ffc8fcb6395a167719343a9a99268d8e4f04819b6136bc752fa5",
+      "note": "历史拟合图不等于独立验证。"
+    },
+    {
+      "physical_page": 18,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "2227a3fad5c61a959b922a27ddac0f7275f70de635bad725e3b99ed321d37ca8",
+      "note": "ARIMA文字切分边界2015重复。"
+    },
+    {
+      "physical_page": 19,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1fa7f62241717445560b8af6b47f2d9be2adc36d67d6e43e44a01cde766fe677",
+      "note": "图横轴2001–2020与标题1990–2020。"
+    },
+    {
+      "physical_page": 20,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "32b94e565600ac71db1f898a2a780d8e7ca5cbaa08307ba53670ea75afc4d976",
+      "note": "LSTM概念图及公式不代表完整训练链。"
+    },
+    {
+      "physical_page": 21,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "ad0e1cf7c99002767d305868707e09de779f4a60a66cd4662586acc4f8ea2986",
+      "note": "训练loss与平滑的历史预测曲线。"
+    },
+    {
+      "physical_page": 22,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "b44e7012a53e4724fac763b37b497e7dd9948a44f101c414954e7baa2120ff7f",
+      "note": "表3.3预测和真值逐项相同；与p87冲突（此前已看）。"
+    },
+    {
+      "physical_page": 23,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "6f53973af8c88803a56f5a200632587ae25d33d3e28cd0572fd2271045e8419a",
+      "note": "均值公式显示异常，缺少对应统计定义。"
+    },
+    {
+      "physical_page": 24,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "01ac81e3fddb3ac5d3f37c04ac1f5e0f5ed6d62d777f258bda9f77e78235bdc8",
+      "note": "雨量图掩膜图例为无植被覆盖。"
+    },
+    {
+      "physical_page": 25,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "ef7295cf0eb4ff9668ca89ecc1a58a1649cb9cfc208050cf78a4caa6183e4a43",
+      "note": "Moran曲线及CV公式。"
+    },
+    {
+      "physical_page": 26,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "0cf9009c9623f67d4d58944ccc138312094b52e5bbbe46c3f48d285b0e47ed94",
+      "note": "CV图与滑动平均后MK，相关性边界。"
+    },
+    {
+      "physical_page": 27,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "83a6ba22e44100c197f81c89e7896758094b8b123d4d2b101d9fe0a7eef549f1",
+      "note": "显著性点图及土地动态度公式。"
+    },
+    {
+      "physical_page": 28,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d014079d1430bdc5d7e82dcce082fbee5fcfe0455b10ff5baa33d5f3ffc339fc",
+      "note": "Q/LUD/LUC公式和分母。"
+    },
+    {
+      "physical_page": 29,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "840ae675fe17682d3fae4b8a65d87b221bfac17bc282fd4673c074e731d6cdea",
+      "note": "表3.4数值及守恒矛盾（此前已看）。"
+    },
+    {
+      "physical_page": 30,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "da98fb4cebd1af9d57cb38f19f8d644b9617be1a950ae933822baa3351dddc2d",
+      "note": "土地颜色图缺逐幅年份标签。"
+    },
+    {
+      "physical_page": 31,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "00e8f148af9de23abb870b88624a1e7680c66e79bad3f2f4cc26fe92d1b08752",
+      "note": "Sen趋势与NPP来源/单位。"
+    },
+    {
+      "physical_page": 32,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "aa330b9f2cb24638cec1afe98904b0efd7ca9477d583cd24deffdb0681b4baa4",
+      "note": "NPP图轴gC，文字Hz；横轴2001–2020。"
+    },
+    {
+      "physical_page": 33,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d9c2e08e525f8af35a21676a958c078b31918aaaf02300b293f217624eea3880",
+      "note": "六区NPP分段趋势，标题跨度不一致。"
+    },
+    {
+      "physical_page": 34,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "90cd79f865375536e41d0ea5f5634e9ac6772ef606a0c908b8aea370307f80e7",
+      "note": "NPP图例和2001–2020分段。"
+    },
+    {
+      "physical_page": 35,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "e91afde289596c2d1ff6fc2ee83bb3b21c7d9681004412e12675f4aedade67a3",
+      "note": "年雨量增减叙述冲突，694mm与附录不同源。"
+    },
+    {
+      "physical_page": 36,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c8d439b42a75a58224fee796c7f63db615e6efc1f781182961c14f5ba6f490fa",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 37,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d9308143e4de90204d57803d5078aed914f08ce01c55cff4f8e079f4979dda2c",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 38,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "264c1e31ac3b14e37d30459d00bc4e9fc2f891e84d4816183d2513d5549c705a",
+      "note": "stacking框图缺执行链。"
+    },
+    {
+      "physical_page": 39,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "7156053bbb6bd01236123d879813059fee426192aea2ef5d5827f9690af9b350",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 40,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "03e5e98febb9372882abb1494ab61b45689c28440a2120b746d4f064c501d6a9",
+      "note": "MK标签配Sen斜率。"
+    },
+    {
+      "physical_page": 41,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "8ab3d8a50b454a34f4a02da22f66fb1d162dfdd013232bfee2e3dfbe8a3e6998",
+      "note": "Sen标签配MK符号和；变量身份漂移。"
+    },
+    {
+      "physical_page": 42,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "11ca42f40f39612103e1d7c92dd7151261072abb303f71958a040e4f117a857e",
+      "note": "联合上尾式却用下尾CDF（此前已看）。"
+    },
+    {
+      "physical_page": 43,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c18392b7a284135299b0787b560ddf438f3898f0114412da3bed8838eed8ecaf",
+      "note": "偏导标签与参数合同不一致。"
+    },
+    {
+      "physical_page": 44,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "066fcdfe79df9f0978f2b285f226db4b5c7ed3fe023e6bb5a8e1160e121f4dc7",
+      "note": "上层气象驱动不在列明数据源中。"
+    },
+    {
+      "physical_page": 45,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "418f5a361d54e5d8caa44568a489dd906c92e53529a20fe79624273f882e2568",
+      "note": "min_length伪代码，无空间键连接证据。"
+    },
+    {
+      "physical_page": 46,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "75fd3a6eb981b55c8ede7177cc046891c0b90e62412c91f424962adeaeff2748",
+      "note": "RF报告低R²，未确认独立留出。"
+    },
+    {
+      "physical_page": 47,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "74a6fa3f069128f4fab9b65561815e87a1d75702c498c1b693ab64b9fb493722",
+      "note": "高值预测压低和残差长尾；负温剔除风险。"
+    },
+    {
+      "physical_page": 48,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1262fc5f3c70e703254331b28e80dc2e8d9248610368fa468b83dc68392af9e0",
+      "note": "OLS输出R².078、n339591、DW.131，标准化系数。"
+    },
+    {
+      "physical_page": 49,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "6e49e73b2ea307f48723cbb29ad7d360cfd54649bdf70424f972f853cbfe10f5",
+      "note": "海拔负柱图被文字解释为正；直方图不是效应图。"
+    },
+    {
+      "physical_page": 50,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "08b813571c87e4ea633a3d12a2574443d7a925fa69615f6657e0aca9f53c0d08",
+      "note": "系数表负号与前页叙述。"
+    },
+    {
+      "physical_page": 51,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "7de0b5337e429a9d9828279792b29d1c112d85ba03822bca755c6948ecb4a86e",
+      "note": "预测轴解释反向，全国图无数值色标。"
+    },
+    {
+      "physical_page": 52,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1d32e589e25340bec925c1c6866a5c233e15159fa81a247ca615adb4c10bc111",
+      "note": "相关/重现期图无数值色标。"
+    },
+    {
+      "physical_page": 53,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "ed41f3ca6df538f747b37951b7a7e11d01a508d149762242a7456f5ea07ba3c9",
+      "note": "OLS文字与logit公式并置；坡向sin/cos可取但要重建验证。"
+    },
+    {
+      "physical_page": 54,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "450e1c5e9bda3931095740f3853f7336491b6e4810b56eff6f73f4e5e2803c2a",
+      "note": "TIN和气象图华北局部域。"
+    },
+    {
+      "physical_page": 55,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "441312ad1ff2835e49ffca9406c413384423e4a5cc73fa27f787edd888ce1c85",
+      "note": "局部极端频率图和作者明确低解释力限制。"
+    },
+    {
+      "physical_page": 56,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "193efa56973f301b11dd4a979a497dc74850d99a01619eaf1960f0eacc3402e6",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 57,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "aacab39f18bdccf23330867c3eea8b04a4c89003a7fb1d5ec2ec060bef308b28",
+      "note": "LSTM/logistic框图的输入标签与p56/59文字对调；AHP灾害真值缺失。"
+    },
+    {
+      "physical_page": 58,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "9c6e9299fbbb4e75bb53ec8f88216960e3c6e19c6fdab9417a3b37a7bb8d01a3",
+      "note": "区域独立假设忽略上下游作用。"
+    },
+    {
+      "physical_page": 59,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "534481c4da5afb6f65879da9213c8f9c4535ab7363f6baca56d328627c083112",
+      "note": "RAI单位/持续时间；独立logistic组成不闭合。"
+    },
+    {
+      "physical_page": 60,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "0c4918ab8cee12c0c7d337657079be8d88a8f94f667df934b856f22bbc8f9158",
+      "note": "脆弱性地图不是已校准灾害概率。"
+    },
+    {
+      "physical_page": 61,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "fd88a1d64e7cbd521deadbc1443aeb295fa9cabe799da161204eb31b78bfcf66",
+      "note": "11年未来地图不构成独立回测。"
+    },
+    {
+      "physical_page": 62,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "65eeefb5d9a69559d631551160334502ddce47917a50498580aaaed8a449d845",
+      "note": "RF标题下OLS实际流程。"
+    },
+    {
+      "physical_page": 63,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "089acaf355dd1c4392b7eaa4cba2bc361df323125081400dd64ce6ccb073a5e4",
+      "note": "OLS n501301,R².134,DW.140。"
+    },
+    {
+      "physical_page": 64,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c166720bc065bb164d0f216cc96bff90452f8c5f3e70555d14aedc04d565c6bf",
+      "note": "真实行/预测列混淆矩阵9733,1944,2177,5137；下图是特征直方图非回归系数。"
+    },
+    {
+      "physical_page": 65,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "09243c449f601eaf12406976887c1f25aa31757d231ddfd9b7a57f40cc13f150",
+      "note": "七系数图与未来降水独立色标。"
+    },
+    {
+      "physical_page": 66,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "f1dde68d1459df89f10f8472174aadf9e44463cd3d8498d5f5aefa04d4eaaf9f",
+      "note": "2034/2035降水不同色标；温度图有一致色标。"
+    },
+    {
+      "physical_page": 67,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "616fcb15772d48457af8b7a789dee08fbebd176185d12268749a74982981def4",
+      "note": "类别图被解释成覆盖面积；DW限制明确。"
+    },
+    {
+      "physical_page": 68,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "8f2c41329910d6af10caa2ae4b42bd84d6e598198c8f13966a5c6c32eada28e2",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 69,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "544856e07a1d424ab688adc10dbd928783722bc2074b80f8a54e6fc6343ddd41",
+      "note": "全文段落/变量与方法说明完成原页核对；具体论证见PARTIAL_REVIEW和QUESTION_COMPETITION。"
+    },
+    {
+      "physical_page": 70,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "deeff83e751381a39238182eb49c63d8cb20344fdd69a28dacda832fbb2f6e88",
+      "note": "降水图两图层尺度/日期未统一说明。"
+    },
+    {
+      "physical_page": 71,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "bfe61d6164559ba13211ce875f9fc808d931e3107ff4160b58ee4d1badf1e385",
+      "note": "温度图例含2005，非全期汇总证明。"
+    },
+    {
+      "physical_page": 72,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c7e00068f7051d62d210b97f7fa548ef4cd09a5580919dfd8ca4fbfc680cdef5",
+      "note": "城市用地转移结论超出五类输出编码。"
+    },
+    {
+      "physical_page": 73,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "daa482d368195494513350f45c5fcef48aa975939d98a9f1c5b63ff8faab551b",
+      "note": "符号转移矩阵与计数文字，不是已归一化实数矩阵。"
+    },
+    {
+      "physical_page": 74,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "3ecb707583e5e91318ba1744562cbd55da7940eb2a9763d86a8a96772570109f",
+      "note": "公式最后项被页边裁切，不能猜测标签回流。"
+    },
+    {
+      "physical_page": 75,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "675a0fc868d30d21a847badf3212d437413f932618f225b9a8bfb9caca9d8ffc",
+      "note": "LUSC指标概念及作者参数设定。"
+    },
+    {
+      "physical_page": 76,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "3bac02a1260a942411229c19e0e9f1d332bb9d143cc01623d3a804c6aa0adf37",
+      "note": "AUC1/.75仅文字，缺ROC/逐样本证据。"
+    },
+    {
+      "physical_page": 77,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "11c1df2e58c7a6581143ffcfe6e6ed8fe3d2a87589f093f5a2aca2e74069ba8a",
+      "note": "Gain缺父子差；70/15/15无键清单。"
+    },
+    {
+      "physical_page": 78,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1bcac29e6d74c8a84ecffc1250df990c2ce8b02e462af18cb9dc732a40f142f7",
+      "note": "SHAP存在NDVI及QW名称映射疑点。"
+    },
+    {
+      "physical_page": 79,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "a827821e1013fb3494cff3d9ee59dac6a76f8ea43812eafcc5d71371a67acec3",
+      "note": "Force输出4.67；PD红色正贡献。"
+    },
+    {
+      "physical_page": 80,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "2d257eb42749a5774163dd0fb5563869ff7df27971aaf49ddb7738d3af6ea580",
+      "note": "Decision输出约1–7被称概率，输出空间不明。"
+    },
+    {
+      "physical_page": 81,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "a8a7577eb1d1b4da058fa16784c4e8b7fa224f893f15800a69ed539e39e8fbdf",
+      "note": "Correlation图被称协方差，相关不能识别转移。"
+    },
+    {
+      "physical_page": 82,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c0c395274f0677fe670070419e130d8465186b2b1af032b0e59ff4fb0b68e201",
+      "note": "政策效用主张无识别链。"
+    },
+    {
+      "physical_page": 83,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "2508754eb461765c700d16b1a4e0794a921f715b606302e10c1f5ce8451cfb0e",
+      "note": "结论不补缺失模型证据。"
+    },
+    {
+      "physical_page": 84,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "e2ced8c6950d1d67b293c4276f64eb49af22eb0000f3b5eb3f5e5a7cc7f5c6c7",
+      "note": "八项参考文献，NPP外部硕士论文。"
+    },
+    {
+      "physical_page": 85,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "28acf597eaf80ff3fa144f15350bc70b27a32291e56b9fe0e12b3e0d78d77032",
+      "note": "表7.6年份均值/SD/max非海拔系数；1990–2018。"
+    },
+    {
+      "physical_page": 86,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "4b3aa01afc2aa73083dc9911fa793c5609f1871482ffe22408b81fee728d0f0b",
+      "note": "2019–2020续表及2021–2025预测数值。"
+    },
+    {
+      "physical_page": 87,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "eaf2a37e8d99ece87c989f8c9475c38b9d7fc00aaad0c53e578eaa712af63640",
+      "note": "表7.8与p22不同源（此前已看）。"
+    },
+    {
+      "physical_page": 88,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "7ce789b2b93831f40b0ca5c707a86a6e68635b47aa4c9f93334ac8a934c256cf",
+      "note": "loss1–30仅训练数值。"
+    },
+    {
+      "physical_page": 89,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "5b665b2ec312a55018831bae84a5c8d4c4ad028f89f437c5ce462d123a08a208",
+      "note": "loss31–62。"
+    },
+    {
+      "physical_page": 90,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "c931b0dd53ed7522ea0aefa31cf9eb6ce1d1f0784fafebcc4428ff6a08e30337",
+      "note": "loss63–94。"
+    },
+    {
+      "physical_page": 91,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1bebd152b88edc66e0782d0f89d9e71f00333b91635b6f10347f0725bd3827aa",
+      "note": "loss95–100，最终.04663350060582161。"
+    },
+    {
+      "physical_page": 92,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "95fd90df2e2766698835ccc4b65517d657ae176f3e9417b50017e1815c3a2691",
+      "note": "pandas默认header的CSV导出。"
+    },
+    {
+      "physical_page": 93,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "7cf8d91247da7ddd3b3c91795c3aa33b12ba1f60c8dad7e2fb4ebbecfd340cb1",
+      "note": "C++逐行stod，无header跳过。"
+    },
+    {
+      "physical_page": 94,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "b70ef0ebf80170fc2903894cd1462eba14d3db600857145b32d0b7dccc449745",
+      "note": "近零背景及后序优先argmax。"
+    },
+    {
+      "physical_page": 95,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "a9f672fa0da0f2295c2cab52ce97c838cd9badc3efd6e5dfc2d5eb00340c2d06",
+      "note": "1–5类别以空格输出，0背景。"
+    },
+    {
+      "physical_page": 96,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "a6d8b9488856f7c95bc00f6f78e33a6ded605ad1fbbdd62ec43477ba052e8943",
+      "note": "经纬度平面多边形面积乘统一常数。"
+    },
+    {
+      "physical_page": 97,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d07f39339d31a84350347f95f204496cf763211c0fed1bfbbf37916c2acf0059",
+      "note": "Totalarea4186与无标题跳过读取器。"
+    },
+    {
+      "physical_page": 98,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1eb37b61f8b342e3fee738698ac2103a7cc0dbc1d530c7c697b05dbf5ec0dd43",
+      "note": "Q符号/倍数与正文不同；subtractpath只保留正差。"
+    },
+    {
+      "physical_page": 99,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "911f5f79d40f7b6a33dabdb12081741fb2c1db69002f6cbaeea8fcb769e881ea",
+      "note": "空vector和forest缺定义；9年端点却用10年。"
+    },
+    {
+      "physical_page": 100,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "aca91172225421785044f5c98ade86504051018fc58cf0c67c7ccb12e54a221d",
+      "note": "K三段调用和LC文件1990–1999。"
+    },
+    {
+      "physical_page": 101,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "4eacf893b7860fc5a3bbbefd8539104a6c4dbba71a83b065ac24bf77ddcce4a2",
+      "note": "LC1990/1999、2000/2009，标签拼写错误。"
+    },
+    {
+      "physical_page": 102,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d98d42fd5ebb56d37f20ff2f6588310bc5eb7f7481abf9ae773bc2c92f9790d3",
+      "note": "LC后两期文件，不能与LUD误用文件混同。"
+    },
+    {
+      "physical_page": 103,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "0e7003967dce0e6a7a2e958ea8bb06bd2d1ff5bfa747721b7a768d3f17f956b2",
+      "note": "LC2010/2019正确端点但Q按数组索引。"
+    },
+    {
+      "physical_page": 104,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "98cac6d815fd58014c2ca080fc0d6f86981cc2f00a532dd60ef2d60436986c5e",
+      "note": "LUD后两期同读2010/2009（此前已看）。"
+    },
+    {
+      "physical_page": 105,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "fd4fda2014b9a8e9f2ba45e1bde51d49e820ff0695aca9bee3f045ad58992ab4",
+      "note": "forest/grass LUD两期重复2010/2009。"
+    },
+    {
+      "physical_page": 106,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "eb3cde764059b6c11b634a56125f300ad7e9e156287b0f6ad4e3112558e9df7d",
+      "note": "shrub/wet LUD重复；wet中期分母竟[0]。"
+    },
+    {
+      "physical_page": 107,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "001fe2cebc80d28ad6d30aea9b7105cf188ad1e90eba43b9dd9b16aaa56a5b9b",
+      "note": "crop/forest LUC重复2010/2009。"
+    },
+    {
+      "physical_page": 108,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "92d981a35eda9c13742e3ad56028edd689ddbb67969dcd95ff7609e5d00145da",
+      "note": "grass/shrub/wet LUC同一时点错误。"
+    },
+    {
+      "physical_page": 109,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "7f437d3156237810318809c1c4041c2ffdaf5ad3840be6e132d2b6b9e82e46bb",
+      "note": "wet LUC末期同错误；main结束。"
+    },
+    {
+      "physical_page": 110,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "58956b27248c30df2afa36ce60741c774b7c563cf9dec4c03aea920d822a41b3",
+      "note": "PIL RGB图，无CRS/transform写入。"
+    },
+    {
+      "physical_page": 111,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "f043a981dc0b5d5a247b771cdd0aee2c12c5adcbf1cb3ee73a135f5679cb7dbc",
+      "note": "MK符号和，标题Sen；alpha外部未定义、无ties方差修正。"
+    },
+    {
+      "physical_page": 112,
+      "visual_reviewed": true,
+      "evidence_origin": "prior_session_record",
+      "png_sha256": "44010bff1584ebdf91d73b665ccd515ecbca219158a05eb2ed59a7bd0cf3b7bb",
+      "note": "channel/label/user_id归因类，不是高斯偏导（此前已看）。"
+    },
+    {
+      "physical_page": 113,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "d1ce07ef5b7abb8fbfdd57aa05f4d231dec0cd3a1bef080f921970271302d251",
+      "note": "OR推AP/PAF与groupby计数。"
+    },
+    {
+      "physical_page": 114,
+      "visual_reviewed": true,
+      "evidence_origin": "current_session_view_image",
+      "png_sha256": "1cf9c2f3e2610aad675c7d94ac8ca2c5dfdffea497ebca39eabc2e81183c0d7e",
+      "note": "渠道配对及RR/RD/OR/AP/PAF调用，无气象运行链。"
+    }
+  ]
+}

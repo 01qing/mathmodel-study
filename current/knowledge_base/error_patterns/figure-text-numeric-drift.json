@@ -1,0 +1,6 @@
+{
+  "pattern": "figure_text_numeric_drift",
+  "definition": "The plotted numeric range/final value does not match the prose or result table describing the same figure.",
+  "example": "S025 Figure 5.7 visually stays around ~10.9k–11.5k while prose states 14k→7.76k.",
+  "gate": "Bind figure data, caption facts and narrative start/final values to one result registry and machine-replay before final export."
+}

@@ -1,0 +1,1360 @@
+import os, glob, math, argparse, random, warnings
+from pathlib import Path
+import numpy as np
+import scipy.io as sio
+import scipy.signal as sig
+from scipy.stats import kurtosis
+import yaml
+import torch, torch.nn as nn, torch.nn.functional as F
+from torch.utils.data import Dataset, DataLoader
+from sklearn.manifold import TSNE
+from sklearn.metrics import f1_score, confusion_matrix
+import matplotlib.pyplot as plt
+
+warnings.filterwarnings("ignore")
+
+# -----------------------------
+# Utils: config & bearing freqs
+# -----------------------------
+def load_cfg(p):
+    with open(p, "r", encoding="utf-8") as f:
+        cfg = yaml.safe_load(f)
+
+    # ===== 预处理数据的安全默认值（即使 cfg 没写也不报错）=====
+    pre = cfg.get("preprocessed", {})
+    pre.setdefault("use", False)
+    pre.setdefault("dir", r"E:/dg/sjwl/preprocessed_all")
+    pre.setdefault("source_index", os.path.join(pre["dir"], "index.csv"))
+    pre.setdefault("target_index", os.path.join(pre["dir"], "index.csv"))
+    cfg["preprocessed"] = pre
+    return cfg
+
+def bearing_freqs(rpm, n, d, D, theta_deg=0.0):
+    fr = float(rpm) / 60.0
+    c = (d / D) * math.cos(math.radians(theta_deg))
+    bpfo = 0.5 * n * fr * (1 - c)
+    bpfi = 0.5 * n * fr * (1 + c)
+    bsf  = (D/(2*d)) * fr * (1 - c**2)
+    ftf  = 0.5 * fr * (1 - c)
+    return fr, bpfo, bpfi, bsf, ftf
+
+# -----------------------------
+# Signal preprocessing (for .mat path)
+# -----------------------------
+def detrend(x):
+    return sig.detrend(x, type="linear")
+
+def bandpass(x, fs, f1=500, f2=10000, order=4):
+    f2 = min(f2, 0.45*fs)
+    if f1 >= f2:
+        f1, f2 = max(5.0, min(f1, 0.45*fs-10)), max(50.0, min(f2, 0.45*fs-5))
+    sos = sig.butter(order, [f1, f2], btype="bandpass", fs=fs, output="sos")
+    return sig.sosfiltfilt(sos, x)
+
+def envelope(x):
+    return np.abs(sig.hilbert(x))
+
+def zscore(x, eps=1e-8):
+    std = x.std()
+    if not np.isfinite(std) or std < eps:
+        return np.zeros_like(x)
+    m = x.mean()
+    return (x - m) / (std + eps)
+
+def resample_if_needed(x, fs_src, fs_tgt):
+    if fs_src == fs_tgt: return x
+    x = bandpass(x, fs_src, 10, min(0.45*fs_src, 0.45*fs_tgt))
+    g = math.gcd(int(fs_src), int(fs_tgt))
+    up, down = int(fs_tgt//g), int(fs_src//g)
+    return sig.resample_poly(x, up, down)
+
+def windowing(x, fs, win_sec=1.0, overlap=0.5, drop_edges_sec=0.0):
+    x = x[int(drop_edges_sec*fs):]
+    step = int(win_sec*fs*(1-overlap))
+    L = int(win_sec*fs)
+    out = []
+    for s in range(0, max(1, len(x)-L+1), step if step>0 else L):
+        seg = x[s:s+L]
+        if len(seg)==L: out.append(seg)
+    if not out and len(x)>0:
+        out = [np.pad(x,(0,L-len(x)))[:L]]
+    return out
+
+def spectral_kurtosis_band(x, fs, nfft=2048, hop=None, fmin=50, fmax=None, topk=1, bw_frac=0.15):
+    x = np.asarray(x, dtype=np.float64)
+    if hop is None: hop = nfft // 4
+    if fmax is None: fmax = fs*0.45
+    if len(x) < nfft:
+        return []
+    win = np.hanning(nfft)
+    specs = []
+    for i in range(0, len(x)-nfft+1, hop):
+        seg = x[i:i+nfft] * win
+        X = np.fft.rfft(seg)
+        P = np.abs(X)**2
+        specs.append(P)
+    if len(specs) == 0:
+        return []
+    S = np.stack(specs, 0)
+    freqs = np.fft.rfftfreq(nfft, 1.0/fs)
+    m = (freqs >= fmin) & (freqs <= fmax)
+    S = S[:, m]; freqs = freqs[m]
+    if S.shape[1] < 10:
+        return []
+    mu1 = S.mean(axis=0)
+    var = ((S - mu1)**2).mean(axis=0) + 1e-12
+    mu4 = ((S - mu1)**4).mean(axis=0)
+    sk = mu4 / (var**2) - 3.0
+    idx = np.argsort(sk)[::-1][:topk]
+    bands = []
+    for i in idx:
+        fc = freqs[i]
+        bw = max(20.0, fc * bw_frac)
+        f1 = max(fmin, fc - bw/2.0)
+        f2 = min(fmax, fc + bw/2.0)
+        if f2 > f1 + 5.0:
+            bands.append((float(f1), float(f2)))
+    return bands
+
+def order_resample(x, fs, rpm, spr=200):
+    if rpm is None or rpm <= 0:
+        return x, fs
+    fr = rpm / 60.0
+    T = len(x) / fs
+    n_rev = fr * T
+    if n_rev < 1e-3:
+        return x, fs
+    N = int(max(4*spr, n_rev * spr))
+    t = np.arange(len(x)) / fs
+    theta = 2*np.pi*fr*t
+    theta_target = np.linspace(theta[0], theta[-1], N)
+    x_res = np.interp(theta_target, theta, x).astype(np.float64)
+    fs_equiv = spr * fr
+    return x_res, fs_equiv
+
+# -----------------------------
+# Data loading (MAT)
+# -----------------------------
+def read_mat_any(path):
+    mat = sio.loadmat(path, squeeze_me=True, struct_as_record=False)
+    keys_map = {k.lower(): k for k in mat.keys()}
+    def pick_any(*cands):
+        for c in cands:
+            lc = c.lower()
+            if lc in keys_map:
+                return mat[keys_map[lc]]
+        return None
+    de = pick_any('DE','de','DE_value','de_value','X_DE','x_de','DE_time','de_time','X_DE_time','x_de_time')
+    fe = pick_any('FE','fe','FE_value','fe_value','X_FE','x_fe','FE_time','fe_time','X_FE_time','x_fe_time')
+    ba = pick_any('BA','ba','BA_value','ba_value','X_BA','x_ba','BA_time','ba_time','X_BA_time','x_ba_time')
+    time = pick_any('time','t','time_series','DE_time','FE_time','BA_time','X_DE_time','X_FE_time','X_BA_time')
+    rpm  = pick_any('rpm','x118rpm','speed','rot_rpm')
+
+    def ensure_sig(x):
+        if x is None: return None
+        x = np.asarray(x)
+        if x.ndim == 1 and x.size > 10: return x
+        if x.ndim >= 2 and x.size > 10: return x.reshape(-1)
+        return None
+
+    # 正确更新 de/fe/ba 的值（避免对 locals() 赋值不生效的问题）
+    de_ = ensure_sig(de)
+    fe_ = ensure_sig(fe)
+    ba_ = ensure_sig(ba)
+    if de_ is not None: de = de_
+    if fe_ is not None: fe = fe_
+    if ba_ is not None: ba = ba_
+
+    # 若三个通道都没取到，尝试从最大的 ndarray 中猜测
+    if all(v is None for v in [de,fe,ba]):
+        candidates = [v.reshape(-1) for v in mat.values() if isinstance(v,np.ndarray) and v.size>100]
+        if candidates: de = max(candidates, key=lambda a: a.size)
+
+    # RPM 既可能是标量也可能是数组，这里统一成标量或 None
+    if rpm is not None:
+        arr = np.asarray(rpm).ravel()
+        rpm = float(arr[0]) if arr.size>0 and np.isfinite(arr[0]) else None
+
+    return {"DE":de, "FE":fe, "BA":ba, "time":time, "RPM":rpm}
+
+def ensure_1d(x):
+    if x is None: return None
+    return np.asarray(x).astype(np.float64).ravel()
+
+# -----------------------------
+# Datasets (MAT online)
+# -----------------------------
+def _pick_multich_from_rec(rec, prefer_keys, max_ch=2):
+    xs, used = [], []
+    for key in prefer_keys:
+        x = ensure_1d(rec.get(key))
+        if x is not None and x.size>0:
+            xs.append(x); used.append(key)
+            if len(xs) >= max_ch: return xs, used
+    for k in ["DE","FE","BA"]:
+        x = ensure_1d(rec.get(k))
+        if x is not None and x.size>0 and k not in used:
+            xs.append(x); used.append(k)
+            if len(xs) >= max_ch: break
+    return xs, used
+
+class SourceBearingDS(Dataset):
+    def __init__(self, cfg, split="train", fs_out=32000, seed=0, max_ch=2):
+        self.cfg = cfg; random.seed(seed); np.random.seed(seed)
+        root = cfg["paths"]["source_dir"]
+        layout = cfg["source_domain"]["folder_layout"]
+        self.files = []
+        for block in layout:
+            bpath = os.path.join(root, block["path"])
+            if "classes" in block:
+                for c in block["classes"]:
+                    self.files += [(p, c) for p in glob.glob(os.path.join(bpath, c, "**", "*.mat"), recursive=True)]
+            if "files" in block:
+                self.files += [(os.path.join(bpath, f), "N") for f in block["files"]]
+        random.shuffle(self.files)
+        n = len(self.files)
+        n_tr = int(0.7*n); n_va = int(0.15*n)
+        idx = {"train": (0, n_tr), "val": (n_tr, n_tr+n_va), "test": (n_tr+n_va, n)}
+        s,e = idx[split]
+        self.files = self.files[s:e]
+        self.fs_out = fs_out
+        self.pp = cfg.get("preprocess_default", {})
+        self.vars = cfg["source_domain"]["variables"]
+        self.labels = {"OR":0,"IR":1,"B":2,"N":3}
+        self.rpm_candidates = cfg["conditions"].get("rpm_source_candidates",[1797,1772,1750,1730])
+        self.max_ch = max_ch
+
+    def __len__(self): return len(self.files)
+
+    def __getitem__(self, i):
+        fpath, yname = self.files[i]
+        rec = read_mat_any(fpath)
+        xs, chs = _pick_multich_from_rec(rec, self.vars["signal_keys"], max_ch=self.max_ch)
+        if len(xs)==0:
+            L = int(self.pp.get("segment",{}).get("win_sec",1.0)*self.fs_out)
+            return torch.zeros(1, L), 3
+
+        fs_src = None
+        if rec["time"] is not None:
+            t = ensure_1d(rec["time"])
+            if t is not None and len(t)>1:
+                dt = np.median(np.diff(t)); fs_src = 1.0/float(dt)
+        if fs_src is None:
+            fs_src = 48000 if "48kHz" in fpath.lower() else 12000
+
+        segs = []
+        for x in xs:
+            x = resample_if_needed(x, fs_src, self.fs_out)
+            fs_eff = self.fs_out
+            if self.pp.get("detrend", True): x = detrend(x)
+
+            use_order = self.pp.get("use_order_tracking", True)
+            spr = int(self.pp.get("order_spr", 200))
+            rpm_val = rec.get("RPM")
+            if rpm_val is None and len(self.rpm_candidates)>0:
+                rpm_val = float(self.rpm_candidates[0])
+            if use_order and (rpm_val is not None):
+                x, fs_eff = order_resample(x, fs_eff, float(rpm_val), spr=spr)
+
+            if self.pp.get("use_spectral_kurtosis", True):
+                bands = spectral_kurtosis_band(
+                    x, fs_eff,
+                    nfft=self.pp.get("sk_nfft", 2048),
+                    fmin=self.pp.get("sk_fmin", 50),
+                    fmax=self.pp.get("sk_fmax", int(0.45*fs_eff)),
+                    topk=self.pp.get("sk_topk", 1),
+                    bw_frac=self.pp.get("sk_bw_frac", 0.15)
+                )
+                if len(bands) > 0: f1, f2 = bands[0]
+                else: f1, f2 = self.pp.get("bandpass_hz",[500,10000])
+            else:
+                f1, f2 = self.pp.get("bandpass_hz",[500,10000])
+            x = bandpass(x, fs_eff, f1, f2)
+
+            if self.pp.get("envelope", True): x = envelope(x)
+            if self.pp.get("normalize","zscore")=="zscore": x = zscore(x)
+
+            segconf = self.pp.get("segment", {"win_sec":1.0,"overlap":0.5,"drop_edges_sec":0.0})
+            wins = windowing(x, fs_eff, segconf.get("win_sec",1.0), segconf.get("overlap",0.5), segconf.get("drop_edges_sec",0.0))
+            if len(wins)==0:
+                L = int(segconf.get("win_sec",1.0)*fs_eff)
+                wins = [np.pad(x, (0,max(0,L-len(x))))[:L]]
+            segs.append(random.choice(wins) if self.cfg.get("stage","train_source")=="train_source" else wins[len(wins)//2])
+
+        xi = torch.from_numpy(np.stack(segs,0).astype(np.float32))  # [C,T]
+        yi = self.labels.get(yname, 3)
+        return xi, yi
+
+class TargetBearingDS(Dataset):
+    def __init__(self, cfg, fs_expect=32000, max_ch=2):
+        self.cfg = cfg
+        root = cfg["paths"]["target_dir"]
+        self.files = sorted(glob.glob(os.path.join(root, "*.mat")))
+        self.fs = cfg["target_domain"]["fs_hz"]
+        self.pp = cfg.get("preprocess_default", {})
+        self.fs_expect = fs_expect
+        self.max_ch = max_ch
+
+    def __len__(self): return len(self.files)
+
+    def __getitem__(self, i):
+        fpath = self.files[i]
+        rec = read_mat_any(fpath)
+        xs, chs = _pick_multich_from_rec(rec, self.cfg["source_domain"]["variables"]["signal_keys"], max_ch=self.max_ch)
+        if len(xs)==0:
+            L = int(self.pp.get("segment",{}).get("win_sec",1.0)*self.fs)
+            return torch.zeros(1, 1, L), fpath
+
+        all_ch_wins = []
+        fs_eff = self.fs
+        for x in xs:
+            x = ensure_1d(x)
+            if self.pp.get("detrend", True): x = detrend(x)
+            if self.pp.get("use_spectral_kurtosis", True):
+                bands = spectral_kurtosis_band(
+                    x, fs_eff,
+                    nfft=self.pp.get("sk_nfft", 2048),
+                    fmin=self.pp.get("sk_fmin", 50),
+                    fmax=self.pp.get("sk_fmax", int(0.45*fs_eff)),
+                    topk=self.pp.get("sk_topk", 1),
+                    bw_frac=self.pp.get("sk_bw_frac", 0.15)
+                )
+                if len(bands) > 0: f1, f2 = bands[0]
+                else: f1, f2 = self.pp.get("bandpass_hz",[500,10000])
+            else:
+                f1, f2 = self.pp.get("bandpass_hz",[500,10000])
+            x = bandpass(x, fs_eff, f1, f2)
+            if self.pp.get("envelope", True): x = envelope(x)
+            if self.pp.get("normalize","zscore")=="zscore": x = zscore(x)
+            segconf = self.pp.get("segment", {"win_sec":1.0,"overlap":0.5,"drop_edges_sec":0.0})
+            wins = windowing(x, fs_eff, segconf.get("win_sec",1.0), segconf.get("overlap",0.5), segconf.get("drop_edges_sec",0.0))
+            if len(wins)==0:
+                L = int(segconf.get("win_sec",1.0)*fs_eff)
+                wins = [np.pad(x, (0,max(0,L-len(x))))[:L]]
+            all_ch_wins.append(np.stack(wins,0))  # [W,T]
+
+        Wmin = min([w.shape[0] for w in all_ch_wins])
+        all_ch_wins = [w[:Wmin] for w in all_ch_wins]
+        X = np.stack(all_ch_wins, 1)  # [W,C,T]
+        return torch.from_numpy(X.astype(np.float32)), fpath
+
+# =========================
+# Datasets for preprocessed
+# =========================
+def _read_index_csv(csv_path):
+    rows = []
+    if not os.path.exists(csv_path):
+        return rows
+    with open(csv_path, "r", encoding="utf-8") as f:
+        header = f.readline().strip().split(",")
+        def parse_line(first_line):
+            parts = first_line.split(",")
+            if len(parts) >= 3 and parts[2] in ("OR","IR","B","N","UNK"):
+                return True
+            return False
+        if parse_line(",".join(header)):
+            f.seek(0)
+        for line in f:
+            parts = line.strip().split(",")
+            if len(parts) < 2:
+                continue
+            if len(parts) >= 3 and parts[2] in ("OR","IR","B","N","UNK"):
+                fpath = parts[0]; label = parts[2]
+            else:
+                fpath = parts[0]; label = parts[1] if len(parts) >= 2 else "UNK"
+            rows.append((fpath, label))
+    return rows
+
+_LABEL2ID = {"OR":0, "IR":1, "B":2, "N":3, "UNK":3}
+
+class PreprocessedSourceDS(Dataset):
+    """从 preprocessed index 读取有标签窗口用于源域"""
+    def __init__(self, cfg, split="train"):
+        self.cfg = cfg
+        all_rows = _read_index_csv(cfg["preprocessed"]["source_index"])
+        rows = [(f, y) for (f, y) in all_rows if y in _LABEL2ID]
+        random.seed(0); random.shuffle(rows)
+        n = len(rows); n_tr = int(0.7*n); n_va = int(0.15*n)
+        seg = {"train": (0, n_tr), "val": (n_tr, n_tr+n_va), "test": (n_tr+n_va, n)}
+        s,e = seg[split]
+        self.rows = rows[s:e]
+    def __len__(self): return len(self.rows)
+    def __getitem__(self, i):
+        fpath, yname = self.rows[i]
+        x = np.load(fpath).astype(np.float32)   # [T]
+        return torch.from_numpy(x).unsqueeze(0), _LABEL2ID.get(yname, 3)
+
+class PreprocessedTargetDS(Dataset):
+    """从 preprocessed index 读取目标域窗口（无标签）"""
+    def __init__(self, cfg):
+        self.rows = _read_index_csv(cfg["preprocessed"]["target_index"])
+    def __len__(self): return len(self.rows)
+    def __getitem__(self, i):
+        fpath, yname = self.rows[i]
+        x = np.load(fpath).astype(np.float32)  # [T]
+        return torch.from_numpy(x).unsqueeze(0), fpath
+
+# -----------------------------
+# Mechanism-aware filterbank & helpers
+# -----------------------------
+def _best_gn_groups(C):
+    for g in [32,16,8,4,2,1]:
+        if C % g == 0: return g
+    return 1
+
+class MechanismFilterBank(nn.Module):
+    def __init__(self, fs, centers_hz, Q=12):
+        super().__init__()
+        self.fs = fs
+        self.M = len(centers_hz)
+        L = 129
+        base = []
+        for c in centers_hz:
+            bw = c / Q
+            f1 = max(5.0, c - bw/2.0); f2 = c + bw/2.0
+            h = sig.firwin(L, [f1, f2], pass_zero=False, fs=fs).astype(np.float32)
+            base.append(h)
+        base = np.stack(base,0)[:,None,:]  # [M,1,L]
+        self.register_buffer("kern", torch.from_numpy(base))
+        self.pad = L-1
+    def forward(self, x_mono):
+        y = F.conv1d(F.pad(x_mono, (self.pad,0)), self.kern, groups=1)  # [B,M,T]
+        return y
+
+class ChannelSE(nn.Module):
+    def __init__(self, r=8):
+        super().__init__()
+        self.r = r
+        self.fc1 = None
+        self.fc2 = None
+        self._c = None
+    def _rebuild(self, c, device, dtype):
+        hidden = max(1, c // self.r)
+        self.fc1 = nn.Linear(c, hidden).to(device=device, dtype=dtype)
+        self.fc2 = nn.Linear(hidden, c).to(device=device, dtype=dtype)
+        self._c = c
+    def forward(self, x):  # x:[B,C,T]
+        if x.dim() != 3:
+            raise RuntimeError(f"ChannelSE expects [B,C,T], got {tuple(x.shape)}")
+        B, C, T = x.shape
+        if (self.fc1 is None) or (self._c != C):
+            self._rebuild(C, x.device, x.dtype)
+        w = x.mean(dim=-1)
+        w = F.relu(self.fc1(w))
+        w = torch.sigmoid(self.fc2(w))
+        return x * w.unsqueeze(-1), w
+
+def ensure_bct(x, C=None):
+    if x.dim()==1: x = x.unsqueeze(0).unsqueeze(0)
+    elif x.dim()==2: x = x.unsqueeze(1)
+    elif x.dim()==3: pass
+    else: raise RuntimeError(f"unexpected shape {tuple(x.shape)}")
+    return x.contiguous()
+
+# -----------------------------
+# Encoder + Classifier + Gate
+# -----------------------------
+class FeatNet1D(nn.Module):
+    def __init__(self, in_ch=8):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv1d(in_ch, 32, 7, 2, 3), nn.BatchNorm1d(32), nn.ReLU(), nn.MaxPool1d(2),
+            nn.Conv1d(32, 64, 5, 1, 2), nn.BatchNorm1d(64), nn.ReLU(), nn.MaxPool1d(2),
+            nn.Conv1d(64,128, 3, 1, 1), nn.BatchNorm1d(128), nn.ReLU(),
+            nn.AdaptiveAvgPool1d(1)
+        )
+    def forward(self, x):
+        h = self.net(x).squeeze(-1)  # [B,128]
+        return h
+
+class GateExplain(nn.Module):
+    def __init__(self, groups=4):
+        super().__init__()
+        self.alpha = nn.Parameter(torch.ones(groups))
+        self.groups = groups
+    def forward(self, x):
+        B,M,T = x.shape
+        g = torch.softmax(self.alpha, dim=0)
+        m_per = max(1, M // self.groups)
+        outs = []
+        for i in range(self.groups):
+            s, e = i*m_per, min((i+1)*m_per, M)
+            xi = x[:, s:e, :] * g[i]
+            outs.append(xi)
+        return torch.cat(outs, 1), g
+
+class Classifier(nn.Module):
+    def __init__(self, d=128, ncls=4):
+        super().__init__()
+        self.fc = nn.Linear(d, ncls)
+    def forward(self, h):
+        return self.fc(h)
+
+class BearingNet(nn.Module):
+    def __init__(self, fs, centers_hz, ncls=4, in_ch_input=1):
+        super().__init__()
+        self.Cin = in_ch_input
+        self.C = len(centers_hz)
+        self.chan_se = ChannelSE(r=8)
+        self.fb = MechanismFilterBank(fs, centers_hz)
+        self.gate = GateExplain(groups=4)
+        self.norm = nn.GroupNorm(num_groups=_best_gn_groups(self.C), num_channels=self.C, affine=False)
+        self.enc = FeatNet1D(in_ch=self.C)
+        self.cls = Classifier(128, ncls)
+    def forward(self, x):
+        x = ensure_bct(x)
+        x_se, w = self.chan_se(x)
+        x_mono = x_se.sum(dim=1, keepdim=True)
+        y = self.fb(x_mono)
+        y, gate_w = self.gate(y)
+        y = self.norm(y)
+        h = self.enc(y)
+        logits = self.cls(h)
+        return logits, h, gate_w, w
+
+# -----------------------------
+# Safe weight loading (fix ChannelSE dynamic submodules)
+# -----------------------------
+def _strip_module_prefix(state_dict):
+    return { (k[7:] if k.startswith("module.") else k): v for k,v in state_dict.items() }
+
+def safe_load(model, ckpt_path, device="cpu"):
+    state = torch.load(ckpt_path, map_location=device)
+    # 兼容常见结构
+    if isinstance(state, dict):
+        if "state_dict" in state and isinstance(state["state_dict"], dict):
+            state = state["state_dict"]
+        elif "model" in state and isinstance(state["model"], dict):
+            state = state["model"]
+    if isinstance(state, dict):
+        state = _strip_module_prefix(state)
+    missing, unexpected = model.load_state_dict(state, strict=False)
+    if unexpected:
+        print("[WARN] Unexpected keys ignored when loading:", unexpected)
+    if missing:
+        print("[WARN] Missing keys when loading (will be inited by model):", missing)
+
+# -----------------------------
+# Losses: CORAL & Entropy
+# -----------------------------
+def coral_loss(source, target):
+    def cov(m):
+        m = m - m.mean(0, keepdim=True)
+        if m.size(0) <= 1:
+            return torch.zeros((m.size(1), m.size(1)), device=m.device, dtype=m.dtype)
+        return (m.t() @ m) / (m.size(0)-1)
+    cs, ct = cov(source), cov(target)
+    return F.mse_loss(cs, ct)
+
+def entropy_minimization(logits, T=1.0):
+    p = F.softmax(logits / T, dim=1)
+    p = torch.clamp(p, 1e-6, 1-1e-6)
+    return -(p*torch.log(p)).sum(1).mean(), p
+
+# -----------------------------
+# Build centers (mechanism)
+# -----------------------------
+def build_centers(cfg, rpm=1800, harmonics=2):
+    geom_de = cfg["bearings"]["DE"]
+    n,d,D,theta = geom_de["n"], geom_de["d_in"], geom_de["D_in"], geom_de["theta_deg"]
+    fr,bpfo,bpfi,bsf,ftf = bearing_freqs(rpm, n, d, D, theta)
+    centers = []
+    for base in [bpfi,bpfo,bsf,ftf]:
+        for k in range(1, harmonics+1):
+            centers.append(k*base)
+    return centers
+
+# -----------------------------
+# Train / Adapt / Infer loops
+# -----------------------------
+def set_seed(s=0):
+    random.seed(s); np.random.seed(s); torch.manual_seed(s); torch.cuda.manual_seed_all(s)
+
+def compute_class_weights(ds, ncls=4, max_samples=2000, device="cpu"):
+    from collections import Counter
+    idx = list(range(min(len(ds), max_samples)))
+    ys = []
+    for i in idx:
+        try:
+            _, y = ds[i]
+            ys.append(int(y))
+        except:
+            pass
+    cnt = Counter(ys)
+    tot = sum(cnt.values()) if len(cnt)>0 else 1
+    w = torch.ones(ncls, device=device)
+    for c in range(ncls):
+        w[c] = (tot / max(1, cnt.get(c,1)))
+    w = w / w.mean()
+    return w
+
+@torch.no_grad()
+def evaluate(model, loader, device="cuda"):
+    Yt, Yp = [], []
+    for x,y in loader:
+        x,y = x.to(device), y.to(device)
+        logits,_,_,_ = model(x)
+        Yt += y.cpu().tolist()
+        Yp += logits.argmax(1).cpu().tolist()
+    if len(Yt)==0: return {"macro_f1":0.0, "acc":0.0, "cm":np.zeros((4,4),dtype=int)}
+    f1 = f1_score(Yt, Yp, average="macro")
+    acc = (np.array(Yt)==np.array(Yp)).mean()
+    cm = confusion_matrix(Yt, Yp, labels=[0,1,2,3])
+    return {"macro_f1":float(f1), "acc":float(acc), "cm":cm}
+
+@torch.no_grad()
+def recalibrate_bn(model, dl_tgt, device="cuda", preprocessed=False):
+    was_train = model.training
+    model.train()
+    for m in model.modules():
+        if isinstance(m, nn.BatchNorm1d):
+            m.momentum = 0.01
+    for Xt, _ in dl_tgt:
+        if preprocessed:
+            _ = model(Xt.to(device))
+        else:
+            Xt = Xt.squeeze(0).to(device)
+            _ = model(Xt)
+    model.train(was_train)
+
+def _build_model_for_mode(cfg, centers, device, use_preprocessed):
+    fs_out = cfg["target_domain"]["fs_hz"]
+    if use_preprocessed:
+        in_ch_input = 1
+    else:
+        in_ch_input = cfg.get("model", {}).get("in_ch_input", 2)
+    model = BearingNet(fs_out, centers, ncls=4, in_ch_input=in_ch_input).to(device)
+    return model, in_ch_input
+
+def train_source(cfg, out, epochs=200, bs=64, lr=2e-3, device="cuda"):
+    set_seed(0)
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+
+    if use_pre:
+        ds_tr = PreprocessedSourceDS(cfg, "train")
+        ds_va = PreprocessedSourceDS(cfg, "val")
+    else:
+        ds_tr = SourceBearingDS(cfg, "train", fs_out, max_ch=in_ch_input)
+        ds_va = SourceBearingDS(cfg, "val", fs_out, max_ch=in_ch_input)
+
+    dl_tr = DataLoader(ds_tr, batch_size=bs, shuffle=True, num_workers=0, drop_last=True)
+    dl_va = DataLoader(ds_va, batch_size=bs, shuffle=False, num_workers=0)
+
+    opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-3)
+    cls_w = compute_class_weights(ds_tr, ncls=4, device=device)
+    ce = nn.CrossEntropyLoss(weight=cls_w)
+
+    scaler = torch.cuda.amp.GradScaler(enabled=device.startswith("cuda"))
+    best = {"acc":0.0, "macro_f1":0.0, "ep":0}
+    patience, wait = 120, 5
+
+    for ep in range(1, epochs+1):
+        model.train(); loss_sum=0
+        for x,y in dl_tr:
+            x,y = x.to(device), y.to(device)
+            with torch.cuda.amp.autocast(enabled=device.startswith("cuda")):
+                logits, h, _, _ = model(x)
+                loss = ce(logits, y)
+            opt.zero_grad(); scaler.scale(loss).backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
+            scaler.step(opt); scaler.update()
+            loss_sum += loss.item()*len(x)
+
+        model.eval()
+        met = evaluate(model, dl_va, device)
+        print(f"[SRC] ep{ep} loss={loss_sum/len(ds_tr):.4f} val_acc={met['acc']:.3f} macroF1={met['macro_f1']:.3f}")
+        if met["macro_f1"]>best["macro_f1"]:
+            best = {"acc":met["acc"], "macro_f1":met["macro_f1"], "ep":ep}
+            torch.save(model.state_dict(), os.path.join(out,"model_src_best.pth"))
+            wait = 0
+        else:
+            wait += 1
+        if wait>=patience:
+            print(f"[SRC] early stop at ep{ep}")
+            break
+    return os.path.join(out,"model_src_best.pth")
+
+def adapt_coral(cfg, ckpt, out, epochs=30, bs=64, lr=5e-4, lambda_coral=0.1, shot=False, device="cuda"):
+    set_seed(1)
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+    # --- safe load ---
+    safe_load(model, ckpt, device=device)
+
+    if use_pre:
+        ds_src = PreprocessedSourceDS(cfg, "train")
+        ds_tgt = PreprocessedTargetDS(cfg)
+        dl_src = DataLoader(ds_src, batch_size=bs, shuffle=True,  num_workers=0, drop_last=True)
+        dl_tgt = DataLoader(ds_tgt, batch_size=bs, shuffle=False, num_workers=0)
+    else:
+        ds_src = SourceBearingDS(cfg, "train", fs_out, max_ch=in_ch_input)
+        ds_tgt = TargetBearingDS(cfg, fs_out, max_ch=in_ch_input)
+        dl_src = DataLoader(ds_src, batch_size=bs, shuffle=True,  num_workers=0, drop_last=True)
+        dl_tgt = DataLoader(ds_tgt, batch_size=1,  shuffle=False, num_workers=0)
+
+    opt = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=1e-4)
+    ce = nn.CrossEntropyLoss(weight=compute_class_weights(ds_src, ncls=4, device=device))
+    scaler = torch.cuda.amp.GradScaler(enabled=device.startswith("cuda"))
+
+    # AdaBN
+    recalibrate_bn(model, dl_tgt, device, preprocessed=use_pre)
+
+    # CORAL + 源分类 + 目标域熵最小
+    for ep in range(1, epochs+1):
+        model.train()
+        for (xs,ys),(Xt,fn) in zip(dl_src, dl_tgt):
+            xs,ys = xs.to(device), ys.to(device)
+            if use_pre:
+                Xt_bct = Xt.to(device)           # [B,1,T]
+            else:
+                Xt_bct = Xt.squeeze(0).to(device) # [W,C,T]
+
+            with torch.cuda.amp.autocast(enabled=device.startswith("cuda")):
+                logits_s, hs, _, _ = model(xs)
+                logits_t, ht, _, _ = model(Xt_bct)
+                Lcls = ce(logits_s, ys)
+                Lcor = coral_loss(hs, ht)
+                Lent, pt = entropy_minimization(logits_t, T=1.0)
+                conf_t = torch.clamp(pt.max(1).values.mean(), 0, 1).item()
+                w_ent = 0.01 * (0.5 + 0.5*(1.0 - conf_t))
+                loss = Lcls + lambda_coral*Lcor + w_ent*Lent
+
+            if not torch.isfinite(loss):
+                print("[WARN] skip NaN step on", (fn[0] if isinstance(fn,(list,tuple)) else fn)); continue
+            opt.zero_grad(); scaler.scale(loss).backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), 5.0)
+            scaler.step(opt); scaler.update()
+        print(f"[ADAPT] ep{ep} done.")
+
+    torch.save(model.state_dict(), os.path.join(out,"model_adapt_coral.pth"))
+    if not shot:
+        return os.path.join(out,"model_adapt_coral.pth")
+
+    # ===== SHOT 自训练 =====
+    for p in model.cls.parameters(): p.requires_grad=False
+    opt2 = torch.optim.Adam([p for p in model.parameters() if p.requires_grad], lr=lr)
+    Tt, tau = 0.7, 0.90
+    for ep in range(1, 3):
+        for Xt,fn in dl_tgt:
+            if use_pre:
+                Xtt = Xt.to(device)
+            else:
+                Xtt = Xt.squeeze(0).to(device)
+            logits, h, _, _ = model(Xtt)
+            p = F.softmax(logits/Tt,1).clamp(1e-6, 1-1e-6)
+            conf, ypl = p.max(1)
+            m = conf >= tau
+            if m.any():
+                Lent = -(p[m]*torch.log(p[m])).sum(1).mean()
+            else:
+                Lent = -(p*torch.log(p)).sum(1).mean()
+            pm = p.mean(0)
+            Ldiv = (pm*torch.log(pm)).sum()
+            loss = Lent - 0.1*Ldiv
+            if not torch.isfinite(loss):
+                print("[WARN] skip NaN step (SHOT) on", (fn[0] if isinstance(fn,(list,tuple)) else fn)); continue
+            opt2.zero_grad(); loss.backward(); opt2.step()
+        print(f"[SHOT] ep{ep} done.")
+    outp = os.path.join(out,"model_adapt_shot.pth")
+    torch.save(model.state_dict(), outp)
+    return outp
+
+def infer_target(cfg, ckpt, out, device="cuda"):
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+    # --- safe load ---
+    safe_load(model, ckpt, device=device)
+    model.eval()
+
+    name_map = {0:"OR",1:"IR",2:"B",3:"N"}
+    os.makedirs(out, exist_ok=True)
+
+    if use_pre:
+        ds_tgt = PreprocessedTargetDS(cfg)
+        dl_tgt = DataLoader(ds_tgt, batch_size=128, shuffle=False)
+        rows = ["npy_file,pred_label,confidence"]
+        with torch.no_grad():
+            for X, paths in dl_tgt:   # X:[B,1,T]
+                X = X.to(device)
+                logits,_,_,_ = model(X)
+                prob = F.softmax(logits,1)
+                yhat = prob.argmax(1).cpu().tolist()
+                conf = prob.max(1).values.cpu().tolist()
+                for pth, yh, cf in zip(paths, yhat, conf):
+                    rows.append(f"{Path(pth).name},{name_map[int(yh)]},{float(cf):.4f}")
+        with open(os.path.join(out,"labels_target.csv"),"w",encoding="utf-8") as f:
+            f.write("\n".join(rows))
+        print("Saved:", os.path.join(out,"labels_target.csv"))
+        return
+
+    # 原 .mat 推理（按文件聚合窗口）
+    ds_tgt = TargetBearingDS(cfg, fs_out, max_ch=in_ch_input)
+    dl_tgt = DataLoader(ds_tgt, batch_size=1, shuffle=False)
+    rows = ["file,pred_label,confidence"]
+    with torch.no_grad():
+        for X, fpath in dl_tgt:
+            X = X.squeeze(0).to(device)   # [W,C,T]
+            logits,_,gate,chan_w = model(X)
+            logits = torch.where(torch.isfinite(logits), logits, torch.zeros_like(logits))
+            prob = F.softmax(logits,1)
+            prob = torch.where(torch.isfinite(prob), prob, torch.zeros_like(prob))
+            if prob.numel()==0:
+                yhat, conf = 3, 0.0
+            else:
+                prob_mean = prob.mean(0)
+                yhat = int(prob_mean.argmax().item())
+                conf = float(prob_mean.max().item())
+                if not np.isfinite(conf): conf = 0.0
+            rows.append(f"{Path(fpath[0]).name},{name_map[yhat]},{conf:.4f}")
+
+            try:
+                g = gate.detach().cpu().numpy()
+                plt.figure(); plt.bar(["BPFI","BPFO","BSF","FTF"], g); plt.title(Path(fpath[0]).name + " gate weights")
+                plt.tight_layout(); plt.savefig(os.path.join(out, Path(fpath[0]).stem+"_gate.png")); plt.close()
+
+                cw = chan_w.mean(0).detach().cpu().numpy()
+                plt.figure(); labels = [f"ch{i+1}" for i in range(len(cw))]
+                plt.bar(labels, cw); plt.title(Path(fpath[0]).name + " channel-SE weights")
+                plt.tight_layout(); plt.savefig(os.path.join(out, Path(fpath[0]).stem+"_chanSE.png")); plt.close()
+            except Exception as e:
+                print("[WARN] vis failed:", e)
+
+    with open(os.path.join(out,"labels_target.csv"),"w",encoding="utf-8") as f:
+        f.write("\n".join(rows))
+    print("Saved:", os.path.join(out,"labels_target.csv"))
+
+# -----------------------------
+# t-SNE (optional plots)
+# -----------------------------
+def visualize_embeddings(cfg, ckpt, out, device="cuda"):
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+    # --- safe load ---
+    safe_load(model, ckpt, device=device)
+    model.eval()
+
+    if use_pre:
+        ds_src = PreprocessedSourceDS(cfg, "test")
+        dl_src = DataLoader(ds_src, batch_size=128, shuffle=False)
+        ds_tgt = PreprocessedTargetDS(cfg)
+        dl_tgt = DataLoader(ds_tgt, batch_size=128, shuffle=False)
+        H=[]; D=[]
+        with torch.no_grad():
+            for x,y in dl_src:
+                x=x.to(device); logits,h,_,_=model(x); H.append(h.cpu().numpy()); D += ["SRC"]*h.shape[0]
+            for X,fn in dl_tgt:
+                X = X.to(device); logits,h,_,_ = model(X); H.append(h.cpu().numpy()); D += ["TGT"]*h.shape[0]
+    else:
+        ds_src = SourceBearingDS(cfg, "test", fs_out, max_ch=in_ch_input)
+        dl_src = DataLoader(ds_src, batch_size=64, shuffle=False)
+        ds_tgt = TargetBearingDS(cfg, fs_out, max_ch=in_ch_input)
+        dl_tgt = DataLoader(ds_tgt, batch_size=1, shuffle=False)
+        H=[]; D=[]
+        with torch.no_grad():
+            for x,y in dl_src:
+                x=x.to(device); logits,h,_,_=model(x); H.append(h.cpu().numpy()); D += ["SRC"]*h.shape[0]
+            for X,fn in dl_tgt:
+                X = X.squeeze(0).to(device); logits,h,_,_ = model(X); H.append(h.cpu().numpy()); D += ["TGT"]*h.shape[0]
+
+    H = np.concatenate(H,0)
+    emb = TSNE(n_components=2, perplexity=30, init='pca', learning_rate='auto').fit_transform(H)
+    plt.figure(figsize=(6,5))
+    colors = {"SRC":"tab:blue","TGT":"tab:orange"}
+    for dom in ["SRC","TGT"]:
+        m = (np.array(D)==dom)
+        plt.scatter(emb[m,0], emb[m,1], s=6, alpha=0.6, label=dom, c=colors[dom])
+    plt.legend(); plt.title("t-SNE embeddings")
+    plt.tight_layout(); plt.savefig(os.path.join(out, "viz_tsne.png")); plt.close()
+    print("Saved:", os.path.join(out,"viz_tsne.png"))
+
+# =========================
+# ========= 新增 ==========
+# =========================
+def _ensure_dir(p):
+    os.makedirs(p, exist_ok=True)
+    return p
+
+def _fault_centers_dict(cfg, rpm):
+    n = cfg["bearings"]["DE"]["n"]
+    d = cfg["bearings"]["DE"]["d_in"]
+    D = cfg["bearings"]["DE"]["D_in"]
+    theta = cfg["bearings"]["DE"]["theta_deg"]
+    fr,bpfo,bpfi,bsf,ftf = bearing_freqs(rpm, n, d, D, theta)
+    return {"BPFI":bpfi, "BPFO":bpfo, "BSF":bsf, "FTF":ftf, "FR":fr}
+
+def _band_energy(spec_f, spec_mag, f0, frac=0.12, min_bw=25.0, max_bw=600.0):
+    bw = max(min_bw, min(max_bw, f0*frac))
+    f1, f2 = f0 - bw/2.0, f0 + bw/2.0
+    m = (spec_f >= f1) & (spec_f <= f2)
+    if not np.any(m):
+        return 0.0
+    return float(np.sum(spec_mag[m]))
+
+def extract_source_features(cfg, out_dir):
+    """
+    从源域原始 .mat 文件抽样窗口，导出包络谱相关机理特征（FBE）+ 统计量
+    产物: {out_dir}/source_features.csv
+    """
+    import pandas as pd
+    rng = np.random.default_rng(0)
+    _ensure_dir(out_dir)
+    fs_out = cfg["target_domain"]["fs_hz"]
+    rpm0 = cfg["conditions"]["rpm_source_candidates"][0]
+    centers = _fault_centers_dict(cfg, rpm0)
+    in_ch = cfg.get("model",{}).get("in_ch_input",2)
+    ds = SourceBearingDS(cfg, "train", fs_out, max_ch=in_ch)
+    ds_val = SourceBearingDS(cfg, "val", fs_out, max_ch=in_ch)
+    ds.files += ds_val.files
+
+    rows = []
+    segconf = cfg.get("preprocess_default",{}).get("segment", {"win_sec":1.0,"overlap":0.5,"drop_edges_sec":0.0})
+    win_sec = segconf.get("win_sec", 1.0)
+
+    for (fp, yname) in ds.files:
+        rec = read_mat_any(fp)
+        xs, _ = _pick_multich_from_rec(rec, cfg["source_domain"]["variables"]["signal_keys"], max_ch=in_ch)
+        if len(xs)==0:
+            continue
+        x = xs[0]
+
+        fs_src = None
+        if rec["time"] is not None:
+            t = ensure_1d(rec["time"])
+            if t is not None and len(t)>1:
+                dt = np.median(np.diff(t)); fs_src = 1.0/float(dt)
+        if fs_src is None:
+            fs_src = 48000 if "48kHz" in fp.lower() else 12000
+
+        x = resample_if_needed(x, fs_src, fs_out)
+        if cfg["preprocess_default"].get("detrend",True): x = detrend(x)
+        if cfg["preprocess_default"].get("use_spectral_kurtosis", True):
+            bands = spectral_kurtosis_band(
+                x, fs_out,
+                nfft=cfg["preprocess_default"].get("sk_nfft",2048),
+                fmin=cfg["preprocess_default"].get("sk_fmin",50),
+                fmax=cfg["preprocess_default"].get("sk_fmax",int(0.45*fs_out)),
+                topk=1, bw_frac=cfg["preprocess_default"].get("sk_bw_frac",0.15)
+            )
+            if len(bands)>0: f1,f2=bands[0]
+            else: f1,f2 = cfg["preprocess_default"].get("bandpass_hz",[500,10000])
+        else:
+            f1,f2 = cfg["preprocess_default"].get("bandpass_hz",[500,10000])
+        x = bandpass(x, fs_out, f1, f2)
+        if cfg["preprocess_default"].get("envelope",True): x = envelope(x)
+        if cfg["preprocess_default"].get("normalize","zscore")=="zscore": x = zscore(x)
+
+        wins = windowing(x, fs_out, win_sec, segconf.get("overlap",0.5), segconf.get("drop_edges_sec",0.0))
+        if len(wins)==0:
+            continue
+        seg = wins[len(wins)//2]
+        nfft = max(4096, int(2**np.ceil(np.log2(len(seg)))))
+        X = np.fft.rfft(seg*np.hanning(len(seg)), n=nfft)
+        f  = np.fft.rfftfreq(nfft, 1/fs_out)
+        mag= np.abs(X)
+
+        feats = {}
+        for kname in ["BPFI","BPFO","BSF","FTF"]:
+            f0 = centers[kname]
+            feats[f"fbe_{kname.lower()}"]     = _band_energy(f, mag, f0,  frac=0.12)
+            feats[f"fbe_2x_{kname.lower()}"]  = _band_energy(f, mag, 2*f0, frac=0.12)
+        feats["rms"]   = float(np.sqrt(np.mean(seg**2)))
+        feats["kurt"] = float(kurtosis(seg, fisher=True, bias=False))
+        feats["crest"] = float(np.max(np.abs(seg)) / (feats["rms"]+1e-12))
+
+        rows.append({
+            "file": Path(fp).name,
+            "label": yname,
+            "ch": 1,
+            **feats
+        })
+
+    if len(rows)==0:
+        print("[WARN] no features extracted.")
+        return
+    import pandas as pd
+    df = pd.DataFrame(rows)
+    csv_path = os.path.join(out_dir, "source_features.csv")
+    df.to_csv(csv_path, index=False, encoding="utf-8")
+    print("Saved:", csv_path)
+
+def train_feat_classifier(feat_csv, out_dir):
+    """
+    用导出的特征做一个RF基线，便于可解释性（特征重要度 + 混淆矩阵）
+    产物:
+      - rf_feat_model.joblib
+      - rf_cm.png
+    """
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+    from sklearn.ensemble import RandomForestClassifier
+    import joblib
+
+    _ensure_dir(out_dir)
+    if not os.path.exists(feat_csv):
+        print("[WARN] feat csv not found:", feat_csv); return
+    df = pd.read_csv(feat_csv)
+    keep_cols = [c for c in df.columns if c not in ["file","label","ch"]]
+    X = df[keep_cols].values
+    y_map = {"OR":0,"IR":1,"B":2,"N":3}
+    y = np.array([y_map.get(v,3) for v in df["label"].values], dtype=int)
+
+    Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.25, random_state=0, stratify=y)
+    clf = RandomForestClassifier(n_estimators=400, max_depth=None, n_jobs=-1, random_state=0)
+    clf.fit(Xtr, ytr)
+    yp = clf.predict(Xte)
+    cm = confusion_matrix(yte, yp, labels=[0,1,2,3])
+
+    joblib.dump(clf, os.path.join(out_dir,"rf_feat_model.joblib"))
+
+    def plot_confusion(cm, out_path, labels=("OR","IR","B","N"), title="RF Confusion"):
+        plt.figure(figsize=(4.6,4.2))
+        im = plt.imshow(cm, cmap="Blues")
+        plt.colorbar(im, fraction=0.046, pad=0.04)
+        plt.xticks(range(len(labels)), labels)
+        plt.yticks(range(len(labels)), labels)
+        for i in range(len(labels)):
+            for j in range(len(labels)):
+                plt.text(j, i, str(int(cm[i,j])), ha="center", va="center", fontsize=9)
+        plt.xlabel("Predicted"); plt.ylabel("True"); plt.title(title)
+        plt.tight_layout(); plt.savefig(out_path, dpi=180); plt.close()
+    plot_confusion(cm, os.path.join(out_dir,"rf_cm.png"))
+    print("Saved:", os.path.join(out_dir,"rf_feat_model.joblib"), os.path.join(out_dir,"rf_cm.png"))
+
+def viz_features_from_csv(csv_path, out_dir):
+    """
+    读取 source_features.csv，绘制：
+      - 各故障带能量(FBE)箱线图/小提琴图
+      - 特征相关性热图
+      - RF特征重要度（若已训练）
+    """
+    import pandas as pd
+    _ensure_dir(out_dir)
+    if not os.path.exists(csv_path):
+        print("[WARN] csv not found:", csv_path)
+        return
+    df = pd.read_csv(csv_path)
+    lab_order = ["OR","IR","B","N"]
+    df = df[df["label"].isin(lab_order)].copy()
+    fbe_cols = ["fbe_bpfi","fbe_bpfo","fbe_bsf","fbe_ftf",
+                "fbe_2x_bpfi","fbe_2x_bpfo","fbe_2x_bsf","fbe_2x_ftf"]
+
+    # 箱线图
+    for col in fbe_cols:
+        plt.figure(figsize=(6,4))
+        data = [np.log10(1e-12 + df[df["label"]==lab][col].values) for lab in lab_order]
+        plt.boxplot(data, labels=lab_order, showfliers=False)
+        plt.ylabel(f"log10({col})"); plt.title(f"{col} by class")
+        plt.tight_layout(); plt.savefig(os.path.join(out_dir, f"box_{col}.png"), dpi=180); plt.close()
+
+    # 小提琴（合并）
+    plt.figure(figsize=(8,5))
+    pos = np.arange(len(lab_order))
+    w = 0.9/len(fbe_cols)
+    for i,col in enumerate(fbe_cols):
+        vals = [np.log10(1e-12 + df[df["label"]==lab][col].values) for lab in lab_order]
+        plt.violinplot(vals, positions=pos+i*w, widths=w, showmeans=True, showextrema=False)
+    plt.xticks(pos+0.4, lab_order); plt.ylabel("log10(FBE)"); plt.title("FBE violin (grouped)")
+    plt.tight_layout(); plt.savefig(os.path.join(out_dir, f"violin_fbe_grouped.png"), dpi=180); plt.close()
+
+    # 相关性热图
+    keep = [c for c in df.columns if c not in ["file","label","ch"]]
+    corr = df[keep].corr().values
+    plt.figure(figsize=(7,6))
+    im = plt.imshow(corr, cmap="viridis", interpolation="nearest", aspect="auto")
+    plt.colorbar(im, shrink=0.8)
+    plt.title("Feature correlation")
+    plt.xticks(range(len(keep)), keep, rotation=90, fontsize=7)
+    plt.yticks(range(len(keep)), keep, fontsize=7)
+    plt.tight_layout(); plt.savefig(os.path.join(out_dir, "corr_heatmap.png"), dpi=220); plt.close()
+
+    # RF重要度（如果存在）
+    try:
+        import joblib
+        rf_path = os.path.join(out_dir.replace("\\features",""), "rf_feat_model.joblib")
+        if not os.path.exists(rf_path):
+            rf_path = os.path.join(os.path.dirname(out_dir), "rf_feat_model.joblib")
+        if os.path.exists(rf_path):
+            clf = joblib.load(rf_path)
+            imp = clf.feature_importances_
+            order = np.argsort(imp)[::-1]; topk = min(20, len(imp)); sel = order[:topk]
+            plt.figure(figsize=(7,5))
+            plt.barh(range(topk), imp[sel][::-1])
+            plt.yticks(range(topk), [keep[i] for i in sel][::-1], fontsize=8)
+            plt.xlabel("importance"); plt.title("RandomForest Feature Importance (top-20)")
+            plt.tight_layout(); plt.savefig(os.path.join(out_dir,"rf_feat_importance.png"), dpi=180); plt.close()
+    except Exception as e:
+        print("[WARN] RF importance skipped:", e)
+
+def viz_envelope_examples(cfg, out_dir, per_class=2):
+    """
+    每类画若干条包络谱，并在 BPFI/BPFO/BSF/FTF 及 2×处画参考线。
+    """
+    _ensure_dir(out_dir)
+    fs_out = cfg["target_domain"]["fs_hz"]
+    rpm0 = cfg["conditions"]["rpm_source_candidates"][0]
+    centers = _fault_centers_dict(cfg, rpm0)
+    in_ch = cfg.get("model",{}).get("in_ch_input",2)
+    ds = SourceBearingDS(cfg, "train", fs_out, max_ch=in_ch)
+
+    from collections import defaultdict
+    pools = defaultdict(list)
+    for (fp, y) in ds.files:
+        pools[y].append(fp)
+    rng = np.random.default_rng(0)
+
+    for y in ["OR","IR","B","N"]:
+        picks = rng.choice(pools[y], size=min(per_class,len(pools[y])), replace=False) if len(pools[y])>0 else []
+        for fp in picks:
+            rec = read_mat_any(fp)
+            xs, _ = _pick_multich_from_rec(rec, cfg["source_domain"]["variables"]["signal_keys"], max_ch=in_ch)
+            if len(xs)==0: continue
+            x = xs[0]
+            fs_src = None
+            if rec["time"] is not None:
+                t = ensure_1d(rec["time"])
+                if t is not None and len(t)>1:
+                    dt = np.median(np.diff(t)); fs_src = 1.0/float(dt)
+            if fs_src is None:
+                fs_src = 48000 if "48kHz" in fp.lower() else 12000
+
+            x = resample_if_needed(x, fs_src, fs_out)
+            if cfg["preprocess_default"].get("detrend",True): x = detrend(x)
+            if cfg["preprocess_default"].get("use_spectral_kurtosis", True):
+                bands = spectral_kurtosis_band(
+                    x, fs_out,
+                    nfft=cfg["preprocess_default"].get("sk_nfft",2048),
+                    fmin=cfg["preprocess_default"].get("sk_fmin",50),
+                    fmax=cfg["preprocess_default"].get("sk_fmax",int(0.45*fs_out)),
+                    topk=1, bw_frac=cfg["preprocess_default"].get("sk_bw_frac",0.15)
+                )
+                if len(bands)>0: f1,f2=bands[0]
+                else: f1,f2 = cfg["preprocess_default"].get("bandpass_hz",[500,10000])
+            else:
+                f1,f2 = cfg["preprocess_default"].get("bandpass_hz",[500,10000])
+            x = bandpass(x, fs_out, f1, f2)
+            if cfg["preprocess_default"].get("envelope",True): x = envelope(x)
+            if cfg["preprocess_default"].get("normalize","zscore")=="zscore": x = zscore(x)
+
+            segs = windowing(x, fs_out, cfg["preprocess_default"]["segment"]["win_sec"],
+                             cfg["preprocess_default"]["segment"]["overlap"],
+                             cfg["preprocess_default"]["segment"]["drop_edges_sec"])
+            if len(segs)==0: continue
+            seg = segs[len(segs)//2]
+            nfft = 8192
+            X = np.fft.rfft(seg*np.hanning(len(seg)), n=nfft)
+            f  = np.fft.rfftfreq(nfft, 1/fs_out)
+            mag= np.abs(X)
+
+            plt.figure(figsize=(7,4))
+            plt.plot(f, mag, linewidth=1)
+            # 画机理竖线
+            for name,c in centers.items():
+                if name=="FR":
+                    continue
+                for k in [1,2]:
+                    ff = k*c
+                    plt.axvline(ff, color='r', alpha=0.35, linestyle='--', linewidth=1)
+                    plt.text(ff, 0.95*np.max(mag), f"{name}{'' if k==1 else '×2'}", rotation=90,
+                             va='top', ha='right', fontsize=8, alpha=0.6)
+            plt.xlim(0, min(12000, 0.45*fs_out))
+            plt.xlabel("Frequency (Hz)"); plt.ylabel("Envelope spectrum amplitude")
+            plt.title(f"{Path(fp).name} [{y}]  band={int(f1)}-{int(f2)} Hz")
+            plt.tight_layout()
+            plt.savefig(os.path.join(out_dir, f"spectrum_{y}_{Path(fp).stem}.png"), dpi=180)
+            plt.close()
+
+def plot_confusion(cm, out_path, labels=("OR","IR","B","N"), title="Confusion Matrix"):
+    plt.figure(figsize=(4.6,4.2))
+    im = plt.imshow(cm, cmap="Blues")
+    plt.colorbar(im, fraction=0.046, pad=0.04)
+    plt.xticks(range(len(labels)), labels, rotation=0)
+    plt.yticks(range(len(labels)), labels)
+    for i in range(len(labels)):
+        for j in range(len(labels)):
+            plt.text(j, i, str(int(cm[i,j])), ha="center", va="center", fontsize=9)
+    plt.xlabel("Predicted"); plt.ylabel("True"); plt.title(title)
+    plt.tight_layout()
+    plt.savefig(out_path, dpi=180); plt.close()
+
+@torch.no_grad()
+def viz_source_confusion(cfg, out, device="cuda"):
+    """
+    用源域 best 模型在源域 test 上画混淆矩阵。
+    """
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+    ckpt = os.path.join(out, "model_src_best.pth")
+    if not os.path.exists(ckpt):
+        print("[WARN] not found:", ckpt); return
+    safe_load(model, ckpt, device=device)
+    model.eval()
+
+    if use_pre:
+        ds_te = PreprocessedSourceDS(cfg, "test")
+        dl_te = DataLoader(ds_te, batch_size=128, shuffle=False)
+    else:
+        ds_te = SourceBearingDS(cfg, "test", fs_out, max_ch=in_ch_input)
+        dl_te = DataLoader(ds_te, batch_size=64, shuffle=False)
+
+    Yt, Yp = [], []
+    for x,y in dl_te:
+        x = x.to(device); y = y.to(device)
+        logits,_,_,_ = model(x)
+        yp = logits.argmax(1)
+        Yt += y.cpu().tolist(); Yp += yp.cpu().tolist()
+    cm = confusion_matrix(Yt, Yp, labels=[0,1,2,3])
+    plot_confusion(cm, os.path.join(out,"cm_source_test.png"), title="Source Test Confusion")
+
+@torch.no_grad()
+def viz_gate_channel_weights(cfg, out, device="cuda", n_src=8, n_tgt=8):
+    """
+    统计 Gate（机理组权重）与通道注意力（Channel-SE）在源/目标样本上的分布。
+    输出条形图/箱线图。
+    """
+    fs_out = cfg["target_domain"]["fs_hz"]
+    centers = build_centers(cfg, rpm=cfg["conditions"]["rpm_source_candidates"][0], harmonics=2)
+    use_pre = cfg.get("preprocessed", {}).get("use", False)
+    model, in_ch_input = _build_model_for_mode(cfg, centers, device, use_pre)
+    ckpt = os.path.join(out, "model_adapt_shot.pth")
+    if not os.path.exists(ckpt): ckpt = os.path.join(out, "model_adapt_coral.pth")
+    if not os.path.exists(ckpt): ckpt = os.path.join(out, "model_src_best.pth")
+    safe_load(model, ckpt, device=device)
+    model.eval()
+
+    if use_pre:
+        ds_src = PreprocessedSourceDS(cfg, "test")
+        ds_tgt = PreprocessedTargetDS(cfg)
+        dl_src = DataLoader(ds_src, batch_size=64, shuffle=False)
+        dl_tgt = DataLoader(ds_tgt, batch_size=64, shuffle=False)
+    else:
+        ds_src = SourceBearingDS(cfg, "test", fs_out, max_ch=in_ch_input)
+        ds_tgt = TargetBearingDS(cfg, fs_out, max_ch=in_ch_input)
+        dl_src = DataLoader(ds_src, batch_size=32, shuffle=False)
+        dl_tgt = DataLoader(ds_tgt, batch_size=1, shuffle=False)
+
+    gate_S, gate_T = [], []
+    chan_S, chan_T = [], []
+
+    # 源域
+    cnt=0
+    for xb,yb in dl_src:
+        xb = xb.to(device)
+        logits, h, gate_w, chan_w = model(xb)
+        gate_S.append(gate_w.detach().cpu().numpy().ravel())
+        chan_S.append(chan_w.mean(0).detach().cpu().numpy())
+        cnt += xb.size(0)
+        if cnt >= n_src: break
+
+    # 目标域
+    cnt=0
+    for X,fn in dl_tgt:
+        X = X.to(device) if use_pre else X.squeeze(0).to(device)
+        logits, h, gate_w, chan_w = model(X)
+        gate_T.append(gate_w.detach().cpu().numpy().ravel())
+        chan_T.append(chan_w.mean(0).detach().cpu().numpy())
+        cnt += (X.size(0) if X.dim()==3 else 1)
+        if cnt >= n_tgt: break
+
+    def _plot_box(data, title, labels, save):
+        if len(data)==0: return
+        arr = np.stack(data, 0)
+        plt.figure(figsize=(5,3.6))
+        plt.boxplot([arr[:,i] for i in range(arr.shape[1])], labels=labels, showfliers=False)
+        plt.ylabel("weight"); plt.title(title)
+        plt.tight_layout(); plt.savefig(save, dpi=180); plt.close()
+
+    gate_labels = ["BPFI grp","BPFO grp","BSF grp","FTF grp"]
+    _plot_box(gate_S, "Source Gate weights", gate_labels, os.path.join(out,"gate_box_source.png"))
+    _plot_box(gate_T, "Target Gate weights", gate_labels, os.path.join(out,"gate_box_target.png"))
+
+    def _chan_labels(n): return [f"ch{i+1}" for i in range(n)]
+    if len(chan_S)>0:
+        _plot_box(chan_S, "Source Channel-SE", _chan_labels(len(chan_S[0])), os.path.join(out,"chan_box_source.png"))
+    if len(chan_T)>0:
+        _plot_box(chan_T, "Target Channel-SE", _chan_labels(len(chan_T[0])), os.path.join(out,"chan_box_target.png"))
+
+def full_viz_report(cfg, out, device="cuda"):
+    """
+    一键生成：特征可视化、包络谱实例、源域混淆矩阵、Gate/通道权重统计
+    """
+    viz_dir = _ensure_dir(os.path.join(out, "viz_report"))
+    # 1) 特征可视化（如果已导出）
+    feat_csv = os.path.join(out, "source_features.csv")
+    if os.path.exists(feat_csv):
+        viz_features_from_csv(feat_csv, os.path.join(viz_dir, "features"))
+    else:
+        print("[INFO] feature csv not found, skip features viz. (run `--stage feat` first)")
+    # 2) 包络谱示例（每类2个）
+    viz_envelope_examples(cfg, os.path.join(viz_dir, "spectra"), per_class=2)
+    # 3) 源域混淆矩阵
+    viz_source_confusion(cfg, out, device=device)
+    # 4) Gate / 通道注意力
+    viz_gate_channel_weights(cfg, out, device=device)
+
+# -----------------------------
+# main
+# -----------------------------
+if __name__=="__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--cfg", type=str, required=True)
+    ap.add_argument("--stage", type=str, choices=["train_source","adapt","infer","viz","feat","feat_clf","viz_report"], default="train_source")
+    ap.add_argument("--lambda_coral", type=float, default=0.1)
+    ap.add_argument("--shot", action="store_true")
+    ap.add_argument("--out", type=str, default="./outputs")
+    ap.add_argument("--feat_csv", type=str, default="outputs/source_features.csv")
+    ap.add_argument("--device", type=str, default="cuda" if torch.cuda.is_available() else "cpu")
+    args = ap.parse_args()
+
+    cfg = load_cfg(args.cfg)
+    os.makedirs(args.out, exist_ok=True)
+    cfg["stage"] = args.stage
+
+    # 修正：若上面一行报错（函数调用），请改回：
+    # cfg["stage"] = args.stage
+
+    if args.stage=="train_source":
+        ckpt = train_source(cfg, args.out, device=args.device)
+        print("best source model:", ckpt)
+
+    elif args.stage=="adapt":
+        src_ckpt = os.path.join(args.out,"model_src_best.pth")
+        ckpt = adapt_coral(cfg, src_ckpt, args.out, lambda_coral=args.lambda_coral, shot=args.shot, device=args.device)
+        print("adapted model:", ckpt)
+
+    elif args.stage=="infer":
+        ckpt = os.path.join(args.out,"model_adapt_shot.pth")
+        if not os.path.exists(ckpt):
+            ckpt = os.path.join(args.out,"model_adapt_coral.pth")
+        if not os.path.exists(ckpt):
+            ckpt = os.path.join(args.out,"model_src_best.pth")
+        infer_target(cfg, ckpt, args.out, device=args.device)
+
+    elif args.stage=="viz":
+        ckpt = os.path.join(args.out,"model_adapt_shot.pth")
+        if not os.path.exists(ckpt):
+            ckpt = os.path.join(args.out,"model_adapt_coral.pth")
+        visualize_embeddings(cfg, ckpt, args.out, device=args.device)
+
+    elif args.stage=="feat":
+        extract_source_features(cfg, args.out)
+
+    elif args.stage=="feat_clf":
+        train_feat_classifier(args.feat_csv, args.out)
+
+    elif args.stage=="viz_report":
+        full_viz_report(cfg, args.out, device=args.device)

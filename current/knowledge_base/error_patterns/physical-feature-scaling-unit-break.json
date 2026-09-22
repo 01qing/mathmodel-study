@@ -1,0 +1,10 @@
+{
+  "name": "physical-feature-scaling-unit-break",
+  "trigger": "standardized/scaled variables are fed into physical equations",
+  "checks": [
+    "keep a raw-unit branch for physics",
+    "fit residuals on scaled features if needed",
+    "record unit transform and inverse transform explicitly"
+  ],
+  "example": "S003 Q2 uses StandardScaler around formulas containing v^3, rotation speed and physical power."
+}

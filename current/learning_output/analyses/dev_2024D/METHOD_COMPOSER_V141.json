@@ -1,0 +1,120 @@
+{
+  "case_group": "2024-D",
+  "status": "FINAL_SEVEN_GATE_COMPOSER",
+  "gates": [
+    {
+      "gate": "输入输出接口",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "cell/entity_id + time/year唯一键",
+        "CRS/transform/mask/shape/ordering显式",
+        "跨CSV/程序验证header与shape",
+        "未来输入来源可追溯"
+      ],
+      "blocked_examples": [
+        "等长数组按位置拼接",
+        "RGB输出无空间参考",
+        "实际读取中间文件未入账"
+      ]
+    },
+    {
+      "gate": "变量定义",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "sum/mean/SD/variance分别登记",
+        "Rx1day/累计次数/年总量不混用",
+        "暴雨/灾害/脆弱性/风险分开",
+        "份额/优势类/真实转移分开"
+      ],
+      "blocked_examples": [
+        "阈值标签当灾害真值",
+        "边际份额当转移流量"
+      ]
+    },
+    {
+      "gate": "数据分布",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "重采样仅训练内",
+        "评价保持目标总体基率",
+        "时间/空间块与部署目标一致",
+        "插值/删值/掩膜改变总体需登记"
+      ],
+      "blocked_examples": [
+        "病例抽样分数直接外推总体",
+        "随机行切分代替未来/新区域"
+      ]
+    },
+    {
+      "gate": "数学假设",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "tail/operator方向正确",
+        "组成闭合或other显式",
+        "MK ties/自相关说明",
+        "Gaussian/covariance/残差核验"
+      ],
+      "blocked_examples": [
+        "双上尾使用下尾CDF",
+        "诊断图存在即假设通过"
+      ]
+    },
+    {
+      "gate": "量纲",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "mm/day vs mm/year",
+        "面积/比例/等级/指数不可静默转换",
+        "时间积分与暴露单位一致",
+        "标准化拟合来源登记"
+      ],
+      "blocked_examples": [
+        "日均与年累计横排",
+        "无量纲margin称概率"
+      ]
+    },
+    {
+      "gate": "训练/执行阶段",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "forecast_origin/available_at",
+        "fitted/OOB/holdout分别标记",
+        "预处理只在训练拟合",
+        "未来地图必须有可用驱动或明确情景"
+      ],
+      "blocked_examples": [
+        "目标后代做特征",
+        "历史聚类直接说明未来风险"
+      ]
+    },
+    {
+      "gate": "评价指标",
+      "status": "CONDITIONAL_PASS",
+      "requirements": [
+        "同target/cohort/unit/split/budget/evaluator才比较",
+        "少数类指标与校准/PR",
+        "hard-label ROC与continuous score区分",
+        "run_id/Result Registry单源"
+      ],
+      "blocked_examples": [
+        "不同目标R2/AUC/MAE排冠军",
+        "未来图或显著性当准确率"
+      ]
+    }
+  ],
+  "composition_decision": "ALLOW_ONLY_CONTRACT_REPAIRED_LOCAL_MODULES; reject direct concatenation of author pipelines.",
+  "candidate_modules": [
+    "面积加权/共同支持域聚合",
+    "稳健趋势与分块不确定性",
+    "简单GAM/浅树有限交互",
+    "透明条件情景与敏感性",
+    "组成结构压缩/简单分区",
+    "合法时空留出与Result Registry"
+  ],
+  "not_promoted": [
+    "作者具体阈值/权重/风险排名",
+    "未复现LSTM/XGB/SHAP参数",
+    "伪标签准确率",
+    "不同目标间模型排行榜"
+  ]
+}

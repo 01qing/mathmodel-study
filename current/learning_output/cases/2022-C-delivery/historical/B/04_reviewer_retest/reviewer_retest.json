@@ -1,0 +1,81 @@
+{
+  "reviewed_version": "ROLE-P1-2022C-RUNB-ARCH-REVISED-v1",
+  "scope": "One-repair retest of exact executable DES, deterministic actions, score arithmetic, Q1 priority gates, resource non-overlap, duration formulas, and XLSX matrix transport. Does not establish global optimality or validate the inferred 9 s paint-takt assumption against hidden external ground truth.",
+  "cases": {
+    "Q1_附件1": {
+      "run_reexecution_match": true,
+      "independent_score_recalc": {
+        "total": 16.398,
+        "hbad": 187,
+        "dbad": 21,
+        "return_uses": 12,
+        "T": 3036,
+        "base": 2934
+      },
+      "score_ok": true,
+      "action_replay_ok": true,
+      "action_replay_notes": [],
+      "xlsx_hash_ok": true,
+      "matrix_transport_ok": true,
+      "solver_internal_violations": [],
+      "status": "PASS"
+    },
+    "Q2_附件1": {
+      "run_reexecution_match": true,
+      "independent_score_recalc": {
+        "total": 21.704,
+        "hbad": 172,
+        "dbad": 21,
+        "return_uses": 14,
+        "T": 3330,
+        "base": 2934
+      },
+      "score_ok": true,
+      "action_replay_ok": true,
+      "action_replay_notes": [],
+      "xlsx_hash_ok": true,
+      "matrix_transport_ok": true,
+      "solver_internal_violations": [],
+      "status": "PASS"
+    },
+    "Q1_附件2": {
+      "run_reexecution_match": true,
+      "independent_score_recalc": {
+        "total": 37.858,
+        "hbad": 139,
+        "dbad": 19,
+        "return_uses": 4,
+        "T": 2976,
+        "base": 2934
+      },
+      "score_ok": true,
+      "action_replay_ok": true,
+      "action_replay_notes": [],
+      "xlsx_hash_ok": true,
+      "matrix_transport_ok": true,
+      "solver_internal_violations": [],
+      "status": "PASS"
+    },
+    "Q2_附件2": {
+      "run_reexecution_match": true,
+      "independent_score_recalc": {
+        "total": 51.17099999999999,
+        "hbad": 101,
+        "dbad": 19,
+        "return_uses": 10,
+        "T": 3663,
+        "base": 2934
+      },
+      "score_ok": true,
+      "action_replay_ok": true,
+      "action_replay_notes": [],
+      "xlsx_hash_ok": true,
+      "matrix_transport_ok": true,
+      "solver_internal_violations": [],
+      "status": "PASS"
+    }
+  },
+  "reproduction_level": "R3_LOCAL_END_TO_END_ARTIFACT_REPRODUCTION",
+  "decision": "PASS",
+  "pass_scope": "PASS only for internal reproducibility and stated model-contract feasibility under the registered timing/state assumptions; no optimality/best/generalization claim."
+}

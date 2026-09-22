@@ -1,0 +1,58 @@
+{
+  "paper_id": "S011",
+  "source": "full indexed text + printed appendix Programs 1-4 + exact static/replay smoke",
+  "run_status": "PARTIAL_STATIC_EXACT_SMOKE_ONLY; AUTHOR_PIPELINE_NOT_RUN_DUE_TO_MISSING_ORIGINAL_DATA_AND_MISSING_PRINTED_Q5_IMPLEMENTATION",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "no complete Q1 executable classifier pipeline is visible in the printed appendix"
+      ],
+      "risk": "perfect metrics cannot be reproduced from printed code"
+    },
+    "Q2": {
+      "findings": [
+        "Program 1 contains a dynamic PSO class with scheduled w/cp/cg",
+        "visible tables show dynamic PSO is not uniformly superior across R2/RMSE/MAPE"
+      ],
+      "risk": "optimizer-superiority claim must be metric-specific and separated from correction-form gains"
+    },
+    "Q3": {
+      "findings": [
+        "no printed factorial/interaction code is visible; conclusions use grouped mean/variance tables/plots"
+      ],
+      "risk": "synergy is descriptive, not an estimated interaction effect"
+    },
+    "Q4": {
+      "findings": [
+        "Program 2 is labeled Bi-LSTM but implements CNNModel with Conv1d and no visible nn.LSTM",
+        "Program 2 input_size=1033 whereas the paper describes a 10D engineered feature vector",
+        "Program 3 traditional CNN uses input_size=10",
+        "Program 4 constructs 1024 raw flux samples plus 1 temp + 1 frequency + 4 material + 3 waveform = 1033 and performs row-level within-material 80/20 split"
+      ],
+      "risk": "paper final architecture and fair model-comparison path are not reproduced; feature-schema differences confound the claimed Bi-LSTM advantage"
+    },
+    "Q5": {
+      "findings": [
+        "no Program 5 or visible GA/NSGA-II/MOPSO implementation",
+        "raw replay of displayed Eq.8.3 does not reproduce Table8.2 objective values",
+        "two printed MOPSO Pareto examples violate the stated f/Bm bounds"
+      ],
+      "risk": "optimizer ranking and Pareto quality cannot be reproduced from the printed appendix"
+    }
+  },
+  "smoke_report": "learning_output/analyses/v119_S011/q4_q5_contract_smoke.json",
+  "replication_requirements": [
+    "official 2024-C attachments or author data conversions",
+    "complete Q1 classifier script/split",
+    "exact Q4 feature-weight+BiLSTM implementation if it exists",
+    "Q5 normalization registry and GA/PSO/NSGA-II/MOPSO source with seeds/budgets"
+  ],
+  "safe_reimplementation_order": [
+    "immutable raw data + row/group provenance",
+    "explicit Q1 feature schema and grouped classification tests",
+    "leave-temperature/condition-out Steinmetz correction evaluation",
+    "ANCOVA/factorial interaction model with f/Bm covariates",
+    "physics baseline + same-schema ML competitors",
+    "normalized Pareto optimization with fixed preference sensitivity, feasibility replay and hypervolume/IGD/spread comparison"
+  ]
+}

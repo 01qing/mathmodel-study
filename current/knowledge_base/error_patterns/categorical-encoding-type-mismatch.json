@@ -1,0 +1,9 @@
+{
+  "id": "categorical-encoding-type-mismatch",
+  "name": "Categorical encoder input-domain mismatch",
+  "symptom": "Training encoder expects integer/category A but inference maps to strings/category B, producing invalid or all-zero encodings.",
+  "gate": "Unit-test every legal category through the exact deployment encoder and require one valid nonzero/known encoding plus train/inference schema equality.",
+  "source_examples": [
+    "2024-C S010 Q5 visible PSO fragment"
+  ]
+}

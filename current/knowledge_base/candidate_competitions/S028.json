@@ -1,0 +1,213 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "precedence-constrained DAG list scheduling minimizing peak live-buffer residency",
+      "input_target_constraints": {
+        "input": "DAG nodes/edges with ALLOC/FREE/compute operations and buffer sizes",
+        "decision": "legal topological sequence",
+        "objective": "minimize max Vstay",
+        "independent_evaluation_unit": "one complete workload graph",
+        "hard_constraints": [
+          "DAG precedence",
+          "each node once",
+          "cache/L0 legality"
+        ]
+      },
+      "baseline": {
+        "name": "Kahn ready-set + FREE-first + critical-path/slack urgency + incremental-memory tie-break",
+        "six_hour_plan": [
+          "parse graph and validate DAG",
+          "compute critical-path/slack once",
+          "schedule legal FREE immediately; among remaining ready nodes prioritize path urgency before allocation-size tie-break",
+          "replay Vstay and compare all six workloads"
+        ],
+        "why": "deterministic, transparent, cheap and the case-group mini transfer test exposed that tie-break ordering materially matters"
+      },
+      "author_route": {
+        "method": "three greedy policies (MinPeak/EarlyFree/LateAlloc) plus SA/TS/GA comparison; EarlyFree chosen as final contest route",
+        "why_fit": [
+          "greedy scales to very large DAGs",
+          "paper explicitly weighs runtime/reproducibility against heuristic improvement",
+          "SA/TS/GA can reveal graph-dependent remaining search room"
+        ],
+        "evidence_boundary": "printed greedy/TS excerpts are visible but SA/GA full executable chain is incomplete; LateAlloc/MinPeak allocation-size priority direction in code conflicts with prose intuition."
+      },
+      "major_alternatives": [
+        {
+          "model": "topology-preserving SA/TS local refiner",
+          "why_can_work": "benefits flexible ready sets such as FlashAttention/Conv",
+          "when_prefer": "only after matched-budget gain over deterministic baseline"
+        },
+        {
+          "model": "beam search / large-neighborhood search",
+          "why_can_work": "keeps several promising legal partial schedules without population overhead",
+          "when_prefer": "medium graphs with measurable baseline exact-gap"
+        },
+        {
+          "model": "CP-SAT/MILP exact small-instance benchmark",
+          "why_can_work": "calibrates heuristic optimality gap",
+          "when_prefer": "small/contracted graphs"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "full GA as default contest mainline",
+          "why_not_now": "high evaluation budget and no stable cross-seed advantage shown over EarlyFree"
+        },
+        {
+          "model": "deep RL",
+          "why_not_now": "no graph-instance training distribution or evidence that training amortizes within contest time"
+        }
+      ],
+      "switch_conditions": [
+        "keep simple greedy if metaheuristic improvement is small/unstable",
+        "refine only graph families with large ready-set flexibility and measured gap",
+        "use exact calibration whenever feasible"
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "lifetime-aware cache address allocation plus SPILL victim/rule selection minimizing extra transfer while preserving feasibility",
+      "input_target_constraints": {
+        "input": "Q1 schedule + buffer lifetimes/sizes/types/cache capacities",
+        "decision": [
+          "offset/allocator rule",
+          "spill victim/timing",
+          "optional schedule perturbation"
+        ],
+        "objective": "minimize extra transfer; any secondary peak/time objective must be explicitly normalized or constrained",
+        "independent_evaluation_unit": "one workload graph",
+        "hard_constraints": [
+          "capacity",
+          "non-overlap",
+          "cache-type compatibility",
+          "spill/reload legality",
+          "DAG legality if schedule changes"
+        ]
+      },
+      "baseline": {
+        "name": "lifetime sweep + coalescing free-list + Best-Fit/linear-scan + deficit-aware minimum incremental-transfer spill subset",
+        "six_hour_plan": [
+          "derive lifetimes and maintain free intervals",
+          "allocate deterministically with coalescing",
+          "on overflow compute legal victims and the minimum transfer cost set sufficient to free the deficit",
+          "replay capacity/non-overlap/transfer bytes from one registry"
+        ],
+        "why": "directly optimizes the byte contract and remains inspectable; mini transfer shows one-by-one cheapest-victim can be suboptimal when one victim does not free enough space"
+      },
+      "author_route": {
+        "method": "GP evolves spill rules / chooses allocator family; VN-SA for normalized peak-transfer tradeoff",
+        "why_fit": [
+          "rule search can adapt to heterogeneous graph/cache patterns",
+          "GP can yield interpretable heuristic expressions",
+          "VNS+SA can perturb a fixed schedule when allocation and peak conflict"
+        ],
+        "evidence_boundary": "Table14→Table16 FlashAttention1 provenance is unresolved; Eq4-10 optimizes Peak+transfer but later algorithm text switches to time+transfer; printed VN-SA defining loop is incomplete."
+      },
+      "major_alternatives": [
+        {
+          "model": "interval/linear-scan allocator with cost-aware eviction",
+          "why_can_work": "lifetimes naturally form intervals and it is deterministic",
+          "when_prefer": "default large-workload baseline"
+        },
+        {
+          "model": "GP/hyper-heuristic with held-out graph families",
+          "why_can_work": "can learn rule combinations beyond first/best/worst fit",
+          "when_prefer": "only with enough independent training graphs and held-out validation"
+        },
+        {
+          "model": "CP-SAT/MILP exact small allocator",
+          "why_can_work": "provides transfer/feasibility benchmark",
+          "when_prefer": "small buffer sets or time windows"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "per-workload GP claimed as generalization",
+          "why_not_now": "separate tuning on only a few fixed graph structures is not independent transfer evidence"
+        },
+        {
+          "model": "Min-Max weighted sum with moving observed extrema",
+          "why_not_now": "normalization range changes objective semantics across runs and can hide a hard engineering priority"
+        }
+      ],
+      "switch_conditions": [
+        "promote GP only if held-out graph-family performance beats deterministic baseline",
+        "resolve one canonical objective (Peak vs Time as secondary) before search",
+        "never rank Table16 result whose Table14 provenance cannot be replayed"
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "reduce execution time while controlling extra transfer; optionally characterize feasible cycle-transfer tradeoff",
+      "input_target_constraints": {
+        "input": "Q2 feasible baseline + scheduler/cache execution model",
+        "decision": [
+          "schedule",
+          "allocation rule",
+          "spill rule"
+        ],
+        "objective": "minimize cycles under canonical transfer cap; Pareto frontier optional",
+        "independent_evaluation_unit": "one workload graph",
+        "hard_constraints": [
+          "all Q1/Q2 feasibility",
+          "canonical transfer cap from original problem statement",
+          "resource/pipe timing validity"
+        ]
+      },
+      "baseline": {
+        "name": "epsilon-constraint search: enforce canonical Q2 transfer cap first, then minimize execution cycles",
+        "six_hour_plan": [
+          "read canonical epsilon from original task contract",
+          "reference Q2 baseline by Result Registry run_id, never hand-copy",
+          "reject infeasible candidates before ranking",
+          "apply local resource-aware schedule/allocation moves and select minimum-cycle feasible solution"
+        ],
+        "why": "hard constraints have priority over arbitrary weighted sums and give a clear deployable operating point"
+      },
+      "author_route": {
+        "method": "stage-1 GP weighted objective, then NSGA-II (paper often says NAGA-II) + MOPSO Pareto search",
+        "why_fit": [
+          "Pareto search is suitable if multiple feasible tradeoff points are genuinely required",
+          "dual optimizers can provide robustness comparison",
+          "paper uses convergence/frontier figures rather than only one number"
+        ],
+        "evidence_boundary": "10% cap conflicts with S025 5% contract; Table20/Table21 contain baseline, lexicographic-selection and FlashAttention0 time-scale inconsistencies; loaded GP tree is regenerated randomly rather than reconstructed from spill_operations in printed code."
+      },
+      "major_alternatives": [
+        {
+          "model": "epsilon-constrained LNS/local search",
+          "why_can_work": "directly respects transfer cap with lower overhead",
+          "when_prefer": "default medium/large graphs"
+        },
+        {
+          "model": "NSGA-II with feasibility-first sorting",
+          "why_can_work": "useful when decision maker needs full verified frontier",
+          "when_prefer": "only after common evaluator and correct operating-point selection"
+        },
+        {
+          "model": "CP-SAT/MILP exact benchmark",
+          "why_can_work": "validates cap and time model on reduced instances",
+          "when_prefer": "small graphs/subgraphs"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "raw weighted sum without canonical normalization",
+          "why_not_now": "weights depend on unit/range and can trade away a hard cap"
+        },
+        {
+          "model": "two metaheuristics compared by self-reported table values only",
+          "why_not_now": "selection rule and baselines must first be internally consistent"
+        }
+      ],
+      "switch_conditions": [
+        "resolve 5% vs 10% from original problem statement before optimization",
+        "use Pareto only if multiple operating points are needed and frontier passes feasibility replay",
+        "if heuristic does not beat epsilon baseline materially under matched budget, keep it out of mainline"
+      ]
+    }
+  }
+}

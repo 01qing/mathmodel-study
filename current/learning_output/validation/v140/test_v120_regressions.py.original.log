@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v120_regressions.py", line 57, in <module>
+    ok(pid+' not reviewed by v1.20',pp.get('reviewed_pages',[])==[])
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v120_regressions.py", line 7, in ok
+    assert cond,name; checks.append(name)
+           ^^^^
+AssertionError: S013 not reviewed by v1.20

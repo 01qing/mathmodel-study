@@ -1,0 +1,910 @@
+{
+  "changed": [
+    {
+      "path": "README.md",
+      "sha256": "64a2ebfac9768bcbd641f9b7f348a3831505ba51221196ab54659f2f117c8740",
+      "v15_sha256": "d8f13785c65e2daa7d764826a5f0605c88c87fa8dd223e3d36a79dbd3f5c2bd3"
+    },
+    {
+      "path": "VERSION",
+      "sha256": "fcd2cf9842eb54382a407192ae52622f38549dc24b9aec014019af36e868a31e",
+      "v15_sha256": "acb57a7135b2d7d6e665f67f056e21353023b93835f54def1ae523bf76f1bfb3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/SKILL.md",
+      "sha256": "1e16fac7337381ecb47d75725bc5a971b91e18a7af1044dc33595133331c95ee",
+      "v15_sha256": "e228880c9ef544ede0f424dbe0b385d64056018bc38095e430e6e49302fc7dab"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/candidate-model-competition.md",
+      "sha256": "2eb31141141df8ca7985f4be9fce82f7fef866044285c0b9dcde97e5d1b5e160",
+      "v15_sha256": "c734092b3b734224176a0b28d294d80012c4bd5c28f9d5478607fe0acf3b88d7"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/evidence-and-verification.md",
+      "sha256": "c80264a0ff0edf91bd4ec1b5f8642e0b2d55a16915b141b448c7882d5a1af4ff",
+      "v15_sha256": "bc1c56beed930248b4a5e3811147131279297c3e97e0919a67c161f9d12aaaa2"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/freeze_blind_matrix.py",
+      "sha256": "83fcae3fc1c473964c6e8cdbaf78f50af75ee8616fda9e0b4fe3dc0fee1e25b7",
+      "v15_sha256": "5a335674d5ee100bdf30b69811e4f9bee3ce4942ccc3a1b0c2161eece9b338d3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/start_blind_case.py",
+      "sha256": "71317589faa286a1ac6d61cd6b7f216a1706a153c288af2c3fc7419c37e383ba",
+      "v15_sha256": "a28e35104a81272da36b3c673d8742e7bc42e77770ee7d8730d8cbac94210936"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_v15_case_logic.py",
+      "sha256": "b24f6c385077e1205bd19162ac9921ae638e7ea022a464f8695371b80f7b49e2",
+      "v15_sha256": "3e0e15ae6a6fd9325b11cba08d96caeb814d282488bf1194822942d40106cbdd"
+    }
+  ],
+  "added": [
+    {
+      "path": "PROGRESS_V16.md",
+      "sha256": "d308066bb6ab9e2ba56613bbd7469401968dbcf51ef8011b787aff8b3dc03bb7"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "ccbb42125bc9ec2921f6099c28d7d30417937244123ac36de12c684a9baa122d"
+    },
+    {
+      "path": "UPSTREAM_LICENSE",
+      "sha256": "78195180516b16d4a8696070c1e7a301e2b617f539d8799a5cef5d61a5f20432"
+    },
+    {
+      "path": "UPSTREAM_LOCK.json",
+      "sha256": "9f13669c032f42a9ff35fa0d151dab1e90c22d8d1b81fc6eb7a492cd30f1497d"
+    },
+    {
+      "path": "VALIDATION_V16.json",
+      "sha256": "31497ec4f01940dcb188f2b2e59ccc5ef10bb4dbf6b2ab7a9125c924ffb29f6b"
+    },
+    {
+      "path": "learning_sources/source_index.json",
+      "sha256": "dec86e3dd979a745a98c797fe9e0fbccfbb28c5b4f0444612f528cfd5bf46f4f"
+    },
+    {
+      "path": ".agents/skills/authoritative-data-harvester/SKILL.md",
+      "sha256": "76520a50755e342402d2203b207d3a4975a9de639be8e09090c7a7de2ab81409"
+    },
+    {
+      "path": ".agents/skills/context-memory-keeper/memoryskill.md",
+      "sha256": "038e7032515576bb6e7cf46a28f6d286495084cda20f056a301a40dac556b7c6"
+    },
+    {
+      "path": ".agents/skills/context-memory-keeper/memory_archive.md",
+      "sha256": "78b91ba1e7e2e765d347a0c6bdf01e360da406d6571c2d1c57f544fbeae2a80f"
+    },
+    {
+      "path": ".agents/skills/context-memory-keeper/SKILL.md",
+      "sha256": "cc646019f5d926866dc9d3579127d1e47fb80f82a5001999ca78b0158d749ec8"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/SKILL.md",
+      "sha256": "9cadf84301663ee2b13ec028e96aeebdb9dea4009e098737d8a35bee366d358e"
+    },
+    {
+      "path": ".agents/skills/model-code-and-result-generator/SKILL.md",
+      "sha256": "f4287d784298c3e7cb8e305ad3f124aa356b13cc537c843320ce7d3e41fbbb20"
+    },
+    {
+      "path": ".agents/skills/modeling-paper-rubric-and-model-selector/SKILL.md",
+      "sha256": "bcd78e3f6b708727c0dfd5e4f0acfae56a8aecbbe04af4710a4ff12ef5dcd74a"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/SKILL.md",
+      "sha256": "b30b5660d6cee4575335ddde996d8ab05dfce470337a63ab3a300e3278e9081b"
+    },
+    {
+      "path": ".agents/skills/paper-micro-unit-generator/SKILL.md",
+      "sha256": "8edc14f028c6681f2b94afb9bcf9c6f23fe41199a81499a2609effabfddc73ba"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/MATHMODEL_EDITION.json",
+      "sha256": "7ff034deb8656ccb3068764c2fe9e5317b850b851cb756518fafbcb2b7582c76"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/SKILL.md",
+      "sha256": "dbf0379064f66367b555983eb31b3b9d6ecb9e240b22314657840e5fb6c6b720"
+    },
+    {
+      "path": ".agents/skills/problem-doc-model-selector/SKILL.md",
+      "sha256": "e5197b8209fc8dd2d196ff3b1696f7edfb08903a6949e0672ce567cadca6b076"
+    },
+    {
+      "path": ".agents/skills/quality-assurance-auditor/SKILL.md",
+      "sha256": "46076ca54449d3d997b1dc8e4358b25d2007f7083ed9a4c5392f54222643d161"
+    },
+    {
+      "path": ".agents/skills/authoritative-data-harvester/scripts/run.py",
+      "sha256": "78b47c4e01e3a2f16e810be2108362154de335bad1f4331fefbd6f73d8c240f1"
+    },
+    {
+      "path": ".agents/skills/context-memory-keeper/scripts/update_workflow_memory.py",
+      "sha256": "523f5ffe192cfff7fc23ed2b9730928f317b0e5ffbb5c199f087304f06a714ce"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/build_data_visualization_plan.py",
+      "sha256": "70088460cde8d58a872795434d05e685c62bfe6a796f81272f064b5540d30c32"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/clean_data.py",
+      "sha256": "757a557d8107147da0e8972efe5f86a7820a8a5504cc89d1e7843bda4b7625b5"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/generate_paper_figures_from_plan.py",
+      "sha256": "cd3bab5ccbc62449f637dde830fd54ad8920bd7a165d75f6a9e2ee86473f05ff"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/paper_figure_templates.py",
+      "sha256": "ef2ed53187701aa1a591b2fffb03a4accad9eb6e3ff389ae56b367be6a723611"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/robust_loader.py",
+      "sha256": "af1ca26572f2553211ecb7cb05c1acafdaf31fe6429b4ff76fcf4071f075af4c"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/run_pipeline.py",
+      "sha256": "26c4f9a17374a3eb5b29157970394a9b9b9a0f089765577063b56cfd1034da6f"
+    },
+    {
+      "path": ".agents/skills/data-cleaning-and-visualization/scripts/visualize_data.py",
+      "sha256": "77428a39c206400b426ef76da7459e0976a6d013e0ce965d18648eaa808169e3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2025-E-evidence-lessons.md",
+      "sha256": "d2607e94113458f06825dfa593c953166d607382f9b25b21320c72ac7664d3ca"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/benchmark_2025_E_reference_features.py",
+      "sha256": "f32f74c42947378d75a4755aeb0cb3fbe1f9ab9d9f7649a4a476880c2f4ebd37"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/test_v16_regressions.py",
+      "sha256": "94a873c79e8fd5eefcf0a981862fd16e87fa1467afa137c99d53afe72ce97c7e"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_paper_inventory.py",
+      "sha256": "435c2c3ede102c3ef944889ef68ba7be68aaa354b990c8ceac8b107ec93cb47a"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_case_manifest.json",
+      "sha256": "d103c38bea9dba5df5594316e290371bc4295313e3dbad6417193179f2f688c8"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_external_code_audit.json",
+      "sha256": "3139e5c332ae0f697373aef2910dc67d7f5d67863bf0150ce49d0619c0f84279"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_feature_benchmark.json",
+      "sha256": "d7dd8fe98a5aef803d0e53a07024c7185ae816d866ff2fe3e1e9147021e6934d"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_method_card.json",
+      "sha256": "e8ce1ff51e22ee52fb86a6114a257099cd2eaa5b5f9a8b4c692e13aa1de3882a"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_paper_review_partial.json",
+      "sha256": "67d4d046be22746907927e64889a38d0f5d0ca24e4f3abc07a19388400d33a17"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2025_E_regression_results.json",
+      "sha256": "4b82c40a6ea928bb7a104dc622e7b561985e57cea15b28057be476288a4ca848"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/catalog/local_papers_2024_2025.json",
+      "sha256": "32f4393f3f632eeac522dc7f723030000372c06902263c45fee9a4581ae5f798"
+    },
+    {
+      "path": ".agents/skills/model-code-and-result-generator/references/modeling_result_guidelines.md",
+      "sha256": "ce60ba704a884905a407dc2c42af53f09a53cf18d16fb09e536ab8c2c7d56dc8"
+    },
+    {
+      "path": ".agents/skills/model-code-and-result-generator/scripts/build_result_contracts.py",
+      "sha256": "32e52d800b89481bb748918885511f1c09f99d0ffdb8ab4305dd7188787192b9"
+    },
+    {
+      "path": ".agents/skills/model-code-and-result-generator/scripts/result_contract_templates.py",
+      "sha256": "32a43c59ee13e16bad1c33da3d83eea48428683e9fccce1fff7196ef2c9f169b"
+    },
+    {
+      "path": ".agents/skills/modeling-paper-rubric-and-model-selector/references/paper_prompt_default.md",
+      "sha256": "449460d770a56fcbeb51fcdabb14a88a8466990845380d74a4685cef3b261a37"
+    },
+    {
+      "path": ".agents/skills/modeling-paper-rubric-and-model-selector/scripts/build_model_route.py",
+      "sha256": "061e28897bcb688c7dd7ea93d36fc2b8a68131798bafe98df93e52bd992ad976"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/agents/openai.yaml",
+      "sha256": "3de3d3390e92c285b6827ca83046a9f122a1cb52c1f48aecd1f1eff3e975de0e"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/references/competition-scope.md",
+      "sha256": "90e41308ead85b656143381466f44762e93455057e35dab4298914aaf27384f0"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/references/cumcm-paper-standard.md",
+      "sha256": "f218d8b5f52225aa518eedcf741a192c8ab752322d9240d0b198eafcacaf24af"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/references/figure-table-writing-rules.md",
+      "sha256": "bafde34a317d92c3297cb7758ce10ad7fbd85455b2c0db25350d733356528eae"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/references/formal-paper-template.md",
+      "sha256": "0e7354ff9f4f5e68f6be3253a9682cf8dcf7703905afbfe3ecd9ea0744863015"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/references/section-expansion-rules.md",
+      "sha256": "4fccb318c770f0b4d01883ae18b50ab754ddec7b298a5970e9d8cce2268c5da6"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/assemble_sections.py",
+      "sha256": "d45cf0f9d28ac2f922b168e2414cca1c6668e980dfb75c0d72cd60176bfcf33a"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/authoring_contracts.py",
+      "sha256": "5c3f166140e0df3253d413a64bc5ec2a19cb7baab22e11e44fa5da7710d961eb"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/build_paper_outline.py",
+      "sha256": "10344c6d3afd827b4b843151c2b3973126439fa4f444bcc008c312589c434db4"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/check_paper_format.py",
+      "sha256": "7a758cb6a1b80985a14b1f2ecf435b7a93303f5c2ac573bd54b46575ca0fabc8"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/format_formal_docx.py",
+      "sha256": "8c1e22f909303ef2678527b7b50c8fdb78033244397b660e4d5027305b041df0"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/formula_omml.py",
+      "sha256": "79d8610cc60364c22b611736333d1506ccfe01a590cbe3746258dbf027d1840a"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/paper_scope.py",
+      "sha256": "e161abb969deb5cfa3003584bef5e885244872648e7e5b348b1f5c9ed0d7f651"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/prepare_authoring.py",
+      "sha256": "cd7f8c3cd0d7fd32950a6cb563c694fe24e159b2e4a19a9186cc4fcbe84666bd"
+    },
+    {
+      "path": ".agents/skills/paper-formal-writer/scripts/validate_authoring.py",
+      "sha256": "ee3c1e41f978d97362d04cdc588232eac9096ef1b314cbc43b57f4c49a91e44e"
+    },
+    {
+      "path": ".agents/skills/paper-micro-unit-generator/references/micro-unit-library.md",
+      "sha256": "6ee4a1d542769e8f9c2b3ec2afe06265e507171b58383df632affd6a3acb658c"
+    },
+    {
+      "path": ".agents/skills/paper-micro-unit-generator/scripts/generate_all_offline.py",
+      "sha256": "8ffc639eb86eafc81bc67aabe5d5e90a09b927c6309a87767376bcf9253d8009"
+    },
+    {
+      "path": ".agents/skills/paper-micro-unit-generator/scripts/merge.py",
+      "sha256": "7a3940345b6e54e7788d0c7e355a0e93848cd5b8a852ba4ee56f87943642b65d"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/agents/openai.yaml",
+      "sha256": "e958e5a0d74e56ed6abe2f1822afdc10fc45f144417094a6c517bd15c4878a66"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/scripts/preflight_check.py",
+      "sha256": "8e484c2dbc6af546476aa6d820f5e1f04e91b5de33270ad5a5ae3d301c8566d3"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/scripts/prepare_output_layout.py",
+      "sha256": "4c77860fada2accd210fe547f4f9f3e532f6e5839056c6ae700bb5b05f819e79"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/scripts/quickstart_run.py",
+      "sha256": "ba76ceedb9f35556fdb00fb0c59b3f4ff4ee3b6f2bdf96ba3b35fc585d6e9a90"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/scripts/run_all.py",
+      "sha256": "86b353f57f67178431f78df6c43d558580786739a72262eb4b59d2ba23215fe8"
+    },
+    {
+      "path": ".agents/skills/paper-workflow-orchestrator/scripts/workflow_guard.py",
+      "sha256": "d81759ad2fc16bc4bd3781102d56c0b8d5075ffb71e0fb13cb18417c810bee8b"
+    },
+    {
+      "path": ".agents/skills/problem-doc-model-selector/scripts/analyze_problem.py",
+      "sha256": "22be99681a65cf77e4704af3e4841c0b7e647f75de170b94fe8eaf9e4a10cc21"
+    },
+    {
+      "path": ".agents/skills/quality-assurance-auditor/scripts/evidence_gate.py",
+      "sha256": "8a9521168f84e74d17c89f54281a12a3caa68e03861c5e63a0ccacc99618503a"
+    },
+    {
+      "path": ".agents/skills/quality-assurance-auditor/scripts/pipeline.py",
+      "sha256": "37c0295ed9b6c60875296e9e73eff3d16cec7e7a4da22123d6ae5351ab1ca9d4"
+    },
+    {
+      "path": "knowledge_base/methods/grouped-signal-validation.json",
+      "sha256": "e8ce1ff51e22ee52fb86a6114a257099cd2eaa5b5f9a8b4c692e13aa1de3882a"
+    },
+    {
+      "path": "knowledge_base/paper_reviews/2025-E-S040-partial.json",
+      "sha256": "67d4d046be22746907927e64889a38d0f5d0ca24e4f3abc07a19388400d33a17"
+    },
+    {
+      "path": "learning_output/context/learning_state.json",
+      "sha256": "399fea6b50c0d2211c3d3c684bc102e8ef9d5da2c28652a55faa95c16a0a0f31"
+    },
+    {
+      "path": "learning_output/context/next_learning.md",
+      "sha256": "15924eb89c21f2853c6a43031e64e7bb986581ec3007af610e37d0fc3b121762"
+    }
+  ],
+  "unchanged": [
+    {
+      "path": "BLIND_BASELINE_PROTOCOL_2021_D.md",
+      "sha256": "327a75de4dda2d8ea19ba1d89bfb962a44fb9e3243414fc659c10e3a2d5dbca1"
+    },
+    {
+      "path": "BLIND_CONTAMINATION_LOG_2024_C.md",
+      "sha256": "68cdc54ecedf64d6ddb1d9911cbd93c24ce56370f0e58a07147df43c464a8535"
+    },
+    {
+      "path": "CROSS_CASE_TRANSFER_2021D_2024C.md",
+      "sha256": "453a33aade883758e5b69ed077df8c2035afe23d0d2de5df177f896c98a70e56"
+    },
+    {
+      "path": "DATA_AUDIT_STATUS_2021_D.md",
+      "sha256": "96f08ff22383d0743c1662b9bb219ec6a1b5b86c7efcf0974134e87404926d7a"
+    },
+    {
+      "path": "FIRST_CASE_SELECTION.md",
+      "sha256": "f6eb744c1cd0109199fede30cab3dc36bb08d3b5b3f3ad33c086d71a690aa054"
+    },
+    {
+      "path": "FIRST_REAL_RUN_CHECKLIST.md",
+      "sha256": "50e2365ac408e75cc14b880d9c53cee70ced9c07353a5239f7bcaa3f3ce874d7"
+    },
+    {
+      "path": "INDEPENDENT_MODEL_COMPETITION_2024_C.md",
+      "sha256": "c7917ee97dcd41fa453167c74c540d41ca648235f0a45728a7c4f55b1066e7d5"
+    },
+    {
+      "path": "INSTALL.md",
+      "sha256": "2608591e02f5d1ba85e2cc9ec12996f1b2428c7ae87553d7add1297c29de853e"
+    },
+    {
+      "path": "PAPER_ACCESS_STATUS_2024_C.md",
+      "sha256": "2b7230106bd5f46a01817f92eff204cbb45fc5072bbc8363b49f3075fd48fc1f"
+    },
+    {
+      "path": "PAPER_ACCESS_STATUS_2024_C_V15.md",
+      "sha256": "09546a97f1c5fdad3c94e3c6ae47cc247e456e0ae97543bc02883694f2bec29b"
+    },
+    {
+      "path": "PAPER_SCREENING_2021_D.md",
+      "sha256": "2699e726535f298b4e6d3203a0ec4b386db9b2f5f2e7dfe4c4fef8ecc9c5d578"
+    },
+    {
+      "path": "PAPER_SCREENING_2024_C.md",
+      "sha256": "d19b761ebcd6e69c652dc8470e349506368949cd1c8ef03ca2d8d97d558e7a5f"
+    },
+    {
+      "path": "PROGRESS_V06.md",
+      "sha256": "1bd32c33538715dac7e49feeacaeb1e609b8e69e2b64016235c91559c59e154d"
+    },
+    {
+      "path": "PROGRESS_V07.md",
+      "sha256": "29863b8e45054ec42e9067585cf183618de5dfa9e541d58afa6894b63b9cf7fd"
+    },
+    {
+      "path": "PROGRESS_V08.md",
+      "sha256": "b80614e580b1a5a88bba9d50b419c011a1e35f9e7c66b1cdd0f995ebaa335ea1"
+    },
+    {
+      "path": "PROGRESS_V09.md",
+      "sha256": "f236b8e64ac111a058bdb07ff384a1c0ea0bb7bdb329e967540f5cf6ed713719"
+    },
+    {
+      "path": "PROGRESS_V10.md",
+      "sha256": "7060aeee21bf452fdae1d7b12c9f03a6afa5ff61275fb4207f9dcbe8381d5cd1"
+    },
+    {
+      "path": "PROGRESS_V11.md",
+      "sha256": "a5f6964efd41ad45c20b281899bf26e2af91ca308f766dfa38352a532e28f120"
+    },
+    {
+      "path": "PROGRESS_V12.md",
+      "sha256": "352cdf2ae44ea74072d83eda5f80887687d2e9f055bccddb5e7030e6dc47b356"
+    },
+    {
+      "path": "PROGRESS_V13.md",
+      "sha256": "26f4b57b8b3f6bea5df3154b64afb9b785d4f7b514710d00045bfc1ce4dbcd42"
+    },
+    {
+      "path": "PROGRESS_V14.md",
+      "sha256": "6546ed9677b8031592a682d2975c8464b9de6616136a4e9788025f58c1acbb16"
+    },
+    {
+      "path": "PROGRESS_V15.md",
+      "sha256": "542ebab7607f2b84b765895525a029665aaf2d6bd00531006bbd7ab0d8384e68"
+    },
+    {
+      "path": "REAL_CODE_AUDIT_2021_D.md",
+      "sha256": "34c72213be64bb36a0549b1cd90fe046b7f7244c998c4d777cc43ee27c303ed3"
+    },
+    {
+      "path": "REAL_CODE_AUDIT_2024_C.md",
+      "sha256": "8b703bd1ef9e9dfee7a2ae93cf95c62150daef917a362aa1bd6d10e386dc3864"
+    },
+    {
+      "path": "REFERENCE_BASELINE_2021_D.md",
+      "sha256": "7132aebd4134f55ae4a8226998b08e7a53c1f601bbd6a66f40287d3f27ef48be"
+    },
+    {
+      "path": "RISK_CHECKLIST_2021_D.md",
+      "sha256": "6eb37e53bdf9ff3e421e9cf0358f9f67e42d0130586da8fadfc64d83830c5459"
+    },
+    {
+      "path": "SECOND_CASE_2024_C.md",
+      "sha256": "1062af8054e07a2bf13a27e0c430c8ba3e02eaf021437e3e46a33c84b648fadf"
+    },
+    {
+      "path": "SMOKE_TEST_REPORT.md",
+      "sha256": "60039dbafe4c602366747182e038223c690201a2d36222e6340282856dfd2670"
+    },
+    {
+      "path": "SMOKE_TEST_V05.md",
+      "sha256": "85c2e39f3021ca28fffec83ae8ee83e49768cc2a443af0fcef6e5d85a95bb915"
+    },
+    {
+      "path": "SMOKE_TEST_V09.md",
+      "sha256": "2a1dabd5a88590dc8f773f1c1260a8cb5c7e4ae0dd933470904ab6991affac7a"
+    },
+    {
+      "path": "SMOKE_TEST_V10.md",
+      "sha256": "9015a3e8e0d4a9accd420adaea04d8b4f4986c583ce585d256a5c824fb5619cf"
+    },
+    {
+      "path": "SMOKE_TEST_V11.md",
+      "sha256": "23aba42731824eb34328ed2018f72a9f51f95464eea8c4687eafad485ed490ea"
+    },
+    {
+      "path": "SMOKE_TEST_V12.md",
+      "sha256": "dc30c7d44ed478db0f9f1c9c9e99656e5d2ab4c219351409a4bfab8dec1fabe8"
+    },
+    {
+      "path": "SOURCE_ACQUISITION_STATUS_2021_D.md",
+      "sha256": "a0439c28dba5608244b404e500afed17a6c38289994de55ea83d7b8eff9f8b95"
+    },
+    {
+      "path": "SOURCE_CATALOG_2021_2025.md",
+      "sha256": "a53f6637a1bb3cc66c4fa4f756c601dc84062ae7002b26a8eff4c0ee40d95ae9"
+    },
+    {
+      "path": "VALIDATION_V05.md",
+      "sha256": "92a8ee728bc3ef6c73d36c129d0b671d87539a520d83f70c6bd4d0639c3f9421"
+    },
+    {
+      "path": "VALIDATION_V06.md",
+      "sha256": "281a7d83ea9d1576d1775b862a8509feae0eb75e856b614f97cf51dd802b3f47"
+    },
+    {
+      "path": "VALIDATION_V07.md",
+      "sha256": "3ad5b0d651ca10677dac3e6ba239e2461065fde1c2c36d730543b77f76f7bc69"
+    },
+    {
+      "path": "VALIDATION_V08.md",
+      "sha256": "7a0c33ff8ec772b22e867dda18ae94b87b62f8a444e5568c79f1bd88d75a799f"
+    },
+    {
+      "path": "VALIDATION_V09.md",
+      "sha256": "86d8f91de722396b8ae36be55284e278928af2a999ceb5b92918edf17f3236bb"
+    },
+    {
+      "path": "VALIDATION_V10.md",
+      "sha256": "9c6d1488ba3dadb6d228dd6b8d8fc653d8f85462cddbbd8fdb714563512ca466"
+    },
+    {
+      "path": "VALIDATION_V11.md",
+      "sha256": "706585cc565f711719a1f13395d11569a3b4b36f9dab31c02735958cf5b7f402"
+    },
+    {
+      "path": "VALIDATION_V12.md",
+      "sha256": "1646f4633792984aad837d8ff59c5d6b1b7bcd37d17e0c252e10f6fabc509421"
+    },
+    {
+      "path": "VALIDATION_V13.md",
+      "sha256": "de19577573bbe89f50942c32eeefd23d16cd2bfb2b7de8c7cf71c3cb4f15ed52"
+    },
+    {
+      "path": "VALIDATION_V14.md",
+      "sha256": "b09c572903a281a8aae4dfc3a384f23e64313deb735986b06f866a7a4d73ba99"
+    },
+    {
+      "path": "VALIDATION_V15.md",
+      "sha256": "27161681ba0c2750bccbdabe132bdca43def3e3295e74befc7cd00a67ddf413a"
+    },
+    {
+      "path": "docs/ARCHITECTURE_BASELINE.md",
+      "sha256": "e14b3aaa30cae45ce7467714244ee87ab808333dff31ff7a5e94d75e1007c50b"
+    },
+    {
+      "path": "docs/ENGINEERING_BLUEPRINT.md",
+      "sha256": "4d67730b9b515d3e95a818609987d3707bf8b51cd556225327852c8de004621f"
+    },
+    {
+      "path": "docs/IO_CONTRACTS.md",
+      "sha256": "a478fc7107236e5dd14be0ddb3108ef5298109d57e31f7eb845d54a2965d9fa8"
+    },
+    {
+      "path": "docs/MODE_ROUTING.md",
+      "sha256": "0254cebf5e1e1c4af8ef65b3060e74745ac60133687dc655b11745bfb33c8c41"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/evals/eval_cases.json",
+      "sha256": "0c6653b52c9de5659ef4cfed2d1a911fc004f5d71939f76c21ccb4d285f4ecb4"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2021-D-data-audit-gate.md",
+      "sha256": "6bd485bf7cea94e457ada8dff981a416ddd05b44d6a9560efb339b63e377c291"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2021-D-risk-checklist.md",
+      "sha256": "6eb37e53bdf9ff3e421e9cf0358f9f67e42d0130586da8fadfc64d83830c5459"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2021-D-source-acquisition-and-crosscheck.md",
+      "sha256": "01160cdd780acca99d0a2370e5cab3a20518f234439707cbba603eac2dabfa69"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2024-C-code-audit.md",
+      "sha256": "8b703bd1ef9e9dfee7a2ae93cf95c62150daef917a362aa1bd6d10e386dc3864"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2024-C-independent-model-competition.md",
+      "sha256": "c7917ee97dcd41fa453167c74c540d41ca648235f0a45728a7c4f55b1066e7d5"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2024-C-learning-route.md",
+      "sha256": "76ad00beab327ecd79b3359232ba74f91a71f75130e50940615b1c210bca222c"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/2024-C-paper-screening.md",
+      "sha256": "d19b761ebcd6e69c652dc8470e349506368949cd1c8ef03ca2d8d97d558e7a5f"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/architecture-boundary.md",
+      "sha256": "36ab9fa2fd1fb02da4e228c306788afce5560aa478fab5b948c248a420fd5429"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/blind-baseline-2021-D.md",
+      "sha256": "327a75de4dda2d8ea19ba1d89bfb962a44fb9e3243414fc659c10e3a2d5dbca1"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/blind-contamination-and-ordering.md",
+      "sha256": "68cdc54ecedf64d6ddb1d9911cbd93c24ce56370f0e58a07147df43c464a8535"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/case-knowledge-extraction.md",
+      "sha256": "3a1e3f5ae7cc7b349a6f488cb7e0c7afe747fe89bdfa5a096133a1fb97110178"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/cross-case-transfer-2021D-2024C.md",
+      "sha256": "60e5e4b87050f97c678e7f9ff93701051dfa8f8cf1196f688d5ffcff389546dc"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/external-modeling-code-audit.md",
+      "sha256": "996f0d559a3658be9aa1e2b8fbae2d2bd63c4cada52d89783c27a6b708157965"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/final-fit-and-test-prediction.md",
+      "sha256": "286b1445799634acefa08d74a0a5743f0eb3c0c14fe3376f192631d2f6435abd"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/first-case-selection.md",
+      "sha256": "436046bbd55846c067697339ceba12ef1b67f50dda429631f5a2fe41f59fcb57"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/leakage-safe-model-benchmark.md",
+      "sha256": "681f564358f66ca8ae4c86960725115d7d6fc4a4d2bf1428dc64ed82022db282"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/learning-workflow.md",
+      "sha256": "ce670bfa8da4eda62b0e6801885424adc9af6daf7ccd05eb10c6e902cf0f4da3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/memory-and-recovery.md",
+      "sha256": "de60262d9ea711b63da7e1edb7b9262500ea59595718a157be407cd6d85f692c"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/paper-review-protocol.md",
+      "sha256": "84cda21c4efdceab7cc93b8914e4da25228c0a737aefcf99210c22e4c24cce97"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/paper-screening-2021-D.md",
+      "sha256": "2699e726535f298b4e6d3203a0ec4b386db9b2f5f2e7dfe4c4fef8ecc9c5d578"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/paper-vs-benchmark-comparison.md",
+      "sha256": "e3457ff788f08c24dcd4fa1f02a8089326b45dde22ba85251318c29d29fe01f8"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/reference-baseline-2021-D.md",
+      "sha256": "7132aebd4134f55ae4a8226998b08e7a53c1f601bbd6a66f40287d3f27ef48be"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/references/source-governance.md",
+      "sha256": "948bc46a37737f6401500c2455e5ec39a458b5162e659b1ec6357cdedfb177f1"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/blind_answer.schema.json",
+      "sha256": "a4327aa3341fc2800bc2cb919677b33eeafc6d4daddde5427337171b8b6492ad"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/case_manifest.schema.json",
+      "sha256": "6e795cbd28faa2300c45e17af7ff821b74c995cee58eee41ab852839873b0f99"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/data_audit.schema.json",
+      "sha256": "0d6f7947cb378e2e688cdae47ff2ad401a167fa129fbacb758bfe6168dc3d9ad"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/external_code_audit.schema.json",
+      "sha256": "c28c6518267f794a57de23fe2fdf05059f0aec0f2f316f581d8b7027f4b4b476"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/final_fit.schema.json",
+      "sha256": "8dc42fd6d2407c6923b9f05543e72b2edc4f84fadaeacafa39a16020d5192a5b"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/learning_state.schema.json",
+      "sha256": "4cd1b33b1fea20e2840076e92a51096c2b329187919c2274bd1c37db85c98127"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/method_card.schema.json",
+      "sha256": "05074b6a1c82a5547f8bd3f8c9c6f2786444f5dd668cb406a9a226c91626cd43"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/model_benchmark.schema.json",
+      "sha256": "cf79502d77b2dbdd120b20a24e6000a1c9afbc8a0feda495fe9bcbc6dbb5331f"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/paper_benchmark_comparison.schema.json",
+      "sha256": "86bd8b574a29bcde725084dde341fa88b09b08c20b2112209253c5eee43ec21d"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/paper_review.schema.json",
+      "sha256": "8ca66d7de2ab94a4d933f8ecbcdd890a94a708cd451e54707b89bfa2ee61bda8"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/problem_pattern.schema.json",
+      "sha256": "87a7bde186a885fa6ea6925c05657fed229e014161291249d37fd637ae46b3d6"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/session_record.schema.json",
+      "sha256": "e3f36b32f3818d09aad5906b454c3c8b12294482a19386266bc0971c4d270772"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/source_acquisition.schema.json",
+      "sha256": "0c4c811350b90dd3c9e15ae6e5ef072e7d980d63f80b1b86f0b156a84a94c314"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/source_catalog.schema.json",
+      "sha256": "351e797df19b4483a8a372db9607137b895e393f367ce6cdb8b8d0818a2dada5"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/source_index.schema.json",
+      "sha256": "92f7b2485412538e2b17d4fcb03838634f7bcc25a8c42c29ce099e3b249a9ddd"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/schemas/source_record.schema.json",
+      "sha256": "baede78dcda0732851495bdf87159a0e161947f633e6dba3d5869f90d1109e0d"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/acquire_2021_D_sources.py",
+      "sha256": "b9458c1b71c91760643181609d5c8a49cb74075d2022afc678a59e3a3a358c8a"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/audit_2021_D_csv_mirror.py",
+      "sha256": "24204973f74b14bf91f34a53c9f6d4f8f9c80bf534a28e60fb16d13594ef908a"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/audit_2021_D_data.py",
+      "sha256": "8a9d9abca5c7ee27cac858615cbc0d371b9a0d226b829c4c49eb43170938984b"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/benchmark_2021_D_models.py",
+      "sha256": "c6d458c4eb500a0e856a25f48db570dcb6167ad1b54b2b992415dd44829c6ff7"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/build_case_workspace.py",
+      "sha256": "eedfc701303470ab5e6eb24d5d797bfa19207c6bbec44c9bb320dcc4cf2f3dc9"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/build_learning_case.py",
+      "sha256": "4f4529d18ffde753d70bf2757403a200b0d1752105c9c776f36cdc394b2bfb60"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/create_knowledge_card.py",
+      "sha256": "19e4865607ed153f574f3d7ab1e785a1bf4636c03a45fe90da12a14bc3243f8b"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/crosscheck_2021_D_xlsx_csv.py",
+      "sha256": "864ecb11f479ca28f6a945e2fa4ef82af789b25bfaa1f1ac23b070ddd2fc7dfb"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/extract_case_knowledge.py",
+      "sha256": "51ecd0a26120699abd08ffa64eb9a8671d6a57309da369a7b29bbb56a3a83c91"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/finalize_2021_D_models.py",
+      "sha256": "984ab7301314a88d060084ee377697b00a4d91776e8d582bdc54ec198cd97da2"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/index_learning_source.py",
+      "sha256": "4554ff13cfd29ee7012e6a292a55922b6523b51ba8bba23b5871f08440e63d54"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/init_learning_workspace.py",
+      "sha256": "f7f078e67b571687eb450cb60e8733bff6790022f555371882d7f85f79115cfe"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/prepare_blind_eval.py",
+      "sha256": "5faa796a65a1b9c8ca71eaab02df4ee65c0567e060f5dbac84c119fe3d241868"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/prepare_paper_benchmark_comparison.py",
+      "sha256": "ab2b4b0d3db11f1dab431e473096cf3b71cd1c012b9065f418bb6d035d6193a4"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/route_mode.py",
+      "sha256": "c251119d63744dc805a6a9e38da7de02b0a1938e5a4c7799305d0092040cb667"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/scan_ml_code_risks.py",
+      "sha256": "5f1831ea918f5446c75e0defb2fdeddfec4e51b129e95e337860ff61cdd53233"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/update_learning_state.py",
+      "sha256": "d24863c92804d8dfbc3fba60a38072628bdde2778844c4405fc58cb0321eb7fd"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_2024_C_evidence.py",
+      "sha256": "26d33c74760add84136b6bf3c023c3475c2964ce67a724543fe2e0c6a01ddff1"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_blind_bundle.py",
+      "sha256": "1ecac390a1acdf9f47065d71709fb51f47a8ee580174880a8fefab2fd745ec42"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_case_manifest.py",
+      "sha256": "3a5a0ff5c22c46835dc06b518c4d100c8ca592dc27c818872e7e15153b267cf1"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_external_code_audit.py",
+      "sha256": "77b5cbb13b2443c7343c62d33a9b6f9a72d19a88d67197fdb1c5ebc5db3372f6"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_final_fit.py",
+      "sha256": "041757b2fbbe7be3716493086a60ef31babfd44b345c32599379517b189daae9"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_learning_workspace.py",
+      "sha256": "feb81dc2405882243d3442531d978868e62bf7c83fc0d3dcae8ce070db95c987"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_model_benchmark.py",
+      "sha256": "0e0a8c9d51f9b52ad94ebfd4d654f12fb4b0be858c2e8961a88372af0b34d2ed"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_paper_benchmark_comparison.py",
+      "sha256": "d85f189afb5bdadbdf2cb3248a63c5673b08537672a6dc7d68dab13323d0eb84"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/validate_source_catalog.py",
+      "sha256": "0c936ba243cbd576934da3790e25b543083b54ae6ca107dd218d3348eebc0fb5"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/verify_2021_D_sources.py",
+      "sha256": "4e009773721b8912d47b0d93dfc912ff59036462e4716e425387157206548280"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/scripts/xlsx_stream_reader.py",
+      "sha256": "cbfbaf460a45145e91de1be61f308d1406803c143ffe6c28891478d92e9177f1"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/blind_answer.json",
+      "sha256": "e4e9f59f7720552d3713bfef27d8efc15d0013f87b4da0e489e9642356d20ce4"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/case_manifest.json",
+      "sha256": "4ab2e57cac1dfbaf95c7dfd346bd9ddbd148cd6c6886e9b32b0ffc39c6fc903c"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/learning_state.json",
+      "sha256": "fe97c74cadc01ec92a9d4082c024d3cf7422ce283496f5d47454b3d03af024f7"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/method_card.json",
+      "sha256": "36c0c5ee27dd8493fb7f2be51fa2757eedd4166d307ad3629f26221d7163fca3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/paper_benchmark_comparison.json",
+      "sha256": "fa09d4631561d055be0a509de549c38efa4b810bae1cb95689fc6f695222cb5c"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/paper_review.json",
+      "sha256": "489feb08ce5b6981c8df8dff7a6f07c3ec6351390d2468b3fb08b5bf8ad90ca2"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/problem_pattern.json",
+      "sha256": "daa95288275308dd12b5169f1b6027c655e826f5a7541fcf9094ffd5949f8d35"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/session_record.json",
+      "sha256": "8b5b34ef435bcd132d92f5f488047ab4d84089fcdd4ed66482c9c6ec56b09b30"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/templates/source_index.json",
+      "sha256": "197a9bae183b6e07df484fa44efa244a8473e4efa0652dec1e5a9e7e4aee7d20"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2021_D_blind_eval_rubric.json",
+      "sha256": "7cf10d85d1dd1b2c0ea5cec883e3c3936d133fdfc8926ab347946e01e79ccbca"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2021_D_case_manifest.json",
+      "sha256": "a324c409a5960e5077feb7ba746e7dce5467318f4f7cc1dca3d4dd95768a355a"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2021_D_external_code_audit.json",
+      "sha256": "8ad75c6e480dc87be628c29c3455a5a075ddc960b37f48916bd3755334777103"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2021_D_problem_facts.json",
+      "sha256": "585deee095d1702e648d0edf3d9e3f73ff7a52c8cedcdfdf125e141230088261"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2021_D_source_acquisition_manifest.json",
+      "sha256": "0c8bb86a00ac3e663faa0ffa2851fbd705a67ef4e2a9f78c5d3a160410017ddc"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_blind_contamination.json",
+      "sha256": "f7649d2d753e734db4efe3e9e704444d771d3083956ecb8b70adbf285ce2fccb"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_case_manifest.json",
+      "sha256": "51b1b8b7605b6d51bb2954595cc3331b7e0555963bb68e036dc521a2cf5b140e"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_external_code_audit.json",
+      "sha256": "547de9571d9be6c15ff852167210931ad44be21a815fab4dbb2545249f16ead3"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_independent_model_competition.json",
+      "sha256": "299b4c1b107271bde146a76cab67677fe0a4a3628028d75bd02f68ccedce197f"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_paper_access_queue.json",
+      "sha256": "24aacc7908429187b4b2c1035f453a5428cd61f9c2f969b1b1a3c735ba84a273"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_paper_screening.json",
+      "sha256": "1a817cdddc417191cf6fbbf8b0fa266e40bd8da5c337961f400866d82ae6951c"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/cases/2024_C_problem_facts.json",
+      "sha256": "36d353e0112c64b51317b89aa3b217f1a6a2809135249ec6e7dff0ada763460d"
+    },
+    {
+      "path": ".agents/skills/graduate-mathmodel-learning/assets/catalog/source_catalog_2021_2025.json",
+      "sha256": "977f28e13b78d4d4dd3a9b6ec814233a1113b3a4ecdc29523e2d032dce584958"
+    }
+  ],
+  "deleted": [],
+  "note": "Runtime caches excluded; source archive untouched"
+}

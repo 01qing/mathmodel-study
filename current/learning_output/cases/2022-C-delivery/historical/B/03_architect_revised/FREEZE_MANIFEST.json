@@ -1,0 +1,39 @@
+{
+  "artifact_id": "ROLE-P1-2022C-RUNB-ARCH-REVISED-v1",
+  "status": "FROZEN",
+  "repair_cycle": 1,
+  "files": {
+    "ARCHITECT_REVISED_FINAL.md": {
+      "bytes": 1648,
+      "sha256": "0b2215c29422c4287d66adfbd5992057251fe64c9b734d06624b57a31a50adaa"
+    },
+    "official_inputs_snapshot.json": {
+      "bytes": 71056,
+      "sha256": "f91e43c7e51db89bab48c757228d884e4e3241418eed701bb7d28b584fc78d34"
+    },
+    "result11.xlsx": {
+      "bytes": 127360,
+      "sha256": "6f07d6e1c176f2eaca04791a1ba2ff4fee5a2b37e51abdfec2884736da1f4534"
+    },
+    "result12.xlsx": {
+      "bytes": 114975,
+      "sha256": "7711db13d713bd21d89ff262a5b2f5cfb9c41d19c395fa3c5657c01fb28d3af6"
+    },
+    "result21.xlsx": {
+      "bytes": 159878,
+      "sha256": "efd5a490d58d16c718992b2dc7c2d7d7d63590349980f83f838ba7c02cc53ec4"
+    },
+    "result22.xlsx": {
+      "bytes": 169731,
+      "sha256": "add434c5f704d8da3ec2a26228de494bd05b4caaed8c6a3798bcc3c59b6dd40b"
+    },
+    "revised_execution.json": {
+      "bytes": 923188,
+      "sha256": "10aa01482d04722c78c4c755570c3929c4f406aea3eb3f3dce85171bc0a3919b"
+    },
+    "revised_solver.py": {
+      "bytes": 15573,
+      "sha256": "4984748ad76f730242f0448f63d24be3483976b5019966a7714f531fd71e56d1"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "paper_id": "S045",
+  "source_sha256": "0cd7b0001352da9a88dc4d70df750389eb7989d5d2520959e1222a3f05ba2e76",
+  "pages": 94,
+  "visual_audit": "94/94 pages reviewed from rendered original PDF",
+  "page_roles": {
+    "1-7": "abstract/problem/overall route/assumptions",
+    "8-30": "Q1 formulas, route figures, GA description, official-route comparison",
+    "31-50": "Q2 spatial clustering/open-close/illusion score/sensitivity",
+    "50-60": "Q3 similarity, Heyuan application, new indicators",
+    "61": "references",
+    "62-82": "printed Q1 Python",
+    "83-92": "printed Q2 Python",
+    "93-94": "printed Q3 Python"
+  },
+  "formula_visual_resolutions": [
+    {
+      "page": 59,
+      "equation": "7.13",
+      "resolved": "F_fusion=1-|A_natural/A_total-A_artificial/A_total|",
+      "note": "absolute-value bars visible in original render but lost in extracted text"
+    }
+  ],
+  "code_status": "printed appendix static-audited; not executed",
+  "reproduction_level": "R2"
+}

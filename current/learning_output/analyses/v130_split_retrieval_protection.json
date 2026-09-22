@@ -1,0 +1,60 @@
+{
+  "split_hash": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "split_counts": {
+    "train": 32,
+    "dev": 7,
+    "test": 6
+  },
+  "S030_S031_unread": true,
+  "test_all_unread": true,
+  "S029_dev_only": true,
+  "eval_matches": [
+    [
+      "S032",
+      2
+    ],
+    [
+      "S040",
+      25
+    ],
+    [
+      "S011",
+      53
+    ],
+    [
+      "S009",
+      4
+    ],
+    [
+      "S039",
+      57
+    ]
+  ],
+  "eval_all_reviewed_train": true,
+  "eval_contains_S032": true,
+  "prod_matches": [
+    [
+      "S032",
+      2
+    ],
+    [
+      "S040",
+      25
+    ],
+    [
+      "S011",
+      53
+    ],
+    [
+      "S009",
+      4
+    ],
+    [
+      "S039",
+      57
+    ]
+  ],
+  "prod_all_reviewed_train": true,
+  "prod_contains_S032": true,
+  "pass": true
+}

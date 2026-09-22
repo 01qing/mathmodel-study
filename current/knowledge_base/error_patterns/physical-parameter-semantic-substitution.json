@@ -1,0 +1,6 @@
+{
+  "pattern": "physical-parameter-semantic-substitution",
+  "symptom": "A named engineering quantity is used as a convenient correction factor for a different physical process (e.g. electrical power factor as conversion efficiency).",
+  "risk": "Numerical fit may improve while physical interpretation and extrapolation become invalid.",
+  "check": "Verify definition, units, governing equation and plausible range against the actual physical subsystem; introduce a separately named efficiency parameter if needed."
+}

@@ -1,0 +1,50 @@
+{
+  "scope": "Q1 only; not official complete workflow run",
+  "exit_code": 0,
+  "python": "3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "code": {
+    "path": "paper_output\\code\\modeling\\q1_model.py",
+    "bytes": 6071,
+    "sha256": "78c4ac389d7e737f2dba6b23e4691d83057194047b1d1ad25d3c08e6d77ba164"
+  },
+  "inputs": [
+    {
+      "path": "problem_files\\附件1.xlsx",
+      "bytes": 16586,
+      "sha256": "7ef32870abeef420b89560b2530ff60dfe4255917805151d89988d0311af9dd7"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "paper_output\\results\\q1_baseline_metrics.json",
+      "bytes": 1307,
+      "sha256": "c7237dd34433dcf4d9c8fc222801ee33037c36752e6f2074f995a2fcf827907d"
+    },
+    {
+      "path": "paper_output\\figures\\q1_profiles.png",
+      "bytes": 123392,
+      "sha256": "e57eaea6ba8005732bbc4494bd96cd7da03332e5d3afbc2f49f2534f736992dc"
+    },
+    {
+      "path": "paper_output\\tables\\q1_moisture_full.csv",
+      "bytes": 650085,
+      "sha256": "65f057f2e56e54a6092e59c36aa39a48c3224f3d895db25d8eb6e5a4f7472f00"
+    },
+    {
+      "path": "paper_output\\tables\\q1_moisture_requested.csv",
+      "bytes": 323,
+      "sha256": "cfde3c6d4b7e99722681f3a8199f78a186e630feb6fe90b76ddb26e718e6dace"
+    },
+    {
+      "path": "paper_output\\tables\\q1_temperature_full.csv",
+      "bytes": 706827,
+      "sha256": "671d8c78a8b7ff7265cb5a4509665eaef64bbd3a0d737fcc59f40c81e56e3a54"
+    },
+    {
+      "path": "paper_output\\tables\\q1_temperature_requested.csv",
+      "bytes": 358,
+      "sha256": "abdc2f1cd4a412e6a5ca08e9a45b70327b540feef03f737c5e54fec96fa0aaa1"
+    }
+  ]
+}

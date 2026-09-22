@@ -1,0 +1,13 @@
+{
+  "paper_markdown_sha256": "f8246545efe19f086a777de38656e086da5129dc7d83e3b32ebb8f2c0f5522ac",
+  "raw_layout_sha256": "58eea4c6a1a203daa817f5a3d50759d6012959208d785281249ac79d9a07da1d",
+  "appendix_extract_sha256": "19d1a872cc21418d2174508afcc1eb2a5d852afda1abcf2afc75e0cc84202944",
+  "frozen_files_checked": 41,
+  "frozen_files_unchanged": true,
+  "frozen_archive_unchanged": true,
+  "diagnostic_runs": 20,
+  "probe_runs": 20,
+  "window_conservation_checks": "PASS",
+  "author_matlab_execution": "NOT_RUN",
+  "original_figure_visual_review": "NOT_RUN"
+}

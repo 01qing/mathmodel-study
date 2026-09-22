@@ -1,0 +1,689 @@
+--- PAGE 53 ---
+52
+九：参考文献
+[1] 董乐义, 罗俊. 雨流计数法及其在程序中的具体实现[J].计算机技术与应用,2004,24(3):38-40.
+[2] 王宏伟.雨流计数法及其在疲劳寿命估算中的应用[J].矿山机械，2006，34（3）:95-97.
+[3] 王鑫. 考虑疲劳载荷的风电场有功功率分配策略研究[D]. 西安理工大
+学,2022.DOI:10.27398/d.cnki.gxalu.2022.000373.
+[4] 赵永兵.风电场有功分配及无功优化研究[D].沈阳工业大学,2016.
+[5] 武晓冬, 席鹏辉, 赵锟, 等. 基于疲劳分布的风电场有功优化调度策略[J]. 科学技术与工
+程,2024,24(22):9400-9407.
+[6] 潘沈恺,高丙团,毛永恒,等.考虑机组疲劳载荷的风电场快速有功功率分配方法[J].电力系统自动
+化,2024,48(15):112-121.
+[7] 丛雨,李秀芬,原帅,等.基于改进遗传算法的风电场多时段有功功率优化分配[J].电网与清洁能
+源,2022,38(12):107-114.
+[8] 常晟,万宇宾,蒋韬.基于自适应遗传算法的风电机组变桨控制参数自寻优方法[J].控制与信息技
+术,2024,(02):40-48.DOI:10.13889/j.issn.2096-5427.2024.02.006.
+[9] 任鹏,付文杰,申洪涛,等.基于竞争学习机制的LSTM 风电多目标区间预测[J].计算机应用与软
+件,2024,41(06):305-311+349.
+[10] M. Musallam and C. M. Johnson, “An Efficient Implementation of the Rainflow Counting Algorithm for
+Life Consumption Estimation,” IEEE Trans. Rel., vol. 61, no. 4, pp. 978–986, Dec. 2012.
+[11] Albadr M A, Tiun S, Ayob M, et al. Genetic algorithm based on natural selection theory for optimization
+problems[J]. Symmetry, 2020, 12(11): 1758.
+[12] Gozali A A. Modified genetic algorithm to solve worker assignment problem with time windows[J].
+Industrial Artificial Intelligence, 2024, 2(1): 1.
+[13] Yu Y, Si X, Hu C, et al. A review of recurrent neural networks: LSTM cells and network architectures[J].
+Neural computation, 2019, 31(7): 1235-1270.
+[14] Zhao Z, Chen W, Wu X, et al. LSTM network: a deep learning approach for short‐term traffic forecast[J].
+IeT intelligent transport systems, 2017, 11(2): 68-75.
+[15] Gers F A, Schmidhuber J, Cummins F. Learning to forget: Continual prediction with LSTM[J]. Neural
+computation, 2000, 12(10): 2451-2471.
+[16] py 学习小白, LSTM 进行时间序列预测——训练，验证，测试,https://blog.csdn.net/m0_58327216/arti
+cle/details/127820677.
+
+--- PAGE 54 ---
+53
+十：附录
+10.1 第一题答案（主轴扭矩、前5 台风机、前30 条）
+时间
+WT1
+WT2
+WT3
+WT4
+WT5
+1
+1.4821e-22
+4.4724e-22
+5.7613e-22
+1.9548e-21
+3.3825e-26
+2
+2.9645e-22
+8.9527e-22
+1.1511e-21
+3.9071e-21
+6.7648e-26
+3
+4.4487e-22
+1.3438e-21
+1.7254e-21
+5.7402e-21
+1.0358e-24
+4
+5.4464e-22
+1.7922e-21
+2.3001e-21
+1.3030e-20
+5.0066e-24
+5
+6.4438e-22
+2.2396e-21
+2.8755e-21
+2.0335e-20
+8.9729e-24
+6
+7.7979e-22
+2.6863e-21
+3.4516e-21
+2.7657e-20
+9.5649e-24
+7
+8.2140e-22
+3.1333e-21
+4.0278e-21
+3.4986e-20
+3.5607e-23
+8
+8.4271e-22
+3.5812e-21
+4.6042e-21
+4.2305e-20
+8.8463e-23
+9
+1.5276e-21
+3.7936e-21
+5.2319e-21
+4.9601e-20
+1.4141e-22
+10
+2.2148e-21
+4.1829e-21
+5.8595e-21
+5.6876e-20
+1.9441e-22
+11
+2.9034e-21
+4.5716e-21
+6.4870e-21
+6.4140e-20
+2.4741e-22
+12
+3.5913e-21
+4.6268e-21
+6.5003e-21
+6.5896e-20
+3.0045e-22
+13
+4.2782e-21
+4.6819e-21
+6.5006e-21
+6.7652e-20
+3.5353e-22
+14
+4.9641e-21
+4.7370e-21
+6.5009e-21
+6.9408e-20
+4.0666e-22
+15
+5.6495e-21
+4.7922e-21
+6.5011e-21
+7.0893e-20
+4.0929e-22
+16
+6.3354e-21
+4.8476e-21
+6.5014e-21
+7.0918e-20
+4.0952e-22
+17
+6.5470e-21
+4.9029e-21
+6.5017e-21
+7.0921e-20
+4.0975e-22
+18
+6.7588e-21
+4.9396e-21
+6.5019e-21
+7.0925e-20
+4.1010e-22
+19
+6.9706e-21
+4.9471e-21
+6.5533e-21
+7.0928e-20
+4.1018e-22
+20
+7.1020e-21
+4.9546e-21
+7.9026e-21
+7.0930e-20
+4.1041e-22
+21
+7.1040e-21
+4.9665e-21
+9.2482e-21
+7.0931e-20
+4.1939e-22
+22
+7.1059e-21
+4.9721e-21
+1.0592e-20
+7.0936e-20
+4.2837e-22
+23
+7.1242e-21
+4.9765e-21
+1.1935e-20
+7.0943e-20
+4.2941e-22
+24
+7.1426e-21
+4.9805e-21
+1.3215e-20
+7.0950e-20
+4.3045e-22
+25
+7.1609e-21
+4.9845e-21
+1.4496e-20
+7.0957e-20
+4.3148e-22
+26
+7.1792e-21
+4.9886e-21
+1.5777e-20
+7.0957e-20
+4.3251e-22
+27
+7.1976e-21
+4.9926e-21
+1.7057e-20
+7.0964e-20
+4.3354e-22
+28
+7.2160e-21
+4.9966e-21
+1.8336e-20
+7.1014e-20
+4.3458e-22
+29
+7.2344e-21
+4.9991e-21
+1.9614e-20
+7.1119e-20
+4.3561e-22
+30
+7.2401e-21
+4.9992e-21
+2.1995e-20
+7.1224e-20
+4.3647e-22
+10.2 第一题部分代码
+滑动窗口法建立累计疲劳损伤
+1.
+% 向量化处理
+2.
+for t = 1:length(Time)
+3.
+% 滑动窗口数据
+4.
+window_data_thrust = entend_thrust_data((t):window_size+t, :);
+5.
+window_data_torque = entend_torque_data((t):window_size+t, :);
+6.
+7.
+% 计算应力幅值(最大值- 最小值)
+
+--- PAGE 55 ---
+54
+8.
+delta_S_thrust = (max(window_data_thrust) - min(window_data_thrust))/2;
+9.
+delta_S_torque = (max(window_data_torque) - min(window_data_torque))/2;
+10.
+11.
+% 计算应力均值
+12.
+mean_stress_thrust = mean(window_data_thrust);
+13.
+mean_stress_torque = mean(window_data_torque);
+14.
+15.
+% Goodman 修正后的幅值计算
+16.
+L_thrust = delta_S_thrust
+./ (1 - mean_stress_thrust / sigma_b);
+17.
+L_torque = delta_S_torque
+./ (1 - mean_stress_torque / sigma_b);
+18.
+19.
+% 损伤增量计算
+20.
+N_F_thrust = C ./ (L_thrust .^ m);
+21.
+N_F_torque = C ./ (L_torque .^ m);
+22.
+23.
+D_increment_thrust = 1 ./ N_F_thrust;
+24.
+D_increment_torque = 1 ./ N_F_torque;
+25.
+26.
+% 累积损伤
+27.
+damage_cumulative_thrust_second(:, t) = D_increment_thrust;
+28.
+damage_cumulative_torque_second(:, t) = D_increment_torque;
+29.
+if t==1
+30.
+damage_cumulative_thrust(:, t) =D_increment_thrust';
+31.
+damage_cumulative_torque(:, t) =D_increment_torque';
+32.
+continue;
+33.
+end
+34.
+damage_cumulative_thrust(:, t) = damage_cumulative_thrust(:, t-1) + D_increment_thrust';
+35.
+damage_cumulative_torque(:, t) = damage_cumulative_torque(:, t-1) + D_increment_torque';
+36.
+37. end
+10.3 第二题答案（主轴扭矩、前5 台风机、前30 条）
+时间
+WT1
+WT2
+WT3
+WT4
+WT5
+1
+3.8178e+06
+3.4083e+06
+3.5439e+06
+2.6125e+06
+3.8868e+06
+2
+2.9116e+06
+3.9336e+06
+3.7974e+06
+3.0931e+06
+3.9606e+06
+3
+3.3835e+06
+4.0579e+06
+3.2857e+06
+2.8017e+06
+3.6495e+06
+4
+3.1602e+06
+3.4999e+06
+3.8490e+06
+2.8263e+06
+3.1979e+06
+5
+3.9713e+06
+2.5771e+06
+3.8323e+06
+2.9386e+06
+3.7722e+06
+6
+2.5726e+06
+2.6532e+06
+3.0177e+06
+3.1098e+06
+2.4979e+06
+7
+3.0212e+06
+2.9931e+06
+3.6242e+06
+3.7452e+06
+2.4941e+06
+8
+3.2813e+06
+2.7824e+06
+2.7124e+06
+3.9363e+06
+2.6498e+06
+9
+2.6047e+06
+3.8931e+06
+4.0033e+06
+2.7495e+06
+3.1348e+06
+
+--- PAGE 56 ---
+55
+10
+3.3222e+06
+2.8663e+06
+3.1414e+06
+3.0013e+06
+3.3448e+06
+11
+3.2095e+06
+2.6892e+06
+3.1610e+06
+2.9689e+06
+3.1562e+06
+12
+3.4753e+06
+3.5690e+06
+3.0238e+06
+3.0231e+06
+3.2996e+06
+13
+2.8515e+06
+3.5344e+06
+3.2572e+06
+3.6340e+06
+3.2413e+06
+14
+3.6657e+06
+2.9648e+06
+3.9868e+06
+3.0972e+06
+3.0871e+06
+15
+2.7211e+06
+3.1377e+06
+3.3809e+06
+3.9388e+06
+3.7507e+06
+16
+3.3225e+06
+3.5862e+06
+2.5529e+06
+3.8049e+06
+2.8416e+06
+17
+2.8984e+06
+3.6146e+06
+3.8466e+06
+3.5406e+06
+3.1567e+06
+18
+3.3162e+06
+3.0613e+06
+3.4411e+06
+3.4738e+06
+3.8533e+06
+19
+2.8994e+06
+2.5507e+06
+2.8707e+06
+2.8324e+06
+3.4627e+06
+20
+2.9593e+06
+2.6334e+06
+3.8692e+06
+2.8199e+06
+3.6762e+06
+21
+3.7647e+06
+3.0571e+06
+3.2019e+06
+3.5588e+06
+2.7609e+06
+22
+3.8774e+06
+3.6682e+06
+3.7065e+06
+3.4301e+06
+3.8407e+06
+23
+3.5083e+06
+2.7137e+06
+3.9475e+06
+2.6350e+06
+3.4432e+06
+24
+3.7816e+06
+3.0264e+06
+3.7412e+06
+3.1729e+06
+3.3038e+06
+25
+3.4872e+06
+3.8498e+06
+3.3016e+06
+2.7870e+06
+3.3311e+06
+26
+3.0314e+06
+3.4991e+06
+3.8651e+06
+3.3182e+06
+2.7076e+06
+27
+2.5774e+06
+3.8225e+06
+3.7875e+06
+3.0963e+06
+3.9623e+06
+28
+2.9299e+06
+2.6185e+06
+3.3857e+06
+2.6783e+06
+2.5380e+06
+29
+2.7976e+06
+3.0887e+06
+2.5682e+06
+3.5538e+06
+3.0218e+06
+30
+3.9209e+06
+3.2125e+06
+3.1549e+06
+2.6014e+06
+3.2739e+06
+10.4 第二题部分代码
+根据风速和功率估算主轴扭矩和塔架推力
+1.
+% 设定常数
+2.
+rho = 1.205; % 空气密度kg/m^3
+3.
+R = 64.5; % 叶片半径，假设为50m
+4.
+A = 13685; % 风机扫风面积
+5.
+6.
+% 功率系数Cp 的计算公式
+7.
+calculate_Cp = @(lamdaR, beta) ...
+8.
+0.5176 * (116 ./ (1 ./ (1 ./ (lamdaR + 0.08 .* beta) - 0.035 ./ (beta.^3 + 1))) - 0.4 * beta -
+5) .* ...
+9.
+exp(-21 ./ (1 ./ (1 ./ (lamdaR + 0.08 .* beta) - 0.035 ./ (beta.^3 + 1)))) + 0.0068 .* lamdaR;
+10.
+11. % 叶尖速比lamda 的计算公式
+12. calculate_lamda = @(omegaR, R, windSpeed) (omegaR .* R) ./ windSpeed;
+13.
+14. % 主轴扭矩Tshaft 的计算公式
+15. calculate_Tshaft = @(Pref, omegaR) Pref ./ omegaR ./ 0.945;
+16.
+17. % 塔架推力Ft 的计算公式
+
+--- PAGE 57 ---
+56
+18. calculate_Ft = @(windSpeed, Cp, pitch) 3 * 0.5 * rho * A * Cp * 1.5 .* windSpeed .* windSpeed .* (
+1 - sin(pitch * pi / 180)) - 978700;
+19.
+20. % 遍历所有时间点，计算Cp，主轴扭矩Tshaft，塔架推力Ft
+21. df.lamdaR = calculate_lamda(df.omegaR, R, df.windSpeed);
+22. df.Cp = calculate_Cp(df.lamdaR, df.pitch);
+23. df.Tshaft_estimated = calculate_Tshaft(df.Pref, df.omegaR);
+24. df.Ft_estimated = calculate_Ft(df.windSpeed, df.Cp, df.pitch);
+25.
+26. % 提取Tshaft_estimated 和Tshaft 的数据
+27. estimated_values = df.Ft_estimated(1:2000);
+28. reference_values = df.Ft(1:2000);
+29.
+30. % 计算误差
+31. errors = estimated_values - reference_values;
+32.
+33. % 计算误差平方和
+34. squared_error_sum = sum(errors.^2);
+10.5 第三题部分代码
+遗传算法
+1.
+function [Population, his_objs] = GeneticAlgorithm(N, D, G, P, V)
+2.
+MaxFex = G*N; %最大评价次数
+3.
+Fex=0; %当前评价次数
+4.
+upper=min((5*1e6)/P, (1e6/P)+(1/D));
+5.
+lower=max(0, (1/D)-(1e6/P));
+6.
+Population = Initialization(N,D,Fex,lower,upper,P,V);
+7.
+his_objs=[];
+8.
+while (Fex<MaxFex)
+9.
+%Fex
+10.
+MatingPool=TournamentSelection(2,N,Population.objs);
+11.
+Parentpool.decs=Population.decs(MatingPool,:);
+12.
+Parentpool.objs=Population.objs(MatingPool,:);
+13.
+%生成子代
+14.
+OffDec=OperatorGA(Parentpool,lower,upper);
+15.
+Offspring.decs=OffDec;
+16.
+%评价
+17.
+Offspring=evaluation(Offspring, P, V, D);
+18.
+Fex=Fex+N;
+19.
+Population=enviornmentalSelection(Population,Offspring);
+20.
+his_objs=[his_objs,Population.objs];
+21.
+end
+22. end
+
+--- PAGE 58 ---
+57
+目标函数
+1.
+function [Population, his_objs] = GeneticAlgorithm(N, D, G, P, V)
+2.
+MaxFex = G*N; %最大评价次数
+3.
+Fex=0; %当前评价次数
+4.
+upper=min((5*1e6)/P, (1e6/P)+(1/D));
+5.
+lower=max(0, (1/D)-(1e6/P));
+6.
+Population = Initialization(N,D,Fex,lower,upper,P,V);
+7.
+his_objs=[];
+8.
+while (Fex<MaxFex)
+9.
+%Fex
+10.
+MatingPool=TournamentSelection(2,N,Population.objs);
+11.
+Parentpool.decs=Population.decs(MatingPool,:);
+12.
+Parentpool.objs=Population.objs(MatingPool,:);
+13.
+%生成子代
+14.
+OffDec=OperatorGA(Parentpool,lower,upper);
+15.
+Offspring.decs=OffDec;
+16.
+%评价
+17.
+Offspring=evaluation(Offspring, P, V, D);
+18.
+Fex=Fex+N;
+19.
+Population=enviornmentalSelection(Population,Offspring);
+20.
+his_objs=[his_objs,Population.objs];
+21.
+end
+22. end
+10.6 第四题部分代码
+卡尔曼滤波
+1.
+function V_filtered = KalmanFilter(V_noise, Q, R)
+2.
+% 获取数据尺寸
+3.
+[n_samples, n_turbines] = size(V_noise);
+4.
+5.
+% 预分配存储滤波后的数据
+6.
+V_filtered = zeros(n_samples, n_turbines);
+7.
+8.
+% 卡尔曼滤波参数初始化
+9.
+A = 1;
+% 状态转移矩阵
+10.
+H = 1;
+% 测量矩阵
+11.
+P = 1;
+% 初始状态协方差
+12.
+x_est = 0; % 初始状态估计
+13.
+14.
+% 对每个风机进行卡尔曼滤波
+15.
+for turbine = 1:n_turbines
+16.
+for t = 1:n_samples
+17.
+% 预测阶段
+
+--- PAGE 59 ---
+58
+18.
+x_pred = A * x_est;
+19.
+P_pred = A * P * A' + Q;
+20.
+21.
+% 更新阶段
+22.
+K = P_pred * H' / (H * P_pred * H' + R);
+23.
+x_est = x_pred + K * (V_noise(t, turbine) - H * x_pred);
+24.
+P = (1 - K * H) * P_pred;
+25.
+26.
+% 保存滤波后的结果
+27.
+V_filtered(t, turbine) = x_est;
+28.
+end
+29.
+end
+30. end

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.5",
+  "case_id": "gmcm-2024-C",
+  "requested_stage": "independent_model_competition",
+  "fresh_blind_status": "CONTAMINATED",
+  "reason": [
+    "Before the Q1-Q5 independent competition matrix was frozen, public Tereaslle Q1/Q2/Q4/Q5 code had already been inspected.",
+    "Champion and other award-team solution profiles had also already been read."
+  ],
+  "allowed_label": "RETROSPECTIVE_INDEPENDENT_ROUTE",
+  "forbidden_labels": [
+    "FRESH_BLIND",
+    "PRE_SOLUTION_BASELINE",
+    "UNCONTAMINATED_BLIND_ANALYSIS"
+  ],
+  "repair_policy": [
+    "Build a problem-structure-first independent route anyway, but explicitly mark it retrospective.",
+    "Do not use code/paper numerical results as justification for model choice.",
+    "For the next untouched case, freeze the independent matrix before opening any paper/code/solution profile."
+  ],
+  "lesson": "A learning system must track not only what evidence exists, but when it was seen."
+}

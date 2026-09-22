@@ -1,0 +1,50 @@
+{
+  "scope": "Exact smoke of the visible S010 Q5 categorical helper/dictionary logic; no original CatBoost model or data required.",
+  "wave_outputs": {
+    "1": [
+      0,
+      0,
+      0
+    ],
+    "2": [
+      0,
+      0,
+      0
+    ],
+    "3": [
+      0,
+      0,
+      0
+    ]
+  },
+  "material_outputs": {
+    "1": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "2": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "3": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "4": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "all_wave_vectors_zero": true,
+  "all_material_vectors_zero": true,
+  "interpretation": "The visible objective maps numeric category ids to Chinese strings, then passes those strings to helper functions that expect integer ids. Therefore all one-hot category bits are zero in the visible Q5 fragment.",
+  "boundary": "This is a smoke of the printed fragment only; it does not prove the authors original executable file was identical."
+}

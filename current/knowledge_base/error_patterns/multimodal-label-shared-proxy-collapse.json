@@ -1,0 +1,7 @@
+{
+  "pattern_id": "multimodal-label-shared-proxy-collapse",
+  "name": "多模态/多机制分量在代码中由同一代理量冒充",
+  "trigger": "paper names distinct topology/behavior/image/text components but code computes them from the same embedding/distance without the stated modality-specific primitives",
+  "example": "S044 Q3 S_topology/S_behavior both derived from one untrained embedding instead of PH/HMM",
+  "gate": "each named modality/mechanism must have source data + extractor + output provenance; otherwise relabel as shared proxy and do not claim multimodal/mechanistic validation"
+}

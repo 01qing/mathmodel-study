@@ -1,0 +1,56 @@
+{
+  "paper_id": "S017",
+  "source": "84-page indexed full text + printed Appendix A/B Python fragments",
+  "run_status": "STATIC_AUDIT_ONLY; AUTHOR_PIPELINE_NOT_RUN_DUE_TO_MISSING ORIGINAL VIDEOS/CSV DERIVATIVES/YOLO-DEEPSORT WEIGHTS AND PROJECT DEPENDENCIES",
+  "questions": {
+    "Q1": {
+      "visible_fragments": [
+        "flow/distribution plotting",
+        "Greenberg mapping with synthetic Gaussian noise",
+        "historical-average sequence predictor",
+        "DecisionTreeRegressor",
+        "SVR with train-only StandardScaler",
+        "YOLOv5 + DeepSort counting/tracking class"
+      ],
+      "findings": [
+        "Greenberg code sets K_jam=25 and V_c=120 although prose discusses free-flow 130; output above 130 is removed",
+        "Gaussian noise with sigma=5 is injected into estimated speed before threshold visualization, so plotted congestion status partly reflects artificial noise unless justified as robustness test",
+        "overlapping length-10 windows are constructed before random split in DT/SVR code",
+        "SVR correctly fits StandardScaler on X_train only, but the upstream temporal split is still leakage-prone",
+        "DT/SVR plotting concatenates shuffled train/test predictions and assigns them sequential temporal coordinates",
+        "no visible LSTM training code was found although LSTM is the selected density model",
+        "YOLOv5/DeepSort fragment assumes CUDA, local yolov5 package, `./models/yolov5s.pt` and `./models/ckpt.t7`; dependencies/weights/videos are absent from current worktree"
+      ],
+      "runability": "not end-to-end runnable from current package; fragments depend on hard-coded D:\\ paths, derived CSVs, video files, weights and third-party project code"
+    },
+    "Q2": {
+      "findings": [
+        "no executable policy engine is visible for legal/safety scenario logic; treatment decision remains prose/rule-level in the printed appendix"
+      ]
+    },
+    "Q3": {
+      "findings": [
+        "fixed speed/density multipliers are described in the paper as effects of applying rules; no printed causal/simulation engine is visible that estimates those multipliers from data"
+      ]
+    },
+    "Q4": {
+      "findings": [
+        "pinhole/binary-search/segment-speed method is described mathematically, but no complete printed implementation of the camera-placement search/cost optimization is visible in Appendix A/B"
+      ]
+    }
+  },
+  "implementation_contract_gaps": [
+    "paper-selected LSTM implementation not visible",
+    "physical density scale/units not encoded",
+    "Greenberg parameter registry differs between prose/code",
+    "event validation routine not visible",
+    "intervention-effect estimator not visible",
+    "camera placement optimizer not visible"
+  ],
+  "safe_reuse": [
+    "YOLO+tracking as a candidate extraction pipeline if independently validated",
+    "train-only feature scaler behavior in SVR fragment",
+    "explicit time-series sequence creation concept, but split must be redesigned",
+    "camera geometry equations only after unit/calibration verification"
+  ]
+}

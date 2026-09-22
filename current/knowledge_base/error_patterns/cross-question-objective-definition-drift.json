@@ -1,0 +1,15 @@
+{
+  "id": "cross-question-objective-definition-drift",
+  "name": "Cross-question objective definition drift",
+  "severity": "critical",
+  "trigger": "a later subquestion reuses an objective name but changes coefficients/semantics relative to the prior question",
+  "risk": "improvements across questions are not comparable and constraints based on prior objective lose meaning",
+  "checks": [
+    "bind objective to one Result Registry definition",
+    "diff formula coefficients across questions",
+    "block cross-question improvement claims until definitions agree"
+  ],
+  "source_examples": [
+    "2025-A-S026 Q2 vs Q3 SPILL transfer cost"
+  ]
+}

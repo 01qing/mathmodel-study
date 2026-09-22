@@ -1,0 +1,63 @@
+{
+  "case_id": "2025-E-GTeacher1-code",
+  "case_group": "2025-E",
+  "split": "train_supplemental",
+  "source_ids": [
+    "GT2025E-G1-Q1-CODE",
+    "GT2025E-G1-Q2-CODE"
+  ],
+  "identity": "expert_or_teacher_material_not_excellent_paper",
+  "learning_status": "PARTIAL_CODE_REVIEW",
+  "stages": [
+    {
+      "stage": "signal_example_preprocessing",
+      "code": [
+        "q1/mat_to_csv_and_visualize_IR014_1.py",
+        "q1/wavelet_denoise_IR014_1.py",
+        "q1/custom_emd_IR014_1.py"
+      ],
+      "methods": [
+        "MAT→CSV",
+        "时域可视化",
+        "小波软阈值去噪",
+        "自定义EMD"
+      ],
+      "run_status": "BLOCKED_MISSING_IR014_1_MAT",
+      "transfer": "可作为单文件探索性信号分析的简单基线；必须扩展到文件级批处理和真实训练划分"
+    },
+    {
+      "stage": "classification_example",
+      "code": [
+        "q2/random_forest_example.py"
+      ],
+      "methods": [
+        "RandomForestClassifier",
+        "train_test_split",
+        "Accuracy/Precision/Recall/F1",
+        "混淆矩阵"
+      ],
+      "run_status": "PARTIAL_REPRODUCTION_ON_AUTHOR_SAMPLE",
+      "observed_metrics": {
+        "accuracy": 0.31,
+        "macro_precision": 0.36,
+        "macro_recall": 0.29,
+        "macro_f1": 0.32
+      },
+      "transfer": "适合做最小监督分类基线和指标模板；不适合直接作为轴承多窗口数据验证协议"
+    }
+  ],
+  "confirmed_lessons": [
+    "先检查代码输入是否真能从题目原始文件生成，不能用示例CSV替代整题数据链",
+    "分类代码可运行不等于问题2已复现",
+    "轴承窗口/通道数据必须按原文件或工况分组后验证，不能默认随机行切分"
+  ],
+  "do_not_copy_blindly": [
+    "把X1/X2例子数据的指标当2025 E结果",
+    "把单个IR014_1示例推广为全源域预处理",
+    "把自定义EMD函数名称当作标准EMD正确性的证明"
+  ],
+  "evidence": [
+    "learning_output/analyses/2025-E-GTeacher1-code-audit.json",
+    "learning_output/analyses/2025-E-GTeacher1-q2-smoke.json"
+  ]
+}

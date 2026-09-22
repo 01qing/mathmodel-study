@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "blind_answer.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "contamination_status",
+    "questions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.7"
+    },
+    "case_id": {
+      "const": "gmcm-2021-D"
+    },
+    "contamination_status": {
+      "enum": [
+        "fresh_blind",
+        "contaminated_reference",
+        "unknown"
+      ]
+    },
+    "questions": {
+      "type": "object",
+      "required": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4"
+      ],
+      "properties": {
+        "Q1": {
+          "type": "object",
+          "required": [
+            "problem_abstraction",
+            "candidate_routes",
+            "recommendation",
+            "rejected_routes",
+            "validation",
+            "risks",
+            "switch_conditions"
+          ],
+          "properties": {
+            "problem_abstraction": {
+              "type": "string"
+            },
+            "candidate_routes": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendation": {
+              "type": "string"
+            },
+            "rejected_routes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "validation": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "risks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "switch_conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Q2": {
+          "type": "object",
+          "required": [
+            "problem_abstraction",
+            "candidate_routes",
+            "recommendation",
+            "rejected_routes",
+            "validation",
+            "risks",
+            "switch_conditions"
+          ],
+          "properties": {
+            "problem_abstraction": {
+              "type": "string"
+            },
+            "candidate_routes": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendation": {
+              "type": "string"
+            },
+            "rejected_routes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "validation": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "risks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "switch_conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Q3": {
+          "type": "object",
+          "required": [
+            "problem_abstraction",
+            "candidate_routes",
+            "recommendation",
+            "rejected_routes",
+            "validation",
+            "risks",
+            "switch_conditions"
+          ],
+          "properties": {
+            "problem_abstraction": {
+              "type": "string"
+            },
+            "candidate_routes": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendation": {
+              "type": "string"
+            },
+            "rejected_routes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "validation": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "risks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "switch_conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "Q4": {
+          "type": "object",
+          "required": [
+            "problem_abstraction",
+            "candidate_routes",
+            "recommendation",
+            "rejected_routes",
+            "validation",
+            "risks",
+            "switch_conditions"
+          ],
+          "properties": {
+            "problem_abstraction": {
+              "type": "string"
+            },
+            "candidate_routes": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "recommendation": {
+              "type": "string"
+            },
+            "rejected_routes": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "validation": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "risks": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            },
+            "switch_conditions": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

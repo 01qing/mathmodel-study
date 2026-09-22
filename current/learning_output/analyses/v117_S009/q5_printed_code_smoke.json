@@ -1,0 +1,62 @@
+{
+  "scope": "Exact smoke of the printed S009 Q5 scipy.optimize.minimize fragment, not the claimed PSO/mixed-integer pipeline",
+  "printed_code_bounds": {
+    "f": [
+      50000,
+      320000
+    ],
+    "Bm": [
+      0.1,
+      0.3
+    ],
+    "U": [
+      25,
+      90
+    ]
+  },
+  "solver": "scipy.optimize.minimize",
+  "success": true,
+  "message": "Optimization terminated successfully",
+  "solution": [
+    50000.000000000044,
+    0.09999999999988515,
+    89.99999999970996
+  ],
+  "objective": 321991.31783661677,
+  "power_loss": 1609956589.1812363,
+  "Qtrans": 4999.999999994262,
+  "reported_points": {
+    "paper_linear": {
+      "x": [
+        813076.12,
+        0.294019,
+        22
+      ],
+      "feasible_under_printed_code": false,
+      "objective_if_evaluated": 339239794.39264375
+    },
+    "paper_pso_text": {
+      "x": [
+        694891.32,
+        0.25216,
+        90
+      ],
+      "feasible_under_printed_code": false,
+      "objective_if_evaluated": 96133553.88548453
+    },
+    "paper_pso_table": {
+      "x": [
+        694891.32,
+        0.25216,
+        70
+      ],
+      "feasible_under_printed_code": false,
+      "objective_if_evaluated": 121478635.88375217
+    }
+  },
+  "notes": [
+    "The printed code has only f,Bm,U continuous variables; waveform/material are absent.",
+    "The paper-reported frequencies exceed the printed f_max=320000; the linear-result temperature 22 is below printed U_min=25.",
+    "The printed solver is not PSO."
+  ]
+}

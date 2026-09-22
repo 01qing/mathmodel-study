@@ -1,0 +1,34 @@
+[
+  {
+    "id": "result11",
+    "status": "PASS",
+    "cells_compared": 1009954,
+    "rows": 319,
+    "columns": 3166,
+    "sha256": "54dee6d021aedc098e3ed382ee6c840e003faec0579a043be33c415d1d29a87f"
+  },
+  {
+    "id": "result12",
+    "status": "PASS",
+    "cells_compared": 907874,
+    "rows": 319,
+    "columns": 2846,
+    "sha256": "10d24cee3b53a824224fd3c9756d04cadbdbe7e909842af3c70823adc7782198"
+  },
+  {
+    "id": "result21",
+    "status": "PASS",
+    "cells_compared": 830038,
+    "rows": 319,
+    "columns": 2602,
+    "sha256": "23c279d50b296eeaf1e0065cdb1ed4b97342016e1e32410b78a0b4d05c2b3c25"
+  },
+  {
+    "id": "result22",
+    "status": "PASS",
+    "cells_compared": 1190827,
+    "rows": 319,
+    "columns": 3733,
+    "sha256": "5f65412cbd109486746f2cb08b79c79a98f155e791bc9c1901c57b61afc653a6"
+  }
+]

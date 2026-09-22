@@ -1,0 +1,19 @@
+{
+  "status": "PARTIAL_REPRODUCTION_ON_AUTHOR_SAMPLE_NOT_2025E_RAW_DATA",
+  "command": "MPLBACKEND=Agg python random_forest_example.py",
+  "input_csv_sha256": "f04ef51c775ed0eb7d2e6e1abd3e6051d80df5d0ceedb209012d4661971439f1",
+  "script_sha256": "09f2a951d0b7260397db87a948acd560d5dd4cb9f8a05cc9bae9ff2a6833cec0",
+  "metrics": {
+    "Accuracy": 0.31,
+    "Precision": 0.36,
+    "Recall": 0.29,
+    "F1 Score": 0.32
+  },
+  "stdout": "Accuracy: 0.31\nPrecision: 0.36\nRecall: 0.29\nF1 Score: 0.32",
+  "stderr_tail": "/mnt/data/mathmodel-study/v1.8/learning_sources/competitions/2025/E/supplemental/GTeacher1/q2/random_forest_example.py:52: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown\n  plt.show()",
+  "limitations": [
+    "随包CSV是例子数据，不能当2025 E原题源域/目标域结果",
+    "脚本只用X1、X2两个特征预测Results",
+    "随机划分没有文件级分组概念，不能迁移为轴承窗口数据的默认验证方式"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "edits": [
+    {
+      "old": "for pid in ['S013','S014','S015','S016','S021','S022','S023','S024','S037','S038']:",
+      "new": "for pid in ['S015','S016','S021','S022','S023','S024','S037','S038']:"
+    }
+  ],
+  "extra": "\n_pp=json.loads((Path(__file__).resolve().parents[4]/'.agents/skills/mathmodel-case-retriever/assets/papers.json').read_text(encoding='utf-8'))\nfor _pid,_n in [('S013',113),('S014',62)]:\n _p=next(x for x in _pp if x['paper_id']==_pid);assert _p['split']=='dev' and _p['reviewed_pages']==list(range(1,_n+1)) and _p['dev_boundary']=='DEV_ONLY_NOT_TRAIN_RETRIEVAL'\n",
+  "reason": "Version/latestDev and full-review metadata changed; no substantive modeling assertions waived",
+  "source_sha256": "015192a4055f9aed707530570ece1d85e5a90186c3e45d33f68709ad102416fe"
+}

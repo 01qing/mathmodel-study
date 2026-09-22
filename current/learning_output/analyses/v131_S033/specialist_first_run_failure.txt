@@ -1,0 +1,6 @@
+Initial v1.31 specialist-suite dry run: FAIL at the SKILL wording assertion `同一对象上的自拟合`.
+Diagnosis: harness phrase did not exactly match the persisted rule heading `同一对象自拟合不是学习泛化`; the rule itself was present. This is a test-string bookkeeping mismatch, not a failed S033 semantic gate.
+Action: adapt the assertion to the actual persisted rule phrase; preserve this first-run note.
+Second dry run: FAIL at wording assertion `模拟/手工设定的上游输入`.
+Diagnosis: persisted heading uses `模拟/手设上游输入只能作为情景证据`; again a harness phrase mismatch, not missing rule content.
+Action: align assertion to the exact persisted phrase.

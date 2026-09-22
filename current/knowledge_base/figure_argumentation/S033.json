@@ -1,0 +1,37 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "visual_audit": "78/78 original-PDF pages reviewed via 13 contact sheets",
+  "key_figures": [
+    {
+      "question": "Q1",
+      "figure": "Fig. 5 three-method qualitative comparison + Fig. 6 post-processed Canny outputs",
+      "role": "show visual differences among Canny/K-Means/YOLO and practical Canny cleanup",
+      "cannot_prove": "which model generalizes better; no quantitative held-out mask metric is attached to the visual panels"
+    },
+    {
+      "question": "Q2",
+      "figure": "Figs. 11/15 fit overlays, Figs. 13/17 residual plots, Fig. 18 residual histograms and Table 1 R2 comparison",
+      "role": "expose heterogeneity of in-sample fit quality and compare two optimizer parameterizations",
+      "cannot_prove": "neural-network generalization, statistical significance or robustness to unseen fractures because the same traces are fitted/evaluated"
+    },
+    {
+      "question": "Q3",
+      "figure": "Figs. 22-25 sampling-density/adaptive-sampling panels and Fig. 26 area-JRC scatter",
+      "role": "make sampling sensitivity and weak area association visible",
+      "cannot_prove": "that adaptive sampling is more accurate without roughness ground truth, or that area causally improves JRC; Fig. 26 itself shows only weak association"
+    },
+    {
+      "question": "Q4",
+      "figure": "Fig. 27 3D network + Tables 5-8 connectivity/uncertainty/drilling results",
+      "role": "communicate assumed spatial network and hotspot-driven placement",
+      "cannot_prove": "calibrated connectivity probabilities, attachment-4 fidelity or true information gain; inputs are stated to be simulated and one drilling row violates spacing"
+    }
+  ],
+  "recommended_figure_rules": [
+    "when choosing a practical model over a visually stronger one, show two axes: predictive metric and deployment/annotation cost",
+    "for sine fitting, overlay plus residual distribution plus rejected fits and held-out/group identity; same-data R2 is not generalization",
+    "for roughness, show the ordered physical profile and sampling locations; never infer y(x)-slope statistics from an arbitrary closed contour without validating the profile contract",
+    "for active drilling, show feasible candidate map, prior uncertainty and expected posterior uncertainty reduction; a hotspot map alone is not information gain"
+  ]
+}

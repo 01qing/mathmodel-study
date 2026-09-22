@@ -1,0 +1,108 @@
+{
+  "scope": "LOCAL_TABLE_AND_MATHEMATICAL_AUDIT_ONLY",
+  "timestamp_utc": "2026-09-17T07:39:28.964082+00:00",
+  "script_sha256": "d7871434ae0063e2f0889aac547eb85ae46d7fba0c1344973ca1bdc217d118cf",
+  "source_sha256": "7d86005f5321da9836ebb158952d8ad3eb65c9a1e73b7f6d4fe6c1d7fb9e67af",
+  "passed": 19,
+  "total": 19,
+  "checks": [
+    {
+      "id": "flow_diagnostic_0_crop",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_0_forest",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_0_grass",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_0_shrub",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_0_wetland",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_1_crop",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_1_forest",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_1_grass",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_1_shrub",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_1_wetland",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_2_crop",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_2_forest",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_2_grass",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_2_shrub",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "flow_diagnostic_2_wetland",
+      "passed": true,
+      "detail": "First period closes within rounding; later periods fail printed identity."
+    },
+    {
+      "id": "lstm_two_truth_sources_conflict",
+      "passed": true,
+      "detail": "All six same-year truth entries differ."
+    },
+    {
+      "id": "appendix_lstm_not_zero_error",
+      "passed": true,
+      "detail": "Does not identify why body table duplicated values."
+    },
+    {
+      "id": "upper_tail_probability_bound",
+      "passed": true,
+      "detail": "Intersection cannot exceed either marginal; printed expression violates this fixture."
+    },
+    {
+      "id": "fraction_marginals_do_not_identify_flow",
+      "passed": true,
+      "detail": "Identical initial/final class totals permit no exchange or complete exchange; no unique flow without joint identity."
+    }
+  ],
+  "core_gain": "NOT_ESTABLISHED",
+  "author_full_reproduction": "NOT_RUN",
+  "history_note": "Designed contradiction checks; not alleged historical failed author runs."
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.5",
+  "case_id": "replace-me",
+  "year": null,
+  "problem_id": "",
+  "canonical_working_title": "",
+  "title_status": "unverified",
+  "title_variants": [],
+  "conflicts": [],
+  "problem_assets": [],
+  "excellent_papers": [],
+  "supplementary_material": [],
+  "method_family_expectations": {},
+  "first_pass_requirements": {
+    "minimum_papers_to_download": 2,
+    "prefer_method_diversity": true,
+    "must_download_all_official_attachments": true
+  },
+  "status": "DRAFT"
+}

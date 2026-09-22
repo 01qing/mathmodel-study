@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "scope": "v1.15 S007 full-text and printed appendix audit",
+  "passed": 26,
+  "tests": [
+    "S007 full review status",
+    "S007 113 pages",
+    "S007 Q1-Q3",
+    "S007 dBm-to-mW strength recorded",
+    "S007 imbalance warning recorded",
+    "S007 cross-section drift recorded",
+    "S007 not falsely reproduced",
+    "S007 code Q1-Q3",
+    "S007 68 explicit figure captions",
+    "S007 visual honesty",
+    "independent-structured-label-decoding.json",
+    "class-imbalance-accuracy-overclaim.json",
+    "log-domain-rssi-aggregation.json",
+    "cross-section-metric-drift.json",
+    "2024-B historical S005-S007 retained",
+    "2024-B group membership retained",
+    "S007 train retained",
+    "S007 all pages reviewed",
+    "S007 review linked",
+    "S007 audit reference",
+    "v1.15 gate in skill",
+    "selector structured label gate",
+    "imbalance figure template",
+    "structured pair template",
+    "two v115 smoke figures",
+    "version at least 1.15"
+  ]
+}
+

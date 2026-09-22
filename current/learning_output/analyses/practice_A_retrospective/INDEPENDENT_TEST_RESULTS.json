@@ -1,0 +1,88 @@
+{
+  "status": "PASS",
+  "tests": [
+    {
+      "name": "unrecognized-task-must-not-produce-generic-route",
+      "first_result": "generic",
+      "expected": "PDE",
+      "first_status": "FAIL",
+      "retest_result": "PDE",
+      "retest_status": "PASS",
+      "scope": "schema routing only"
+    },
+    {
+      "name": "manifest-authority-over-extension-or-name",
+      "first_result": [
+        "input.xlsx",
+        "result7.xlsx",
+        "measured_result.xlsx"
+      ],
+      "expected": [
+        "input.xlsx",
+        "measured_result.xlsx"
+      ],
+      "first_status": "FAIL",
+      "retest_result": [
+        "input.xlsx",
+        "measured_result.xlsx"
+      ],
+      "retest_status": "PASS",
+      "scope": "includes measured_result legitimate data; templates excluded by role"
+    },
+    {
+      "name": "equal-unit-string-does-not-imply-common-variable",
+      "first_result": true,
+      "expected": false,
+      "first_status": "FAIL",
+      "retest_result": false,
+      "retest_status": "PASS",
+      "scope": "semantic denominator gate; no material parameter inference"
+    },
+    {
+      "name": "printed-decimals-do-not-certify-accuracy",
+      "first_result": true,
+      "expected": false,
+      "first_status": "FAIL",
+      "retest_result": false,
+      "retest_status": "PASS",
+      "scope": "absolute error budget compared with half output rounding unit"
+    },
+    {
+      "name": "boundary-layer-refinement",
+      "first_result": false,
+      "expected": true,
+      "first_status": "FAIL",
+      "retest_result": true,
+      "retest_status": "PASS",
+      "scope": "independent analytic exponential field; interpolation only, not PDE reproduction"
+    },
+    {
+      "name": "nonuniform-mesh-requires-local-distance",
+      "first_result": false,
+      "expected": true,
+      "first_status": "FAIL",
+      "retest_result": true,
+      "retest_status": "PASS",
+      "scope": "exact linear gradient oracle on nonuniform mesh"
+    },
+    {
+      "name": "new-slab-diffusion-analytic-oracle",
+      "status": "PASS",
+      "errors": [
+        0.0006192647228598913,
+        0.00015485371734591524,
+        3.871661098275858e-05
+      ],
+      "scope": "independent linear slab solver convergence; no sorption validation"
+    },
+    {
+      "name": "boundary-refinement-measurements",
+      "uniform_max_error": 0.3518794864050119,
+      "graded_max_error": 0.0299255919027816,
+      "scope": "synthetic interpolation errors"
+    }
+  ],
+  "core_gain": "NOT_ESTABLISHED",
+  "not_core_ablation": true,
+  "scope": "local defect-detection and synthetic mechanism transfer, no new full contest solution"
+}

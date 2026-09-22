@@ -1,0 +1,70 @@
+{
+  "status": "FINAL_2024D_CASE_GROUP_REVIEW_COMPLETE",
+  "case_group": "2024-D",
+  "split": "dev",
+  "papers_reviewed": [
+    "S013",
+    "S014",
+    "S015",
+    "S016"
+  ],
+  "reproduction_levels": {
+    "S013": "R2",
+    "S014": "R2",
+    "S015": "R2",
+    "S016": "R2"
+  },
+  "independent_solution": "FROZEN_BEFORE_DEV_PAPER_ACCESS",
+  "questions": {
+    "Q1": {
+      "problem": "描述降水与土地覆盖的时空变化并保持单位、支持域和时间端点一致",
+      "frozen_baseline": "共同有效域；日→年累计；面积加权；五类份额/净变化；2020土地缺测不补造",
+      "S013": "GIS汇总、趋势与空间摘要；暴露出聚合来源/单位/空间支持合同问题",
+      "S014": "MK/Sen、逐日栅格平均与覆盖变化；提供稳健趋势候选，但需处理ties/自相关与目标口径",
+      "S015": "多时尺度mean/sum/SD、季节分解与成分度；统计名称/分母/缺失处理存在漂移",
+      "S016": "Kriging、ARIMA/LSTM、Moran/CV、土地流量指标；结果同源与守恒链存在明显断点",
+      "recommended_route": "先固定统计对象/单位/支持域/日历→可复算聚合与守恒→稳健趋势作为条件模块→只有滚动留出稳定增益才升级预测",
+      "six_hour_baseline": "面积加权年统计+统一色标地图+份额/净变化+守恒/缺失/日历检查",
+      "high_risk_high_reward": "小阶时序/空间插值/空间统计；须同一目标、同一输入版本和真实滚动验证",
+      "abandon_conditions": "数据端点不一致、未定义统计量、聚合链无法追溯、未来预测无历史回测"
+    },
+    "Q2": {
+      "problem": "地形—气候关系与极端事件预测/解释，先固定目标尺度与预测时点",
+      "frozen_baseline": "年度Rx1day气候态；开发/最终年份和空间块验证；复杂候选未达预注册升级门槛",
+      "S013": "浅树/阈值与相关解释；随机重复行划分不能证明时空泛化",
+      "S014": "线性/RF/SVM/XGB/AdaBoost针对累计事件计数；目标与Rx1day不同，不能直接排行",
+      "S015": "重采样、Gaussian均值方差、树/MCP；基率、抽样总体和标签依赖需先审计",
+      "S016": "SPI/STI/SGI、Gaussian联合尾部、RF/OLS与降尺度；上下尾、坐标和残差/高值误差需严格核验",
+      "recommended_route": "target_id/forecast_origin/available_at固定→分区/季节频率或气候态Baseline→正则线性/GAM/浅树有限竞争→时空留出、校准与尾部错误分析",
+      "six_hour_baseline": "训练期频率/气候态+一个有限交互模型+时间/空间块验证+错误空间图",
+      "high_risk_high_reward": "联合极端分布、复杂集成；仅在事件定义、协方差/尾部和独立留出成立时升级",
+      "abandon_conditions": "目标变量或其后代进入特征、抽样后基率被当总体、不同target/metric横排、无时空留出"
+    },
+    "Q3": {
+      "problem": "未来脆弱/风险区域与临界条件；区分危险性、脆弱性、成灾真值和条件情景",
+      "frozen_baseline": "透明Pcrit=K/[C(L)T]条件情景+持久性中心+敏感性；明确未校准灾害概率",
+      "S013": "指数/伪标签树/XGB/ARIMA/SVR；缺真实灾损标签、区域未来输入和完整来源链",
+      "S014": "排水网络+趋势外推+AHP/HEV；权重原语和未来驱动需审计，不能用指数内部一致性代替灾害真值",
+      "S015": "历史GMM风险名+XGB/SVM/RF阈值标签；空间聚类无时间状态，未来地图证据不足",
+      "S016": "RAI/AHP频率比+RF/XGB+LSTM/土地外推；未来图、算法标题和评价run存在漂移",
+      "recommended_route": "先做标签谱系和未来驱动清单；无真实灾害真值时坚持条件情景/排序稳定性；有真值后以持续性为基线做时间空间回测与校准",
+      "six_hour_baseline": "持久性+条件阈值+参数扰动+统一风险词汇/色标；无真值不硬造AUC",
+      "high_risk_high_reward": "真实灾损标签+水文容量/外部情景驱动下的时空概率模型",
+      "abandon_conditions": "伪标签循环、未来特征在预测原点不可用、历史聚类直接挂未来年份、未来地图替代回测"
+    },
+    "Q4": {
+      "problem": "土地利用变化结构、未来演化和决策用途必须分开评价",
+      "frozen_baseline": "五类份额/净变化+PCA/K=5结构分区；报告重构/稳定性，不宣称政策效用",
+      "S013": "重心/SDE和地理界线；二维概率/面积解释和独立用途证据不足",
+      "S014": "地理分界+RF/XGB未来变化率；未来驱动、组成约束与时空验证仍需补",
+      "S015": "人口/GDP阈值与分区差异检验；显著性和描述图不能替代未来预测/政策效用",
+      "S016": "优势类转移计数+XGBoost/SHAP；边际份额不能唯一识别流量，类别/输出空间需闭合",
+      "recommended_route": "composition/label_dictionary固定→份额与净变Baseline→结构压缩/简单分区→若有同像元历史再比较转移/组成模型→用途另设下游损失",
+      "six_hour_baseline": "五类份额/净变化+简单分区+持续性+时间块/空间块检查",
+      "high_risk_high_reward": "组成约束预测、像元转移与解释模型；须有可追溯类别历史和时空留出",
+      "abandon_conditions": "把边际变化当流量、类别字典漂移、显著性当预测、解释值误称概率或因果"
+    }
+  },
+  "case_group_decision": "No paper-level winner. Preserve the frozen simple baselines; promote only generic audit/selection rules and conditionally composable modules after seven-gate checks.",
+  "capability_evidence": "CASE_GROUP_DEV_GAP_EVIDENCE_ONLY; not controlled Core gain and not R7."
+}

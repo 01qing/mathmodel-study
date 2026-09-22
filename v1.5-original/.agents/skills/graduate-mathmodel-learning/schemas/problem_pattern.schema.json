@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "problem_pattern.schema.json",
+  "title": "Problem Pattern Card",
+  "type": "object",
+  "required": [
+    "pattern_id",
+    "name",
+    "recognition_signals",
+    "mathematical_structure",
+    "candidate_models",
+    "decision_rules"
+  ],
+  "properties": {
+    "pattern_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "recognition_signals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mathematical_structure": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "candidate_models": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "decision_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "common_traps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

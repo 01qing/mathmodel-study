@@ -1,0 +1,102 @@
+{
+  "status": "FINAL_S013_VS_FROZEN_BASELINE_ONLY",
+  "group_final": false,
+  "papers_reviewed": [
+    "S013"
+  ],
+  "papers_not_opened": [
+    "S014",
+    "S015",
+    "S016"
+  ],
+  "questions": {
+    "Q1": {
+      "baseline": "原始网格有效域面积加权年统计",
+      "author_route": "栅格转点/整度汇总、GIS地图、均值极值与趋势。",
+      "major_alternatives": [
+        "分区分位数与稳健趋势",
+        "有来源边界的面积相交守恒汇总"
+      ],
+      "not_recommended": "以平滑插值图反算总量；日均×100称年累计",
+      "why_select": "保留网格统计，GIS只作为有边界证据的表达模块",
+      "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+      "switch_conditions": "裁剪来源和守恒误差经过验证才升级空间精度"
+    },
+    "Q2": {
+      "baseline": "气候态预测＋地形温度分层描述",
+      "author_route": "树回归/分类、分组阈值和相关关系；代码有正确拆分及全量拟合不同分支。",
+      "major_alternatives": [
+        "加性与交互回归同切分对比",
+        "浅树或HGB配合分块重采样"
+      ],
+      "not_recommended": "随机重复行划分、高拟合分数称因果机理",
+      "why_select": "保留冻结气候态；复杂候选时间验证未胜出",
+      "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+      "switch_conditions": "时空留出稳定实质改善，且交互方向/阈值跨块稳定"
+    },
+    "Q3": {
+      "baseline": "持续性中心情景＋显式风险假设与多情景范围",
+      "author_route": "易损性指数→伪标签树/XGB→ARIMA未来输入→SVR→空间分析。",
+      "major_alternatives": [
+        "区域化输入与滚动回测",
+        "有真实灾损标签后的时空校准模型"
+      ],
+      "not_recommended": "伪标签准确率当灾害预测精度；全国输入直接生成空间图",
+      "why_select": "保留冻结36情景，标注假设；不导入作者阈值或SVR精度",
+      "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+      "switch_conditions": "独立灾害标签、区域输入、优于持续性的回测三项齐备"
+    },
+    "Q4": {
+      "baseline": "冻结K=5土地结构分区＋重建误差和时间稳定性",
+      "author_route": "阈值筛选→重心/SDE→人口GDP降水叠加→地理界线。",
+      "major_alternatives": [
+        "面积加权重心与协方差摘要",
+        "独立下游任务对比K分区、单区、经纬度简单分区"
+      ],
+      "not_recommended": "一维68%用于二维；用参与选线数据重复验证用途",
+      "why_select": "冻结K分区保持，SDE仅候选描述模块",
+      "why_not_select_author_as_default": "原始执行链和独立优势证据不全，且已识别目标/单位/来源问题。",
+      "switch_conditions": "七门合同满足且独立用途有稳定实质提升才组合"
+    }
+  },
+  "proposed_composition": "冻结分区＋面积加权空间摘要＋独立用途评价",
+  "seven_gates": [
+    {
+      "gate": "输入输出接口",
+      "status": "BLOCKED_AUTHOR_OUTPUT_IMPORT",
+      "reason": "缺作者中间表/GIS输出；重建需cell_id/year唯一键及cardinality。"
+    },
+    {
+      "gate": "变量定义",
+      "status": "BLOCKED_DIRECT_COMPOSITION",
+      "reason": "年降水/日极值、风险/易损性、覆盖率/面积、gain/weight不能互换。"
+    },
+    {
+      "gate": "数据分布",
+      "status": "BLOCKED_DIRECT_COMPOSITION",
+      "reason": "裁剪域及空间解聚合未知；统一年份和留出后再比较。"
+    },
+    {
+      "gate": "数学假设",
+      "status": "REPAIR_SPECIFIED_NOT_END_TO_END_VALIDATED",
+      "reason": "二维覆盖率和正交轴局部反例已复测；不等于作者GIS已修复。"
+    },
+    {
+      "gate": "量纲",
+      "status": "REPAIR_SPECIFIED_NOT_END_TO_END_VALIDATED",
+      "reason": "面积权重、投影、ha/km²/%须显式；外部湿地总量未核实。"
+    },
+    {
+      "gate": "训练/执行阶段",
+      "status": "FROZEN_BASELINE_PROTECTED_CANDIDATE_PENDING",
+      "reason": "冻结方案不回填；阈值/标准化/选线必须在训练数据完成。"
+    },
+    {
+      "gate": "评价指标",
+      "status": "BLOCKED_FOR_RECOMMENDATION",
+      "reason": "当前无独立下游效用/真实灾损优势；复杂模型不能进入推荐主线。"
+    }
+  ],
+  "decision": "DO_NOT_IMPORT_AUTHOR_OUTPUTS_OR_PROMOTE_COMPOSITE_YET",
+  "scope": "All seven gates examined. Not all seven passed. Full case-group map/transfer awaits authorized remaining Dev reviews."
+}

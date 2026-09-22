@@ -1,0 +1,110 @@
+{
+  "paper_id": "S011",
+  "scope": "printed-text exact/static checks only; author source/data not run",
+  "q2": {
+    "uncorrected_pso_r2": 0.9448,
+    "uncorrected_dynamic_pso_r2": 0.9448,
+    "claimed_dynamic_minus_constant_r2_in_abstract": 0.041,
+    "visible_uncorrected_difference": 0.0,
+    "best_correction_r2": 0.9955,
+    "uncorrected_r2": 0.9448,
+    "correction_minus_uncorrected": 0.0507
+  },
+  "q4": {
+    "program2_heading": "特征权重提取的Bi-LSTM网络",
+    "program2_has_CNNModel": true,
+    "program2_has_Conv1d": true,
+    "program2_has_nn_LSTM": false,
+    "paper_claimed_feature_dimension": 10,
+    "program2_input_size": 1033,
+    "program3_input_size": 10,
+    "visible_program4_components": "1024 flux samples + 1 temperature + 1 frequency + 4 material one-hot + 3 waveform one-hot = 1033",
+    "lstm_layer_visible": false,
+    "printed_claimed_model_input_size": 1033,
+    "feature_contract_match": false
+  },
+  "q5": {
+    "ga": {
+      "a": 0.83,
+      "Fs": 426.3647,
+      "Fe": 1673.28,
+      "reported": 4.6918,
+      "raw_formula_replay": 69.42510099999993,
+      "matches_reported_raw_formula": false
+    },
+    "pso": {
+      "a": 0.79,
+      "Fs": 415.6131,
+      "Fe": 1509.93,
+      "reported": 30.8623,
+      "raw_formula_replay": 11.249049000000014,
+      "matches_reported_raw_formula": false
+    },
+    "constraint_registry": {
+      "f_min": 50000,
+      "f_max": 500000,
+      "Bm_min": 0.0096,
+      "Bm_max": 0.3133
+    },
+    "pareto_examples": [
+      {
+        "algorithm": "NSGA-II",
+        "f": 192418,
+        "Bm": 0.0104,
+        "feasible": true
+      },
+      {
+        "algorithm": "NSGA-II",
+        "f": 379324,
+        "Bm": 0.0776,
+        "feasible": true
+      },
+      {
+        "algorithm": "MOPSO",
+        "f": 470110,
+        "Bm": 0.4261,
+        "feasible": false,
+        "violation": "Bm>0.3133"
+      },
+      {
+        "algorithm": "MOPSO",
+        "f": 49910,
+        "Bm": 0.1677,
+        "feasible": false,
+        "violation": "f<50000"
+      }
+    ],
+    "all_mopso_examples_feasible": false,
+    "reported_mopso_examples": [
+      {
+        "algorithm": "MOPSO",
+        "f": 470110,
+        "Bm": 0.4261,
+        "feasible": false,
+        "violation": "Bm>0.3133"
+      },
+      {
+        "algorithm": "MOPSO",
+        "f": 49910,
+        "Bm": 0.1677,
+        "feasible": false,
+        "violation": "f<50000"
+      }
+    ],
+    "scalarization_replay": [
+      {
+        "algorithm": "GA",
+        "raw_replay": 69.42510099999993,
+        "reported": 4.6918,
+        "matches": false
+      },
+      {
+        "algorithm": "PSO",
+        "raw_replay": 11.249049000000014,
+        "reported": 30.8623,
+        "matches": false
+      }
+    ],
+    "printed_q5_implementation_visible": false
+  }
+}

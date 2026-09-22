@@ -1,0 +1,26 @@
+{
+  "scope": "Known-defect regression checks",
+  "passed": 18,
+  "tests": [
+    "initial contamination recorded",
+    "reinitialization cannot erase exposure",
+    "different fingerprint rejected without overwrite",
+    "freeze contaminated matrix remains contaminated",
+    "same freeze idempotent",
+    "different matrix rejected without overwrite",
+    "fresh case allowed",
+    "empty matrix rejected",
+    "corrupted gate fails closed",
+    "zero papers valid",
+    "real nonzero PDF count valid",
+    "wrong hash blocked",
+    "wrong page count blocked",
+    "full review without coverage blocked",
+    "full declared review with coverage accepted",
+    "missing PDF blocked",
+    "duplicate source blocked",
+    "historical validator accepts evidenced nonzero inventory"
+  ],
+  "independent_modeling_evaluation": "NOT_RUN"
+}
+

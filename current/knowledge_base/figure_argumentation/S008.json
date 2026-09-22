@@ -1,0 +1,43 @@
+{
+  "paper_id": "S008",
+  "source": "figure captions and full-text context",
+  "explicit_caption_count": 64,
+  "pixel_level_audit": false,
+  "argumentation_roles": [
+    {
+      "role": "network topology and mechanism",
+      "examples": [
+        "图3.1-3.3",
+        "图5.1"
+      ],
+      "lesson": "Use topology/mechanism diagrams only where they define variables or interaction structure."
+    },
+    {
+      "role": "correlation and RSSI exploratory evidence",
+      "examples": [
+        "图3.4-3.19",
+        "图4.1-4.3",
+        "图5.2-5.4"
+      ],
+      "lesson": "Avoid dozens of repetitive RSSI plots; consolidate into aligned small multiples and distinguish log-domain statistics from power aggregation."
+    },
+    {
+      "role": "model prediction comparison",
+      "examples": [
+        "图3.24-3.27",
+        "图4.13-4.18",
+        "图5.9-5.18"
+      ],
+      "lesson": "Use shared axes and common metrics across models; captions must name the actual target (throughput vs PHY Rate)."
+    },
+    {
+      "role": "physics baseline and error",
+      "examples": [
+        "图5.6-5.7",
+        "图5.19"
+      ],
+      "lesson": "Formula-based prediction should be plotted as an explicit baseline next to ML residual/direct predictions and error quantiles."
+    }
+  ],
+  "style_learning_boundary": "No source PDF pixels mounted; visual style/colors/fonts not claimed learned."
+}

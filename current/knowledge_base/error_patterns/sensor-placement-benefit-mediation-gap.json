@@ -1,0 +1,14 @@
+{
+  "pattern": "sensor-placement-benefit-mediation-gap",
+  "description": "A sensing-layout change is credited with downstream traffic/decision gains without modeling how sensing improves decisions and outcomes.",
+  "detection": [
+    "camera/sensor placement changes",
+    "traffic outcome is reported improved",
+    "no coverage→estimation→policy→outcome link or experiment exists"
+  ],
+  "remedy": [
+    "separate sensing objective from control outcome",
+    "model/validate information gain or estimation error improvement",
+    "only propagate to traffic benefit through a validated controller/simulator or intervention study"
+  ]
+}

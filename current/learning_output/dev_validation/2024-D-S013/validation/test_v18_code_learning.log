@@ -1,0 +1,17 @@
+{
+  "scope": "v1.8 code/paper/figure learning regressions",
+  "passed": 10,
+  "tests": [
+    "valid python passes syntax",
+    "invalid python fails syntax",
+    "data dependency found",
+    "windows absolute path found",
+    "plotting file found",
+    "split-related file found",
+    "GTeacher1 code card exists",
+    "GTeacher2 code card exists",
+    "GTeacher2 figure card exists",
+    "supplemental sources indexed"
+  ]
+}
+

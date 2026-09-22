@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "paper_benchmark_comparison.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "our_evidence",
+    "papers",
+    "questions",
+    "overall"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "case_id": {
+      "const": "gmcm-2021-D"
+    },
+    "our_evidence": {
+      "type": "object"
+    },
+    "papers": {
+      "type": "object"
+    },
+    "questions": {
+      "type": "object"
+    },
+    "overall": {
+      "type": "object"
+    }
+  }
+}

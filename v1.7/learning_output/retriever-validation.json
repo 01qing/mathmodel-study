@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "papers": 45,
+  "chunks_verified": 6752,
+  "split_counts": {
+    "train": 32,
+    "dev": 7,
+    "test": 6
+  },
+  "checks": [
+    "group isolation",
+    "frozen split hash",
+    "all chunk/page roundtrips",
+    "review page bounds",
+    "invalid input rejection",
+    "train-only retrieval smoke"
+  ],
+  "quality_evaluation": "NOT_RUN; no gold labels or unseen-problem modeling evaluation",
+  "smoke_matches": [
+    {
+      "paper_id": "S001",
+      "case_group": "2024-A",
+      "page": 32
+    },
+    {
+      "paper_id": "S003",
+      "case_group": "2024-A",
+      "page": 20
+    },
+    {
+      "paper_id": "S004",
+      "case_group": "2024-A",
+      "page": 15
+    }
+  ]
+}

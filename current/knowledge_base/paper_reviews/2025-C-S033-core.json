@@ -1,0 +1,89 @@
+{
+  "paper_id": "S033",
+  "case_group": "2025-C",
+  "year": 2025,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 78,
+  "title": "围岩裂隙精准识别与三维模型重构",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_78_PAGE_PDF_PIXEL_CONTACT_SHEET_PLUS_PRINTED_PYTHON_APPENDIX_STATIC_AUDIT",
+  "visual_status": "ORIGINAL 78-PAGE PDF ALL-PAGE CONTACT-SHEET AUDIT; pages 52-78 printed Python appendix",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1: original borehole unfolded image/depth segment; Q2: one physical fracture trace with image provenance; Q3: one ordered physical fracture profile; Q4: borehole/fracture network and candidate drilling location",
+    "input_structure": "borehole wall unfolded images, derived/binary fracture masks, sinusoidal trace coordinates, fracture roughness profiles and six-borehole spatial layout",
+    "validation_priority": "Q1 split by original borehole/image before augmentation; Q2-Q4 must preserve provenance from upstream Q1 and use attachment-derived inputs unless explicitly labeled simulation",
+    "author_evaluation_scope": "primarily selected attachment images, in-sample curve fits and a six-borehole simulated/assumed Q4 scenario; no independent image/borehole holdout or field connectivity truth is demonstrated"
+  },
+  "questions": {
+    "Q1": "fracture pixel/edge identification under rock texture, drilling traces and mud contamination",
+    "Q2": "cluster sinusoidal fracture traces and estimate R/P/beta/C parameters",
+    "Q3": "extract complex fracture profile, study sampling and estimate/improve JRC roughness",
+    "Q4": "reconstruct 3D planes, score inter-borehole connectivity, map uncertainty and recommend supplementary boreholes"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S033.json",
+  "result_registry_ref": "knowledge_base/result_registry/S033.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-C-S033-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-C-S033-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S033.json",
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "78/78 full-text close reading",
+      "original 78-page PDF visually audited via 13 contact sheets",
+      "printed Python appendix pages 52-78 statically audited"
+    ],
+    "not_achieved": [
+      "R3: printed appendix omits several headline methods and Q4 data/result chain is not self-contained/executable",
+      "R4-R7: no original-data end-to-end reproduction or independent transfer of the author pipeline"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 explicitly compares classical K-Means/Canny with YOLOv8 and ultimately distinguishes predictive appearance from deployment annotation cost",
+    "Q2 uses the cylindrical geometry to converge on a common period near the borehole circumference and reports per-fracture R2/residual diagnostics",
+    "Q3 makes sampling sensitivity a first-class issue and tries to distinguish global slope roughness from curvature information",
+    "Q4 links 3D geometry, uncertainty mapping and measurement-location recommendation in one decision chain"
+  ],
+  "key_risks": [
+    "Q1 has no defensible independent-image/borehole quantitative comparison; section 3.1 calls YOLOv8 better while the abstract/conclusion select Canny for deployment reasons, so accuracy-winner and recommended-route semantics are mixed",
+    "Q1 appendix only exposes a Canny fragment and even points to a fujian3 path; data augmentation, illumination/NLM/Gabor/LBP, K-Means and YOLOv8 implementations are not self-contained",
+    "Q2 appendix hard-codes GMM n_components=3 in the visible example although reported fracture counts are 5/1/3; the direction-consistency rule and sine optimizers are not visible",
+    "Q2 no-hidden-layer linear 'neural network' is trained by the same fracture residual and is closer to an over-parameterized optimizer/reparameterization than demonstrated cross-fracture learned regression; no held-out generalization is shown",
+    "Q2 comparison text says seven fracture groups but Table 1 contains nine rows; arithmetic means are about 0.5864 vs 0.7970, and 'significantly higher' has no statistical test",
+    "Q2 presents P as a fitted output but final table fixes every P to 94.25 mm; fixed-vs-estimated semantics must be made explicit",
+    "Q3 switches among incompatible JRC formulas and later claims an area correction although the displayed improved formula contains no area term",
+    "Q3 appendix contains only contour/Z/JRC fragments; adaptive sampling, complexity classifier, second-derivative Z3 and area-correction implementation are absent",
+    "Q3 code applies slope-based roughness to cv2.findContours closed contours and then chooses min(Z1,Z2) without a body-defined estimator contract; a closed boundary is not automatically a single-valued ordered y(x) profile",
+    "Q4 explicitly states six simulated boreholes and engineering-common-sense fracture parameters, so its numeric outputs are scenario evidence rather than direct attachment-4 reconstruction evidence",
+    "Q4 weighted score plus sigmoid is called connectivity probability without labeled connectivity calibration",
+    "Q4 entropy H=-sum p log2 p omits the (1-p) term for binary connectivity and is not a normalized categorical entropy; the hotspot score is not a calibrated uncertainty probability",
+    "Q4 calls mean prior neighborhood entropy 'information gain' but no observation model or expected posterior entropy reduction is computed",
+    "Q4 states minimum supplementary-hole spacing >=500 mm, but Table 8 reports the third point at 412.3105 mm; printed code uses >=300 mm",
+    "Q4 printed code filters all fracture depth_max<=500 mm while body Table 6 reports connectivity at 2000-7000 mm, so the visible code cannot support that result surface",
+    "Q4 identify_high_uncertainty_regions visibly never assigns self.uncertainty_data before returning it, and main does not call the supplementary-borehole optimizer; Table 7/8 are not reproducible from the printed main chain",
+    "Q3 declares the conventional JRC range 0-20 but reports values up to 38.01, while Q4 divides JRC differences by 20 as a bounded similarity; the upstream/downstream scale contract is not range-safe without calibration or justified clipping."
+  ],
+  "applicable_conditions": [
+    "borehole image crack extraction when annotation budget is limited",
+    "periodic traces on cylindrical unfolded imagery",
+    "roughness evaluation on calibrated ordered profiles",
+    "exploratory multi-borehole geometry scoring when simulation assumptions are explicit"
+  ],
+  "failure_or_abandon_conditions": [
+    "Q1 lacks independent-image/borehole validation and visual comparison is the only evidence",
+    "Q2 cluster count or sinusoid parameters violate geometry and no reject state exists",
+    "Q3 profile is not a single-valued ordered physical trace or improved JRC coefficients lack calibration data",
+    "Q4 uses assumed/synthetic fractures while presenting results as attachment-derived, or hard drilling constraints are violated"
+  ],
+  "recommended_redo": [
+    "Q1 establish Canny/morphology as no-label baseline and compact U-Net/segmentation model only when labeled images exist; compare on held-out boreholes and separately score accuracy, annotation cost and runtime",
+    "Q2 use topology-aware components plus bounded robust fixed-period sinusoid; treat P=pi*D as fixed when diameter is known, canonicalize beta and reject implausible fits; do not use a per-instance pseudo-network unless it wins held-out cross-fracture tests",
+    "Q3 extract one ordered centerline/profile in physical coordinates, perform sampling-density sensitivity, use the official JRC formula as canonical registry and only promote Z3/area correction after external/train-only calibration and held-out validation",
+    "Q4 use actual attachment-derived fractures with uncertainty propagated from Q1-Q3; call the uncalibrated fusion a compatibility score, use valid Bernoulli/ensemble uncertainty, and define information gain as expected posterior entropy reduction under an observation model; enforce 500 mm feasibility before ranking"
+  ]
+}

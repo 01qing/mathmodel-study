@@ -1,0 +1,88 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "year": 2025,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 71,
+  "title": "围岩裂隙精准识别与三维模型重构",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_71_PAGE_PDF_PIXEL_CONTACT_SHEET_PLUS_PRINTED_PYTHON_APPENDIX_STATIC_AUDIT",
+  "visual_status": "ORIGINAL 71-PAGE PDF ALL-PAGE CONTACT-SHEET AUDIT; pages 53-71 printed Python appendix",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1: original borehole image / borehole-depth segment, not pixels or overlapping patches; Q2-Q3: one physical fracture/curve with image provenance; Q4: borehole/fracture network and candidate drilling location",
+    "input_structure": "borehole wall unfolded images plus labels/derived binary masks, fracture geometry, JRC-related contours and six-borehole spatial layout",
+    "validation_priority": "split by original image/borehole/depth block before any patch/tile augmentation; downstream Q2-Q4 validation must propagate upstream segmentation uncertainty",
+    "author_evaluation_scope": "mostly provided attachments and selected figures; no clear independent image/borehole holdout protocol found in the paper"
+  },
+  "questions": {
+    "Q1": "pixel-level fracture segmentation under rock texture/mud/drilling artifacts",
+    "Q2": "cluster fracture segments and fit sinusoidal geometry parameters",
+    "Q3": "extract complex-fracture contour, sample it and estimate JRC roughness",
+    "Q4": "infer inter-borehole fracture connectivity, reconstruct 3D network, quantify uncertainty and recommend three supplementary boreholes"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S032.json",
+  "result_registry_ref": "knowledge_base/result_registry/S032.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-C-S032-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-C-S032-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S032.json",
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "71/71 full-text close reading",
+      "original 71-page PDF visually audited on all pages",
+      "printed Python appendix statically audited"
+    ],
+    "not_achieved": [
+      "R3: printed appendix omits/contradicts algorithm-defining components and no complete source/data execution was run",
+      "R4-R7: no original-data reproduction or independent transfer of author pipeline"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "four questions form a coherent segmentation→geometry→roughness→3D decision chain",
+    "Q1 compares morphology, U-Net and an improved U-Net rather than reporting one model only",
+    "Q2 fixes the sinusoid period to the physical borehole circumference, reducing unnecessary degrees of freedom",
+    "Q3 explicitly compares equal-arc-length and curvature-weighted sampling",
+    "Q4 visualizes connectivity and uncertainty before drilling recommendation"
+  ],
+  "key_risks": [
+    "Q1 does not state a defensible train/validation/test independence contract; pixel/patch leakage could inflate metrics",
+    "Q1 claimed loss/attention/training-efficiency improvements are not fully mapped to printed code; F1/IoU numbers need aggregation provenance",
+    "Q2 prose claims DBSCAN/LM/RANSAC/Huber-style robustness while printed code mainly shows centroid DBSCAN plus plain least_squares; parameters and primitives drift",
+    "Q2 contains physically implausible sine amplitudes (e.g. 975.632 mm) without reject/bound rules",
+    "Q3 printed appendix bypasses the headline multi-scale LoG/attention path and injects unexplained per-image SCALE_FACTORS before JRC; clipping at 20 causes ceiling saturation",
+    "Q3 prose contains a mean JRC around 75 despite later formula/code clipping to 0-20",
+    "Q4 connectivity weights/decay scales and uncertainty thresholds are largely hand-set without calibration/sensitivity validation",
+    "Q4 second entropy implementation treats histogram density heights as probabilities; AHP is described as pairwise-consistency method but fixed weights are directly assigned",
+    "Q4 projection-pursuit GA has identical arithmetic-crossover children, an objective-direction tension in Ddensity, and compares endogenous scores 9.95 vs 8.40 as if they validate drilling quality",
+    "Q2 symbol R drifts between full vertical range and half-range sine amplitude; tables/code must use one canonical convention",
+    "Q3 curvature-weighted sampler divides segment length by a curvature-increasing weight, which can reverse the stated high-curvature densification intent",
+    "Q4 Pjrc prose says geometric mean but the printed equation uses an ambiguous additive expression; connectivity semantics are unresolved",
+    "Q4 appendix hard-codes a cyclic-looking borehole adjacency list that conflicts with the 2×3 array/body pair analysis",
+    "Q2/Q3 printed code reconstructs masks from JSON annotations rather than Q1 predictions, so downstream results are oracle-intermediate rather than end-to-end evidence"
+  ],
+  "applicable_conditions": [
+    "borehole/fracture image segmentation with labeled images",
+    "periodic fracture traces on cylindrical unfolding",
+    "roughness estimation from calibrated contours",
+    "multi-borehole exploratory connectivity analysis when uncertainty is explicitly treated"
+  ],
+  "failure_or_abandon_conditions": [
+    "independent-image/borehole holdout unavailable for supervised segmentation",
+    "fit parameters violate geometric bounds or R²/residual diagnostics fail",
+    "JRC calibration constants lack physical/provenance basis",
+    "connectivity probabilities cannot be calibrated or sensitivity-tested",
+    "drilling ranking is judged only by the score produced by the same optimized weighting rule"
+  ],
+  "recommended_redo": [
+    "Q1 split by original borehole/image before augmentation; use morphology/U-Net baseline and report IoU/F1 per image/borehole with confidence intervals",
+    "Q2 connected components + topology-aware fragment merge + bounded robust sinusoid fit; explicit reject class for non-sinusoidal traces",
+    "Q3 use one physically calibrated contour-to-mm mapping, no per-image fudge factor; sensitivity over sampling density and avoid clipping-driven claims",
+    "Q4 separate geometric compatibility score from calibrated probability; propagate segmentation/fitting uncertainty via Monte Carlo/bootstrapping and rank drilling sites by expected information gain or robust multi-criteria utility with sensitivity analysis"
+  ]
+}

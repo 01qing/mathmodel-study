@@ -1,0 +1,6 @@
+{
+  "name": "target feature identity leakage",
+  "trigger": "target variable or deterministic copy appears in feature matrix",
+  "gate": "stop training/evaluation; remove target-derived feature and rebuild split/preprocessing pipeline",
+  "source_example": "S020 forecasting code uses column 1 in both X and y"
+}

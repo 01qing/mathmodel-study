@@ -1,0 +1,870 @@
+{
+  "paper": "S015",
+  "pages": [
+    {
+      "pdf_page": 1,
+      "printed_page": 0,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p001.png",
+      "image_sha256": "887deff463a895f22f6c36d5d189fe6d3a8cd448fef95d0f289cb6a1407d867e"
+    },
+    {
+      "pdf_page": 2,
+      "printed_page": 1,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p002.png",
+      "image_sha256": "f74cd5d94a167225dbda9f4bd4ad804698db1d82d72505b1c7b0c085040b525a"
+    },
+    {
+      "pdf_page": 3,
+      "printed_page": 2,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p003.png",
+      "image_sha256": "b6fe5863c899d31148e59130cf6d16699e8e6df8f88337f8bed20b31ee4a2357"
+    },
+    {
+      "pdf_page": 4,
+      "printed_page": 3,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p004.png",
+      "image_sha256": "3696ff7e108c25cc06cd98f5223b20c7a9f3dec28d3b6fffa440f42d7d35277e"
+    },
+    {
+      "pdf_page": 5,
+      "printed_page": 4,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p005.png",
+      "image_sha256": "ddb10eb9c5561778fe9eb1acb31338a5bd21db32e5e55fe5b4b635a6bf542349"
+    },
+    {
+      "pdf_page": 6,
+      "printed_page": 5,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "身份、摘要与目录：摘要分母和未来预测主张定位；不是模型验证。",
+      "image": "visual\\p006.png",
+      "image_sha256": "811b9dfafe6c457eec45acc31b6ef43d56003b9307502b8288ad4c54e528c551"
+    },
+    {
+      "pdf_page": 7,
+      "printed_page": 6,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p007.png",
+      "image_sha256": "2fd78731b94660ccbe97468540d9c6962e09242d95222409f5915f95b838bc35"
+    },
+    {
+      "pdf_page": 8,
+      "printed_page": 7,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p008.png",
+      "image_sha256": "301bd65a9058b13e333f92abe426845b0fcd3e48e2b47580add8c99db009ab8b"
+    },
+    {
+      "pdf_page": 9,
+      "printed_page": 8,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p009.png",
+      "image_sha256": "b66055b492ee384aa29baae13ce48660412ef13e9b02307e453acad9784ccaea"
+    },
+    {
+      "pdf_page": 10,
+      "printed_page": 9,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p010.png",
+      "image_sha256": "d06901f59a064dfeb735d8c4dd92ffb3bef7f605956b71e4b1da98bc64d7e36c"
+    },
+    {
+      "pdf_page": 11,
+      "printed_page": 10,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p011.png",
+      "image_sha256": "b3e84c8d3a4a69cda1c1ddbaf7da22df2dced1e167795bd54575fa40d07e8058"
+    },
+    {
+      "pdf_page": 12,
+      "printed_page": 11,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "背景/题面重述/方法图；p11问号标签错位。",
+      "image": "visual\\p012.png",
+      "image_sha256": "0cbc70f8978d0f59168e74660f97ae8d028429be4002f3407be95a04fe890fb1"
+    },
+    {
+      "pdf_page": 13,
+      "printed_page": 12,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "离差漏平方；统计字段与公式合同核验。",
+      "image": "visual\\p013.png",
+      "image_sha256": "6e9077656fe1395b7255bcabd9bdefdbc2d05089b65971bc8e5d3993259d91d0"
+    },
+    {
+      "pdf_page": 14,
+      "printed_page": 13,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "离差漏平方；统计字段与公式合同核验。",
+      "image": "visual\\p014.png",
+      "image_sha256": "bcac4c003f549d23ed8b6d2ae1a2ebb438db9bcaadb5165d318763de82aa8d08"
+    },
+    {
+      "pdf_page": 15,
+      "printed_page": 14,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p015.png",
+      "image_sha256": "610c082751edd83841d048f96e3aea4299a372ba88ae523ec898e3541e572be2"
+    },
+    {
+      "pdf_page": 16,
+      "printed_page": 15,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p016.png",
+      "image_sha256": "e6cb9b4a4c44124a3ee378face3225e706965ff68429e52ed4d7e6a0c9851a19"
+    },
+    {
+      "pdf_page": 17,
+      "printed_page": 16,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p017.png",
+      "image_sha256": "281a0d6db2827c838114d0b6504bafe071b2af491061c6caf8bc49ea3b65e660"
+    },
+    {
+      "pdf_page": 18,
+      "printed_page": 17,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p018.png",
+      "image_sha256": "6c7b333f47d42fac1f268d39dcc81362d60e64d89f3bf84d0172ae6b8716c099"
+    },
+    {
+      "pdf_page": 19,
+      "printed_page": 18,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p019.png",
+      "image_sha256": "71c23eebb690b32c72b4c59b5d0897929b8bf08bbf6c546b7f3eb63e7bcb4ad6"
+    },
+    {
+      "pdf_page": 20,
+      "printed_page": 19,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p020.png",
+      "image_sha256": "ad08d4b74f88166b9e38a27b950cab05159ea0a9a17cc48a685c5560c944222a"
+    },
+    {
+      "pdf_page": 21,
+      "printed_page": 20,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "误差条实际SD；月季节分解为描述；地图SD与距平标题区分。",
+      "image": "visual\\p021.png",
+      "image_sha256": "e6ef4030398e01a03c1759d2fd1ef48f4b5f8d72036c9b2bf3efd5207abc3449"
+    },
+    {
+      "pdf_page": 22,
+      "printed_page": 21,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p022.png",
+      "image_sha256": "a9e2ec0d62e22a242f4db7098113478746b68992a367939cc79dfd9b7c999f2c"
+    },
+    {
+      "pdf_page": 23,
+      "printed_page": 22,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p023.png",
+      "image_sha256": "ff2964dd35432a7b108303f73cbeb210dc19150925d99d059bddce26fc2629ea"
+    },
+    {
+      "pdf_page": 24,
+      "printed_page": 23,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p024.png",
+      "image_sha256": "e746a22edf43ee445627e7018fcc84c03af1a4897fe9c2336128bde6f54f8ee4"
+    },
+    {
+      "pdf_page": 25,
+      "printed_page": 24,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p025.png",
+      "image_sha256": "7ce6c617372f999b71afb47d38b629b7682c671028dc8a05f1db3ee57ae46e65"
+    },
+    {
+      "pdf_page": 26,
+      "printed_page": 25,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p026.png",
+      "image_sha256": "8388cea557f2ddfee3c1822f4a0b0e724323d761e492c466f562d3e2feca7675"
+    },
+    {
+      "pdf_page": 27,
+      "printed_page": 26,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "土地支持、动态度、成分度和图表；闭合冲突、草地趋势正文矛盾。",
+      "image": "visual\\p027.png",
+      "image_sha256": "bfc0658419547a69714e84050d0b1c862330417fcd7da03fb716361b5d1b4dab"
+    },
+    {
+      "pdf_page": 28,
+      "printed_page": 27,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p028.png",
+      "image_sha256": "e8845f16eecfdc0b2b5e8092fe1bd878890cf6e99d8dbef7ad954c6268e70390"
+    },
+    {
+      "pdf_page": 29,
+      "printed_page": 28,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p029.png",
+      "image_sha256": "862e1f4718240a830739dc8d392b3e317eac9d64fc04fabf555f6998431fa08f"
+    },
+    {
+      "pdf_page": 30,
+      "printed_page": 29,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p030.png",
+      "image_sha256": "a259436ec145396efea3ef4d20fd2a994c208b3397f3a1f32a5258556429ef17"
+    },
+    {
+      "pdf_page": 31,
+      "printed_page": 30,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p031.png",
+      "image_sha256": "80f7e396cbee2e8584cd8586ba4dfef68e8d19894430e054964acb07055dd3f4"
+    },
+    {
+      "pdf_page": 32,
+      "printed_page": 31,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p032.png",
+      "image_sha256": "2e5fedfc5f18be4f3875f853273b9036f4ee0353c378bdd110db511837bc869c"
+    },
+    {
+      "pdf_page": 33,
+      "printed_page": 32,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p033.png",
+      "image_sha256": "b7b321b83bdc5fd646d36d912446af7e4d21d3e401db2fb0239472a2d479a7e7"
+    },
+    {
+      "pdf_page": 34,
+      "printed_page": 33,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p034.png",
+      "image_sha256": "a8a010fa55571ac5dc95d638eaa5711f3154b1a178e1115af2b09a8d38559a09"
+    },
+    {
+      "pdf_page": 35,
+      "printed_page": 34,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "重采样、坐标、缺失、类别表；p30坐标极值错位；p35湿日分母。",
+      "image": "visual\\p035.png",
+      "image_sha256": "66a4277727ae2191e87e72d1342185eb831202f3fb269a59c10849a8467acc07"
+    },
+    {
+      "pdf_page": 36,
+      "printed_page": 35,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "总相关图与分项图标签/数值不一致；92病例统计中位数不是必要阈值。",
+      "image": "visual\\p036.png",
+      "image_sha256": "93571084f5656e3f93f2946df8d8e9d6de06141f55fbe388418eab204c2352db"
+    },
+    {
+      "pdf_page": 37,
+      "printed_page": 36,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "总相关图与分项图标签/数值不一致；92病例统计中位数不是必要阈值。",
+      "image": "visual\\p037.png",
+      "image_sha256": "2663a032bef79818d9b779d872c61c77b274c59377d913d284d40b0a72aca0f4"
+    },
+    {
+      "pdf_page": 38,
+      "printed_page": 37,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "总相关图与分项图标签/数值不一致；92病例统计中位数不是必要阈值。",
+      "image": "visual\\p038.png",
+      "image_sha256": "cb9b15754549b8e38a76289de6f68b85b072264cf12eb8fb99ebe466fe5af47c"
+    },
+    {
+      "pdf_page": 39,
+      "printed_page": 38,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "总相关图与分项图标签/数值不一致；92病例统计中位数不是必要阈值。",
+      "image": "visual\\p039.png",
+      "image_sha256": "f6f97ec8c4cb440d73051870f420c8dcbf95498158723368748630112c7cfde6"
+    },
+    {
+      "pdf_page": 40,
+      "printed_page": 39,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p040.png",
+      "image_sha256": "9e7453a58200db1bb1ee8b62947025d88889dddb645a35b563b8609777757df6"
+    },
+    {
+      "pdf_page": 41,
+      "printed_page": 40,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p041.png",
+      "image_sha256": "57fa8e187ab9b07610bf21ae12622501c0db36c4c1e65b575357828aa7b819ab"
+    },
+    {
+      "pdf_page": 42,
+      "printed_page": 41,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p042.png",
+      "image_sha256": "082681e5e84343f0ff191c758a2074694a774420a2bed80fc41579645917c57e"
+    },
+    {
+      "pdf_page": 43,
+      "printed_page": 42,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p043.png",
+      "image_sha256": "6a0e8c9ed4a77ee8068b76b09ea195d90330b0e003723a55652ade57e7407e5e"
+    },
+    {
+      "pdf_page": 44,
+      "printed_page": 43,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p044.png",
+      "image_sha256": "073f43660ca59fb9755d806d0f6b56fe9539d8af1bc5fe49b3ef02249d2be505"
+    },
+    {
+      "pdf_page": 45,
+      "printed_page": 44,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "联合均值方差/树/MCP；p42残差重尾和尺度变化；p44条件树只292例需追溯来源。",
+      "image": "visual\\p045.png",
+      "image_sha256": "2b55b2e27fbe4d0d924c099a5e5739446083c433272fd812085367e01262618d"
+    },
+    {
+      "pdf_page": 46,
+      "printed_page": 45,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p046.png",
+      "image_sha256": "e725dcbfa25b2075c0fd6268d48b5227d3b07cfaeef3988e94fb920050dc2d31"
+    },
+    {
+      "pdf_page": 47,
+      "printed_page": 46,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p047.png",
+      "image_sha256": "06a37d9436a02bcfe4b857220140dee1720c0a41f0d2c0beb34e9ecf46c94726"
+    },
+    {
+      "pdf_page": 48,
+      "printed_page": 47,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p048.png",
+      "image_sha256": "374aea2a5651086016600133e13de0e41c7de5ebe040a6fd91bcda42deef901d"
+    },
+    {
+      "pdf_page": 49,
+      "printed_page": 48,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p049.png",
+      "image_sha256": "7bc301460379f4f57fd08aefd4997d2886d41b13aae00fc94a89028753bee80b"
+    },
+    {
+      "pdf_page": 50,
+      "printed_page": 49,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p050.png",
+      "image_sha256": "66aab7c5c894ab77af67a8e879c0557bb899d6ca17843dca9f7d0ffb53975c03"
+    },
+    {
+      "pdf_page": 51,
+      "printed_page": 50,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p051.png",
+      "image_sha256": "d9d358b0eaf43d005011b89ede00351db5167621da288f56052e294f8d6ec38a"
+    },
+    {
+      "pdf_page": 52,
+      "printed_page": 51,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "历史聚类与标签；BIC候选上界9；中心风险名称没有灾害真值验证。",
+      "image": "visual\\p052.png",
+      "image_sha256": "2a3a4adc57dd9b3a5f144decfdd3f382d8a4161eafa1fc6ad0333ce2635d494d"
+    },
+    {
+      "pdf_page": 53,
+      "printed_page": 52,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p053.png",
+      "image_sha256": "2b01e37bde59ee6eb3658c552285e21816cdab04ffc514b087c574d82cafd933"
+    },
+    {
+      "pdf_page": 54,
+      "printed_page": 53,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p054.png",
+      "image_sha256": "4122f0b1dd81f67a3e5ed21243480405db0d6e33570631402e8b694123d21c98"
+    },
+    {
+      "pdf_page": 55,
+      "printed_page": 54,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p055.png",
+      "image_sha256": "0689914f7fbce1cd112096638e8beda8e8749e52e78792f3525838cac13872ac"
+    },
+    {
+      "pdf_page": 56,
+      "printed_page": 55,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p056.png",
+      "image_sha256": "ceb938c9cb11dec3e3fd2889c301d1888a5837f7a93b672106a8ba5727648f56"
+    },
+    {
+      "pdf_page": 57,
+      "printed_page": 56,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p057.png",
+      "image_sha256": "fb6a06c4744f4596bd15faab88f2db42a6d21c32bd11260128c8a636a43c68cc"
+    },
+    {
+      "pdf_page": 58,
+      "printed_page": 57,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP瀑布/总体图/依赖图；区分局部、全局、margin、概率、因果。",
+      "image": "visual\\p058.png",
+      "image_sha256": "b87950c4aa1704bf15d50a0830a869218500fdbb9c0ac77a090c1db7de19ead2"
+    },
+    {
+      "pdf_page": 59,
+      "printed_page": 58,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p059.png",
+      "image_sha256": "776deb673f370f67e6921ebd0ed15c474df7a5590468cf16434d4fb24eca5a74"
+    },
+    {
+      "pdf_page": 60,
+      "printed_page": 59,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p060.png",
+      "image_sha256": "6f25098db9641c661d784ff153853751f05615493cadb41de2b6d01169d214d9"
+    },
+    {
+      "pdf_page": 61,
+      "printed_page": 60,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p061.png",
+      "image_sha256": "7b96254cd937f97f3e5c51720eaefc8c3af860dee9b2b30c33da8a7470a749a3"
+    },
+    {
+      "pdf_page": 62,
+      "printed_page": 61,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p062.png",
+      "image_sha256": "93493ca135c59ce110d9ea40f9899f593faa442954e9a872ca2f0efc79ba68de"
+    },
+    {
+      "pdf_page": 63,
+      "printed_page": 62,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p063.png",
+      "image_sha256": "5895c1024fde9576267449e392c85deee553f7e6cfbfeab37aca6f6ce44c5a21"
+    },
+    {
+      "pdf_page": 64,
+      "printed_page": 63,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p064.png",
+      "image_sha256": "31c6aee0b85ac387d4aacad0b428a3c0deb9f1fa98d09e47a16a242209e585dc"
+    },
+    {
+      "pdf_page": 65,
+      "printed_page": 64,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SVM/RF评价与未来地图；硬标签ROC、低正类召回、无时间演化链。",
+      "image": "visual\\p065.png",
+      "image_sha256": "20f6dfca9d3f699d697aac192b603092e0b962b8cdb3d966731d5b7921df27bb"
+    },
+    {
+      "pdf_page": 66,
+      "printed_page": 65,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p066.png",
+      "image_sha256": "4cca931658645e621c02e5b29065af2de02998ef7735682878815704033503c8"
+    },
+    {
+      "pdf_page": 67,
+      "printed_page": 66,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p067.png",
+      "image_sha256": "e11f470bab1b9b99281169d64aa80808688c33d20dd127ae1790a22747e3e09b"
+    },
+    {
+      "pdf_page": 68,
+      "printed_page": 67,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p068.png",
+      "image_sha256": "1df1dce408bcbc9ded20f0b89dc0eff73223677b24c91c9493fd215fd24ee1ff"
+    },
+    {
+      "pdf_page": 69,
+      "printed_page": 68,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p069.png",
+      "image_sha256": "1718826663a28e7f162d9ed5b98fd86e05b605447f185079955b9be6bd922f71"
+    },
+    {
+      "pdf_page": 70,
+      "printed_page": 69,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p070.png",
+      "image_sha256": "3046b8c58bf7dbd8e749b08f5e867172179b4264d4cd9cef49bf051953c8cdb4"
+    },
+    {
+      "pdf_page": 71,
+      "printed_page": 70,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p071.png",
+      "image_sha256": "5a0234f8bd3538ef002620dbf832caaa98914a9952189b8207d707222340c3f5"
+    },
+    {
+      "pdf_page": 72,
+      "printed_page": 71,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p072.png",
+      "image_sha256": "a9ad5f679fdbc38de05845738c1c67b9ced45231b6a731e6d201ef1f501d10ff"
+    },
+    {
+      "pdf_page": 73,
+      "printed_page": 72,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "人口GDP和分区检验；统计单位、方向、效用分离。",
+      "image": "visual\\p073.png",
+      "image_sha256": "58d22f2daa660af5d69c43fb85f98d511351c9ee7787264c5efa1df936d50058"
+    },
+    {
+      "pdf_page": 74,
+      "printed_page": 73,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p074.png",
+      "image_sha256": "7f50205ee290f7cdedd77c775298d3b0517fd006e54bbd648f2360c5124166c7"
+    },
+    {
+      "pdf_page": 75,
+      "printed_page": 74,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p075.png",
+      "image_sha256": "311e0c24a9b95569f68ffb28bfe314cb05639d6dfbf9cda99b2c8229f17835bc"
+    },
+    {
+      "pdf_page": 76,
+      "printed_page": 75,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p076.png",
+      "image_sha256": "00519515b1db6d273784ec9466cf357c94118851a3569ec112fed8aaa2e9ad5e"
+    },
+    {
+      "pdf_page": 77,
+      "printed_page": 76,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p077.png",
+      "image_sha256": "6c2460e56d3e5168fbfc317a6239095e337024468ecf4a51e2ef3336a1cc9100"
+    },
+    {
+      "pdf_page": 78,
+      "printed_page": 77,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p078.png",
+      "image_sha256": "9171fd8e38a2afb5907b627314aa57cbe68fd43146587cc0b600ea4376d92bb5"
+    },
+    {
+      "pdf_page": 79,
+      "printed_page": 78,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "结论与文献；Q4方向冲突延续至摘要；表6-1将GMM称有监督回归不符前文。",
+      "image": "visual\\p079.png",
+      "image_sha256": "2f8136be0502f1a7820a3a5473a6b30db477414c77ccc63ea35839406e0d5e54"
+    },
+    {
+      "pdf_page": 80,
+      "printed_page": 79,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p080.png",
+      "image_sha256": "4b9d4c21f149d0a413eec2dc402997242b6a5990cb669c82104362e795324587"
+    },
+    {
+      "pdf_page": 81,
+      "printed_page": 80,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p081.png",
+      "image_sha256": "64e9c509abc2c444105c3b1ee8680d4fcf78ba7a866616bb902ac4e6501e080e"
+    },
+    {
+      "pdf_page": 82,
+      "printed_page": 81,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p082.png",
+      "image_sha256": "932512c3f9c973363d8eac61ca1caa7351f2062f15e0320a8e7f3f960603fef8"
+    },
+    {
+      "pdf_page": 83,
+      "printed_page": 82,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p083.png",
+      "image_sha256": "7d3d9734e9d94130042429526b42bad45b1b2e3f5ff8ba60fd2348e83e8e0756"
+    },
+    {
+      "pdf_page": 84,
+      "printed_page": 83,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p084.png",
+      "image_sha256": "17b9115b0eed7d9c7c31fcf66d1069e4b9a17322a00a32400ca9b1e6c5df0d52"
+    },
+    {
+      "pdf_page": 85,
+      "printed_page": 84,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p085.png",
+      "image_sha256": "c3bc7cf0d0a5cb82906ee2526eb3ce9e6d57896447110fab828cf5790a661dc2"
+    },
+    {
+      "pdf_page": 86,
+      "printed_page": 85,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "逐年地图附录实际查看；未分类地图各年色标范围不同，不能直接比颜色。",
+      "image": "visual\\p086.png",
+      "image_sha256": "6def40c05b2a9bc33f1625b3c46c0bda771517b3b75c624e0edbaa7cd5340c31"
+    },
+    {
+      "pdf_page": 87,
+      "printed_page": 86,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p087.png",
+      "image_sha256": "f3f26b5312d572114930a263c09515770efd79f8a6f9844762655adb29fcb073"
+    },
+    {
+      "pdf_page": 88,
+      "printed_page": 87,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p088.png",
+      "image_sha256": "e68f1a0760a73907677b98623e13586d72d48d9e75384163cd3bfae76707f006"
+    },
+    {
+      "pdf_page": 89,
+      "printed_page": 88,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p089.png",
+      "image_sha256": "b835a89d898134ab475ea75af60cd5dee3cee94c8dca9d716dbec4688c106920"
+    },
+    {
+      "pdf_page": 90,
+      "printed_page": 89,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p090.png",
+      "image_sha256": "189cc3a4e905564d65f48753f57bb9df9fd6f7c3f4bc74d2ac393e045e54c609"
+    },
+    {
+      "pdf_page": 91,
+      "printed_page": 90,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p091.png",
+      "image_sha256": "8820ad1672597ec15bb079829aa1491335c69d63fbfc392fa395f99969f2b6ce"
+    },
+    {
+      "pdf_page": 92,
+      "printed_page": 91,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p092.png",
+      "image_sha256": "cab261e4d563fc4716151d1f12f06f57ea7114972f111815ab997f0f59547287"
+    },
+    {
+      "pdf_page": 93,
+      "printed_page": 92,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p093.png",
+      "image_sha256": "33261babd0427b58633f87b7d877f99a281fb132b49b18250a1dda62e8ac2611"
+    },
+    {
+      "pdf_page": 94,
+      "printed_page": 93,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "R打印附录实际查看；缺失字段/调用链、标签构造、拟合与OOB、外部xlsx。",
+      "image": "visual\\p094.png",
+      "image_sha256": "f647b939efbc7785075de4b6c877953f48ae1f188a79c96cbae5eda3370caa0f"
+    },
+    {
+      "pdf_page": 95,
+      "printed_page": 94,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP row2及分区聚合；重复区域字段及位置选列风险。",
+      "image": "visual\\p095.png",
+      "image_sha256": "ec539c24de89458106852c80d8b1aa46ccbc2b56629998e7aea93afcaf093065"
+    },
+    {
+      "pdf_page": 96,
+      "printed_page": 95,
+      "text_read": true,
+      "visual_reviewed": true,
+      "note": "SHAP row2及分区聚合；重复区域字段及位置选列风险。",
+      "image": "visual\\p096.png",
+      "image_sha256": "31605b78f4726d04dde7bcb2483b0d448989846ebc2776690225aa93cbe2264f"
+    }
+  ],
+  "scope": "All pages actually viewed; does not establish numeric reproduction"
+}

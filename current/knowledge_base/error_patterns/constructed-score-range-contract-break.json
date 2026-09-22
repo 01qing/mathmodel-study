@@ -1,0 +1,7 @@
+{
+  "pattern_id": "constructed-score-range-contract-break",
+  "name": "综合评分公式与声明/结果范围不闭合",
+  "trigger": "component bounds and weights imply one score range but grades/final values lie outside it, or adjustment factors break a declared maximum",
+  "example": "S043 Eq.(5-14) implies <=1 under its component definitions while Table 5.7 reaches 4.620; final fantasy score declares max100 while multiplicative factors can exceed it",
+  "gate": "derive algebraic min/max before ranking; add explicit transform/clip/renormalization to Result Registry or reject unreplayable score claims"
+}

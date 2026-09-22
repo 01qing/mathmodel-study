@@ -1,0 +1,33 @@
+{
+  "case_id": "2025-E-GTeacher2-code",
+  "source_id": "GT2025E-G2-RESULTS",
+  "review_status": "VISUALLY_CHECKED_AUTHOR_OUTPUT_NOT_REPRODUCED",
+  "figures": [
+    {
+      "file": "provided_figure_01.png",
+      "type": "grouped_bar",
+      "layout": "16个样本A-P，每个样本3根柱：两次预测置信度+融合置信度；上方标最终标签；横向宽图",
+      "purpose": "展示逐样本两次预测与融合后的置信度变化，定位融合是否保留/提升较强预测",
+      "cannot_prove": "没有真值时不能证明融合标签正确；高置信度也不是准确率",
+      "transfer": "新题若有多模型/多次运行融合，可用逐样本并列柱展示融合前后，不要求复制颜色"
+    },
+    {
+      "file": "provided_figure_02.png",
+      "type": "confidence_scatter",
+      "layout": "ConfMaj_1×ConfMaj_2二维散点，y=x虚线；用不同marker区分一致/不一致并标样本字母",
+      "purpose": "观察两次模型/运行置信度的一致性、偏离方向和异常样本",
+      "cannot_prove": "靠近y=x只表示两个置信度接近，不证明预测类别或结果正确",
+      "transfer": "模型一致性或多传感器一致性分析可复用“对角参考线+异常标注”结构"
+    },
+    {
+      "file": "provided_figure_03.png",
+      "type": "label_count_bar",
+      "layout": "OR/IR/B/N/UNK类别计数柱状图，柱顶标数量",
+      "purpose": "汇总最终预测组成并快速检查是否出现未知类/类别极端偏置",
+      "cannot_prove": "类别数量分布不等于真实类别分布，更不能作为分类性能",
+      "transfer": "无标签目标域可作为描述性结果图，但必须与不确定性/一致性证据一起使用"
+    }
+  ],
+  "style_observed": "白底、轻网格、黑色轴框、中文标题和轴名；柱图/散点使用清晰的类别区分。属于结果解释型工程图，学习证据组织优先于照抄配色。",
+  "argumentation_chain": "文件级两次预测 → 逐样本置信度对比 → 两次结果一致性散点 → 融合后类别分布；若用于正式论文，还需补源域独立测试混淆矩阵、迁移前后嵌入/距离、消融及目标域无真值限制说明。"
+}

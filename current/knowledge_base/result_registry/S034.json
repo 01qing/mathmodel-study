@@ -1,0 +1,334 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "schema_version": "1.0",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_CONFUSION_METRIC_REPLAY",
+      "question": "Q1",
+      "source": "Table 5 pp.25-26",
+      "reported": {
+        "mean_precision": 0.895,
+        "mean_recall": 0.922,
+        "mean_f1": 0.908,
+        "three_image_counts": [
+          {
+            "img": "1-1",
+            "TP": 2908,
+            "FP": 348,
+            "FN": 254,
+            "TN": 325590,
+            "reported": {
+              "Precision": 0.893,
+              "Recall": 0.92,
+              "F1": 0.906
+            },
+            "recomputed": {
+              "Precision": 0.8931203931203932,
+              "Recall": 0.9196710942441493,
+              "F1": 0.9062013088189468,
+              "Accuracy": 0.9981707687632938
+            }
+          },
+          {
+            "img": "1-2",
+            "TP": 3687,
+            "FP": 441,
+            "FN": 329,
+            "TN": 324643,
+            "reported": {
+              "Precision": 0.893,
+              "Recall": 0.918,
+              "F1": 0.905
+            },
+            "recomputed": {
+              "Precision": 0.8931686046511628,
+              "Recall": 0.9180776892430279,
+              "F1": 0.9054518664047151,
+              "Accuracy": 0.9976602856274689
+            }
+          },
+          {
+            "img": "1-3",
+            "TP": 2563,
+            "FP": 284,
+            "FN": 198,
+            "TN": 326055,
+            "reported": {
+              "Precision": 0.9,
+              "Recall": 0.928,
+              "F1": 0.914
+            },
+            "recomputed": {
+              "Precision": 0.9002458728486126,
+              "Recall": 0.9282868525896414,
+              "F1": 0.9140513552068473,
+              "Accuracy": 0.9985353995745974
+            }
+          }
+        ]
+      },
+      "recomputed": {
+        "macro": {
+          "Precision": 0.8955116235400561,
+          "Recall": 0.9220118786922727,
+          "F1": 0.9085681768101698,
+          "Accuracy": 0.9981221513217866
+        }
+      },
+      "audit": "Per-image Precision/Recall/F1 replay correctly to the reported rounded values. This arithmetic check does not validate the ground-truth masks; truth-label provenance is not stated."
+    },
+    {
+      "id": "Q1_GROUND_TRUTH_PROVENANCE",
+      "question": "Q1",
+      "source": "sections 3.2-3.3 + Table 5",
+      "reported": {
+        "TP_FP_FN_TN": "provided for three images",
+        "mask_annotation_protocol": "not stated"
+      },
+      "audit": "Strong pixel metrics require a reference-mask contract: annotator/source, ambiguity handling, independence from feature-weight/threshold tuning, and original-image holdout identity."
+    },
+    {
+      "id": "Q2_RANSAC_PERIOD_PRIMITIVE_GAP",
+      "question": "Q2",
+      "source": "Algorithm 3",
+      "reported": {
+        "output": "R*,P*,beta*,C*",
+        "step3_initial_parameters": "Rinit,beta_init,Cinit only"
+      },
+      "audit": "The pseudocode does not specify how P is estimated or initialized, so the claimed four-parameter RANSAC chain is incomplete at the algorithm-contract level."
+    },
+    {
+      "id": "Q2_HORIZONTAL_BAND_AXIS_DRIFT",
+      "question": "Q2",
+      "source": "section 4.2.1 Eq.35",
+      "reported": {
+        "text": "horizontal distance/merge",
+        "formula": "|y_A-y_B|<D"
+      },
+      "audit": "The named horizontal criterion and the y-coordinate formula do not agree. Axis semantics must be explicit before transfer."
+    },
+    {
+      "id": "Q2_SIGNIFICANCE_PROVENANCE",
+      "question": "Q2",
+      "source": "Table 6 p.37",
+      "reported": {
+        "effective_fit_rate": [
+          0.78,
+          0.42,
+          "p<0.01"
+        ],
+        "median_R2": [
+          0.847,
+          0.741,
+          "p<0.01"
+        ],
+        "IQR": [
+          0.05,
+          0.18,
+          "p<0.01"
+        ],
+        "RMSE": [
+          3.1,
+          5.6,
+          "p<0.01"
+        ],
+        "noise_drop_R2": [
+          -0.04,
+          -0.17,
+          "p=0.01"
+        ]
+      },
+      "audit": "No test family, test statistic, sample size, sample unit or pairing rule is reported in the paper text; the p-values cannot be independently interpreted/replayed from the visible evidence."
+    },
+    {
+      "id": "Q2_PERIOD_GEOMETRY_CONTRACT",
+      "question": "Q2",
+      "source": "section 4.3.2 + Table 7 + Q3 Eq.47 discussion",
+      "reported": {
+        "model2": "fixes period P to reduce Hough dimension",
+        "model1_table7_P_range_mm": [
+          80,
+          110
+        ],
+        "later_Q3": "period P fixed to borehole circumference L"
+      },
+      "audit": "The paper itself recognizes the physical fixed-period contract in Q3. Q2 should justify why free P is needed, or prefer fixed P=pi*D/calibrated horizontal span."
+    },
+    {
+      "id": "Q3_BOOTSTRAP_ESTIMATOR_DRIFT",
+      "question": "Q3",
+      "source": "sections 5.2.1 and Algorithm 4",
+      "reported": {
+        "main_parameter_estimator": "least squares",
+        "bootstrap_step3": "maximum likelihood"
+      },
+      "audit": "Resample estimator must match the fitted model unless a distinct likelihood is explicitly defined."
+    },
+    {
+      "id": "Q3_BOOTSTRAP_CI_ORDER",
+      "question": "Q3",
+      "source": "Algorithm 4 Step4.2",
+      "reported": {
+        "displayed_CI": "[theta_(1-a/2), theta_(a/2)]",
+        "text": "first is upper quantile, second is lower quantile"
+      },
+      "audit": "Conventional percentile CI is ordered [theta_(a/2), theta_(1-a/2)]. The displayed interval is reversed."
+    },
+    {
+      "id": "Q3_DENSE_REFERENCE_NOT_TRUTH",
+      "question": "Q3",
+      "source": "section 5.5 sampling comparison",
+      "reported": {
+        "wording": "all methods converge to similar true JRC values",
+        "evidence": "only numerical results at N=50/100/200/300/400"
+      },
+      "audit": "Without external physical roughness truth, the N=400/dense result is a numerical reference/convergence target, not demonstrated ground truth accuracy."
+    },
+    {
+      "id": "Q3_RAF_COEFFICIENT_PROVENANCE",
+      "question": "Q3",
+      "source": "Eq.59",
+      "reported": {
+        "alpha": "0.15±0.03",
+        "beta": "0.02±0.01",
+        "calibration_protocol": "not visible"
+      },
+      "audit": "The correction coefficients need data source, estimator, uncertainty interpretation and validation split before cross-case transfer."
+    },
+    {
+      "id": "Q3_Q4_JRC_RANGE_CONTRACT",
+      "question": "Q3/Q4",
+      "source": "Table 8 + Table 10 + Eq.65",
+      "reported": {
+        "Q3_sampling_examples": "roughly 17-40",
+        "Q4_reported_range": "25-60; mean 42.77",
+        "Q4_JRCmax": 20
+      },
+      "audit": "Using JRCmax=20 as a similarity scale is not reconciled with reported JRC values up to 60. A scale parameter need not equal a hard maximum, but its semantic/empirical calibration must be stated; otherwise cross-stage weighting is arbitrary."
+    },
+    {
+      "id": "Q4_ISOLATION_RATE_DRIFT",
+      "question": "Q4",
+      "source": "abstract vs section 6.3.3",
+      "reported": {
+        "abstract": "32 isolated out of 50 = 64% isolated",
+        "body": "about 85% not connected"
+      },
+      "recomputed": {
+        "32_over_50": 0.64
+      },
+      "audit": "64% arithmetic is correct. The 85% statement cannot be the same isolation-rate statistic and needs a separate denominator/definition or correction."
+    },
+    {
+      "id": "Q4_CLUSTER_MEAN_THRESHOLD_SEMANTICS",
+      "question": "Q4",
+      "source": "Algorithm 6 + Table 11",
+      "reported": {
+        "edge_threshold": 0.3,
+        "cluster12_mean_connectivity": 0.196
+      },
+      "audit": "Not automatically contradictory: a connected component can contain many non-edge node pairs below threshold. But the table must define whether the mean is over retained edges, all within-cluster pairs, or another denominator."
+    },
+    {
+      "id": "Q4_PROBABILITY_CALIBRATION",
+      "question": "Q4",
+      "source": "Eq.60-66",
+      "reported": {
+        "Pc": "product of five heuristic factors in [0,1]",
+        "assumption": "conditional independence",
+        "validation_labels": "none shown"
+      },
+      "audit": "Conditional-independence language does not by itself calibrate component scores as probabilities. Register this as a geometry/engineering compatibility score unless labeled connectivity or a generative likelihood validates probability semantics."
+    },
+    {
+      "id": "Q4_UNCERTAINTY_SEMANTICS",
+      "question": "Q4",
+      "source": "section 6.4",
+      "reported": {
+        "information": "I0*exp(-d/Lc), Lc=1000 mm",
+        "aggregation": "IDW p=2",
+        "uncertainty": "information deficit"
+      },
+      "audit": "This defines a deterministic spatial coverage/information surrogate. No random variable, posterior distribution or observation-noise model is specified, so posterior-uncertainty claims are unsupported."
+    },
+    {
+      "id": "Q4_INFORMATION_GAIN_SEMANTICS",
+      "question": "Q4",
+      "source": "Algorithm 7",
+      "reported": {
+        "information_gain": "drop in the above uncertainty/coverage field after adding a candidate"
+      },
+      "audit": "This is marginal coverage-score improvement. Expected information gain would require averaging posterior uncertainty reduction over possible future observations."
+    },
+    {
+      "id": "Q4_SPACING_SET_CONTRACT",
+      "question": "Q4",
+      "source": "Eq.71 + existing borehole coordinates + Table 12",
+      "reported": {
+        "text_min_spacing_mm": 500,
+        "formal_constraint": "||x_n,i-x_n,j||>=500 among new holes",
+        "recommended_new": [
+          [
+            800,
+            1300
+          ],
+          [
+            2400,
+            1500
+          ],
+          [
+            1600,
+            1500
+          ]
+        ]
+      },
+      "recomputed": {
+        "new_new_min_mm": 800.0,
+        "nearest_existing_new": {
+          "existing_hole": 4,
+          "new_hole": 1,
+          "distance_mm": 424.26406871192853
+        }
+      },
+      "audit": "All new-new distances satisfy 500 mm. However the first new point is ~424.3 mm from existing hole 4. If the safety rule applies to all boreholes, the mathematical model is missing existing-new constraints; if it applies only among new holes, the text should say so."
+    },
+    {
+      "id": "Q4_UNCERTAINTY_REDUCTION_REPLAY",
+      "question": "Q4",
+      "source": "abstract/results",
+      "reported": {
+        "before": 0.523,
+        "after": 0.395,
+        "reduction_percent": 24.5
+      },
+      "recomputed": {
+        "reduction_percent": 24.47418738049713
+      },
+      "audit": "24.474% rounds to 24.5%; arithmetic passes. The underlying fields remain non-reproducible without Attachment 9/data artifacts."
+    },
+    {
+      "id": "CODE_ATTACHMENT_ACCESS_GAP",
+      "question": "ALL",
+      "source": "Appendix A Table 13 + available 2025 excellent-paper ZIP",
+      "reported": {
+        "attachment9": "code for each question"
+      },
+      "audit": "The available collection contains the excellent-paper PDFs only. Attachment 9 code is not present, so S034 remains R1; do not infer implementation fidelity from pseudocode or generated figures."
+    }
+  ],
+  "global_gates": [
+    "confusion metrics require ground-truth-mask provenance in addition to arithmetic replay",
+    "p-values require named test/statistic/sample-unit/pairing/sample-size provenance",
+    "pseudocode output parameters must be generated by visible estimator primitives",
+    "dense numerical convergence is not physical ground truth",
+    "bootstrap estimator and CI ordering must match the claimed statistical procedure",
+    "cross-stage normalization/scale constants must be compatible with upstream value support",
+    "heuristic [0,1] factor products are scores until calibrated",
+    "deterministic coverage fields are not posterior uncertainty",
+    "marginal coverage reduction is not expected information gain",
+    "hard distance constraints must state and check every interacting set (new-new and existing-new)",
+    "referenced-but-unavailable code cannot justify R2"
+  ]
+}

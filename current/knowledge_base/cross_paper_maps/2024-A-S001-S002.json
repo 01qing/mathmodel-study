@@ -1,0 +1,43 @@
+{
+  "case_group": "2024-A",
+  "papers": [
+    "S001",
+    "S002"
+  ],
+  "purpose": "same-problem alternative-method learning; choose by structure, data and validation burden rather than prestige",
+  "questions": {
+    "Q1": {
+      "S001": "streaming turning-point/RRF-style online fatigue with temporary damage handling and time correction",
+      "S002": "TW-Rainflow-Goodman-Miner sliding-window approximation",
+      "selection_rule": "Prefer an explicitly stateful online algorithm if exact incremental semantics matter; prefer a windowed approximation only after window-size sensitivity and exact-rainflow error are quantified."
+    },
+    "Q2": {
+      "S001": "low-parameter physics + one-step control-lag regression",
+      "S002": "physics-derived variables + BiLSTM, compared with Nelder-Mead",
+      "selection_rule": "Start with the lowest-complexity causal physics/residual baseline. Upgrade to sequence networks only if chronological holdout shows material improvement and lag structure requires it."
+    },
+    "Q3": {
+      "S001": "DDPG learned continuous allocation + safety layer",
+      "S002": "NSGA-II explicit Pareto optimization",
+      "selection_rule": "Use NSGA-II/solver on reduced instances as an interpretable optimization benchmark; use learned policy only when repeated online solves are too slow and policy feasibility can be guaranteed/tested."
+    },
+    "Q4": {
+      "S001": "communication anomaly prediction + robust/min-max style optimization",
+      "S002": "SVD denoise + phase-delay detection + spline reconstruction + rerun optimizer",
+      "selection_rule": "First identify whether corruption is missingness, delay, or additive noise. Evaluate detector/reconstructor independently before embedding in a robust optimizer."
+    }
+  },
+  "shared_failure_checks": [
+    "time-order leakage",
+    "unit/parameter consistency",
+    "componentwise constraint violations",
+    "runtime distribution not single screenshot",
+    "error propagation from Q2 surrogate into Q1/Q3 objective",
+    "robustness across noise/delay severity"
+  ],
+  "figure_design_contrast": {
+    "S001": "fewer, more targeted per-object/per-method figures in the reviewed core",
+    "S002": "63 main figures with extensive repeated scenario evidence",
+    "lesson": "figure count is not a quality target; preserve distinct evidence roles and consolidate repeated scenario-metric plots."
+  }
+}

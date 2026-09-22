@@ -1,0 +1,6 @@
+{
+  "id": "domain-registry-paper-code-bound-drift",
+  "trigger": "paper equations/tables and optimizer code use different bounds or category domains for the same variable.",
+  "risk": "the optimizer can return a point that is feasible in code but infeasible in the mathematical model/competition problem.",
+  "gate": "Store bounds/vocabularies once in a machine-readable domain registry imported by paper tables, optimizer and replay tests; diff paper/code domains before optimization."
+}

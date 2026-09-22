@@ -1,0 +1,123 @@
+{
+  "case_group": "2025-A",
+  "papers": [
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "papers_reviewed": [
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "papers_pending": [],
+  "questions": {
+    "Q1": {
+      "S025": "DAG scheduling: critical-path/greedy initial schedules + paper-claimed simulated annealing; good Vstay trajectory evidence, but SA implementation and Figure 5.7 numeric contract are incomplete",
+      "selection_lesson": "preserve topology, replay peak Vstay from one result registry, and compare optimizer quality under matched runtime/evaluation budgets",
+      "S026": "type-priority greedy + tabu/neighborhood search; full MATLAB listing visible, but size/criticality terms and adaptive tabu length are not implemented as described, and tabu moves are stored as a flat character stream. Reported Cmax matches S025 on 5/6 workloads but is worse on Conv_Case0.",
+      "competition_after_S026": "Current robust baseline is Kahn/FREE-first/critical-path scheduling. S025 SA and S026 tabu are both optional refiners; neither enters mainline until matched-budget, multi-seed evaluation and small-instance exact-gap calibration.",
+      "S027": "MCBGS deterministic multi-constraint greedy. Reported Cmax equals S025/S026 on five workloads; Conv_Case0=12432, between S025=7660 and S026=14592. Appendix omits core priority/critical-path/cache helper definitions, and headline 89.2% is aggregate-weighted rather than macro per-workload average.",
+      "competition_after_S027": "Robust baseline remains Kahn/FREE-first/critical-path list scheduling. S027 adds a promising deterministic multi-criteria idea, but it must expose/ablate Type+Size+Criticality. S025 remains best reported Conv_Case0 Cmax; no optimizer is locked before S028/common evaluator.",
+      "S028": "Three greedy policies plus SA/TS/GA comparison; paper deliberately chooses EarlyFree greedy as final contest result because runtime/reproducibility dominate small/unstable heuristic gains. Printed MinPeak/LateAlloc use -Size on a min-heap, so large ALLOC may run earlier than prose implies.",
+      "final_competition": "Robust mainline: Kahn ready-set with legal FREE first, then critical-path/slack urgency, then incremental memory delta. Add topology-preserving SA/TS/LNS only on graph families with measured baseline gap under matched wall-clock/evaluation budget. Exact CP-SAT/MILP calibration on small instances."
+    },
+    "Q2": {
+      "S025": "hierarchical cache allocation + SPILL with paper-claimed ILP/rounding hybrid; useful decomposition but solver visibility, victim-policy consistency and allocator safety require repair",
+      "selection_lesson": "separate exact/heuristic paths, post-repair feasibility replay every mapping and centralize victim-selection policy",
+      "S026": "paper-labeled ABQPSO mixed-code optimizer + repair + event-driven runtime evaluator. Visible code computes Mbest/P but does not use them, scalarizes raw Bytes+Cycles, and has a stale globalBestFitness path. Reported extra transfer is higher than S025 on all six workloads, pending common-evaluator verification.",
+      "competition_after_S026": "Prefer deterministic lifecycle allocator + spill-cost/next-use baseline first. S025 currently has better reported transfer; S026 contributes reusable feasibility replay and runtime evaluator, not yet a superior optimizer.",
+      "S027": "MOACADSA-style First-Fit + dynamic spill/reuse. Reports lower transfer than S025 on five of six workloads, but abstract says Best-Fit, spill argmin math conflicts with reverse-sorted code, and Table 5.11 aggregation is not traceable to Table 5.12.",
+      "competition_after_S027": "Use one deterministic lifetime/free-list baseline and one shared evaluator. S027 has promising reported transfer on 5/6 cases, but spill semantics and aggregation must be repaired before promoting it over S025.",
+      "S028": "GP/rule-family search plus VN-SA. Useful insight: allocator rule is graph dependent and free-block coalescing matters. But FlashAttention1 final 33792 is not traceable to Table14 min 54720; objective drifts Peak+transfer→Time+transfer and VN-SA defining loop is incomplete.",
+      "final_competition": "Robust mainline: lifetime sweep + coalescing free-list + deterministic Best-Fit/linear scan + exact incremental-transfer spill cost; for small active victim sets choose a minimum-cost subset sufficient to free the deficit. GP/hyper-heuristics are high-risk/high-reward and require held-out graph-family validation."
+    },
+    "Q3": {
+      "S025": "execution-time + transfer-cost joint optimization narrative under C*<=1.05*Q2; Table 5.5 transparently exposes failures but two rows violate the stated cap and printed multi-objective optimizer is not visible",
+      "selection_lesson": "hard constraints precede Pareto ranking; return only feasible nondominated solutions and make workload-specific operating-point selection explicit",
+      "S026": "DPEA dual-population Pareto narrative. No executable Q3 appendix is visible; Eq.6.67 changes COPY_IN spill cost relative to Q2 and the hard transfer cap is not explicit. Reported improvements relative to S026 Q2 are arithmetically consistent but not implementation-traceable.",
+      "competition_after_S026": "Use epsilon-constraint hard-cap baseline as default. DPEA/NSGA-II only after cost semantics are unified and actual feasible Pareto fronts are generated under a common evaluator.",
+      "S027": "DOSA/resource-aware scheduling narrative with ~12.62% aggregate cycle reduction and ~7.18% traffic increase; hard cap drifts between 15% and 10%, table signs invert the transfer increase, appendix baseline drifts from Q2 table and optimizer core helper is missing.",
+      "competition_after_S027": "Default stays epsilon-constraint: source one official transfer cap, reject infeasible candidates, then minimize cycles. S027 contributes the tolerance-first framing, not yet an executable DOSA implementation.",
+      "S028": "Stage1 GP weighted search then NSGA-II/MOPSO Pareto search. Stronger frontier visualization, but 10% cap conflicts with 5% contract candidate, Conv0 baseline is mixed, FlashAttention0 violates stated transfer-first choice and time scales drift.",
+      "final_competition": "Robust mainline: canonical epsilon hard cap from original task → feasibility filter → minimize cycles with resource-aware local/LNS search. Pareto NSGA-II/MOPSO only when multiple operating points are required and every point passes the shared evaluator."
+    }
+  },
+  "current_status": "FINAL_AFTER_FOUR_TRAIN_PAPERS",
+  "current_recommendation": "2025-A Train group complete. Use the shared deterministic baseline/evaluator as mainline: Q1 FREE-first + critical-path/slack before memory-delta; Q2 lifetime/coalescing allocator + deficit-aware spill; Q3 canonical hard epsilon then minimize cycles. Promote SA/TS/GP/NSGA-II/MOPSO only after matched-budget and exact/held-out validation.",
+  "provisional_routes_after_S026": {
+    "robust_baseline": {
+      "Q1": "Kahn/FREE-first + critical-path/slack list scheduling",
+      "Q2": "lifetime sweep + Best-Fit + deterministic low-transfer spill",
+      "Q3": "epsilon-constraint hard-cap + resource-aware critical-path scheduling"
+    },
+    "recommended_route_current": "common graph/parser -> robust Q1 baseline plus optional matched-budget S025-SA/S026-tabu refiner -> common lifetime/feasibility evaluator -> choose lowest-feasible Q2 allocator under shared replay -> Q3 hard-cap epsilon optimization; actual Pareto only if verified",
+    "high_risk_high_reward": "true mixed-variable metaheuristic (repaired QPSO/DPEA or later S027/S028 method) only after exact small-instance calibration, multiple seeds, and matched runtime budget",
+    "abandon_conditions": [
+      "metaheuristic fails to beat deterministic baseline materially under equal evaluator budget",
+      "reported solution violates topology/capacity/transfer hard cap",
+      "algorithm-defining primitives are absent/dead in executable code",
+      "cross-paper metric definitions cannot be reconciled to one Result Registry"
+    ]
+  },
+  "provisional_routes_after_S027": {
+    "robust_baseline": {
+      "Q1": "Kahn/FREE-first + critical-path/slack + memory-delta list scheduling",
+      "Q2": "lifetime sweep + deterministic Best-Fit/linear-scan + minimum incremental-transfer spill",
+      "Q3": "official epsilon hard cap + lexicographic/resource-aware local search"
+    },
+    "recommended_route_current": "shared DAG/parser/result registry -> deterministic Q1 baseline with optional explicitly implemented S027 multi-criteria priority -> common Q2 lifetime/feasibility replay and compare S025/S027 allocations -> Q3 hard epsilon cap then cycles; only add stochastic/multiobjective search after matched-budget gain",
+    "high_risk_high_reward": "topology-preserving SA/tabu or repaired MOEA/LNS under common evaluator and multiple seeds/exact small-instance calibration",
+    "blocked_compositions": [
+      "S027 paper argmin spill equation + visible reverse-sorted max-score code",
+      "mix S027 10% and 15% cap in one optimization",
+      "compare S025/S026/S027 table bytes without aligning evaluator/spill semantics",
+      "call Q3 multi-sequence joint optimization without explicit cross-instance coupling"
+    ],
+    "abandon_conditions": [
+      "advanced heuristic does not materially beat baseline under equal budget",
+      "result registry source/provenance unresolved",
+      "algorithm-defining helper absent/dead",
+      "candidate violates topology/capacity/official transfer cap"
+    ]
+  },
+  "final_routes": {
+    "robust_baseline": {
+      "Q1": "Kahn/FREE-first + critical-path/slack + incremental-memory tie-break",
+      "Q2": "lifetime sweep + coalescing Best-Fit/linear-scan + deficit-aware minimum incremental-transfer spill",
+      "Q3": "canonical epsilon cap + feasibility-first cycle minimization"
+    },
+    "recommended_route": "one shared DAG/parser/evaluator/result registry -> Q1 deterministic baseline, optionally refined only on flexible graphs -> Q2 deterministic lifetime allocator/spill with exact feasibility replay -> Q3 hard-cap epsilon optimization; expose Pareto only when decision need exists",
+    "high_risk_high_reward": "held-out-trained GP/hyper-heuristic for Q2 and topology-preserving SA/TS/NSGA-II/MOPSO for Q1/Q3 after exact small-instance calibration, multiple seeds and matched runtime budget",
+    "abandon_conditions": [
+      "advanced search fails to beat baseline materially under equal budget",
+      "result provenance or metric semantics unresolved",
+      "hard cap from original statement unresolved",
+      "algorithm-defining primitive/repair missing",
+      "solution violates topology/cache/transfer constraints"
+    ]
+  },
+  "method_composer_summary": {
+    "compatible": [
+      "S028 deterministic EarlyFree contest-mainline lesson + S025/S027 critical-path/memory evidence, after common evaluator",
+      "S028 free-block coalescing + deterministic Q2 lifetime allocator",
+      "S028 Pareto dashboard + S027/S025 feasibility-first hard-cap rule"
+    ],
+    "conditionally_compatible": [
+      "S028 GP spill rules with S025/S027 allocator only after identical spill cost and held-out graph validation"
+    ],
+    "incompatible_or_blocked": [
+      "mix S028 10% with S025 5% cap",
+      "use Table21 Conv0 242072 as Q2 final baseline",
+      "apply S028 transfer-first selection while choosing FlashAttention0 NSGA row",
+      "directly compare cross-paper raw transfer bytes without shared simulator"
+    ]
+  },
+  "mini_transfer_test": {
+    "status": "PASS_AFTER_RULE_REVISION",
+    "ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json",
+    "dev_solution_exposure": false
+  }
+}

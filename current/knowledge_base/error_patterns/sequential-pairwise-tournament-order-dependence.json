@@ -1,0 +1,6 @@
+{
+  "id": "sequential-pairwise-tournament-order-dependence",
+  "trigger": "a current incumbent group is compared sequentially with the next group and replaced only when a significance/rank rule fires.",
+  "risk": "winner can depend on arbitrary group ordering, nontransitive comparisons and insignificant ties; it is not an order-invariant global optimum procedure.",
+  "gate": "Use order-invariant global ranking/optimization or all relevant corrected pairwise contrasts; test output under permuted group order and retain statistically indistinguishable co-optima."
+}

@@ -1,0 +1,5 @@
+{
+  "id": "CALIBRATION_CONSTANT_PROVENANCE",
+  "rule": "Hard-coded dataset/sample-specific scale factors that materially change the target metric require external justification or train-only calibration and held-out validation; otherwise they are not transferable.",
+  "scope": "generic"
+}

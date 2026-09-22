@@ -1,0 +1,6 @@
+{
+  "name": "single timestep sequence model",
+  "trigger": "RNN/TCN/LSTM/BiGRU input has sequence length T=1",
+  "gate": "do not attribute performance to temporal memory; build true lag windows T>1 or compare against non-sequential baseline",
+  "source_example": "S020 reshapes input to (n,1,p)"
+}

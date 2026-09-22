@@ -1,0 +1,10 @@
+{
+  "name": "regression-accuracy-pseudometric",
+  "trigger": "continuous target reported with accuracy percentage derived from 1-error or arbitrary tolerance without definition",
+  "risk": "classification language hides error distribution and can exaggerate performance",
+  "gate": [
+    "report MAE/RMSE/R2 where appropriate",
+    "report P50/P90/P95 absolute/relative error",
+    "report explicit tolerance coverage such as |err|<=5%"
+  ]
+}

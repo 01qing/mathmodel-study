@@ -1,0 +1,11 @@
+{
+  "id": "hard-cap-parameter-cross-section-drift",
+  "name": "Hard-cap parameter drifts across sections/code",
+  "severity": "critical",
+  "trigger": "the same feasibility tolerance has different values in equation, prose, code or table",
+  "risk": "changes feasible set and may reverse which solution is admissible",
+  "gate": "source hard constraint once from problem contract; Result Registry stores one canonical parameter and replays every candidate against it",
+  "source_examples": [
+    "2025-A-S027-Q3 10% vs 15%"
+  ]
+}

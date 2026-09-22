@@ -1,0 +1,10 @@
+{
+  "name": "predictive-importance-causal-overclaim",
+  "trigger": "tree/SHAP/permutation feature importance described as impact rate or causal influence",
+  "risk": "predictive association may arise from proxies, collinearity or confounding",
+  "gate": [
+    "use predictive importance wording",
+    "check stability across grouped folds",
+    "use causal design only if intervention/identification assumptions are justified"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schema_name": "MathModel-Core Figure Decision Rule",
+  "schema_version": "1.0",
+  "fields": [
+    "figure_type",
+    "question",
+    "input_data",
+    "x_axis",
+    "y_axis",
+    "units_required",
+    "why_draw",
+    "supports_claim",
+    "cannot_prove",
+    "better_alternative",
+    "new_problem_use_conditions",
+    "result_registry_binding"
+  ],
+  "rule": "Learn evidence role, layout density and argument order; do not mechanically copy colors or decoration."
+}

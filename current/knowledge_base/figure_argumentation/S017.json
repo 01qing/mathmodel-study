@@ -1,0 +1,53 @@
+{
+  "paper_id": "S017",
+  "paper_title": "高速公路应急车道启用管控优化与决策模型研究",
+  "figure_count_indexed": 48,
+  "table_count_indexed": 6,
+  "argumentation_roles": [
+    {
+      "role": "Q1 data extraction and descriptive evidence",
+      "examples": [
+        "图1-6 video/vehicle extraction examples",
+        "图7-10 distributions",
+        "图11-14 flow trends"
+      ],
+      "lesson": "Show the raw-video → track/count → physical/proxy quantity conversion before any forecast. Put frame/time conversion and units on the figure, not only in prose."
+    },
+    {
+      "role": "Q1 model comparison and congestion evidence",
+      "examples": [
+        "图15 LSTM structure",
+        "图16/20 four-model density prediction comparison",
+        "表4/5 metrics",
+        "图17/21 speed threshold traces",
+        "图18/19/22 selected video checks"
+      ],
+      "lesson": "Model-comparison figures should use a leakage-safe chronological holdout and aligned timestamps. Replace cherry-picked positive frames by an event-level validation panel including misses and false alarms."
+    },
+    {
+      "role": "Q2/Q3 multi-point relationship and policy evidence",
+      "examples": [
+        "图29-32 synchronized flow/density series",
+        "图33-34 correlation matrices",
+        "图35-38 rule-adjusted speed/density curves"
+      ],
+      "lesson": "Correlation heatmaps support association only. If a rule changes the plotted series by fixed multipliers, label the plot “scenario assumption/sensitivity” rather than “observed intervention effect”."
+    },
+    {
+      "role": "Q4 sensing geometry and placement evidence",
+      "examples": [
+        "图39-41 camera geometry/project example",
+        "图42-44 binary-search schematic",
+        "图45 tanker timing",
+        "图46-48 segment speed/difference distributions"
+      ],
+      "lesson": "A placement section should progress geometry/calibration → objective/constraints → candidate-location search → coverage/cost/uncertainty tradeoff. A binary-search illustration alone is not an optimization proof."
+    }
+  ],
+  "style_learning_boundary": "Current worktree has indexed text but not mounted original S017 PDF pixels; no claim is made about exact colors/fonts/line widths/layout. Only figure count, captions/context and argumentative sequence are learned.",
+  "derived_template_smoke": [
+    "learning_output/analyses/v121_figure_template_smoke/01_temporal_window_split.png",
+    "learning_output/analyses/v121_figure_template_smoke/02_proxy_physical_calibration.png",
+    "learning_output/analyses/v121_figure_template_smoke/03_intervention_evidence_ladder.png"
+  ]
+}

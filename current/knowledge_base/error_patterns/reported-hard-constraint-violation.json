@@ -1,0 +1,6 @@
+{
+  "pattern": "reported_hard_constraint_violation",
+  "definition": "A reported final/optimal row violates the paper stated hard feasible region.",
+  "example": "S025 Q3 requires C*<=1.05*C_Q2 but Conv1 ratio≈1.904 and Matmul1≈1.483.",
+  "gate": "Replay every reported row against machine-readable hard constraints before ranking or writing conclusions."
+}

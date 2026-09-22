@@ -1,0 +1,146 @@
+{
+  "paper_id": "S010",
+  "case_group": "2024-C",
+  "year": 2024,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 82,
+  "title": "C24103860012",
+  "paper_title": "数据驱动下磁性元件的磁芯损耗建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_Q5_CATEGORY_ENCODER_EXACT_SMOKE",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "19 waveform features from statistics/FFT/second derivative",
+        "decision tree and random forest feature importance",
+        "decision tree/random forest/logistic regression",
+        "six-model vote using full and selected features"
+      ],
+      "strengths": [
+        "combines shape-domain reasoning with classification instead of using an opaque classifier alone",
+        "reports accuracy/recall/precision/F1 and recognizes perfect classification can be suspicious",
+        "identifies very simple waveform descriptors such as kurtosis and high-ranked FFT amplitudes that may support interpretable baselines"
+      ],
+      "risks": [
+        "the paper describes five-fold cross-validation but also reports separate train/cross-validation/test metrics without a reproducible split contract in the printed appendix",
+        "perfect or near-perfect row-level classification does not prove robustness across unseen material/frequency/amplitude regimes",
+        "Spearman correlation prose contains likely transcription errors such as s5-s4 coefficient 0.1 described as extremely strong and s4-kurtosis 907 without a decimal",
+        "feature-importance values are used as evidence of importance but no grouped stress test checks whether the selected features remain stable across operating conditions"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "log-linear Steinmetz baseline",
+        "six temperature-correction equations with temperature main/interactions",
+        "5-fold shuffled KFold in printed linear-regression code",
+        "model selection by MSE and R2"
+      ],
+      "strengths": [
+        "printed appendix actually contains KFold evaluation rather than only a full-data fit",
+        "compares multiple explicit temperature hypotheses and keeps the Steinmetz structure interpretable",
+        "reports both log-domain and exponentiated-domain error in code, which is important because inverse-log magnifies errors"
+      ],
+      "risks": [
+        "random shuffled KFold mixes all four temperatures and therefore does not test extrapolation/generalization to an unseen temperature condition",
+        "model selection still relies on the same operating-condition support used for calibration; leave-temperature-out or leave-region-out evidence is absent",
+        "the conclusion that the added triple interaction is harmful because fit worsens is model/data-specific and does not prove the physical interaction is absent",
+        "cross-validation is visible only for one printed material file while tables summarize all four materials, so the full per-material evaluation pipeline is not fully reproducible from the appendix"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "log-loss transform",
+        "50-sample repeated sampling within 48 temperature×waveform×material combinations",
+        "one-way ANOVA/Welch ANOVA with effect size",
+        "two-way ANOVA interactions",
+        "heatmap and frequency-stratified interpretation of low-loss condition"
+      ],
+      "strengths": [
+        "unlike S009, explicitly reports effect sizes such as partial eta-squared/Cohen f instead of treating p-values alone as impact magnitude",
+        "recognizes in its own discussion that frequency sampling changes the inferred optimal temperature",
+        "does not overstate the two nonsignificant pairwise interactions as significant synergy"
+      ],
+      "risks": [
+        "sorting by frequency and then randomly drawing 50 rows does not guarantee matched frequency distributions and does not control Bm, so operating-condition confounding remains",
+        "calling nonsignificant temperature-material/material-waveform interactions independent is stronger than the statistical evidence supports",
+        "the recommended 70C/90C optimum changes with frequency, demonstrating that a single raw group mean is not a stable global optimum",
+        "sampling randomness itself can alter the conclusion; adjusted regression/ANCOVA with log f/log Bm would use all data and provide clearer conditional effects"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "generalized Steinmetz/equivalent-sine-frequency attempt",
+        "nine machine-learning regressors",
+        "five basic features",
+        "add kurtosis",
+        "add IGSE prior as stacked feature",
+        "CatBoost selected as final model"
+      ],
+      "strengths": [
+        "compares a physics baseline against multiple ML families",
+        "explicitly checks error in the original physical scale after log-target modeling",
+        "uses a physics-derived IGSE output as a candidate prior feature, a sensible physics-plus-ML pattern in principle"
+      ],
+      "risks": [
+        "random row-level 8:2 split is labeled generalization evidence although unseen material/temperature/waveform/operating-region validation is not shown",
+        "paper says log transform unifies dimensions; log scaling changes numerical scale but does not eliminate physical units/dimensional semantics",
+        "printed CatBoost code appends raw maxB rather than log(maxB), despite the text saying frequency and Bm are log transformed; this is a paper-code feature-transform mismatch",
+        "printed Q4 code computes kurtosis/skewness but never appends them, and contains no visible IGSE feature or stacking path, so the claimed best CatBoost+IGSE pipeline is not reproduced by the appendix",
+        "the variable true_mse accumulates squared errors but is printed as True Mean Squared Error without dividing by sample count"
+      ]
+    },
+    "Q5": {
+      "route": [
+        "two objectives: minimize predicted loss and maximize f*Bm",
+        "claimed 1:1 weighted scalarization",
+        "GA/PSO/GWO comparison",
+        "then 48 discrete temperature×waveform×material combination experiment"
+      ],
+      "strengths": [
+        "the paper at least evaluates multiple optimizer families and later recognizes that other category combinations can outperform the initially narrowed search",
+        "bounds for frequency/Bm are visible in the printed PSO fragment, which supports feasibility auditing"
+      ],
+      "risks": [
+        "1:1 raw weighted sum predicted_loss - transmission_energy is not equal preference because the objectives have different units and scales; normalization or Pareto treatment is required",
+        "EMI is defined as loss/(loss+energy), so smaller is better; calling it an efficiency-maximization indicator is semantically inverted unless reported as a loss fraction",
+        "printed appendix contains only PSO code, not the claimed best GWO or GA implementation, so the optimizer ranking is not reproducible from visible code",
+        "Q5 retrains a five-basic-feature CatBoost rather than the paper-selected CatBoost+IGSE best Q4 pipeline",
+        "exact helper smoke shows the objective converts integer waveform/material ids to Chinese strings and then calls one-hot helpers that compare to integers, collapsing every category vector to all zeros",
+        "printed PSO fixes t=25, waveform=3 and material=1 inside the function; the paper tables for T=70/90 and all 48 category combinations therefore require manual code changes or another missing loop/implementation",
+        "fixing waveform/material based on Q3 before global multiobjective optimization can remove feasible Pareto-optimal regions, especially because Q3 itself is frequency/Bm-confounded"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "13-26",
+      "claim": "Q1 feature engineering, DT/RF/logistic results, perfect metrics and six-model vote"
+    },
+    {
+      "pages": "28-38,73-75",
+      "claim": "Q2 six corrections plus shuffled five-fold KFold printed implementation"
+    },
+    {
+      "pages": "39-49",
+      "claim": "Q3 ANOVA/effect sizes, nonsignificant interactions and frequency-sensitive 70C/90C optimum"
+    },
+    {
+      "pages": "50-61,76-78",
+      "claim": "Q4 nine-model comparison and printed CatBoost path lacking visible IGSE stacking/feature-transform consistency"
+    },
+    {
+      "pages": "62-68,78-82",
+      "claim": "Q5 weighted scalarization, GA/PSO/GWO claims and printed PSO/category encoding implementation"
+    }
+  ],
+  "transfer_lessons": [
+    "Cross-validation must hold out the unit of generalization being claimed; random KFold across temperatures is not leave-temperature-out evidence.",
+    "A nonsignificant interaction is insufficient to assert physical/statistical independence; report uncertainty and power/effect-size bounds.",
+    "Feature transforms are part of the schema contract: log/raw/normalized versions must match between prose, train and inference code.",
+    "The exact best model named in the paper must have an executable end-to-end path; evaluating a simpler ablation does not validate the claimed final model.",
+    "Weighted multiobjective scalarization requires dimensionless normalized objectives or a declared utility function; equal numeric weights do not imply equal preference.",
+    "Categorical encoders must have a type/domain contract and unit tests, especially when optimization code maps ids to labels and back.",
+    "For multiobjective mixed-variable optimization, do not prune discrete variables from a preliminary unadjusted factor analysis before checking the full feasible Pareto set."
+  ]
+}

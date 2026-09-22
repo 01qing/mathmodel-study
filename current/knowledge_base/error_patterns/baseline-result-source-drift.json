@@ -1,0 +1,11 @@
+{
+  "id": "baseline-result-source-drift",
+  "name": "Baseline values drift across question/table/code sources",
+  "severity": "critical",
+  "trigger": "later-stage optimizer hard-codes baseline metrics different from prior-stage reported results",
+  "risk": "improvement percentages are computed against a different problem state than claimed",
+  "gate": "later question must reference baseline by Result Registry key/run_id rather than retyping values",
+  "source_examples": [
+    "2025-A-S027-Q3 appendix vs Tables 5.12/6.14"
+  ]
+}

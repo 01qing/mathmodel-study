@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.5",
+  "case_id": "gmcm-2024-C",
+  "competition": "中国研究生数学建模竞赛（华为杯）",
+  "year": 2024,
+  "problem_id": "C",
+  "title": "数据驱动下磁性元件的磁芯损耗建模",
+  "selection_status": "SECOND_TRANSFER_CASE_SELECTED",
+  "selection_reason": [
+    "比2021 D更接近物理-数据混合问题",
+    "包含波形时序、机理方程、统计交互、预测与双目标优化五类结构",
+    "2024年较新，符合优先近期赛题的学习目标",
+    "存在公开完整代码和大规模CSV，可做真实代码审计",
+    "有公开一等奖/数模之星相关获奖信息，但奖项不作为模型正确性证据"
+  ],
+  "primary_problem_source": {
+    "repository": "zhanwen/MathModel",
+    "status": "problem_directory_confirmed",
+    "source_role": "contest_problem_mirror"
+  },
+  "public_code_sources": [
+    {
+      "repository": "Tereaslle/2024-CPGMCM",
+      "status": "confirmed_public",
+      "default_branch": "main",
+      "source_role": "participant_code_and_data_mirror",
+      "repository_size_kb": 333740,
+      "known_files": [
+        {
+          "name": "C-1.ipynb",
+          "git_blob_sha1": "20cc99bec9758e0f501c4984e178626186307bb0",
+          "size": 128175
+        },
+        {
+          "name": "C-2.ipynb",
+          "git_blob_sha1": "1b975d8b3db4608e92dc37eabc8d3dcef1c44ec1",
+          "size": 57969
+        },
+        {
+          "name": "appendix1_m1.csv",
+          "git_blob_sha1": "bf8a675f3eedf2cce3848548b6aaf7b5d2132899",
+          "size": 43226928
+        },
+        {
+          "name": "appendix1_m2.csv",
+          "git_blob_sha1": "841fe557c6740ceedf45f00116f7050104e9506a",
+          "size": 36842246
+        },
+        {
+          "name": "appendix1_m3.csv",
+          "git_blob_sha1": "af3c4f3c101610164d35d1f869982d7151efc941",
+          "size": 39369124
+        },
+        {
+          "name": "appendix1_m4.csv",
+          "git_blob_sha1": "c22c4d40f325b6083d3ca1ea8f55de8d0ea473d4",
+          "size": 35401772
+        },
+        {
+          "name": "appendix2.csv",
+          "git_blob_sha1": "29358d3b3a220df636bce7885fb98658f0b096e3",
+          "size": 1008039
+        },
+        {
+          "name": "appendix3.csv",
+          "git_blob_sha1": "4e567d916f228884f807eae6db3a5d1830ae6048",
+          "size": 4987428
+        }
+      ]
+    },
+    {
+      "repository": "zhenhua-chen1/Postgraduate-Mathematical-Contest-in-Modelling2",
+      "status": "confirmed_public",
+      "source_role": "post_competition_reimplementation",
+      "notes": [
+        "公开README描述了2024 C第二、三、四问的重实现",
+        "Q2包含传统/温度修正Steinmetz和留一温度验证",
+        "Q3包含协方差/稳健检验/效应量/随机森林置换重要性",
+        "Q4包含分层CV和多模型比较"
+      ]
+    }
+  ],
+  "award_evidence": [
+    {
+      "claim": "2024 C存在国家一等奖获奖队伍",
+      "status": "verified_public_university_notice",
+      "note": "不与任一公开GitHub仓库作者身份自动绑定"
+    },
+    {
+      "claim": "2024数模之星冠军团队选择C题",
+      "status": "verified_public_university_story",
+      "note": "用于确认题目高质量解法存在，不作为具体论文/代码的质量标签"
+    }
+  ],
+  "paper_status": {
+    "excellent_papers": "NOT_YET_MATERIALIZED",
+    "2024_archive": "external_archive_confirmed",
+    "followup_academic_literature": [
+      {
+        "title": "Low-Loss Design of Magnetic Material and Operating Conditions via a Physics–Data Dual-Driven Core Loss Model",
+        "year": 2026,
+        "status": "peer_reviewed_followup_candidate",
+        "role": "methodology reference, not contest excellent-paper substitute"
+      }
+    ]
+  },
+  "learning_status": "RETROSPECTIVE_MODEL_MATRIX_COMPLETE_FULL_PAPERS_PENDING",
+  "next_actions": [
+    "materialize two full 2024 C excellent papers when archive becomes readable",
+    "paper-review those two papers against the frozen retrospective independent route",
+    "use the next untouched case to test the new true-blind ordering gate"
+  ],
+  "external_code_audit": {
+    "status": "PARTIAL_REAL_CODE_AUDIT_COMPLETE",
+    "repository": "Tereaslle/2024-CPGMCM",
+    "asset": "assets/cases/2024_C_external_code_audit.json",
+    "audited_questions": [
+      "Q1",
+      "Q2",
+      "Q4",
+      "Q5"
+    ],
+    "partially_unresolved_questions": [
+      "Q3"
+    ],
+    "critical_finding": "Q5 verified objective omits maximize f*Bm"
+  },
+  "paper_screening": {
+    "status": "ARCHIVE_INDEXED_FULL_PAIR_NOT_MATERIALIZED",
+    "asset": "assets/cases/2024_C_paper_screening.json",
+    "excellent_paper_pair": "NOT_YET_SELECTED",
+    "champion_solution_profile": "INDEXED"
+  },
+  "blind_status": {
+    "fresh_blind": "CONTAMINATED",
+    "allowed_analysis_label": "RETROSPECTIVE_INDEPENDENT_ROUTE_NOT_FRESH_BLIND",
+    "asset": "assets/cases/2024_C_blind_contamination.json"
+  },
+  "independent_model_competition": {
+    "status": "COMPLETE_RETROSPECTIVE",
+    "asset": "assets/cases/2024_C_independent_model_competition.json"
+  },
+  "paper_access": {
+    "archive_entry": "VERIFIED",
+    "full_papers_materialized": 0,
+    "status": "BLOCKED_BY_CURRENT_BAIDU_ACCESS",
+    "asset": "assets/cases/2024_C_paper_access_queue.json"
+  }
+}

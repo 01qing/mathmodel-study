@@ -1,0 +1,21 @@
+{
+  "status": "AUDIT_COMPLETE_NOT_RETURN_VALIDATION",
+  "legacy_probe": {
+    "motion": "return position 1 to 2",
+    "start": 0,
+    "arrival": 9,
+    "at_second_1": 71,
+    "expected_under_revision_semantics": null,
+    "source_still_occupied": true,
+    "conclusion": "Inherited return motion preserves source occupancy/code during transit; inconsistent with revised lane semantics."
+  },
+  "current_guard": "Return routes are outside this solver subset",
+  "decision": "Keep return disabled in delivered schedules. A new return implementation and independent visit-based replay are required.",
+  "required_work": [
+    "Release source and reserve destination for return movement",
+    "Represent repeat lane visits per car; current checker assumes exactly one visit",
+    "Check return-end priority, return capacity, machine reservations and sampled endpoint exclusivity",
+    "Compare return/no-return with equal budgets only after both pass independent replay"
+  ],
+  "optimality_or_return_benefit_claim": false
+}

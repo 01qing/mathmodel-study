@@ -1,0 +1,61 @@
+{
+  "paper_id": "S036",
+  "case_group": "2025-C",
+  "questions": {
+    "Q1": {
+      "baseline": "Frangi/ridge/edge + morphology on project images with original-image holdout",
+      "author_route": "DeepLabV3+ transfer learning using 117 external images plus project images",
+      "alternatives": [
+        "small U-Net/DeepLab head with frozen backbone after clean project-image split",
+        "component-feature classifier when labels are scarce"
+      ],
+      "not_recommended": [
+        "training on all project images then reporting all-project metrics as test",
+        "augmentation after leakage as a remedy"
+      ],
+      "why_select": "deep model is plausible only if clean project holdout demonstrates gain; reported numbers lack that guarantee",
+      "switch_condition": "promote DeepLabV3+ after source-grouped untouched project test and calibration/ablation"
+    },
+    "Q2": {
+      "baseline": "DBSCAN/topology fragments + fixed P=pi*D + linear/robust fit + reject",
+      "author_route": "DBSCAN fragments, largest seed, fixed-period model-driven iterative merge/refit",
+      "alternatives": [
+        "HDBSCAN with physical model merge",
+        "RANSAC/fixed-frequency linear IRLS"
+      ],
+      "not_recommended": [
+        "free-period nonlinear search without geometry need",
+        "merge thresholds tuned on evaluation images"
+      ],
+      "why_select": "strong physical period and fragment-to-model loop directly address broken masks",
+      "switch_condition": "use more flexible clustering only if fragment density/topology varies beyond DBSCAN assumptions"
+    },
+    "Q3": {
+      "baseline": "ordered detrended profile + canonical JRC + equal spacing; compare sampling under one common reference",
+      "author_route": "equal/adaptive/keypoint sampling; keypoint selected by R2/RMSE",
+      "alternatives": [
+        "multi-objective/Pareto choice with RMSE and tail errors",
+        "arc-length stratified sampling"
+      ],
+      "not_recommended": [
+        "declaring a universal winner when metrics disagree"
+      ],
+      "why_select": "keypoint has best R2/RMSE but worse tail-outlier count, so objective must be explicit",
+      "switch_condition": "choose equal sampling if tail robustness/±5% violations dominate, keypoint if RMSE/R2 dominate"
+    },
+    "Q4": {
+      "baseline": "deterministic plane geometry + compatibility edge score + thresholded graph registry + component replay + feasible coverage placement",
+      "author_route": "weighted similarity → threshold graph → hotspot uncertainty → three-hole recommendation",
+      "alternatives": [
+        "calibrated probabilistic graphical model",
+        "scenario-robust graph ensemble + value-of-information placement"
+      ],
+      "not_recommended": [
+        "calling one weighted score calibrated probability",
+        "deriving a four-hole component from an edge registry that contains only one edge"
+      ],
+      "why_select": "transparent graph replay is mandatory before probabilistic embellishment",
+      "switch_condition": "upgrade to Bayesian/EIG only with labels/likelihood/posterior update and edge/component consistency"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "pattern_id": "cluster-taxonomy-cross-surface-drift",
+  "name": "聚类类别在后续表格/叙述中无版本说明地改名或换组",
+  "trigger": "objects are assigned to one cluster/type scheme, then later tables use different type labels without a new clustering/taxonomy rule",
+  "example": "S043 Table 6.4 cluster memberships vs Table 6.6 garden-type labels",
+  "gate": "all cluster/type labels carry taxonomy_id/run_id; downstream summaries join by that registry rather than retyping labels"
+}

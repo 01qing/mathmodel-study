@@ -1,0 +1,10 @@
+{
+  "pattern_id": "route-genetic-operator-feasibility",
+  "name": "Route genetic operator feasibility leak",
+  "trigger": "arbitrary crossover/mutation on node sequences is claimed to preserve path feasibility",
+  "risk": "child contains non-edge transitions or repair introduces forbidden geometry/constraint violation",
+  "gate": "path-preserving representation/operators or explicit shortest-feasible bridge + final decoded route replay of every hard constraint",
+  "evidence": [
+    "S045 Q1 Sec.5.6"
+  ]
+}

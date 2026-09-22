@@ -1,0 +1,102 @@
+[
+  {
+    "question": 1,
+    "returns": 72,
+    "validation": {
+      "status": "PASS",
+      "error_count": 0,
+      "errors": [],
+      "checks": {
+        "fresh_input_order": 1,
+        "output_permutation": 1,
+        "output_sequence": 1,
+        "completion": 1,
+        "machine_geometry": 224,
+        "machine_nonoverlap": 222,
+        "visit_counts": 40,
+        "car_flow": 40,
+        "same_visit_lane": 112,
+        "move_count": 1,
+        "fifo_pickups": 7,
+        "independent_motion_recurrence": 1656,
+        "dispatch_only_after_arrival": 184,
+        "entry_endpoint_exclusive": 177,
+        "head_available": 112,
+        "q1_sender_priority": 112,
+        "q1_return_receiver_priority": 40,
+        "sender_no_idle": 1532,
+        "capacity": 10724,
+        "return_count": 1,
+        "independent_score": 7,
+        "matrix_shape": 1,
+        "matrix_times": 1,
+        "matrix_row_id": 40,
+        "every_matrix_cell": 40,
+        "region_codes": 1532,
+        "sampled_region_exclusivity": 1532
+      },
+      "visits": 112,
+      "return_visits": 72,
+      "independent_score": {
+        "hbad": 21,
+        "dbad": 5,
+        "s4": 89.01,
+        "total": 74.60099999999998,
+        "capped_s4_total": 74.60099999999998,
+        "s1": 79,
+        "s2": 95,
+        "s3": 28
+      },
+      "scope": "Action-derived visit replay with forced FIFO motion, capacity, priorities, shuttle geometry, scores and full sampled trajectories; conditional on explicit endpoint and arrival assumptions."
+    }
+  },
+  {
+    "question": 2,
+    "returns": 69,
+    "validation": {
+      "status": "PASS",
+      "error_count": 0,
+      "errors": [],
+      "checks": {
+        "fresh_input_order": 1,
+        "output_permutation": 1,
+        "output_sequence": 1,
+        "completion": 1,
+        "machine_geometry": 218,
+        "machine_nonoverlap": 216,
+        "visit_counts": 40,
+        "car_flow": 40,
+        "same_visit_lane": 109,
+        "move_count": 1,
+        "fifo_pickups": 7,
+        "independent_motion_recurrence": 1602,
+        "dispatch_only_after_arrival": 178,
+        "entry_endpoint_exclusive": 171,
+        "head_available": 109,
+        "sender_no_idle": 1394,
+        "capacity": 9758,
+        "return_count": 1,
+        "independent_score": 7,
+        "matrix_shape": 1,
+        "matrix_times": 1,
+        "matrix_row_id": 40,
+        "every_matrix_cell": 40,
+        "region_codes": 1394,
+        "sampled_region_exclusivity": 1394
+      },
+      "visits": 109,
+      "return_visits": 69,
+      "independent_score": {
+        "hbad": 21,
+        "dbad": 5,
+        "s4": 90.39,
+        "total": 75.339,
+        "capped_s4_total": 75.339,
+        "s1": 79,
+        "s2": 95,
+        "s3": 31
+      },
+      "scope": "Action-derived visit replay with forced FIFO motion, capacity, priorities, shuttle geometry, scores and full sampled trajectories; conditional on explicit endpoint and arrival assumptions."
+    }
+  }
+]

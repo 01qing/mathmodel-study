@@ -1,0 +1,6 @@
+{
+  "id": "heuristic-global-optimum-certificate-missing",
+  "name": "Heuristic global-optimum/Gap claim without certificate",
+  "trigger": "GA/SA/PSO/other heuristic reports global optimum or Gap=0 without an exact benchmark, valid lower bound, solver certificate or exhaustive proof.",
+  "gate": "Downgrade to best-found/empirical convergence unless an explicit optimum bound/certificate and gap formula are registered."
+}

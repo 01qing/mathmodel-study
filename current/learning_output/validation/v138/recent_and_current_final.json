@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "version": "v129",
+      "expected": "67/67",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 67/67\n"
+    },
+    {
+      "version": "v130",
+      "expected": "75/75",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 75/75\n"
+    },
+    {
+      "version": "v131",
+      "expected": "119/119",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 119/119\n"
+    },
+    {
+      "version": "v132",
+      "expected": "163/163",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 163/163\n"
+    },
+    {
+      "version": "v133",
+      "expected": "31/31",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 31/31\n"
+    },
+    {
+      "version": "v134",
+      "expected": "45/45",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 45/45\n"
+    },
+    {
+      "version": "v135",
+      "expected": "56/56",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 56/56\n"
+    },
+    {
+      "version": "v136",
+      "expected": "72/72",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 72/72\n"
+    },
+    {
+      "version": "v137",
+      "expected": "82/82",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 82/82\n"
+    },
+    {
+      "check": "current_s045",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS 127/127\n"
+    },
+    {
+      "check": "registry",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS S045 registry replay: 10/10 Table6.6 arithmetic; posthoc +1 edits preserved as provenance failures\n"
+    },
+    {
+      "check": "library",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "{\"status\": \"PASS\", \"papers\": 45, \"chunks_verified\": 6752, \"split_counts\": {\"train\": 32, \"dev\": 7, \"test\": 6}, \"checks\": [\"group isolation\", \"frozen split hash\", \"all chunk/page roundtrips\", \"review page bounds\", \"invalid input rejection\", \"train-only retrieval smoke\"], \"quality_evaluation\": \"NOT_RUN; no gold labels or unseen-problem modeling evaluation\", \"smoke_matches\": [{\"paper_id\": \"S001\", \"case_group\": \"2024-A\", \"page\": 32}, {\"paper_id\": \"S003\", \"case_group\": \"2024-A\", \"page\": 20}, {\"paper_id\": \"S004\", \"case_group\": \"2024-A\", \"page\": 15}]}\n"
+    },
+    {
+      "check": "workspace",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "[PASS] learning workspace is valid\n"
+    },
+    {
+      "check": "retrieval",
+      "returncode": 0,
+      "status": "PASS",
+      "tail": "PASS v1.38 2025-F retrieval: S045 found; evaluation/production reviewed-Train-only; final 4/4 map attached\n"
+    }
+  ]
+}

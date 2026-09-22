@@ -1,0 +1,136 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "evidence_type": "printed appendix static audit",
+  "appendix_pages": "53-71",
+  "reproduction_level": "R2",
+  "visible_components": [
+    "Q1 image preprocessing/training loop fragments",
+    "Q2 connected regions/DBSCAN/skeleton/sine least_squares",
+    "Q3 contour smoothing/sampling/JRC and sine amplitude",
+    "Q4 uncertainty-analysis methods"
+  ],
+  "findings": [
+    {
+      "id": "Q1_LOSS_NOT_DEFINED",
+      "severity": "high",
+      "evidence": "train_model receives criterion externally; printed appendix does not show the claimed improved loss/class-imbalance definition",
+      "risk": "headline training method is not self-contained"
+    },
+    {
+      "id": "Q1_SPLIT_LOADER_MISSING",
+      "severity": "critical",
+      "evidence": "printed appendix does not expose a defensible image/borehole train/val/test construction",
+      "risk": "reported segmentation metrics cannot be checked for leakage/independence"
+    },
+    {
+      "id": "Q1_SYNTHETIC_FALLBACK",
+      "severity": "medium",
+      "evidence": "preprocessing code contains fallback/demo behavior when target input is absent",
+      "risk": "demo output must not be mistaken for official-data validation"
+    },
+    {
+      "id": "Q2_CLUSTERING_CONTRACT_DRIFT",
+      "severity": "high",
+      "evidence": "body discusses richer region-distance/hierarchical/threshold logic while appendix clusters region centroids with sklearn DBSCAN; DBSCAN_EPS=50, min_samples=1",
+      "risk": "paper algorithm label/parameter contract does not map cleanly to code"
+    },
+    {
+      "id": "Q2_ROBUST_FIT_NOT_IMPLEMENTED",
+      "severity": "critical",
+      "evidence": "body/abstract claim frequency initialization + LM/RANSAC/Huber-style robust fitting; visible fit_sine_curve uses scipy least_squares with simple initial guess and fixed period",
+      "risk": "robustness claim is not implementation-traceable"
+    },
+    {
+      "id": "Q2_NO_PLAUSIBILITY_REJECT",
+      "severity": "high",
+      "evidence": "visible fitter returns amplitude directly without geometry bounds/reject logic",
+      "risk": "extreme fitted amplitudes can be accepted as results"
+    },
+    {
+      "id": "Q3_HEADLINE_LOG_ATTENTION_ABSENT",
+      "severity": "critical",
+      "evidence": "visible Q3 code loads binary/JSON contours and computes smoothing/sampling/JRC; no multi-scale LoG attention implementation is shown",
+      "risk": "headline model is not code-mapped"
+    },
+    {
+      "id": "Q3_PER_IMAGE_SCALE_FACTOR",
+      "severity": "critical",
+      "evidence": "SCALE_FACTORS are hard-coded per image and multiply Z2 before JRC",
+      "risk": "unexplained calibration can determine reported JRC"
+    },
+    {
+      "id": "Q3_HARD_CLIP_20",
+      "severity": "high",
+      "evidence": "calc_jrc returns np.clip(jrc,0,20)",
+      "risk": "ceiling saturation can distort distributions/correlations"
+    },
+    {
+      "id": "Q3_FINAL_AVERAGE_DRIFT",
+      "severity": "medium",
+      "evidence": "printed result uses (jrc_eq+jrc_curv)/2 whereas body describes segmented weighted JRC with unspecified weights",
+      "risk": "final-value contract drifts"
+    },
+    {
+      "id": "Q4_ZERO_MEAN_UNCERTAINTY_DRIFT",
+      "severity": "medium",
+      "evidence": "appendix returns uncertainty ratio 0 when mean=0, differing from body fallback described elsewhere",
+      "risk": "edge-case semantics drift"
+    },
+    {
+      "id": "Q4_DENSITY_ENTROPY_BUG",
+      "severity": "critical",
+      "evidence": "second analyze_uncertainty uses density=True histogram heights directly in Shannon entropy",
+      "risk": "entropy and uncertainty classification can be numerically invalid"
+    },
+    {
+      "id": "Q4_PPIGA_CODE_ABSENT",
+      "severity": "critical",
+      "evidence": "visible appendix ends with uncertainty routines; no AHP judgment-matrix/CR or projection-pursuit GA implementation shown",
+      "risk": "drilling recommendation optimizer cannot justify R3"
+    },
+    {
+      "id": "Q2_AMPLITUDE_DEFINITION_DRIFT",
+      "severity": "high",
+      "evidence": "body defines R=max(y)-min(y) near Q2 parameter definition, but later initialization and printed least_squares use half-range (max-min)/2, which is the usual sine amplitude convention",
+      "risk": "same symbol R has inconsistent semantics across formula/prose/code; results need provenance and canonical definition"
+    },
+    {
+      "id": "Q3_CURVATURE_WEIGHT_DIRECTION_REVERSED",
+      "severity": "critical",
+      "evidence": "sample_contour uses cumulative transformed length cumsum(dists/seg_weights) with seg_weights increasing with curvature; uniform sampling in that transformed coordinate allocates less measure, hence fewer samples, to high-curvature segments",
+      "risk": "implementation can do the opposite of the stated high-curvature densification rule"
+    },
+    {
+      "id": "Q4_PJRC_FORMULA_PROSE_CONFLICT",
+      "severity": "critical",
+      "evidence": "body says Pjrc uses the geometric mean of k1,k2, but printed equation is Pjrc=0.3+0.7*k1+k2 and even calls k1+k2 the geometric mean",
+      "risk": "connectivity score formula is mathematically ambiguous and can exceed 1 before clipping"
+    },
+    {
+      "id": "Q4_ADJACENCY_PAIR_CONTRACT_DRIFT",
+      "severity": "high",
+      "evidence": "appendix uncertainty code hard-codes adjacent_pairs=[(1,2),(2,3),(3,4),(4,5),(5,6),(1,6)], while body analysis explicitly discusses 1#-4# and 3#-6# and the task states a 2x3 array",
+      "risk": "uncertainty analysis may be applied to a different borehole-neighbor graph than the narrative/geometry"
+    },
+    {
+      "id": "Q2_ORACLE_MASK_BYPASS",
+      "severity": "critical",
+      "evidence": "Q2 gen_binary_image reconstructs the fracture mask directly from JSON polygon annotations instead of consuming Q1 model predictions",
+      "risk": "downstream clustering/fitting is evaluated with an oracle intermediate and does not include Q1 segmentation errors"
+    },
+    {
+      "id": "Q3_ORACLE_MASK_BYPASS",
+      "severity": "critical",
+      "evidence": "Q3 load_and_preprocess likewise creates binary fracture masks from JSON polygon annotations before contour/JRC analysis",
+      "risk": "Q3 roughness evidence bypasses the actual deployed Q1 segmentation output and overstates end-to-end chain evidence"
+    }
+  ],
+  "r3_blockers": [
+    "no complete original source project/data execution",
+    "Q1 dataset split/model/loss chain incomplete",
+    "Q2 claimed robust fitting primitives absent",
+    "Q3 headline LoG/attention absent and calibration factors unexplained",
+    "Q4 recommendation optimizer code absent"
+  ]
+}

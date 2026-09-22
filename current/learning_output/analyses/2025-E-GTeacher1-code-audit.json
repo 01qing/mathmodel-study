@@ -1,0 +1,159 @@
+{
+  "schema_version": "0.1",
+  "scope": "STATIC_CODE_BUNDLE_AUDIT_NOT_MODEL_REPRODUCTION",
+  "root": "learning_sources/competitions/2025/E/supplemental/GTeacher1",
+  "file_count": 7,
+  "extensions": {
+    ".md": 1,
+    ".csv": 1,
+    ".py": 5
+  },
+  "python": [
+    {
+      "path": "q2/random_forest_example.py",
+      "sha256": "09f2a951d0b7260397db87a948acd560d5dd4cb9f8a05cc9bae9ff2a6833cec0",
+      "encoding": "utf-8",
+      "lines": 53,
+      "syntax": "PASS",
+      "imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "sklearn.ensemble",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.preprocessing"
+      ],
+      "functions": [],
+      "classes": [],
+      "cli_args": []
+    },
+    {
+      "path": "q1/custom_emd_IR014_1.py",
+      "sha256": "79f47ca450162792907db8a9e90f139c1af32666e12cf6d032ccdb3a306b50fb",
+      "encoding": "utf-8",
+      "lines": 103,
+      "syntax": "PASS",
+      "imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "scipy.interpolate"
+      ],
+      "functions": [
+        "find_extrema",
+        "interpolate_extrema",
+        "emd"
+      ],
+      "classes": [],
+      "cli_args": []
+    },
+    {
+      "path": "q1/descriptive_statistics_IR014_1.py",
+      "sha256": "f834af5ba222d6eaa7e9864c14f9e6df0d3676ea63952be782cee20be9ec5dab",
+      "encoding": "utf-8",
+      "lines": 13,
+      "syntax": "PASS",
+      "imports": [
+        "pandas"
+      ],
+      "functions": [],
+      "classes": [],
+      "cli_args": []
+    },
+    {
+      "path": "q1/wavelet_denoise_IR014_1.py",
+      "sha256": "f0688751cf5350eb706fa0c87b843ac6b2045a5c9e6ef35b3a1c27e2a63302f5",
+      "encoding": "utf-8",
+      "lines": 69,
+      "syntax": "PASS",
+      "imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pywt"
+      ],
+      "functions": [
+        "wavelet_denoise"
+      ],
+      "classes": [],
+      "cli_args": []
+    },
+    {
+      "path": "q1/mat_to_csv_and_visualize_IR014_1.py",
+      "sha256": "06aa8d255d323989660d9327cbf3359ecd9e767a936b46e66bae253cec1a6d30",
+      "encoding": "utf-8",
+      "lines": 90,
+      "syntax": "PASS",
+      "imports": [
+        "matplotlib.pyplot",
+        "pandas",
+        "scipy.io"
+      ],
+      "functions": [],
+      "classes": [],
+      "cli_args": []
+    }
+  ],
+  "textual_files": [
+    {
+      "path": "SOURCE_NOTE.md",
+      "sha256": "1427efacbaf8c436988dd975fb9db5c06314b9c0844807235876c8d88c2a9ff2",
+      "encoding": "utf-8",
+      "lines": 7
+    },
+    {
+      "path": "q2/random_forest_example.py",
+      "sha256": "09f2a951d0b7260397db87a948acd560d5dd4cb9f8a05cc9bae9ff2a6833cec0",
+      "encoding": "utf-8",
+      "lines": 53
+    },
+    {
+      "path": "q1/custom_emd_IR014_1.py",
+      "sha256": "79f47ca450162792907db8a9e90f139c1af32666e12cf6d032ccdb3a306b50fb",
+      "encoding": "utf-8",
+      "lines": 103
+    },
+    {
+      "path": "q1/descriptive_statistics_IR014_1.py",
+      "sha256": "f834af5ba222d6eaa7e9864c14f9e6df0d3676ea63952be782cee20be9ec5dab",
+      "encoding": "utf-8",
+      "lines": 13
+    },
+    {
+      "path": "q1/wavelet_denoise_IR014_1.py",
+      "sha256": "f0688751cf5350eb706fa0c87b843ac6b2045a5c9e6ef35b3a1c27e2a63302f5",
+      "encoding": "utf-8",
+      "lines": 69
+    },
+    {
+      "path": "q1/mat_to_csv_and_visualize_IR014_1.py",
+      "sha256": "06aa8d255d323989660d9327cbf3359ecd9e767a936b46e66bae253cec1a6d30",
+      "encoding": "utf-8",
+      "lines": 90
+    }
+  ],
+  "data_references": [
+    "IR014_1.mat",
+    "IR014_1data.csv",
+    "IR014_1小波.csv",
+    "例子数据.csv"
+  ],
+  "hardcoded_absolute_paths": [],
+  "plotting_files": [
+    "q1/custom_emd_IR014_1.py",
+    "q1/mat_to_csv_and_visualize_IR014_1.py",
+    "q1/wavelet_denoise_IR014_1.py",
+    "q2/random_forest_example.py"
+  ],
+  "split_related_files": [
+    "q2/random_forest_example.py"
+  ],
+  "domain_adaptation_related_files": [],
+  "limitations": [
+    "Static inspection does not prove numerical correctness or end-to-end runnability",
+    "Referenced datasets/weights may be absent from the bundle",
+    "Text pattern matches require manual interpretation"
+  ]
+}

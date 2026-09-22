@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": 1,
+    "selected": 1,
+    "exit_code": 0,
+    "seconds": 0.29650259017944336
+  },
+  {
+    "dataset": 3,
+    "selected": 3,
+    "exit_code": 0,
+    "seconds": 5.879101991653442
+  },
+  {
+    "dataset": 4,
+    "selected": 601,
+    "exit_code": 0,
+    "seconds": 0.49872517585754395
+  },
+  {
+    "dataset": 5,
+    "selected": 26,
+    "exit_code": 0,
+    "seconds": 12.177192211151123
+  },
+  {
+    "dataset": 6,
+    "selected": 26,
+    "exit_code": 0,
+    "seconds": 11.852567195892334
+  },
+  {
+    "dataset": 2,
+    "selected": 10592,
+    "exit_code": 0,
+    "seconds": 67.3297176361084
+  }
+]

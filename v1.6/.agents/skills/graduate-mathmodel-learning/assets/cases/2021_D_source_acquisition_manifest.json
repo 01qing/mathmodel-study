@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.2",
+  "case_id": "gmcm-2021-D",
+  "primary_xlsx_mirror": {
+    "source_role": "contest_attachment_mirror",
+    "repository": "zhanwen/MathModel",
+    "ref": "master",
+    "trust_note": "Public GitHub mirror of contest attachments; not treated as the official contest host.",
+    "files": [
+      {
+        "name": "ADMET.xlsx",
+        "path": "国赛试题/2021年研究生数学建模竞赛试题/D/ADMET.xlsx",
+        "size": 87227,
+        "git_blob_sha1": "08cee79e5e3beffe574e327b877c6028add92dc6"
+      },
+      {
+        "name": "ERα_activity.xlsx",
+        "path": "国赛试题/2021年研究生数学建模竞赛试题/D/ERα_activity.xlsx",
+        "size": 93695,
+        "git_blob_sha1": "a8cbbe3620d7794d475cf85b2351f6dba2a931e3"
+      },
+      {
+        "name": "Molecular_Descriptor.xlsx",
+        "path": "国赛试题/2021年研究生数学建模竞赛试题/D/Molecular_Descriptor.xlsx",
+        "size": 8804984,
+        "git_blob_sha1": "21ee480d930e3befc65e55bdb283a01294a48bde"
+      },
+      {
+        "name": "分子描述符含义解释.xlsx",
+        "path": "国赛试题/2021年研究生数学建模竞赛试题/D/分子描述符含义解释.xlsx",
+        "size": 49477,
+        "git_blob_sha1": "29e813b8da02985a8043e1cee03120e65378cbd8"
+      }
+    ]
+  },
+  "participant_csv_mirror": {
+    "source_role": "participant_converted_mirror",
+    "repository": "Bureaux-Tao/modeling2021-D",
+    "ref": "master",
+    "trust_note": "Participant repository CSV conversion. Must be cross-checked against the primary XLSX mirror before being treated as equivalent input.",
+    "train": [
+      {
+        "name": "ADMET.csv",
+        "path": "data/train/ADMET.csv",
+        "size": 121691,
+        "git_blob_sha1": "64383a194d0040d3b037efd35796acf0891c4d35"
+      },
+      {
+        "name": "ERα_activity.csv",
+        "path": "data/train/ERα_activity.csv",
+        "size": 125203,
+        "git_blob_sha1": "4e489e043d70cb0ed3152d6ce8a67bc7803a729d"
+      },
+      {
+        "name": "Molecular_Descriptor.csv",
+        "path": "data/train/Molecular_Descriptor.csv",
+        "size": 6434745,
+        "git_blob_sha1": "0e01c40e0afd5e16ed77faa0bba14c72dc0510ad"
+      }
+    ],
+    "test": [
+      {
+        "name": "ADMET.csv",
+        "path": "data/test/ADMET.csv",
+        "size": 4670,
+        "git_blob_sha1": "5863c3a0597629ceae0d1c65a03cee5a15789931"
+      },
+      {
+        "name": "ERα_activity.csv",
+        "path": "data/test/ERα_activity.csv",
+        "size": 4510,
+        "git_blob_sha1": "79803e409cb5ad0a718aeb4482d899b854532e13"
+      },
+      {
+        "name": "Molecular_Descriptor.csv",
+        "path": "data/test/Molecular_Descriptor.csv",
+        "size": 176346,
+        "git_blob_sha1": "1c162000f95c03cd06bd763874270fff3c4b2b93"
+      }
+    ]
+  }
+}

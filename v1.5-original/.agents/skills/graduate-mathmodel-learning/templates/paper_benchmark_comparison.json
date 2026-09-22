@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "case_id": "gmcm-2021-D",
+  "our_evidence": {
+    "blind_status": "NOT_RUN",
+    "data_audit_status": "NOT_RUN",
+    "benchmark_status": "NOT_RUN",
+    "final_fit_status": "NOT_RUN"
+  },
+  "papers": {},
+  "questions": {
+    "Q1": {
+      "paper_A_strengths": [],
+      "paper_B_strengths": [],
+      "our_strengths": [],
+      "our_weaknesses": [],
+      "adopt": [],
+      "do_not_copy_blindly": [],
+      "preferred_learning_source": null,
+      "confidence": "not_verified"
+    },
+    "Q2": {
+      "paper_A_strengths": [],
+      "paper_B_strengths": [],
+      "our_strengths": [],
+      "our_weaknesses": [],
+      "adopt": [],
+      "do_not_copy_blindly": [],
+      "preferred_learning_source": null,
+      "confidence": "not_verified"
+    },
+    "Q3": {
+      "paper_A_strengths": [],
+      "paper_B_strengths": [],
+      "our_strengths": [],
+      "our_weaknesses": [],
+      "adopt": [],
+      "do_not_copy_blindly": [],
+      "preferred_learning_source": null,
+      "confidence": "not_verified"
+    },
+    "Q4": {
+      "paper_A_strengths": [],
+      "paper_B_strengths": [],
+      "our_strengths": [],
+      "our_weaknesses": [],
+      "adopt": [],
+      "do_not_copy_blindly": [],
+      "preferred_learning_source": null,
+      "confidence": "not_verified"
+    }
+  },
+  "overall": {
+    "more_worth_learning": null,
+    "more_competition_efficient": null,
+    "more_scientifically_cautious": null,
+    "combine": [],
+    "unresolved_without_reproduction": []
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "case_group": "2025-A",
+  "test_type": "SELF_CONSTRUCTED_MINI_TRANSFER_NO_DEV_SOLUTION_EXPOSURE",
+  "purpose": "Test whether MathModel-Core reselects/revises methods rather than memorizing S025-S028.",
+  "history": {
+    "initial_discovery": "The first Q1 transfer attempt exposed a priority-ordering flaw: memory delta was ranked before critical-path urgency.",
+    "action": "Rule revised before confirmatory frozen mini-test; failure history retained rather than overwritten."
+  },
+  "q1_scheduling": {
+    "topological_orders": 15400,
+    "exact_peak": 7,
+    "old_rule_peak": 13,
+    "revised_rule_peak": 7,
+    "old_gap_pct": 85.71428571428572,
+    "revised_gap_pct": 0.0,
+    "old_order": [
+      "A0",
+      "U0",
+      "F0",
+      "A3",
+      "A1",
+      "U1",
+      "F1",
+      "A2",
+      "U2",
+      "F2",
+      "U3",
+      "F3"
+    ],
+    "revised_order": [
+      "A0",
+      "U0",
+      "F0",
+      "A1",
+      "U1",
+      "F1",
+      "A2",
+      "U2",
+      "F2",
+      "A3",
+      "U3",
+      "F3"
+    ],
+    "status": "PASS_AFTER_RULE_REVISION"
+  },
+  "q2_spill_selection": {
+    "capacity": 10,
+    "request_size": 5,
+    "deficit": 5,
+    "victims": [
+      {
+        "id": "A",
+        "size": 6,
+        "incremental_transfer_cost": 12
+      },
+      {
+        "id": "B",
+        "size": 4,
+        "incremental_transfer_cost": 4
+      }
+    ],
+    "naive_cheapest_first": {
+      "victims": [
+        "B",
+        "A"
+      ],
+      "cost": 16
+    },
+    "exact_min_cost_subset": {
+      "victims": [
+        "A"
+      ],
+      "cost": 12,
+      "freed": 6
+    },
+    "status": "PASS"
+  },
+  "q3_epsilon_constraint": {
+    "baseline_transfer": 100,
+    "epsilon_cap": 0.1,
+    "hard_limit": 110.00000000000001,
+    "candidates": [
+      {
+        "id": "A",
+        "cycles": 92,
+        "transfer": 109,
+        "feasible": true
+      },
+      {
+        "id": "B",
+        "cycles": 85,
+        "transfer": 116,
+        "feasible": false
+      },
+      {
+        "id": "C",
+        "cycles": 95,
+        "transfer": 104,
+        "feasible": true
+      }
+    ],
+    "selected": "A",
+    "rejected_infeasible": [
+      "B"
+    ],
+    "status": "PASS"
+  },
+  "overall_status": "PASS_AFTER_RULE_REVISION",
+  "reproduction_note": "This is a Core transfer test, not evidence that S028 author code reaches R7. S028 remains R2."
+}

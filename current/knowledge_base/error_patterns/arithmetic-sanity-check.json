@@ -1,0 +1,11 @@
+{
+  "pattern_id": "arithmetic_sanity_check",
+  "trigger": "percentage/average/table summary derived from visible counts or values",
+  "risk": "simple numerical transcription error propagates into conclusions",
+  "checklist": [
+    "recompute every reported percentage/mean from source table",
+    "assert ranges and denominators",
+    "automate checks in regression tests"
+  ],
+  "example": "S002 says 97/2000=3.4%; actual 4.85%"
+}

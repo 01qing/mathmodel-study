@@ -1,0 +1,339 @@
+{
+  "status": "FAIL",
+  "scope": "deterministic synthetic fixtures and printed-table arithmetic only; not independent Core gain, not full reproduction",
+  "checks": [
+    {
+      "name": "MK exact permutation variance (0, 1, 2, 3, 4, 5, 6)",
+      "pass_": true
+    },
+    {
+      "name": "MK exact permutation variance (1, 1, 2, 2, 3, 4)",
+      "pass_": true
+    },
+    {
+      "name": "MK exact permutation variance (1, 1, 1, 1)",
+      "pass_": true
+    },
+    {
+      "name": "MK ties alter variance",
+      "pass_": true
+    },
+    {
+      "name": "MK constant safe",
+      "pass_": true
+    },
+    {
+      "name": "MK reversal antisymmetry",
+      "pass_": true
+    },
+    {
+      "name": "printed 1D mask against2D fails",
+      "pass_": true
+    },
+    {
+      "name": "repaired shape preserves row-major values",
+      "pass_": true
+    },
+    {
+      "name": "printed class overlap found",
+      "pass_": true
+    },
+    {
+      "name": "new explicit partition covers boundaries",
+      "pass_": true
+    },
+    {
+      "name": "zero effect not negative",
+      "pass_": true
+    },
+    {
+      "name": "missing effect separate",
+      "pass_": true
+    },
+    {
+      "name": "AHP reciprocal and diagonal contract",
+      "pass_": true
+    },
+    {
+      "name": "AHP eigen residual",
+      "pass_": true
+    },
+    {
+      "name": "AHP printed weights recover within rounding",
+      "pass_": false
+    },
+    {
+      "name": "printed lambda contradicts printed CI",
+      "pass_": true
+    },
+    {
+      "name": "recomputed matrix passes declared CR threshold",
+      "pass_": true
+    },
+    {
+      "name": "AHP GDP/population reversal detected",
+      "pass_": true
+    },
+    {
+      "name": "AHP keyed global weights preserve mass",
+      "pass_": true
+    },
+    {
+      "name": "HEV additive and product can reverse ranking",
+      "pass_": true
+    },
+    {
+      "name": "mean of months differs from mean of days",
+      "pass_": true
+    },
+    {
+      "name": "day weighted mean preserves accumulation",
+      "pass_": true
+    },
+    {
+      "name": "aspect linear interpolation crosses opposite direction",
+      "pass_": true
+    },
+    {
+      "name": "positive-only mask discards valid zeros",
+      "pass_": true
+    },
+    {
+      "name": "dropna insufficient for finite sentinel",
+      "pass_": true
+    },
+    {
+      "name": "equal array size not geospatial agreement",
+      "pass_": true
+    },
+    {
+      "name": "count vs incidence rank reversal",
+      "pass_": true
+    },
+    {
+      "name": "XGB table gain under half percent",
+      "pass_": true
+    },
+    {
+      "name": "Q4 gains variable not one universal margin",
+      "pass_": true
+    }
+  ],
+  "passed": 28,
+  "total": 29,
+  "history": [
+    {
+      "name": "MK denominator",
+      "first_status": "FAIL",
+      "diagnosis": "PDF12 Eq3-10 uses30; exact permutation variance disagrees",
+      "repair": "Use18 and tie correction; appendix18 is only no-tie case",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "MK raster axes",
+      "first_status": "FAIL",
+      "diagnosis": "PDF55 allocates sresult(m*n) but zc(m,n)",
+      "repair": "Compute flat Z then reshape exactly once",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "trend partition",
+      "first_status": "FAIL",
+      "diagnosis": "PDF14 Table3-5 overlapping beta bands and positive down threshold",
+      "repair": "Define epsilon, effect direction and significance separately; not recover authors percentages",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "AHP arithmetic",
+      "first_status": "FAIL",
+      "diagnosis": "PDF39 lambda, CI and CR are not mutually consistent",
+      "repair": "Recompute eigenvalue, CI and RI indexed by n=6",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "AHP entity mapping",
+      "first_status": "FAIL",
+      "diagnosis": "Table5-6GDP:pop=2:1 butTable5-7about1:2",
+      "repair": "Key local and parent weights by indicator_id; corrected numbers conditional on Table5-6",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "calendar aggregation",
+      "first_status": "FAIL",
+      "diagnosis": "PDF8 Eq3-1..3 recursively weights months equally",
+      "repair": "Weight monthly means by valid days; separately name annual total",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    },
+    {
+      "name": "aspect interpolation",
+      "first_status": "FAIL",
+      "diagnosis": "PDF57/60 linearly zooms aspect degrees",
+      "repair": "Reproject sine/cosine; recover angle only if resultant norm nonzero",
+      "retest_status": "PASS",
+      "scope": "local fixture; not author end-to-end reproduction"
+    }
+  ],
+  "values": {
+    "MK (0, 1, 2, 3, 4, 5, 6)": {
+      "permutations": 5040,
+      "exact_variance": 44.333333333333336,
+      "corrected": 44.333333333333336
+    },
+    "MK (1, 1, 2, 2, 3, 4)": {
+      "permutations": 180,
+      "exact_variance": 26.333333333333332,
+      "corrected": 26.333333333333332
+    },
+    "MK (1, 1, 1, 1)": {
+      "permutations": 1,
+      "exact_variance": 0.0,
+      "corrected": 0.0
+    },
+    "MK denominator": {
+      "printed30": 26.6,
+      "exact": 44.333333333333336,
+      "Z_inflation_ratio": 1.2909944487358056
+    },
+    "shape_exception": "boolean index did not match indexed array along axis 0; size of axis is 2 but size of corresponding boolean axis is 6",
+    "partition_witness": {
+      "beta": 0.001,
+      "Z": 0,
+      "printed_matches": 2,
+      "new_class": "positive_not_confirmed"
+    },
+    "AHP": {
+      "matrix": [
+        [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0,
+          6.0
+        ],
+        [
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        [
+          0.3333333333333333,
+          0.5,
+          1.0,
+          2.0,
+          3.0,
+          4.0
+        ],
+        [
+          0.25,
+          0.3333333333333333,
+          0.5,
+          1.0,
+          2.0,
+          3.0
+        ],
+        [
+          0.2,
+          0.25,
+          0.3333333333333333,
+          0.5,
+          1.0,
+          2.0
+        ],
+        [
+          0.16666666666666666,
+          0.2,
+          0.25,
+          0.3333333333333333,
+          0.5,
+          1.0
+        ]
+      ],
+      "lambda": 6.1224636280048985,
+      "weights": [
+        0.38249747250943167,
+        0.25040174881317995,
+        0.1595802649105062,
+        0.10063029275399872,
+        0.06407739871781194,
+        0.042812822295071405
+      ],
+      "CI": 0.024492725600979703,
+      "RI6": 1.24,
+      "CR": 0.019752198065306214,
+      "printed_lambda": 6.61889,
+      "printed_CI": 0.0338,
+      "printed_CR": 0.0302,
+      "CI_div_RI5": 0.021868505000874734
+    },
+    "AHP_exposure": {
+      "printed": {
+        "GDP": 0.0868,
+        "population": 0.1737
+      },
+      "conditional_fix": {
+        "GDP": 0.17366666666666666,
+        "population": 0.08683333333333333
+      }
+    },
+    "HEV_counterexample": {
+      "HEV": [
+        [
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ],
+      "linear": [
+        0.8937999999999999,
+        0.3
+      ],
+      "product": [
+        0.0,
+        0.027
+      ]
+    },
+    "calendar": {
+      "mean_of_months": 0.8333333333333334,
+      "daily_weighted": 0.7671232876712328,
+      "annual_total_mm": 280
+    },
+    "exposure": {
+      "counts": [
+        100,
+        30
+      ],
+      "denominator": [
+        1000,
+        100
+      ],
+      "rates": [
+        0.1,
+        0.3
+      ]
+    },
+    "Q2_table_gain_percent": 0.4410186865318342,
+    "Q4_table_relative_MSE_gains_percent": {
+      "grass": 3.508661318033509,
+      "crop": 6.507949071666022,
+      "shrub": 2.9084935742583857,
+      "forest": 19.066937538026835,
+      "wetland": 10.157845165226414
+    }
+  },
+  "executed_at": "2026-09-13T03:20:32.935635+00:00"
+}

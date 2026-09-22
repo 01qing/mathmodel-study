@@ -1,0 +1,45 @@
+{
+  "case_group": "2025-A",
+  "papers": [
+    "S025",
+    "S026",
+    "S027"
+  ],
+  "status": "PROVISIONAL_BEFORE_S028",
+  "compatibility_checks": {
+    "input_output_interface": "compatible_after_adapter: all operate on DAG schedule/buffer/cache artifacts but field names and spill semantics differ",
+    "variable_definitions": "partially_compatible: Cmax/Vstay broadly align; transfer/cycle baselines and Q3 tolerance require canonical registry",
+    "data_distribution": "compatible for six provided workloads; external generalization untested",
+    "mathematical_assumptions": "partially_compatible: spill cost/COPY_IN and Q3 hard cap differ across papers",
+    "units": "compatible only after canonical Bytes/Cycles definitions; do not use raw weighted sum without normalization",
+    "train_execution_stage": "compatible: heuristic optimization, no ML train/test split; compare under equal evaluator/runtime/evaluation budget",
+    "evaluation_metrics": "compatible_after_common_evaluator: tables cannot be ranked directly before shared replay"
+  },
+  "recommended_composition": [
+    "shared DAG parser + canonical constraints/result registry",
+    "Q1 robust Kahn/FREE-first/critical-path baseline; optionally add explicitly implemented S027 multi-criteria ranking; S025 SA/S026 tabu only as matched-budget refiners",
+    "Q2 common lifetime sweep/feasibility replay; compare S025 and repaired S027 allocator/victim policy on identical spill semantics",
+    "Q3 source official epsilon once; enforce hard transfer cap then minimize cycles; optionally add LNS/MOEA only after baseline gain is proven"
+  ],
+  "blocked_components": [
+    {
+      "module": "S027 Q1 opaque MCBGS helper chain",
+      "reason": "algorithm-defining helper definitions absent"
+    },
+    {
+      "module": "S027 Q2 spill selector as printed",
+      "reason": "paper argmin and reverse-sorted code disagree"
+    },
+    {
+      "module": "S027 Q3 DOSA/multi-sequence label",
+      "reason": "optimizer core helper missing and no visible cross-instance coupling"
+    },
+    {
+      "module": "cross-paper direct table ranking",
+      "reason": "baseline/metric semantics not yet unified"
+    }
+  ],
+  "mainline_recommendation_allowed": true,
+  "mini_transfer_test_due": false,
+  "next_requirement": "review S028, then freeze 2025-A method map and run Mini Transfer Test (prefer Dev or a problem variant without exposing Test answers)"
+}

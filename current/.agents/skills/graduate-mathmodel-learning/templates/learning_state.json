@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.4",
+  "learner": {
+    "profile_id": "default",
+    "preferred_depth": "deep",
+    "notes": []
+  },
+  "current_focus": {
+    "competition": "全国研究生数学建模竞赛",
+    "year": null,
+    "problem_id": null,
+    "question_id": null,
+    "mode": "learn",
+    "session_id": null
+  },
+  "methods": {},
+  "weak_points": [],
+  "error_patterns": [],
+  "completed_problems": [],
+  "pending_replications": [],
+  "next_actions": []
+}

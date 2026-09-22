@@ -1,0 +1,57 @@
+{
+  "paper_id": "S040",
+  "case_group": "2025-E",
+  "visual_scope": "69页低分辨率全页视觉扫描；关键图表链核对。",
+  "figure_count_estimate": 31,
+  "argumentation": [
+    {
+      "stage": "mechanism_and_denoising",
+      "pages": [
+        9,
+        11,
+        12,
+        13,
+        16,
+        18
+      ],
+      "purpose": "故障频率与包络谱先说明噪声问题，再展示TVFEMD/GWO-MOMEDA去噪增益",
+      "learned_layout": "去噪前后/重构/包络谱用同对象多面板，适合机制证据"
+    },
+    {
+      "stage": "feature_fusion",
+      "pages": [
+        23
+      ],
+      "purpose": "展示MixHop后的多特征融合矩阵",
+      "cannot_prove": "融合矩阵视觉结构不能单独证明分类性能"
+    },
+    {
+      "stage": "model_competition",
+      "pages": [
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31
+      ],
+      "purpose": "结构图→混淆矩阵→loss→ROC→10次箱线图，兼顾性能和稳定性",
+      "learned_layout": "多个模型的混淆矩阵统一尺度并排；稳定性单独用箱线图，不与单次accuracy混在一图"
+    },
+    {
+      "stage": "domain_adaptation",
+      "pages": [
+        32,
+        35,
+        36,
+        37,
+        39,
+        40,
+        41
+      ],
+      "purpose": "KDE先证域偏移，网络/损失再证训练过程，最后做前后嵌入、域距离和attention",
+      "cannot_prove": "目标置信度不是准确率；attention不是因果解释"
+    }
+  ]
+}

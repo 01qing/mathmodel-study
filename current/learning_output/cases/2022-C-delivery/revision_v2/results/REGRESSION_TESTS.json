@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "lane4_1_cars",
+      "T": 81,
+      "passed": true
+    },
+    {
+      "check": "lane4_2_cars",
+      "T": 90,
+      "passed": true
+    },
+    {
+      "check": "lane4_10_cars",
+      "T": 162,
+      "passed": true
+    },
+    {
+      "check": "lane4_30_cars",
+      "T": 342,
+      "passed": true
+    },
+    {
+      "check": "lane4_318_cars",
+      "T": 2934,
+      "passed": true
+    },
+    {
+      "check": "official_drive_partition_example",
+      "passed": true
+    },
+    {
+      "check": "reject_tampered_score",
+      "passed": true,
+      "detected": "independent_score"
+    },
+    {
+      "check": "reject_tampered_movement",
+      "passed": true,
+      "detected": "independent_fifo_recurrence"
+    },
+    {
+      "check": "reject_tampered_parking_duplicate",
+      "passed": true,
+      "detected": "no_duplicate_regions"
+    }
+  ]
+}

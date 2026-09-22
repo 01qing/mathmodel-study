@@ -1,0 +1,69 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "figures": [
+    {
+      "role": "Q1 passable-domain/skeleton/route overlays",
+      "why": "verify geometry preprocessing and whether route stays in feasible space",
+      "supports": "representation plausibility and route geometry",
+      "cannot_prove": "GA optimality or objective superiority",
+      "new_problem_rule": "always overlay final route on feasible geometry and mark any repair/bridge edges"
+    },
+    {
+      "role": "Q1 scenic-change heat route",
+      "why": "localize where the route obtains scene-change score",
+      "supports": "spatial distribution of the chosen proxy",
+      "cannot_prove": "proxy matches human aesthetic experience or that code uses the paper formula",
+      "new_problem_rule": "heatmap must share route_id and metric implementation hash with Result Registry"
+    },
+    {
+      "role": "Q1 convergence curve",
+      "why": "show search stabilization",
+      "supports": "empirical optimization trace only",
+      "cannot_prove": "global optimum; cannot prove GA when appendix lacks GA primitives",
+      "new_problem_rule": "pair convergence plot with exact/lower-bound gap on small instances"
+    },
+    {
+      "role": "Q1 official-vs-model radar",
+      "why": "show tradeoffs across turns/crossings/scenic change/interest",
+      "supports": "multi-criterion descriptive comparison",
+      "cannot_prove": "optimized route dominates when criteria conflict",
+      "new_problem_rule": "display raw values and predeclared utility; avoid radar-only winner claims"
+    },
+    {
+      "role": "Q2 spatial cluster maps",
+      "why": "check spatial continuity and semantic region interpretation",
+      "supports": "descriptive coherence",
+      "cannot_prove": "GMM-MRF was executed when code is KMeans",
+      "new_problem_rule": "cluster map must register algorithm_id/K/feature set/adjacency contract"
+    },
+    {
+      "role": "Q2 component/ranking plots",
+      "why": "show which score dimension drives ranking",
+      "supports": "constructed-score decomposition",
+      "cannot_prove": "external aesthetic validity, especially with anchor calibration",
+      "new_problem_rule": "separate calibration cohort and external validation panel"
+    },
+    {
+      "role": "Q2 Kendall/sensitivity plots",
+      "why": "assess rank stability under perturbation",
+      "supports": "robustness only if each perturbation produces a full entity score vector",
+      "cannot_prove": "anything if ranking axis is parameter scenarios",
+      "new_problem_rule": "plot garden_id×run_id score matrix; compute Kendall on entity ranks per run"
+    },
+    {
+      "role": "Q3 similarity heatmap/dendrogram",
+      "why": "show pair structure and clustering",
+      "supports": "descriptive relationships under chosen metric",
+      "cannot_prove": "generalization or cultural truth",
+      "new_problem_rule": "include similarity null/baseline and external labeled pairs when available"
+    },
+    {
+      "role": "Q3 external-Heyuan plots",
+      "why": "demonstrate pipeline applicability to a new object",
+      "supports": "face validity/application coverage",
+      "cannot_prove": "accuracy without independent truth",
+      "new_problem_rule": "label as external application unless target/preference truth is frozen beforehand"
+    }
+  ]
+}

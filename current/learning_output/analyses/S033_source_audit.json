@@ -1,0 +1,11 @@
+{
+  "paper_id": "S033",
+  "source_pdf": "/mnt/data/next_s033/S033.pdf",
+  "sha256": "bc6529349c3a053b7774731f2fa3e383f6337807fd33954ee7726b04949878fd",
+  "expected_registry_sha256": "bc6529349c3a053b7774731f2fa3e383f6337807fd33954ee7726b04949878fd",
+  "pages": 78,
+  "full_text_file": "/mnt/data/next_s033/text/S033.txt",
+  "visual_audit": "13 contact sheets covering 78/78 pages",
+  "split": "train",
+  "appendix_static_audit": "pages 52-78"
+}

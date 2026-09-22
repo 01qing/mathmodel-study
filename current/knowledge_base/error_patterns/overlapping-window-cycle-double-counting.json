@@ -1,0 +1,6 @@
+{
+  "pattern": "overlapping-window-cycle-double-counting",
+  "symptom": "Every highly overlapping window is treated as a new full fatigue cycle/damage event and accumulated.",
+  "risk": "The same physical load segment can be counted repeatedly, distorting cumulative damage scale even when rankings/trends look similar.",
+  "check": "Compare against exact batch rainflow on synthetic known-cycle signals; inspect scale bias, rank correlation, boundary cycles, and damage per new sample."
+}

@@ -1,0 +1,231 @@
+{
+  "mode": "evaluation",
+  "query": "风电场 有功功率 疲劳 Pareto MPC 通信延迟 噪声 鲁棒优化",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E",
+    "2025-F"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [
+      "optimization",
+      "multiobjective"
+    ],
+    "data": [],
+    "constraints": [
+      "robustness"
+    ]
+  },
+  "matches": [
+    {
+      "paper_id": "S003",
+      "case_group": "2024-A",
+      "title": "A24103530117",
+      "page": 2,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S003-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103530117.pdf",
+      "source_sha256": "f6e0e476017750c9c13d03d1b103d32f32d74d2fe96feb40760c5b3bb3dff17c",
+      "chunk_id": "S003-p2-700",
+      "excerpt": "、多目标、实时性\n的需求，难以有效降低成本。本问通过Pareto 前沿分析将多目标有功功率分配优化模型转\n化为权重自适应的MPC 优化模型。此外，根据风速波动特征对风电场进行区域划分，在\n各区间内进行滚动时域功率优化，得到每秒各风机功率分配值生成实时功率分配动图。最\n后，将功率分配结果和累积疲劳损失与参考值进行性可视化分析，并评估模型。 \n针对问题四：在风电场实际运行中，随机噪声和通信延迟导致系统不稳定和优化效果\n下降。本问为提高模型的鲁棒性和稳定性，通过卡尔曼滤波器和延迟补偿机制分别对噪声\n影响和延迟作用进行处理，进一步引入鲁棒优化建立了基于问题三的全局协调的分区域\nMPC 鲁棒优化模型。此外，建立对比模型，即基于粒子群算法的鲁棒优化模型。通过对比\n分析了后者在有功功率分配中效果较好，同时也减少了各元件累积疲劳损伤。最后，与无\n优化模型对比，验证了所提出的优化策略在实际环境中的有效性，成功应对了通信延迟和\n测量噪声带来的挑战。 \n关键词：有功功率优化、滑动窗口算法、非线性回归、MPC 模型、鲁棒优化、自适应",
+      "lexical_cosine": 0.332119748516742,
+      "matched_keyword_tags": {
+        "tasks": [
+          "multiobjective",
+          "optimization"
+        ],
+        "data": [],
+        "constraints": [
+          "robustness"
+        ]
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S003.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003"
+        ]
+      }
+    },
+    {
+      "paper_id": "S011",
+      "case_group": "2024-C",
+      "title": "C24104220149",
+      "page": 53,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+      "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+      "chunk_id": "S011-p53-0",
+      "excerpt": "52 \n \n表8.3 两种算法求解最优解 \n \n温度 频率 \n波形 \n磁芯 \n材料 \n磁通密\n度峰值 \n磁芯 \n损耗 \n传输 \n磁能 \nNSGA-II Pareto\n最优解1 \n90 \n192418 \n正弦波 \n材料1 \n0.0104 \n1049 \n2008 \nNSGA-II Pareto\n最优解2 \n90 \n379324 \n正弦波 \n材料1 \n0.0776 \n143186 \n29439 \nMOPSO Pareto \n最优解1 \n90 \n470110 \n正弦波 \n材料4 \n0.4261 \n87042 \n20032 \nMOPSO Pareto \n最优解2 \n90 \n49910 \n正弦波 \n材料1 \n0.1677 \n741841 \n83703 \n \nNSGA-II 求得的Pareto 最优解绘制的Pareto 前沿可视图如图8.5 所示。 \n \n图8.5 NSSGA-II 算法Pareto 前沿图 \nMOPSO 算法求得的Pareto 最优解绘制的Pareto 前沿图如图8.6 所示。 \n \n图8.6 MOPSO 算法Pareto 前沿图 \n从两个算法绘制出的Pareto 前沿图可视化结果可以看出，NSSGA-II 算法求\n得的Pareto 最优解较为集中，相邻解集之间距离近，MOPSO 算法求出的Pareto",
+      "lexical_cosine": 0.15893788395031133,
+      "matched_keyword_tags": {
+        "tasks": [
+          "multiobjective"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    },
+    {
+      "paper_id": "S002",
+      "case_group": "2024-A",
+      "title": "A24103350007",
+      "page": 43,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S002-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103350007.pdf",
+      "source_sha256": "7fe2813d94da5d72676dd6c8fe0ff6cfead155b8aeb67918be9269de1a0cab5e",
+      "chunk_id": "S002-p43-0",
+      "excerpt": "42\n图41 噪声干扰和通信延迟作用下的风机有功功率优化方案求解过程截图\n图42 降噪和去延迟处理后的风机有功功率优化方案求解过程截图\n6.3.2. 基于奇异值分解SVD的降噪效果",
+      "lexical_cosine": 0.15011735336585982,
+      "matched_keyword_tags": {
+        "tasks": [
+          "optimization"
+        ],
+        "data": [],
+        "constraints": [
+          "robustness"
+        ]
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S003.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003"
+        ]
+      }
+    },
+    {
+      "paper_id": "S004",
+      "case_group": "2024-A",
+      "title": "A24107120016",
+      "page": 39,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24107120016.pdf",
+      "source_sha256": "daa73a15a67fe912cebe0948f9db9c2ad8e985032f55212eecd64393308ca9e6",
+      "chunk_id": "S004-p39-0",
+      "excerpt": "38\n七：问题四的模型建立与求解\n7.1 问题描述与分析\n在实际风电场运行中，AGC（自动发电控制）系统需要采集大量的实时数据来进行有\n功功率的优化和调度，这些数据通常由风机上的传感器通过高速光纤环传输至集控中心。\n然而，这一过程中，数据的采集和传输往往会受到多方面因素的影响，导致数据的准确性\n和实时性下降，主要表现为以下两个问题：\n（1）测量噪声：现场传感器会由于各种环境因素和自身精度限制，采集到的数据会受到\n随机噪声的干扰。在实际工程中，这种噪声一般表示为测量值与真实值之间存在10%以内\n的相对误差。这种噪声干扰将会导致风机得到的输入值与实际真实值不一致，进而影响有\n功功率的优化分配和调度。\n（2）通信延迟：在信号传输过程中，数据在协议层和物理层均可能受到传输拥塞影响，\n会出现随机的传输延迟问题，导致部分时间段内的数据无法及时采集，进而影响有功功率\n的优化分配和调度\n上述噪声与延迟问题会导致传统的优化模型难以满足实际工程需求。因此，为确保风电场\n有功功率调度的准确性与实时性，需要考虑随机测量噪声与通信延迟对模型的影响，进一\n步改进问题三中的优化方案，构建一个对噪声和延迟具有鲁棒性的优化模型。\n为了在实际环境下能更好的优化风电场的有功功率分配，我们需要针对测量噪声和延\n迟问题进行深入分析和处理。本题中，我们的有功功率优化算法需要实时接收风机的风速\n数据以及整体的调度信息。在实际风电场运行中，噪声主要来自于风机实时风速的测量，\n受限于现场传感器精度和外部环境的干扰，风速测量数据往往带有一定的随机波动。此外，\n通信延迟则更为复杂，通信过程在协议层和物理层均可能受到传输拥塞影响，存在随机传\n输延迟问题，导致部分时间段数据无法及时采集。物理层的延迟发生在风速数据从风机传\n输到中央控制系统的过程中，协议层的延迟发生在各风机的参考有功功率信号传递过程中。\n因此，该问题的核心在于两个方面：首先是对风速时间序列进行去噪处理，尽量减小\n测量噪声的影响，以确保风速数据能够更加准确地反映实际的风况变化；其次是设计一套\n延迟监测机制，能够实时监测到数据传输的延迟情况。当延迟发生时，我们需要对",
+      "lexical_cosine": 0.13857285505999406,
+      "matched_keyword_tags": {
+        "tasks": [
+          "optimization"
+        ],
+        "data": [],
+        "constraints": [
+          "robustness"
+        ]
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S003.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003"
+        ]
+      }
+    },
+    {
+      "paper_id": "S001",
+      "case_group": "2024-A",
+      "title": "考虑机组实时疲劳损伤的风电场有功功率优化分配",
+      "page": 3,
+      "reading_status": "full_text_read_visual_audit_partial",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S001-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24102940057.pdf",
+      "source_sha256": "6dbfb9e08c3234f8f7e40e678912fd0d2f55ec0dd200e5e464ada6db4ca35be3",
+      "chunk_id": "S001-p3-0",
+      "excerpt": "2 \n伤降低10%，载荷波动方差减小30%。 \n对于问题四，针对风电场环境数据与负荷需求信息的不确定性及噪声干扰问题，本文\n采取了双重策略应对。通过设定判断条件识别数据阻塞现象，并引入预测算法将不确定性\n转化为预测精度问题。构建鲁棒优化模型，通过迭代求解最差场景下的最优策略，确保模\n型在多数有效场景下既能满足所有约束条件，又能保持一定的优化效能，为风电场在复杂\n多变环境下提供了更为稳健与保守的功率分配方案。 \n关键词：实时雨流计数法；非线性累积疲劳损伤；强化学习；鲁棒优化；",
+      "lexical_cosine": 0.132263724513889,
+      "matched_keyword_tags": {
+        "tasks": [
+          "optimization"
+        ],
+        "data": [],
+        "constraints": [
+          "robustness"
+        ]
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S003.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003"
+        ]
+      }
+    },
+    {
+      "paper_id": "S026",
+      "case_group": "2025-A",
+      "title": "A题-2-通用神经网络处理器下的核内调度问题",
+      "page": 30,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-2-通用神经网络处理器下的核内调度问题.pdf",
+      "source_sha256": "c83c14e555122c1a7d7901f9108073c9b97299793cdf1e0e2581153307ff6a37",
+      "chunk_id": "S026-p30-0",
+      "excerpt": "同时达到最优的状态，我们通常会尽量让这些目标在一定的区域内达到最佳的状态，这就\n是多目标优化。\n多目标优化的基本目标是寻找一组无法继续改进的解，即帕累托解集。并且权衡不同\n目标之间的相互影响，而不是牺牲一个目标以优化另一个目标。同时保持解的多样性，使\n的解决方案不仅在单一问题上表现优秀，还在多个问题上具有鲁棒性。\nPareto 优化：决策向量a 在任何目标函数上的表现都不比决策向量b 差，且a 在某个\n目标函数的表现上比b 要好，则称a 帕累托占优b，或称a 优于b，a 强帕累托支配b。\nPareto 最优：是指没有进行帕累托改进余地的状态，是资源分配的一种理想状态。\nPareto 最优集：包含问题所有非支配解的集合。\nPareto 前沿：包含相应Pareto 最优解的目标值的集合。\n示意图如下：\n图6.14\nPareto 前沿示意图\n6.2.2 模型构建\n决策变量需要包括前两问的” 调度序列”、” 缓存地址调整”、”SPILL 操作控制” 三个变\n量，可记为X。其中S 为第一问中的节点调度顺序，需遵守计算图的拓扑序，必须是节点\n集合的一种合理排列。B 为缓冲区b 缓存分配变量，必须是非负整数。K，其中k 为第k\n次SPILL 操作的目标缓冲区编号，为其新分配的偏移地址，K 为SPILL 操作总数。目标函\n数定义为：\n总执行时间目标函数：\nF2 = max\ni\nTi\n(6.66)\n其中Ti 为节点i 的结束时间。\n30",
+      "lexical_cosine": 0.12404020984682357,
+      "matched_keyword_tags": {
+        "tasks": [
+          "multiobjective",
+          "optimization"
+        ],
+        "data": [],
+        "constraints": [
+          "robustness"
+        ]
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    },
+    {
+      "paper_id": "S012",
+      "case_group": "2024-C",
+      "title": "C24106130096",
+      "page": 65,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24106130096.pdf",
+      "source_sha256": "2a817dbee1c712b58c164164eea329cec49d8c3f4233792b20d484e9ffd81626",
+      "chunk_id": "S012-p65-0",
+      "excerpt": "s.t.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n50000 ≤f ≤500000, f ∈N\n8.25E −4 ≤fsin .eq ≤2.20E −3\n9.64E −3 ≤Bm ≤3.13E −1\n0 ≤M ≤3, M ∈N\n25 ≤T ≤90\n0 ≤W ≤3, W ∈N\n(5.129)\n接下来考虑对此模型求解，由于在第四问中所建立的磁芯损耗预测模型WMTLMSEDSR\n中的参数是由网络学到的，高度非凸的，而传统的算法中，需要进行多次的运行才能得到\n多次的解，无法得到Pareto 最优解集，整体上的效率并不高。具体来说，Pareto 边界/最优解\n集是指没有多个目标整体改进余地的解所组成的集合，改进一个目标会降低另一个目标。\n而智能优化算法能在一次运行过程中找到Pareto 最优解集中的多个解，且不限于Parato 前\n沿解集的形状和连续性。常用的智能搜索算法包括遗传算法(Genetic Algorithm, GA) 和粒\n子群优化算法(Particle swarm optinization, PSO)。\n5.5.2 利用遗传算法求解优化模型\n（1）遗传算法\n遗传算法\n[30] 是一种基于自然选择和遗传学原理的全局优化技术。其基本思想是模拟生\n物进化过程中的自然选择、遗传和突变等机制，通过一系列操作在解空间内搜索最优或近\n似最优解。遗传算法的核心在于编码、适应度评估、选择、交叉（重组）以及变异等操作，\n在遗传算法中，将问题空间的决策变量通过一定的编码方法转换为遗传空间中的个体。将\n目标函数转化成为一定的适应值，此适应值将作为评价个体优劣的依据。上述步骤共同驱\n动着算法朝着目标解的方向进化。目前遗传算法结合实数编码能够很好的应对一些整数规\n划类问题，并以能够较好地规避局部最优解地陷阱这一特点在智能算法领域优势显著。\n具体而言首先，将问题的解表示为染色体（Chromosome），通常由一串基因（Gene）\n组成，基因可以是实数、整数或是其他类型的变量，取决于问题的性质。染色体的编码方\n式决",
+      "lexical_cosine": 0.08336758345686023,
+      "matched_keyword_tags": {
+        "tasks": [
+          "multiobjective",
+          "optimization"
+        ],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

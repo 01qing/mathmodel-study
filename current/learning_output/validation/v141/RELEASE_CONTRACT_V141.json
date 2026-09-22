@@ -1,0 +1,443 @@
+{
+  "status": "PASS",
+  "passed": 87,
+  "total": 87,
+  "checks": [
+    {
+      "name": "VERSION 1.41.0",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "state version",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "latest S016",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "latest dev S016",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "latest R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "core identity",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "core gain bounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "ablation not run",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "paper count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "train count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "dev count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "test count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "all train reviewed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S013 dev split",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S013 reviewed pages",
+      "passed": true,
+      "detail": "113"
+    },
+    {
+      "name": "S013 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S014 dev split",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S014 reviewed pages",
+      "passed": true,
+      "detail": "62"
+    },
+    {
+      "name": "S014 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 dev split",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 reviewed pages",
+      "passed": true,
+      "detail": "96"
+    },
+    {
+      "name": "S015 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 dev split",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 reviewed pages",
+      "passed": true,
+      "detail": "114"
+    },
+    {
+      "name": "S016 R2",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S030 reserve unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S031 reserve unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S021 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S022 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S023 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S024 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S037 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S038 test unread",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/analyses/dev_2024D/S015/S015_FINAL_REVIEW.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/analyses/dev_2024D/S016/S016_FINAL_REVIEW.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/analyses/dev_2024D/FINAL_METHOD_COMPETITION_MAP_V141.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/analyses/dev_2024D/METHOD_COMPOSER_V141.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/analyses/dev_2024D/DEV_2024D_GAP_ANALYSIS_V141.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists .agents/skills/graduate-mathmodel-learning/references/dev-casegroup-contracts-v141.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists knowledge_base/error_patterns/2024-D-v141.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/mini_transfer/2024D_v141/MINI_TRANSFER_FIRST_FAIL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists learning_output/mini_transfer/2024D_v141/MINI_TRANSFER_RESULTS.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists PROGRESS_V141.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "exists VALIDATION_V141.md",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 registry final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 registry pages",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 audit count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 source hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S015 visual files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 registry final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 registry pages",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 audit count",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 source hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "S016 visual files",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map final",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map four papers",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map four questions",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "map evidence bounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "seven composer gates",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "composer no pipeline copy",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mini transfer pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mini six checks",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "mini bounded",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "previous release verified",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "previous release hash",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "library pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "workspace pass",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "production train-only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "evaluation train-only",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "34 regression scripts",
+      "passed": true,
+      "detail": "34"
+    },
+    {
+      "name": "final regressions clean",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "group 38/38",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/test_v141_group_FIRST_FAIL.log",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/mini_transfer/2024D_v141/MINI_TRANSFER_FIRST_FAIL.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/historical_original/SUMMARY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/recent_original/SUMMARY.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/historical_test_adaptation_v141/ORIGINAL_HASHES.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/historical_test_adaptation_v141/ADAPTATION_MANIFEST.json",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/final_system/validate_learning_workspace_FIRST_FAIL_WRONG_CWD.log",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "preserved learning_output/validation/v141/final_regressions/test_v18_code_learning_FIRST_FAIL_WRONG_CWD.log",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "v141 reference routed",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "v141 lean section",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-master",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-architect",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-engineer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-writer",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "name": "no role split mathmodel-reviewer",
+      "passed": true,
+      "detail": ""
+    }
+  ],
+  "scope": "v1.41 release-candidate integrity/regression/retrieval/2024-D closure; not author end-to-end reproduction or causal Core capability gain"
+}

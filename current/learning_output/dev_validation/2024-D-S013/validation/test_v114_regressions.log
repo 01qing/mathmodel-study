@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "scope": "v1.14 S006 full-text and printed appendix audit",
+  "passed": 24,
+  "tests": [
+    "S006 full review status",
+    "S006 Q1-Q3",
+    "S006 API smoke recorded",
+    "S006 not falsely reproduced",
+    "S006 code audit Q1-Q3",
+    "S006 30 explicit figure captions",
+    "S006 visual honesty",
+    "target-encoding-before-split-leakage.json",
+    "oversampling-before-split-leakage.json",
+    "cascade-groundtruth-intermediate-mismatch.json",
+    "posthoc-output-noise-as-robustness.json",
+    "resampler-shape-contract.json",
+    "2024-B S005/S006 remain reviewed",
+    "2024-B Q1-Q3 map",
+    "S006 train retained",
+    "S006 all 104 pages reviewed",
+    "S006 review linked",
+    "S006 audit reference",
+    "v1.14 OOF gate in skill",
+    "selector integrates cascade gate",
+    "cascade figure template",
+    "resampling diagnostic template",
+    "two v114 smoke figures",
+    "version at least 1.14"
+  ]
+}
+

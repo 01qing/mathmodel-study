@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.7",
+  "case_id": "gmcm-2021-D",
+  "total_points": 100,
+  "blind_requirement": {
+    "required_status": "fresh_blind",
+    "if_not_fresh_blind": "do_not_assign_pass_fail_score"
+  },
+  "questions": {
+    "Q1": {
+      "points": 25,
+      "criteria": {
+        "problem_structure": 5,
+        "candidate_diversity": 5,
+        "leakage_safe_feature_selection": 5,
+        "stability_and_redundancy": 5,
+        "clear_recommendation_and_switch_condition": 5
+      }
+    },
+    "Q2": {
+      "points": 25,
+      "criteria": {
+        "target_transform_and_units": 5,
+        "baseline_plus_nonlinear_competition": 5,
+        "nested_or_clean_validation": 5,
+        "metric_selection": 5,
+        "overfitting_and_extrapolation_risk": 5
+      }
+    },
+    "Q3": {
+      "points": 25,
+      "criteria": {
+        "five_tasks_not_forced_same_model": 5,
+        "class_imbalance_awareness": 5,
+        "resampling_inside_folds": 5,
+        "metrics_beyond_accuracy": 5,
+        "probability_calibration_if_used_in_Q4": 5
+      }
+    },
+    "Q4": {
+      "points": 25,
+      "criteria": {
+        "favorable_label_semantics": 5,
+        "CYP3A4_ambiguity_handling": 5,
+        "descriptor_feasibility_manifold": 5,
+        "interpretable_ranges_or_rules": 5,
+        "optimizer_is_solver_not_modeling_core": 5
+      }
+    }
+  },
+  "pass_threshold": 80,
+  "critical_fail_conditions": [
+    "uses excellent-paper method choices as hidden prior in a claimed blind run",
+    "performs feature selection or oversampling on the full dataset before CV",
+    "uses Accuracy alone for imbalanced Q3 tasks",
+    "treats all five ADMET label value 1 as automatically favorable in Q4",
+    "claims unconstrained descriptor-space PSO/GA output is a realizable molecule"
+  ]
+}

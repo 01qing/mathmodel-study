@@ -1,0 +1,55 @@
+{
+  "paper_id": "S041",
+  "case_group": "2025-E",
+  "visual_scope": "46页低分辨率全页视觉扫描；16个编号图的主要证据角色已核对。",
+  "figure_count_estimate": 16,
+  "argumentation": [
+    {
+      "stage": "signal_mechanism_and_features",
+      "pages": [
+        9,
+        10,
+        15
+      ],
+      "purpose": "时域/CWT/小波图和ViT嵌入串起“物理信号→深特征”",
+      "cannot_prove": "t-SNE类簇分开不能替代独立分类验证"
+    },
+    {
+      "stage": "source_model_competition",
+      "pages": [
+        17,
+        18,
+        20,
+        21
+      ],
+      "purpose": "模型结构、混淆矩阵与t-SNE支持源域模型选择",
+      "learned_layout": "结构图用于解释模型差异，结果图必须跟随而非以结构复杂度代替性能证据"
+    },
+    {
+      "stage": "transfer",
+      "pages": [
+        22,
+        23,
+        24,
+        26,
+        27,
+        28
+      ],
+      "purpose": "迁移前后、DANN/MMD流程、目标概率热图和消融构成迁移证据",
+      "learned_layout": "前后嵌入尽量共享尺度；目标概率热图适合展示不确定性，不写成真实精度"
+    },
+    {
+      "stage": "interpretability",
+      "pages": [
+        30,
+        31,
+        32,
+        33,
+        34,
+        35
+      ],
+      "purpose": "过程对齐→SHAP全局→单样本SHAP→解释量化表形成由全局到局部的解释链",
+      "cannot_prove": "SHAP重要性不能自动证明故障机理因果关系"
+    }
+  ]
+}

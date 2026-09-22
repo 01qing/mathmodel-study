@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-21",
+  "core": {
+    "version": "1.41.0",
+    "status": "SEALED",
+    "wrapper_sha256": "a4ef5b69d31ab2b5de032e9fa9e8c78f15a09b773bfca3ace57870cdb418016f",
+    "internal_core_sha256": "191c4dad37c811049516c66862bd2d45d1364784ff277ec73e5667d07cb64d6f",
+    "identity_gate": "PASS"
+  },
+  "2023C": {
+    "independent_solution": "FROZEN",
+    "postfreeze_review": "10/10 COMPLETE",
+    "evidence_bundle": "SEALED"
+  },
+  "2022D": {
+    "class": "ROLE_PIPELINE_SMOKE",
+    "status": "FROZEN",
+    "Q1_optimum": 54,
+    "Q2_C1_optimum": 40,
+    "Q2_C2_optimum": 40,
+    "reviewer_B": "PASS_SCOPED_SMOKE"
+  },
+  "role_claims": {
+    "ROLE_SPECIALIZATION_IMPROVES_CAPABILITY": "NOT_ESTABLISHED",
+    "CONTROLLED_CORE_ABLATION": "NOT_RUN"
+  },
+  "2022C": {
+    "benchmark_id": "ROLE-P1-2022C-v0.2",
+    "source": "FROZEN",
+    "run_A": "NOT_RUN",
+    "run_B": "NOT_RUN",
+    "blind_C": "NOT_RUN",
+    "next_action": "FRESH_CHAT_A"
+  }
+}

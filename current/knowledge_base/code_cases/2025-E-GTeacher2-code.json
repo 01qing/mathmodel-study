@@ -1,0 +1,129 @@
+{
+  "case_id": "2025-E-GTeacher2-code",
+  "case_group": "2025-E",
+  "split": "train_supplemental",
+  "source_ids": [
+    "GT2025E-G2-CODE",
+    "GT2025E-G2-RESULTS"
+  ],
+  "identity": "expert_or_teacher_material_not_excellent_paper",
+  "learning_status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+  "pipeline": [
+    {
+      "stage": "preprocessing",
+      "code": [
+        "preprocess_and_viz.py",
+        "batch_preprocess_target_domain.m"
+      ],
+      "operations": [
+        "detrend",
+        "bandpass",
+        "Hilbert envelope",
+        "z-score",
+        "resample",
+        "windowing",
+        "spectral kurtosis band selection",
+        "order tracking"
+      ],
+      "outputs": [
+        "窗口数据/索引",
+        "探索性时域/频域/t-SNE图"
+      ]
+    },
+    {
+      "stage": "source_training",
+      "code": [
+        "main5.py",
+        "main6.py",
+        "main7.py",
+        "main8.py"
+      ],
+      "operations": [
+        "文件级先打乱再70/15/15切分",
+        "1D特征网络",
+        "机理滤波组",
+        "Channel-SE",
+        "类别权重"
+      ],
+      "outputs": [
+        "源域模型",
+        "混淆矩阵/特征图"
+      ]
+    },
+    {
+      "stage": "domain_adaptation",
+      "code": [
+        "main5.py",
+        "main6.py",
+        "main7.py",
+        "main8.py"
+      ],
+      "operations": [
+        "CORAL loss",
+        "entropy minimization",
+        "BN recalibration/SHOT相关入口"
+      ],
+      "outputs": [
+        "迁移模型",
+        "adapt loss曲线",
+        "嵌入可视化"
+      ]
+    },
+    {
+      "stage": "target_inference_and_fusion",
+      "code": [
+        "main*.py",
+        "make_fusion_from_quick.m",
+        "plot_fusion_results.m"
+      ],
+      "operations": [
+        "窗口预测聚合到文件",
+        "置信度输出",
+        "两次预测融合"
+      ],
+      "outputs": [
+        "labels_target.csv",
+        "融合结果表",
+        "3张融合解释图"
+      ]
+    }
+  ],
+  "smoke_status": {
+    "python_syntax": "PASS_5_OF_5_NORMALIZED_MAIN_FILES",
+    "cli_help": "PASS_preprocess_main5_main6_main7_main8",
+    "end_to_end": "NOT_RUN_MISSING_RAW_AND_PREPROCESSED_DATA"
+  },
+  "confirmed_code_risks": [
+    {
+      "issue": "采样率回退大小写错误",
+      "evidence": "main8.py line 240/987/1160 uses 48000 if \"48kHz\" in fpath.lower() else 12000; condition can never match because lower() returns 48khz",
+      "impact": "无有效时间轴且48kHz文件进入该回退分支时会被当12000Hz"
+    },
+    {
+      "issue": "无有效信号默认映射正常类",
+      "evidence": "main8.py lines 230-232 returns torch.zeros(1,L), 3",
+      "impact": "读取失败或无法识别通道可能被作为N类训练样本，污染标签；应隔离并报告"
+    },
+    {
+      "issue": "绝对Windows路径较多",
+      "evidence": "static audit found multiple E:/ and E:\\ paths",
+      "impact": "迁移机器必须重写配置/结果路径，不能称开箱即跑"
+    }
+  ],
+  "positive_patterns": [
+    "先按原MAT文件划分train/val/test再在文件内部抽窗，方向上比窗口随机拆分更防泄漏",
+    "配置显式记录源/目标采样率、轴承几何、三/四分类版本和预处理开关",
+    "提供目标文件级聚合、置信度和结果融合解释图，便于建立结果论证链"
+  ],
+  "do_not_copy_blindly": [
+    "把目标域置信度当准确率",
+    "没有原始数据运行就引用作者图的数值",
+    "不修路径和采样率回退直接迁移",
+    "缺信号返回N类"
+  ],
+  "figure_card": "knowledge_base/figure_argumentation/2025-E-GTeacher2-code.json",
+  "evidence": [
+    "learning_output/analyses/2025-E-GTeacher2-code-audit.json",
+    "learning_sources/competitions/2025/E/supplemental/GTeacher2/SOURCE_NOTE.md"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "pattern": "selected-positive-examples-validation",
+  "description": "A detector/forecast is validated by manually checking a few predicted positive cases while misses/false positives are not enumerated.",
+  "detection": [
+    "paper selects 1-2 predicted events for screenshots",
+    "no complete event label set/confusion table",
+    "no false-alarm or missed-event metric"
+  ],
+  "remedy": [
+    "label all events/windows on an untouched interval",
+    "report event precision/recall/F1, false alarms per hour, onset delay and duration error",
+    "include representative TP/FP/FN cases"
+  ]
+}

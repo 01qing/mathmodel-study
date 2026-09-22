@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v134_s036_regressions.py", line 20, in <module>
+    nexttxt=(ROOT/'learning_output/context/next_learning.md').read_text(); ck('next progression beyond 2025-C','2025-F' in nexttxt); ck('test frozen','Test' in nexttxt and 'frozen' in nexttxt)
+                                                                           ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v134_s036_regressions.py", line 4, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: next progression beyond 2025-C

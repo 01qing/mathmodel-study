@@ -1,0 +1,90 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "year": 2025,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 68,
+  "title": "围岩裂隙精准识别与三维模型重构",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_68_PAGE_PDF_PIXEL_CONTACT_SHEET; PAPER_REFERENCES_ATTACHMENT_9_CODE_BUT_CODE_ARTIFACT_NOT_PRESENT_IN_AVAILABLE_COLLECTION",
+  "visual_status": "ORIGINAL 68-PAGE PDF ALL-PAGE CONTACT-SHEET AUDIT; 68 rendered pages / 12 contact sheets",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1: original borehole unfolded image/depth segment; Q2: image-level fracture instance/trace; Q3: ordered physical fracture centerline/profile; Q4: fracture pair / 3D spatial grid point / candidate borehole location",
+    "input_structure": "four attachment families of borehole wall unfolded images; pixel-to-mm calibration; sinusoidal traces; roughness profiles; six known borehole coordinates/depths",
+    "validation_priority": "Q1 must establish provenance of manual/reference masks and split at original image/borehole level; Q2 compare fit methods on independent images/traces with physical period contract; Q3 separate numerical convergence from physical ground truth; Q4 distinguish heuristic spatial scores from calibrated probabilities/posterior uncertainty and enforce all engineering constraints against existing and newly proposed boreholes",
+    "author_evaluation_scope": "selected attachment images, pixel confusion counts for three Q1 images, aggregate Q2 comparison table without named statistical-test protocol, numerical JRC sampling comparisons, and heuristic Q4 connectivity/coverage optimization; code is referenced as Attachment 9 but not included in the available excellent-paper ZIP/PDF"
+  },
+  "questions": {
+    "Q1": "two-stage fracture segmentation: six classical detectors vote for coarse localization, then 12 connected-component features are manually scored with threshold 6/10",
+    "Q2": "DBSCAN + horizontal-band merge + RANSAC/least-squares sinusoid versus sliding-window reduced-Hough model; estimate R/P/beta/C",
+    "Q3": "Fourier main contour + four-level DWT detail decomposition + Bootstrap + four sampling schemes + area-roughness-corrected JRC",
+    "Q4": "2D-to-3D fracture reconstruction, multiplicative five-factor connectivity score, DFS clusters, distance-decay information coverage surrogate, greedy supplementary-borehole placement"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S034.json",
+  "result_registry_ref": "knowledge_base/result_registry/S034.json",
+  "code_access_ref": "knowledge_base/code_cases/2025-C-S034-code-access.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-C-S034-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S034.json",
+  "reproduction": {
+    "level": "R1",
+    "evidence": [
+      "68/68 full-text close reading",
+      "original 68-page PDF visually audited through 68 page renders / 12 contact sheets",
+      "formulas, tables, pseudocode and result surfaces statically audited"
+    ],
+    "not_achieved": [
+      "R2: Appendix A only states 'Attachment 9: code for each question'; the available excellent-paper collection contains PDFs only and does not provide Attachment 9 source code for static audit",
+      "R3-R7: no executable author code/data chain, end-to-end reproduction or independent transfer is available"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 makes low-label classical image processing a serious route rather than assuming deep learning and exposes a transparent two-stage coarse-to-fine architecture",
+    "Q2 explicitly compares two model families and uses DBSCAN/RANSAC to address fragmented/noisy sinusoidal traces",
+    "Q3 recognizes that roughness estimates depend on sampling density and compares equal, curvature, gradient and entropy-driven sampling",
+    "Q4 links geometry, network connectivity, spatial coverage and measurement placement into a complete decision narrative"
+  ],
+  "key_risks": [
+    "Q1 Table 5 gives TP/FP/FN/TN and strong Precision/Recall/F1 but the paper does not state how ground-truth fracture pixels were created, by whom, or whether the 12-feature scoring weights/threshold were tuned independently of the three evaluated images",
+    "Q1 manual 12-feature reward weights and threshold 6/10 are acknowledged as subjective in section 7.1; no learned-weight or held-out threshold calibration is demonstrated",
+    "Q2 model description says RANSAC estimates R/P/beta/C, but pseudocode Step3 names only Rinit/betainit/Cinit before Step9 outputs P; the period-estimation primitive is underspecified",
+    "Q2 horizontal-band merge is described as horizontal distance but Eq.35 uses |yA-yB|; semantic axis/distance contract is inconsistent",
+    "Q2 reduced-Hough model fixes P to reduce dimension, while model-one Table 7 reports freely varying P values from 80 to 110 mm even though the cylindrical physical period should be tied to circumference when geometry is known",
+    "Q2 Table 6 reports p<0.01/0.01 for five metrics but provides no statistical test name, statistic, sample unit, pairing rule or sample size; significance provenance is not auditable",
+    "Q3 Bootstrap pseudocode says the main model uses least squares but Step3 switches to maximum likelihood; percentile CI is printed as [theta_(1-a/2), theta_(a/2)], reversed for conventional lower/upper order",
+    "Q3 calls high-density convergence 'true JRC' although no independent physical roughness ground truth is shown; convergence of estimators is numerical-reference evidence, not accuracy truth",
+    "Q3 enhanced JRC coefficients alpha=0.15±0.03 and beta=0.02±0.01 are stated without a visible calibration dataset/estimation method; treat as heuristic until provenance exists",
+    "Q3/Q4 range contract drifts: Q3 sampling values are around 17-40 and Q4 reports JRC 25-60 (including values exactly 60), while connectivity uses JRCmax=20 as a similarity scale without justification",
+    "Q4 Pc=Pd*Po*Pz*PJRC*Pt is called connectivity probability based on conditional-independence language, but the factor functions and scales are heuristic and no labeled connectivity calibration is shown",
+    "Q4 average network statement conflicts across surfaces: abstract says 32/50=64% isolated, while body says about 85% have no connectivity; both cannot denote the same isolation rate",
+    "Q4 cluster 12 reports mean connectivity 0.196 while the edge threshold is 0.3; this can be valid only if the table averages all within-cluster pairs rather than retained graph edges, but the aggregation denominator is not defined",
+    "Q4 'uncertainty' is generated from distance-decayed information coverage plus IDW rather than a stated random-variable posterior; it is a spatial coverage surrogate unless a probabilistic observation/update model is added",
+    "Q4 'information gain' is the reduction of that deterministic coverage surrogate after adding a candidate; it is not expected information gain over possible observations",
+    "Q4 the 500 mm spacing text is broader than the mathematical constraint: Eq.71 only constrains pairs of new holes. All three proposed new holes are >500 mm apart, but (800,1300) is only about 424.3 mm from existing hole 4 at (500,1000); if the safety rule applies to all boreholes, the formal model omits an existing-vs-new feasibility constraint",
+    "Q4 the claimed 0.523 to 0.395 reduction replays to 24.474%, consistent with the stated 24.5% after rounding, but no code/data artifact is available to reproduce the fields themselves",
+    "Paper Appendix A references eleven external attachments including Attachment 9 code, but those artifacts are absent from the available source package; visual completeness is therefore not implementation completeness"
+  ],
+  "applicable_conditions": [
+    "low-label borehole fracture image extraction where transparent classical filters are useful",
+    "periodic fracture traces on calibrated cylindrical unfolded images",
+    "roughness estimation from an ordered physical centerline with sampling-sensitivity analysis",
+    "exploratory spatial coverage and drilling recommendation when heuristic assumptions are labeled as such"
+  ],
+  "failure_or_abandon_conditions": [
+    "Q1 ground-truth mask provenance is unknown or the scoring threshold is tuned/evaluated on the same images without holdout",
+    "Q2 period or amplitude violates known borehole geometry and the method has no reject state",
+    "Q3 adaptive sampling is declared more accurate merely because it converges to a dense-sampling reference without external truth",
+    "Q4 heuristic compatibility/coverage outputs are interpreted as calibrated probability/posterior uncertainty, or safety spacing is not checked against all relevant existing/new holes"
+  ],
+  "recommended_redo": [
+    "Q1 keep six-filter/connected-component pipeline as a 6-hour no-label baseline, but replace manual scoring weights with a small interpretable classifier if labels exist; freeze original-image/borehole split before weight/threshold fitting and publish mask provenance",
+    "Q2 use topology-aware instance grouping then fit y=R*sin(2*pi*x/P+beta)+C with P fixed to pi*D when D is known; use bounded robust least-squares/RANSAC+refit, canonical phase, residual diagnostics and reject logic; compare sliding-window/Hough only under the same independent trace split",
+    "Q3 extract one ordered centerline in millimetres, freeze one canonical JRC formula, report sampling convergence relative to a declared numerical reference rather than truth, and calibrate any area correction on separate data before recommendation",
+    "Q4 use geometry-derived compatibility score unless connectivity labels justify probability calibration; represent uncertainty as an explicit stochastic posterior or call it coverage score; formulate candidate utility as expected posterior reduction only when an observation model exists; enforce new-new and existing-new hard spacing before ranking"
+  ]
+}

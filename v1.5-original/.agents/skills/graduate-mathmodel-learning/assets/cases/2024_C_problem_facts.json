@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.3",
+  "case_id": "gmcm-2024-C",
+  "year": 2024,
+  "problem_id": "C",
+  "title": "数据驱动下磁性元件的磁芯损耗建模",
+  "source_scope": "problem_statement_plus_verified_public_repository_metadata",
+  "problem_structure": {
+    "Q1": {
+      "name": "励磁波形分类",
+      "type": "time_series_shape_feature_extraction_and_multiclass_classification",
+      "input": "附件一磁通密度序列及已知波形标签",
+      "output": "识别附件二三种波形：1正弦波、2三角波、3梯形波",
+      "core_difficulty": [
+        "1024点波形不是普通独立表格特征",
+        "需提取形状/频域/斜率等具有物理含义的特征",
+        "测试集只用于最终分类"
+      ]
+    },
+    "Q2": {
+      "name": "Steinmetz 方程温度修正",
+      "type": "physics_model_calibration_and_extension",
+      "baseline": "P = k * f^alpha * Bm^beta",
+      "scope": "材料1、正弦波形",
+      "goal": "在传统 Steinmetz 方程中引入温度影响并比较误差",
+      "core_difficulty": [
+        "不是重新丢给黑箱回归",
+        "修正项需要可解释且可辨识",
+        "应测试对未参与拟合温度的泛化，而不只随机CV"
+      ]
+    },
+    "Q3": {
+      "name": "磁芯损耗因素分析",
+      "type": "factor_effect_and_interaction_analysis",
+      "factors": [
+        "温度",
+        "励磁波形",
+        "磁芯材料"
+      ],
+      "interactions": "仅讨论两两交互",
+      "goal": "独立影响、协同影响、影响程度、最低损耗条件",
+      "core_difficulty": [
+        "频率和磁通密度峰值是重要协变量，不能只比较原始组均值",
+        "需要区分统计显著性与效应大小",
+        "交互作用不等同于简单分组均值差"
+      ]
+    },
+    "Q4": {
+      "name": "数据驱动磁芯损耗预测",
+      "type": "mixed_tabular_waveform_regression",
+      "goal": "预测附件三磁芯损耗并分析精度、泛化与工程意义",
+      "test_samples_expected": 400,
+      "core_difficulty": [
+        "波形1024点需要合适表示",
+        "材料/温度/波形组合可能造成分布异质性",
+        "随机CV可能高估跨工况泛化"
+      ]
+    },
+    "Q5": {
+      "name": "磁性元件最优化条件",
+      "type": "multiobjective_optimization_on_surrogate",
+      "objectives": [
+        "minimize predicted core loss",
+        "maximize transmitted magnetic energy f * Bm"
+      ],
+      "variables": [
+        "温度",
+        "频率",
+        "波形",
+        "磁通密度峰值",
+        "磁芯材料"
+      ],
+      "core_difficulty": [
+        "不能只用任意权重加权和并宣称唯一最优",
+        "离散变量与连续变量混合",
+        "优化必须受训练数据支持域/模型适用域约束"
+      ]
+    }
+  },
+  "known_data_shape": {
+    "training_materials": 4,
+    "flux_samples_per_row": 1024,
+    "base_columns": [
+      "温度",
+      "频率",
+      "磁芯损耗",
+      "励磁波形"
+    ],
+    "public_repo_observation": "公开代码仓库的示例输出显示训练行含4个工况字段+1024个磁通密度采样点，共1028列。"
+  },
+  "evidence_status": "partially_verified"
+}

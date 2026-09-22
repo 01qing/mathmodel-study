@@ -1,0 +1,502 @@
+{
+  "source_sha256": "6cb012383042874734f66f47f9287ae099adc7f81f9b89fa8f7657c747938020",
+  "pages": [
+    {
+      "pdf_page": 1,
+      "printed_page": 0,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_01_02.png",
+      "note": "Cover and source identity; award not externally verified"
+    },
+    {
+      "pdf_page": 2,
+      "printed_page": 1,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_01_02.png",
+      "note": "Abstract Q1–Q4 claims"
+    },
+    {
+      "pdf_page": 3,
+      "printed_page": 2,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_03_04.png",
+      "note": "Contents Q1–Q4"
+    },
+    {
+      "pdf_page": 4,
+      "printed_page": 3,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_03_04.png",
+      "note": "Contents audit appendix locator"
+    },
+    {
+      "pdf_page": 5,
+      "printed_page": 4,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_05_06.png",
+      "note": "Problem restatement and independent samples assumption"
+    },
+    {
+      "pdf_page": 6,
+      "printed_page": 5,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_05_06.png",
+      "note": "Assumptions, Q1 flow"
+    },
+    {
+      "pdf_page": 7,
+      "printed_page": 6,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_07_08.png",
+      "note": "Daily precipitation support and TIFF conversion"
+    },
+    {
+      "pdf_page": 8,
+      "printed_page": 7,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_07_08.png",
+      "note": "Calendar aggregation and incompatible stated grid resolution/shape"
+    },
+    {
+      "pdf_page": 9,
+      "printed_page": 8,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_09_10.png",
+      "note": "Annual precipitation plot, units and time-scope ambiguity"
+    },
+    {
+      "pdf_page": 10,
+      "printed_page": 9,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_09_10.png",
+      "note": "SD plot spatial/time axis and caption2022 vs2020"
+    },
+    {
+      "pdf_page": 11,
+      "printed_page": 10,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_11_12.png",
+      "note": "Pearson association and MK signed-pair sum"
+    },
+    {
+      "pdf_page": 12,
+      "printed_page": 11,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_11_12.png",
+      "note": "Eq3-10 denominator30 visually confirmed"
+    },
+    {
+      "pdf_page": 13,
+      "printed_page": 12,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_13_14.png",
+      "note": "MK significance table and map; percentages rounded"
+    },
+    {
+      "pdf_page": 14,
+      "printed_page": 13,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_13_14.png",
+      "note": "Sen slope and overlapping Table3-5 classes"
+    },
+    {
+      "pdf_page": 15,
+      "printed_page": 14,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_15_16.png",
+      "note": "Land fractions and relative change formula"
+    },
+    {
+      "pdf_page": 16,
+      "printed_page": 15,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_15_16.png",
+      "note": "Average change rates, fraction/percent labels"
+    },
+    {
+      "pdf_page": 17,
+      "printed_page": 16,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_17_18.png",
+      "note": "Five land mean maps; prose ordering reversed"
+    },
+    {
+      "pdf_page": 18,
+      "printed_page": 17,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_17_18.png",
+      "note": "Five change maps; no independent impact truth"
+    },
+    {
+      "pdf_page": 19,
+      "printed_page": 18,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_19_20.png",
+      "note": "Q2 feature and dataset contracts"
+    },
+    {
+      "pdf_page": 20,
+      "printed_page": 19,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_19_20.png",
+      "note": "Slope/aspect formula and0east clockwise convention; slope units unresolved"
+    },
+    {
+      "pdf_page": 21,
+      "printed_page": 20,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_21_22.png",
+      "note": "1979–2018temperature vs1961–2022caption; daily rain thresholds"
+    },
+    {
+      "pdf_page": 22,
+      "printed_page": 21,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_21_22.png",
+      "note": "Cellwise elevation/rain scatter"
+    },
+    {
+      "pdf_page": 23,
+      "printed_page": 22,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_23_24.png",
+      "note": "Binned totals require exposure denominator"
+    },
+    {
+      "pdf_page": 24,
+      "printed_page": 23,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_23_24.png",
+      "note": "Slope60–90degree map anomaly requires pipeline trace"
+    },
+    {
+      "pdf_page": 25,
+      "printed_page": 24,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_25_26.png",
+      "note": "Slope/aspect heatmap and temperature scatter"
+    },
+    {
+      "pdf_page": 26,
+      "printed_page": 25,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_25_26.png",
+      "note": "Temperature bins; correlation not causal"
+    },
+    {
+      "pdf_page": 27,
+      "printed_page": 26,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_27_28.png",
+      "note": "DEM/slope/aspect correlations0.98; derivation alone insufficient explanation"
+    },
+    {
+      "pdf_page": 28,
+      "printed_page": 27,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_27_28.png",
+      "note": "Multiple targets and R2/MSE definitions"
+    },
+    {
+      "pdf_page": 29,
+      "printed_page": 28,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_29_30.png",
+      "note": "Nested elevation cohorts; different test populations"
+    },
+    {
+      "pdf_page": 30,
+      "printed_page": 29,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_29_30.png",
+      "note": "Temperature subgroups and changed target variance"
+    },
+    {
+      "pdf_page": 31,
+      "printed_page": 30,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_31_32.png",
+      "note": "Target-conditioned Rainfall selection; separate tasks"
+    },
+    {
+      "pdf_page": 32,
+      "printed_page": 31,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_31_32.png",
+      "note": "ML competition and CV claims"
+    },
+    {
+      "pdf_page": 33,
+      "printed_page": 32,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_33_34.png",
+      "note": "RF/XGB table and prose1613.645 vs1612.645"
+    },
+    {
+      "pdf_page": 34,
+      "printed_page": 33,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_33_34.png",
+      "note": "Importance semantics; DEM derived drainage starts"
+    },
+    {
+      "pdf_page": 35,
+      "printed_page": 34,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_35_36.png",
+      "note": "MK-gated Sen future extrapolation; no hindcast shown"
+    },
+    {
+      "pdf_page": 36,
+      "printed_page": 35,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_35_36.png",
+      "note": "Critical conditions omit calibrated precipitation/disaster target"
+    },
+    {
+      "pdf_page": 37,
+      "printed_page": 36,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_37_38.png",
+      "note": "HEV multiplication and indicators"
+    },
+    {
+      "pdf_page": 38,
+      "printed_page": 37,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_37_38.png",
+      "note": "AHP reciprocal matrix vs sum1 conflict"
+    },
+    {
+      "pdf_page": 39,
+      "printed_page": 38,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_39_40.png",
+      "note": "AHP table normalization primitive; CI/CR and entity mapping; WeightedSum"
+    },
+    {
+      "pdf_page": 40,
+      "printed_page": 39,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_39_40.png",
+      "note": "Risk map and southeast qualitative interpretation"
+    },
+    {
+      "pdf_page": 41,
+      "printed_page": 40,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_41_42.png",
+      "note": "Northeast and western map comparisons"
+    },
+    {
+      "pdf_page": 42,
+      "printed_page": 41,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_41_42.png",
+      "note": "Western interpretation, Q4 data supports"
+    },
+    {
+      "pdf_page": 43,
+      "printed_page": 42,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_43_44.png",
+      "note": "Three terrain steps qualitative map"
+    },
+    {
+      "pdf_page": 44,
+      "printed_page": 43,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_43_44.png",
+      "note": "800mm map uses annual totals unlike Q1 daily mean; no numeric lineage"
+    },
+    {
+      "pdf_page": 45,
+      "printed_page": 44,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_45_46.png",
+      "note": "Geographical overlays; map appearance not external validation"
+    },
+    {
+      "pdf_page": 46,
+      "printed_page": 45,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_45_46.png",
+      "note": "Land positive/negative rate correlations; sign definitions unresolved"
+    },
+    {
+      "pdf_page": 47,
+      "printed_page": 46,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_47_48.png",
+      "note": "Land/GDP/population heatmaps; identical/opposite correlations need input trace"
+    },
+    {
+      "pdf_page": 48,
+      "printed_page": 47,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_47_48.png",
+      "note": "Forest/shrub/wetland heatmaps; inspect axis names"
+    },
+    {
+      "pdf_page": 49,
+      "printed_page": 48,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_49_50.png",
+      "note": "Table6-3 crop miscalled shrub; MSE direction typo; population-altitude sign contradiction"
+    },
+    {
+      "pdf_page": 50,
+      "printed_page": 49,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_49_50.png",
+      "note": "Predictions and future maps; driver forecasts not supplied"
+    },
+    {
+      "pdf_page": 51,
+      "printed_page": 50,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_51_52.png",
+      "note": "Interpretation and self-evaluation"
+    },
+    {
+      "pdf_page": 52,
+      "printed_page": 51,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_51_52.png",
+      "note": "Limits and references, more models not automatic improvement"
+    },
+    {
+      "pdf_page": 53,
+      "printed_page": 52,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_53_54.png",
+      "note": "References and Sen initialization"
+    },
+    {
+      "pdf_page": 54,
+      "printed_page": 53,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_53_54.png",
+      "note": "Sen loop excludes zeros; original indentation valid unlike extraction"
+    },
+    {
+      "pdf_page": 55,
+      "printed_page": 54,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_55_56.png",
+      "note": "MK uses18 without ties; flattened mask into2Dzc"
+    },
+    {
+      "pdf_page": 56,
+      "printed_page": 55,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_55_56.png",
+      "note": "RF raster read drops metadata; author intermediate paths"
+    },
+    {
+      "pdf_page": 57,
+      "printed_page": 56,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_57_58.png",
+      "note": "zoom by shape, linear cyclic aspect, dropna only"
+    },
+    {
+      "pdf_page": 58,
+      "printed_page": 57,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_57_58.png",
+      "note": "RF random80/20 with5foldCV; not stated60/20/20"
+    },
+    {
+      "pdf_page": 59,
+      "printed_page": 58,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_59_60.png",
+      "note": "RF plot regression line is not identity line; XGB begins"
+    },
+    {
+      "pdf_page": 60,
+      "printed_page": 59,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_59_60.png",
+      "note": "XGB same raster alignment problems"
+    },
+    {
+      "pdf_page": 61,
+      "printed_page": 60,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_61_62.png",
+      "note": "XGB random80/20 and3foldCV; different search budget"
+    },
+    {
+      "pdf_page": 62,
+      "printed_page": 61,
+      "text_reviewed": true,
+      "visual_reviewed": true,
+      "image": "visual/pages_61_62.png",
+      "note": "XGB outputs; no Q3/4 full executable appendix"
+    }
+  ],
+  "visual_does_not_raise_R": true
+}

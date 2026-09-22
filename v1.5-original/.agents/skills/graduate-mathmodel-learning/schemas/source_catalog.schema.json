@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_catalog.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "competition",
+    "scope",
+    "years"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "competition": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "years"
+      ],
+      "properties": {
+        "years": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "minItems": 1
+        }
+      }
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "source_policy": {
+      "type": "object"
+    },
+    "years": {
+      "type": "object"
+    }
+  }
+}

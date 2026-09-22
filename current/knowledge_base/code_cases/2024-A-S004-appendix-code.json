@@ -1,0 +1,41 @@
+{
+  "case_id": "2024-A-S004",
+  "source": "printed appendix code fragments in S004 physical pages 54-59",
+  "run_status": "NOT_RUN_INCOMPLETE_MATLAB_FRAGMENTS_AND_MISSING_ORIGINAL_DATA_FUNCTIONS",
+  "questions": {
+    "Q1": {
+      "status": "STATIC_AUDIT",
+      "findings": [
+        "fixed overlapping-window max/min surrogate",
+        "each overlapping window adds 1/N as a new damage increment; potential duplicate counting",
+        "startup fitting code absent"
+      ]
+    },
+    "Q2": {
+      "status": "STATIC_AUDIT",
+      "findings": [
+        "R=64.5 comment says assumed 50m",
+        "A=13685 inconsistent with pi*64.5^2",
+        "power factor 0.945 used as mechanical/electrical conversion factor",
+        "rotor thrust expression multiplied by blade count 3 and fitted offset -978700; semantics need validation"
+      ]
+    },
+    "Q3": {
+      "status": "STATIC_AUDIT_INCOMPLETE",
+      "findings": [
+        "GeneticAlgorithm depends on missing Initialization/OperatorGA/evaluation/enviornmentalSelection",
+        "section labelled objective function duplicates GA body; objective/evaluation code absent",
+        "normalization versus component bounds cannot be verified"
+      ]
+    },
+    "Q4": {
+      "status": "STATIC_AUDIT_INCOMPLETE",
+      "findings": [
+        "only Kalman fragment printed; LSTM/ARIMA/delay-detection/GA integration absent",
+        "x_est and P initialized outside turbine loop causing cross-turbine state leakage",
+        "no executable evidence for five-treatment end-to-end pipeline"
+      ]
+    }
+  },
+  "identity_boundary": "Audit is limited to printed appendix fragments, not any separately submitted complete code that is unavailable in the current workspace."
+}

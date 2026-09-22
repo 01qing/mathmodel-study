@@ -1,0 +1,521 @@
+[
+  {
+    "source_id": "S001",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24102940057.pdf",
+    "pages": 68,
+    "text_density_chars_per_page": 884.6,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S002",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103350007.pdf",
+    "pages": 79,
+    "text_density_chars_per_page": 857.3,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      2
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S003",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103530117.pdf",
+    "pages": 73,
+    "text_density_chars_per_page": 950.8,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S004",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24107120016.pdf",
+    "pages": 59,
+    "text_density_chars_per_page": 901.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S005",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24102860287.pdf",
+    "pages": 90,
+    "text_density_chars_per_page": 1399.5,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      2
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S006",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24103530099.pdf",
+    "pages": 104,
+    "text_density_chars_per_page": 1033.4,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S007",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24104760033.pdf",
+    "pages": 113,
+    "text_density_chars_per_page": 885.8,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S008",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24116640167.pdf",
+    "pages": 69,
+    "text_density_chars_per_page": 923.0,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S009",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24102890089.pdf",
+    "pages": 71,
+    "text_density_chars_per_page": 774.0,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S010",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24103860012.pdf",
+    "pages": 82,
+    "text_density_chars_per_page": 776.7,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      2,
+      3
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S011",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+    "pages": 71,
+    "text_density_chars_per_page": 858.3,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S012",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24106130096.pdf",
+    "pages": 105,
+    "text_density_chars_per_page": 1237.7,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      2
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S013",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24103850092.pdf",
+    "pages": 113,
+    "text_density_chars_per_page": 1028.6,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S014",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24104250063.pdf",
+    "pages": 62,
+    "text_density_chars_per_page": 1080.8,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S015",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24104460003.pdf",
+    "pages": 96,
+    "text_density_chars_per_page": 838.6,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S016",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24106570027.pdf",
+    "pages": 114,
+    "text_density_chars_per_page": 770.3,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S017",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24101480006.pdf",
+    "pages": 84,
+    "text_density_chars_per_page": 713.4,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S018",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24102870008.pdf",
+    "pages": 81,
+    "text_density_chars_per_page": 1162.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S019",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24102910005.pdf",
+    "pages": 60,
+    "text_density_chars_per_page": 780.7,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S020",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24106980067.pdf",
+    "pages": 78,
+    "text_density_chars_per_page": 878.6,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S021",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\F\\F24102870082.pdf",
+    "pages": 44,
+    "text_density_chars_per_page": 990.7,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      2
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S022",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\F\\F24103360083.pdf",
+    "pages": 48,
+    "text_density_chars_per_page": 934.5,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S023",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\F\\F24104860143.pdf",
+    "pages": 79,
+    "text_density_chars_per_page": 811.9,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1,
+      2
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S024",
+    "path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\F\\F24910020063.pdf",
+    "pages": 53,
+    "text_density_chars_per_page": 732.4,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S025",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-1-通用神经网络处理器下的核内调度问题.pdf",
+    "pages": 59,
+    "text_density_chars_per_page": 1001.2,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S026",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-2-通用神经网络处理器下的核内调度问题.pdf",
+    "pages": 98,
+    "text_density_chars_per_page": 953.7,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S027",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-NPU 核内调度算法设计与优化研究.pdf",
+    "pages": 120,
+    "text_density_chars_per_page": 1001.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S028",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-面向 Davinci 架构的 NPU 核内调度算法研究.pdf",
+    "pages": 77,
+    "text_density_chars_per_page": 1309.7,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S029",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\B题优秀论文\\B题-MIMO-OFDM 链路速率预测问题的建模研究.pdf",
+    "pages": 57,
+    "text_density_chars_per_page": 1589.2,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S030",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\B题优秀论文\\B题-无线通信系统链路速率建模.pdf",
+    "pages": 68,
+    "text_density_chars_per_page": 1193.7,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S031",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\B题优秀论文\\B题-机器学习驱动的面向 MIMO-OFDM 的链路速率预测.pdf",
+    "pages": 76,
+    "text_density_chars_per_page": 1072.4,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S032",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+    "pages": 71,
+    "text_density_chars_per_page": 1087.3,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S033",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-2-围岩裂隙精准识别与三维模型重构.pdf",
+    "pages": 78,
+    "text_density_chars_per_page": 860.5,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S034",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-3-围岩裂隙精准识别与三维模型重构.pdf",
+    "pages": 68,
+    "text_density_chars_per_page": 832.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S035",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于 Frangi 滤波的钻孔裂隙识别与三维概率重构.pdf",
+    "pages": 91,
+    "text_density_chars_per_page": 739.8,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S036",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究.pdf",
+    "pages": 76,
+    "text_density_chars_per_page": 732.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S037",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\D题优秀论文\\D题-低空湍流监测及最优航路规划研究.pdf",
+    "pages": 60,
+    "text_density_chars_per_page": 1106.4,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S038",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\D题优秀论文\\D题-基于多源数据融合的低空湍流监测与航路优化.pdf",
+    "pages": 110,
+    "text_density_chars_per_page": 821.9,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S039",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-基于迁移学习的高速列车轴承故障诊断研究.pdf",
+    "pages": 93,
+    "text_density_chars_per_page": 1043.2,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S040",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+    "pages": 69,
+    "text_density_chars_per_page": 1212.8,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1,
+      37,
+      38
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S041",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-高速列车轴承智能故障诊断问题.pdf",
+    "pages": 46,
+    "text_density_chars_per_page": 1061.8,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S042",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-1-江南古典园林的美学特征建模.pdf",
+    "pages": 182,
+    "text_density_chars_per_page": 1245.7,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S043",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-2-江南古典园林的美学特征建模.pdf",
+    "pages": 71,
+    "text_density_chars_per_page": 850.1,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S044",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-多模态数据融合视角下江南古典园林美学特征量化建模研究.pdf",
+    "pages": 116,
+    "text_density_chars_per_page": 870.9,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S045",
+    "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-江南古典园林美学特征的量化建模与分析.pdf",
+    "pages": 94,
+    "text_density_chars_per_page": 1027.7,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S046",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师\\E题问题12分析-G老师.pdf",
+    "pages": 9,
+    "text_density_chars_per_page": 66.1,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S049",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师2\\E题 完整版论文-G老师2.pdf",
+    "pages": 185,
+    "text_density_chars_per_page": 0.0,
+    "review_status": "SELECTED_PAGES_OR_EXCERPTS_REVIEWED",
+    "selected_pages": [
+      1
+    ],
+    "full_review": false
+  },
+  {
+    "source_id": "S050",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师2\\E题 解题思路-G老师2.pdf",
+    "pages": 5,
+    "text_density_chars_per_page": 0.0,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S052",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\G老师2\\E题 问题建模求解文档-G老师2\\E题第三问-G老师2.pdf",
+    "pages": 6,
+    "text_density_chars_per_page": 0.0,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S053",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\2025年华为杯E题成品论文-X老师.pdf",
+    "pages": 97,
+    "text_density_chars_per_page": 1010.9,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S055",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题问题12-X老师.pdf",
+    "pages": 37,
+    "text_density_chars_per_page": 139.1,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S056",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题问题一-X老师.pdf",
+    "pages": 15,
+    "text_density_chars_per_page": 318.3,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  },
+  {
+    "source_id": "S057",
+    "path": "D:\\BaiduNetdiskDownload\\2025代码\\0-2025 E题思路+参考文献+代码+成品论文\\X老师\\E题问题一二三四-X老师.pdf",
+    "pages": 48,
+    "text_density_chars_per_page": 104.3,
+    "review_status": "INDEXED_EXTRACTED_NOT_FULL_REVIEWED",
+    "selected_pages": [],
+    "full_review": false
+  }
+]

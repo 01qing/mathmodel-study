@@ -1,0 +1,330 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "registry_version": "1.0",
+  "source_policy": "one numeric claim should have a named source and replay formula; paper table, appendix constant and derived percentage are distinct sources until reconciled",
+  "Q1": {
+    "table_4_9": {
+      "random": {
+        "Conv_Case0": 132887,
+        "Conv_Case1": 383112,
+        "FlashAttention_Case0": 35592,
+        "FlashAttention_Case1": 134288,
+        "Matmul_Case0": 16384,
+        "Matmul_Case1": 65536
+      },
+      "memory_aware": {
+        "Conv_Case0": 80170,
+        "Conv_Case1": 310408,
+        "FlashAttention_Case0": 26728,
+        "FlashAttention_Case1": 106992,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      },
+      "critical_path": {
+        "Conv_Case0": 132810,
+        "Conv_Case1": 383112,
+        "FlashAttention_Case0": 34920,
+        "FlashAttention_Case1": 133616,
+        "Matmul_Case0": 16384,
+        "Matmul_Case1": 65536
+      },
+      "ERF": {
+        "Conv_Case0": 14592,
+        "Conv_Case1": 14040,
+        "FlashAttention_Case0": 4500,
+        "FlashAttention_Case1": 7588,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      },
+      "MCBGS": {
+        "Conv_Case0": 12432,
+        "Conv_Case1": 14040,
+        "FlashAttention_Case0": 4500,
+        "FlashAttention_Case1": 7588,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      }
+    },
+    "reported_claims": {
+      "vs_random_pct": 89.2,
+      "vs_memory_pct": 85.5,
+      "vs_critical_pct": 89.2
+    },
+    "replay": {
+      "aggregate_sum_weighted_pct": {
+        "vs_random": 89.24301802945823,
+        "vs_memory": 85.46759805042845,
+        "vs_critical": 89.22307268736837,
+        "vs_ERF": 2.5486124221257316
+      },
+      "mean_of_six_casewise_pct": {
+        "vs_random": 76.55185427587448,
+        "vs_memory": 59.340246262178056,
+        "vs_critical": 76.50566264574303,
+        "vs_ERF": 2.4671052631578942
+      },
+      "interpretation": "paper headline matches aggregate-sum weighted reduction, not arithmetic mean of six workload percentage reductions"
+    },
+    "cross_paper_Cmax": {
+      "S025": {
+        "Conv_Case0": 7660,
+        "Conv_Case1": 14040,
+        "FlashAttention_Case0": 4500,
+        "FlashAttention_Case1": 7588,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      },
+      "S026": {
+        "Conv_Case0": 14592,
+        "Conv_Case1": 14040,
+        "FlashAttention_Case0": 4500,
+        "FlashAttention_Case1": 7588,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      },
+      "S027": {
+        "Conv_Case0": 12432,
+        "Conv_Case1": 14040,
+        "FlashAttention_Case0": 4500,
+        "FlashAttention_Case1": 7588,
+        "Matmul_Case0": 9216,
+        "Matmul_Case1": 34816
+      },
+      "status": "DO_NOT_RANK_BEFORE_COMMON_EVALUATOR; five workloads match and Conv_Case0 differs materially"
+    }
+  },
+  "Q2": {
+    "table_5_11": {
+      "simple_greedy": {
+        "traffic": 38912,
+        "cycles": 1206592,
+        "spill_count": 304
+      },
+      "random_spill": {
+        "traffic": 39168,
+        "cycles": 1206848,
+        "spill_count": 306
+      },
+      "min_priority": {
+        "traffic": 39041,
+        "cycles": 1207023,
+        "spill_count": 305
+      },
+      "max_priority": {
+        "traffic": 38783,
+        "cycles": 1205987,
+        "spill_count": 302
+      },
+      "no_optimization": {
+        "traffic": 39556,
+        "cycles": 1210145,
+        "spill_count": 308
+      },
+      "MOACADSA": {
+        "traffic": 35840,
+        "cycles": 942535,
+        "spill_count": 280
+      }
+    },
+    "table_5_12_rows": [
+      {
+        "task": "Conv_Case0",
+        "traffic": 99072,
+        "cycles": 480222,
+        "spill_count": 43
+      },
+      {
+        "task": "Conv_Case1",
+        "traffic": 34800,
+        "cycles": 713002,
+        "spill_count": 306
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "traffic": 4608,
+        "cycles": 40011,
+        "spill_count": 18
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "traffic": 32512,
+        "cycles": 136587,
+        "spill_count": 127
+      },
+      {
+        "task": "Matmul_Case0",
+        "traffic": 5120,
+        "cycles": 107180,
+        "spill_count": 40
+      },
+      {
+        "task": "Matmul_Case1",
+        "traffic": 30720,
+        "cycles": 835355,
+        "spill_count": 240
+      }
+    ],
+    "table_5_12_totals": {
+      "traffic": 206832,
+      "cycles": 2312357,
+      "spill_count": 774
+    },
+    "table_5_12_means": {
+      "traffic": 34472.0,
+      "cycles": 385392.8333333333,
+      "spill_count": 129.0
+    },
+    "aggregation_check": {
+      "status": "UNRESOLVED",
+      "reason": "Table 5.11 MOACADSA row is neither Table 5.12 simple mean nor total; provenance/aggregation rule not traceable"
+    },
+    "cross_paper_reported_transfer": {
+      "S025": {
+        "Conv_Case0": 23752,
+        "Conv_Case1": 35344,
+        "FlashAttention_Case0": 17148,
+        "FlashAttention_Case1": 45820,
+        "Matmul_Case0": 12288,
+        "Matmul_Case1": 60416
+      },
+      "S026": {
+        "Conv_Case0": 93772,
+        "Conv_Case1": 367856,
+        "FlashAttention_Case0": 47284,
+        "FlashAttention_Case1": 120548,
+        "Matmul_Case0": 97664,
+        "Matmul_Case1": 664192
+      },
+      "S027": {
+        "Conv_Case0": 99072,
+        "Conv_Case1": 34800,
+        "FlashAttention_Case0": 4608,
+        "FlashAttention_Case1": 32512,
+        "Matmul_Case0": 5120,
+        "Matmul_Case1": 30720
+      },
+      "status": "S027 lower reported traffic than S025 on 5/6 and S026 on 5/6, but common evaluator is mandatory before algorithm ranking"
+    }
+  },
+  "Q3": {
+    "table_6_14_rows": [
+      {
+        "task": "Conv_Case0",
+        "baseline_cycles": 480222,
+        "baseline_traffic": 99072,
+        "optimized_cycles": 385539,
+        "optimized_traffic": 108288,
+        "cycle_reduction_pct": 19.716506115921387,
+        "traffic_increase_pct": 9.30232558139535
+      },
+      {
+        "task": "Conv_Case1",
+        "baseline_cycles": 713002,
+        "baseline_traffic": 34800,
+        "optimized_cycles": 639062,
+        "optimized_traffic": 36336,
+        "cycle_reduction_pct": 10.370237390638454,
+        "traffic_increase_pct": 4.413793103448276
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "baseline_cycles": 40011,
+        "baseline_traffic": 4608,
+        "optimized_cycles": 32156,
+        "optimized_traffic": 5120,
+        "cycle_reduction_pct": 19.632101172177652,
+        "traffic_increase_pct": 11.11111111111111
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "baseline_cycles": 136587,
+        "baseline_traffic": 32512,
+        "optimized_cycles": 108729,
+        "optimized_traffic": 34048,
+        "cycle_reduction_pct": 20.395791693206526,
+        "traffic_increase_pct": 4.724409448818897
+      },
+      {
+        "task": "Matmul_Case0",
+        "baseline_cycles": 107180,
+        "baseline_traffic": 5120,
+        "optimized_cycles": 93252,
+        "optimized_traffic": 5632,
+        "cycle_reduction_pct": 12.994961746594512,
+        "traffic_increase_pct": 10.0
+      },
+      {
+        "task": "Matmul_Case1",
+        "baseline_cycles": 835355,
+        "baseline_traffic": 30720,
+        "optimized_cycles": 761806,
+        "optimized_traffic": 32256,
+        "cycle_reduction_pct": 8.804520233912529,
+        "traffic_increase_pct": 5.0
+      }
+    ],
+    "totals": {
+      "baseline_cycles": 2312357,
+      "optimized_cycles": 2020544,
+      "baseline_traffic": 206832,
+      "optimized_traffic": 221680
+    },
+    "aggregate_replay": {
+      "cycle_reduction_pct": 12.619720916796151,
+      "traffic_increase_pct": 7.1787731105438235
+    },
+    "hard_cap_contract": {
+      "paper_main_tolerance": 0.15,
+      "eq_6_127_tolerance": 0.1,
+      "appendix_constructor_tolerance": 0.15,
+      "status": "INCONSISTENT",
+      "10pct_violation_tasks": [
+        "FlashAttention_Case0"
+      ],
+      "15pct_violation_tasks": []
+    },
+    "sign_check": {
+      "status": "INCONSISTENT",
+      "reason": "traffic bytes increase while paper change-rate column displays negative values; text calls it positive overhead"
+    },
+    "appendix_baseline_drift": {
+      "Conv_Case0": {
+        "paper_cycles": 480222,
+        "paper_traffic": 99072,
+        "code_cycles": 504991,
+        "code_traffic": 132096
+      },
+      "Conv_Case1": {
+        "paper_cycles": 713002,
+        "paper_traffic": 34800,
+        "code_cycles": 713002,
+        "code_traffic": 34800
+      },
+      "FlashAttention_Case0": {
+        "paper_cycles": 40011,
+        "paper_traffic": 4608,
+        "code_cycles": 40011,
+        "code_traffic": 4608
+      },
+      "FlashAttention_Case1": {
+        "paper_cycles": 136587,
+        "paper_traffic": 32512,
+        "code_cycles": 136603,
+        "code_traffic": 32512
+      },
+      "Matmul_Case0": {
+        "paper_cycles": 107180,
+        "paper_traffic": 5120,
+        "code_cycles": 106501,
+        "code_traffic": 5120
+      },
+      "Matmul_Case1": {
+        "paper_cycles": 835355,
+        "paper_traffic": 30720,
+        "code_cycles": 833900,
+        "code_traffic": 30720
+      }
+    }
+  }
+}

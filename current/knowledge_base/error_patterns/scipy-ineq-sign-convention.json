@@ -1,0 +1,10 @@
+{
+  "name": "scipy-ineq-sign-convention",
+  "trigger": "SciPy minimize constraint type=ineq is used",
+  "checks": [
+    "rewrite desired inequality as g(x)>=0",
+    "unit-test boundary, feasible interior, infeasible exterior",
+    "report maximum componentwise violation"
+  ],
+  "example": "To encode |x-c|<=tol use tol-abs(x-c)>=0, not abs(x-c)-tol."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "metric-name-direction-mismatch",
+  "name": "Metric name/direction conflicts with formula",
+  "symptom": "A quantity called efficiency/maximization is mathematically a loss fraction that improves by decreasing.",
+  "gate": "For every custom metric, state formula, units/domain, better direction and verify monotonicity on toy values.",
+  "source_examples": [
+    "2024-C S010 Q5 EMI"
+  ]
+}

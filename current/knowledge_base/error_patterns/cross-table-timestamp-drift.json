@@ -1,0 +1,6 @@
+{
+  "name": "cross-table timestamp drift",
+  "trigger": "the same event time changes across prose/tables/figures",
+  "gate": "maintain one event registry and assert identical timestamps/durations across all outputs",
+  "source_example": "S019 D/C/B congestion times vary by about 1-2 minutes across prose, Tables 8-10"
+}

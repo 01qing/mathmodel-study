@@ -1,0 +1,22 @@
+{
+  "case_group": "2025-F",
+  "status": "PROVISIONAL_AFTER_S042_S043_S044",
+  "papers_reviewed": [
+    "S042",
+    "S043",
+    "S044"
+  ],
+  "papers_pending": [
+    "S045"
+  ],
+  "rules": [
+    "Q1 route overlay, convergence and Pareto figures must share route_id/optimizer_id and final feasibility/objective registry; paper label alone is insufficient.",
+    "Q1 if code evidence lacks GA/Pareto primitives, do not let a GA-looking convergence figure upgrade implementation confidence.",
+    "Q2 maps/radars/rankings require deterministic source features; stochastic placeholders must be separately marked synthetic and excluded from real-result panels.",
+    "Q2 validation figure must be regenerated from raw expert/measurement predictions and one metric registry; hard-coded score dictionaries are not evidence.",
+    "Q3 t-SNE/PCA/similarity heatmaps are descriptive; validate on unseen garden entities or predeclared pair labels.",
+    "Q3 similarity diagonal is an identity check only; it cannot be listed as external model-validity evidence.",
+    "Any learning curve/CV plot must state independent sample unit and entity grouping before pair augmentation.",
+    "Code appendix figures/pages are evidence for static method-to-primitive coverage, not runtime reproduction."
+  ]
+}

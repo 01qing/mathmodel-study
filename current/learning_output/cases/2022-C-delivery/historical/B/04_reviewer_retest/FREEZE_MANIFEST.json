@@ -1,0 +1,15 @@
+{
+  "artifact_id": "ROLE-P1-2022C-RUNB-RETEST-v1",
+  "status": "FROZEN",
+  "decision": "PASS",
+  "files": {
+    "reviewer_retest.json": {
+      "bytes": 2503,
+      "sha256": "7871f949d6c2d40e9e2183452973424e44b3da98f3d35e7f11574ed0e1d565d6"
+    },
+    "REVIEWER_RETEST.md": {
+      "bytes": 1199,
+      "sha256": "8fd45e3cee1b20f3b93feac44096ef6bda06f55b5eeb092381e6e68c9d0ea4e9"
+    }
+  }
+}

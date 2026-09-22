@@ -1,0 +1,39 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "split": "train",
+  "title": "多模态数据融合视角下江南古典园林美学特征量化建模研究",
+  "pdf_sha256": "d8e40c2d4765e4c50350715f3e5f739e2a2ce11974664c506a639e921e7ad840",
+  "registry_sha256": "d8e40c2d4765e4c50350715f3e5f739e2a2ce11974664c506a639e921e7ad840",
+  "pages": 116,
+  "full_text_extract": {
+    "path_external": "/mnt/data/next_s044/S044.txt",
+    "status": "COMPLETE"
+  },
+  "visual_audit": {
+    "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+    "pages_verified": "116/116",
+    "contact_sheets": "12 contact sheets covering all 116 pages reviewed",
+    "evidence_structure": "pp1-14 abstract/problem/data; pp15-33 Q1 route/IGA/validation; pp34-61 Q2 element/open-close/AHP-entropy/ranking/validation; pp62-82 Q3 multimodal similarity + perspective extension; pp83-85 evaluation/references; pp86-116 printed Python code."
+  },
+  "printed_code_audit": {
+    "status": "COMPLETE_STATIC_AUDIT",
+    "pages": "86-116",
+    "mapping": {
+      "Q1": "pp86-94",
+      "Q2": "pp95-108",
+      "Q3": "pp109-116"
+    },
+    "major_findings": [
+      "Q1 printed code contains Dijkstra shortest-path route planning; no genetic algorithm/Pareto population, crossover, mutation or IGA implementation appears in the printed appendix.",
+      "Q2 printed code generates several nominally real features using np.random/random surrogates and later overwrites computed scores with fixed dictionaries matching the reported ranking.",
+      "Q2 paper states AHP-entropy weighting, while printed calculate_illusion_score() says AHP-CRITIC and then uses hard-coded weights rather than executing either weighting derivation.",
+      "Q3 printed multimodal code has stubbed loaders/empty feature construction, an omitted training loop, and obtains embeddings from an initialized-but-untrained network.",
+      "Q3 printed S_topology and S_behavior are computed from the same embedding with Euclidean/cityblock distances rather than the paper-described persistent-homology and HMM primitives.",
+      "Q3 perspective scorer contains pass/no-op data-loading/normalization helpers, clamps R2 to [0.75,0.95], and returns fixed 5-fold metrics 30.0/4.5/0.78."
+    ]
+  },
+  "reproduction_level": "R2",
+  "why": "full paper + 116/116 original-PDF visual audit + printed Python appendix static audit completed; code is not a complete faithful executable implementation and was not run on original data, so R3+ is not claimed",
+  "boundaries": "S045 remains unread Train; S030/S031 remain Dev reserve; all Test papers remain frozen."
+}

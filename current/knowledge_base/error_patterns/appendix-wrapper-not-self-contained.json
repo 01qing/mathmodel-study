@@ -1,0 +1,6 @@
+{
+  "id": "APPENDIX_WRAPPER_NOT_SELF_CONTAINED",
+  "source": "Dev generic correction",
+  "rule": "Launcher/wrapper scripts importing omitted algorithm-defining modules do not establish runnable implementation and cannot justify R3 by themselves.",
+  "scope": "generic"
+}

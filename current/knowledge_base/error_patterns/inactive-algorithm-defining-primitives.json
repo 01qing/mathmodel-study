@@ -1,0 +1,7 @@
+{
+  "pattern_id": "inactive-algorithm-defining-primitives",
+  "title": "Algorithm-defining primitives computed but inactive",
+  "trigger": "variables central to the named algorithm (e.g. QPSO Mbest/local attractor) are computed but never used in state update",
+  "risk": "paper may claim an algorithm that executable code does not actually implement",
+  "gate": "trace every defining equation variable into the update path; if inactive, rename method or implement/ablate the primitive"
+}

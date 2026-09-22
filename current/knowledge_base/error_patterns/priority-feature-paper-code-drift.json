@@ -1,0 +1,16 @@
+{
+  "id": "priority-feature-paper-code-drift",
+  "name": "Priority feature paper-code drift",
+  "severity": "high",
+  "trigger": "paper defines a composite priority score using type/size/criticality or other features, while executable code uses only a subset",
+  "risk": "algorithm ablation/selection claims are attributed to features that are not implemented",
+  "checks": [
+    "extract formula terms",
+    "trace each term to executable variables",
+    "mark missing/dead terms",
+    "do not credit absent terms in method selection"
+  ],
+  "source_examples": [
+    "2025-A-S026-Q1"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "id": "FIXED_PARAMETER_PRESENTED_AS_ESTIMATED",
+  "rule": "A parameter fixed by geometry/domain knowledge must be registered as fixed, not described as learned or estimated. If a model outputs it, verify that it actually varies or explain that the output is constrained to the known constant.",
+  "scope": "generic"
+}

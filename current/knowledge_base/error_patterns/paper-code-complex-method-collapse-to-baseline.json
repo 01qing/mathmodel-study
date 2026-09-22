@@ -1,0 +1,7 @@
+{
+  "pattern_id": "paper-code-complex-method-collapse-to-baseline",
+  "name": "论文复杂方法在代码中退化为简单基线",
+  "trigger": "paper claims GA/NSGA/deep/advanced optimizer, but printed or attached executable path only calls a simpler baseline such as shortest path",
+  "example": "S044 Q1 paper claims IGA/Pareto; printed multi_objective_route_planning() only returns Dijkstra path",
+  "gate": "map every algorithm label to reachable defining primitives; if absent, learn the code as baseline/stub and cap reproduction confidence"
+}

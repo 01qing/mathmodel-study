@@ -1,0 +1,66 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "year": 2025,
+  "problem_id": "A",
+  "split": "train",
+  "pages": 98,
+  "title": "通用神经网络处理器下的核内调度问题",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_98_PAGE_PDF_PIXEL_CONTACT_SHEET_PLUS_PRINTED_MATLAB_APPENDIX_STATIC_AUDIT",
+  "visual_status": "ORIGINAL_98_PAGE_PDF_ALL-PAGE CONTACT-SHEET AUDIT + SELECTED INDIVIDUAL PAGE INSPECTION",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "one complete computation-graph workload instance; nodes/edges are dependent components",
+    "input_structure": "six DAG workloads across Matmul/FlashAttention/Conv Case0/Case1 with node operation/cache/pipe/cycles and dependency edges",
+    "standard_ml_split": "NOT_APPLICABLE; this is combinatorial optimization, so method validation should use held-out graph families/sizes/generated instances or exact small-instance gaps",
+    "author_evaluation_scope": "six fixed provided graph instances; no external graph-family holdout"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S026.json",
+  "result_registry_ref": "knowledge_base/result_registry/S026.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-A-S026-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-A-S026-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S026.json",
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "98/98 full-text close reading",
+      "original 98-page PDF rendered across all pages and visually scanned",
+      "printed MATLAB Appendix A statically audited for Q1 and Q2",
+      "Q3 appendix implementation absence explicitly recorded"
+    ],
+    "not_achieved": [
+      "R3: no executable original .m files + MATLAB runtime/input bundle in current environment",
+      "R4/R5: no real-data execution",
+      "R6: no independent full reimplementation",
+      "R7: 2025-A case group incomplete; no mini transfer test yet"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "clear hierarchical decomposition from peak residency to spill allocation to runtime",
+    "Q2 appendix exposes useful feasibility replay and event-driven runtime-evaluation components",
+    "reported Q3 table arithmetic relative to S026 Q2 is internally consistent"
+  ],
+  "key_risks": [
+    "Q1 paper/code priority model mismatch and broken tabu storage semantics",
+    "Q2 claimed quantum-behaved primitives are dead in visible implementation",
+    "Q2 raw Bytes/Cycles scalarization has unit-scale dominance risk",
+    "Q2 local-search globalBest scalar desynchronization",
+    "Q3 spill-cost formula changes semantics and DPEA implementation is absent",
+    "Q3 does not formalize the hard transfer tolerance before Pareto optimization",
+    "cross-paper S025 reports much lower Q2 extra transfer on all six workloads; common evaluator is required before ranking S026 as superior"
+  ],
+  "recommended_redo": [
+    "establish deterministic six-hour baselines for all three questions",
+    "use exact CP-SAT/MILP small-instance gaps to calibrate Q1/Q2 heuristics",
+    "repair Q1 structured tabu queue and implement claimed priority features only if ablated",
+    "either implement true QPSO update or rename/benchmark as PSO+repair",
+    "make transfer cost definition identical in Q2/Q3 and encode transfer cap as hard epsilon constraint",
+    "compare S025/S026 using one shared evaluator, seed budget and feasibility replay",
+    "show actual Pareto front with feasible cap and selected operating point"
+  ]
+}

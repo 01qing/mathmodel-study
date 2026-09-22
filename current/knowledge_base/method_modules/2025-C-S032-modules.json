@@ -1,0 +1,47 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "modules": [
+    {
+      "id": "S032_Q1_MULTISCALE_SEGMENTATION",
+      "question": "Q1",
+      "transferable": "conditional",
+      "module": "compact U-Net baseline → pretrained encoder/multi-scale context/attention only after grouped-image gain",
+      "compatibility": "requires pixel masks and independent original-image/borehole split"
+    },
+    {
+      "id": "S032_Q2_FIXED_PERIOD_ROBUST_FIT",
+      "question": "Q2",
+      "transferable": "yes_after_repair",
+      "module": "use known cylindrical circumference to fix period, fit remaining sine parameters robustly with plausibility/reject gate",
+      "compatibility": "requires consistent unfolded-coordinate calibration"
+    },
+    {
+      "id": "S032_Q3_SAMPLING_SENSITIVITY",
+      "question": "Q3",
+      "transferable": "yes",
+      "module": "compare equal-arc-length vs curvature-aware sampling and report roughness sensitivity",
+      "compatibility": "requires ordered physical-unit contour; do not inherit per-image scale factors"
+    },
+    {
+      "id": "S032_Q4_UNCERTAINTY_BEFORE_ACTION",
+      "question": "Q4",
+      "transferable": "yes_after_reformulation",
+      "module": "map uncertainty before selecting new measurements; choose new locations for uncertainty reduction/information gain",
+      "compatibility": "scores/probabilities need valid uncertainty propagation and decision utility"
+    },
+    {
+      "id": "S032_Q4_ROBUST_MCDA",
+      "question": "Q4",
+      "transferable": "conditional",
+      "module": "when probability calibration is unavailable, use transparent MCDA with explicit weight sensitivity instead of pseudo-probability",
+      "compatibility": "criteria directions and units must be normalized and externally meaningful"
+    }
+  ],
+  "blocked_transfers": [
+    "copy hard-coded JRC SCALE_FACTORS to a new dataset",
+    "copy 0.4/0.2 geometry weights or distance scales without calibration/sensitivity",
+    "copy PPIGA score improvement as evidence of predictive/decision improvement",
+    "use patch-level random split for borehole segmentation"
+  ]
+}

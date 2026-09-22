@@ -1,0 +1,9 @@
+
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v138_s045_regressions.py", line 15, in <module>
+    for r in req: ck('exists '+r,(ROOT/r).exists() and (ROOT/r).stat().st_size>0)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v138_s045_regressions.py", line 6, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: exists S045_v1.38_训练摘要.md

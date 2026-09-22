@@ -1,0 +1,8 @@
+{
+  "pattern": "Equation/table/code/optimizer parameter transcription drift",
+  "trigger": "same fitted coefficient changes exponent, decimal, sign or value across sections or is manually retyped into downstream code",
+  "gate": "Store fitted parameters once in a machine-readable registry and generate equations/tables/downstream optimization inputs from it. Cross-section numerical equality tests run before paper export.",
+  "source_cases": [
+    "2024-C-S009"
+  ]
+}

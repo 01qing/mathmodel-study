@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.7",
+  "case_id": "gmcm-2021-D",
+  "contamination_status": "unknown",
+  "questions": {
+    "Q1": {
+      "problem_abstraction": "",
+      "candidate_routes": [
+        "",
+        "",
+        ""
+      ],
+      "recommendation": "",
+      "rejected_routes": [],
+      "validation": [],
+      "risks": [],
+      "switch_conditions": []
+    },
+    "Q2": {
+      "problem_abstraction": "",
+      "candidate_routes": [
+        "",
+        "",
+        ""
+      ],
+      "recommendation": "",
+      "rejected_routes": [],
+      "validation": [],
+      "risks": [],
+      "switch_conditions": []
+    },
+    "Q3": {
+      "problem_abstraction": "",
+      "candidate_routes": [
+        "",
+        "",
+        ""
+      ],
+      "recommendation": "",
+      "rejected_routes": [],
+      "validation": [],
+      "risks": [],
+      "switch_conditions": []
+    },
+    "Q4": {
+      "problem_abstraction": "",
+      "candidate_routes": [
+        "",
+        "",
+        ""
+      ],
+      "recommendation": "",
+      "rejected_routes": [],
+      "validation": [],
+      "risks": [],
+      "switch_conditions": []
+    }
+  },
+  "notes": []
+}

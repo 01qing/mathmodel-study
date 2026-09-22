@@ -1,0 +1,58 @@
+{
+  "2025-E": [
+    {
+      "case_id": "2025-E-GTeacher1-code",
+      "identity": "teacher_or_expert_supplement_not_paper_code",
+      "status": "PARTIAL_CODE_REVIEW",
+      "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+      "question_links": {
+        "Q1": [
+          "MAT→CSV/时域可视化",
+          "小波软阈值去噪",
+          "自定义EMD"
+        ],
+        "Q2": [
+          "RandomForestClassifier最小监督基线"
+        ],
+        "Q3": [],
+        "Q4": [
+          "基础信号/去噪可视化仅可作事前解释"
+        ]
+      },
+      "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+    },
+    {
+      "case_id": "2025-E-GTeacher2-code",
+      "identity": "teacher_or_expert_supplement_not_paper_code",
+      "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+      "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+      "question_links": {
+        "Q1": [
+          "detrend/bandpass/Hilbert envelope/resample/windowing",
+          "spectral-kurtosis band",
+          "order tracking"
+        ],
+        "Q2": [
+          "1D特征网络",
+          "MechanismFilterBank",
+          "Channel-SE",
+          "文件级train/val/test划分"
+        ],
+        "Q3": [
+          "CORAL loss",
+          "entropy minimization",
+          "BN recalibration/SHOT相关入口",
+          "目标文件聚合与融合"
+        ],
+        "Q4": [
+          "embedding/t-SNE",
+          "gate/channel weight",
+          "envelope example",
+          "adapt-loss/fusion-confidence图"
+        ]
+      },
+      "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+      "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+    }
+  ]
+}

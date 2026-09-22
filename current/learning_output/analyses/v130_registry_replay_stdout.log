@@ -1,0 +1,33 @@
+{
+  "paper_id": "S032",
+  "scope": "arithmetic replay only; not author reproduction",
+  "checks": [
+    {
+      "model": "morphology",
+      "reported_F1_pct": 76.6,
+      "F1_from_reported_IoU_pct": 76.2376,
+      "difference_pct_point": 0.3624,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    },
+    {
+      "model": "UNet",
+      "reported_F1_pct": 80.4,
+      "F1_from_reported_IoU_pct": 79.081,
+      "difference_pct_point": 1.319,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    },
+    {
+      "model": "improved_UNet",
+      "reported_F1_pct": 84.8,
+      "F1_from_reported_IoU_pct": 84.4598,
+      "difference_pct_point": 0.3402,
+      "status": "PROVENANCE_REQUIRED_NOT_AUTOMATIC_ERROR"
+    }
+  ],
+  "known_conflicts": [
+    "Q3 body JRC≈75 vs code clip 0..20",
+    "Q4 duplicate arithmetic-crossover children",
+    "Q4 density=True entropy misuse"
+  ],
+  "pass_scope": "arithmetic replay completed"
+}

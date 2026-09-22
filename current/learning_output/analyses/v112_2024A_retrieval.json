@@ -1,0 +1,182 @@
+{
+  "mode": "evaluation",
+  "query": "风电场 有功功率分配 疲劳损伤 遗传算法 卡尔曼 LSTM 通信延迟 多指标",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E",
+    "2025-F"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S003",
+      "case_group": "2024-A",
+      "title": "A24103530117",
+      "page": 2,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S003-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103530117.pdf",
+      "source_sha256": "f6e0e476017750c9c13d03d1b103d32f32d74d2fe96feb40760c5b3bb3dff17c",
+      "chunk_id": "S003-p2-700",
+      "excerpt": "、多目标、实时性\n的需求，难以有效降低成本。本问通过Pareto 前沿分析将多目标有功功率分配优化模型转\n化为权重自适应的MPC 优化模型。此外，根据风速波动特征对风电场进行区域划分，在\n各区间内进行滚动时域功率优化，得到每秒各风机功率分配值生成实时功率分配动图。最\n后，将功率分配结果和累积疲劳损失与参考值进行性可视化分析，并评估模型。 \n针对问题四：在风电场实际运行中，随机噪声和通信延迟导致系统不稳定和优化效果\n下降。本问为提高模型的鲁棒性和稳定性，通过卡尔曼滤波器和延迟补偿机制分别对噪声\n影响和延迟作用进行处理，进一步引入鲁棒优化建立了基于问题三的全局协调的分区域\nMPC 鲁棒优化模型。此外，建立对比模型，即基于粒子群算法的鲁棒优化模型。通过对比\n分析了后者在有功功率分配中效果较好，同时也减少了各元件累积疲劳损伤。最后，与无\n优化模型对比，验证了所提出的优化策略在实际环境中的有效性，成功应对了通信延迟和\n测量噪声带来的挑战。 \n关键词：有功功率优化、滑动窗口算法、非线性回归、MPC 模型、鲁棒优化、自适应",
+      "lexical_cosine": 0.21213813826491232,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      }
+    },
+    {
+      "paper_id": "S004",
+      "case_group": "2024-A",
+      "title": "A24107120016",
+      "page": 2,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S004-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24107120016.pdf",
+      "source_sha256": "daa73a15a67fe912cebe0948f9db9c2ad8e985032f55212eecd64393308ca9e6",
+      "chunk_id": "S004-p2-0",
+      "excerpt": "1\n题目：\n风电场有功功率分配优化模型\n摘要：\n在风电场中，风机有功功率的分配将会影响其疲劳损伤的累计，这与风机的运维成本、\n发电效率和安全风险息息相关。因此，设计出一种有效的风电场有功功率分配优化模型，\n减少风机的疲劳损失具有重要的现实意义。\n基于题目中有功功率分配和疲劳损伤的理论以及附件中实际数据，本文设计了一种基\n于风机主轴和塔架疲劳损伤的有功功率分配优化模型。首先，本文通过分析雨流计数法实\n时性的不足，提出了一种基于滑动窗口的疲劳损伤量化模型，通过对局部荷载的分析有效\n计算了实时疲劳损伤。其次，本文根据能量守恒和空气动力学原理，提出了一种更符合现\n实情况的主轴扭矩和塔架推力的估计模型，实现了从风速和有功功率到荷载的转化。基于\n此，本文根据实时的风速条件构建了基于风电场总体疲劳损失的最小化单目标优化模型，\n以规划有功功率的分配方式。同时，本文设计了一种具有繁殖约束的遗传算法用于求解上\n述优化模型，并获得了良好的效果。此外，考虑到现实场景中的噪声与通信延迟问题，本\n文提出了一种基于卡尔曼滤波的风速去噪模型和基于长短期记忆（LSTM）网络的传输延\n迟预测模型，提升了有功功率分配优化模型的鲁棒性和抗干扰性。\n针对问题一，要求建立能够实时计算风机的主轴和塔架任意时段累积疲劳损伤程度的\n数学模型；计算给定时间段的累积疲劳损伤并分析其与雨流计数法所得结果的相似程度。\n本文首先通过滑动窗口识别应力，然后基于Goodman 修正公式和Palmgren-Miner 理论对\n应力幅值和均值进行处理，得到累计疲劳损伤。其次，本文采用了滑动窗口和向量化计算\n的方式，极大地降低了疲劳损伤的计算复杂度。最后，本文计算了100 台风机的主轴扭矩\n和塔架的累计疲劳损伤并与雨流计数法所得结果进行了比较，验证了算法的有效性和实时\n性。\n针对问题二，要求建立能够根据风机所处位置的风速条件和功率参考值估计当前风机\n所承受的推力和扭矩；估算给定风机任意时刻的推力和扭矩值并与参考值进行对比。首先，\n本文调研了符合题目描述的风机型号，确定了关键参数的设计和取值范围。其次，本文通\n过对风机状态和受力的分析，构建",
+      "lexical_cosine": 0.19830822299372072,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      }
+    },
+    {
+      "paper_id": "S002",
+      "case_group": "2024-A",
+      "title": "A24103350007",
+      "page": 7,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S002-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103350007.pdf",
+      "source_sha256": "7fe2813d94da5d72676dd6c8fe0ff6cfead155b8aeb67918be9269de1a0cab5e",
+      "chunk_id": "S002-p7-0",
+      "excerpt": "6\n基于传统平均分配方法的方案中，风电场内所有风机的功率分配权重相同，该方法\n并未考虑任何关于风机运行状态和风机累积疲劳损伤之间的关系，易致使部分风机长期\n处于疲劳受损的高负荷状态，损害其内部的机械部件和运行安全，进而影响其故障率和\n使用寿命。\n风\n速\n桨距\n角\n考虑疲劳损伤的有功功率优化\n分配模型\n多目标函数：每一时刻下，风\n电场内所有风机的主轴、塔架\n的累积疲劳损伤之和最小化\n约束条件：功率平衡约束、风\n机出力约束、调节精度约束\n多目标非\n支配排序\n遗传算法-\nNSGA-II\n风机有功功率分配方案3\n风机有功功率分配方案2\nNelder-Mead单纯形\n算法/BiLSTM模型\n优化前后的累积疲劳损\n伤程度对比\n问题三：有功功率优化分配模型与实时求解\n求解结果评价\n问题二：塔架推力和主轴扭矩估算方法\n转\n速\n累积风机疲\n劳损伤程度\n主轴扭矩、\n塔架推力\n问题一：疲劳损伤程度量化指标计算低复杂度模型\n滑动时\n间窗\nPalmgren-\nMiner理论\n雨流计\n数法\nGoodman\n曲线修正\n累积疲劳损伤程度量\n化指标计算方法\n风机\n运行\n状态\n主轴扭\n矩、塔\n架推力\n模型求解\n疲劳损伤程度计算模型\n训练集的扭\n矩与推力\n功率参\n考值\n功率参考值、风速\n主轴扭矩、塔架推力\n风机疲劳损伤程度\n问题二模型\n问题一模型\n奇异值分\n解SVD降\n噪\n优化前后风机间参考\n功率方差值对比\n模型求解时间\n问题四：考虑通信延迟和测量噪声的有功功率优化与求解\n约束条件满足验证\n噪声和延迟\n作用下的采\n集数据\n基于相位差\n进行时延判\n断、筛选\n降噪和去\n延迟后的\n采集数据\n考虑疲劳损伤的风机有功功率优化分配模型与模型求解\n无噪声和延迟作用\n的采集数据\n风机有功功率分配方案1\n随机测量噪声和通信延迟对于模型精\n度和优化问题最优性的影响分析\n降噪和去延迟预处理对噪声\n和延迟的抑制能力验证\n基于改进三\n次样条插值\n法矫正延迟\n图1 风电场有功功率优化调度总体方案图\n针对此问题，如图1所示，按照题目要求，按照四个子问题进行分步解决：\n（1）问题一要求建立风机主轴及塔架疲劳损伤程度量化指标计算低复杂度模型",
+      "lexical_cosine": 0.19314010181572275,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      }
+    },
+    {
+      "paper_id": "S001",
+      "case_group": "2024-A",
+      "title": "考虑机组实时疲劳损伤的风电场有功功率优化分配",
+      "page": 32,
+      "reading_status": "full_text_read_visual_audit_partial",
+      "review_file": "knowledge_base/paper_reviews/2024-A-S001-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24102940057.pdf",
+      "source_sha256": "6dbfb9e08c3234f8f7e40e678912fd0d2f55ec0dd200e5e464ada6db4ca35be3",
+      "chunk_id": "S001-p32-0",
+      "excerpt": "31 \n \n图6.4 优化前风机累计疲劳损伤 \n \n图6.5 优化后风机累计疲劳损伤 \n从上述两幅图可以看出，三台风机优化后的累计疲劳损伤均小于优化前的累计疲劳损\n伤，有效降低了风机的疲劳损伤。还可以看出，由于风机本身特性的不同，采用不同的功\n率分配方法，各风机优化前后的损伤趋势一致，即风机11 的疲劳损伤基本在其余两台机组\n之上。另外，由于本方法是对所有风机进行全局的优化，其余风机同样有不错的效果。",
+      "lexical_cosine": 0.13617980874177932,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+        "papers": [
+          "S001",
+          "S002",
+          "S003",
+          "S004"
+        ]
+      }
+    },
+    {
+      "paper_id": "S008",
+      "case_group": "2024-B",
+      "title": "B24116640167",
+      "page": 24,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24116640167.pdf",
+      "source_sha256": "26a34f2fa048e06f40e4d7981e25fc6f5f01067ceafc5e98af48916e4a51c637",
+      "chunk_id": "S008-p24-0",
+      "excerpt": "23 \n \n证集对200 趟训练模型进行择优选择，并评判分析，以下是验证集下的模型效果分析，\n图中展示了LSTM 模型对50 个测试用例的预测值与真实值的对比： \n \n图3.26 2AP 下LSTM 预测与真实seq_time 对比图 \n \n图3.27 3AP 下LSTM 预测与真实seq_time 对比图 \n \n表3.6 LSTM 效果分析 \nAP 数量 \nLSTM 层数 \n隐藏神经元 \nMSE \n2 \n1 \n50 \n10.04 \n5 \n50 \n8.99 \n10 \n50 \n8.12 \n3 \n1 \n50 \n41.81",
+      "lexical_cosine": 0.123948033709756,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    },
+    {
+      "paper_id": "S020",
+      "case_group": "2024-E",
+      "title": "E24106980067",
+      "page": 40,
+      "reading_status": "FULL_TEXT_INDEXED_NOT_FULL_REVIEWED",
+      "review_file": null,
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\E\\E24106980067.pdf",
+      "source_sha256": "bedf322a5d2d3b75099112c0b670905eead989e7cc23905e7696dacaf432aafb",
+      "chunk_id": "S020-p40-700",
+      "excerpt": "终的输出\n向量V。 \n通过引入SK-Net 这样的注意力机制，网络可以在处理复杂数据时更加高效地提取关\n键信息，从而提高模型的性能和泛化能力。此外，SK-Net 还可以有效应对输入数据中的噪\n声和干扰，提高模型的鲁棒性和稳定性。 \n2. BiGRU： \nLSTM (长短期记忆网络) 是一种特殊的循环神经网络 (RNN)，能够学习长期依赖关系。\n标准的 LSTM 包含一个遗忘门、一个输入门和一个输出门。GRU (门控循环单元) 可以看\n作是 LSTM 的一个变体，它将 LSTM 中的三个门合并为两个门：更新门和重置门。 \n（1） GRU \nGRU 网络内部包含两个门使用了更新门（update gate）与重置门（reset gate）。重置\n门决定了如何将新的输入信息与前面的记忆相结合，更新门定义了前面记忆保存到当\n前时间步的量。这两个门控向量决定了哪些信息最终能作为门控循环单元的输出。这\n两个门控机制的特殊之处在于，它们能够保存长期序列中的信息，且不会随时间而清\n除或因为与预测不相关而移除。",
+      "lexical_cosine": 0.11286920522728507,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

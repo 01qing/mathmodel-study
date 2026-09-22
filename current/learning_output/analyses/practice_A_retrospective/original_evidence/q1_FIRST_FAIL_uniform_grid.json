@@ -1,0 +1,43 @@
+{
+  "question_id": "Q1",
+  "status": "NUMERICAL_BASELINE_ONLY",
+  "grid_comparison": {
+    "40_vs_80": {
+      "max_T_C": 0.00036698597269335664,
+      "max_C_kgkg": 0.024370407604314526
+    },
+    "80_vs_160": {
+      "max_T_C": 9.233070431946544e-05,
+      "max_C_kgkg": 0.01235693227133794
+    }
+  },
+  "time_tolerance_comparison": {
+    "max_T_C": 2.1462283932294213e-05,
+    "max_C_kgkg": 3.89199654726724e-07
+  },
+  "analytic_robin_heat_max_error_C": 6.608082740910959e-05,
+  "balance": {
+    "heat_relative_residual": 5.7914793493909414e-08,
+    "effective_moisture_relative_residual": 8.291554232893578e-07,
+    "meaning": "effective-concentration inventory; not calibrated physical water mass"
+  },
+  "minimum_moisture": 1.5102552237127689,
+  "finite": true,
+  "at_1800s": {
+    "T_center_C": 33.575342195474875,
+    "T_surface_C": 36.78555527340965,
+    "C_center_kgkg": 2.5499922743816863,
+    "C_surface_kgkg": 1.5102552237127689
+  },
+  "validation_thresholds": {
+    "grid_T_C": 0.01,
+    "grid_C_kgkg": 0.001,
+    "analytic_T_C": 0.005,
+    "balance_relative": 0.001
+  },
+  "four_decimal_accuracy_established": false,
+  "physical_accuracy_established": false,
+  "Q2_Q3_Q4": "NOT_RUN",
+  "elapsed_s": 4.569014072418213,
+  "numerical_checks_pass": false
+}

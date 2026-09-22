@@ -1,0 +1,256 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "supervised semantic segmentation of thin fracture pixels under structured image artifacts",
+      "input_target_constraints": {
+        "input": "original borehole unfolded RGB/gray images and pixel masks",
+        "decision": "binary mask at original image size",
+        "objective": "maximize fracture-region IoU/F1/recall while controlling false positives",
+        "independent_evaluation_unit": "original image/borehole-depth segment",
+        "hard_constraints": [
+          "no patch leakage across original images/boreholes",
+          "output preserves original size",
+          "all preprocessing learned/fitted from train only when applicable"
+        ]
+      },
+      "baseline": {
+        "name": "CLAHE/bilateral optional preprocessing + morphology or compact U-Net",
+        "six_hour_plan": [
+          "split original images/boreholes first",
+          "start with threshold/morphology and basic U-Net",
+          "use Dice/BCE or focal only if class imbalance requires it",
+          "evaluate per-image/borehole IoU, F1, recall, precision and failure cases"
+        ],
+        "why": "simple, fast and reveals whether ResNet/ASPP/attention complexity is actually needed"
+      },
+      "author_route": {
+        "method": "CLAHE + bilateral + Sobel, improved U-Net with ResNet50, ASPP and attention gating",
+        "why_fit": [
+          "multi-scale context helps thin/variable-width cracks",
+          "pretrained encoder may help if labels are limited",
+          "attention gate can suppress structured background features"
+        ],
+        "evidence_boundary": "reported 98.7% Accuracy/73.1% IoU/84.8% F1, but independent split, loss implementation and several engineering claims are not traceable in printed appendix."
+      },
+      "major_alternatives": [
+        {
+          "model": "U-Net/UNet++ with Dice+BCE",
+          "why_can_work": "strong segmentation baseline with fewer moving parts",
+          "when_prefer": "small/medium labeled dataset and thin foreground imbalance"
+        },
+        {
+          "model": "DeepLabV3+ / SegFormer-small",
+          "why_can_work": "strong multi-scale/context representation",
+          "when_prefer": "enough independent images and stable holdout gain over U-Net"
+        },
+        {
+          "model": "classical ridge/line filters + morphology",
+          "why_can_work": "transparent and no training",
+          "when_prefer": "very small labels or urgent six-hour path"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "large vision transformer/foundation fine-tune by default",
+          "why_not_now": "data independence/sample count not established; high tuning cost"
+        },
+        {
+          "model": "pixel/patch random split",
+          "why_not_now": "adjacent pixels/patches from same borehole image leak texture and fracture identity"
+        }
+      ],
+      "switch_conditions": [
+        "upgrade beyond U-Net only with held-out-borehole gain in IoU/F1",
+        "if labels are scarce prefer classical/compact model plus active labeling",
+        "if domain shifts by borehole/geology, prioritize grouped validation/domain robustness over architecture depth"
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "cluster connected fracture fragments and fit physically constrained periodic traces",
+      "input_target_constraints": {
+        "input": "binary fracture masks/centerlines and mm-per-pixel scale",
+        "decision": "fracture grouping and R,P,beta,C parameters",
+        "objective": "stable physically plausible fit with uncertainty/reject status",
+        "independent_evaluation_unit": "one physical fracture trace with image provenance",
+        "hard_constraints": [
+          "period tied to borehole circumference when task specifies",
+          "grouping must not merge distinct crossing traces",
+          "parameters must satisfy image/geometry bounds"
+        ]
+      },
+      "baseline": {
+        "name": "connected components + proximity/orientation merge + skeleton centerline + bounded robust least_squares with fixed P",
+        "six_hour_plan": [
+          "8-neighbor components and remove small speckles",
+          "merge fragments using endpoint distance + tangent/orientation compatibility",
+          "fit sine with fixed circumference period using Huber/soft-L1 least_squares",
+          "report R²/RMSE and reject implausible amplitude/centerline"
+        ],
+        "why": "matches physics and exposes failures; no need for GP/deep model"
+      },
+      "author_route": {
+        "method": "connected regions + DBSCAN + skeleton + fixed-period sinusoid; prose additionally claims frequency init, LM, RANSAC, Huber/iterative robust refinements",
+        "why_fit": [
+          "fixed period uses known cylindrical geometry",
+          "robust fit can mitigate outliers and broken traces"
+        ],
+        "evidence_boundary": "printed code visibly uses centroid DBSCAN and scipy least_squares; claimed RANSAC/Huber/IRLS chain is not visible. DBSCAN radius/earlier distance-threshold semantics also drift."
+      },
+      "major_alternatives": [
+        {
+          "model": "RANSAC sinusoid / robust M-estimator",
+          "why_can_work": "handles isolated centerline outliers",
+          "when_prefer": "moderate contamination with enough inliers"
+        },
+        {
+          "model": "Hough/template curve matching",
+          "why_can_work": "detects multiple curves before point assignment",
+          "when_prefer": "crossing/overlapping traces where connected components fail"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "unconstrained high-order polynomial",
+          "why_not_now": "poor periodic extrapolation and weak physical meaning"
+        },
+        {
+          "model": "accept every nonlinear fit",
+          "why_not_now": "paper itself contains extreme amplitude/low-R² cases showing need for rejection"
+        }
+      ],
+      "switch_conditions": [
+        "if residuals are multimodal/crossing, solve assignment and fitting jointly",
+        "if fixed circumference period is violated by data acquisition geometry, reopen period with strong bounds and model selection",
+        "reject rather than force sine when goodness/plausibility gates fail"
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "convert an extracted calibrated fracture profile to a stable roughness descriptor/JRC under sampling uncertainty",
+      "input_target_constraints": {
+        "input": "ordered contour/profile in physical units",
+        "decision": "sampling scheme, Z2 and JRC estimate",
+        "objective": "roughness estimate stable to resolution/noise and physically interpretable",
+        "independent_evaluation_unit": "one fracture profile",
+        "hard_constraints": [
+          "single documented pixel→mm calibration",
+          "sampling order follows physical profile",
+          "no unexplained per-image scaling",
+          "report clipping/saturation if used"
+        ]
+      },
+      "baseline": {
+        "name": "contour extraction + mild smoothing + equal arc-length sampling sensitivity + task-given Z2/JRC formula",
+        "six_hour_plan": [
+          "extract one consistent profile",
+          "convert once to mm",
+          "compute JRC over several sampling densities/smoothing levels",
+          "report sensitivity and bootstrap/segment variability"
+        ],
+        "why": "directly answers task and makes sampling dependence visible"
+      },
+      "author_route": {
+        "method": "multi-scale LoG attention fusion + equal/curvature-weighted sampling + Z2→JRC + segmented JRC",
+        "why_fit": [
+          "curvature-weighted sampling can preserve sharp local changes",
+          "multi-scale edge cues can help complex boundaries"
+        ],
+        "evidence_boundary": "printed appendix starts from JSON/binary contours and does not implement headline LoG-attention path; it multiplies Z2 by image-specific SCALE_FACTORS and clips JRC to 0..20."
+      },
+      "major_alternatives": [
+        {
+          "model": "multi-resolution wavelet/scale-space roughness",
+          "why_can_work": "separates roughness scales and noise",
+          "when_prefer": "resolution effects dominate"
+        },
+        {
+          "model": "bootstrap/segment distribution of JRC",
+          "why_can_work": "quantifies heterogeneity instead of one scalar",
+          "when_prefer": "long nonstationary fracture profiles"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "per-image fudge scale to force JRC range",
+          "why_not_now": "destroys comparability without external calibration"
+        },
+        {
+          "model": "claim area causes high JRC from clipped cross-sectional association",
+          "why_not_now": "association plus ceiling saturation cannot establish causal/physical effect"
+        }
+      ],
+      "switch_conditions": [
+        "if task mandates standard sampling, keep standard for primary result and use curvature sampling as sensitivity",
+        "if many values hit 20, report saturation and analyze raw Z2 rather than infer correlations from clipped JRC"
+      ]
+    },
+    "Q4": {
+      "problem_type_and_essence": "spatial network inference and value-of-information drilling recommendation under substantial epistemic uncertainty",
+      "input_target_constraints": {
+        "input": "borehole coordinates/depths + fracture geometry/JRC + upstream uncertainty",
+        "decision": "pairwise compatibility/connectivity, 3D graph and three new borehole locations",
+        "objective": "useful, robust information gain/coverage under engineering constraints",
+        "independent_evaluation_unit": "borehole network/scenario, not individual pair treated as iid",
+        "hard_constraints": [
+          "scores called probabilities need calibration or must be labeled heuristic compatibility",
+          "candidate holes satisfy geometry/depth/engineering feasibility",
+          "upstream segmentation/fitting uncertainty propagated"
+        ]
+      },
+      "baseline": {
+        "name": "geometry-based compatibility score + threshold sensitivity + uncertainty map + greedy maximin/expected-coverage drilling",
+        "six_hour_plan": [
+          "define interpretable distance/orientation/depth compatibility",
+          "do sensitivity across scale/weights",
+          "bootstrap/Monte Carlo upstream parameters to obtain connection uncertainty",
+          "rank candidate holes by expected uncertainty reduction/coverage with engineering feasibility"
+        ],
+        "why": "transparent and avoids pretending hand-set weighted scores are calibrated probabilities"
+      },
+      "author_route": {
+        "method": "weighted exponential Pgeo + sigmoid JRC correction + synergy bonus; CV+entropy uncertainty; AHP then projection-pursuit improved GA for drilling ranking",
+        "why_fit": [
+          "separates geometric and roughness factors",
+          "explicit uncertainty layer is valuable",
+          "multi-criteria recommendation reflects practical tradeoffs"
+        ],
+        "evidence_boundary": "many constants are hand-set without independent calibration; appendix shows inconsistent entropy implementations and omits PPIGA code; AHP pairwise/CR is not actually demonstrated; 9.95 vs 8.40 is an endogenous score comparison."
+      },
+      "major_alternatives": [
+        {
+          "model": "probabilistic graphical/Bayesian connectivity model",
+          "why_can_work": "can calibrate uncertainty and propagate measurement error",
+          "when_prefer": "enough labeled/physics-informed prior data"
+        },
+        {
+          "model": "Gaussian process/geostatistical field + expected information gain",
+          "why_can_work": "directly targets unsampled spatial uncertainty",
+          "when_prefer": "recommendation is fundamentally exploration/data acquisition"
+        },
+        {
+          "model": "robust MCDA with weight sensitivity",
+          "why_can_work": "transparent when probabilities cannot be calibrated",
+          "when_prefer": "small candidate set and expert tradeoffs"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "optimize weights then validate by the optimized score itself",
+          "why_not_now": "circular/endogenous evaluation"
+        },
+        {
+          "model": "call weighted compatibility a probability without calibration",
+          "why_not_now": "numeric 0..1 range alone does not confer probabilistic meaning"
+        }
+      ],
+      "switch_conditions": [
+        "use Bayesian/geostatistical model when labeled spatial evidence supports calibration",
+        "use robust MCDA when only preferences are defensible",
+        "new-hole recommendation must be tested by held-out/synthetic recovery or expected information gain, not only higher composite score"
+      ]
+    }
+  }
+}

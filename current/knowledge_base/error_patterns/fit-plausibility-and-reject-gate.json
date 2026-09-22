@@ -1,0 +1,5 @@
+{
+  "id": "FIT_PLAUSIBILITY_AND_REJECT_GATE",
+  "rule": "Nonlinear curve fits need physical parameter bounds, residual/goodness diagnostics and an explicit reject/unmodelled status. High optimizer convergence alone is not acceptance.",
+  "scope": "generic"
+}

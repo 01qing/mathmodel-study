@@ -1,0 +1,46 @@
+{
+  "composition_id": "2025-A-S025-S026-provisional-composer-v126",
+  "composition": "S025/S026 shared DAG baseline -> S026 repaired feasibility/runtime evaluator -> S025 lower-reported-transfer allocator candidate -> epsilon-constraint Q3 scheduler",
+  "components": [
+    {
+      "source": "S025-Q1",
+      "module": "topology-safe baseline / SA candidate"
+    },
+    {
+      "source": "S026-Q2",
+      "module": "feasibility replay + event-driven runtime evaluator"
+    },
+    {
+      "source": "S025-Q2",
+      "module": "lower-reported-transfer allocation candidate pending common evaluator"
+    },
+    {
+      "source": "Core",
+      "module": "epsilon-constraint hard-cap Q3 operating-point rule"
+    }
+  ],
+  "compatibility": {
+    "input_output_interface": "compatible_after_adapter: unify node/buffer/edge schema and schedule IDs",
+    "variable_definition": "compatible_after_adapter: centralize buffer lifetime, SPILL semantics and COPY_IN cost coefficients",
+    "data_distribution": "compatible: same six 2025-A workload families, but only after confirming identical source CSV versions",
+    "mathematical_assumptions": "compatible_after_adapter: both assume DAG/static cycles; S026 Q3 objective definition must be repaired to Q2 semantics",
+    "units_and_dimensions": "compatible_after_adapter: Bytes and Cycles remain separate; do not raw-scalarize without normalization/preferences",
+    "training_vs_execution_stage": "compatible: execution-time combinatorial optimization, no learned train/inference split",
+    "evaluation_metric": "compatible_after_adapter: one shared Result Registry, hard transfer cap, same feasibility replay and runtime simulator"
+  },
+  "blocked_components": [
+    {
+      "source": "S026-Q2",
+      "module": "ABQPSO quantum label",
+      "reason": "Mbest/P inactive in visible code; defining QPSO primitives not verified"
+    },
+    {
+      "source": "S026-Q3",
+      "module": "DPEA mainline",
+      "reason": "no executable appendix and transfer-cost formula drifts from Q2"
+    }
+  ],
+  "decision": "compatible_after_adapter",
+  "mainline_recommendation_allowed": true,
+  "mainline": "Use common evaluator + deterministic baseline first. Borrow S026 feasibility/runtime evaluator after repairs; compare S025/S026 allocators under identical inputs. Q3 defaults to epsilon-constraint until a verified feasible Pareto implementation beats it."
+}

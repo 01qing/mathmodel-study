@@ -1,0 +1,66 @@
+{
+  "paper_id": "S011",
+  "source": "figure/table captions and full-text context",
+  "explicit_unique_figure_id_count": 42,
+  "explicit_unique_table_id_count": 28,
+  "pixel_level_audit": false,
+  "numbering_notes": [
+    "text layer contains a second “图7.2 处理后磁芯损耗分布直方图” after 图7.2 Bi-LSTM结构图; likely manuscript numbering inconsistency and should be checked against source PDF"
+  ],
+  "argumentation_roles": [
+    {
+      "role": "Q1 representation -> feature reduction -> classifier evidence",
+      "examples": [
+        "图4.1/4.2 waveform views",
+        "图4.6 PCA cumulative variance",
+        "图4.7-4.11 classifier/stacking diagrams",
+        "表4.3 metrics"
+      ],
+      "lesson": "Separate data/feature evidence from generic algorithm schematics; a confusion matrix on grouped holdout is stronger than several textbook model diagrams."
+    },
+    {
+      "role": "Q2 correction-family comparison",
+      "examples": [
+        "图5.3 temperature parameter trend",
+        "图5.4 fitted surfaces",
+        "图5.6 baseline-vs-corrected",
+        "表5.4-5.9 metrics"
+      ],
+      "lesson": "Use aligned residual/error plots and held-out-temperature folds. Surface closeness is calibration evidence, not extrapolation evidence."
+    },
+    {
+      "role": "Q3 factor-combination evidence",
+      "examples": [
+        "图6.3-6.5 single-factor boxplots",
+        "图6.6-6.8 crossed boxplots",
+        "图6.9-6.10 three-factor mean/variance plots"
+      ],
+      "lesson": "Crossed boxplots describe cells, but synergy requires an interaction effect/contrast plot with uncertainty after adjusting f/Bm."
+    },
+    {
+      "role": "Q4 model evidence",
+      "examples": [
+        "图7.6 claimed architecture",
+        "图7.7 predicted-vs-observed",
+        "图7.8 model comparison",
+        "图7.9 noise stress"
+      ],
+      "lesson": "Model architecture figure, code architecture and input schema must agree. For generalization, add grouped condition holdout rather than only Gaussian-noise perturbation."
+    },
+    {
+      "role": "Q5 optimization evidence",
+      "examples": [
+        "图8.1 workflow",
+        "图8.5 NSGA-II front",
+        "图8.6 MOPSO front",
+        "表8.2/8.3 result samples"
+      ],
+      "lesson": "Plot fronts on identical normalized axes, mark infeasible points, and report hypervolume/IGD/spread plus repeated-run uncertainty; visual concentration alone is not a quality metric."
+    }
+  ],
+  "style_learning_boundary": "Source PDF pixels are not mounted in this worktree; colors/fonts/layout are not claimed learned, only caption/context argumentation structure.",
+  "explicit_caption_count": 43,
+  "table_caption_count": 28,
+  "unique_figure_number_count": 42,
+  "unique_table_number_count": 28
+}

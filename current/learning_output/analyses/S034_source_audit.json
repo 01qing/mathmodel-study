@@ -1,0 +1,13 @@
+{
+  "paper_id": "S034",
+  "source_pdf": "/mnt/data/next_s034/S034.pdf",
+  "sha256": "23dfbdeb5af6468a92428c0171ccfd569b6571066837df96b1960f47248b1d1f",
+  "expected_registry_sha256": "23dfbdeb5af6468a92428c0171ccfd569b6571066837df96b1960f47248b1d1f",
+  "pages": 68,
+  "full_text_file": "/mnt/data/next_s034/text/S034.txt",
+  "visual_audit": "68 rendered pages + 12 contact sheets covering 68/68 pages",
+  "split": "train",
+  "appendix": "Appendix A p.68 lists Attachments 1-11 and says Attachment 9 contains code; no printed code appendix is present",
+  "available_collection_code": "not available; ZIP contains PDFs only",
+  "reproduction_level": "R1"
+}

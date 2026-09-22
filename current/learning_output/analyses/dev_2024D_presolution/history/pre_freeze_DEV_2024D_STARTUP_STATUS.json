@@ -1,0 +1,85 @@
+{
+  "snapshot_at": "2026-09-11T10:44:04.813913+08:00",
+  "stable_version": "1.38.0 SEALED; archive verified in this session; historic model regressions not rerun",
+  "stable_zip_sha256": "b887893513205db26f22cceccce7e998d86a2b1997066d282b1fc19c4f3f3d1a",
+  "work_status": "v1.39-work / PRE_SOLUTION_PREPARATION / NOT_SEALED",
+  "independent_solution_status": "NOT_FROZEN",
+  "core_original_files_checked": 1470,
+  "core_original_files_changed": [],
+  "split": {
+    "papers": 45,
+    "chunks": 6752,
+    "train": 32,
+    "dev": 7,
+    "test": 6
+  },
+  "historical_train_reviewed": "32/32 per sealed v1.38 records; not relearned this session",
+  "this_session_answer_access": "NONE for 2024-D S013–S016 and Test; no excellent paper ZIP opened",
+  "historical_pristine_status": "UNVERIFIED: blanket prior_exposure flag generated for all papers by old build_paper_library.py; not per-paper access evidence",
+  "official_inputs": "FOUND; all six archives SHA256 recorded; selected extraction success, not full archive content validation",
+  "extraction_runs": [
+    {
+      "dataset": 1,
+      "selected": 1,
+      "exit_code": 0,
+      "seconds": 0.29650259017944336
+    },
+    {
+      "dataset": 3,
+      "selected": 3,
+      "exit_code": 0,
+      "seconds": 5.879101991653442
+    },
+    {
+      "dataset": 4,
+      "selected": 601,
+      "exit_code": 0,
+      "seconds": 0.49872517585754395
+    },
+    {
+      "dataset": 5,
+      "selected": 26,
+      "exit_code": 0,
+      "seconds": 12.177192211151123
+    },
+    {
+      "dataset": 6,
+      "selected": 26,
+      "exit_code": 0,
+      "seconds": 11.852567195892334
+    },
+    {
+      "dataset": 2,
+      "selected": 10592,
+      "exit_code": 0,
+      "seconds": 67.3297176361084
+    }
+  ],
+  "extracted_file_counts": {
+    "1": 1,
+    "2": 10592,
+    "3": 2,
+    "4": 601,
+    "5": 26,
+    "6": 26
+  },
+  "features": "NOT_RUN: initial SyntaxError fixed; AST parse only PASS",
+  "models": "NOT_RUN",
+  "independent_results": "NOT_GENERATED",
+  "figures": "NOT_GENERATED",
+  "core_level_gain": "NOT_ESTABLISHED",
+  "core_ablation": "NOT_RUN",
+  "next_step": "Review draft feature code and metadata, run raw-data aggregation/audits, complete independent four-question solution; freeze and STOP before Dev answers",
+  "paths": {
+    "work": "D:\\softdown\\codex\\0911进度\\clean-dev-2024D\\v1.39-work",
+    "official_data": "D:\\softdown\\codex\\0911进度\\clean-dev-2024D\\official-data",
+    "old_origin": "D:\\softdown\\codex\\mathmodel-study"
+  },
+  "failure_history": [
+    "Windows tar cannot decode encrypted RAR; existing D:/Program Files/7-Zip/7z.exe succeeded.",
+    "Download-and-silent-install tool action rejected by policy; not executed. Existing local 7-Zip used.",
+    "RAR inventory CRLF parser initially counted one entry; normalized CRLF and reran correct counts.",
+    "netCDF4 path lookup initially selected directory; after is_file filter Windows Unicode native path still failed; chdir to parent and ASCII filename opened successfully.",
+    "prepare_features.py first execution failed with unmatched parenthesis before any data processing; repaired and AST parse passed; aggregation still NOT_RUN."
+  ]
+}

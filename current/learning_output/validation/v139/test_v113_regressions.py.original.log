@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "scope": "v1.13 S005 full-text and printed appendix audit",
+  "passed": 19,
+  "tests": [
+    "S005 reviewed",
+    "S005 Q1-Q3",
+    "S005 not falsely reproduced",
+    "S005 four code audit findings",
+    "S005 16 unique figures indexed",
+    "grouped-experiment-split-leakage.json",
+    "dbm-linear-power-domain.json",
+    "noninjective-target-reconstruction.json",
+    "regression-accuracy-pseudometric.json",
+    "loss-input-contract-mismatch.json",
+    "predictive-importance-causal-overclaim.json",
+    "2024-B map retains S005",
+    "2024-B group map linked",
+    "S005 train retained",
+    "S005 all 90 pages reviewed",
+    "S005 review link",
+    "S005 audit reference",
+    "v1.13 WLAN gate in skill",
+    "version at least 1.13"
+  ]
+}
+

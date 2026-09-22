@@ -1,0 +1,5 @@
+{
+  "id": "CLOSED_CONTOUR_NOT_PROFILE_FUNCTION",
+  "rule": "Slope/second-derivative roughness formulas assume an ordered one-dimensional profile y(x) or an explicitly reparameterized curve. An arbitrary closed image contour can double back or be vertical and must not be used as y(x) without a profile-extraction/parameterization contract.",
+  "scope": "generic"
+}

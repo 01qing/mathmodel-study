@@ -1,0 +1,10 @@
+{
+  "name": "grouped-experiment-split-leakage",
+  "trigger": "multiple rows/windows/records share one experiment, session, device, patient, trajectory or source file",
+  "risk": "row-random split lets correlated records from one independent unit appear in train and validation/test",
+  "gate": [
+    "define independent sampling unit first",
+    "split groups before fitting imputers/scalers/feature selectors",
+    "report group-wise generalization"
+  ]
+}

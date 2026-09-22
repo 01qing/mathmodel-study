@@ -1,0 +1,50 @@
+{
+  "paper_id": "S045",
+  "status": "PASS_AUDIT_REPLAY_WITH_IDENTIFIED_FAILURES",
+  "checks": {
+    "Q2_table66_formula": "round(0.45*element+0.55*open_close,1)",
+    "Q2_table66_calculated": {
+      "寄畅园": 100.0,
+      "怡园": 90.8,
+      "瞻园": 88.8,
+      "沈园": 88.8,
+      "拙政园": 77.8,
+      "留园": 75.9,
+      "耦园": 64.5,
+      "秋霞圃": 59.4,
+      "豫园": 52.1,
+      "绮园": 36.7
+    },
+    "Q2_table66_reported": {
+      "寄畅园": 100.0,
+      "怡园": 90.8,
+      "瞻园": 88.8,
+      "沈园": 88.8,
+      "拙政园": 77.8,
+      "留园": 75.9,
+      "耦园": 64.5,
+      "秋霞圃": 59.4,
+      "豫园": 52.1,
+      "绮园": 36.7
+    },
+    "Q2_table66_exact_all_10": true,
+    "Q3_posthoc_adjustments": {
+      "绮园": {
+        "original": -0.791,
+        "printed_adjusted": 0.209,
+        "delta": 1.0
+      },
+      "豫园": {
+        "original": -0.857,
+        "printed_adjusted": 0.143,
+        "delta": 1.0
+      }
+    },
+    "Q3_two_adjustments_equal_plus_one": true,
+    "Q3_eq713_visual": "1 - abs(A_natural/A_total - A_artificial/A_total)",
+    "Q3_eq713_text_extraction_lost_absolute_bars": true,
+    "Q1_eq567_has_length_term": false,
+    "Q2_sensitivity_axis_contract": "FAIL: scenario-indexed scores ranked as though garden-indexed",
+    "scope_note": "Arithmetic/static-contract replay only; PASS does not validate author end-to-end model or aesthetic claims."
+  }
+}

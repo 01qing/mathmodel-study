@@ -1,0 +1,15 @@
+{
+  "status": "PASS_AFTER_REPAIR",
+  "reviewed_figures": [
+    "Q1_precipitation.png",
+    "Q1_landcover.png",
+    "Q2_validation.png",
+    "Q3_scenario_maps.png",
+    "Q4_regions.png"
+  ],
+  "first_fail": "diverging maps did not center zero; categorical region colorbar used fractional ticks and unused colors",
+  "diagnosis": "default continuous normalization inappropriate for signed/categorical metrics",
+  "repair": "symmetric zero-centered signed scales; discrete five-color map with integer region ticks; first images retained under history/first_visual_fail",
+  "retest": "all repaired figures visually inspected; no clipped labels; correct scales and units",
+  "scope": "figure communication only; no scientific validity or R-level promotion"
+}

@@ -1,0 +1,8 @@
+{
+  "paper": "S014",
+  "split": "dev",
+  "source": "learning_output/analyses/dev_2024D/S014/S014_source.pdf",
+  "source_sha256": "6cb012383042874734f66f47f9287ae099adc7f81f9b89fa8f7657c747938020",
+  "R": "R2",
+  "registry": "learning_output/analyses/dev_2024D/S014/RESULT_REGISTRY.json"
+}

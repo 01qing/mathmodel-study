@@ -1,0 +1,6 @@
+{
+  "name": "assumed capacity multiplier presented as intervention evidence",
+  "trigger": "post-treatment outcomes are created by multiplying capacity/flow by a hand-set factor",
+  "gate": "label as scenario analysis, sweep plausible factors, and do not claim empirical causal effect without observed/identified treatment evidence",
+  "source_example": "S019 Q3 multiplies q_D by 1.3 and reports 48.3% congestion-duration reduction"
+}

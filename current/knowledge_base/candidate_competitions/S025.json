@@ -1,0 +1,203 @@
+{
+  "paper_id": "S025",
+  "case_group": "2025-A",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "precedence-constrained permutation/scheduling to minimize peak live-buffer residency",
+      "target_and_constraints": {
+        "objective": "min max_j Vstay(j)",
+        "hard_constraints": [
+          "DAG topological order",
+          "paper-specific L0 residency restrictions"
+        ],
+        "decision": "topological linearization"
+      },
+      "author_route": {
+        "method": "multi-initialization (FREE-first / DFS / critical-path) + topology-preserving simulated annealing",
+        "why_fit": [
+          "search space is combinatorial/NP-hard",
+          "topology-preserving reinsertion gives feasible neighbors",
+          "multiple cheap initializers exploit graph structure before metaheuristic refinement"
+        ],
+        "evidence_boundary": "SA is paper-described but its main loop is not visible in printed Q1.py"
+      },
+      "baseline": {
+        "name": "FREE-first + critical-path tie-break list scheduling",
+        "six_hour_plan": [
+          "Kahn topological sort",
+          "ready queue prioritizes FREE, then high critical-path height, then small ALLOC size",
+          "single pass Vstay replay",
+          "report all six cases + runtime"
+        ],
+        "why": "simple, deterministic, topology-safe, O((N+E)logN), gives a credible benchmark before metaheuristics"
+      },
+      "major_alternatives": [
+        {
+          "model": "MILP / CP-SAT exact formulation",
+          "why_can_work": "directly encodes precedence and peak-residency objective",
+          "when_prefer": "small/medium graphs or when optimality gap is valuable",
+          "why_not_primary_here": "Conv_Case1/Matmul_Case1 scale makes O(N^2) position binaries expensive"
+        },
+        {
+          "model": "beam search / bounded best-first topological scheduling",
+          "why_can_work": "keeps several promising ready-set choices and provides an anytime quality/runtime trade-off",
+          "when_prefer": "medium graphs with stronger runtime budget than greedy but less than SA",
+          "why_not_primary_here": "state branching can explode and needs a good admissible/lower-bound heuristic"
+        },
+        {
+          "model": "genetic algorithm with topology-preserving representation/operators",
+          "why_can_work": "global combinatorial exploration",
+          "when_prefer": "diverse repeated graph families and generous tuning budget",
+          "why_not_primary_here": "higher tuning cost than SA and easy to generate infeasible permutations if operators are not DAG-aware"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "LSTM/Transformer predictor",
+          "reason": "no supervised target dataset for optimal schedules; sequence modeling does not solve precedence-constrained search by itself"
+        },
+        {
+          "model": "deep RL",
+          "reason": "needs many simulator episodes and repeated problem distribution; unnecessary before a strong deterministic baseline on six fixed instances"
+        }
+      ],
+      "switch_conditions": [
+        "use CP-SAT/MILP if graph is small enough to obtain optimum/gap within contest time",
+        "use SA/beam search only if matched-budget validation shows material peak reduction over deterministic baseline",
+        "abandon metaheuristic if improvement is unstable or runtime dominates schedule-evaluation budget"
+      ]
+    },
+    "Q2": {
+      "problem_type_and_essence": "lifetime-aware multi-cache address allocation with capacity/non-overlap constraints and spill-cost minimization",
+      "target_and_constraints": {
+        "objective": "min total extra data movement from SPILL",
+        "hard_constraints": [
+          "cache capacity",
+          "non-overlap for simultaneously live buffers",
+          "valid offset",
+          "ALLOC/FREE lifetime order",
+          "SPILL dependency order"
+        ]
+      },
+      "author_route": {
+        "method": "colored-edge graph + paper-claimed ILP/LP-rounding hybrid + hierarchical allocator + SPILL victim heuristic",
+        "why_fit": [
+          "lifetime overlap resembles register allocation/interference coloring",
+          "small instances admit exact resource allocation",
+          "large instances need fast repair/spill heuristic"
+        ],
+        "evidence_boundary": "printed Q2.py exposes heuristic allocation/SPILL, not visible ILP/CBC model or solve call"
+      },
+      "baseline": {
+        "name": "per-cache linear-scan/Best-Fit allocator + lifecycle intervals + greedy spill",
+        "six_hour_plan": [
+          "derive ALLOC-FREE live intervals",
+          "maintain free blocks per cache type",
+          "Best-Fit or first-fit by size",
+          "on failure spill lowest-cost candidate",
+          "replay capacity/non-overlap and total transfer"
+        ],
+        "why": "fully executable, easy to audit, directly exposes fragmentation and spill cost"
+      },
+      "major_alternatives": [
+        {
+          "model": "MILP/CP-SAT interval allocation",
+          "why_can_work": "exact capacity/non-overlap/spill formulation",
+          "when_prefer": "small graphs or for exact lower bounds on selected subinstances",
+          "why_not_primary_here": "full large instances may exceed solver budget"
+        },
+        {
+          "model": "interference-graph coloring / register-allocation heuristic",
+          "why_can_work": "lifetime overlap naturally maps to conflict graph",
+          "when_prefer": "many overlapping lifetimes with discrete cache slots/regions",
+          "why_not_primary_here": "variable buffer sizes and continuous offsets require weighted/interval extensions"
+        },
+        {
+          "model": "min-cost flow / time-expanded allocation",
+          "why_can_work": "can represent movement/reuse costs in structured time-expanded cases",
+          "when_prefer": "when cache slots can be discretized and transitions dominate",
+          "why_not_primary_here": "continuous address packing and size heterogeneity make graph expansion large"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "end-to-end neural allocator",
+          "reason": "no large labeled optimum corpus, hard feasibility must be guaranteed, and deterministic heuristics are easier to validate"
+        }
+      ],
+      "switch_conditions": [
+        "invoke exact solver only on tractable subgraphs or time-limited exact path",
+        "reject any heuristic mapping that fails post-repair feasibility replay",
+        "centralize victim policy before composing Q2 and Q3"
+      ]
+    },
+    "Q3": {
+      "problem_type_and_essence": "heterogeneous-pipeline scheduling under a hard transfer-cost cap; minimize makespan while preserving feasible cache allocation",
+      "target_and_constraints": {
+        "primary_objective": "min execution time T",
+        "hard_transfer_cap": "C* <= 1.05 * C_Q2",
+        "resource_constraints": [
+          "dependency precedence",
+          "same-pipe non-overlap",
+          "cache feasibility",
+          "SPILL timing"
+        ]
+      },
+      "author_route": {
+        "method": "adaptive priority scheduling + time-sensitive Best-Fit + constrained multi-objective/local search narrative",
+        "why_fit": [
+          "execution time depends on critical path and pipe contention",
+          "cache reuse can add dependencies/wait",
+          "hard transfer budget is naturally an epsilon constraint"
+        ],
+        "evidence_boundary": "printed Q3.py does not expose the claimed adaptive-priority/Best-Fit/Pareto/2-opt loop; Table 5.5 contains infeasible rows"
+      },
+      "baseline": {
+        "name": "epsilon-constraint list scheduling",
+        "six_hour_plan": [
+          "take Q2 feasible allocation/cost as baseline",
+          "critical-path list scheduler with pipe availability",
+          "Best-Fit allocation with exact same victim registry",
+          "discard any candidate C*>1.05*C_Q2",
+          "select minimum T among feasible candidates"
+        ],
+        "why": "matches the actual hard constraint, avoids arbitrary unit-mixing scalarization, and is auditable"
+      },
+      "major_alternatives": [
+        {
+          "model": "NSGA-II / Pareto search with feasibility-first ranking",
+          "why_can_work": "explores time-transfer trade-off and can return a nondominated set",
+          "when_prefer": "when organizers/decision maker wants several trade-off operating points",
+          "why_not_primary_here": "hard 1.05 cap already defines a natural epsilon constraint; extra Pareto machinery is useful only if feasible diversity exists"
+        },
+        {
+          "model": "MILP/CP-SAT joint scheduling for small instances",
+          "why_can_work": "can jointly encode precedence, pipe disjunctions and transfer cap",
+          "when_prefer": "small cases/benchmark subgraphs to establish quality gaps",
+          "why_not_primary_here": "large graph scale"
+        },
+        {
+          "model": "Lagrangian/weighted-sum local search",
+          "why_can_work": "fast single-score search",
+          "when_prefer": "metrics are normalized and preference weight is justified",
+          "why_not_primary_here": "fixed mu mixes cycles and bytes without a demonstrated scale/preference contract"
+        }
+      ],
+      "not_recommended": [
+        {
+          "model": "deep RL",
+          "reason": "six fixed graphs do not supply the repeated training distribution needed to justify RL; feasibility and simulator fidelity dominate risk"
+        },
+        {
+          "model": "unscaled fixed weighted sum",
+          "reason": "unit/preference ambiguity and can accept hard-cap violations unless feasibility is enforced first"
+        }
+      ],
+      "switch_conditions": [
+        "if exact small-instance solve shows large gap, invest in richer search",
+        "if no candidate improves T under 1.05 cap, keep Q2 baseline and explicitly report no feasible improvement",
+        "if workload family behavior differs, use workload-specific policy selection rather than one universal heuristic"
+      ]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+Historical compatibility first rerun on reconstructed v1.34:
+19/22 PASS.
+FAIL test_v121_regressions.py: timepoint/session-id string contract (`startswith("v1.")`) after reconstructed session id `v1340-...`.
+FAIL test_v122_regressions.py: same session-id string contract.
+FAIL test_v126_regressions.py: canonical phrase contract expected `Mini Transfer Test`, current note used `Mini Transfer`.
+No substantive split/evidence/model rule failure was observed in these three failures.

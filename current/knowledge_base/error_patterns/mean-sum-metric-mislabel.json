@@ -1,0 +1,6 @@
+{
+  "id": "mean-sum-metric-mislabel",
+  "name": "Accumulated sum is labeled as a mean metric",
+  "trigger": "Squared/absolute errors are accumulated but not divided by sample count before reporting MSE/MAE.",
+  "gate": "Compute metrics from one canonical library function or verify denominator/sample count and algebraic identities before export."
+}

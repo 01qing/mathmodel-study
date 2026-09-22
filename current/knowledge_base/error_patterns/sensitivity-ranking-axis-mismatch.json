@@ -1,0 +1,10 @@
+{
+  "pattern_id": "sensitivity-ranking-axis-mismatch",
+  "name": "Sensitivity ranking axis mismatch",
+  "trigger": "sensitivity code ranks an array indexed by parameter draws/scenarios but compares it with an entity ranking because lengths happen to match",
+  "risk": "Kendall/Spearman rank-stability number is mathematically computable but semantically meaningless",
+  "gate": "register array axis/entity_id/run_id; every perturbation must produce a full entity score vector before rank comparison",
+  "evidence": [
+    "S045 Q2 printed sensitivity code"
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "paper_id": "S019",
+  "case_group": "2024-E",
+  "year": 2024,
+  "problem_id": "E",
+  "split": "train",
+  "pages": 60,
+  "title": "E24102910005",
+  "paper_title": "基于目标检测的高速公路应急车道实时启用策略研究",
+  "school": "南京工业大学",
+  "review_status": "FULL_TEXT_PLUS_APPENDIX_FILE_MANIFEST_AUDIT_WITH_UNIT_FORECAST_INVENTORY_INTERVENTION_AND_SENSOR_POLICY_CONTRACT_CHECK",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "YOLOv10 + ByteTrack vehicle detection/tracking and line counting",
+        "1-minute flow/density/speed aggregation from video",
+        "ARIMA feature description",
+        "least-squares fundamental-diagram fitting",
+        "discontinuous traffic-flow congestion model",
+        "10-minute-ahead D-density prediction using upstream A/B/C features with linear regression then AdaBoost"
+      ],
+      "strengths": [
+        "builds a clear video→traffic-parameter→fundamental-diagram→forecast→warning chain",
+        "uses multiple fundamental-diagram candidates rather than assuming one relation fits every monitoring point",
+        "reports MAE/RMSE/R2 for AdaBoost and compares against linear regression",
+        "uses upstream spatial information for a genuine lead-time forecasting target rather than only contemporaneous classification"
+      ],
+      "risks": [
+        "symbol table declares q in veh/min, rho in veh/km and u in km/h, yet Eq.(9) uses q=u*rho without the required 1/60 conversion if q remains veh/min; the traffic-unit contract is not closed",
+        "Table 3 labels density as veh/m while later models and thresholds use veh/km; the conversion is inferable but should be explicit in one unit registry",
+        "Eq.(32) gives td=rho_m/(rho_m-rho_0)*tau, but Eq.(33) is printed as tau=(rho_m-rho_0)/rho_0*td; algebraic inversion should divide by rho_m, so the derived warning-duration formula is not equivalent to the preceding equation.",
+        "the printed linear-regression coefficients beta0=198.7, betaA=60.1, betaB=-44.7, betaC=89.4 are numerically incompatible with Table 7 feature scales: the first displayed row predicts about 21940 veh/km instead of about 311 veh/km, indicating a coefficient/decimal/scaling transcription error",
+        "AdaBoost uses 134 temporally ordered samples and a 70/30 split, but the paper does not state whether the split is chronological or random; 10-minute forecasting claims require time-aware holdout provenance",
+        "lag correlations 0.73/0.75/0.79 are computed on strongly co-trending smoothed density series; common trend can inflate lag correlation, so lead-time evidence should use chronological out-of-sample prediction and preferably detrended/differenced sensitivity checks",
+        "feature importance is interpreted as contribution/physical influence and as a distance law; model importance is predictive evidence, not a causal transport coefficient",
+        "threshold reporting drifts across sections: D congestion is described using >300 veh/km, later 240 veh/km is called the start-of-congestion threshold, while another line calls maximum density 350 veh/km; these quantities need distinct names (alarm threshold, critical density, jam density)",
+        "within the threshold discussion, A is first said to reach maximum flow near 2700 veh/h but later its maximum flow is written as 300 veh/h; B similarly shifts from 2500 to 3000 veh/h, indicating table/prose result drift"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "cumulative inflow-minus-outflow inventory for road segments",
+        "normalize segment vehicle inventory by Qmax to form K(t)",
+        "open at K>0.8 and close at K<0.6 for hysteresis",
+        "downstream D density guard below 240 veh/km",
+        "future lane-utilization U proposed as an additional close condition"
+      ],
+      "strengths": [
+        "uses a stock-flow conservation view rather than only instantaneous point thresholds",
+        "introduces separate open and close thresholds (0.8/0.6), which is a useful hysteresis pattern",
+        "adds a downstream guard so opening upstream capacity does not intentionally feed an already congested downstream state"
+      ],
+      "risks": [
+        "the paper calls K a lane/segment occupancy rate, but mathematically it is a normalized vehicle inventory; detector occupancy and inventory ratio should be named separately",
+        "Qmax is partly inferred by assigning K=1 at 13:29 and K=0.8 at 14:10; this makes threshold assumptions participate in calibrating the capacity that is then used by the same threshold policy, creating circular calibration risk",
+        "one method reports Qmax=1271 from rho_MAX×3 km; if the same D maximum-density definition rho_m=350 veh/km from the preceding threshold table is intended, the product is 1050 rather than 1271, so rho_MAX/Qmax semantics must be reconciled",
+        "the 0.8/0.6 hysteresis levels are asserted rather than calibrated with false-alarm/miss/cost sensitivity evidence",
+        "the proposed lane-utilization close condition U lacks a calibrated Hmax, decay alpha and operating threshold in the visible text, so it is not yet a deployable state-machine condition"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "combine upstream K_AB and K_BC as 0.4/0.6 weighted inventory indicator",
+        "require downstream density below 240 veh/km",
+        "replay CD inventory K(t) without shoulder opening",
+        "assume opening changes two lanes to three lanes and increases outflow capacity by 30%",
+        "compare K and K-prime curves and derive congestion timing changes"
+      ],
+      "strengths": [
+        "keeps the controller interpretable and explicitly combines upstream demand pressure with a downstream safety guard",
+        "correctly recomputes 58→30 min as about 48.3% duration reduction",
+        "uses a stock-flow curve to expose how an assumed capacity change would alter congestion inventory"
+      ],
+      "risks": [
+        "weights 0.4 and 0.6 are said to be based on correlation/distance but no fitting or normalization rule is shown; they are heuristic controller parameters and require sensitivity/calibration",
+        "the entire quantified intervention effect comes from assuming q_D is multiplied by 1.3; without observed shoulder-opening data or a calibrated simulator this is scenario evidence, not an empirical treatment effect",
+        "Eq.(52) evolves inventory with q_C-q_D, but indexed Eq.(53) reverses the order to 1.3*q_D-q_C; that sign makes larger outflow increase inventory, contradicting the stated K-prime decrease and requiring formula/code replay before reuse",
+        "the 30% capacity gain is not accompanied by uncertainty/sensitivity analysis, so the reported 3-min delay, 25-min earlier ending and 48.3% reduction inherit one unverified scalar assumption",
+        "the policy uses the same observed q_C/q_D series for the counterfactual except for a multiplier; behavioral rerouting, lane-choice, merge friction and downstream interaction are not modeled"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "move camera B downstream to a new E point to improve downstream state information without increasing camera count",
+        "optionally add F inside long CD segment",
+        "use YOLO heatmap-based emergency-lane utilization U for closing decisions",
+        "recommend overhead viewing geometry to reduce occlusion",
+        "qualitative discussion of safety/cost tradeoffs"
+      ],
+      "strengths": [
+        "recognizes that sensing placement should be redesigned around the control information actually needed upstream and downstream",
+        "explicitly considers occlusion and emergency-lane utilization, not only geometric spacing",
+        "moving rather than simply adding a camera is at least cost-aware"
+      ],
+      "risks": [
+        "Q3 opening policy depends on K_AB and K_BC, both of which require the B camera; moving B to E breaks the existing policy-input contract. The proposed replacement K_AC must be redefined and its thresholds/weights revalidated before the old controller can be reused",
+        "camera placement is heuristic rather than an explicit optimization: there is no objective over coverage/estimation error/control value/cost and no quantitative candidate-location comparison",
+        "E and F are described relationally rather than with reproducible coordinates/feasible zones, so the deliverable is not yet an executable placement plan",
+        "heatmap utilization U=H3/Hmax,3 has no visible calibrated Hmax, decay alpha or close threshold, so it cannot yet close the loop in Q2/Q3",
+        "the safety discussion is qualitative and even accepts a safety sacrifice without a crash-risk model, hard safety constraint or quantified risk-cost tradeoff; efficiency gains cannot establish safety acceptability"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "7,14-16",
+      "claim": "symbol units and video-derived 1-minute traffic-parameter definitions"
+    },
+    {
+      "pages": "20-26",
+      "claim": "continuous fundamental diagrams, Eq.(9) q=u*rho and model-fit tables"
+    },
+    {
+      "pages": "32-37",
+      "claim": "10-minute lag correlation, linear regression/AdaBoost construction and validation"
+    },
+    {
+      "pages": "37-43",
+      "claim": "congestion thresholds, event examples and warning validation"
+    },
+    {
+      "pages": "44-48",
+      "claim": "inventory K(t), Qmax and 0.8/0.6 hysteresis policy"
+    },
+    {
+      "pages": "49-52",
+      "claim": "0.4/0.6 controller, 30% intervention assumption, Eq.(52)/(53) and reported 48.3% effect"
+    },
+    {
+      "pages": "53-58",
+      "claim": "B→E relocation, F proposal, heatmap utilization and qualitative safety discussion"
+    },
+    {
+      "pages": "60",
+      "claim": "appendix manifests 16 external code/data files but source bodies are not embedded in indexed paper text"
+    }
+  ],
+  "transfer_lessons": [
+    "Traffic fundamental-diagram variables need a single unit registry; q=u*rho is only dimensionally valid when q and u use matching time units.",
+    "Machine-replay at least one displayed regression row. Coefficients that produce impossible magnitudes must be fixed before the equation is reusable.",
+    "For lag forecasting, document chronological/grouped split explicitly; correlation on smoothed co-trending series is not a substitute for out-of-sample lead-time validation.",
+    "Predictive feature importance is not a transport/correlation law and must not be converted into controller weights without calibration.",
+    "Use distinct names for jam density, critical density, alarm threshold and maximum observed density; threshold drift across prose is a deployment blocker.",
+    "Normalized vehicle inventory is not the same concept as detector lane occupancy; name state variables by their actual measurement semantics.",
+    "Hysteresis (open 0.8 / close 0.6) is structurally useful, but thresholds still need ROC/cost/sensitivity calibration.",
+    "Every counterfactual state equation should pass sign and monotonicity replay; increasing outflow should not mathematically increase vehicle inventory.",
+    "A fixed 30% capacity multiplier only supports scenario/sensitivity evidence unless calibrated by intervention data or a validated simulator.",
+    "Moving/removing a sensor requires a dependency audit of every feature/state used by the current policy, followed by retraining/recalibration if the observation graph changes.",
+    "Camera-placement prose becomes an optimization only when decision variables, feasible regions, objective(s), cost and a quantitative comparison are explicit.",
+    "Appendix file names are evidence of intended implementation, not executable-code evidence; source files must be present and runnable before raising reproduction status."
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "paper_id": "S025",
+  "case_group": "2025-A",
+  "schema_version": "1.0",
+  "reproduction_level": "R2",
+  "Q1": {
+    "max_vstay_bytes": [
+      {
+        "task": "Conv_Case0",
+        "value": 7660,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case1",
+        "value": 14040,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "value": 4500,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "value": 7588,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case0",
+        "value": 9216,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case1",
+        "value": 34816,
+        "source_surface": "abstract/Table 5.2",
+        "status": "author_reported"
+      }
+    ],
+    "figure_5_7_contract": {
+      "rendered_curve_approx": "~10890–11460",
+      "following_text": "14000 -> 7760",
+      "table_conv0": 7660,
+      "status": "contradicted/ambiguous-provenance"
+    }
+  },
+  "Q2": {
+    "rows": [
+      {
+        "task": "Conv_Case0",
+        "extra_transfer": 23752,
+        "spill_count": 366,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case1",
+        "extra_transfer": 35344,
+        "spill_count": 1013,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "extra_transfer": 17148,
+        "spill_count": 129,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "extra_transfer": 45820,
+        "spill_count": 241,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case0",
+        "extra_transfer": 12288,
+        "spill_count": 96,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case1",
+        "extra_transfer": 60416,
+        "spill_count": 472,
+        "source_surface": "Table 5.4",
+        "status": "author_reported"
+      }
+    ]
+  },
+  "Q3": {
+    "rows": [
+      {
+        "task": "Conv_Case0",
+        "old_time": 359607,
+        "new_time": 442468,
+        "old_transfer": 23752,
+        "new_transfer": 6100,
+        "reported_time_improvement_pct": -23.0,
+        "recomputed_time_improvement_pct": -23.0420987355641,
+        "reported_transfer_improvement_pct": -74.3,
+        "recomputed_transfer_improvement_pct": 74.31795217244863,
+        "transfer_ratio_to_q2": 0.25682047827551363,
+        "hard_cap_1p05_ok": true,
+        "time_improved": false
+      },
+      {
+        "task": "Conv_Case1",
+        "old_time": 576107,
+        "new_time": 789527,
+        "old_transfer": 35344,
+        "new_transfer": 67300,
+        "reported_time_improvement_pct": -37.0,
+        "recomputed_time_improvement_pct": -37.04520167260596,
+        "reported_transfer_improvement_pct": -90.4,
+        "recomputed_transfer_improvement_pct": -90.41421457673155,
+        "transfer_ratio_to_q2": 1.9041421457673156,
+        "hard_cap_1p05_ok": false,
+        "time_improved": false
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "old_time": 31457,
+        "new_time": 33137,
+        "old_transfer": 17148,
+        "new_transfer": 1680,
+        "reported_time_improvement_pct": -5.3,
+        "recomputed_time_improvement_pct": -5.340623708554535,
+        "reported_transfer_improvement_pct": 90.2,
+        "recomputed_transfer_improvement_pct": 90.20293911826452,
+        "transfer_ratio_to_q2": 0.0979706088173548,
+        "hard_cap_1p05_ok": true,
+        "time_improved": false
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "old_time": 113473,
+        "new_time": 126075,
+        "old_transfer": 45820,
+        "new_transfer": 5920,
+        "reported_time_improvement_pct": -11.1,
+        "recomputed_time_improvement_pct": -11.10572559110978,
+        "reported_transfer_improvement_pct": 87.1,
+        "recomputed_transfer_improvement_pct": 87.07987778262766,
+        "transfer_ratio_to_q2": 0.12920122217372326,
+        "hard_cap_1p05_ok": true,
+        "time_improved": false
+      },
+      {
+        "task": "Matmul_Case0",
+        "old_time": 82792,
+        "new_time": 82311,
+        "old_transfer": 12288,
+        "new_transfer": 12160,
+        "reported_time_improvement_pct": 0.6,
+        "recomputed_time_improvement_pct": 0.5809740071504493,
+        "reported_transfer_improvement_pct": 1.0,
+        "recomputed_transfer_improvement_pct": 1.0416666666666665,
+        "transfer_ratio_to_q2": 0.9895833333333334,
+        "hard_cap_1p05_ok": true,
+        "time_improved": true
+      },
+      {
+        "task": "Matmul_Case1",
+        "old_time": 583560,
+        "new_time": 636211,
+        "old_transfer": 60416,
+        "new_transfer": 89600,
+        "reported_time_improvement_pct": -9.0,
+        "recomputed_time_improvement_pct": -9.022379875248475,
+        "reported_transfer_improvement_pct": -48.3,
+        "recomputed_transfer_improvement_pct": -48.30508474576271,
+        "transfer_ratio_to_q2": 1.4830508474576272,
+        "hard_cap_1p05_ok": false,
+        "time_improved": false
+      }
+    ],
+    "hard_constraint": "new_transfer <= 1.05 * Q2_transfer",
+    "feasible_count": 4,
+    "total_count": 6,
+    "only_time_improved_tasks": [
+      "Matmul_Case0"
+    ],
+    "contract_findings": [
+      "Conv_Case1 and Matmul_Case1 violate the stated 1.05 transfer cap",
+      "Conv_Case0 table transfer-improvement sign is inconsistent with recomputation",
+      "five of six tasks do not improve execution time"
+    ]
+  },
+  "registry_rule": "Abstract/body/table/figure/conclusion values must be generated or checked against this registry before final writing."
+}

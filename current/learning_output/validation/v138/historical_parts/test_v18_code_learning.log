@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/data/Graduate-MathModel-Learning-Skill-v1.38-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v18_code_learning.py", line 28, in <module>
+    ok((root/'knowledge_base/code_cases/2025-E-GTeacher1-code.json').exists(),'GTeacher1 code card exists')
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/Graduate-MathModel-Learning-Skill-v1.38-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v18_code_learning.py", line 11, in ok
+    if not cond: raise AssertionError(name)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: GTeacher1 code card exists

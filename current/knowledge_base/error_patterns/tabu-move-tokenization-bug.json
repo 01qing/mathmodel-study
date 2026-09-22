@@ -1,0 +1,7 @@
+{
+  "pattern_id": "tabu-move-tokenization-bug",
+  "title": "Tabu queue stored as flat character stream",
+  "trigger": "move identifiers are strings but tabu memory concatenates characters and truncates by character count",
+  "risk": "membership tests no longer represent exact forbidden moves and tenure is measured in characters, not moves",
+  "gate": "store tabu entries as structured move tokens/tuples/cells and test exact-entry membership; tenure counts moves"
+}

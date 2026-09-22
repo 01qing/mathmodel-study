@@ -1,0 +1,11 @@
+{
+  "id": "result-provenance-row-not-in-source-table",
+  "name": "Final result not traceable to visible source rows",
+  "severity": "critical",
+  "trigger": "final/result table value is better/different than every candidate row without a named new run",
+  "risk": "Result Registry cannot reproduce the claimed optimum",
+  "gate": "require run_id/source row for every final value",
+  "source_examples": [
+    "2025-A-S028 Q2 FlashAttention1 33792 vs Table14 min 54720"
+  ]
+}

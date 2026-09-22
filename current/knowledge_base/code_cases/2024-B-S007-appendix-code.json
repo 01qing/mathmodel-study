@@ -1,0 +1,50 @@
+{
+  "paper_id": "S007",
+  "source": "printed appendix text",
+  "run_status": "NOT_RUN_AS_AUTHOR_PIPELINE; STATIC_AUDIT_ONLY",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "multiple training CSV files are merged before row-level train_test_split",
+        "visible runner compares a subset of named regression functions although main text discusses nine",
+        "CDF helper converts 90th-percentile percentage error into 1-error and calls it accuracy"
+      ],
+      "risk": "group leakage + metric-semantics confusion + method-list mismatch"
+    },
+    "Q2": {
+      "findings": [
+        "calculate_sinr correctly converts own/interference/noise dBm to mW before sum/ratio",
+        "MCS and NSS are trained as separate RandomForestClassifier targets",
+        "MCS and NSS each call train_test_split separately, with no explicit joint-pair constraint or pair-validity audit",
+        "visible appendix only demonstrates RF despite eight-model main-text comparison",
+        "only accuracy_score is printed by the visible prediction notebook"
+      ],
+      "risk": "marginal-label predictions can form unsupported pairs; high NSS accuracy can hide minority failure"
+    },
+    "Q3": {
+      "findings": [
+        "PHY rate is looked up from provided MCS/NSS",
+        "antenna/interference RSSI lists are reduced by arithmetic mean in dBm",
+        "training files are concatenated then randomly split by row",
+        "GradientBoostingRegressor is the visible final path",
+        "P90 relative error is converted into a custom accuracy-like number"
+      ],
+      "risk": "log-domain aggregation + experiment-group leakage + nonstandard accuracy semantics"
+    }
+  },
+  "replication_requirements": [
+    "official 2024-B WLAN data",
+    "original runnable Python/notebook files",
+    "exact package versions",
+    "experiment/session grouping keys"
+  ],
+  "safe_reimplementation_order": [
+    "define experiment/session groups",
+    "split by group",
+    "fit/derive features inside training boundary where supervised",
+    "compute all power sums in linear domain",
+    "train joint-pair or constrained multi-head MCS/NSS model",
+    "report per-class + macro/balanced metrics",
+    "evaluate Q3 on untouched groups with MAE/RMSE/R2 and error quantiles"
+  ]
+}

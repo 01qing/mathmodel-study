@@ -1,0 +1,57 @@
+{
+  "paper_id": "S019",
+  "case_group": "2024-E",
+  "run_status": "APPENDIX_FILE_LIST_ONLY_NO_SOURCE_CODE_OR_AUTHOR_ENGINEERING_REPRODUCTION",
+  "appendix_page": 60,
+  "listed_artifacts": [
+    "yolov10+ByteTrack tracking/line-crossing Python",
+    "yolov10m.pt",
+    "A metrics xlsx",
+    "B metrics xlsx",
+    "C metrics xlsx",
+    "D metrics xlsx",
+    "ARIMA Python",
+    "smoothing Python",
+    "multivariate regression Python",
+    "AdaBoost Python",
+    "AB occupancy Python",
+    "BC occupancy Python",
+    "CD occupancy Python",
+    "speed-density fitting Python",
+    "flow-speed fitting Python",
+    "flow-density fitting Python"
+  ],
+  "questions": {
+    "Q1": {
+      "visible_evidence": "filenames only",
+      "findings": [
+        "No printed source for YOLOv10/ByteTrack, ARIMA, regression or AdaBoost is present in the indexed paper text.",
+        "The paper-level 70/30 split cannot be audited for chronological versus random implementation without the actual source files.",
+        "The regression-equation scale mismatch can be replayed from the paper tables independent of code access."
+      ]
+    },
+    "Q2": {
+      "visible_evidence": "AB/BC occupancy filenames only",
+      "findings": [
+        "No source is printed to verify Q0/Qmax initialization, integral discretization, clipping or hysteresis state handling."
+      ]
+    },
+    "Q3": {
+      "visible_evidence": "CD occupancy filename only",
+      "findings": [
+        "The 1.3 outflow multiplier is a paper assumption; no observed intervention dataset or treatment-estimation code is listed."
+      ]
+    },
+    "Q4": {
+      "visible_evidence": "no dedicated camera-placement optimization source listed",
+      "findings": [
+        "No optimization program for B→E/F placement or cost/coverage tradeoff is listed.",
+        "Heatmap utilization appears in prose/figures but no dedicated heatmap-utilization source file is listed in the appendix inventory."
+      ]
+    }
+  },
+  "safe_reuse": [
+    "file naming indicates a modular pipeline and is useful as an implementation checklist, but filenames are not execution evidence",
+    "reproduce paper-level algebra/metric checks before requesting or running author code"
+  ]
+}

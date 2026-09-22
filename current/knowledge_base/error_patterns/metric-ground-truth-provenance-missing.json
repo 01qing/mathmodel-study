@@ -1,0 +1,5 @@
+{
+  "id": "METRIC_GROUND_TRUTH_PROVENANCE_MISSING",
+  "scope": "generic",
+  "rule": "Precision/Recall/F1/IoU arithmetic is insufficient when the reference labels/masks are not provenance-controlled. Record who/what generated truth, ambiguity policy, independence from threshold/weight tuning, and split unit before using metrics as generalization evidence."
+}

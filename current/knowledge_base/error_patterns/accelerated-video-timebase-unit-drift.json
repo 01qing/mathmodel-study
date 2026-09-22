@@ -1,0 +1,14 @@
+{
+  "pattern": "accelerated-video-timebase-unit-drift",
+  "description": "Video clock, real-world clock and aggregation interval are mixed when footage is accelerated/downsampled.",
+  "detection": [
+    "metadata contains playback/speedup factor",
+    "paper equates N frames with seconds without naming video-vs-real time",
+    "flow/lead-time thresholds use physical seconds"
+  ],
+  "remedy": [
+    "maintain video_time_s and real_time_s separately",
+    "derive real_time = video_time * speedup_factor",
+    "unit-test known start/end timestamps against frame indices before computing veh/s or warning lead time"
+  ]
+}

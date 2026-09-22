@@ -1,0 +1,109 @@
+{
+  "paper_id": "S005",
+  "visual_review_level": "caption-and-context only",
+  "roles": [
+    {
+      "role": "feature_relationship",
+      "recommended": "correlation heatmap + cross-group stability of feature importance",
+      "warning": "importance percentage is not causal effect"
+    },
+    {
+      "role": "classification_learning",
+      "recommended": "loss + macro-F1/balanced accuracy + confusion matrix",
+      "warning": "do not rely on accuracy under class imbalance"
+    },
+    {
+      "role": "regression_error_distribution",
+      "recommended": "absolute/relative error ECDF with P50/P90/P95 and business threshold coverage",
+      "warning": "do not call 1-error percentile regression accuracy"
+    },
+    {
+      "role": "physical_mapping",
+      "recommended": "PHY-rate vs MCS/NSS ambiguity table or bipartite map",
+      "warning": "visualize non-injective mappings rather than silently choosing one label"
+    }
+  ],
+  "figure_count_unique": 16,
+  "figures": [
+    {
+      "id": "3-1",
+      "caption": "2AP系统特征相关性热力图",
+      "role": "feature_relationship"
+    },
+    {
+      "id": "3-2",
+      "caption": "3AP系统特征相关性热力图",
+      "role": "feature_relationship"
+    },
+    {
+      "id": "3-3",
+      "caption": "随机森林回归模型",
+      "role": "model_structure"
+    },
+    {
+      "id": "3-4",
+      "caption": "2AP系统特征的影响排行图",
+      "role": "feature_importance"
+    },
+    {
+      "id": "3-5",
+      "caption": "3AP系统特征的影响排行图",
+      "role": "feature_importance"
+    },
+    {
+      "id": "3-6",
+      "caption": "2AP系统主要特征影响饼状图",
+      "role": "feature_importance_summary"
+    },
+    {
+      "id": "3-7",
+      "caption": "3AP系统主要特征影响饼状图",
+      "role": "feature_importance_summary"
+    },
+    {
+      "id": "4-1",
+      "caption": "2AP网络的简化拓扑图",
+      "role": "physical_context"
+    },
+    {
+      "id": "4-2",
+      "caption": "CNN模型架构",
+      "role": "model_structure"
+    },
+    {
+      "id": "4-3",
+      "caption": "2AP系统(MCS,NSS)预测模型loss-epoch图",
+      "role": "training_diagnostics"
+    },
+    {
+      "id": "4-4",
+      "caption": "3AP系统(MCS,NSS)预测模型loss-epoch图",
+      "role": "training_diagnostics"
+    },
+    {
+      "id": "4-5",
+      "caption": "2AP系统直接对(MCS,NSS)进行预测的loss和准确率变化图",
+      "role": "training_diagnostics"
+    },
+    {
+      "id": "5-1",
+      "caption": "2AP系统吞吐量预测模型loss-epoch图",
+      "role": "training_diagnostics"
+    },
+    {
+      "id": "5-2",
+      "caption": "3AP系统吞吐量预测模型loss-epoch图",
+      "role": "training_diagnostics"
+    },
+    {
+      "id": "5-3",
+      "caption": "2AP系统吞吐量预测CDF曲线",
+      "role": "regression_error_distribution"
+    },
+    {
+      "id": "5-4",
+      "caption": "3AP系统吞吐量预测CDF曲线",
+      "role": "regression_error_distribution"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "pattern": "time-series-split-provenance-unspecified",
+  "description": "A future/lead-time forecast reports train/test proportions without stating chronological/grouped/random split semantics.",
+  "detection": [
+    "time-ordered target",
+    "paper reports x/y split ratio only",
+    "no split chronology or group key is documented"
+  ],
+  "remedy": [
+    "record exact split index/date/video/group",
+    "prefer chronological or deployment-relevant grouped holdout",
+    "publish train/test timestamp ranges and no-overlap checks"
+  ]
+}

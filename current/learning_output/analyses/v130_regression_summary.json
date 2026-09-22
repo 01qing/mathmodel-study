@@ -1,0 +1,51 @@
+{
+  "version": "1.30.0",
+  "scope": "historical regression compatibility through v1.29 plus current S032 specialist suite",
+  "historical_expected": [
+    "test_v16_regressions.py",
+    "test_v19_training_regressions.py",
+    "test_v110_regressions.py",
+    "test_v111_regressions.py",
+    "test_v112_regressions.py",
+    "test_v113_regressions.py",
+    "test_v114_regressions.py",
+    "test_v115_regressions.py",
+    "test_v116_regressions.py",
+    "test_v117_regressions.py",
+    "test_v118_regressions.py",
+    "test_v119_regressions.py",
+    "test_v120_regressions.py",
+    "test_v121_regressions.py",
+    "test_v122_regressions.py",
+    "test_v123_regressions.py",
+    "test_v124_regressions.py",
+    "test_v125_regressions.py",
+    "test_v126_regressions.py",
+    "test_v127_regressions.py",
+    "test_v128_regressions.py",
+    "test_v129_regressions.py"
+  ],
+  "historical_passed_count": 22,
+  "historical_total": 22,
+  "historical_status": "PASS",
+  "current_specialist": {
+    "test": "test_v130_s032_regressions.py",
+    "first_run": "FAIL_COUNT_ASSERTION_62_VS_63",
+    "diagnosis": "new-suite bookkeeping count drift; all semantic ck assertions had passed",
+    "repair": "terminal expected count changed to 63; pre-fix script preserved",
+    "rerun": "PASS 63/63"
+  },
+  "code_link_regression": "PASS",
+  "library_validation": "PASS: 45 papers / 6752 chunks / 32 Train / 7 Dev / 6 Test / frozen split hash / reviewed-Train retrieval smoke",
+  "retrieval_validation": "PASS: both evaluation and production queries returned reviewed Train pages only and included S032",
+  "result_registry_replay": "COMPLETED: arithmetic/provenance replay only; not author reproduction",
+  "evidence_files": [
+    "learning_output/analyses/v130_validation_full.log",
+    "learning_output/analyses/v130_validation_tail.log",
+    "learning_output/analyses/v130_v16_rerun.log",
+    "learning_output/analyses/v130_s032_specialist_first_fail.md",
+    "learning_output/analyses/S032_result_registry_replay.json",
+    "learning_output/analyses/v130_split_retrieval_protection.json"
+  ],
+  "pass_semantics": "Regression PASS proves preserved executable contracts and isolation gates; it does not prove S032 author pipeline reproduction or unseen-problem capability improvement."
+}

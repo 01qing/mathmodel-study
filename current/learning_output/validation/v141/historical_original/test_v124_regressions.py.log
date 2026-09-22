@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v124_regressions.py", line 42, in <module>
+    pp=next(x for x in papers if x['paper_id']==pid); ok(pid+' protected unread',pp.get('reviewed_pages',[])==[])
+                                                      ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v124_regressions.py", line 6, in ok
+    def ok(name,cond): assert cond,name; checks.append(name)
+                              ^^^^
+AssertionError: S013 protected unread

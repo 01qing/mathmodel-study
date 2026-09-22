@@ -1,0 +1,11 @@
+{
+  "case_group": "2025-C",
+  "status": "PARTIAL_CAPABILITY_EVIDENCE",
+  "mechanism_transfer": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+  "controlled_ablation": {
+    "status": "NOT_RUN",
+    "target": "No-Core / Previous-Core / New-Core under identical problem/model/tools/budget/evaluator",
+    "reason": "no fixed harness exists in this artifact that can instantiate three Core configurations while holding model/tool budget constant; algorithm-proxy comparison would not be a valid Core ablation"
+  },
+  "claim_boundary": "Do not infer whole-Core causal improvement from regression or synthetic mechanism transfer alone."
+}

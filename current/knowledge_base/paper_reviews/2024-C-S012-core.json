@@ -1,0 +1,145 @@
+{
+  "paper_id": "S012",
+  "case_group": "2024-C",
+  "year": 2024,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 105,
+  "title": "C24106130096",
+  "paper_title": "多变量复杂环境下的磁芯损耗建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_Q1_Q5_EXACT_CONTRACT_REPLAY",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "shape-threshold baseline",
+        "5D time-domain statistics",
+        "SVM kernels",
+        "synthetic SNR stress test",
+        "Hilbert-Huang + bispectrum multi-domain features",
+        "SVM classification"
+      ],
+      "strengths": [
+        "starts with an interpretable shape baseline before feature fusion",
+        "reports several classification metrics and normalized confusion matrices",
+        "explicitly stress-tests a noisy setting and motivates richer representation from the observed degradation"
+      ],
+      "risks": [
+        "feature-wise min-max scaling for engineered features is computed on the complete matrix before train/validation split in the printed appendix, leaking validation extrema into training",
+        "random row split does not establish robustness to unseen material/frequency/Bm regimes even when validation accuracy is 100%",
+        "the paper calls range scaling “batch normalization”; this is conceptually different from neural-network batch normalization",
+        "noise robustness at one synthetic SNR is local perturbation evidence, not general out-of-domain robustness"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "SE baseline solved by NAdam",
+        "log-linear LSE with NAdam vs closed-form/multiple linear regression",
+        "temperature corrections TLSE1/TLSE2/TLSE3",
+        "TLSEDSR deep self-representation of coefficients"
+      ],
+      "strengths": [
+        "uses a clear hypothesis ladder from physics baseline to temperature correction to adaptive parameterization",
+        "compares numerical NAdam and linear-regression solutions for the log-linear form",
+        "printed appendix contains an actual neural parameterization for TLSEDSR rather than only a method name"
+      ],
+      "risks": [
+        "the stated evaluation uses an 80/20 random split within the same material/waveform/temperature support; R2≈1 and MRE≈0.12 are interpolation evidence, not unseen-temperature or unseen-material generalization",
+        "the adaptive coefficient network is much more flexible than fixed TLSE; fair model selection should use leave-temperature/leave-condition-out validation and complexity-controlled baselines",
+        "model selection and repeated correction design are developed on the same attachment, so final comparative claims need an untouched condition-level test"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "three-factor ANOVA with pairwise interaction terms",
+        "one-factor ANOVA for significant factors",
+        "F-statistic ranking",
+        "47-group sequential Mann-Whitney tournament to select low-loss condition"
+      ],
+      "strengths": [
+        "unlike S011, the paper explicitly writes and estimates interaction terms",
+        "Table 5.18 distinguishes significant waveform×material interaction from nonsignificant temperature interactions",
+        "uses a nonparametric comparison after acknowledging normality/homoscedasticity concerns"
+      ],
+      "risks": [
+        "the prose under Table 5.19 says the temperature F statistic is 3456.213, but that is the intercept row; the temperature row is 17.755",
+        "F statistics from separate one-factor models with different degrees of freedom/group structures are not effect sizes and should not be directly ranked as engineering influence; report partial eta-squared/omega-squared or adjusted contrasts",
+        "frequency and Bm are strong continuous covariates but are not adjusted in the factor-effect ranking, so cell composition can confound the conclusions",
+        "47 sequential Mann-Whitney tests are performed without visible family-wise/FDR correction",
+        "the incumbent-vs-next tournament is order-dependent and can miss co-optimal/nontransitive alternatives; compare all relevant cells with corrected post-hoc tests and confidence intervals"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "separation models DM/DMSDR/TDM",
+        "log-MSE empirical model",
+        "deep self-representation LMSESDR",
+        "add temperature/material/waveform embeddings → WMTLMSEDSR",
+        "deep encoder comparison",
+        "test-set submission prediction"
+      ],
+      "strengths": [
+        "builds an explicit ablation ladder rather than presenting one opaque final model",
+        "printed appendix contains material and waveform embeddings and the WMTLMSEDSR code path",
+        "the paper reports that a pure deep model overfits, which is useful negative evidence for preserving physics structure"
+      ],
+      "risks": [
+        "all main model comparisons use random 80/20 row splits from the same attachment support; validation MRE≈0.02 does not prove cross-material/cross-condition extrapolation",
+        "the very large improvement from empirical model to flexible self-representation should be stress-tested with leave-material/temperature/waveform/frequency-region-out folds and a physics residual baseline",
+        "reported test-set predictions cannot be independently scored without target labels; submission output is not validation evidence"
+      ]
+    },
+    "Q5": {
+      "route": [
+        "two objectives: minimize predicted loss and maximize f*Bm",
+        "weighted subtraction L1=P_loss-lambda*energy",
+        "ratio objective L2",
+        "GA and PSO on a six-variable mixed domain",
+        "post-filter by historical output ranges"
+      ],
+      "strengths": [
+        "states both engineering objectives and gives an explicit trade-off parameter scan",
+        "prints actual GA/PSO source code and result tables, allowing direct implementation audit"
+      ],
+      "risks": [
+        "paper constraint says f∈[50000,500000], while both printed GA and PSO code use lower bound 5000; the reported PSO point f=7862.85 is therefore infeasible under the paper model",
+        "temperature is discrete {25,50,70,90} and material/waveform are categorical integers, but the optimizers search continuous boxes; the printed path does not preserve the stated discrete feasible set",
+        "Eq. L=P_loss-lambda*energy exactly reproduces lambda 0.01/0.1/1 table rows, but lambda=10 and lambda=100 rows imply approximately 100 and 10 respectively, indicating row/label drift",
+        "the printed scripts hard-code Lambda=[0.01,0.1,1,10,100][4], i.e. lambda=100, so the complete lambda sweep table is not generated by one unchanged run",
+        "post-filtering only by historical output ranges does not repair decision-variable infeasibility or unsupported-domain extrapolation",
+        "weighted subtraction mixes objectives with different units/scales; lambda sensitivity should be defined after normalization or replaced by an explicit Pareto/epsilon-constraint route"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "2-3,9-17,75-80",
+      "claim": "Q1 feature ladder, noise stress test, printed SVM/normalization implementation"
+    },
+    {
+      "pages": "18-36,80-91",
+      "claim": "Q2 SE/LSE/TLSE/TLSEDSR progression and printed NAdam/deep self-representation code"
+    },
+    {
+      "pages": "38-44",
+      "claim": "Q3 explicit ANOVA interactions, one-factor F tables, sequential Mann-Whitney selection"
+    },
+    {
+      "pages": "45-61,91-99",
+      "claim": "Q4 ablation ladder, WMTLMSEDSR and printed embedding-based implementation"
+    },
+    {
+      "pages": "63-70,99-105",
+      "claim": "Q5 mathematical bounds, GA/PSO result tables and printed optimizer bounds/objective code"
+    }
+  ],
+  "transfer_lessons": [
+    "A strong paper can contain both good local ideas and invalid validation/optimization details; learn components, not whole-paper authority.",
+    "ANOVA F statistics establish signal relative to residual variance but are not directly comparable effect-size rankings across separate models; preserve effect-size semantics.",
+    "Many pairwise nonparametric tests need multiplicity control, and sequential winner tournaments need order-invariance checks.",
+    "For physics+deep hybrids, use an ablation ladder but rank models under deployment-relevant grouped/leave-condition-out folds.",
+    "Optimization code must import one machine-readable domain registry; a single 5000/50000 boundary drift can make the reported optimum invalid.",
+    "Mixed discrete/continuous variables must stay discrete/continuous in the optimizer or be repaired/decoded with explicit feasibility checks.",
+    "Every scalarized result table should be regenerated from the exact objective formula and reported P/energy values before publication."
+  ]
+}

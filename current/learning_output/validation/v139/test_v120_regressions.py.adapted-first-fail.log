@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-release-work\.agents\skills\graduate-mathmodel-learning\scripts\retest_v139_history.py", line 25, in <module>
+    try:exec(compile(adapted,str(path),'exec'),{'__name__':'__main__','__file__':str(path)})
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v120_regressions.py", line 66, in <module>
+    ok('dev S013-S016 held',any('S013-S016' in x and '开发组' in x for x in state['pending_replications']))
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v120_regressions.py", line 7, in ok
+    assert cond,name; checks.append(name)
+           ^^^^
+AssertionError: dev S013-S016 held

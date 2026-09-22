@@ -1,0 +1,48 @@
+{
+  "paper_id": "S007",
+  "source": "figure captions and surrounding full-text context",
+  "explicit_caption_count": 68,
+  "pixel_level_audit": false,
+  "argumentation_roles": [
+    {
+      "role": "problem/system explanation",
+      "examples": [
+        "图1.1-1.4",
+        "图5.5-5.7"
+      ],
+      "lesson": "Use a small number of mechanism/setup figures to establish WLAN access and model flow before metrics."
+    },
+    {
+      "role": "feature evidence",
+      "examples": [
+        "图7.8-7.13",
+        "图7.30-7.31",
+        "图7.54-7.59"
+      ],
+      "lesson": "Heatmaps and predictive importance can motivate feature selection but must not be upgraded to causal influence."
+    },
+    {
+      "role": "regression error distribution",
+      "examples": [
+        "图7.14-7.29",
+        "图7.62-7.65"
+      ],
+      "lesson": "Many near-duplicate model-by-model CDF plots should be consolidated into a common-axis comparison or small multiples."
+    },
+    {
+      "role": "classification learning curves and metric dashboards",
+      "examples": [
+        "图7.32-7.51"
+      ],
+      "lesson": "For imbalanced MCS/NSS, accuracy must be shown alongside macro/per-class F1, precision, recall and support."
+    },
+    {
+      "role": "test prediction structure",
+      "examples": [
+        "图7.52-7.53"
+      ],
+      "lesson": "Marginal MCS/NSS distributions do not verify structured pair validity; add a valid-pair matrix and invalid-pair count."
+    }
+  ],
+  "style_learning_boundary": "No source PDF pixels are mounted, so color, font, line width and layout are not claimed as visually learned."
+}

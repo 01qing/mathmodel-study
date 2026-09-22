@@ -1,0 +1,33 @@
+{
+  "schema_name": "MathModel-Core Result Registry",
+  "schema_version": "1.0",
+  "purpose": "One source for values used by abstract, body, tables, figures and conclusions.",
+  "required_metadata": [
+    "paper_id",
+    "question",
+    "result_id",
+    "source_surface",
+    "value_or_record",
+    "units",
+    "status"
+  ],
+  "automatic_checks": [
+    "MSE >= MAE^2 when same error set",
+    "RMSE^2 = MSE",
+    "R2 range/context sanity",
+    "classification metrics replay from confusion matrix when counts exist",
+    "percentage replay",
+    "objective replay",
+    "Pareto feasibility and dominance",
+    "hard constraints",
+    "parameter feasible domain",
+    "reported optimum replay"
+  ],
+  "status_values": [
+    "author_reported",
+    "recomputed_verified",
+    "partially_verified",
+    "contradicted",
+    "not_reproducible_from_visible_evidence"
+  ]
+}

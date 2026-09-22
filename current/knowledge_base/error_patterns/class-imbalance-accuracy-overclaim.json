@@ -1,0 +1,6 @@
+{
+  "id": "class-imbalance-accuracy-overclaim",
+  "trigger": "Accuracy is near 1 while macro/per-class F1, precision or recall is much lower.",
+  "risk": "Majority-class dominance can make accuracy look excellent while minority classes fail.",
+  "gate": "Report support, confusion matrix, macro F1, balanced accuracy and per-class recall; split/resample inside group-aware training folds only."
+}

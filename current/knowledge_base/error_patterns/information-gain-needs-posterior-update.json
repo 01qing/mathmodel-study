@@ -1,0 +1,5 @@
+{
+  "id": "INFORMATION_GAIN_NEEDS_POSTERIOR_UPDATE",
+  "rule": "High current entropy/variance identifies an uncertainty hotspot but is not information gain. Expected information gain requires an observation model and expected posterior uncertainty reduction E[H(prior)-H(posterior|observation)].",
+  "scope": "generic"
+}

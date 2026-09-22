@@ -1,0 +1,11 @@
+{
+  "id": "spill-victim-direction-paper-code-drift",
+  "name": "Spill victim optimization-direction drift",
+  "severity": "critical",
+  "trigger": "paper defines argmin/lowest spill cost but code sort/order selects maximum score, or score features differ",
+  "risk": "code implements the opposite policy from the mathematical method",
+  "gate": "construct two-candidate victim test with known costs and assert selected victim matches objective direction and feature contract",
+  "source_examples": [
+    "2025-A-S027-Q2"
+  ]
+}

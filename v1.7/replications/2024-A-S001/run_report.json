@@ -1,0 +1,43 @@
+{
+  "status": "PARTIAL_REIMPLEMENTATION_RUN",
+  "input_sha256": "68406f58ccbb3ebd70f704ffb45b7a1bfc899c6512228994f4f1d725fe2fbd1b",
+  "source_paper": "S001 pp20,60–61; plotting reference pp22,24",
+  "scope": "Reimplements linear-in-parameters output-power model and appendix torque=Pout/omega. Uses all1999 pairs for fit diagnostic, then1399/600 chronological evaluation. Paper figure uses100 times; figures are not exact numerical reproduction. No efficiency fitted or inserted. Thrust branch, rainflow, RL, robust optimization NOT_RUN.",
+  "summary": {
+    "all_fit_diagnostic": {
+      "WF_1": {
+        "power_mape": 0.207507866545824,
+        "torque_mape": 5.708430134789397,
+        "baseline_power_mape": 0.20213785712182206
+      },
+      "WF_2": {
+        "power_mape": 0.21145723369872094,
+        "torque_mape": 5.709197425196575,
+        "baseline_power_mape": 0.20455923408281523
+      }
+    },
+    "chronological_holdout": {
+      "WF_1": {
+        "power_mape": 0.20808671106923818,
+        "torque_mape": 5.7098508752601855,
+        "baseline_power_mape": 0.20271610085265326
+      },
+      "WF_2": {
+        "power_mape": 0.2121689250312059,
+        "torque_mape": 5.711582006442856,
+        "baseline_power_mape": 0.20439067821477427
+      }
+    }
+  },
+  "outputs": [
+    "01_power.png",
+    "02_torque.png",
+    "03_holdout.png",
+    "metrics.csv"
+  ],
+  "runtime": {
+    "python": "3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)]",
+    "numpy": "2.5.3",
+    "matplotlib": "3.11.1"
+  }
+}

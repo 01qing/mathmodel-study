@@ -1,0 +1,89 @@
+{
+  "paper_id": "S005",
+  "case_group": "2024-B",
+  "year": 2024,
+  "problem_id": "B",
+  "split": "train",
+  "pages": 90,
+  "title": "B24102860287",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "data cleaning",
+        "feature engineering",
+        "random forest regression",
+        "feature importance"
+      ],
+      "target": "seq_time / AP transmit opportunity proxy",
+      "strength": "simple baseline plus importance ranking",
+      "risks": [
+        "paper claims tree-error-weighted forest, visible appendix uses standard RandomForestRegressor",
+        "feature importance is predictive, not causal"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "RSSI processing",
+        "Akima interpolation",
+        "SINR features",
+        "CNN classification / PHY Rate mapping"
+      ],
+      "target": "MCS,NSS or PHY rate",
+      "strength": "uses cross-row interference context",
+      "risks": [
+        "dBm arithmetic must return to linear power",
+        "PHY Rate to (MCS,NSS) is non-injective",
+        "same-experiment rows must be grouped when splitting",
+        "one printed classifier applies Softmax before CrossEntropyLoss"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "CNN regression",
+        "CDF/relative-error evaluation"
+      ],
+      "target": "system throughput",
+      "strength": "direct end-to-end throughput prediction",
+      "risks": [
+        "regression accuracy terminology is nonstandard",
+        "error-CDF should report quantiles/threshold coverage",
+        "visible code contains preprocessing-before-split patterns"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "lines": "576-595",
+      "claim": "paper describes per-tree error weighted random forest"
+    },
+    {
+      "lines": "3281-3288",
+      "claim": "visible appendix uses standard sklearn RandomForestRegressor(n_estimators=200) and built-in feature_importances_"
+    },
+    {
+      "lines": "3237-3242",
+      "claim": "StandardScaler fitted before separating held-out tail rows"
+    },
+    {
+      "lines": "4510-4514",
+      "claim": "another appendix path fits scaler before train_test_split"
+    },
+    {
+      "lines": "5135-5140",
+      "claim": "visible classifier applies softmax then CrossEntropyLoss"
+    },
+    {
+      "lines": "1457-1461",
+      "claim": "paper reports >95% regression accuracy while average error about 5%"
+    }
+  ],
+  "transfer_lessons": [
+    "Use group-aware validation when multiple rows originate from one experiment/session/device.",
+    "Convert dBm to mW/W before summing desired/interference/noise powers.",
+    "Check whether an intermediate physical rate uniquely identifies the requested discrete label.",
+    "For regression use MAE/RMSE/R2 plus error quantiles/ECDF and threshold coverage instead of undefined accuracy.",
+    "Treat feature importance as predictive association unless causal identification is designed."
+  ]
+}

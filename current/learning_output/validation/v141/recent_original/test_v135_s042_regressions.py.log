@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v135_s042_regressions.py", line 10, in <module>
+    ck('version compatible',st['current_version'] in {'1.35.0','1.36.0','1.37.0','1.38.0'}); ck('latest progressed',st['latest_completed_paper'] in {'S042','S043','S044','S045'}); ck('historical R2 preserved',P['S042'].get('reproduction_level')=='R2')
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v135_s042_regressions.py", line 6, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: version compatible

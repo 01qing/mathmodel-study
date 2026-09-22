@@ -1,0 +1,27 @@
+{
+  "base_index": "Frozen v1.38 snapshot is not modified",
+  "current_reviewed_dev_this_cycle": [
+    "S013"
+  ],
+  "historically_exposed_dev": [
+    "S029"
+  ],
+  "still_unopened_this_cycle": [
+    "S014",
+    "S015",
+    "S016",
+    "S030",
+    "S031"
+  ],
+  "protected_test": [
+    "S021",
+    "S022",
+    "S023",
+    "S024",
+    "S037",
+    "S038"
+  ],
+  "train_retrieval_eligible_additions": [],
+  "historical_pristine": "UNVERIFIED",
+  "independent_freeze_manifest_sha256": "ee139e2a7063fd6cb3a279ae5acba633f2e6784f8afa62d9e51fbc9a1db42a7e"
+}

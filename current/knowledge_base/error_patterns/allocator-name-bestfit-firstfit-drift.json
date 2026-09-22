@@ -1,0 +1,11 @@
+{
+  "id": "allocator-name-bestfit-firstfit-drift",
+  "name": "Allocator name/primitive drift",
+  "severity": "high",
+  "trigger": "paper/abstract labels Best-Fit while code selects first fitting block, or vice versa",
+  "risk": "algorithm comparisons and complexity claims refer to the wrong heuristic",
+  "gate": "unit-test allocator on holes where First-Fit and Best-Fit choose different blocks; name method from observed primitive",
+  "source_examples": [
+    "2025-A-S027-Q2"
+  ]
+}

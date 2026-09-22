@@ -1,0 +1,6 @@
+{
+  "id": "pareto-visual-concentration-quality-overclaim",
+  "trigger": "One Pareto optimizer is declared superior because points look more concentrated/closer in a plot.",
+  "risk": "Concentration does not establish convergence, coverage or dominance quality.",
+  "gate": "Use common-budget repeated runs with hypervolume/IGD/GD/spread and feasibility rate; visualize uncertainty and common reference fronts."
+}

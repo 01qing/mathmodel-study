@@ -1,0 +1,496 @@
+{
+  "schema_version": "0.4",
+  "cases": [
+    {
+      "id": "E1-learn-existing-contracts",
+      "mode": "learn",
+      "prompt": "学习2023 A题，解释为什么选主模型并比较替代模型。",
+      "must": [
+        "读取已有problem_analysis/model_route（若存在）",
+        "至少3条候选路线",
+        "明确推荐与切换条件",
+        "更新learning_state"
+      ],
+      "must_not": [
+        "重写正式S0-S8",
+        "宣称未运行代码已复现"
+      ]
+    },
+    {
+      "id": "E2-competition",
+      "mode": "competition",
+      "prompt": "正式完成这道研赛题并生成论文。",
+      "must": [
+        "交给paper-workflow-orchestrator",
+        "严格S0-S8"
+      ],
+      "must_not": [
+        "学习Skill自行写evidence PASS"
+      ]
+    },
+    {
+      "id": "E3-paper-review",
+      "mode": "paper-review",
+      "prompt": "精读两篇优秀论文，告诉我哪篇更值得学。",
+      "must": [
+        "逐问横向比较",
+        "区分author_claim与verified",
+        "指出不可盲目复制项"
+      ],
+      "must_not": [
+        "只做摘要",
+        "用作者自述奖项当核验事实"
+      ]
+    },
+    {
+      "id": "E4-review",
+      "mode": "review",
+      "prompt": "复盘上一道题我为什么选模慢。",
+      "must": [
+        "抽取错误模式",
+        "给下次识别规则",
+        "更新error_patterns"
+      ],
+      "must_not": [
+        "只是重新讲一遍题解"
+      ]
+    },
+    {
+      "id": "E5-practice",
+      "mode": "practice",
+      "prompt": "给我一道研赛题训练选模能力。",
+      "must": [
+        "先让学习者独立分析",
+        "反馈阶段再展示参考路线",
+        "掌握度升级要有独立证据"
+      ],
+      "must_not": [
+        "一开始泄露完整标准答案"
+      ]
+    },
+    {
+      "id": "E6-source-conflict",
+      "mode": "learn",
+      "prompt": "2021 D题到底是抗乳腺癌还是抗胰腺癌？资料说法冲突。",
+      "must": [
+        "展示来源冲突",
+        "区分题名、题面正文和数据语义",
+        "不得静默覆盖",
+        "把冲突写入case metadata"
+      ],
+      "must_not": [
+        "无证据直接断言某一来源一定正确",
+        "因为博客数量多就覆盖官方来源"
+      ]
+    },
+    {
+      "id": "E7-2021D-blind-model-selection",
+      "mode": "learn",
+      "prompt": "只给2021 D题面和附件，不给优秀论文。逐问提出候选模型、推荐路线、验证方案、风险和切换条件。",
+      "must": [
+        "Q1至少三类特征选择路线",
+        "Q2公平模型比较",
+        "Q3五标签分别检查且不只看Accuracy",
+        "采样仅在训练折内",
+        "Q4先讨论可行域和化学可实现性再选优化算法",
+        "明确为什么不选若干替代模型"
+      ],
+      "must_not": [
+        "照抄优秀论文算法",
+        "直接宣布XGBoost或神经网络最优",
+        "把PSO/GA/NSGA本身当作Q4建模核心",
+        "在测试集上反复调参"
+      ]
+    },
+    {
+      "id": "E8-Q4-label-semantics",
+      "mode": "learn",
+      "prompt": "2021 D问题4里，五个ADMET标签是否可以直接把1都当成好并要求sum>=3？",
+      "must": [
+        "Caco-2=1 favorable",
+        "HOB=1 favorable",
+        "hERG=0 favorable",
+        "MN=0 favorable",
+        "指出CYP3A4题面只定义是否被代谢，未直接定义1一定更好",
+        "要求显式约定或敏感性分析"
+      ],
+      "must_not": [
+        "直接把五列1求和",
+        "忽略毒性标签方向"
+      ]
+    },
+    {
+      "id": "E9-data-audit-before-modeling",
+      "mode": "learn",
+      "prompt": "拿到2021 D四个Excel后直接开始选XGBoost还是LightGBM。",
+      "must": [
+        "先运行数据审计",
+        "检查SMILES跨表对齐",
+        "核验IC50/pIC50",
+        "统计五个ADMET类别比例",
+        "审计729描述符",
+        "隔离50条test"
+      ],
+      "must_not": [
+        "用题面1974/729/50冒充实际数据审计",
+        "在test上选模型"
+      ]
+    },
+    {
+      "id": "E10-model-benchmark-leakage",
+      "mode": "learn",
+      "prompt": "先用全部1974条数据选20个最重要描述符，再对这20个特征做5折交叉验证选回归模型。",
+      "must": [
+        "指出特征选择泄漏",
+        "selector必须放进CV pipeline",
+        "候选模型共享outer folds",
+        "test 50条完全隔离",
+        "输出推荐理由、第二名和切换条件"
+      ],
+      "must_not": [
+        "接受全数据Top20后再CV作为无偏验证",
+        "用test结果挑模型",
+        "用任意加权总分掩盖指标冲突"
+      ]
+    },
+    {
+      "id": "E11-final-fit-test-isolation",
+      "mode": "learn",
+      "prompt": "benchmark后我看50条test预测不太好，换另一个模型再预测，挑看起来更合理的。",
+      "must": [
+        "拒绝用test外观重新选模型",
+        "route必须来自benchmark冻结结果",
+        "final超参数只在train内部选择"
+      ],
+      "must_not": [
+        "反复查看test预测挑模型",
+        "把test叫validation"
+      ]
+    },
+    {
+      "id": "E12-paper-comparison-before-knowledge",
+      "mode": "paper-review",
+      "prompt": "两篇优秀论文已经读完摘要了，直接把它们的方法写入长期知识库。",
+      "must": [
+        "先完成逐问证据评审",
+        "区分author_claim和verified",
+        "未复现结论保持未核验",
+        "review完成后才知识抽取"
+      ],
+      "must_not": [
+        "把优秀论文方法默认写成标准答案",
+        "摘要阅读即标verified"
+      ]
+    },
+    {
+      "id": "E13-test-transform-refit",
+      "mode": "paper-review",
+      "prompt": "模型训练时标准化了训练集；预测官方test时为了让test也落在0到1，重新fit_transform(test)，这样可以吗？",
+      "must": [
+        "指出test空间与train空间不一致",
+        "要求复用train-fitted scaler.transform(test)"
+      ],
+      "must_not": [
+        "认为test独立缩放更公平"
+      ]
+    },
+    {
+      "id": "E14-pca-before-split",
+      "mode": "paper-review",
+      "prompt": "先在全部样本上PCA，再80/20划分训练和验证，只要PCA没看标签就没有泄漏吧？",
+      "must": [
+        "指出无监督预处理也会让验证折影响特征空间",
+        "要求PCA在训练折内fit"
+      ],
+      "must_not": [
+        "因为PCA不使用y就一律认定无泄漏"
+      ]
+    },
+    {
+      "id": "E15-metric-argument-order",
+      "mode": "paper-review",
+      "prompt": "代码写precision_score(y_pred, y_test)和recall_score(y_pred, y_test)，结果也能跑出来，可以接受吗？",
+      "must": [
+        "检查sklearn API要求y_true在前",
+        "指出precision/recall语义会被改变"
+      ],
+      "must_not": [
+        "只因代码可运行就认为指标正确"
+      ]
+    },
+    {
+      "id": "E16-code-audit-balanced",
+      "mode": "paper-review",
+      "prompt": "这个公开代码有很多泄漏问题，所以整套思路没有任何值得学的地方。",
+      "must": [
+        "区分代码错误与建模思路",
+        "同时记录strength与risk",
+        "保留unresolved证据"
+      ],
+      "must_not": [
+        "因为发现bug就否定全部方法"
+      ]
+    },
+    {
+      "id": "E17-remote-metadata-not-local-audit",
+      "mode": "learn",
+      "prompt": "GitHub目录已经确认2021 D四个Excel存在，所以可以把真实数据审计标PASS。",
+      "must": [
+        "区分remote metadata与local materialization",
+        "保持NOT_RUN/REMOTE_METADATA_CONFIRMED"
+      ],
+      "must_not": [
+        "把文件存在等同数据审计通过"
+      ]
+    },
+    {
+      "id": "E18-participant-csv-equivalence",
+      "mode": "learn",
+      "prompt": "参赛者仓库里有CSV，直接替代题目XLSX跑benchmark就行。",
+      "must": [
+        "先核验来源角色",
+        "要求XLSX/CSV语义交叉核验",
+        "只有CROSSCHECK_PASS后才可替代"
+      ],
+      "must_not": [
+        "默认participant conversion与原附件一致"
+      ]
+    },
+    {
+      "id": "E19-git-blob-sha",
+      "mode": "review",
+      "prompt": "GitHub显示的sha就是普通sha1(file_bytes)，直接hash文件比较即可。",
+      "must": [
+        "说明Git blob SHA包含blob header和长度",
+        "按Git blob算法校验"
+      ],
+      "must_not": [
+        "把Git blob SHA和普通文件SHA1混为一谈"
+      ]
+    },
+    {
+      "id": "E17-2024C-waveform-representation",
+      "mode": "learn",
+      "prompt": "2024 C问题1有1024个磁通密度采样点，直接把1024列丢进XGBoost即可。",
+      "must": [
+        "先讨论波形表示和形状/频域特征",
+        "考虑幅值归一化或相位/尺度稳健性",
+        "建立简单可解释基线"
+      ],
+      "must_not": [
+        "默认1024点是互相独立普通特征",
+        "算法先于问题表示"
+      ]
+    },
+    {
+      "id": "E18-2024C-steinmetz-blackbox",
+      "mode": "learn",
+      "prompt": "问题2直接用XGBoost预测磁芯损耗，精度高于Steinmetz，就算完成温度修正。",
+      "must": [
+        "指出问题要求是在Steinmetz基础上构造温度修正",
+        "保留可解释物理基线",
+        "建议逐温度或留一温度验证"
+      ],
+      "must_not": [
+        "用黑箱模型替代题目要求的修正方程"
+      ]
+    },
+    {
+      "id": "E19-2024C-factor-confounding",
+      "mode": "learn",
+      "prompt": "直接比较四个温度、三种波形、四种材料的平均损耗，均值最低的组合就是三个因素的作用结果。",
+      "must": [
+        "指出频率和Bm可能造成混杂",
+        "要求控制协变量",
+        "分析两两交互",
+        "报告效应量"
+      ],
+      "must_not": [
+        "把原始均值差直接解释为因果/独立因素效应"
+      ]
+    },
+    {
+      "id": "E20-2024C-randomcv-generalization",
+      "mode": "learn",
+      "prompt": "问题4随机5折R2很高，所以已经证明模型能泛化到任意材料和温度。",
+      "must": [
+        "指出随机CV可能混合相似工况",
+        "要求分层/留温度/留材料等分布外诊断",
+        "把泛化结论限定到验证协议"
+      ],
+      "must_not": [
+        "把随机CV自动等价成跨工况泛化"
+      ]
+    },
+    {
+      "id": "E21-2024C-weighted-sum",
+      "mode": "learn",
+      "prompt": "问题5令目标=0.5*磁芯损耗-0.5*f*Bm，跑PSO得到一个点，这就是唯一最优解。",
+      "must": [
+        "指出0.5/0.5权重需要偏好依据",
+        "优先给Pareto前沿",
+        "区分离散和连续变量",
+        "限制在模型支持域"
+      ],
+      "must_not": [
+        "把任意加权和结果称为唯一客观最优"
+      ]
+    },
+    {
+      "id": "E22-2024C-perfect-holdout",
+      "mode": "paper-review",
+      "prompt": "Q1随机70/30划分准确率1.0，所以已经证明模型对任何材料、温度和频率都能泛化。",
+      "must": [
+        "限制结论到随机holdout",
+        "要求跨工况/group验证",
+        "允许真实类别本身很容易区分"
+      ],
+      "must_not": [
+        "因1.0直接宣布普遍泛化",
+        "无证据指控数据泄漏"
+      ]
+    },
+    {
+      "id": "E23-2024C-expanding-feature-frame",
+      "mode": "paper-review",
+      "prompt": "先给原1024列features加mean，再用features.std(axis=1)算std，再继续加max/min/energy，这些统计特征都等价于从原始波形独立计算。",
+      "must": [
+        "指出dataframe已被mean等派生列扩展",
+        "要求所有统计量从raw_waveform副本独立计算"
+      ],
+      "must_not": [
+        "认为顺序添加不会改变后续统计量"
+      ]
+    },
+    {
+      "id": "E24-2024C-temperature-confounding",
+      "mode": "paper-review",
+      "prompt": "直接比较P和T的线性/对数/幂关系，哪个SSE最小就把哪个温度函数乘进Steinmetz。",
+      "must": [
+        "指出f和Bm混杂",
+        "要求在Steinmetz联合结构内比较温度项",
+        "要求跨温度验证"
+      ],
+      "must_not": [
+        "只用边际P-T SSE决定物理修正项"
+      ]
+    },
+    {
+      "id": "E25-2024C-q5-objective-omission",
+      "mode": "paper-review",
+      "prompt": "问题5的PSO目标函数只返回预测磁芯损耗，但程序遍历了材料和波形，所以已经满足最小损耗和最大f*Bm两个目标。",
+      "must": [
+        "指出遍历离散组不等于编码第二目标",
+        "要求显式maximize f*Bm或Pareto formulation",
+        "把当前实现判为未完成双目标"
+      ],
+      "must_not": [
+        "把单目标损耗最小化当双目标优化"
+      ]
+    },
+    {
+      "id": "E26-2024C-q3-unreadable",
+      "mode": "paper-review",
+      "prompt": "Q3目录里有causal_model.png和P值图，所以可以确认作者做了控制频率/Bm的因果回归和两两交互。",
+      "must": [
+        "保持unresolved",
+        "要求可读代码/论文正文",
+        "区分文件名证据和方法证据"
+      ],
+      "must_not": [
+        "根据图名推断完整统计方法"
+      ]
+    },
+    {
+      "id": "E27-2024C-champion-profile-vs-paper",
+      "mode": "paper-review",
+      "prompt": "高校新闻说冠军用了BiLSTM和非支配排序遗传算法，因此可以把它作为第一篇优秀论文全文精读完成。",
+      "must": [
+        "把新闻稿标为solution profile",
+        "指出不能验证公式/验证切分/数值",
+        "继续等待全文论文"
+      ],
+      "must_not": [
+        "把获奖新闻等同全文论文"
+      ]
+    },
+    {
+      "id": "E28-blind-after-solution-exposure",
+      "mode": "learn",
+      "prompt": "我已经看完优秀论文和GitHub代码，现在请你做一次完全blind的独立解题，再比较论文。",
+      "must": [
+        "指出已经发生solution exposure",
+        "标记为retrospective independent route",
+        "不能称fresh blind"
+      ],
+      "must_not": [
+        "重新包装作者路线并称为盲解"
+      ]
+    },
+    {
+      "id": "E29-q2-leave-temperature",
+      "mode": "learn",
+      "prompt": "2024 C Q2修正模型训练集RMSE最低，所以应选最复杂的alpha(T)、beta(T)、k(T)模型。",
+      "must": [
+        "以留一温度/跨温度验证选复杂度",
+        "讨论可辨识性",
+        "允许更简单k(T)胜出"
+      ],
+      "must_not": [
+        "用训练误差单独选模型"
+      ]
+    },
+    {
+      "id": "E30-q3-covariate-control",
+      "mode": "learn",
+      "prompt": "比较温度、材料、波形的平均损耗并做三因素ANOVA就足够了。",
+      "must": [
+        "控制频率和Bm",
+        "建议ANCOVA/回归交互",
+        "报告效应量"
+      ],
+      "must_not": [
+        "忽略强连续协变量"
+      ]
+    },
+    {
+      "id": "E31-q4-two-validation-regimes",
+      "mode": "learn",
+      "prompt": "XGBoost随机五折最好，所以Q4主模型就确定为XGBoost。",
+      "must": [
+        "要求跨工况验证",
+        "保留物理基线",
+        "模型选择依赖部署验证协议"
+      ],
+      "must_not": [
+        "只看随机CV排名"
+      ]
+    },
+    {
+      "id": "E32-q5-simple-pareto-baseline",
+      "mode": "learn",
+      "prompt": "Q5必须用NSGA-II，否则不够高级。",
+      "must": [
+        "给出枚举离散组+采样+非支配筛选的简单基线",
+        "说明低维时简单Pareto方法可审计",
+        "NSGA-II是主候选而非强制"
+      ],
+      "must_not": [
+        "为了高级而高级"
+      ]
+    },
+    {
+      "id": "E33-paper-archive-not-materialized",
+      "mode": "paper-review",
+      "prompt": "已经找到百度云2024优秀论文合集链接，所以可以写两篇C题优秀论文的详细比较。",
+      "must": [
+        "区分archive entry和full body",
+        "在正文不可读时阻止论文级结论",
+        "保留materialized_count=0"
+      ],
+      "must_not": [
+        "根据链接存在编造论文内容"
+      ]
+    }
+  ]
+}

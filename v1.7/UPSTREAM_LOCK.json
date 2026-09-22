@@ -1,0 +1,9 @@
+{
+  "repository": "https://github.com/yushui2022/MathModel-Skill",
+  "branch": "standard",
+  "commit": "0cc261d90d21e4ed540b02b0c71018cdcd47af58",
+  "version": "2.3.0",
+  "local_extension": "1.6.0",
+  "base_archive_sha256": "4ba21e933bf73c094359b224ec1ce492a181e0b1e2daab684d7f97dd3883649b",
+  "historical_v15_exact_upstream_revision": "unknown"
+}

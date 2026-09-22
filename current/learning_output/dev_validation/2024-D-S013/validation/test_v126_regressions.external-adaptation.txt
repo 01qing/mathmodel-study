@@ -1,0 +1,6 @@
+{
+  "reason": "Old test requires exact phrase Mini Transfer Test in next_learning; frozen file now says Mini Transfer, governing protocol retains full requirement. Check both protocol and current summary.",
+  "old": "'Mini Transfer Test' in (R/'learning_output/context/next_learning.md').read_text(encoding='utf-8')",
+  "new": "'Mini Transfer Test' in (R/'.agents/skills/graduate-mathmodel-learning/references/mathmodel-core-v125-protocol.md').read_text(encoding='utf-8') and 'Mini Transfer' in (R/'learning_output/context/next_learning.md').read_text(encoding='utf-8')",
+  "frozen_source_edited": false
+}

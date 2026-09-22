@@ -1,0 +1,33 @@
+{
+  "paper_id": "S036",
+  "status": "PASS",
+  "scope": "arithmetic/graph-contract replay, not author-code reproduction",
+  "checks": [
+    {
+      "name": "pi*30 period",
+      "value": 94.24777960769379,
+      "pass": true
+    },
+    {
+      "name": "edge score 0.52",
+      "value": 0.5230007695,
+      "pass": true
+    },
+    {
+      "name": "one edge cannot span four nodes",
+      "edges": 1,
+      "max_connected_nodes_from_one_undirected_edge": 2,
+      "claimed_holes": 4,
+      "pass": true
+    },
+    {
+      "name": "multi-metric conflict retained",
+      "pass": true
+    },
+    {
+      "name": "R1 code boundary",
+      "pass": true
+    }
+  ],
+  "pass_count": 5
+}

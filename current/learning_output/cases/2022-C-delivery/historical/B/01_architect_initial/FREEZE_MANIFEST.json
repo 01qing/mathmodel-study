@@ -1,0 +1,18 @@
+{
+  "artifact_id": "ROLE-P1-2022C-RUNB-ARCH-INITIAL-v1",
+  "status": "FROZEN",
+  "files": {
+    "ARCHITECT_DECISION_RECORD_INITIAL.md": {
+      "bytes": 4157,
+      "sha256": "659e94f2edfb8340915eaff23111a4e28792334a40ed759c941da86d09345471"
+    },
+    "architect_initial_results.json": {
+      "bytes": 20695,
+      "sha256": "c776199762f28d528becde6907ad16653be1c4aa8463ce55668a7fcbac616801"
+    },
+    "architect_initial_solver.py": {
+      "bytes": 1007,
+      "sha256": "f1d35bef9fdc2535fd21ba721abdbd55be5b6cbe74fcb342ee3b5b2f37faf098"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "TARGET_BATCH_STATISTICS_TRANSDUCTIVE_CONTRACT",
+  "source": "Dev generic correction",
+  "rule": "Any method using target-batch/window statistics at inference is transductive or batch-adaptive; deployment availability/update rules must be explicit and evaluated under that contract.",
+  "scope": "generic"
+}

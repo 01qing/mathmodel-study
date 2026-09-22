@@ -1,0 +1,21 @@
+{
+  "pattern_id": "overlapping-window-split-leakage",
+  "name": "重叠滑窗后随机划分导致近重复样本泄漏",
+  "learned_from": [
+    "S039",
+    "S040",
+    "S041"
+  ],
+  "trigger": [
+    "同一原始长序列切成多个窗口",
+    "窗口有重叠",
+    "划分文字只写random/stratified/K-fold而未写group by file/condition"
+  ],
+  "why_dangerous": "相邻窗口共享大量原始采样点，训练和测试可能出现近重复片段，使源域accuracy显著乐观。",
+  "preferred_fix": [
+    "先按原始文件/工况/设备分组划train/val/test，再在组内切窗",
+    "交叉验证使用GroupKFold/StratifiedGroupKFold或等价文件级分组",
+    "特征选择、SMOTE、标准化只在训练折拟合"
+  ],
+  "paper_writing_rule": "必须明确验证单位；“分层”只代表类别比例，不等于防泄漏。"
+}

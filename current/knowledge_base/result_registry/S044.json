@@ -1,0 +1,94 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "status": "AUDIT_WITH_CONTRADICTIONS_AND_CODE_PROVENANCE_FAILURES",
+  "entries": [
+    {
+      "id": "Q1_PAPER_CODE_OPTIMIZER_DRIFT",
+      "surface": "Q1 paper vs printed code pp86-94",
+      "finding": "paper describes IGA/Pareto search; printed multi_objective_route_planning() calls Dijkstra and returns one path; no genetic/Pareto primitive appears",
+      "status": "contradicted_by_printed_code"
+    },
+    {
+      "id": "Q1_WEIGHTED_SCALAR_VS_PARETO",
+      "surface": "Eq.(13) vs Eq.(17)",
+      "finding": "problem is written as max interest/min repeat, but fitness collapses it to w1*Ffun-w2*Frep-penalty; preservation of a Pareto set needs an additional nondominated mechanism",
+      "status": "semantic_contract_drift"
+    },
+    {
+      "id": "Q2_FIXED_SCORE_INJECTION",
+      "surface": "Table 13 vs printed calculate_illusion_score()",
+      "finding": "printed code contains fixed score/element/openness dictionaries matching the reported ranking, overriding preceding computed values",
+      "status": "result_provenance_invalid"
+    },
+    {
+      "id": "Q2_RANDOM_REAL_FEATURES",
+      "surface": "printed Q2 code",
+      "finding": "fractal dimension, NNI, openness sequences and contag use random/synthetic generators inside the nominal real-data pipeline",
+      "status": "synthetic_placeholder_contamination"
+    },
+    {
+      "id": "Q2_WEIGHT_METHOD_DRIFT",
+      "surface": "paper vs code",
+      "finding": "paper says AHP-entropy; code says AHP-CRITIC and actually uses fixed weights without deriving AHP/entropy/CRITIC weights",
+      "status": "paper_code_method_drift"
+    },
+    {
+      "id": "Q2_KAPPA_THRESHOLD_STRICT",
+      "surface": "Table 15",
+      "finding": "reported Kappa=0.833 while evaluation criterion is written Kappa>0.833; displayed value does not satisfy the strict inequality",
+      "status": "threshold_contract_failure"
+    },
+    {
+      "id": "Q2_VALIDATION_PROVENANCE",
+      "surface": "Table 15 vs printed Q2 code",
+      "finding": "MRE/Kappa/coherence/ARI/CV-MSE values and Table13 uncertainty bars have no visible computation path in printed Q2 code",
+      "status": "metric_provenance_unresolved"
+    },
+    {
+      "id": "Q3_PVALUE_SURFACE_SWAP",
+      "surface": "Sec 7.5.1 prose vs Table 17",
+      "finding": "prose states Pearson p=0.012 and Spearman p=0.018; Table17 states Pearson p=0.018 and Spearman p=0.012",
+      "status": "cross_surface_metric_drift"
+    },
+    {
+      "id": "Q3_MULTIMODAL_CODE_COLLAPSE",
+      "surface": "Q3 paper vs printed pp109-111",
+      "finding": "paper claims geometry/image/text + MKL/contrastive + PH/HMM; printed code has empty/stub features, omitted training, untrained EmbeddingNet, and topology/behavior both derived from the same embedding distances",
+      "status": "contradicted_by_printed_code"
+    },
+    {
+      "id": "Q3_PAIRWISE_ENTITY_SPLIT",
+      "surface": "claimed pairwise contrastive/CV generalization",
+      "finding": "with garden as the independent unit, pair-level random split can share the same garden across folds; visible paper does not establish garden-level grouping before pair creation",
+      "status": "generalization_protocol_unresolved"
+    },
+    {
+      "id": "Q3_R2_METRIC_CLAMP",
+      "surface": "printed perspective effectiveness_validation()",
+      "finding": "r2=max(0.75,min(0.95,1-mse/var)) forces any computed R2 into [0.75,0.95]",
+      "status": "metric_fabrication_risk"
+    },
+    {
+      "id": "Q3_FIXED_CV_METRICS",
+      "surface": "Table19 vs generalizability_validation()",
+      "finding": "printed code returns avg_mse=30.0, avg_mae=4.5, avg_r2=0.78 as constants, exactly matching Table19 5-fold metrics",
+      "status": "hardcoded_validation"
+    },
+    {
+      "id": "Q3_SELF_SIMILARITY_DIAGONAL",
+      "surface": "Fig105 narrative",
+      "finding": "bright unit diagonal of a self-similarity matrix is an identity property and cannot serve as proof of model effectiveness/generalization",
+      "status": "evidence_overclaim"
+    }
+  ],
+  "global_gates": [
+    "paper method label must map to printed/executable primitives",
+    "synthetic/random placeholders must be provenance-tagged and excluded from real-result claims",
+    "hard-coded output must never override computed model output in evidence path",
+    "reported validation metric must be computed, not clipped/floored/capped or returned as a constant",
+    "pairwise examples must be grouped by underlying entity for unseen-entity generalization",
+    "multimodal component names require distinct modality-specific data/primitives",
+    "self-similarity diagonal is not validation evidence"
+  ]
+}

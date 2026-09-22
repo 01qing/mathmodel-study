@@ -1,0 +1,6 @@
+{
+  "name": "heuristic layout presented as optimization",
+  "trigger": "location/count recommendation is called optimal without explicit variables/objective/constraints/comparison",
+  "gate": "downgrade to heuristic or formulate and solve a quantitative placement problem",
+  "source_example": "S020 recommends 2–3 cameras every 1000–1500m without solving an optimization"
+}

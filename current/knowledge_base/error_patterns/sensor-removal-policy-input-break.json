@@ -1,0 +1,14 @@
+{
+  "pattern": "sensor-removal-policy-input-break",
+  "description": "A sensor is moved/removed even though the deployed controller still requires states/features computed from that sensor.",
+  "detection": [
+    "build feature-to-sensor dependency graph",
+    "remove candidate sensor",
+    "one or more policy inputs become unobservable"
+  ],
+  "remedy": [
+    "redesign state variables after layout change",
+    "retrain/recalibrate thresholds and weights",
+    "evaluate sensing loss and downstream decision quality jointly"
+  ]
+}

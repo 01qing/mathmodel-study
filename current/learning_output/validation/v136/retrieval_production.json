@@ -1,0 +1,201 @@
+{
+  "mode": "production",
+  "query": "江南古典园林 中轴线 Minkowski 趣味性 幻境感 相似度 Ward",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E",
+    "2025-F"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S042",
+      "case_group": "2025-F",
+      "title": "F题-1-江南古典园林的美学特征建模",
+      "page": 8,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_APPENDIX_CODE_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-F-S042-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-1-江南古典园林的美学特征建模.pdf",
+      "source_sha256": "b1132adba756118ab037d8af0af25cf5cd110e51092288042d5c5ae9b3b72a0c",
+      "chunk_id": "S042-p8-1400",
+      "excerpt": "应题目“科学性、有效性”的验证要求。\n题目提出“除‘趣味性’‘幻境感’‘相似度’外，是否还有其他较重要的美学特征”，\n并要求“讨论并提供相关依据”，这一要求旨在避免美学量化的片面性，贴合江南园林“多\n维审美”的实际特质，符合题目“全面刻画江南古典园林美学特征”的整体目标。\n根据问题分析，本文的技术路线如下图1 所示：",
+      "lexical_cosine": 0.21243341667935248,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-F-S042-S045.json",
+        "papers": [
+          "S042",
+          "S043",
+          "S044",
+          "S045"
+        ],
+        "status": "PROVISIONAL_TWO_OF_FOUR_TRAIN_PAPERS_REVIEWED",
+        "reviewed_papers": [
+          "S042",
+          "S043"
+        ],
+        "pending_papers": [
+          "S044",
+          "S045"
+        ]
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_182_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "transparent feasible graph + scene-change/surprisal + Pareto route registry",
+          "Q2": "compact nonredundant landscape/morphology metrics with held-out/external calibration",
+          "Q3": "compact multimodal descriptor + cohort-aware similarity + resampling/external cluster validation"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S042.json",
+        "result_registry_file": "knowledge_base/result_registry/S042.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-F-S042-modules.json",
+        "decision_warning": [
+          "paper Eq.(4) raw p conflicts with low-p high-surprise prose/code -log(p)",
+          "hard path length <=100 conflicts with reported 222 nodes and missing final decode feasibility gate",
+          "Jichang=100 anchor is used in construction and validation",
+          "n=10/11,d=179 clustering/ANOVA is exploratory and similarity is highly concentrated",
+          "printed code uses silent default features on broad exceptions"
+        ]
+      }
+    },
+    {
+      "paper_id": "S043",
+      "case_group": "2025-F",
+      "title": "F题-2-江南古典园林的美学特征建模",
+      "page": 59,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_CODE_REFERENCED_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-F-S043-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-2-江南古典园林的美学特征建模.pdf",
+      "source_sha256": "692c9e30cd2ce0765b17bfbe3a5b1265e32c2ddae42b636a8ad261090e8b73c1",
+      "chunk_id": "S043-p59-0",
+      "excerpt": "图6.2\n江南古典园林空间特征、审美特征相似度分析\n图6.3\n江南古典园林综合相似度分析\n集中区域和明显的聚类边界。\n表6.2展示了十大江南古典园林的综合相似度矩阵计算结果，通过量化分析揭示了园\n林间的空间设计相似性规律。\n从相似度数值分布可以看出，园林间相似度范围为0.523-0.847，平均相似度0.632，标\n准差0.089，表明江南古典园林既有共性基础又各具特色。最高相似度出现在沈园与绮园\n之间（0.847），体现了小型文人园林在情感表达和诗意营造上的高度一致性, 两园均注重诗\n意化空间营造和精致化细节处理。最低相似度出现在拙政园与绮园之间（0.523），反映了\n大型综合园林与小型特色园林在设计理念和空间组织上的显著差异。留园与绮园（0.547）\n之间相似度，进一步证实了规模差异对园林空间特征的显著影响。\n59",
+      "lexical_cosine": 0.18898780223231496,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-F-S042-S045.json",
+        "papers": [
+          "S042",
+          "S043",
+          "S044",
+          "S045"
+        ],
+        "status": "PROVISIONAL_TWO_OF_FOUR_TRAIN_PAPERS_REVIEWED",
+        "reviewed_papers": [
+          "S042",
+          "S043"
+        ],
+        "pending_papers": [
+          "S044",
+          "S045"
+        ]
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "walkable graph + transparent visibility/scene-change descriptors + exact/k-shortest or epsilon-constrained route shortlist before GA",
+          "Q2": "small dimensionless descriptor score with externally declared ranges and held-out/external preference validation; no forced anchor-as-proof",
+          "Q3": "compact standardized garden descriptor + metric-compatible clustering + pairwise registry + stability/external-label validation"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S043.json",
+        "result_registry_file": "knowledge_base/result_registry/S043.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-F-S043-modules.json",
+        "decision_warning": [
+          "Interest and Q2 score formula ranges contradict published scales",
+          "GA Gap=0/global optimum lacks visible certificate",
+          "Jichang reference self-score does not close under its own similarity/adjustment formula",
+          "Table 6.2 mean/std/group means and several narratives do not replay",
+          "Ward metric contract and external ground truth remain unresolved",
+          "p71 attachment code unavailable, so R1"
+        ]
+      }
+    },
+    {
+      "paper_id": "S036",
+      "case_group": "2025-C",
+      "title": "C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究",
+      "page": 54,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_CODE_REFERENCED_BUT_UNAVAILABLE",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S036-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-基于钻孔裂隙智能识别的岩体结构面网络重构与稳定性分区研究.pdf",
+      "source_sha256": "b1cdd0efccde759c990a385d0aa613f9e2fe2b7222a60e87452352b9440ebb98",
+      "chunk_id": "S036-p54-700",
+      "excerpt": "标。 \n相似度体系的设计遵循“几何-力学-形态”逐级递进的原则。首先，空间几何\n关系是决定两条裂隙能否连通的最直接约束：若二者在三维空间中相距甚远或产\n状差异显著，则属于同一破裂面的可能性必然降低。其次，裂隙表面粗糙度作为\n岩石破裂过程的直接记录，隐含了破裂机制与扩展路径信息。已有研究表明，粗\n糙度相近的裂隙往往形成于相似的应力环境，其空间延续性更优。因此，将粗糙\n度差异纳入相似度计算，可在几何判据之外提供额外的力学一致性约束。",
+      "lexical_cosine": 0.06301467616475545,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+        "reviewed_papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "pending_papers": []
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R1",
+        "visual_audit": "FULL_ORIGINAL_76_PAGE_VISUAL_AUDIT",
+        "baseline_summary": {
+          "Q1": "source-group holdout then deterministic/compact segmentation competition",
+          "Q2": "DBSCAN fragments + fixed P=pi*D physical merge/refit + reject",
+          "Q3": "ordered profile + canonical JRC + explicit multi-metric utility",
+          "Q4": "thresholded edge registry + component replay + transparent compatibility/coverage; calibrated probability/EIG only with probabilistic machinery"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S036.json",
+        "result_registry_file": "knowledge_base/result_registry/S036.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S036-modules.json",
+        "decision_warning": [
+          "all project images appear in training then are evaluated; headline DeepLab metrics are not independent test evidence",
+          "keypoint sampling has best R2/RMSE but worst ±5% outlier count among the three",
+          "one >0.5 edge cannot support the claimed four-hole component",
+          "source notebooks/scripts unavailable, so R1"
+        ]
+      }
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

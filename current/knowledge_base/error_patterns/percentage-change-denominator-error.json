@@ -1,0 +1,14 @@
+{
+  "pattern": "percentage-change-denominator-error",
+  "description": "Reported percentage increase/decrease uses an inconsistent or wrong denominator.",
+  "detection": [
+    "before/after values are available",
+    "reported percentage cannot be reproduced with declared convention",
+    "increase uses after-value denominator while decreases use before-value denominator"
+  ],
+  "remedy": [
+    "declare percent-change formula once",
+    "machine-replay every reported percentage from raw values",
+    "for asymmetric metrics also report absolute change"
+  ]
+}

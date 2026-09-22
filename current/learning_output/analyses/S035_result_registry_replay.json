@@ -1,0 +1,28 @@
+{
+  "paper_id": "S035",
+  "status": "PASS",
+  "scope": "arithmetic/semantic registry replay, not author-code reproduction",
+  "checks": [
+    {
+      "name": "pi*30 mm period",
+      "value": 94.24777960769379,
+      "target": 94.25,
+      "pass": true
+    },
+    {
+      "name": "poor fit example retained",
+      "value": 0.9598,
+      "missingness": 0.71,
+      "pass": true
+    },
+    {
+      "name": "source overlap gate recorded",
+      "pass": true
+    },
+    {
+      "name": "R1 source boundary",
+      "pass": true
+    }
+  ],
+  "pass_count": 4
+}

@@ -1,0 +1,34 @@
+{
+  "paper_id": "S043",
+  "status": "PASS_AUDIT_REPLAY_WITH_IDENTIFIED_CONTRADICTIONS",
+  "checks": {
+    "source_sha256_matches_registry": true,
+    "Q1_table_mean_generations": 306.5,
+    "Q1_table_mean_fitness": 0.77898,
+    "Q1_table_mean_scenic": 1.12571,
+    "Q1_fitness_scenic_pearson_replayed": 0.9897137821171829,
+    "Q1_reported_r": 0.89,
+    "Q2_weight_sum_layout": 1.0,
+    "Q2_if_component_bounds_hold_formula_max": 1.0,
+    "Q2_reported_layout_max": 4.62,
+    "Q3_pair_count": 45,
+    "Q3_matrix_min": 0.523,
+    "Q3_matrix_max": 0.847,
+    "Q3_matrix_mean": 0.6642666666666667,
+    "Q3_matrix_sample_sd": 0.06857756060244355,
+    "Q3_reported_mean": 0.632,
+    "Q3_reported_sd": 0.089,
+    "Q3_group_means_replayed": {
+      "large": 0.6606666666666666,
+      "medium": 0.7403333333333334,
+      "small": 0.6733333333333333
+    },
+    "Q3_group_means_reported": {
+      "large": 0.721,
+      "medium": 0.741,
+      "small": 0.735
+    },
+    "Q3_external_accuracy_arithmetic": 0.6666666666666666
+  },
+  "scope": "checks arithmetic/formula/result contracts only; does not reproduce author code or validate aesthetic/perceptual truth"
+}

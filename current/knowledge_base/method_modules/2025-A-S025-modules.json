@@ -1,0 +1,111 @@
+{
+  "paper_id": "S025",
+  "case_group": "2025-A",
+  "schema_version": "1.0",
+  "modules": [
+    {
+      "module_id": "S025-Q1-topology-safe-list-scheduler",
+      "question": "Q1",
+      "role": "baseline/schedule initializer",
+      "inputs": [
+        "DAG nodes",
+        "dependency edges",
+        "Op",
+        "Size",
+        "optional critical-path height"
+      ],
+      "outputs": [
+        "feasible topological schedule",
+        "Vstay trajectory",
+        "peak Vstay"
+      ],
+      "assumptions": [
+        "DAG",
+        "ALLOC/FREE semantics are correct"
+      ],
+      "units": "Size/peak in bytes or source size unit",
+      "compatibility_notes": "Can feed Q2/Q3 only if node IDs and topology remain unchanged or changes are explicitly versioned."
+    },
+    {
+      "module_id": "S025-Q2-lifetime-allocator-spill",
+      "question": "Q2",
+      "role": "memory allocation",
+      "inputs": [
+        "schedule",
+        "BufId",
+        "Size",
+        "Type",
+        "ALLOC/FREE lifetime",
+        "cache capacities"
+      ],
+      "outputs": [
+        "offset map",
+        "SPILL actions",
+        "extra transfer cost"
+      ],
+      "assumptions": [
+        "finite contiguous cache spaces",
+        "spill cost model fixed"
+      ],
+      "units": "offset/size/capacity same memory unit; transfer cost in same byte-like unit",
+      "compatibility_notes": "Victim policy must be centralized. Do not compose Q2 and Q3 copies until tie-break direction and offset=0 bug are repaired."
+    },
+    {
+      "module_id": "S025-Q3-event-driven-pipeline-simulator",
+      "question": "Q3",
+      "role": "objective evaluator",
+      "inputs": [
+        "schedule",
+        "Pipe",
+        "Cycles",
+        "dependencies",
+        "allocation/SPILL actions"
+      ],
+      "outputs": [
+        "node start/end times",
+        "makespan T"
+      ],
+      "assumptions": [
+        "Cycles and pipe exclusivity model hardware sufficiently",
+        "SPILL cycles are known"
+      ],
+      "units": "cycles",
+      "compatibility_notes": "Good reusable evaluator if upstream schedule/allocation is feasible; do not use to validate incorrect cache mappings."
+    },
+    {
+      "module_id": "S025-feasibility-first-result-replay",
+      "question": "Q1-Q3",
+      "role": "validation",
+      "inputs": [
+        "candidate solution",
+        "machine-readable constraints",
+        "before/after registry"
+      ],
+      "outputs": [
+        "feasible flag",
+        "recomputed objective",
+        "improvement metrics"
+      ],
+      "assumptions": [
+        "constraints and units are correctly registered"
+      ],
+      "units": "preserve source units",
+      "compatibility_notes": "Broadly transferable to scheduling/optimization papers; should wrap any candidate model before ranking."
+    }
+  ],
+  "composition_examples": [
+    {
+      "composition": "topology-safe list scheduler -> repaired lifetime allocator -> event-driven simulator -> feasibility-first replay",
+      "compatibility": {
+        "input_output_interface": "compatible",
+        "variable_definition": "compatible after one shared node/buffer schema",
+        "data_distribution": "not a learned-model issue",
+        "mathematical_assumptions": "compatible if DAG/lifetime assumptions hold",
+        "units_and_dimensions": "compatible if memory and cycle units are kept explicit",
+        "training_vs_execution_stage": "execution-only",
+        "evaluation_metric": "compatible under epsilon constraint"
+      },
+      "decision": "compatible_after_adapter"
+    }
+  ]
+}

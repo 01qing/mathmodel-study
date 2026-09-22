@@ -1,0 +1,6 @@
+{
+  "pattern": "zero_offset_truthiness_resource_leak",
+  "definition": "A valid numeric identifier/address zero is treated as False in resource release logic.",
+  "example": "S025 Q2 uses `if offset` before free; offset 0 is skipped.",
+  "gate": "Use explicit `is not None`/validity flags for addresses, IDs, counts and probabilities where zero is legal."
+}

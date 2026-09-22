@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v121_regressions.py", line 52, in <module>
+    pp=next(x for x in papers if x['paper_id']==pid); ok(pid+' remains unread at v1.21',pp.get('reviewed_pages',[])==[])
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v121_regressions.py", line 6, in ok
+    def ok(name,cond): assert cond,name; checks.append(name)
+                              ^^^^
+AssertionError: S013 remains unread at v1.21

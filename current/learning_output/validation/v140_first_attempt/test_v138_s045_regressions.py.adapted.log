@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v138_s045_regressions.py", line 38, in <module>
+    nexttxt=(ROOT/'learning_output/context/next_learning.md').read_text(encoding='utf-8'); ck('next dev','2024-D' in nexttxt); ck('test frozen text','Test' in nexttxt and 'frozen' in nexttxt); ck('no proxy ablation','proxy' in nexttxt or 'proxies' in nexttxt)
+                                                                                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\softdown\codex\0911进度\v1.40-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v138_s045_regressions.py", line 6, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: test frozen text

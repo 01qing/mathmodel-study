@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v138_s045_regressions.py", line 10, in <module>
+    ck('version',st['current_version']=='1.38.0'); ck('latest S045',st['latest_completed_paper']=='S045'); ck('latest R2',st['reproduction_level_latest']=='S045:R2')
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v138_s045_regressions.py", line 6, in ck
+    def ck(n,c): assert c,n; checks.append(n)
+                        ^
+AssertionError: version

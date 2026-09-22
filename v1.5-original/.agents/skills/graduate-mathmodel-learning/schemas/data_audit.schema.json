@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "data_audit.schema.json",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "case_id",
+    "status",
+    "files",
+    "checks",
+    "warnings",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.8"
+    },
+    "case_id": {
+      "const": "gmcm-2021-D"
+    },
+    "status": {
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "BLOCKED",
+        "PENDING"
+      ]
+    },
+    "files": {
+      "type": "object"
+    },
+    "checks": {
+      "type": "object"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "test_isolation_policy": {
+      "type": "object"
+    }
+  }
+}

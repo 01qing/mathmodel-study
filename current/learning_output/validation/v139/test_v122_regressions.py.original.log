@@ -1,0 +1,9 @@
+
+Traceback (most recent call last):
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v122_regressions.py", line 60, in <module>
+    pp=next(x for x in papers if x['paper_id']==pid); ok(pid+' protected unread',pp.get('reviewed_pages',[])==[])
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\softdown\codex\0911进度\clean-dev-2024D\v1.39-release-work\.agents\skills\graduate-mathmodel-learning\scripts\test_v122_regressions.py", line 6, in ok
+    def ok(name,cond): assert cond,name; checks.append(name)
+                              ^^^^
+AssertionError: S013 protected unread

@@ -1,0 +1,49 @@
+{
+  "case_id": "2024-A-S003",
+  "source": "printed appendix code in S003 extracted pages 66-73",
+  "run_status": "NOT_RUN_INCOMPLETE_APPENDIX_AND_MISSING_ORIGINAL_DATA_MODULES",
+  "questions": {
+    "Q1": {
+      "status": "PARTIAL_STATIC_AUDIT",
+      "findings": [
+        "missing external three_point.rainflow_counting module",
+        "paper default window_size=14 conflicts with batch window_size=10",
+        "adaptive AB/threshold segmentation/reverse-tail steps absent",
+        "np.diff(window damage) can yield negative increments"
+      ]
+    },
+    "Q2": {
+      "status": "PARTIAL_STATIC_AUDIT",
+      "findings": [
+        "preprocess_and_fit omitted",
+        "35-parameter code conflicts with 20 printed fitted parameters",
+        "A=80 m^2 conflicts with 62.5 m blade-length statement",
+        "StandardScaler vs physical-unit equations unresolved"
+      ]
+    },
+    "Q3": {
+      "status": "STATIC_AUDIT_MAJOR_MISMATCH",
+      "findings": [
+        "no Pareto sweep, no region split, no LSTM, no MPC horizon",
+        "wind_speeds loaded but unused",
+        "fixed 0.5/0.5 weights",
+        "deviation inequality sign reversed for scipy ineq convention",
+        "ramp-rate constraint absent",
+        "warm-start overwritten each loop"
+      ]
+    },
+    "Q4": {
+      "status": "STATIC_AUDIT_MAJOR_MISMATCH",
+      "findings": [
+        "no Kalman implementation",
+        "no PSO implementation",
+        "no explicit delay compensator",
+        "robust_objective unused",
+        "wind perturbation computed but unused",
+        "power-minus-wind-speed squared loss is dimensionally invalid",
+        "control routine contains no optimization solver"
+      ]
+    }
+  },
+  "identity_boundary": "This is an audit of the code printed in S003, not proof about any separately submitted full attachment code that is not available in the current workspace."
+}

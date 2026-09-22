@@ -1,0 +1,16 @@
+{
+  "id": "metaheuristic-without-matched-budget-baseline",
+  "name": "Metaheuristic superiority without matched-budget baseline",
+  "severity": "medium",
+  "trigger": "paper reports a heuristic/metaheuristic result without comparing to a deterministic baseline under equal evaluations/runtime and multiple seeds",
+  "risk": "complexity is mistaken for improvement; stochastic variance and compute budget are hidden",
+  "checks": [
+    "run six-hour deterministic baseline",
+    "match evaluation/runtime budget",
+    "report multi-seed median/IQR",
+    "use exact small-instance gap when possible"
+  ],
+  "source_examples": [
+    "2025-A-S025/S026 Q1-Q2"
+  ]
+}

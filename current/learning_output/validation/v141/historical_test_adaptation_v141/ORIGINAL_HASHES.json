@@ -1,0 +1,46 @@
+[
+  {
+    "script": "test_v120_regressions.py",
+    "original_sha256": "4c5e4f4b1336702700907c1260bd7f2f9e245e38a0fd1868bfc7d49866628964"
+  },
+  {
+    "script": "test_v121_regressions.py",
+    "original_sha256": "3695286b33d7816c14e6326a2205814011ca54c364b2a0f8c89274faf9115d5f"
+  },
+  {
+    "script": "test_v122_regressions.py",
+    "original_sha256": "bc71a35216c538832b5056edc928ceda58f17f8d7a8e6707d15c8a7a02dc6fb2"
+  },
+  {
+    "script": "test_v123_regressions.py",
+    "original_sha256": "d6860fa4149605e2f032557117d147b6e0e1df8a57857a8c0eb66e7ea7d89673"
+  },
+  {
+    "script": "test_v124_regressions.py",
+    "original_sha256": "015192a4055f9aed707530570ece1d85e5a90186c3e45d33f68709ad102416fe"
+  },
+  {
+    "script": "test_v132_s034_regressions.py",
+    "original_sha256": "2f8314d5da9b45b495f1d0e95c240321788533e07696b4714c82380b5277cf24"
+  },
+  {
+    "script": "test_v134_s036_regressions.py",
+    "original_sha256": "7c6bc0ba1c55b66dbaaed38f064df372760f9b35ba42e4288f68d086a0b79f07"
+  },
+  {
+    "script": "test_v135_s042_regressions.py",
+    "original_sha256": "a2ad4b2d2f8e6b5aada5af92c2a71d23d7c91a634cfde588047bca3a92df08b3"
+  },
+  {
+    "script": "test_v136_s043_regressions.py",
+    "original_sha256": "e6a8ac9d14a28d004be993506b813b158f61c2e277de696537b199d3ead1ff46"
+  },
+  {
+    "script": "test_v137_s044_regressions.py",
+    "original_sha256": "399b55b27b16d88b83b9459899e8b01e6979f94762a603a5d255e4d8f3942498"
+  },
+  {
+    "script": "test_v138_s045_regressions.py",
+    "original_sha256": "e23192e909a29a549c4054634f0c9d8bfed9633b1638886ed336e2173e11c871"
+  }
+]

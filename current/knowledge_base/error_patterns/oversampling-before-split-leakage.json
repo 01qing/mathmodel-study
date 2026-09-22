@@ -1,0 +1,11 @@
+{
+  "name": "oversampling-before-split-leakage",
+  "trigger": "RandomOverSampler/SMOTE/ADASYN is applied to the full dataset before validation/test split",
+  "risk": "duplicates or synthetic neighbors derived from validation examples leak across partitions and inflate minority-class metrics",
+  "gate": [
+    "split first",
+    "resample only X_train,y_train inside each fold",
+    "never resample validation/test",
+    "report original-distribution macro-F1/balanced accuracy/per-class recall"
+  ]
+}

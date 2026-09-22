@@ -1,0 +1,112 @@
+{
+  "status": "PARTIAL",
+  "records": [
+    {
+      "id": "rare_prevalence",
+      "pdf_pages": [
+        2,
+        35
+      ],
+      "replay": {
+        "all_percent": 0.0015358675147326421,
+        "wet_percent": 0.002559689454023804,
+        "sample_percent": 0.4423076923076923
+      },
+      "interpretation": "Abstract all-data denominator does not match; wet-day possibility is not a correction of author contract.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "composition_1990",
+      "pdf_pages": [
+        14,
+        25,
+        26
+      ],
+      "replay": 1.735009,
+      "interpretation": "Contradicts sum-to-one printed definition; production origin unresolved.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "composition_2019",
+      "pdf_pages": [
+        14,
+        25,
+        26
+      ],
+      "replay": 1.753584,
+      "interpretation": "Contradicts sum-to-one printed definition; production origin unresolved.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "variance_field",
+      "pdf_pages": [
+        14,
+        88
+      ],
+      "replay": {
+        "RYs": 9834605.71,
+        "RYsd_squared": 30.525625000000005
+      },
+      "interpretation": "Printed code uses sum for RYs.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "svm_confusion_replay",
+      "pdf_pages": [
+        61,
+        93
+      ],
+      "replay": {
+        "n": 4100,
+        "accuracy": 0.9934146341463415,
+        "recall": 0.34146341463414637,
+        "specificity": 1.0,
+        "hard_class_auc": 0.6707317073170732,
+        "majority_baseline_accuracy": 0.99
+      },
+      "interpretation": "Conditional on printed matrix; no model retraining and no matched evaluator claim.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "rf_confusion_replay",
+      "pdf_pages": [
+        61,
+        93
+      ],
+      "replay": {
+        "n": 4100,
+        "accuracy": 0.9997560975609756,
+        "recall": 1.0,
+        "specificity": 0.9997536338999754,
+        "hard_class_auc": 0.9998768169499876,
+        "majority_baseline_accuracy": 0.99
+      },
+      "interpretation": "Conditional on printed matrix; no model retraining and no matched evaluator claim.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    },
+    {
+      "id": "east_minus_west",
+      "pdf_pages": [
+        73,
+        74,
+        76
+      ],
+      "replay": {
+        "grass": -0.174,
+        "crop": -0.0010000000000000009,
+        "forest": 0.016,
+        "shrub": -0.043000000000000003,
+        "wetland": -0.008
+      },
+      "interpretation": "Three named types contradict east-higher summary.",
+      "source": "transcribed paper values",
+      "scope": "arithmetic/static audit; original data not rerun"
+    }
+  ]
+}

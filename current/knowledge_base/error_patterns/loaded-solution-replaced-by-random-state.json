@@ -1,0 +1,11 @@
+{
+  "id": "loaded-solution-replaced-by-random-state",
+  "name": "Loaded solution silently replaced by random state",
+  "severity": "high",
+  "trigger": "reconstruction helper ignores supplied solution artifact and returns random object",
+  "risk": "optimizer does not start from/reproduce claimed solution",
+  "gate": "assert reconstruction round-trip equality/hash before optimization",
+  "source_examples": [
+    "2025-A-S028 NSGA2/MOPSO GP tree"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "paper_id": "S028",
+  "case_group": "2025-A",
+  "year": 2025,
+  "problem_id": "A",
+  "split": "train",
+  "pages": 77,
+  "title": "面向 Davinci 架构的 NPU 核内调度算法研究",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_77_PAGE_PDF_PIXEL_CONTACT_SHEET_PLUS_PRINTED_PYTHON_APPENDIX_STATIC_AUDIT",
+  "visual_status": "ORIGINAL_77_PAGE PDF ALL-PAGE CONTACT-SHEET AUDIT; pages 59-77 printed code appendix",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "one complete workload computation graph",
+    "input_structure": "six Conv/FlashAttention/Matmul DAG workloads with node operations, dependencies, sizes, cache and cycle metadata",
+    "standard_ml_split": "NOT_APPLICABLE; optimization should be tested across graph families/sizes plus exact small-instance variants",
+    "author_evaluation_scope": "six fixed workloads; no independent unseen graph family demonstrated"
+  },
+  "questions": {
+    "Q1": "minimize peak live-cache residency by topology-safe scheduling",
+    "Q2": "assign cache addresses/spill policy to minimize extra transfer, with optional peak-transfer compromise",
+    "Q3": "joint transfer-time optimization via constrained/pareto scheduling and allocation"
+  },
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S028.json",
+  "result_registry_ref": "knowledge_base/result_registry/S028.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-A-S028-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-A-S028-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S028.json",
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "77/77 full-text close reading",
+      "original 77-page PDF visually scanned across all pages",
+      "printed Python appendix Q1/Q2/Q3 statically audited"
+    ],
+    "not_achieved": [
+      "R3: no original source/data bundle; printed optimization chains are incomplete and import omitted helpers",
+      "R4/R5: no original-data end-to-end execution",
+      "R6: no independent full reimplementation of author pipeline",
+      "R7: author method itself has not been transferred; group mini transfer validates Core-selected baseline rules, not the paper code"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_CONTACT_SHEET_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 explicitly compares simple and complex heuristics and sensibly keeps a deterministic greedy route as contest mainline",
+    "Q2 recognizes no single first/best/worst-fit allocator dominates every graph and separates allocation from victim-rule reasoning",
+    "Q3 presents a more informative Pareto/convergence evidence structure than a single weighted-score table",
+    "paper discusses runtime/complexity and algorithm suitability rather than assuming metaheuristics are always better"
+  ],
+  "key_risks": [
+    "Q1 MinPeak/LateAlloc code prioritizes larger ready ALLOC via -Size, conflicting with memory-minimizing/delay prose",
+    "Q1 complexity table misuses Big-O notation and omits essential evaluation-count/E terms",
+    "Q2 FlashAttention1 final transfer 33792 is not traceable to visible Table14 rows whose minimum is 54720",
+    "Q2 objective drifts from normalized Peak+transfer to Time+transfer",
+    "Q3 transfer cap 10% conflicts with S025 5% contract and must be resolved from original problem statement",
+    "Q3 Conv0 improvement uses a non-final Q2 baseline; FlashAttention0 violates declared lexicographic algorithm choice and has a 201731 vs 2017 time inconsistency",
+    "printed NSGA/MOPSO reconstruction regenerates a random GP tree rather than recovering the loaded solution"
+  ],
+  "applicable_conditions": [
+    "large DAG scheduling with buffer lifetime pressure",
+    "hierarchical cache allocation/spill with graph-dependent fragmentation",
+    "multiobjective scheduling where a verified feasible frontier is useful"
+  ],
+  "failure_or_abandon_conditions": [
+    "metaheuristic does not beat deterministic baseline materially under matched budget",
+    "result/baseline provenance cannot be replayed",
+    "canonical hard transfer cap unresolved",
+    "printed algorithm-defining helpers/repair are missing",
+    "candidate violates topology/cache/transfer constraints"
+  ],
+  "recommended_redo": [
+    "use one parser/evaluator/Result Registry for S025-S028",
+    "Q1 keep FREE-first+critical-path/memory-delta baseline and add SA/TS only on flexible graphs with measured gap",
+    "Q2 use deterministic lifetime allocator plus deficit-aware spill subset baseline; train GP only with held-out graph validation",
+    "Q3 resolve official epsilon, feasibility-filter first, then cycles; use Pareto only if multiple operating points are actually needed",
+    "generate all final tables/figures from registry and enforce lexicographic choice mechanically"
+  ]
+}

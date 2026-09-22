@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source_record.schema.json",
+  "title": "Learning Source Record",
+  "type": "object",
+  "required": [
+    "source_id",
+    "source_type",
+    "path_or_url",
+    "verification_status"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "competition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "year": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "problem_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_type": {
+      "enum": [
+        "problem",
+        "official_attachment",
+        "excellent_paper",
+        "expert_commentary",
+        "code",
+        "dataset",
+        "academic_literature",
+        "other"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "path_or_url": {
+      "type": "string"
+    },
+    "sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "award_claim": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "award_verified": {
+      "type": "boolean"
+    },
+    "retrieved_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "verification_status": {
+      "enum": [
+        "author_claim",
+        "verified",
+        "partially_verified",
+        "not_verified",
+        "contradicted",
+        "our_inference"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "_dedup_key": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

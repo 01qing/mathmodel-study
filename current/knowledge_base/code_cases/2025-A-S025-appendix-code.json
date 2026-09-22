@@ -1,0 +1,58 @@
+{
+  "paper_id": "S025",
+  "case_group": "2025-A",
+  "run_status": "PRINTED_PYTHON_APPENDIX_STATIC_AUDIT_ONLY_NO_RAW_AUTHOR_PY_FILES_OR_INPUT_DATA_REPRODUCTION",
+  "appendix_pages": "44-59",
+  "visible_programs": [
+    "Q1.py",
+    "Q2.py",
+    "Q3.py"
+  ],
+  "questions": {
+    "Q1": {
+      "visible_evidence": [
+        "UltraOptimizedScheduler",
+        "_greedy_minimal_lifetime",
+        "_critical_path_schedule"
+      ],
+      "findings": [
+        "no visible simulated annealing loop in printed Q1.py",
+        "actual source/data not bundled as executable files in current artifact, so no end-to-end run is claimed"
+      ]
+    },
+    "Q2": {
+      "visible_evidence": [
+        "heuristic_buffer_allocation",
+        "allocate_with_precise_spill"
+      ],
+      "findings": [
+        "no visible ILP/CBC/PuLP/Gurobi/MILP solver call in printed Q2.py",
+        "victim sort selects COPY_IN first then smaller buffer",
+        "FREE uses truthiness `if offset`, so offset 0 can leak",
+        "victim reallocation lacks explicit None guard before reactivation"
+      ]
+    },
+    "Q3": {
+      "visible_evidence": [
+        "heuristic_buffer_allocation",
+        "allocate_with_precise_spill"
+      ],
+      "findings": [
+        "victim sort selects COPY_IN first then larger buffer",
+        "no visible adaptive priority / temporal Best-Fit / Pareto / 2-opt optimization loop",
+        "reported Table 5.5 contains transfer-cap infeasible rows under the paper stated 1.05 constraint"
+      ]
+    }
+  },
+  "safe_reuse": [
+    "dependency-aware DAG scheduling decomposition",
+    "explicit cache/SPILL accounting",
+    "event-driven execution-time simulation structure"
+  ],
+  "do_not_reuse_without_repair": [
+    "paper-level optimizer names without visible implementation",
+    "allocator truthiness and unchecked reallocation",
+    "inconsistent victim policy",
+    "reported infeasible Q3 solutions"
+  ]
+}

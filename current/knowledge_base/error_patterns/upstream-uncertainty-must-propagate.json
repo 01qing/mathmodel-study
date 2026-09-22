@@ -1,0 +1,5 @@
+{
+  "id": "UPSTREAM_UNCERTAINTY_MUST_PROPAGATE",
+  "rule": "In multi-stage pipelines, downstream geometry/network/decision confidence must account for upstream segmentation/fitting uncertainty rather than treating extracted features as exact.",
+  "scope": "generic"
+}

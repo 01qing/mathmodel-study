@@ -1,0 +1,28 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "split": "train",
+  "title": "F题-2-江南古典园林的美学特征建模",
+  "pdf_sha256": "692c9e30cd2ce0765b17bfbe3a5b1265e32c2ddae42b636a8ad261090e8b73c1",
+  "registry_sha256": "692c9e30cd2ce0765b17bfbe3a5b1265e32c2ddae42b636a8ad261090e8b73c1",
+  "pages": 71,
+  "full_text_extract": {
+    "path_external": "/mnt/data/next_s043/S043.txt",
+    "status": "COMPLETE"
+  },
+  "visual_audit": {
+    "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+    "pages_verified": "71/71",
+    "contact_sheets": "12 contact sheets + 4 large overview sheets reviewed",
+    "evidence_structure": "pp1-6 abstract/problem/assumptions; pp7-33 Q1 formulas/path maps/tables; pp34-47 Q2 element/open-close models and rankings; pp48-69 Q3 similarity/clustering/extended-aesthetics; p70 references; p71 appendix statement."
+  },
+  "code_access": {
+    "paper_statement": "Appendix A p71 states that the attachment contains all code for Q1-Q3.",
+    "available_collection_audit": "The mounted 2025 excellent-paper collection exposes the F-paper PDFs but no S043 author source-code attachment.",
+    "printed_code_appendix": "NONE in the 71-page PDF",
+    "status": "CODE_REFERENCED_BUT_NOT_AVAILABLE"
+  },
+  "reproduction_level": "R1",
+  "why": "full paper and 71/71 original-PDF visual audit completed; referenced code attachment is unavailable and no printed code can be statically audited, so R2 is not claimed",
+  "test_dev_protection": "S044-S045 remain unread Train; S030-S031 remain Dev reserve; S037-S038 Test remain frozen."
+}

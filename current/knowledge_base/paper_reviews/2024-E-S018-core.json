@@ -1,0 +1,142 @@
+{
+  "paper_id": "S018",
+  "case_group": "2024-E",
+  "year": 2024,
+  "problem_id": "E",
+  "split": "train",
+  "pages": 81,
+  "title": "E24102870008",
+  "paper_title": "高速公路应急车道紧急启用模型",
+  "school": "南京航空航天大学",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_FRAME_METRIC_THRESHOLD_INTERVENTION_AND_OPTIMIZATION_CONTRACT_CHECK",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "OpenCV/YOLO traffic extraction",
+        "traffic flow/density/time-average speed and TPI construction",
+        "1D-CNN feature extraction and PCC+RF feature selection",
+        "TCN-adaptive SVR/PSO plus BiGRU-attention forecasting narrative",
+        "window-gradient congestion warning"
+      ],
+      "strengths": [
+        "uses cross-video prose validation: video1 observation points 3/4 for fitting and video2 for testing, which is directionally stronger than random-row holdout",
+        "builds a coherent raw-video → traffic-state → forecast → warning narrative",
+        "reports multiple regression metrics rather than a single score"
+      ],
+      "risks": [
+        "paper repeatedly states 25 frames = 1 second, while printed counting code emits records at cart/frame_time == 33, creating a frame/timebase contract mismatch",
+        "density is written as N(t)/L with L=30m while N(t) is described as unique vehicles over a temporal window; temporal passage count and simultaneous spatial occupancy are not the same state variable unless the counting semantics are made explicit",
+        "printed BiGRU code reshapes features to [-1,1,fc1], giving one timestep; it therefore does not support claims about temporal recurrent memory",
+        "printed attention code declares W_omega but computes with undefined W, so the visible fragment is not runnable as written",
+        "visible custom attention is not multi-head self-attention, and no complete TCN-SVR/PSO ensemble training path is visible in the printed appendix",
+        "Table 8 observation point 4 reports RMSE=0.1652 and MSE=0.2164, violating MSE=RMSE^2; 0.1652^2≈0.02729",
+        "printed vision fragments do not visibly establish the paper-described perspective correction and speed extraction contract",
+        "Table 2 states the delivered videos are about 10× accelerated (e.g. 8209 s real time vs 827 s video time). At 25 fps one frame is about 0.04 video-s but 0.4 real-s, so 25 frames are about 10 real seconds, not one real second; flow/lead-time units must explicitly convert video time back to real time before deployment.",
+        "the printed counting code writes every 33 frames although worksheet labels/prose repeatedly refer to 25-frame records; with 10× video speed this is about 13.2 real seconds per record at 25 fps, so the aggregation interval is not a harmless cosmetic mismatch.",
+        "the printed warning fragment uses only gradient >0.85, whereas the paper's warning rule states a window-mean condition plus gradient >1.3; the deployed warning state machine is therefore not reproduced by the visible code."
+      ]
+    },
+    "Q2": {
+      "route": [
+        "capacity/interruption modeling",
+        "Weibull capacity distribution and maximum-likelihood estimation narrative",
+        "speed/flow threshold extraction",
+        "emergency-lane opening rule"
+      ],
+      "strengths": [
+        "tries to connect an engineering capacity model to an operational threshold rather than using only a black-box classifier",
+        "makes speed and flow thresholds explicit enough to become a deployable rule"
+      ],
+      "risks": [
+        "abstract states open if speed <20 m/s OR flow >0.5 veh/s, while Q3 decision text requires speed below threshold AND flow above threshold; Boolean policy logic drifts across sections",
+        "body text also distinguishes >20 m/s free and <15 m/s congested, leaving a 15–20 m/s gray zone without a complete state-machine/hysteresis rule",
+        "the visible MLE/Weibull narrative is not clearly traced into the reported 0.5 veh/s operating threshold; threshold provenance is incomplete",
+        "the appendix section labeled as problem 2 switches to ResNet/Mask-RCNN/FPN/RPN-style vision code rather than an executable Weibull/MLE emergency-lane policy, so appendix section and declared method are mismatched",
+        "the operational flow threshold inherits the unresolved accelerated-video timebase; a threshold expressed in veh/s is not portable to real-time control until the 10× playback factor and aggregation interval are reconciled."
+      ]
+    },
+    "Q3": {
+      "route": [
+        "temporal safety constraint",
+        "spatial connectivity constraint",
+        "warning-triggered open/close state policy",
+        "transfer an open-state traffic predictor from observed point 2 to point 4",
+        "evaluate TAT/TDT/TET/TTT/VAV before and after the modeled intervention"
+      ],
+      "strengths": [
+        "encodes explicit temporal and spatial safety constraints, giving the controller interpretable state/action conditions",
+        "uses observed open-state data from another monitoring point rather than only arbitrary fixed multipliers, which is stronger than a pure scenario assumption"
+      ],
+      "risks": [
+        "the treatment-response model is transferred from point 2 to point 4 without a visible transportability validation; the post-opening point-4 outcome is model-based counterfactual evidence, not an observed point-4 intervention",
+        "reported speed improvement percentages use the post-treatment value as denominator: 8.16→18.73 is reported 56.43%, whereas standard relative increase is about 129.53%; 11.76→18.61 should be about 58.25%, not 36.81%",
+        "no visible executable Q3 policy/simulator is present in the printed appendix sufficient to reproduce the full decision and metric chain",
+        "Eq.(47) defines average passage time using T_ET/N_TC even though T_ET is defined immediately above as total collision-exposure time; the formula-variable semantics do not match the metric name and require correction or registry replay.",
+        "the point-2 open-lane data are observational and site-specific; applying that response model at point 4 needs covariate-overlap/transportability checks and does not by itself identify a causal treatment effect."
+      ]
+    },
+    "Q4": {
+      "route": [
+        "multi-objective camera-placement narrative for safety/efficiency/cost",
+        "Kriging surrogate",
+        "genetic algorithm",
+        "report two camera positions and before/after traffic metrics"
+      ],
+      "strengths": [
+        "recognizes camera placement as a constrained multi-objective problem rather than a purely geometric layout",
+        "attempts to connect sensing layout to downstream traffic-control performance"
+      ],
+      "risks": [
+        "the prose objective says safety/efficiency/cost objectives are normalized before weighting, but the visible scalar objective expression uses raw TTT/TET/COST terms, leaving scale/unit dominance unresolved",
+        "the stated decision variable E_i is an emergency-lane open/close control variable at 15-minute intervals, which does not match the task output of camera number/locations; optimization variable and task variable contracts conflict",
+        "no visible Kriging+GA camera-placement implementation is present in the appendix",
+        "camera layout is reported to improve traffic metrics, but no explicit sensing coverage → state estimation → control decision → traffic outcome mediation model is shown; placement alone cannot causally imply those gains",
+        "18.73→20.19 km/h is reported as a 7.23% increase, while the standard before-denominator increase is about 7.80%, repeating the percentage denominator convention error",
+        "the paper says TTT/TET/COST are normalized before weighted summation, but no normalization formula, fitted scale, or numerical alpha/beta/gamma weights are provided, so the reported optimum cannot be replayed from the stated objective.",
+        "Kriging is used as an optimization surrogate without visible design-of-experiments specification, kernel/hyperparameter fit, held-out surrogate error, or uncertainty calibration; a surrogate should be validated before its optimum is trusted."
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "20-35",
+      "claim": "video traffic-parameter construction, TPI/warning window, 25-frame timebase statements and forecasting architecture narrative"
+    },
+    {
+      "pages": "40-45",
+      "claim": "Q1 cross-video validation and Table 8 metrics including the observation-point-4 MSE/RMSE inconsistency"
+    },
+    {
+      "pages": "46-52",
+      "claim": "capacity/MLE/threshold narrative and OR/AND/gray-zone policy inconsistency"
+    },
+    {
+      "pages": "52-60",
+      "claim": "Q3 safety constraints, cross-site opening-state transfer and before/after traffic metrics"
+    },
+    {
+      "pages": "60-66",
+      "claim": "Q4 camera placement, Kriging+GA narrative, objective/decision variables and Table 10"
+    },
+    {
+      "pages": "67-81",
+      "claim": "printed appendix code including YOLO tracking, one-step BiGRU-attention fragment and method-section mismatch"
+    }
+  ],
+  "transfer_lessons": [
+    "Timebase is a first-class data contract: FPS, frames-per-aggregate and seconds-per-record must be generated from one registry and checked against code counters.",
+    "Distinguish passage flow counts from simultaneous spatial density; a temporal unique-ID count divided by road length is not automatically veh/km occupancy.",
+    "RNN claims require a real sequence axis T>1 and runnable attention/recurrent graph; architecture prose cannot replace executable tensor semantics.",
+    "Automatically recompute metric identities such as MSE=RMSE^2 before copying tables into the final paper.",
+    "Operational thresholds need one Boolean/state-machine registry; OR/AND drift and unhandled gray zones make the policy non-reproducible.",
+    "Appendix code must implement the section it is attached to. Unrelated vision architecture code does not substantiate a Weibull/MLE decision model.",
+    "Transferring an intervention-response model across sites requires a transportability check or sensitivity analysis; model-based post-treatment curves are not observed treatment effects.",
+    "Percentage change must use a declared denominator convention and be machine-replayed from before/after values.",
+    "Optimization variables must correspond exactly to the requested decisions. Camera placement cannot be optimized with only an emergency-lane state variable.",
+    "Sensor-placement benefits need a mediation chain from sensing quality through decision quality to outcomes; otherwise traffic improvement claims exceed the placement evidence.",
+    "Accelerated or sampled video needs two clocks: video time and real-world time. Every threshold, lead time, flow unit and x-axis must declare which clock it uses and include the conversion.",
+    "Metric formulas need semantic replay as well as arithmetic replay: a variable named total collision-exposure time cannot be silently reused as total travel time in an average-passage formula.",
+    "Surrogate-assisted optimization requires surrogate validation (DOE coverage, holdout error and uncertainty) before reporting the surrogate optimum as an engineering optimum."
+  ]
+}

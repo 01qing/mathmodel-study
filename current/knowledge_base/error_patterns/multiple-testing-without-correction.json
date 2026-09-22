@@ -1,0 +1,6 @@
+{
+  "id": "multiple-testing-without-correction",
+  "trigger": "many pairwise hypothesis tests reuse alpha without FWER/FDR adjustment.",
+  "risk": "family-wise false-positive probability inflates rapidly and a selected “best group” can be a multiplicity artifact.",
+  "gate": "Predefine comparison family and apply Holm/Bonferroni/FDR or a global test followed by corrected post-hoc contrasts; report adjusted p-values and effect sizes."
+}

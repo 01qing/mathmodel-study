@@ -1,0 +1,54 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "transferable_modules": [
+    {
+      "module": "ray_visibility_signature",
+      "input": "walkable node + classified obstacle/landscape geometry",
+      "output": "angle-distance categorical visibility matrix",
+      "use_when": "route experience depends on local view composition",
+      "gate": "occlusion semantics, eye height/range/angular resolution and sensitivity registered"
+    },
+    {
+      "module": "surprisal_plus_spatial_change",
+      "input": "neighbor visibility states",
+      "output": "temporal surprisal + spatial Hamming/change",
+      "use_when": "sequential scene novelty is relevant",
+      "gate": "use -log p/1-p consistently; transition estimates need adequate counts/smoothing"
+    },
+    {
+      "module": "multiobjective_route_registry",
+      "input": "feasible graph paths",
+      "output": "interest/repeat Pareto set",
+      "use_when": "route quality has conflicting criteria",
+      "gate": "final decoded path revalidated; HV/GD reference contract recorded"
+    },
+    {
+      "module": "interpretable_landscape_descriptor_score",
+      "input": "patch/grid/network metrics",
+      "output": "dimension-specific score + sensitivity",
+      "use_when": "n is small and interpretability matters",
+      "gate": "benefit direction, redundancy, normalization and anchor fitted outside evaluation set"
+    },
+    {
+      "module": "compact_multiscale_similarity",
+      "input": "garden-level compact descriptors",
+      "output": "pairwise similarity/distance + uncertainty",
+      "use_when": "independent garden count is tiny",
+      "gate": "avoid d>>n confirmatory clustering; standardization fit on train/reference cohort and cohort provenance attached"
+    },
+    {
+      "module": "cluster_stability_not_self_ANOVA",
+      "input": "garden descriptors",
+      "output": "resampling stability / external-label agreement",
+      "use_when": "exploratory styles/clusters are proposed",
+      "gate": "do not validate clusters with same features used to create them"
+    }
+  ],
+  "blocked_modules": [
+    "forced-anchor score as independent validation",
+    "same-feature KMeans + ANOVA as confirmatory cluster significance",
+    "silent default feature vectors after algorithm exceptions",
+    "all-pair high cosine similarity as proof of cultural completeness"
+  ]
+}

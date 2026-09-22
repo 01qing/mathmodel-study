@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "registry_byte_identical": true,
+  "first_sha256": "987489733a944bace140ae13812aab94097e952349e8ffca94ef329ea7bcc299",
+  "replay_sha256": "987489733a944bace140ae13812aab94097e952349e8ffca94ef329ea7bcc299",
+  "scope": "full modeling/figures rerun from frozen prepared arrays; raw feature pipeline not rerun"
+}

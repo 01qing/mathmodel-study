@@ -1,0 +1,6 @@
+{
+  "pattern": "calibration-evaluation-same-data",
+  "symptom": "A fitted offset, lag, correction factor, threshold or physical parameter is chosen to minimize error on the same sequence used for reported performance.",
+  "risk": "Reported fit improvement conflates calibration and generalization.",
+  "check": "Fit on training turbines/time blocks and report error on untouched turbine/time/group holdout."
+}

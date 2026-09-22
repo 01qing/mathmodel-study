@@ -1,0 +1,94 @@
+{
+  "paper_id": "S018",
+  "checks": {
+    "frame_timebase_contract": {
+      "paper_frames_per_second_record": 25,
+      "printed_code_counter_trigger": 33,
+      "contract_consistent": false
+    },
+    "metric_algebra": {
+      "obs3": {
+        "rmse": 0.1304,
+        "mse": 0.017,
+        "rmse_squared": 0.017004,
+        "consistent": true
+      },
+      "obs4": {
+        "rmse": 0.1652,
+        "mse": 0.2164,
+        "rmse_squared": 0.027291,
+        "consistent": false
+      }
+    },
+    "percentage_replay": {
+      "video1_speed": {
+        "before": 8.16,
+        "after": 18.73,
+        "paper_percent": 56.43,
+        "standard_before_denominator_percent": 129.534
+      },
+      "video2_speed": {
+        "before": 11.76,
+        "after": 18.61,
+        "paper_percent": 36.81,
+        "standard_before_denominator_percent": 58.248
+      },
+      "camera_speed": {
+        "before": 18.73,
+        "after": 20.19,
+        "paper_percent": 7.23,
+        "standard_before_denominator_percent": 7.795
+      }
+    },
+    "forecast_architecture_visibility": {
+      "printed_bigru_sequence_length": 1,
+      "undefined_W_reference": true,
+      "multihead_attention_visible": false,
+      "tcn_svr_pso_complete_training_visible": false
+    },
+    "threshold_logic": {
+      "abstract": "speed<20 OR flow>0.5",
+      "body_gray_zone": "15-20 m/s unspecified",
+      "q3": "speed<threshold AND flow>threshold",
+      "consistent": false
+    },
+    "appendix_relevance": {
+      "Q1": "partial",
+      "Q2": "mismatched vision architecture code",
+      "Q3": "not visible",
+      "Q4": "not visible"
+    },
+    "q4_decision_variable_contract": {
+      "task_output": "camera number and locations",
+      "declared_variable": "emergency-lane open/close E_i at intervals",
+      "matches": false
+    },
+    "real_video_timebase": {
+      "paper_video_speedup_factor": 10,
+      "nominal_fps": 25,
+      "real_seconds_per_frame_if_10x": 0.4,
+      "real_seconds_per_25_frames": 10.0,
+      "real_seconds_per_33_frames": 13.2,
+      "single_authoritative_conversion_visible": false
+    },
+    "warning_rule_contract": {
+      "paper_gradient_threshold": 1.3,
+      "paper_mean_window_condition_visible": true,
+      "printed_code_gradient_threshold": 0.85,
+      "printed_code_mean_window_condition_visible": false,
+      "consistent": false
+    },
+    "metric_semantic_contract": {
+      "eq47_metric_name": "average passage time",
+      "eq47_numerator_symbol": "T_ET",
+      "T_ET_definition": "total collision exposure time",
+      "semantic_match": false
+    },
+    "q4_scalarization_contract": {
+      "paper_claims_normalization": true,
+      "normalization_formula_visible": false,
+      "numeric_weights_visible": false,
+      "surrogate_holdout_error_visible": false
+    }
+  }
+}

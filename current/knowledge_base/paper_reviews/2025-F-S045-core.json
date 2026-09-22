@@ -1,0 +1,78 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "year": 2025,
+  "problem_id": "F",
+  "split": "train",
+  "pages": 94,
+  "title": "江南古典园林美学特征的量化建模与分析",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_94_PAGE_VISUAL_AUDIT_PLUS_PRINTED_CODE_STATIC_AUDIT",
+  "visual_status": "ORIGINAL 94-PAGE PDF ALL-PAGE VISUAL AUDIT; printed Python appendix pp62-94 audited",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1 garden/route candidate with final route feasibility checked on decoded path; Q2 garden for score generalization and spatial cell only as nested analysis unit; Q3 garden/entity for external similarity/generalization, not pair count",
+    "input_structure": "10 Jiangnan gardens with vector/plan geometry and landscape-element sheets; Q1 passable-space/path graph; Q2 subregion/element geometry and open-close descriptors; Q3 compact cross-question garden features plus one external Heyuan case; pp62-94 print Python fragments",
+    "validation_priority": "garden/entity holdout or external independent preference/truth where available; calibration cohort separated from validation cohort; all ranking/sensitivity arrays retain garden_id; final decoded routes replay graph/length/repetition constraints; similarity preprocessing frozen before external garden",
+    "author_evaluation_scope": "within-cohort route comparisons, Jichang-anchored illusion ranking, perturbation plots and one Heyuan applicability example; no independent aesthetic ground truth is established"
+  },
+  "questions": {
+    "Q1": "passable-region extraction -> skeleton/key-node graph -> path length/turn/cross/repetition + local landscape-change interest -> weighted route cost -> claimed improved GA -> comparison with Zhuozheng official route",
+    "Q2": "subregion descriptors -> claimed GMM-MRF spatial fuzzy clustering with BIC K -> openness/enclosure + rhythm descriptors -> Jichang-anchored 0-100 illusion score -> one-at-a-time/joint sensitivity",
+    "Q3": "Q1/Q2 compact garden vector -> cosine + Jaccard fusion with alpha scan -> hierarchical similarity/commonality -> external Heyuan application -> natural/artificial fusion and water-land blending indicators"
+  },
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "94/94 full-text + original-PDF visual audit",
+      "printed Python appendix pp62-94 static audit",
+      "paper/formula/code/result-contract comparison and arithmetic replay"
+    ],
+    "not_achieved": [
+      "R3: no self-contained author project/original-data execution; printed appendix materially diverges from described GA/GMM-MRF/similarity pipeline",
+      "R4-R7: no partial/full original-data reproduction, independent reimplementation or new-task transfer attributable to S045 author method"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 gives a transparent geometry-to-route representation and explicitly separates scenic change, turns/crossings, spatial type and route length as interpretable components.",
+    "Q2 builds an interpretable decomposition from element richness/fragmentation and frame-water coordination to open-close rhythm, and includes an explicit perturbation-analysis plan.",
+    "Q3 deliberately combines continuous structural descriptors with element-composition similarity and tries an external garden rather than relying only on self-similarity.",
+    "The long printed appendix makes paper-code semantic auditing possible, exposing which sophisticated labels are and are not implemented."
+  ],
+  "key_risks": [
+    "Q1 Eq.(5.67) verbally includes physical length and lists lambda1,lambda2,lambda3, but displayed edge cost contains only -lambda2*S + lambda3*R; the length/lambda1 term is missing.",
+    "Q1 Eq.(5.71) defines GA fitness using path length and repetition, which drops the scenic-interest component that earlier defines Cost(P); objective semantics drift across sections.",
+    "Q1 arbitrary one-point path crossover and random-node replacement do not preserve graph adjacency by construction; a final path-feasibility repair/replay is mandatory.",
+    "Q1 printed code uses Dijkstra and automatic nearest-component straight-line bridging; no GA loop is present, and bridging can create edges that were never proven walkable.",
+    "Q1 printed exoticness code counts nearby element types and divides by segment length before log1p; it does not implement the paper's richer area-overlap/distance-decay/left-right composition model.",
+    "Q1 abstract says optimized route is more interesting, while Sec.5.8 says official route wins turns/scenic change and total interest is similar; headline overstates the visible comparison.",
+    "Q2 paper describes GMM-MRF/EM/ICM/BIC on a multi-feature subregion vector, but printed code uses coordinate-only KMeans/MiniBatchKMeans and no GMM/MRF/Potts/ICM/BIC likelihood implementation.",
+    "Q2 printed illusion-score path uses np.random.random() openness and then evaluates every garden from the same Jichang data object; these are synthetic placeholders, not real ten-garden evidence.",
+    "Q2 cluster K is hard-set to 5 in one path and 6 in another despite the paper describing BIC-selected K; element categories and spatial theme count are conflated.",
+    "Q2 sensitivity code creates one aggregate score per alpha, then ranks the alpha-scenario score vector and compares it with a garden ranking; both arrays have length 10 but represent different entities.",
+    "Q2 mu±1.96*sigma is a normal score-distribution interval, not a confidence interval for the mean unless sigma is an SE or the intended estimand is redefined.",
+    "Q2 Jichang is forced to 100 and supplies thresholds/reference normalization; Jichang ranking first cannot be reused as independent validation.",
+    "Q3 raw feature vector mixes route length/counts with [0,1] proportions/open-close terms. The method section does not expose a train-fitted scaling step before cosine similarity, so scale dominance remains unresolved.",
+    "Q3 calls Eq.(7.11) Jaccard although it is a continuous weighted min/max coefficient, whereas Eq.(7.3) is set Jaccard after thresholding; the semantic contract changes across sections.",
+    "Q3 alpha=0.7 is selected internally on the same ten gardens via silhouette/cophenetic/bootstrap-ARI; this supports internal stability, not external aesthetic truth.",
+    "Q3 Heyuan has no independent ground-truth similarity/aesthetic label; it is an applicability/face-validity example, not accuracy/generalization proof.",
+    "Q3 printed similarity code hard-codes ten Heyuan similarities and changes -0.791→0.209 and -0.857→0.143 without a registered global transformation; no cosine/Jaccard/alpha-scan computation appears.",
+    "Q3 Eq.(7.13) was visually verified to be 1-|A_natural/A_total - A_artificial/A_total|; PDF text extraction dropped the absolute-value bars, illustrating why visual formula verification is necessary."
+  ],
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S045.json",
+  "result_registry_ref": "knowledge_base/result_registry/S045.json",
+  "code_audit_ref": "knowledge_base/code_cases/2025-F-S045-printed-code-audit.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-F-S045-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S045.json",
+  "recommended_redo": [
+    "Q1 use a walkable graph plus transparent scene-change features, generate feasible k-shortest/beam/label-setting candidates and retain raw route objectives; if GA is needed, use edge/path-preserving operators and replay all constraints after crossover/repair.",
+    "Q2 begin with deterministic subregion descriptors and simple spatial clustering; promote GMM-MRF only if an actual likelihood+neighbor-energy implementation improves held-out spatial coherence. Calibrate score ranges on a calibration cohort and validate on independent gardens/experts.",
+    "Q2 implement sensitivity by recomputing a full ten-garden score vector for every parameter draw, ranking gardens within each draw, and registering garden_id/run_id before Kendall tau.",
+    "Q3 standardize/robust-scale heterogeneous continuous features on the reference/train cohort, use a correctly named set-Jaccard or weighted min-max coefficient, and evaluate against external pairwise/expert truth or downstream retrieval when available.",
+    "Never post-hoc edit negative similarities individually; any monotone/nonnegative transformation must be declared, applied to all pairs, fit without target leakage and preserved in Result Registry."
+  ]
+}

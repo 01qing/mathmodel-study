@@ -1,0 +1,75 @@
+{
+  "paper_id": "S035",
+  "case_group": "2025-C",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_SOURCE_OVERLAP_LEAKAGE",
+      "surface": "Q1 ML exploration",
+      "finding": "paper states Attachment 2 contains the same sample as an Attachment 1 test image; unusually good prediction is likely data leakage",
+      "status": "author_acknowledged_and_core_gate"
+    },
+    {
+      "id": "Q1_SMALL_SAMPLE_GENERALIZATION",
+      "surface": "Q1",
+      "finding": "only 10 project images; train performance near perfect while test metrics drop; model capacity/regularization does not repair data limitation",
+      "status": "supported_by_paper"
+    },
+    {
+      "id": "Q2_FIXED_PERIOD_CONTRACT",
+      "surface": "Q2 result tables",
+      "finding": "reported P values are 94.25 mm, consistent with pi*30 = 94.24778 mm",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q2_POOR_FIT_REJECT_EXAMPLE",
+      "surface": "Q2 Table 5-3-1",
+      "finding": "one trace has fit error 0.9598 and missingness 71%; a returned parameter row is not automatically a valid physical fit",
+      "status": "core_reject_gate"
+    },
+    {
+      "id": "Q2_HIGH_MISSINGNESS_EXAMPLES",
+      "surface": "Q2 tables",
+      "finding": "multiple fits have missingness near/above 70%; missingness must enter accept/reject logic",
+      "status": "supported_by_table"
+    },
+    {
+      "id": "Q3_DENSE_REFERENCE_NOT_TRUTH",
+      "surface": "Q3 discussion",
+      "finding": "sampling-density stabilization is numerical stability evidence, not external physical truth",
+      "status": "semantic_downgrade"
+    },
+    {
+      "id": "Q4_MC_ANGLE_MEAN_DIMENSION",
+      "surface": "Q4 Monte Carlo",
+      "finding": "mean sampled angle retains angle units and cannot by itself be an unbiased probability estimator",
+      "status": "contradicted_semantics"
+    },
+    {
+      "id": "Q4_SCORE_CALIBRATION",
+      "surface": "Q4 angle/distance mapping",
+      "finding": "mapping self-normalized angle/distance statistics to [0,1] yields a heuristic compatibility score absent labeled calibration",
+      "status": "not_calibrated"
+    },
+    {
+      "id": "Q4_IDW_UNCERTAINTY_SEMANTICS",
+      "surface": "Q4 uncertainty map",
+      "finding": "IDW/interpolated dispersion is a spatial surrogate, not posterior uncertainty without likelihood/update evidence",
+      "status": "semantic_downgrade"
+    },
+    {
+      "id": "CODE_SOURCE_PATHS_UNAVAILABLE",
+      "surface": "paper source paths",
+      "finding": "source-code paths are cited, but available 2025 excellent-paper ZIP contains PDFs only",
+      "status": "R1_boundary"
+    }
+  ],
+  "global_gates": [
+    "deduplicate content/source groups before any split",
+    "no temporal model without a real time axis",
+    "fit acceptance requires residual/inlier/missingness/physics checks",
+    "Monte Carlo propagation is not calibration",
+    "[0,1] score is not automatically probability",
+    "referenced but unavailable code cannot justify R2"
+  ]
+}

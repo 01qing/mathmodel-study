@@ -1,0 +1,14 @@
+{
+  "pattern": "association-to-intervention-overclaim",
+  "description": "Correlation or synchronized trends are used to claim a control/intervention will cause improvement.",
+  "detection": [
+    "Pearson/correlation heatmap is the main evidence",
+    "paper concludes opening/treatment/action will improve outcome",
+    "no observed treatment, causal design or calibrated simulator"
+  ],
+  "remedy": [
+    "state association only",
+    "use observed interventions, causal identification, synthetic control/difference-in-differences when assumptions fit, or a calibrated simulator",
+    "report counterfactual uncertainty/sensitivity"
+  ]
+}

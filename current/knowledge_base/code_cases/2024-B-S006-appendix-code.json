@@ -1,0 +1,49 @@
+{
+  "paper_id": "S006",
+  "source": "printed appendix text",
+  "run_status": "NOT_RUN_AS_AUTHOR_PIPELINE; STATIC_AUDIT_PLUS_MINIMAL_API_SMOKE_ONLY",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "TargetEncoder(loc_bss_id -> seq_time) is fitted before train/test split",
+        "visible appendix does not contain a DBSCAN implementation despite main-text method emphasis",
+        "final predictions are perturbed with unseeded Gaussian noise after model inference"
+      ],
+      "risk": "leakage + method-evidence gap + nondeterministic submission"
+    },
+    "Q2": {
+      "findings": [
+        "TargetEncoder and StandardScaler are fitted before split",
+        "RandomOverSampler is applied before split",
+        "printed ordering reshapes X to 3D before RandomOverSampler",
+        "sync/async ambiguity uses unseeded np.random.choice",
+        "SINR uses direct differences/sums in dBm-style quantities"
+      ],
+      "api_smoke": "imbalanced-learn 0.14.1 rejects 3D X for RandomOverSampler",
+      "risk": "inflated validation accuracy + non-runnable printed path + physical-unit error"
+    },
+    "Q3": {
+      "findings": [
+        "first-stage target encoding uses target information before split",
+        "second-stage scaling fit occurs before split",
+        "second-stage is validated on ground-truth intermediates but inference uses predicted intermediates",
+        "no OOF/cross-fit generation of stage-1 training features for stage-2"
+      ],
+      "risk": "end-to-end performance is not identified by stage-2 validation curves"
+    }
+  },
+  "replication_requirements": [
+    "official WLAN data",
+    "original scripts/notebook",
+    "exact experiment/session group ids",
+    "environment file/package versions"
+  ],
+  "safe_reimplementation_order": [
+    "group split",
+    "fit encoders/scalers on training groups",
+    "generate OOF stage-1 predictions",
+    "fit stage 2 on OOF intermediates",
+    "fit final stage-1 models on full training only",
+    "evaluate full cascade on untouched groups"
+  ]
+}

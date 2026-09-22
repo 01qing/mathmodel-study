@@ -1,0 +1,62 @@
+{
+  "checks": {
+    "feature_target_identity": {
+      "feature_columns": [
+        1,
+        2
+      ],
+      "target_column": 1,
+      "target_in_features": true
+    },
+    "preprocess_order": {
+      "scaler_fit_before_split": true,
+      "valid": false
+    },
+    "sequence_contract": {
+      "timesteps": 1,
+      "temporal_memory_claim_supported": false
+    },
+    "architecture_contract": {
+      "paper_name": "SK-Net",
+      "printed_primitives": [
+        "mean pooling",
+        "max pooling",
+        "Dense",
+        "sigmoid",
+        "Multiply"
+      ],
+      "split_fuse_select_present": false
+    },
+    "worst_group": {
+      "node1_video2_r2": -0.81001,
+      "universal_generalization_claim_supported": false
+    },
+    "shockwave_time_sign": {
+      "upstream_wave_requires_negative_w": true,
+      "paper_time_formula": "D/w",
+      "elapsed_time_nonnegative_guaranteed": false
+    },
+    "greenshields_replay": {
+      "vf": 100,
+      "kj": 200,
+      "paper_k": 33.33,
+      "paper_v": 100,
+      "v_at_paper_k": 83.33500000000001,
+      "consistent": false,
+      "correct_low_density_k": 42.26497308103743,
+      "correct_low_density_v": 78.86751345948127
+    },
+    "table54_node2_reduction_pct": 79.72027972027972,
+    "table54_utilization_pct": {
+      "node1": 21.978021978021978,
+      "node2": 69.44444444444444,
+      "node3": 20.146520146520146,
+      "node4": 90.27777777777779
+    },
+    "camera_optimization": {
+      "decision_variables_explicit": false,
+      "objective_numeric": false,
+      "solved_optimization": false
+    }
+  }
+}

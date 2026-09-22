@@ -1,0 +1,135 @@
+
+--- PAGE 1 ---
+mat
+Python
+mat
+csv
+48kHz_DE_data 
+IR014_1.mat
+1
+1 IR014.mat
+1
+IR014_1
+X175
+X175
+1
+
+--- PAGE 2 ---
+1.
+:
+Mother Wavelet
+1
+a
+b
+;
+0
+[16]
+1)
+;
+2)
+;
+3)
+2.
+EMD
+:EMD
+(IMF) [1]
+IMF
+EMD
+sifting
+Mother Wavelet
+Mother Wa
+b
+
+--- PAGE 3 ---
+EMD
+1 1)
+;
+2)
+EMD
+:
+3)
+IMF
+2 IR014_!
+2
+EMD
+3
+['X175_DE_time']
+EMD
+:
+(1)
+;
+(2)
+;3)
+IMF
+3
+2
+2 IR014_!
+2 IR014_!
+3
+
+--- PAGE 4 ---
+3
+4
+['X175_DE_time']
+4
+4
+;
+3
+2
+2
+1
+
+--- PAGE 5 ---
+48kHz_DE_data
+IR014_1
+48kHz_DE 
+0.014
+48kHz_DE_data
+0.014
+1
+2
+0
+X
+DE_time
+FE_time
+1.
+[4]
+2.
+.
+1
+Accuracy
+2.
+Precision
+3
+Recall
+4.F1
+F1-Score
+5.
+Confusion Matrix
+5
+ROC
+AUC
+0.4
+0.6 
+31% 
+36%
+29% 
+F1
+0.32 
+Score
+core
+Co
+sion Matrix
+Matrix
+
+--- PAGE 6 ---
+5
+,
+5
+,
+
+--- PAGE 7 ---
+
+--- PAGE 8 ---
+
+--- PAGE 9 ---

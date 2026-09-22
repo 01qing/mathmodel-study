@@ -1,0 +1,9 @@
+{
+  "source_id": "S013",
+  "split": "Dev",
+  "time": "2026-09-11T16:37:45.963540+08:00",
+  "authorization": "user continued after independent freeze report",
+  "freeze_manifest_sha256": "ee139e2a7063fd6cb3a279ae5acba633f2e6784f8afa62d9e51fbc9a1db42a7e",
+  "source_sha256": "a8c55b50f7be97971dc0b5844952dcbdc6929c07f52f841c0d0add83bec7628d",
+  "scope": "S013 only; Test unopened"
+}

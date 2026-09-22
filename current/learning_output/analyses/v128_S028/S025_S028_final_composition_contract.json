@@ -1,0 +1,64 @@
+{
+  "case_group": "2025-A",
+  "status": "FINAL_TRAIN_GROUP_COMPLETE",
+  "papers": [
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "compatibility_checks": [
+    "input_output_interface",
+    "variable_definitions",
+    "data_distribution",
+    "mathematical_assumptions",
+    "units_dimensions",
+    "train_vs_execution_stage",
+    "evaluation_metrics"
+  ],
+  "recommended_composition": {
+    "Q1": [
+      "shared DAG parser/evaluator",
+      "FREE-first legal ready-set",
+      "critical-path/slack urgency before allocation-size tie-break",
+      "incremental memory delta",
+      "optional topology-safe local refiner only if gap exists"
+    ],
+    "Q2": [
+      "shared lifetime extraction",
+      "coalescing free-list allocator",
+      "exact incremental transfer cost",
+      "deficit-aware victim subset for small active set",
+      "common feasibility replay"
+    ],
+    "Q3": [
+      "canonical transfer epsilon",
+      "Q2 registry baseline by run_id",
+      "feasibility-first filtering",
+      "resource-aware cycle minimization",
+      "optional verified Pareto frontier"
+    ]
+  },
+  "blocked_components": [
+    {
+      "module": "S028 Q2 FlashAttention1 final 33792",
+      "reason": "not traceable to visible Table14 rows"
+    },
+    {
+      "module": "S028 Q3 10% cap",
+      "reason": "conflicts with S025 5% contract candidate; original task must resolve"
+    },
+    {
+      "module": "S028 Q3 FlashAttention0 selected NSGA row",
+      "reason": "contradicts transfer-first lexicographic rule"
+    },
+    {
+      "module": "direct cross-paper raw byte ranking",
+      "reason": "evaluator/spill semantics differ"
+    }
+  ],
+  "mainline_recommendation_allowed": true,
+  "mini_transfer_test_due": false,
+  "mini_transfer_test_status": "PASS_AFTER_RULE_REVISION",
+  "mini_transfer_test_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+}

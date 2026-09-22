@@ -1,0 +1,6 @@
+{
+  "name": "worst group metric ignored in conclusion",
+  "trigger": "paper claims broad generalization while a held-out subgroup has severe failure",
+  "gate": "report worst-group metric and failure mode; block universal success language",
+  "source_example": "S020 Table 3.23 includes R2=-0.81001 but conclusion says R2≈1/generalization strong"
+}

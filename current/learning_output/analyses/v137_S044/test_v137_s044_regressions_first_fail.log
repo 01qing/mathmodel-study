@@ -1,0 +1,9 @@
+First specialist-regression run for v1.37/S044
+Result: FAIL
+Failure:
+  AssertionError: Q2 fixed output
+Original harness assertion:
+  ck('Q2 fixed output','fixed score' in ca['Q2']['hardcoded_outputs'])
+Actual audited evidence string:
+  final illusion/element/openness score dictionaries exactly inject the ranking values instead of returning the earlier computed score pipeline
+Diagnosis: harness wording mismatch only. The underlying semantic evidence is present: fixed score dictionaries inject the reported ranking instead of returning the computed pipeline. No S044 evidence or rule was relaxed.

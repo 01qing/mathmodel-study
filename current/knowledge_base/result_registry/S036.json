@@ -1,0 +1,69 @@
+{
+  "paper_id": "S036",
+  "case_group": "2025-C",
+  "status": "AUDIT_REGISTRY_NOT_AUTHOR_REPRODUCTION",
+  "entries": [
+    {
+      "id": "Q1_PROJECT_TRAIN_TEST_LEAKAGE",
+      "surface": "Q1 data/training/evaluation",
+      "finding": "paper says 117 external images are integrated with all project-provided images for training, then evaluates all 10 project images; no untouched project split is visible",
+      "status": "independent_test_not_established"
+    },
+    {
+      "id": "Q1_HEADLINE_METRICS",
+      "surface": "Q1 Table 3-1/3-2",
+      "finding": "DeepLabV3+ reports mIoU=0.8435, Precision=0.9356, Recall=0.8779; arithmetic values are recorded but generalization evidence is downgraded by split provenance",
+      "status": "author_claim_not_independent_test"
+    },
+    {
+      "id": "Q2_FIXED_PERIOD",
+      "surface": "Q2",
+      "finding": "22 reported fractures use P=94.25 mm, consistent with pi*30 mm",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q3_MULTI_METRIC_CONFLICT",
+      "surface": "Q3 Table 5-1",
+      "finding": "keypoint sampling has best R2=0.9177 and RMSE=1.6277 but 10 ±5% outliers, worse than equal=8 and adaptive=9",
+      "status": "winner_depends_on_primary_metric"
+    },
+    {
+      "id": "Q4_EDGE_SCORE_REPLAY",
+      "surface": "Q4 Table 6-1",
+      "finding": "0.45*1.71e-6 + 0.45*0.98 + 0.10*0.82 = 0.523000769, consistent with 0.52 after rounding",
+      "status": "verified_arithmetic"
+    },
+    {
+      "id": "Q4_EDGE_COMPONENT_CONTRADICTION",
+      "surface": "Q4 network results",
+      "finding": "paper states only one pair exceeds >0.5, yet later reports a large connected component spanning holes 3,6,2,5; one undirected edge cannot connect four holes",
+      "status": "contradicted_graph_contract"
+    },
+    {
+      "id": "Q4_SCORE_NOT_CALIBRATED_PROBABILITY",
+      "surface": "Q4 Eq 6-13",
+      "finding": "weighted geometry/JRC similarity is bounded but no calibration against connectivity labels is shown",
+      "status": "semantic_downgrade"
+    },
+    {
+      "id": "Q4_EIG_POSTERIOR_GAP",
+      "surface": "Q4 drilling narrative",
+      "finding": "Bayesian/EIG terminology appears, but visible method does not specify likelihood, posterior update, or expectation over future observations",
+      "status": "pseudo_EIG"
+    },
+    {
+      "id": "CODE_NOTEBOOKS_UNAVAILABLE",
+      "surface": "appendix/source references",
+      "finding": "notebooks/scripts are referenced but not included as author source in the PDF-only collection",
+      "status": "R1_boundary"
+    }
+  ],
+  "global_gates": [
+    "freeze source/original-image split before augmentation",
+    "prediction metrics cannot outrun split provenance",
+    "multi-metric winner requires primary utility/Pareto rule",
+    "network conclusions must replay from thresholded edge registry",
+    "compatibility score is not calibrated probability",
+    "EIG requires observation and posterior update model"
+  ]
+}

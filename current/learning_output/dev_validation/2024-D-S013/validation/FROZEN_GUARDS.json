@@ -1,0 +1,9 @@
+{
+  "core_checked": 1470,
+  "core_changed": [],
+  "solution_checked": 55,
+  "solution_changed": [],
+  "freeze_manifest_sha256": "ee139e2a7063fd6cb3a279ae5acba633f2e6784f8afa62d9e51fbc9a1db42a7e",
+  "status": "PASS",
+  "scope": "Immutable bytes; does not establish ability gain or prove absence of historical exposure"
+}

@@ -1,0 +1,9 @@
+{
+  "paper_id": "S036",
+  "sha256": "b1cdd0efccde759c990a385d0aa613f9e2fe2b7222a60e87452352b9440ebb98",
+  "pages": 76,
+  "visual_audit": "76/76 original PDF visually reviewed",
+  "available_collection_code": "notebooks/scripts referenced but actual author code not available in PDF-only collection",
+  "reproduction_level": "R1",
+  "source_pdf": "next_s036/S036.pdf"
+}

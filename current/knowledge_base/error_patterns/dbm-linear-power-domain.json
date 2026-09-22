@@ -1,0 +1,11 @@
+{
+  "name": "dbm-linear-power-domain",
+  "trigger": "RSSI/interference/noise/SINR quantities expressed in dBm",
+  "risk": "dBm is logarithmic; adding/subtracting dBm values as linear powers gives physically invalid SINR",
+  "gate": [
+    "P_mW=10^(P_dBm/10)",
+    "sum interference/noise in linear power",
+    "SINR_linear=S/(I+N)",
+    "convert ratio to dB only after division"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "objective-semantic-drift-across-section",
+  "name": "Objective variables drift across formula and algorithm text",
+  "severity": "critical",
+  "trigger": "same optimization is defined as Peak+transfer then later Time+transfer",
+  "risk": "solver may optimize a different task",
+  "gate": "canonical objective registry with variable/unit check",
+  "source_examples": [
+    "2025-A-S028 Q2 Eq4-10 vs VN-SA steps"
+  ]
+}

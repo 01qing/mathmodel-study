@@ -1,0 +1,11 @@
+{
+  "id": "reported-improvement-sign-convention-drift",
+  "name": "Improvement/sign convention drift",
+  "severity": "high",
+  "trigger": "metric numerically increases but table reports negative change while prose describes positive overhead, or opposite",
+  "risk": "readers can interpret deterioration as improvement",
+  "gate": "derive signed delta and semantic label (increase/decrease/improvement) from raw before/after values in Result Registry",
+  "source_examples": [
+    "2025-A-S027-Q3 traffic-change column"
+  ]
+}

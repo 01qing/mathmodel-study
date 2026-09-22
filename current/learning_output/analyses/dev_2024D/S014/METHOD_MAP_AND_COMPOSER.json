@@ -1,0 +1,75 @@
+{
+  "status": "PARTIAL_S013_S014_ONLY",
+  "case_group": "2024-D",
+  "split": "dev",
+  "not_final": true,
+  "remaining": [
+    "S015",
+    "S016"
+  ],
+  "selection": [
+    {
+      "question": "Q1",
+      "selected": "冻结方案：共同支持域年累计/面积加权趋势与五类净变化；明确2020土地缺失",
+      "author_candidate": "逐日TIFF→递归平均→MK/Sen地图；五类覆盖度相对变化",
+      "decision": "冻结描述基线保留；作者稳健趋势为条件模块，不比较不同量纲全国均值"
+    },
+    {
+      "question": "Q2",
+      "selected": "冻结年度Rx1day气候态；若改计数任务，先按有效日数估计常数/分区事件率",
+      "author_candidate": "线性回归、RF、SVM、XGB、AdaBoost，地形与平均温度→累计暴雨次数",
+      "decision": "S014比冻结方案增加每日事件计数视角；不是用另一目标的高R2推翻冻结基线"
+    },
+    {
+      "question": "Q3",
+      "selected": "冻结Pcrit=K/[C(L)T]条件情景；持久性中心，历史rolling hindcast优于线性外推",
+      "author_candidate": "DEM排水网络+MK门控Sen预测+HEV/AHP/ArcGISWeightedSum",
+      "decision": "S013/S014评价指数思想可对照；作者权重和阈值不直接拼入冻结容量方案"
+    },
+    {
+      "question": "Q4",
+      "selected": "冻结PCA+K5分区；报告重构与时间迁移ARI，外部用途尚未建立",
+      "author_candidate": "地理分界线解释+五类变化率RF/XGB+2025–2035预测地图",
+      "decision": "S014提供更丰富地理叠图表达；不能替代冻结结构模型，也不证明Core净提升"
+    }
+  ],
+  "seven_gates": [
+    {
+      "gate": "输入输出接口",
+      "status": "CONDITIONAL",
+      "reason": "必须有grid_id,time_support,mask,CRS,transform；shape相同不够"
+    },
+    {
+      "gate": "变量定义",
+      "status": "BLOCK_DIRECT_COMPOSITION",
+      "reason": "Rx1day、累计暴雨次数、降水年累计、灾害概率、指数互不等同；GDP密度非人均GDP"
+    },
+    {
+      "gate": "数据分布",
+      "status": "CONDITIONAL",
+      "reason": "随机空间holdout不匹配新区域/未来年份；采用共同空间块/滚动窗口"
+    },
+    {
+      "gate": "数学假设",
+      "status": "CONDITIONAL",
+      "reason": "MK独立性/ties、自相关，AHP互反性，HEV乘积/和需分别声明"
+    },
+    {
+      "gate": "量纲",
+      "status": "BLOCK_DIRECT_COMPOSITION",
+      "reason": "mm/day与mm/year、角度周期、GDP密度、归一化指标方向逐项核验"
+    },
+    {
+      "gate": "训练执行阶段",
+      "status": "BLOCK_UNSOURCED_FUTURE",
+      "reason": "未来GDP/pop不可从观测缺口静默补齐；参数仅训练/Dev选取"
+    },
+    {
+      "gate": "评价指标",
+      "status": "BLOCK_UNMATCHED_METRICS",
+      "reason": "同一target/cohort/单位/预算再比MAE/MSE/R2；图像合理性不是外部准确率"
+    }
+  ],
+  "composition_verdict": "直接拼接被拒绝；只有修复接口并重新验证后才允许条件组合",
+  "mini_transfer": "PENDING_COMPLETE_CASE_GROUP; local audit fixtures do not substitute"
+}

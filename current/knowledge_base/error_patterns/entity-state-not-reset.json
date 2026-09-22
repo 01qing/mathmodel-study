@@ -1,0 +1,6 @@
+{
+  "pattern": "entity-state-not-reset",
+  "symptom": "State-space/filter hidden state is initialized outside a loop over independent turbines/patients/devices.",
+  "risk": "The next entity inherits the previous entity final state/covariance, creating cross-entity leakage and artificial dependence.",
+  "check": "Initialize all per-sequence state inside the entity loop or use explicitly justified shared-state models; unit-test entity permutation invariance."
+}

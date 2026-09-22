@@ -1,0 +1,251 @@
+{
+  "paper_id": "S003",
+  "figure_count_main_text": 42,
+  "count_basis": "42 caption occurrences in extracted full text; note duplicate 图1-1, typo 图4--5, and missing 图6-5 numbering",
+  "visual_review_status": "PENDING_ORIGINAL_PDF; captions and surrounding argument text reviewed from all 73 extracted pages",
+  "figures": [
+    {
+      "caption": "图1-1 自动发电控制系统（AGC）运行流程图",
+      "physical_page": 5,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图1-1 全文求解思路图",
+      "physical_page": 7,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-1 问题一求解思路图",
+      "physical_page": 11,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-2 AB 对抗法思想优化初始窗口确定流程",
+      "physical_page": 12,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-3 自适应动态三阶段窗口滑动示意图",
+      "physical_page": 14,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-4 字段分割每秒损伤求解示意图",
+      "physical_page": 15,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4--5 雨流计数法示意图",
+      "physical_page": 16,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-6 三点式雨流计数法流程图",
+      "physical_page": 17,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-7 部分并行计算子段示例图",
+      "physical_page": 20,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-8 主轴扭矩累计疲劳损伤对比图",
+      "physical_page": 21,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-9 塔架推力累计疲劳损伤对比图",
+      "physical_page": 21,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-10 主轴扭矩累计等效疲劳载荷对比图",
+      "physical_page": 22,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-11 塔架推力等效疲劳载荷对比图",
+      "physical_page": 22,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4-12 代表性原件累积疲劳损伤程度的增长图",
+      "physical_page": 23,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-1 问题二求解思路图",
+      "physical_page": 25,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-2 风机输入与输出变量箱线图",
+      "physical_page": 26,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-3 相关性检验热力图",
+      "physical_page": 27,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-4 因素相关性分析物理约束构建示意图",
+      "physical_page": 29,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-5 联合分布图",
+      "physical_page": 31,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-6 分段拟合模型示意图",
+      "physical_page": 32,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-7 input1 策略拟合效果",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-8 state1 策略拟合效果",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-9 input1+state1 策略拟合效果",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-10 input1 策略拟合效果",
+      "physical_page": 36,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-11 部分台风机主轴扭矩与塔架推力预测值与参考值对比图",
+      "physical_page": 37,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5-12 平方和对比图",
+      "physical_page": 37,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-1 问题三求解思路图",
+      "physical_page": 39,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-2 分区域目标函数流确立流程图",
+      "physical_page": 41,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-3 图轴与塔架疲劳损伤KDE 密度图和热力图",
+      "physical_page": 41,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-4 图风机所处环境风速波动箱线图",
+      "physical_page": 43,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-6 优化算法求解流程图",
+      "physical_page": 48,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-7 每秒功率分配方案实时计算时间",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-8 优化前后功率方差变化对比图",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-9 部分时刻实时分配展示图",
+      "physical_page": 50,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6-10 功率分配波动图",
+      "physical_page": 51,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-1 问题四求解思路图",
+      "physical_page": 52,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-2 粒子群PSO 算法流程图",
+      "physical_page": 56,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-3 PSO 功率输出波动图",
+      "physical_page": 60,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-4 MPC 功率输出波动图",
+      "physical_page": 61,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-5 风机的累积疲劳损伤总和优化前后对比图",
+      "physical_page": 61,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-6 优化前后各个风机的塔架累积疲劳损伤对比图",
+      "physical_page": 62,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7-7 优化前后各个风机的主轴累积疲劳损伤对比图",
+      "physical_page": 63,
+      "visual_review": "pending_source_pdf"
+    }
+  ],
+  "argumentation": [
+    {
+      "stage": "Q1 fatigue",
+      "pattern": "总体流程→窗口/雨流机制示意→参考值对比→代表性轨迹→指标/耗时表",
+      "lesson": "实时算法必须同时给 fidelity 与 runtime；代表性曲线不能替代全体统计。"
+    },
+    {
+      "stage": "Q2 surrogate",
+      "pattern": "箱线图→相关热力图→联合分布→物理约束/分段示意→策略拟合对比→最终预测/误差",
+      "lesson": "诊断图应服务变量选择；最终需独立测试或分组验证，不能只展示重合曲线。"
+    },
+    {
+      "stage": "Q3 optimization",
+      "pattern": "优化流程→目标分布/KDE→风速分区→运行时间→方差→时刻快照/单机轨迹",
+      "lesson": "缺失实际Pareto前沿与选点图是证据缺口；仅方差下降不能证明疲劳目标最优或约束全满足。"
+    },
+    {
+      "stage": "Q4 robustness",
+      "pattern": "鲁棒流程→PSO流程→PSO/MPC输出→总疲劳四联图→逐机疲劳",
+      "lesson": "应补噪声去除、延迟补偿的独立误差图和severity sweep；否则下游曲线无法定位改进来自哪里。"
+    }
+  ],
+  "numbering_issues": [
+    "图1-1用于两个不同图",
+    "图4--5含双连字符",
+    "正文从图6-4跳到图6-6，未见编号图6-5"
+  ],
+  "recommended_new_templates": [
+    "pareto_front_operating_point",
+    "robustness_severity_curve",
+    "runtime_distribution_not_single_trace",
+    "componentwise_constraint_dashboard"
+  ]
+}

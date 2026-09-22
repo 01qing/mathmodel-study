@@ -1,0 +1,7 @@
+{
+  "pattern_id": "adaptive-control-formula-direction-drift",
+  "name": "自适应控制公式方向与文字意图相反",
+  "trigger": "adaptive parameter formula is monotone in the opposite direction from the stated diversity/convergence/error response",
+  "example": "S043 Pmutation=Pbase+alpha(1-ConvergenceRate) decreases as convergence rises, while prose says low diversity should increase mutation",
+  "gate": "symbolically/monotonicity-test adaptive formulas at low/mid/high state values before trusting the label"
+}

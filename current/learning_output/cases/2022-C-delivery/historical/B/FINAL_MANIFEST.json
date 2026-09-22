@@ -1,0 +1,131 @@
+{
+  "benchmark_id": "ROLE-P1-2022C-v0.2",
+  "status": "FROZEN_COMPLETE",
+  "reviewer_retest": "PASS",
+  "files": {
+    "00_contracts/ARCHITECT_INTERFACE_CONTRACT.md": {
+      "bytes": 1442,
+      "sha256": "e70c47bcc063ded47c646db37b063514fb9c3f4248193302f1f9902086a51ec0"
+    },
+    "00_contracts/COMMON_FROZEN_CONTRACT.md": {
+      "bytes": 2377,
+      "sha256": "b3543ec8d31764dad4e73f2c8be87d8b0ea6b3928ac84bae5235bc1f6bbc95f3"
+    },
+    "00_contracts/CONTAMINATION_GUARD.md": {
+      "bytes": 761,
+      "sha256": "a3a4de84707d688a39542c45decb521ca8932ab63a0f2cab504c4db3cdd1747c"
+    },
+    "00_contracts/CORE_IDENTITY_GATE.md": {
+      "bytes": 865,
+      "sha256": "3786b8dccdba1fa1ff865d3ffb42631f3aff3caab2ab6a0f8bdbef86ed76d98e"
+    },
+    "00_contracts/Graduate-MathModel-Learning-Skill-v1.41.release.json": {
+      "bytes": 1874,
+      "sha256": "52e3cc626cce6550f0b874051b70718bebe9b4ade5173df24bde650f745c84e4"
+    },
+    "00_contracts/OFFICIAL_SOURCE_IDENTITY.json": {
+      "bytes": 1036,
+      "sha256": "b2f35645b2cfcb724744410d6ac3440280269f226729fd79431744ee27fa998b"
+    },
+    "00_contracts/REVIEWER_INTERFACE_CONTRACT.md": {
+      "bytes": 1539,
+      "sha256": "0ce3190baec40e14d9e3bb80520be4aa3e7d1032dae9571c046ad3ffd92b4908"
+    },
+    "00_contracts/release-v141.zip.sha256": {
+      "bytes": 83,
+      "sha256": "4d3d2499f56eda60e96d31f50e7d9b5a11e3b7224c1b19a279c9db86873bc7a0"
+    },
+    "01_architect_initial/ARCHITECT_DECISION_RECORD_INITIAL.md": {
+      "bytes": 4157,
+      "sha256": "659e94f2edfb8340915eaff23111a4e28792334a40ed759c941da86d09345471"
+    },
+    "01_architect_initial/FREEZE_MANIFEST.json": {
+      "bytes": 553,
+      "sha256": "09685dc60bd39bd04744ac0fa32f446a9d37305592e82fc1da4df607a533a3d6"
+    },
+    "01_architect_initial/architect_initial_results.json": {
+      "bytes": 20695,
+      "sha256": "c776199762f28d528becde6907ad16653be1c4aa8463ce55668a7fcbac616801"
+    },
+    "01_architect_initial/architect_initial_solver.py": {
+      "bytes": 1007,
+      "sha256": "f1d35bef9fdc2535fd21ba721abdbd55be5b6cbe74fcb342ee3b5b2f37faf098"
+    },
+    "02_reviewer_audit/FREEZE_MANIFEST.json": {
+      "bytes": 427,
+      "sha256": "677c70247cd11094ca951c6f8127339f9bb1eda938bc40016affd12f7c8c74da"
+    },
+    "02_reviewer_audit/REVIEWER_AUDIT_RECORD.md": {
+      "bytes": 2393,
+      "sha256": "1e6bc732fe984c16c292ca74f5e5d05c140c1e2e86e3e32fb1c3e257f243beff"
+    },
+    "02_reviewer_audit/reviewer_audit.json": {
+      "bytes": 5929,
+      "sha256": "bf921a9ff5934d7c6862286abdba7d39bd20802269417a0fe2f26ad0d75d8098"
+    },
+    "03_architect_revised/ARCHITECT_REVISED_FINAL.md": {
+      "bytes": 1648,
+      "sha256": "0b2215c29422c4287d66adfbd5992057251fe64c9b734d06624b57a31a50adaa"
+    },
+    "03_architect_revised/FREEZE_MANIFEST.json": {
+      "bytes": 1243,
+      "sha256": "16bcab5b571fc6cd2e82c1d97a8d3b005de6e8b53dd20d7a86b23f4ecc0ad348"
+    },
+    "03_architect_revised/official_inputs_snapshot.json": {
+      "bytes": 71056,
+      "sha256": "f91e43c7e51db89bab48c757228d884e4e3241418eed701bb7d28b584fc78d34"
+    },
+    "03_architect_revised/result11.xlsx": {
+      "bytes": 127360,
+      "sha256": "6f07d6e1c176f2eaca04791a1ba2ff4fee5a2b37e51abdfec2884736da1f4534"
+    },
+    "03_architect_revised/result12.xlsx": {
+      "bytes": 114975,
+      "sha256": "7711db13d713bd21d89ff262a5b2f5cfb9c41d19c395fa3c5657c01fb28d3af6"
+    },
+    "03_architect_revised/result21.xlsx": {
+      "bytes": 159878,
+      "sha256": "efd5a490d58d16c718992b2dc7c2d7d7d63590349980f83f838ba7c02cc53ec4"
+    },
+    "03_architect_revised/result22.xlsx": {
+      "bytes": 169731,
+      "sha256": "add434c5f704d8da3ec2a26228de494bd05b4caaed8c6a3798bcc3c59b6dd40b"
+    },
+    "03_architect_revised/revised_execution.json": {
+      "bytes": 923188,
+      "sha256": "10aa01482d04722c78c4c755570c3929c4f406aea3eb3f3dce85171bc0a3919b"
+    },
+    "03_architect_revised/revised_solver.py": {
+      "bytes": 15573,
+      "sha256": "4984748ad76f730242f0448f63d24be3483976b5019966a7714f531fd71e56d1"
+    },
+    "04_reviewer_retest/FREEZE_MANIFEST.json": {
+      "bytes": 392,
+      "sha256": "57e3725f374739fb0d9b38833f6741d161036a330f01067c01b49f952ba9f285"
+    },
+    "04_reviewer_retest/REVIEWER_RETEST.md": {
+      "bytes": 1199,
+      "sha256": "8fd45e3cee1b20f3b93feac44096ef6bda06f55b5eeb092381e6e68c9d0ea4e9"
+    },
+    "04_reviewer_retest/reviewer_retest.json": {
+      "bytes": 2503,
+      "sha256": "7871f949d6c2d40e9e2183452973424e44b3da98f3d35e7f11574ed0e1d565d6"
+    },
+    "CLAIM_LIMITS.md": {
+      "bytes": 924,
+      "sha256": "6d2b4127d3394bc4e945fd3354c2c259eb254c45b55526ffa301544703878127"
+    },
+    "EXECUTION_FAILURE_LOG.md": {
+      "bytes": 1189,
+      "sha256": "e499a090f81c0041f90cb9162ec5a109881b8eb64a7a124733e69985a8ca48b3"
+    },
+    "RESULT_REGISTRY.json": {
+      "bytes": 2747,
+      "sha256": "484ed049e4b7244a1842dd83cea9cb1d7ae1a81feb9fa1835e1671d10794f205"
+    },
+    "RUN_B_FINAL_SUMMARY.md": {
+      "bytes": 586,
+      "sha256": "5ecc7f15d785fc5fa4eeb9259771faff2fd5d781bc4dd9f866e6c42e408ba1d3"
+    }
+  }
+}

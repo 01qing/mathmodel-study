@@ -1,0 +1,12 @@
+{
+  "pattern_id": "metric_definition_code_mismatch",
+  "trigger": "code computes a named metric using a shortcut that does not match the metric definition",
+  "risk": "numerical improvement may be meaningless",
+  "checklist": [
+    "write metric definition explicitly",
+    "identify signal/noise/reference sets",
+    "unit-test against controlled synthetic data",
+    "compare with a library/reference implementation"
+  ],
+  "example": "S002 appendix FFT DC-bin treated as signal and all other bins as noise for SNR"
+}

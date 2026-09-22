@@ -1,0 +1,66 @@
+{
+  "paper_id": "S012",
+  "source": "105-page full indexed text + printed Appendix B Listings 2-7 + exact static/replay smoke",
+  "run_status": "PARTIAL_STATIC_EXACT_REPLAY_ONLY; AUTHOR_PIPELINE_NOT_RUN_DUE_TO_MISSING_ORIGINAL 2024-C ATTACHMENTS/DERIVED FEATURE FILES",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "printed SVM pipelines are visible",
+        "feature-wise min-max scaling for data_10 and statistical feature matrices occurs before get_res() split",
+        "per-waveform axis=-1 scaling is distinct from the cross-sample leakage issue"
+      ],
+      "runability": "requires ./Datasets/*.mat and precomputed data_10_snr.mat not present in current worktree"
+    },
+    "Q2": {
+      "findings": [
+        "printed NAdam and TLSEDSR code paths are visible",
+        "80/20 random row split is used on same-support samples"
+      ],
+      "runability": "requires dataset MAT files and exact preprocessing artifacts"
+    },
+    "Q3": {
+      "findings": [
+        "main ANOVA results are from SPSS, not a printed executable Python analysis",
+        "Table 5.19 prose copies intercept F=3456.213 instead of temperature F=17.755",
+        "47 sequential Mann-Whitney comparisons are described without visible multiplicity correction"
+      ],
+      "runability": "statistical conclusions can be reimplemented when official attachment is available"
+    },
+    "Q4": {
+      "findings": [
+        "printed WMTLMSEDSR model includes nn.Embedding(4,1) for material and nn.Embedding(3,1) for waveform",
+        "random 80/20 row split is visible",
+        "deployment/generalization stress by unseen condition is not visible"
+      ],
+      "runability": "requires trained/derived dataset files and full preprocessing chain"
+    },
+    "Q5": {
+      "findings": [
+        "GA and PSO use exactly L=P-lambda*MMP in printed code",
+        "both use f lower bound 5000, conflicting with paper lower bound 50000",
+        "temperature/material/waveform are searched as continuous coordinates although paper declares discrete sets",
+        "Lambda expression selects only 100 in the printed code",
+        "table 5.37/5.38 lambda 10 and 100 rows are inconsistent with the displayed objective formula"
+      ],
+      "runability": "objective/table arithmetic and domain-contract replay completed; full optimizer cannot be reproduced without the trained WMTLMSEDSR checkpoint/data"
+    }
+  },
+  "smoke_report": "learning_output/analyses/v120_S012/contract_replay_smoke.json",
+  "missing_for_full_reproduction": [
+    "official 2024-C attachments",
+    "precomputed Hilbert-Huang/bispectrum features",
+    "exact trained WMTLMSEDSR checkpoint or deterministic training reproduction",
+    "all random seeds/configuration for optimizer comparison"
+  ],
+  "safe_reimplementation_order": [
+    "immutable attachment import + provenance",
+    "group/condition-aware train/test definition before any feature scaling",
+    "fold-local feature scaling and classification",
+    "leave-temperature/condition-out SE/TLSE/TLSEDSR evaluation",
+    "covariate-adjusted interaction model + effect sizes + multiplicity-corrected post-hoc comparisons",
+    "physics baseline + ablation-consistent WMTLMSEDSR under identical grouped folds",
+    "one domain registry for mixed variables",
+    "Pareto/epsilon-constraint or normalized scalarization",
+    "exact feasibility/objective replay for every reported solution"
+  ]
+}

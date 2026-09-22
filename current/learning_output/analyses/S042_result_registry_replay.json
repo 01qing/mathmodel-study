@@ -1,0 +1,43 @@
+{
+  "paper_id": "S042",
+  "scope": "arithmetic/contract replay; not author end-to-end reproduction",
+  "checks": [
+    {
+      "name": "10 garden pair count",
+      "calc": 45,
+      "expected": 45,
+      "pass": true
+    },
+    {
+      "name": "11 garden pair count",
+      "calc": 55,
+      "expected": 55,
+      "pass": true
+    },
+    {
+      "name": "11 garden feature-class total",
+      "calc": 179,
+      "expected": 179,
+      "pass": true
+    },
+    {
+      "name": "88 strong share",
+      "calc": 49.162011173184354,
+      "expected_approx": 49.2,
+      "pass": true
+    },
+    {
+      "name": "path constraint conflict",
+      "reported_max_nodes": 222,
+      "constraint_max_nodes": 100,
+      "pass_as_audit": true
+    },
+    {
+      "name": "HV literal conflict trigger",
+      "reported_hv": 0.4884,
+      "later_coverage_claim": ">=90%",
+      "pass_as_audit": true
+    }
+  ],
+  "status": "PASS_AUDIT_REPLAY_WITH_IDENTIFIED_CONTRADICTIONS"
+}

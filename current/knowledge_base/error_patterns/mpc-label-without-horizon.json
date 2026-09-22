@@ -1,0 +1,11 @@
+{
+  "name": "mpc-label-without-horizon",
+  "trigger": "a method is called MPC",
+  "checks": [
+    "prediction/state model exists",
+    "finite horizon decision vector exists",
+    "cross-time dynamics/ramp constraints exist",
+    "only first action is applied then horizon rolls"
+  ],
+  "example": "Per-time static SLSQP without horizon/state evolution is not sufficient evidence for MPC."
+}

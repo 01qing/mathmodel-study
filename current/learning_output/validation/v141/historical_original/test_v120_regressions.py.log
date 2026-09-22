@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v120_regressions.py", line 57, in <module>
+    ok(pid+' not reviewed by v1.20',pp.get('reviewed_pages',[])==[])
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v120_regressions.py", line 7, in ok
+    assert cond,name; checks.append(name)
+           ^^^^
+AssertionError: S013 not reviewed by v1.20

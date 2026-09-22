@@ -1,0 +1,91 @@
+{
+  "case_group": "2025-A",
+  "status": "FINAL_AFTER_S025_S026_S027_S028",
+  "paper_basis": [
+    "S025",
+    "S026",
+    "S027",
+    "S028"
+  ],
+  "rules": [
+    {
+      "figure_type": "Vstay trajectory with peak marker",
+      "question": "Q1",
+      "must_show": [
+        "schedule step",
+        "bytes",
+        "peak value/step"
+      ],
+      "why": "explains where memory pressure forms",
+      "cannot_prove": "global optimality",
+      "use_when": "sequence changes buffer lifetime overlap"
+    },
+    {
+      "figure_type": "matched-budget convergence / exact-gap plot",
+      "question": "Q1",
+      "must_show": [
+        "wall-clock or evaluations",
+        "baseline",
+        "median/IQR or multiple seeds",
+        "exact gap when small instance available"
+      ],
+      "why": "decides whether complex heuristic earns its cost",
+      "cannot_prove": "cross-workload generalization from one graph",
+      "use_when": "SA/TS/GA/LNS proposed"
+    },
+    {
+      "figure_type": "cache occupancy/lifetime + spill timeline",
+      "question": "Q2",
+      "must_show": [
+        "cache type/capacity",
+        "buffer intervals",
+        "spill/reload markers",
+        "units"
+      ],
+      "why": "checks fragmentation, reuse and spill causality",
+      "cannot_prove": "transfer optimality alone",
+      "use_when": "allocator/spill design"
+    },
+    {
+      "figure_type": "allocator/spill rule comparison small multiples",
+      "question": "Q2",
+      "must_show": [
+        "all six workloads or held-out graph families",
+        "raw transfer bytes",
+        "feasibility"
+      ],
+      "why": "shows no one rule universally wins",
+      "cannot_prove": "generalization if rules tuned on same workloads",
+      "use_when": "first/best/worst-fit or GP rules compared"
+    },
+    {
+      "figure_type": "feasible Pareto frontier with hard-cap line and selected point",
+      "question": "Q3",
+      "must_show": [
+        "transfer bytes",
+        "cycles",
+        "feasible/infeasible markers",
+        "canonical epsilon line",
+        "selection rule"
+      ],
+      "why": "visualizes true tradeoff and deployment choice",
+      "cannot_prove": "quality without common evaluator/multiple seeds",
+      "use_when": "multiobjective search returns multiple points"
+    },
+    {
+      "figure_type": "Result Registry before-after table/plot",
+      "question": "Q3",
+      "must_show": [
+        "same Q2 baseline run_id",
+        "new values",
+        "machine-generated percent changes",
+        "cap slack"
+      ],
+      "why": "prevents mixed baselines and hand-entered percentages",
+      "cannot_prove": "causal mechanism",
+      "use_when": "claiming final improvement"
+    }
+  ],
+  "layout_order": "problem contract/algorithm diagram -> baseline evidence -> complex-search marginal-gain evidence -> feasibility/result registry -> final selection",
+  "style": "evidence density first; consistent units/scales; no requirement to copy paper colors/radar decoration"
+}

@@ -1,0 +1,12 @@
+{
+  "pattern_id": "aggregate_feasibility_overclaim",
+  "trigger": "aggregate equality or total error is used to claim all componentwise constraints",
+  "risk": "individual bounds may be violated despite exact aggregate balance",
+  "checklist": [
+    "evaluate each constraint per entity/time",
+    "report max violation and violation count",
+    "visualize constraint slack distribution",
+    "include infeasible edge cases"
+  ],
+  "example": "S002 Q3 total power balance cannot prove each turbine bounds/deviation"
+}

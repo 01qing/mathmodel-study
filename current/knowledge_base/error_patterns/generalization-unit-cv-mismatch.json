@@ -1,0 +1,6 @@
+{
+  "id": "generalization-unit-cv-mismatch",
+  "name": "Cross-validation unit does not match the claimed generalization unit",
+  "trigger": "Random/row-level KFold is used to claim generalization to unseen temperatures, devices, materials, sites, people or sessions.",
+  "gate": "Define the deployment/generalization unit first and construct folds by that unit; report row-random CV only as interpolation evidence."
+}

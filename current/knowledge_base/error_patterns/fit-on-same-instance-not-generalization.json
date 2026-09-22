@@ -1,0 +1,5 @@
+{
+  "id": "FIT_ON_SAME_INSTANCE_NOT_GENERALIZATION",
+  "rule": "Optimizing model/NN parameters on a single object's own observations and evaluating on those same observations is in-sample fitting, not learned cross-object generalization. To claim a learned regressor, hold out independent objects/groups and evaluate without per-test-object target optimization.",
+  "scope": "generic"
+}

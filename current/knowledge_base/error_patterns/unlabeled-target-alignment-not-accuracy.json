@@ -1,0 +1,6 @@
+{
+  "id": "UNLABELED_TARGET_ALIGNMENT_NOT_ACCURACY",
+  "source": "Dev generic correction",
+  "rule": "Distribution alignment on an unlabeled target domain can support shift/consistency claims but cannot establish prediction accuracy without labels or another valid accuracy proxy.",
+  "scope": "generic"
+}

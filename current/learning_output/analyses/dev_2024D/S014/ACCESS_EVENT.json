@@ -1,0 +1,28 @@
+{
+  "source": {
+    "source_id": "S014",
+    "source_type": "excellent_paper",
+    "year": 2024,
+    "problem_id": "D",
+    "title": "D24104250063",
+    "path_or_url": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\D\\D24104250063.pdf",
+    "sha256": "6cb012383042874734f66f47f9287ae099adc7f81f9b89fa8f7657c747938020",
+    "verification_status": "not_verified",
+    "award_verified": false,
+    "notes": [
+      "来源类别按用户目录命名；未外部核验奖项",
+      "文件身份及页数已核验，不代表论文结论已验证；阅读范围见local_papers_2024_2025.json"
+    ]
+  },
+  "pages": 62,
+  "split": "dev",
+  "opened_at": "2026-09-12T08:18:48.207878+00:00",
+  "independent_freeze_sha256": "ee139e2a7063fd6cb3a279ae5acba633f2e6784f8afa62d9e51fbc9a1db42a7e",
+  "authorization": "User next step continue; remaining Dev review",
+  "full_text_review": true,
+  "visual_review": true,
+  "R_level": "R2",
+  "completed_at": "2026-09-13T03:30:06.984557+00:00",
+  "visual_scope": "62/62 original PDF pages inspected as115dpi two-page renders, not pixelwise replication of every plotted value",
+  "static_code_scope": "PDF53–62: Sen, MK, RF, XGB; no original end-to-end pipeline executed"
+}

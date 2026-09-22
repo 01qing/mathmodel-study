@@ -1,0 +1,76 @@
+{
+  "paper_id": "S044",
+  "case_group": "2025-F",
+  "artifact_type": "PRINTED_CODE_STATIC_AUDIT",
+  "pages": "86-116",
+  "reproduction_level": "R2",
+  "Q1": {
+    "paper_claim": "improved genetic algorithm with guided initialization, path-preserving crossover/mutation and Pareto tradeoff search",
+    "printed_primitives": [
+      "graph construction",
+      "local landscape vector",
+      "Dijkstra shortest path",
+      "single returned path interestingness/repeat_ratio"
+    ],
+    "missing_or_drift": [
+      "no GA population loop",
+      "no selection/crossover/mutation",
+      "no Pareto archive/front",
+      "multi_objective_route_planning() simply returns the Dijkstra path"
+    ],
+    "consequence": "printed code cannot reproduce the paper-described IGA/Pareto route optimization"
+  },
+  "Q2": {
+    "paper_claim": "deterministic geometry/spatial descriptors + AHP-entropy weighting + open-close sequence analysis + validation metrics",
+    "printed_primitives": [
+      "CSV parsing",
+      "shape/area features",
+      "MinMax scaling",
+      "hard-coded element/open weights",
+      "fixed score dictionaries"
+    ],
+    "random_or_placeholder": [
+      "fractal_dim=1.2+uniform(...)",
+      "nni=1+uniform(...)",
+      "path openness=random uniform or synthetic sinusoid",
+      "contag=random uniform(...)"
+    ],
+    "hardcoded_outputs": "final illusion/element/openness score dictionaries exactly inject the ranking values instead of returning the earlier computed score pipeline",
+    "weight_drift": "docstring/comments call the method AHP-CRITIC while the paper says AHP-entropy; actual code uses fixed constants and does not derive either set of weights",
+    "consequence": "reported ranking and validation cannot be treated as code-generated evidence from the printed implementation"
+  },
+  "Q3": {
+    "paper_claim": "geometry + visual + semantic multimodal extractors -> MKL -> contrastive deep metric learning -> feature/topology/behavior similarity; extension with NeRF/STGCN/perspective score",
+    "printed_primitives": [
+      "10-name garden loader stubs",
+      "10D feature_names declaration",
+      "PCA",
+      "EmbeddingNet definition",
+      "contrastive_loss function",
+      "cosine similarity",
+      "perspective GardenScorer skeleton"
+    ],
+    "missing_or_drift": [
+      "parse/load functions are stubs",
+      "feature list is never populated before matrix construction",
+      "training loop is omitted",
+      "inference uses newly initialized untrained EmbeddingNet",
+      "topology/behavior labels reuse the same learned embedding distances rather than persistent homology/HMM",
+      "NeRF/STGCN method-defining code not present"
+    ],
+    "validation_fabrication_risk": [
+      "R2 calculation is clipped with max(0.75,min(0.95,...))",
+      "generalizability_validation() returns fixed avg_mse=30.0, avg_mae=4.5, avg_r2=0.78",
+      "_load_real_data and normalize_features are pass",
+      "combination_score always returns 0"
+    ],
+    "consequence": "printed appendix demonstrates fragments/skeletons, not a self-contained executable implementation of the paper route"
+  },
+  "do_not_claim": [
+    "author-code execution",
+    "paper-result reproduction",
+    "R3-R7",
+    "deep multimodal training verified",
+    "validation metrics independently computed"
+  ]
+}

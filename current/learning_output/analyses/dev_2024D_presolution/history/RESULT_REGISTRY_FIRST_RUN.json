@@ -1,0 +1,301 @@
+{
+  "status": "INDEPENDENT_COMPUTATION",
+  "seed": 20240920,
+  "claims": {
+    "Q1": {
+      "support_cells": 4040,
+      "support_area_km2": 9951521.433508676,
+      "mean_annual_precip_1990_2020_mm": 623.694273139149,
+      "national_precip_trend_mm_decade": 16.322336768292438,
+      "first_last_precip_mm": [
+        638.3615403577375,
+        680.2933978776098
+      ],
+      "land_net_percentage_points_1990_2019": {
+        "cropland": -0.36473169801620187,
+        "forest": 9.814419905504701,
+        "grass": -5.811077475829207,
+        "shrub": -2.9019167684410982,
+        "wetland": -0.7366940322709202
+      },
+      "observed_cover_end": 2019,
+      "area_note": "whole target cells meeting >=50% precipitation coverage; approximate analysis support"
+    },
+    "Q2": {
+      "selected": "climatology",
+      "cells": 4038,
+      "target": "annual Rx1day of daily area-averaged 0.5-degree precipitation",
+      "train_years": [
+        1990,
+        2005
+      ],
+      "validation_years": [
+        2006,
+        2010
+      ],
+      "final_years": [
+        2011,
+        2018
+      ],
+      "models": [
+        {
+          "model": "climatology",
+          "validation_MAE_mm": 9.528760525335777,
+          "spatial_MAE_mm": [
+            24.24933700411613,
+            20.555921859260536,
+            22.004901201607876,
+            21.782389851777072,
+            21.292756403333613
+          ],
+          "validation_gain_vs_climatology": 0.0,
+          "spatial_wins": 0,
+          "final_MAE_mm": 10.376758642302542,
+          "final_RMSE_mm": 17.110749694652792
+        },
+        {
+          "model": "additive",
+          "validation_MAE_mm": 11.10932937126025,
+          "spatial_MAE_mm": [
+            11.537843845835539,
+            10.72062020269968,
+            10.942302462050904,
+            12.231014351882363,
+            10.787714544678765
+          ],
+          "validation_gain_vs_climatology": -0.16587349862785827,
+          "spatial_wins": 5,
+          "final_MAE_mm": 12.301945362916943,
+          "final_RMSE_mm": 20.69512299623012
+        },
+        {
+          "model": "interaction",
+          "validation_MAE_mm": 11.006352711794259,
+          "spatial_MAE_mm": [
+            11.500131740744276,
+            10.531383080086306,
+            11.104552560443603,
+            12.162449846174734,
+            10.600710866201377
+          ],
+          "validation_gain_vs_climatology": -0.1550665674228826,
+          "spatial_wins": 5,
+          "final_MAE_mm": 12.132086870641373,
+          "final_RMSE_mm": 20.26115303426273
+        },
+        {
+          "model": "boosting",
+          "validation_MAE_mm": 10.154811492154844,
+          "spatial_MAE_mm": [
+            11.392418083611595,
+            10.313616376080384,
+            10.740381729259024,
+            11.827626005367923,
+            10.668116617745916
+          ],
+          "validation_gain_vs_climatology": -0.06570119641001315,
+          "spatial_wins": 5,
+          "final_MAE_mm": 11.272507580364728,
+          "final_RMSE_mm": 18.43857072285491
+        }
+      ],
+      "causal_effect": "NOT_IDENTIFIED",
+      "temporal_and_spatial_baselines_differ": "temporal uses training climatology per seen cell; spatial uses global training mean for unseen cells"
+    },
+    "Q3": {
+      "backtests": [
+        {
+          "fit_end": 2004,
+          "target_years": [
+            2005,
+            2009
+          ],
+          "persistence_MAE_mm": 5.736230904065247,
+          "linear_MAE_mm": 9.44862832806179
+        },
+        {
+          "fit_end": 2009,
+          "target_years": [
+            2010,
+            2014
+          ],
+          "persistence_MAE_mm": 5.7122590964685545,
+          "linear_MAE_mm": 9.64407228789052
+        },
+        {
+          "fit_end": 2014,
+          "target_years": [
+            2015,
+            2019
+          ],
+          "persistence_MAE_mm": 6.053734217784355,
+          "linear_MAE_mm": 10.339984337666461
+        }
+      ],
+      "central_climate": "no_trend",
+      "scenarios": [
+        {
+          "year": 2025,
+          "scenarios": 36,
+          "central_climate": "no_trend",
+          "top_decile_population_2015": 594823768.8295009,
+          "robust_top_decile_cells_at_least_80pct": 273
+        },
+        {
+          "year": 2030,
+          "scenarios": 36,
+          "central_climate": "no_trend",
+          "top_decile_population_2015": 594823768.8295009,
+          "robust_top_decile_cells_at_least_80pct": 237
+        },
+        {
+          "year": 2035,
+          "scenarios": 36,
+          "central_climate": "no_trend",
+          "top_decile_population_2015": 594823768.8295009,
+          "robust_top_decile_cells_at_least_80pct": 220
+        }
+      ],
+      "critical_condition": "Pcrit=K/[C(L)*terrain_multiplier], assumed K=25/50/100 mm/day; not calibrated disaster threshold",
+      "coefficient_sets": [
+        [
+          0.35,
+          0.15,
+          0.2,
+          0.2,
+          0.25
+        ],
+        [
+          0.5,
+          0.25,
+          0.3,
+          0.3,
+          0.4
+        ],
+        [
+          0.65,
+          0.35,
+          0.45,
+          0.4,
+          0.55
+        ]
+      ],
+      "residual_cover_coefficient": 0.35,
+      "socio_year": 2015,
+      "index": "[P*C*terrain/K]*(0.25+0.75*population_density_percentile)/(0.5+0.5*GDP_per_person_percentile)",
+      "terrain_multiplier": "1+0.25*relief_percentile+0.25*(1-elevation_percentile), assumed, not derived hydrology",
+      "projection_contract": "2013–2022 Rx1 mean and OLS slope; no-trend versus bounded 0.5–1.5x trend; 2010–2019 cover trend clipped and normalized; socio fixed",
+      "validated_disaster_probability": "NOT_ESTABLISHED"
+    },
+    "Q4": {
+      "selected_k": 5,
+      "selection": "smallest K within 10% of best development RMSE, before test evaluation",
+      "features": "five 1990–2010 mean fractions and five 1990–2010 net changes, unscaled fraction units",
+      "split": "5-degree blocks: train folds2/3/4, development0, final1",
+      "scores": [
+        {
+          "k": 1,
+          "development_RMSE_fraction": 0.16266340017318726,
+          "test_RMSE_fraction": 0.15133580565452576
+        },
+        {
+          "k": 2,
+          "development_RMSE_fraction": 0.13548508286476135,
+          "test_RMSE_fraction": 0.11599510908126831
+        },
+        {
+          "k": 3,
+          "development_RMSE_fraction": 0.11910337209701538,
+          "test_RMSE_fraction": 0.10382072627544403
+        },
+        {
+          "k": 4,
+          "development_RMSE_fraction": 0.0926639512181282,
+          "test_RMSE_fraction": 0.08544830232858658
+        },
+        {
+          "k": 5,
+          "development_RMSE_fraction": 0.082634836435318,
+          "test_RMSE_fraction": 0.07582954317331314
+        }
+      ],
+      "PCA2_explained_variance": [
+        0.5703697204589844,
+        0.22917088866233826
+      ],
+      "PCA2_test_RMSE_fraction": 0.0815434455871582,
+      "window_shift_ARI": 0.8643239066637148,
+      "centroids": [
+        [
+          0.02221015840768814,
+          0.013354763388633728,
+          0.4821580946445465,
+          0.47605466842651367,
+          0.006222397089004517,
+          0.0027277828194200993,
+          0.01633295789361,
+          -0.008741497993469238,
+          -0.005796156823635101,
+          -0.004523064009845257
+        ],
+        [
+          0.08226130157709122,
+          0.5994751453399658,
+          0.1393868327140808,
+          0.13945037126541138,
+          0.039426423609256744,
+          -0.008130543865263462,
+          0.13876542448997498,
+          -0.06287550181150436,
+          -0.06447668373584747,
+          -0.003282720223069191
+        ],
+        [
+          0.016213521361351013,
+          0.025623589754104614,
+          0.867428183555603,
+          0.07333388179540634,
+          0.017400797456502914,
+          0.0014547132886946201,
+          0.03135646879673004,
+          -0.02390817366540432,
+          -0.0029994193464517593,
+          -0.005903600249439478
+        ],
+        [
+          0.6048575043678284,
+          0.08384279161691666,
+          0.21815043687820435,
+          0.05430752784013748,
+          0.03884167969226837,
+          -0.017313217744231224,
+          0.049397747963666916,
+          -0.010331939905881882,
+          -0.004499675706028938,
+          -0.01725291833281517
+        ],
+        [
+          0.18895067274570465,
+          0.22167374193668365,
+          0.43535906076431274,
+          0.13688543438911438,
+          0.01317067351192236,
+          -0.008629990741610527,
+          0.14231470227241516,
+          -0.09490883350372314,
+          -0.03380477428436279,
+          -0.004971121903508902
+        ]
+      ],
+      "usefulness": "region prototypes compress composition/change; no external policy utility or causal validation"
+    }
+  },
+  "limits": [
+    "No disaster labels or drainage capacities supplied",
+    "No causal identification: precipitation product already terrain-adjusted",
+    "No Core ablation",
+    "Absolute historical pristine status unverified",
+    "2020 land cover not observed",
+    "Scenario maps are not validated disaster forecasts"
+  ]
+}

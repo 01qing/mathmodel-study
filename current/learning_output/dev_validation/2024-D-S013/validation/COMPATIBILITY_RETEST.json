@@ -1,0 +1,16 @@
+[
+  {
+    "test": "test_v126_regressions.py",
+    "original_status": "FAIL_PRESERVED",
+    "adapted_status": "PASS",
+    "reason": "Old test requires exact phrase Mini Transfer Test in next_learning; frozen file now says Mini Transfer, governing protocol retains full requirement. Check both protocol and current summary.",
+    "scope": "Compatibility adaptation only; canonical frozen script is still failing."
+  },
+  {
+    "test": "test_v138_s045_regressions.py",
+    "original_status": "FAIL_PRESERVED",
+    "adapted_status": "PASS",
+    "reason": "ZIP-extracted filename has reversible UTF8-as-CP437 mojibake. Resolve existing file only; do not rename baseline.",
+    "scope": "Compatibility adaptation only; canonical frozen script is still failing."
+  }
+]

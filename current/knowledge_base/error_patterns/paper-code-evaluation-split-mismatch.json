@@ -1,0 +1,13 @@
+{
+  "pattern_id": "paper_code_evaluation_split_mismatch",
+  "trigger": "paper describes chronological/group split but code shuffles or windows before splitting",
+  "risk": "leakage and invalid generalization claim",
+  "checklist": [
+    "extract exact split statement from paper",
+    "locate split code",
+    "verify grouping/time order before augmentation/windowing",
+    "record seed and split IDs",
+    "rerun with leakage-safe split"
+  ],
+  "example": "S002 body first70/last30 vs appendix randperm before split"
+}

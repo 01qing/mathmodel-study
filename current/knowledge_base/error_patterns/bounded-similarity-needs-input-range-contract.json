@@ -1,0 +1,13 @@
+{
+  "id": "bounded-similarity-needs-input-range-contract",
+  "name": "Bounded similarity needs an input-range contract",
+  "pattern": "A similarity score such as 1-|a-b|/M is treated as [0,1] although observed or upstream values can exceed the assumed range M.",
+  "risk": "The score can become negative or change meaning; downstream weighted probability/MCDA inherits invalid scale assumptions.",
+  "gate": [
+    "state the valid range of each input",
+    "verify upstream outputs obey it without hidden clipping",
+    "clip only when scientifically justified and report saturation",
+    "otherwise use a scale/metric valid for the observed range"
+  ],
+  "learned_from": "S033 Q3/Q4"
+}

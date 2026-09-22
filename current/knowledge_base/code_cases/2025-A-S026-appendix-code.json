@@ -1,0 +1,74 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "language": "MATLAB (printed appendix)",
+  "reproduction_level": "R2",
+  "appendix_coverage": {
+    "Q1": "visible full-style listing for DAG loading, greedy initialization, neighborhood/tabu search, feasibility replay and convergence plotting",
+    "Q2": "visible long listing for mixed-code population search, cache/SPILL decoding, constraints and event-driven execution-time calculation",
+    "Q3": "NO executable DPEA listing found; only paper pseudocode/formulation"
+  },
+  "findings": [
+    {
+      "id": "Q1_PRIORITY_FEATURE_DRIFT",
+      "severity": "high",
+      "evidence": "paper Eq.4.11 defines type + size + criticality priority; greedy_initialization code assigns only coarse type scores FREE=1000, compute=100, ALLOC=10/-1000",
+      "impact": "claimed priority model is not the implemented priority model"
+    },
+    {
+      "id": "Q1_TABU_LENGTH_NOT_ADAPTIVE",
+      "severity": "medium",
+      "evidence": "paper says tabu length dynamically adjusts; code sets tabu_length=20 and only adjusts neighborhood_size",
+      "impact": "paper implementation contract drift"
+    },
+    {
+      "id": "Q1_TABU_TOKENIZATION",
+      "severity": "high",
+      "evidence": "tabu_list starts as [] and update_tabu_list concatenates character move strings into one flat char stream then truncates by character length; ismember(move,tabu_list) tests character membership rather than exact move records",
+      "impact": "tabu memory does not behave as a FIFO queue of moves"
+    },
+    {
+      "id": "Q2_QUANTUM_PRIMITIVES_DEAD",
+      "severity": "high",
+      "evidence": "Mbest and local attractor P are computed but never referenced afterward; particle update uses inertia/c1/c2 velocity equation",
+      "impact": "visible implementation is PSO-like rather than verified quantum-behaved PSO"
+    },
+    {
+      "id": "Q2_UNNORMALIZED_MIXED_OBJECTIVE",
+      "severity": "high",
+      "evidence": "fitness = 1.0*extraData(Bytes) + 0.1*execTime(Cycles) + penalty, with no scaling or lexicographic primary objective",
+      "impact": "secondary runtime can change the primary data-movement optimum due solely to units/magnitude"
+    },
+    {
+      "id": "Q2_GLOBALBEST_DESYNC",
+      "severity": "high",
+      "evidence": "local-search branch updates globalBest.fitness/fields when improved but does not update scalar globalBestFitness; following global-best comparison and convergence logging still use stale globalBestFitness",
+      "impact": "a local-search improvement can be overwritten or logged inconsistently"
+    },
+    {
+      "id": "Q3_SPILL_COST_FORMULA_DRIFT",
+      "severity": "critical",
+      "evidence": "Q2 Eq.5.20 charges 1*size for COPY_IN-used spill and 2*size otherwise; Q3 Eq.6.67 defines lambda=0 for COPY_IN-used spill and 1 otherwise",
+      "impact": "Q3 objective no longer measures the same extra data movement as Q2"
+    },
+    {
+      "id": "Q3_IMPLEMENTATION_ABSENT",
+      "severity": "high",
+      "evidence": "Appendix A ends after Q2 helper functions; no DPEA implementation is visible",
+      "impact": "Q3 reported gains cannot be traced to executable appendix code"
+    },
+    {
+      "id": "Q3_HARD_CAP_NOT_FORMALIZED",
+      "severity": "high",
+      "evidence": "problem narrative requires transfer not significantly increase, but Q3 formalization treats transfer as a Pareto objective and does not encode the explicit 1.05*Q2 cap used by the case-group contract",
+      "impact": "method could return nondominated but contest-infeasible solutions"
+    }
+  ],
+  "r3_blockers": [
+    "no MATLAB runtime in current environment",
+    "source is printed/extracted PDF text rather than original .m files",
+    "input CSV bundle is not present alongside S026 in the active work tree",
+    "Q3 implementation is absent"
+  ],
+  "visual_audit": "98/98 original PDF pages rendered into contact sheets; selected result pages inspected individually; this does not raise R2."
+}

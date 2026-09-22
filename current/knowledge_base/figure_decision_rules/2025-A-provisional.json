@@ -1,0 +1,123 @@
+{
+  "case_group": "2025-A",
+  "status": "PROVISIONAL_AFTER_S025_S026_S027",
+  "paper_basis": [
+    "S025",
+    "S026",
+    "S027"
+  ],
+  "rules": [
+    {
+      "figure_type": "architecture/problem-decomposition diagram",
+      "question": "Q1-Q3",
+      "input_data": "problem structure, DAG/cache/pipe relationships",
+      "x_axis": "N/A",
+      "y_axis": "N/A",
+      "units_required": false,
+      "why_draw": "make the three-stage dependency and hardware/resource layers explicit before formulas",
+      "supports_claim": "problem decomposition is coherent",
+      "cannot_prove": "algorithm correctness or performance",
+      "better_alternative": "none if problem architecture is unfamiliar",
+      "new_problem_use_conditions": "multi-stage scheduling/resource problems with nontrivial interfaces",
+      "result_registry_binding": "not numerical"
+    },
+    {
+      "figure_type": "Vstay/lifetime trajectory area-line plot",
+      "question": "Q1",
+      "input_data": "schedule replay cumulative live-buffer size",
+      "x_axis": "schedule step/node position",
+      "y_axis": "Vstay",
+      "units_required": true,
+      "why_draw": "show where peak residency arises and whether schedule compresses lifetimes",
+      "supports_claim": "location/magnitude of peak for a specific schedule",
+      "cannot_prove": "global optimality",
+      "better_alternative": "add baseline-vs-candidate small multiples under identical axes",
+      "new_problem_use_conditions": "memory/live-resource scheduling",
+      "result_registry_binding": "peak value and trajectory must come from same run record"
+    },
+    {
+      "figure_type": "optimizer convergence curve",
+      "question": "Q1",
+      "input_data": "iteration, current objective, best objective",
+      "x_axis": "iteration/evaluation count",
+      "y_axis": "objective",
+      "units_required": true,
+      "why_draw": "show search progress and plateau",
+      "supports_claim": "search improved objective under a stated run budget",
+      "cannot_prove": "global optimum or generalization",
+      "better_alternative": "add multiple-seed bands and matched-runtime baseline",
+      "new_problem_use_conditions": "stochastic/metaheuristic optimization",
+      "result_registry_binding": "initial/final/best values must match text/table"
+    },
+    {
+      "figure_type": "cache utilization + allocation composition paired plots",
+      "question": "Q2",
+      "input_data": "capacity use and allocation counts/sizes by cache type",
+      "x_axis": "cache type or category",
+      "y_axis": "utilization / share",
+      "units_required": true,
+      "why_draw": "separate capacity pressure from allocation composition",
+      "supports_claim": "where cache pressure/composition concentrates",
+      "cannot_prove": "spill policy optimality",
+      "better_alternative": "stacked bars across workloads for direct comparison when many cases",
+      "new_problem_use_conditions": "hierarchical resource allocation",
+      "result_registry_binding": "counts/capacities from allocation registry"
+    },
+    {
+      "figure_type": "feasibility/trade-off table or Pareto scatter",
+      "question": "Q3",
+      "input_data": "execution time, transfer cost, hard-cap flag by workload/candidate",
+      "x_axis": "transfer cost/ratio",
+      "y_axis": "execution time",
+      "units_required": true,
+      "why_draw": "show trade-off and make infeasible points visible",
+      "supports_claim": "candidate trade-off/feasibility",
+      "cannot_prove": "preference of one feasible point without external selection rule",
+      "better_alternative": "actual feasible Pareto scatter with hard transfer cap, baseline point, nondominated set and selected operating point; radar chart is not a substitute",
+      "new_problem_use_conditions": "multiobjective optimization with hard cap",
+      "result_registry_binding": "all points must pass objective/constraint replay"
+    },
+    {
+      "figure_type": "cache-lifecycle Gantt / occupancy interval plot",
+      "question": "Q2",
+      "input_data": "buffer lifecycle, cache type, allocated interval, spill events",
+      "x_axis": "schedule step or cycle",
+      "y_axis": "cache/buffer lane",
+      "units_required": true,
+      "why_draw": "show overlap pressure and where spills break lifetimes",
+      "supports_claim": "specific overlap/spill timing pattern for a workload",
+      "cannot_prove": "allocator optimality or cross-workload scalability",
+      "better_alternative": "use representative zoom windows plus aggregate overlap/peak statistics for large graphs",
+      "new_problem_use_conditions": "lifetime-aware cache/memory allocation with spill/reload",
+      "result_registry_binding": "spill count/bytes and cache capacity must match the same decoded solution"
+    },
+    {
+      "figure_type": "micro-vs-macro improvement comparison",
+      "question": "Q1/Q2/Q3 cross-workload summary",
+      "input_data": "per-workload baseline/candidate metric pairs",
+      "x_axis": "workload",
+      "y_axis": "percentage improvement",
+      "units_required": true,
+      "why_draw": "separate macro mean across workloads from aggregate-size-weighted improvement",
+      "supports_claim": "whether headline gain is broad or dominated by large workloads",
+      "cannot_prove": "generalization beyond evaluated workload family",
+      "better_alternative": "paired per-workload dot/bar + labeled macro and aggregate summaries",
+      "new_problem_use_conditions": "heterogeneous cases with different metric scales/base sizes",
+      "result_registry_binding": "both summaries must be computed from the same per-case registry"
+    },
+    {
+      "figure_type": "exact-gap / runtime-quality calibration plot",
+      "question": "Q1/Q2/Q3",
+      "input_data": "small-instance exact/near-exact objective, heuristic objective and runtime/evaluation budget",
+      "x_axis": "instance size or runtime/evaluations",
+      "y_axis": "optimality gap / objective",
+      "units_required": true,
+      "why_draw": "show whether complex heuristic quality justifies its computational cost",
+      "supports_claim": "heuristic is competitive against an exact reference on tractable cases",
+      "cannot_prove": "same gap on large unseen instances",
+      "better_alternative": "gap distribution across multiple small generated instances with runtime bands",
+      "new_problem_use_conditions": "combinatorial optimization with exact solver available on reduced instances",
+      "result_registry_binding": "exact/heuristic objectives must use identical evaluator/constraints"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "pattern_id": "validation-metric-clamp-or-constant",
+  "name": "验证指标被截断或直接常量化",
+  "trigger": "R2/accuracy/CV metrics are clipped to a preferred range or returned as constants rather than calculated from y_true/y_pred/folds",
+  "example": "S044 Q3 R2 clamped to [0.75,0.95] and CV MSE/MAE/R2 hard-coded 30/4.5/0.78",
+  "gate": "metrics must be pure functions of registered predictions/targets/splits; forbid score clamps except clearly labeled display transforms"
+}

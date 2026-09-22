@@ -1,0 +1,7 @@
+{
+  "pattern_id": "multiobjective-hard-cap-omission",
+  "title": "Hard tolerance omitted when converting problem to Pareto optimization",
+  "trigger": "statement requires objective B not increase beyond tolerance, but model treats B only as unconstrained second objective",
+  "risk": "nondominated solutions can still violate the contest requirement",
+  "gate": "apply hard feasibility cap before nondominated sorting; only feasible points may enter Pareto archive"
+}

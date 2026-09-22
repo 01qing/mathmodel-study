@@ -1,0 +1,12 @@
+{
+  "paper_id": "S013",
+  "split": "dev",
+  "R": "R2",
+  "source": "learning_output/dev_validation/2024-D-S013/S013_source.pdf",
+  "source_sha256": "a8c55b50f7be97971dc0b5844952dcbdc6929c07f52f841c0d0add83bec7628d",
+  "registry": "learning_output/dev_validation/2024-D-S013/S013_RESULT_REGISTRY.json",
+  "independent_registry": "learning_output/analyses/dev_2024D_presolution/results/RESULT_REGISTRY.json",
+  "historical_audit_bundle": "learning_output/dev_validation/2024-D-S013",
+  "rules_promoted": "generic seven-contract reference only; no paper-specific numerical/model recommendations",
+  "current_status_source": "RELEASE_MANIFEST_V139.json; historical audit snapshots preserve original statuses"
+}

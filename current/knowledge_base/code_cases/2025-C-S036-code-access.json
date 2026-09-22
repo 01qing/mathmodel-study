@@ -1,0 +1,17 @@
+{
+  "paper_id": "S036",
+  "case_group": "2025-C",
+  "artifact_type": "CODE_ACCESS_AUDIT",
+  "status": "CODE_REFERENCED_BUT_NOT_AVAILABLE",
+  "paper_evidence": "paper appendix/result tables reference notebook/script artifacts, but source files are not printed as an auditable implementation chain",
+  "available_collection_audit": "available 2025 excellent-paper collection is PDF-only",
+  "consequence": {
+    "reproduction_level": "R1",
+    "reason": "no actual source bundle for static code audit"
+  },
+  "do_not_claim": [
+    "R2/R3",
+    "implementation fidelity",
+    "end-to-end reproduction"
+  ]
+}

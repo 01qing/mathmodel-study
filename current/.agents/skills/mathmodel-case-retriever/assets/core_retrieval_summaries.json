@@ -1,0 +1,260 @@
+{
+  "S025": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_PDF_PIXEL_AUDIT",
+    "baseline_summary": {
+      "Q1": "FREE-first + critical-path list scheduling",
+      "Q2": "lifetime Best-Fit/linear-scan + greedy spill",
+      "Q3": "epsilon-constraint critical-path list scheduling under C<=1.05*C_Q2"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S025.json",
+    "result_registry_file": "knowledge_base/result_registry/S025.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-A-S025-modules.json",
+    "decision_warning": [
+      "paper-claimed SA/ILP/Pareto implementation not fully visible in printed code",
+      "Q3 reported rows include hard-cap violations",
+      "victim heuristic drifts across Q2/Q3"
+    ]
+  },
+  "S026": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_98_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "Kahn/FREE-first + critical-path/slack list scheduling",
+      "Q2": "lifetime Best-Fit + deterministic spill by true incremental bytes/next use",
+      "Q3": "epsilon-constraint resource-aware list scheduling under transfer hard cap"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S026.json",
+    "result_registry_file": "knowledge_base/result_registry/S026.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-A-S026-modules.json",
+    "decision_warning": [
+      "Q1 priority features and adaptive tabu length drift from visible code; tabu memory representation is flawed",
+      "Q2 visible code is PSO-like with inactive Mbest/P and raw Bytes+Cycles scalarization",
+      "Q3 DPEA implementation absent; Q3 spill-cost formula changes semantics from Q2 and hard transfer cap is not explicit"
+    ]
+  },
+  "S027": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_120_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "Kahn/FREE-first + critical-path/slack + memory-delta list scheduling",
+      "Q2": "lifetime sweep + deterministic Best-Fit + min incremental-transfer spill",
+      "Q3": "official epsilon hard cap + lexicographic/resource-aware local search"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S027.json",
+    "result_registry_file": "knowledge_base/result_registry/S027.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-A-S027-modules.json",
+    "decision_warning": [
+      "Q1 composite priority/core helpers are absent from printed appendix and 89.2% is aggregate-weighted rather than macro per-workload average",
+      "Q2 Best-Fit/First-Fit naming and spill argmin/reverse-sort direction drift; Table5.11 aggregation provenance unresolved",
+      "Q3 10%/15% hard-cap drift, negative change-sign convention, baseline-source drift and missing optimizer-core helper"
+    ]
+  },
+  "S028": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_77_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "Kahn/FREE-first + critical-path/slack urgency before incremental-memory tie-break",
+      "Q2": "lifetime sweep + coalescing free-list + deficit-aware minimum incremental-transfer spill subset",
+      "Q3": "canonical epsilon hard cap + feasibility-first cycle minimization"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S028.json",
+    "result_registry_file": "knowledge_base/result_registry/S028.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-A-S028-modules.json",
+    "decision_warning": [
+      "Q1 MinPeak/LateAlloc printed heap priorities put larger ALLOC earlier than prose implies; complexity table misuses Big-O.",
+      "Q2 FlashAttention_Case1 final 33792 is not traceable to Table14 visible minimum 54720; objective semantics drift Peak+transfer to Time+transfer.",
+      "Q3 10% hard cap conflicts with S025 5% contract candidate; Conv0 baseline source drifts, FlashAttention0 violates transfer-first lexicographic selection, and 201731 vs 2017 time values conflict.",
+      "2025-A Mini Transfer passed only after revising Q1 priority ordering; this validates Core rules, not S028 author method R7."
+    ]
+  },
+  "S032": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+      "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+      "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+      "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+    "result_registry_file": "knowledge_base/result_registry/S032.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+    "decision_warning": [
+      "Q1 independent split/loss provenance missing",
+      "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+      "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+      "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+    ]
+  },
+  "S033": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_78_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "no-label Canny/ridge + morphology baseline; compact segmentation model only after grouped held-out gain",
+      "Q2": "topology-aware unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+      "Q3": "ordered physical centerline + canonical JRC formula + sampling-density sensitivity",
+      "Q4": "attachment-derived 3D geometry + transparent/calibrated connectivity + propagated uncertainty + feasible expected-information-gain drilling"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S033.json",
+    "result_registry_file": "knowledge_base/result_registry/S033.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-C-S033-modules.json",
+    "decision_warning": [
+      "Q1 method ranking is mainly visual and appendix exposes only a Canny fragment with cross-question path drift",
+      "Q2 visible fixed 3-component GMM cannot explain reported 5/1/3 fractures; pseudo-neural same-instance fitting is not held-out learning",
+      "Q3 JRC formula/area-correction claims drift and printed code treats a closed contour as an ordered profile",
+      "Q4 uses simulated fixed inputs, incomplete binary entropy/pseudo information gain, and a reported point violates the stated 500 mm spacing constraint"
+    ]
+  },
+  "S034": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R1",
+    "visual_audit": "FULL_ORIGINAL_68_PAGE_CONTACT_SHEET_AUDIT",
+    "baseline_summary": {
+      "Q1": "classical ridge/edge ensemble + morphology/component rules; learn weights only with grouped held-out masks",
+      "Q2": "unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+      "Q3": "ordered physical centerline + canonical JRC + sampling convergence; adaptive sampling as efficiency diagnostic",
+      "Q4": "transparent geometry compatibility + coverage surrogate + complete-feasibility greedy placement; probabilistic/EIG wording only after calibration/update model"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S034.json",
+    "result_registry_file": "knowledge_base/result_registry/S034.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-C-S034-modules.json",
+    "decision_warning": [
+      "Q1 metrics replay but ground-truth mask and threshold-tuning provenance are absent",
+      "Q2 RANSAC period primitive/test p-value provenance are incomplete and axis semantics drift",
+      "Q3 Bootstrap CI/estimator contract and dense-reference/RAF calibration claims are not fully supported",
+      "Q4 heuristic probability/uncertainty/EIG semantics, 64%-85% result drift and all-hole spacing contract require repair",
+      "Attachment 9 code is referenced but not available, so reproduction remains R1"
+    ]
+  },
+  "S035": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R1",
+    "visual_audit": "FULL_ORIGINAL_91_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "Frangi/Otsu/morphology no-label baseline; learned model only after source dedup/group holdout",
+      "Q2": "DBSCAN/instance repair + fixed P=pi*D robust fit + reject",
+      "Q3": "ordered centerline + canonical JRC + sampling sensitivity",
+      "Q4": "geometry compatibility + MC sensitivity + feasible placement; probability/EIG only after calibration"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S035.json",
+    "result_registry_file": "knowledge_base/result_registry/S035.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-C-S035-modules.json",
+    "decision_warning": [
+      "paper explicitly identifies an overlapping source/test image in ML experiment",
+      "some Q2 fits have residual near 1 and missingness >70%",
+      "Monte Carlo propagation/IDW uncertainty are not calibrated probability/posterior by themselves",
+      "source code paths are cited but actual files unavailable"
+    ]
+  },
+  "S036": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R1",
+    "visual_audit": "FULL_ORIGINAL_76_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "source-group holdout then deterministic/compact segmentation competition",
+      "Q2": "DBSCAN fragments + fixed P=pi*D physical merge/refit + reject",
+      "Q3": "ordered profile + canonical JRC + explicit multi-metric utility",
+      "Q4": "thresholded edge registry + component replay + transparent compatibility/coverage; calibrated probability/EIG only with probabilistic machinery"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S036.json",
+    "result_registry_file": "knowledge_base/result_registry/S036.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-C-S036-modules.json",
+    "decision_warning": [
+      "all project images appear in training then are evaluated; headline DeepLab metrics are not independent test evidence",
+      "keypoint sampling has best R2/RMSE but worst ±5% outlier count among the three",
+      "one >0.5 edge cannot support the claimed four-hole component",
+      "source notebooks/scripts unavailable, so R1"
+    ]
+  },
+  "S042": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_182_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "transparent feasible graph + scene-change/surprisal + Pareto route registry",
+      "Q2": "compact nonredundant landscape/morphology metrics with held-out/external calibration",
+      "Q3": "compact multimodal descriptor + cohort-aware similarity + resampling/external cluster validation"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S042.json",
+    "result_registry_file": "knowledge_base/result_registry/S042.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-F-S042-modules.json",
+    "decision_warning": [
+      "paper Eq.(4) raw p conflicts with low-p high-surprise prose/code -log(p)",
+      "hard path length <=100 conflicts with reported 222 nodes and missing final decode feasibility gate",
+      "Jichang=100 anchor is used in construction and validation",
+      "n=10/11,d=179 clustering/ANOVA is exploratory and similarity is highly concentrated",
+      "printed code uses silent default features on broad exceptions"
+    ]
+  },
+  "S043": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R1",
+    "visual_audit": "FULL_ORIGINAL_71_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "walkable graph + transparent visibility/scene-change descriptors + exact/k-shortest or epsilon-constrained route shortlist before GA",
+      "Q2": "small dimensionless descriptor score with externally declared ranges and held-out/external preference validation; no forced anchor-as-proof",
+      "Q3": "compact standardized garden descriptor + metric-compatible clustering + pairwise registry + stability/external-label validation"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S043.json",
+    "result_registry_file": "knowledge_base/result_registry/S043.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-F-S043-modules.json",
+    "decision_warning": [
+      "Interest and Q2 score formula ranges contradict published scales",
+      "GA Gap=0/global optimum lacks visible certificate",
+      "Jichang reference self-score does not close under its own similarity/adjustment formula",
+      "Table 6.2 mean/std/group means and several narratives do not replay",
+      "Ward metric contract and external ground truth remain unresolved",
+      "p71 attachment code unavailable, so R1"
+    ]
+  },
+  "S044": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_116_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "transparent walkable/scene-change route metrics + exact/k-shortest/epsilon baseline; evolutionary Pareto only with real GA primitives",
+      "Q2": "deterministic bounded garden descriptors + computed AHP/entropy/CRITIC + held-out expert validation; no random placeholders/fixed results",
+      "Q3": "compact garden-level similarity + real pretrained modality features when available + garden-level grouped validation before pairwise metric learning"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S044.json",
+    "result_registry_file": "knowledge_base/result_registry/S044.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-F-S044-modules.json",
+    "decision_warning": [
+      "Q1 printed code is Dijkstra, not IGA/Pareto",
+      "Q2 random placeholders and fixed score injection",
+      "Q2 AHP-entropy vs AHP-CRITIC/fixed-weight drift",
+      "Q3 stubs/untrained embedding/shared proxy similarity",
+      "Q3 R2 clamp and hard-coded CV metrics",
+      "pairwise unseen-garden validation requires entity-level split"
+    ]
+  },
+  "S045": {
+    "core_schema_version": "1.0",
+    "reproduction_level": "R2",
+    "visual_audit": "FULL_ORIGINAL_94_PAGE_VISUAL_AUDIT",
+    "baseline_summary": {
+      "Q1": "feasible graph + transparent scene-change + k-shortest/RCSP/epsilon before GA",
+      "Q2": "deterministic spatial descriptors + non-circular calibration + full entity-axis sensitivity",
+      "Q3": "compact standardized mixed-type similarity + independent external truth when available"
+    },
+    "candidate_competition_file": "knowledge_base/candidate_competitions/S045.json",
+    "result_registry_file": "knowledge_base/result_registry/S045.json",
+    "method_modules_file": "knowledge_base/method_modules/2025-F-S045-modules.json",
+    "decision_warning": [
+      "Q1 cost/fitness formulas drift and printed optimizer is Dijkstra, not GA",
+      "Q1 genetic operators do not preserve graph path feasibility by construction",
+      "Q2 GMM-MRF collapses to KMeans/random placeholders in printed code",
+      "Q2 sensitivity ranks parameter scenarios rather than gardens",
+      "Q3 heterogeneous cosine scaling is unresolved",
+      "Q3 printed Heyuan similarities are hard-coded and two negative values are post-adjusted",
+      "external Heyuan application lacks independent truth"
+    ]
+  }
+}

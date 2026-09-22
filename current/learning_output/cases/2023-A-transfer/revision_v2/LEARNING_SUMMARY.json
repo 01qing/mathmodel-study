@@ -1,0 +1,118 @@
+{
+  "scope": "diagnostic and exposition revision; main model unchanged",
+  "summary": [
+    {
+      "question": 1,
+      "mean_total_mbps": 65.24496,
+      "observed_window_total_min": 64.464,
+      "observed_window_total_max": 66.036,
+      "node_min": [
+        31.464000000000002,
+        31.86
+      ],
+      "node_max": [
+        33.468,
+        33.924
+      ],
+      "minimum_window_jain": 0.9986150381403086,
+      "mean_failure_fraction": 0.11011654830550453
+    },
+    {
+      "question": 2,
+      "mean_total_mbps": 68.95272,
+      "observed_window_total_min": 68.436,
+      "observed_window_total_max": 69.528,
+      "node_min": [
+        33.828,
+        33.84
+      ],
+      "node_max": [
+        35.1,
+        35.208
+      ],
+      "minimum_window_jain": 0.9996722856428145,
+      "mean_failure_fraction": 0.0
+    },
+    {
+      "question": 3,
+      "mean_total_mbps": 54.70608,
+      "observed_window_total_min": 53.244,
+      "observed_window_total_max": 56.592,
+      "node_min": [
+        22.944,
+        23.46
+      ],
+      "node_max": [
+        30.876,
+        31.992
+      ],
+      "minimum_window_jain": 0.9797535235482865,
+      "mean_failure_fraction": 0.34317824513440975
+    },
+    {
+      "question": 4,
+      "mean_total_mbps": 110.79168,
+      "observed_window_total_min": 109.74000000000001,
+      "observed_window_total_max": 112.08,
+      "node_min": [
+        48.744,
+        11.028,
+        48.804
+      ],
+      "node_max": [
+        50.148,
+        12.66,
+        50.496
+      ],
+      "minimum_window_jain": 0.8026831862771973,
+      "mean_failure_fraction": 0.04663488676403338
+    }
+  ],
+  "source_paper": "A23104220005",
+  "runs": 20,
+  "probe_runs": 20,
+  "frozen_files_unchanged": {
+    "code/analytic.py": true,
+    "code/check_trace.py": true,
+    "code/plot_results.py": true,
+    "code/render_report.py": true,
+    "code/run_experiment.py": true,
+    "code/sensitivity.py": true,
+    "code/test_model.py": true,
+    "code/wlan.py": true,
+    "code/write_report.py": true,
+    "deliverables/2023A_reference_v1.pdf": true,
+    "deliverables/hidden_and_fairness.png": true,
+    "deliverables/model_comparison.png": true,
+    "INPUT_MANIFEST.json": true,
+    "inputs/problem_text.txt": true,
+    "inputs/WLAN网络信道接入机制建模.docx": true,
+    "REFERENCE_SOLUTION.md": true,
+    "results/ANALYTIC.json": true,
+    "results/Q1_base.json": true,
+    "results/Q2_base.json": true,
+    "results/Q3_158.4_W16_r32.json": true,
+    "results/Q3_158.4_W16_r6.json": true,
+    "results/Q3_158.4_W32_r5.json": true,
+    "results/Q3_286.8_W16_r32.json": true,
+    "results/Q3_286.8_W16_r6.json": true,
+    "results/Q3_286.8_W32_r5.json": true,
+    "results/Q3_base.json": true,
+    "results/Q4_158.4_W16_r32.json": true,
+    "results/Q4_158.4_W16_r6.json": true,
+    "results/Q4_158.4_W32_r5.json": true,
+    "results/Q4_286.8_W16_r32.json": true,
+    "results/Q4_286.8_W16_r6.json": true,
+    "results/Q4_286.8_W32_r5.json": true,
+    "results/Q4_base.json": true,
+    "results/RESULTS.json": true,
+    "results/SENSITIVITY.json": true,
+    "results/TESTS.json": true,
+    "results/trace_Q1.json": true,
+    "results/trace_Q2.json": true,
+    "results/trace_Q3.json": true,
+    "results/trace_Q4.json": true,
+    "TRANSFER_PROTOCOL.md": true
+  },
+  "archive_hash_unchanged": true
+}

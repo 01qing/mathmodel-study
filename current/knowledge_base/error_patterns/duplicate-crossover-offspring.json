@@ -1,0 +1,5 @@
+{
+  "id": "DUPLICATE_CROSSOVER_OFFSPRING",
+  "rule": "If both crossover equations produce the same convex combination, crossover contributes no sibling diversity; inspect mutation dependence and intended coefficients.",
+  "scope": "generic"
+}

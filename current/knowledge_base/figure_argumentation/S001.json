@@ -1,0 +1,298 @@
+{
+  "paper_id": "S001",
+  "figure_count": 39,
+  "count_basis": "Unique numbered figures4.1–4.9,5.1–5.14,6.1–6.8,7.1–7.6,8.1–8.2. Repeated body references excluded.",
+  "panel_count_status": "NOT_FULLY_VISUALLY_VERIFIED",
+  "figures": [
+    {
+      "figure_id": "4.1",
+      "caption": "RRF 算法流程图",
+      "caption_physical_page": 8,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.2",
+      "caption": "算法程序运行求解时间",
+      "caption_physical_page": 10,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "4.3",
+      "caption": "各风机元件第100s 累积疲劳损伤分布",
+      "caption_physical_page": 11,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.4",
+      "caption": "各风机元件第100s 累积疲劳损伤分布（不同纵轴量级1）",
+      "caption_physical_page": 13,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.5",
+      "caption": "各风机元件第100s 累积疲劳损伤分布（不同纵轴量级2）",
+      "caption_physical_page": 14,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.6",
+      "caption": "各风机元件第100s 累积疲劳损伤分布（不同纵轴量级3）",
+      "caption_physical_page": 15,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.7",
+      "caption": "87 号风机主轴累积疲劳损伤100s 实时增长情况",
+      "caption_physical_page": 16,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.8",
+      "caption": "7、14、40、73、75、81、87、95 号风机塔架累积疲劳损伤100s 实时增长情况",
+      "caption_physical_page": 16,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "4.9",
+      "caption": "87 号风机主轴扭矩实时波动情况",
+      "caption_physical_page": 17,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.1",
+      "caption": "风力发电机组部件",
+      "caption_physical_page": 18,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.2",
+      "caption": "风力发电机组部件",
+      "caption_physical_page": 20,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.3",
+      "caption": "风场1 风机输出功率估计误差平方和",
+      "caption_physical_page": 21,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.4",
+      "caption": "风场2 风机输出功率估计误差平方和",
+      "caption_physical_page": 21,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.5",
+      "caption": "风场1 风机输出功率估计平均绝对误差百分比",
+      "caption_physical_page": 22,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "5.6",
+      "caption": "风场2 风机输出功率估计平均绝对误差百分比",
+      "caption_physical_page": 22,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "5.7",
+      "caption": "风场1 风机主轴扭矩估计误差平方和",
+      "caption_physical_page": 23,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.8",
+      "caption": "风场2 风机主轴扭矩估计误差平方和",
+      "caption_physical_page": 23,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.9",
+      "caption": "风场1 风机主轴扭矩估计平均绝对误差百分比",
+      "caption_physical_page": 24,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "5.10",
+      "caption": "风场2 风机主轴扭矩估计平均绝对误差百分比",
+      "caption_physical_page": 24,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "5.11",
+      "caption": "风场1 风机塔架推力估计误差平方和",
+      "caption_physical_page": 25,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.12",
+      "caption": "风场2 风机塔架推力估计误差平方和",
+      "caption_physical_page": 25,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.13",
+      "caption": "风场1 风机塔架推力估计平均绝对误差百分比",
+      "caption_physical_page": 26,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "5.14",
+      "caption": "风场2 风机塔架推力估计平均绝对误差百分比",
+      "caption_physical_page": 26,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.1",
+      "caption": "风电场功率分配代理结构",
+      "caption_physical_page": 28,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.2",
+      "caption": "DDPG 模型结构",
+      "caption_physical_page": 29,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.3",
+      "caption": "基于强化学习的功率分配方法",
+      "caption_physical_page": 30,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "6.4",
+      "caption": "优化前风机累计疲劳损伤",
+      "caption_physical_page": 32,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.5",
+      "caption": "优化后风机累计疲劳损伤",
+      "caption_physical_page": 32,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.6",
+      "caption": "优化前后所有风机总累计疲劳损伤",
+      "caption_physical_page": 33,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "6.7",
+      "caption": "优化前后各风机参考功率方差",
+      "caption_physical_page": 34,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "6.8",
+      "caption": "实时风机功率分配动图",
+      "caption_physical_page": 34,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "7.1",
+      "caption": "LSTM 网络结构模型",
+      "caption_physical_page": 36,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "7.2",
+      "caption": "CNN 网络结构模型",
+      "caption_physical_page": 36,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "7.3",
+      "caption": "优化后风机累计疲劳损伤",
+      "caption_physical_page": 38,
+      "visual_review": "checked"
+    },
+    {
+      "figure_id": "7.4",
+      "caption": "优化前风机累计疲劳损伤",
+      "caption_physical_page": 39,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "7.5",
+      "caption": "优化后所有风机总累计疲劳损伤",
+      "caption_physical_page": 39,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "7.6",
+      "caption": "优化前所有风机总累计疲劳损伤",
+      "caption_physical_page": 40,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "8.1",
+      "caption": "RRF 算法有效性验证",
+      "caption_physical_page": 42,
+      "visual_review": "pending"
+    },
+    {
+      "figure_id": "8.2",
+      "caption": "RNCFD 指标是否删去暂时损伤对比",
+      "caption_physical_page": 43,
+      "visual_review": "pending"
+    }
+  ],
+  "style_observed": {
+    "pages": [
+      22,
+      24
+    ],
+    "layout": "两风场上下排列，每个面板100台机组；白底、蓝色细竖线、淡红水平虚线、中文衬线字体、细坐标轴",
+    "transfer": "相同对象在不同场景下的并列误差比较；不同指标各自成图",
+    "avoid_copying": "误差竖线图尽量从0起；不能为接近原图形状改变结果；图名5.2与实际散点图内容不符，不能照搬标题"
+  },
+  "argumentation": [
+    {
+      "question": "Q1",
+      "figures": "4.1–4.9,8.1–8.2",
+      "chain": "流程与运行时间→100台分布及不同量级细节→代表机组时间变化→与载荷事件对应→标准函数对照和暂时损伤消融",
+      "limitation": "少量代表机组与曲线重合不足以证明全部循环计数一致；重复不同量级图可尝试对数轴或局部放大，但零值须妥善处理。"
+    },
+    {
+      "question": "Q2",
+      "figures": "5.1–5.14",
+      "chain": "物理部件→滞后一拍散点关系→两场分别比较功率/扭矩/推力的绝对与相对误差",
+      "limitation": "拟合误差未清晰分出独立测试；增加按时间留出和简单基线。"
+    },
+    {
+      "question": "Q3",
+      "figures": "6.1–6.8",
+      "chain": "状态动作奖励→网络结构→求解流程→个体与总体损伤→功率方差→运行示意",
+      "limitation": "还需逐时功率平衡、上下界违例、训练成本与多种子；图示不能证明全局最优。"
+    },
+    {
+      "question": "Q4",
+      "figures": "7.1–7.6",
+      "chain": "预测网络→噪声/延迟下个体及总损伤前后对比",
+      "limitation": "需要单独检验延迟识别和预测，以及不同扰动水平。"
+    }
+  ],
+  "our_generated_figures": [
+    {
+      "file": "replications/2024-A-S001/01_power.png",
+      "panels": 2,
+      "purpose": "逐机组功率拟合误差，构图参考5.5/5.6",
+      "data_status": "original_data_reimplementation_not_exact_paper_replication"
+    },
+    {
+      "file": "replications/2024-A-S001/02_torque.png",
+      "panels": 2,
+      "purpose": "逐机组扭矩拟合误差，构图参考5.9/5.10",
+      "data_status": "original_data_reimplementation_not_exact_paper_replication"
+    },
+    {
+      "file": "replications/2024-A-S001/03_holdout.png",
+      "panels": 2,
+      "purpose": "新增加的独立时间段基线竞争",
+      "data_status": "new_chronological_evaluation"
+    }
+  ],
+  "generated_visual_qa": "All three PNGs inspected; labels legible, no clipping or overlap."
+}

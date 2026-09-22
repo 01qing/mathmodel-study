@@ -1,0 +1,21 @@
+# S036 / 2025-C MathModel-Core Training Report
+
+## Status
+- Train, 76 pages, SHA256 `b1cdd0efccde759c990a385d0aa613f9e2fe2b7222a60e87452352b9440ebb98`
+- full text + original PDF **76/76** visually reviewed
+- source notebooks/scripts referenced but unavailable -> **R1**
+
+## Decisive findings
+Q1 creates manual truth masks for all 10 project images, then says the external 117-image set is integrated with **all project images** for training, and later evaluates on **all 10 project images**. No explicit untouched project split is visible. Therefore 0.8435 mIoU / 0.9356 Precision / 0.8779 Recall cannot be promoted as independent test evidence.
+
+Q2 is the strongest physical-contract implementation in this group: P is fixed at 94.25 mm, consistent with pi*30=94.24778. The model-driven fragment merge is useful, but its threshold needs train-only calibration and rollback/reject.
+
+Q3 keypoint sampling has best R2 0.9177 and RMSE 1.6277, but its ±5% outlier count is **10**, worse than equal sampling 8 and adaptive 9. It can be selected only after declaring which metrics are primary.
+
+Q4 key edge score replays to 0.523000769 -> 0.52. Yet the paper says only one pair exceeds the strong-connectivity threshold and later claims a large connected component spanning holes 3,6,2,5. One edge cannot support that component: edge-registry replay is a hard gate. Weighted similarity is not calibrated probability, and the visible P1/P2/P3 heuristic has no Bayesian posterior/EIG update machinery.
+
+2025-C now has all five Train papers reviewed. Final cross-paper map is closed; group-level Mini Transfer is executed separately with evidence-strength labels.
+
+
+## 2025-C group close
+See knowledge_base/cross_paper_maps/2025-C-S032-S036.json and learning_output/analyses/2025-C_mini_transfer.json.

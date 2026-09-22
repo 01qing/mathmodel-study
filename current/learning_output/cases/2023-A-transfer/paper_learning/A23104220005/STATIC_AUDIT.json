@@ -1,0 +1,131 @@
+{
+  "schema_version": "0.1",
+  "scope": "STATIC_CODE_BUNDLE_AUDIT_NOT_MODEL_REPRODUCTION",
+  "root": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2023-A-transfer\\paper_learning\\A23104220005",
+  "file_count": 6,
+  "extensions": {
+    ".md": 2,
+    ".json": 2,
+    ".py": 2
+  },
+  "python": [
+    {
+      "path": "run_learning_checks.py",
+      "sha256": "19bb5ddf062325ac0e7dec3fbeb4be40d37f53ecc7eb0b156d87b3b0a71229f4",
+      "encoding": "utf-8",
+      "lines": 108,
+      "syntax": "PASS",
+      "imports": [
+        "analytic",
+        "hashlib",
+        "json",
+        "pathlib",
+        "random",
+        "statistics",
+        "sys",
+        "wlan"
+      ],
+      "functions": [
+        "deadline_probe",
+        "window_diagnostics",
+        "main"
+      ],
+      "classes": [],
+      "cli_args": []
+    },
+    {
+      "path": "save_learning.py",
+      "sha256": "a3d56811ca34a76dcba29bce47deb855187c4657ab7fa0cdc8a23c37d840239e",
+      "encoding": "utf-8",
+      "lines": 93,
+      "syntax": "PASS",
+      "imports": [
+        "hashlib",
+        "json",
+        "pathlib",
+        "re",
+        "statistics"
+      ],
+      "functions": [
+        "sha",
+        "save"
+      ],
+      "classes": [],
+      "cli_args": []
+    }
+  ],
+  "textual_files": [
+    {
+      "path": "AUTHOR_APPENDIX_EXTRACT.md",
+      "sha256": "19d1a872cc21418d2174508afcc1eb2a5d852afda1abcf2afc75e0cc84202944",
+      "encoding": "utf-8",
+      "lines": 762
+    },
+    {
+      "path": "LEARNING_CHECKS.json",
+      "sha256": "54215e2b81e56867e150a2e281b4dc2b143279b9977cf516a174c706d0e7dc32",
+      "encoding": "utf-8",
+      "lines": 2016
+    },
+    {
+      "path": "REVIEW.md",
+      "sha256": "70167bc975a037f300e88ba7265c500fd353bc9b8d1c70511684611e42542f60",
+      "encoding": "utf-8",
+      "lines": 53
+    },
+    {
+      "path": "run_learning_checks.py",
+      "sha256": "19bb5ddf062325ac0e7dec3fbeb4be40d37f53ecc7eb0b156d87b3b0a71229f4",
+      "encoding": "utf-8",
+      "lines": 108
+    },
+    {
+      "path": "save_learning.py",
+      "sha256": "a3d56811ca34a76dcba29bce47deb855187c4657ab7fa0cdc8a23c37d840239e",
+      "encoding": "utf-8",
+      "lines": 93
+    },
+    {
+      "path": "SOURCE_AND_VALIDATION.json",
+      "sha256": "693407978326d7fdee4b43949abe67415b9bd782cb5f537617638c6c9ec7055c",
+      "encoding": "utf-8",
+      "lines": 13
+    }
+  ],
+  "data_references": [
+    "FIRST_ANSWER_FREEZE.json",
+    "LEARNING_CHECKS.json",
+    "LEARNING_SUMMARY.json",
+    "PAPER_MARKDOWN_REGISTRY.json",
+    "PROJECT_STATE.json",
+    "SOURCE_AND_VALIDATION.json"
+  ],
+  "hardcoded_absolute_paths": [
+    "C:\\Users\\A\\Desktop\\数学建模\\problem1\\collisionNum.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem1\\singleThroughput.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem1\\totalThroughput.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem1\\troughoutCDF.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem2\\TransSameTimeNum.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem2\\singleThroughput.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem2\\totalThroughput.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem2\\troughoutCDF.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem3\\totalThroughput6.svg",
+    "C:\\Users\\A\\Desktop\\数学建模\\problem4\\totalThroughput0.svg"
+  ],
+  "plotting_files": [
+    "AUTHOR_APPENDIX_EXTRACT.md"
+  ],
+  "split_related_files": [
+    "save_learning.py"
+  ],
+  "domain_adaptation_related_files": [
+    "LEARNING_CHECKS.json",
+    "run_learning_checks.py",
+    "save_learning.py"
+  ],
+  "limitations": [
+    "Static inspection does not prove numerical correctness or end-to-end runnability",
+    "Referenced datasets/weights may be absent from the bundle",
+    "Text pattern matches require manual interpretation"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "target-encoding-before-split-leakage",
+  "trigger": "TargetEncoder/mean encoding uses target values before train/validation split or without out-of-fold encoding",
+  "risk": "validation rows influence their own encoded feature through target-conditioned category statistics",
+  "gate": [
+    "split groups first",
+    "fit encoder on training fold target only",
+    "for training rows use cross-fit/leave-one-fold-out encoding",
+    "freeze encoder for validation/test transform"
+  ]
+}

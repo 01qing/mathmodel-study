@@ -1,0 +1,32 @@
+[
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\context\\FAILURE_HISTORY.md",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\FAILURE_HISTORY.md",
+    "sha256": "77ff250231e16844af4c0063a8e4cc215c737d1e345069ea406993098c1f02db"
+  },
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\results\\q1_FIRST_FAIL_uniform_grid.json",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\q1_FIRST_FAIL_uniform_grid.json",
+    "sha256": "cc529b3ff070e6e2c0344e8766af7f70e01ce257d4a974bc212526a67d1bfc70"
+  },
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\results\\q1_baseline_metrics.json",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\q1_baseline_metrics.json",
+    "sha256": "c7237dd34433dcf4d9c8fc222801ee33037c36752e6f2074f995a2fcf827907d"
+  },
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\results\\q1_run_manifest.json",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\q1_run_manifest.json",
+    "sha256": "1416b1a762a505315a036d45e405eb9f29b50c2f8c4edc0e199cc9b8be0326f9"
+  },
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\code\\modeling\\q1_model.py",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\q1_model.py",
+    "sha256": "78c4ac389d7e737f2dba6b23e4691d83057194047b1d1ad25d3c08e6d77ba164"
+  },
+  {
+    "source": "D:\\数模\\数模练习\\A题解题\\paper_output\\code\\modeling\\q1_uniform_grid_first.py",
+    "copy": "learning_output\\analyses\\practice_A_retrospective\\original_evidence\\q1_uniform_grid_first.py",
+    "sha256": "a027885d0cc474924fe8809cfbcd3b9585c80b7b186256a156b2ed35a9e80d82"
+  }
+]

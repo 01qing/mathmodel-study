@@ -1,0 +1,168 @@
+{
+  "review_id": "2024-A-S002-core",
+  "source_id": "S002",
+  "problem_id": "2024_A",
+  "paper_identity": {
+    "team": "浙江大学",
+    "team_number": "24103350007",
+    "physical_pages": 79,
+    "source_status": "full_extracted_text_available; original PDF not mounted in current workspace"
+  },
+  "questions": [
+    {
+      "question_id": "1",
+      "author_approach": "Palmgren-Miner + rainflow + Goodman mean-stress correction, then adds sliding time window (TW) to form TW-Rainflow-Goodman-Miner for real-time cumulative fatigue; compares time, RMSE/MAPE and correlation with rainflow reference.",
+      "model_choice_reasoning": "Retain a standard fatigue-mechanics baseline while reducing online recomputation cost; use agreement and runtime as dual criteria.",
+      "author_reported_results": [
+        "CPU runtime about 0.009 s for the demonstrated calculation, under 1 s requirement",
+        "TW variant reported as closest among compared schemes by correlation/RMSE/MAPE"
+      ],
+      "evidence_refs": [
+        "S002 extracted text physical pages 10-19"
+      ],
+      "risks": [
+        "Figure 13/14 show 10 selected turbines but prose says this validates all 100; representativeness alone is not exhaustive validation.",
+        "The printed appendix Q1 function calls MATLAB rainflow on the full prefix F(1:t,:) and does not visibly show the proposed finite sliding-window state update; the appendix as printed therefore does not by itself reproduce the claimed TW algorithm.",
+        "MAPE can become unstable when reference fatigue values are near zero; absolute and relative error should be reported together."
+      ],
+      "our_assessment": "Transfer the dual requirement of online speed + numerical agreement, but require boundary-sequence unit tests and an explicit streaming-state implementation. A stopwatch screenshot is supporting evidence, not a complexity proof.",
+      "alternatives": [
+        "exact batch rainflow baseline",
+        "streaming/online rainflow with retained turning-point stack",
+        "incremental damage surrogate benchmarked against exact rainflow"
+      ]
+    },
+    {
+      "question_id": "2",
+      "author_approach": "Physics-inspired variables (tip-speed ratio, pitch angle, output/reference power) plus nonlinear regression. Compares Nelder-Mead fit with BiLSTM for shaft torque and tower thrust; body says WF1 first 70% train, last 30% test.",
+      "model_choice_reasoning": "Use physical variables to constrain inputs, then let a sequence model learn nonlinear residual relationships; compare against a simpler numerical-fit baseline.",
+      "author_reported_results": [
+        "Table 3 reports BiLSTM R2 0.9742 for torque and 0.9854 for thrust",
+        "paper states torque MSE improvement 99.05% and thrust MSE improvement 69.35% versus Nelder-Mead"
+      ],
+      "evidence_refs": [
+        "S002 extracted text physical pages 20-29",
+        "printed appendix physical pages 60-64"
+      ],
+      "risks": [
+        "Body explicitly says first 70% / last 30% temporal split, but printed MATLAB appendix executes res = res(randperm(num_samples),:) before 70/30 split. This is a paper-code evaluation mismatch and can leak future temporal regimes.",
+        "Printed code contains sequential manual-overwrite lines for torque/thrust datasets (res=...), indicating an edited/toggled script rather than a clean reproducible pipeline.",
+        "BiLSTM complexity is not justified against simpler causal baselines; a model can fit well but still be unnecessary if the relationship is mostly instantaneous."
+      ],
+      "our_assessment": "The strongest transferable idea is not BiLSTM itself but physics-informed feature construction + explicit simple-model competition + chronological holdout. In future time-series tasks, split first and never randomize across future samples unless stationarity is established.",
+      "alternatives": [
+        "linear/robust regression on physical features",
+        "gradient boosting on lagged physical features",
+        "causal LSTM/GRU with chronological holdout"
+      ]
+    },
+    {
+      "question_id": "3",
+      "author_approach": "Two-objective fatigue minimization under power balance, per-turbine output bounds and ±1 MW deviation constraints; solved with NSGA-II/gamultiobj and compared with original/mean allocation.",
+      "model_choice_reasoning": "The two fatigue objectives can conflict, so a Pareto evolutionary optimizer is used rather than collapsing them a priori.",
+      "author_reported_results": [
+        "aggregate power tracking error described at about 1e-7 scale for 1-100 s",
+        "text reports large fatigue reductions relative to original/mean allocation"
+      ],
+      "evidence_refs": [
+        "S002 extracted text physical pages 30-37",
+        "printed appendix physical pages 64-71 and 75-79"
+      ],
+      "risks": [
+        "Figures 31-32 validate aggregate power balance, but aggregate balance cannot prove every turbine is within [0,5 MW] or within ±1 MW of mean allocation. The text overclaims individual-constraint verification.",
+        "One printed appendix variant returns only two total objectives but later indexes fval_before(1:num_turbines), which is structurally inconsistent as printed.",
+        "One variant simply chooses the first Pareto solution returned by gamultiobj; another selects by a summed objective. A decision rule for choosing one operational point from the Pareto set must be declared and sensitivity-tested.",
+        "Printed code variants use blade radius 63 in one place and R=40 in another, creating a parameter-consistency risk.",
+        "Using MaxTime=1 s is a compute cap, not evidence that a converged feasible Pareto solution is always found within one second."
+      ],
+      "our_assessment": "This is a useful counterpoint to S001 DDPG: NSGA-II gives an interpretable optimization baseline but real-time claims must report feasibility rate, Pareto-selection rule, convergence quality, and runtime distribution. Always test vector constraints directly, not through aggregate plots.",
+      "alternatives": [
+        "convex/sequence quadratic approximation if a tractable surrogate exists",
+        "rolling horizon / MPC",
+        "NSGA-II as offline gold-standard benchmark for learned policy"
+      ]
+    },
+    {
+      "question_id": "4",
+      "author_approach": "SVD denoising; phase-difference based delay detection; modified cubic-spline recovery; rerun Q3 optimization and compare power balance, fatigue and variance under noisy/delayed versus preprocessed data and longer horizons.",
+      "model_choice_reasoning": "Separate measurement corruption from optimization: clean/reconstruct signals first, then reuse the same decision model.",
+      "author_reported_results": [
+        "wind-speed SNR: noisy 74.5945 dB, after SVD 77.5239 dB in Table 4",
+        "paper says 97 delayed points among 2000 and reports 3.4%, with composite difference 15.10%",
+        "multiple scenario plots report low aggregate power-balance errors"
+      ],
+      "evidence_refs": [
+        "S002 extracted text physical pages 38-56",
+        "printed appendix physical pages 71-79"
+      ],
+      "risks": [
+        "97/2000 = 4.85%, not 3.4%; basic arithmetic cross-check is required before inheriting a reported percentage.",
+        "The printed SNR code treats the FFT DC bin as signal and all other bins as noise. For a general wind-speed/time-series signal this is not a defensible SNR definition without a spectral signal band model, so the numerical SNR improvement needs independent validation.",
+        "Printed denoising code computes x_s but calls svd(Vvin), whose definition is not visible in the shown block; this prevents a clean reproduction from the appendix alone.",
+        "Figures 48-63 repeat power balance/fatigue/variance across related scenarios; the evidence can be made more compact with scenario-by-metric small multiples and a summary table."
+      ],
+      "our_assessment": "Transfer the staged robustness design (corruption detection → reconstruction → downstream re-evaluation), but validate the corruption detector itself and use physically meaningful SNR/error metrics. Repeated downstream plots should be consolidated while retaining a clear no-processing/noise-only/preprocessed comparison.",
+      "alternatives": [
+        "robust filtering or wavelet/Savitzky-Golay baselines",
+        "cross-correlation with known timestamps for lag estimation",
+        "state-space/Kalman filtering with missing-data treatment"
+      ]
+    }
+  ],
+  "paper_code_consistency_findings": [
+    {
+      "id": "S002-SPLIT-MISMATCH",
+      "severity": "high",
+      "body": "WF1 first 70% train, last 30% test",
+      "appendix": "res = res(randperm(num_samples),:) before 70/30 split",
+      "lesson": "for time series, evaluation protocol is part of the model and must match code exactly"
+    },
+    {
+      "id": "S002-CONSTRAINT-EVIDENCE-GAP",
+      "severity": "high",
+      "body": "aggregate power-balance figures used to claim all per-turbine constraints",
+      "lesson": "aggregate equality does not imply componentwise bounds"
+    },
+    {
+      "id": "S002-Q4-PERCENT",
+      "severity": "medium",
+      "body": "97/2000 described as 3.4%",
+      "recalculation": "4.85%",
+      "lesson": "run arithmetic sanity checks on all table-derived percentages"
+    },
+    {
+      "id": "S002-SNR-DEFINITION",
+      "severity": "high",
+      "appendix": "FFT first/DC component treated as signal power; remaining bins treated as noise",
+      "lesson": "metric implementation must match its physical/statistical definition"
+    },
+    {
+      "id": "S002-Q3-PARETO-SELECTION",
+      "severity": "medium",
+      "appendix": "printed variants use first returned solution versus summed-objective selection",
+      "lesson": "multiobjective optimization requires an explicit post-Pareto decision rule"
+    },
+    {
+      "id": "S002-PARAMETER-RADIUS",
+      "severity": "medium",
+      "appendix": "blade radius appears as 63 in one Q3 block and 40 in another",
+      "lesson": "centralize physical constants and test consistency"
+    }
+  ],
+  "overall_transferable_lessons": [
+    "For online engineering tasks, validate accuracy, runtime, and state-update logic separately.",
+    "For time-series prediction, preserve chronology in both prose and code; never let a random shuffle silently replace a temporal holdout.",
+    "For constrained optimization, create a constraint-by-constraint violation report instead of inferring feasibility from one aggregate equality.",
+    "For robustness, test the preprocessing metric itself before claiming downstream improvement.",
+    "Use same-problem papers as competing solution families: learned policy versus explicit Pareto optimization."
+  ],
+  "do_not_copy_blindly": [
+    "random shuffle before a claimed chronological split",
+    "using total power balance to prove individual turbine constraints",
+    "undefined or nonphysical SNR calculation",
+    "arbitrary first Pareto solution as operational answer",
+    "physical constants duplicated with different values across script blocks"
+  ],
+  "reproduction_status": "STATIC_TEXT_AND_APPENDIX_AUDIT_ONLY_NO_MATLAB_ORIGINAL_DATA_RUN",
+  "visual_status": "63 main-text figure captions and argument roles indexed; original PDF pixels unavailable in current workspace, so visual style remains pending"
+}

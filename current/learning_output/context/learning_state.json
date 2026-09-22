@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.4",
+  "learner": {
+    "profile_id": "default",
+    "preferred_depth": "deep",
+    "notes": [
+      "用户自述未接触数学建模竞赛；当前任务是改善Agent方法库，不是评定用户掌握度",
+      "2026-09-21 用户委托自主整理与选题，暂无个人解答；本次不评定用户掌握度。"
+    ]
+  },
+  "current_focus": {
+    "competition": "全国研究生数学建模竞赛",
+    "year": 2022,
+    "problem_id": "C",
+    "question_id": null,
+    "mode": "review",
+    "session_id": "20260921-local-integration"
+  },
+  "methods": {},
+  "weak_points": [],
+  "error_patterns": [],
+  "completed_problems": [],
+  "pending_replications": [
+    "2024-A-S001：Q2已有真实附件局部复现；完整图表像素审查与Q1/Q3/Q4端到端复现仍待原PDF/附件条件补齐",
+    "2025-E-S039/S040/S041：核心全文与视觉扫描已完成；官方原始数据上的逐篇端到端复现仍待补",
+    "2025-E-GTeacher2：正文/代码映射与部分烟测已完成；缺完整原始数据时不宣称端到端复现",
+    "2024-C-S012：全文+打印附录+Q1/Q5 contract replay已完成；缺官方附件/派生特征/模型检查点，未宣称端到端作者代码复现",
+    "2024-E-S017：全文+打印附录静态审计已完成；缺原始视频/派生CSV/YOLO-DeepSORT权重与原PDF像素，未宣称端到端复现或像素级版式学习",
+    "2024-E-S018：全文+打印附录静态审计与机器contract replay已完成；缺原始视频/派生数据/模型权重/完整训练工程和原PDF像素，未宣称端到端复现或像素级版式学习",
+    "2024-E-S019：全文+附录文件清单+公式/单位/状态方程机器replay已完成；附录列出的16个.py/.xlsx/.pt源文件未在当前工作树/上传压缩包中找到，未宣称作者代码运行复现或像素级版式学习",
+    "2024-E-S020：全文+打印附录静态审计与目标泄漏/伪序列/Greenshields反事实回放已完成；缺原始视频/派生CSV/权重，未宣称端到端作者代码复现或像素级版式学习",
+    "2025-A-S025：全文+59页原PDF视觉审查+打印Q1/Q2/Q3代码静态审计已完成，复现等级R2；缺作者原始.py与完整输入数据，未宣称R3-R7",
+    "2025-A-S026：98页全文+原PDF像素扫描+打印MATLAB附录静态审计已完成，复现等级R2；缺原始.m/完整输入数据/MATLAB运行环境，且Q3 DPEA实现未见，不宣称R3-R7",
+    "2025-A-S027：120页全文+原PDF视觉扫描+打印Python附录静态审计已完成，复现等级R2；Q1/Q3核心helper缺失、Q2 main缺失，缺原始可运行项目/输入数据，未宣称R3-R7",
+    "2025-A-S028：77页全文+原PDF视觉扫描+打印Python附录静态审计已完成，复现等级R2；缺原始完整源码/数据与关键helper链，不宣称R3-R7。2025-A题组Mini Transfer为Core规则迁移验证，不提高S028作者方法复现等级。",
+    "2025-B-S029：Dev-only全文/视觉/打印wrapper静态审计完成，R2-equivalent；不得并入Train检索，S030/S031继续保留Dev。",
+    "2025-C-S032：71页全文+原PDF视觉审查+打印Python附录静态审计完成，R2；Q1完整split/loss、Q2 robust fit、Q3 LoG-attention、Q4 PPIGA等执行链不完整，不宣称R3-R7。",
+    "2025-C-S033：78页全文+原PDF视觉审查+打印Python附录静态审计完成，R2；Q1三路比较代码不全，Q2拟合优化器未见，Q3自适应/Z3未实现，Q4使用模拟固定数据且不确定性/补孔链不自包含，不宣称R3-R7。",
+    "2025-C-S034：68页全文+原PDF 68/68视觉审查+公式/伪代码/结果审计完成；附件9代码仅被论文引用、当前资料包未提供，故R1，不宣称R2-R7。",
+    "2025-C-S035：91页全文+原PDF视觉审查完成；论文引用作者源代码路径但当前PDF-only资料包未提供源码，故R1；Q1显式暴露source/content overlap leakage，Q2固定P=piD但高误差/高缺失拟合需reject，Q4 Monte-Carlo传播不等于概率校准。",
+    "2025-C-S036：76页全文+原PDF视觉审查完成；作者notebook/script未提供，R1。Q1目标图训练/评估边界不独立，Q3多指标winner冲突，Q4 one-edge vs four-hole component触发图论合同错误。2025-C五篇已闭环并完成机制级Mini Transfer。",
+    "2025-F-S042：182页全文+原PDF 182/182视觉审查+pp103-182打印Python附录静态审计完成，R2；未执行作者完整项目/原始附件，不宣称R3-R7。Q1发现surprisal公式/代码漂移与final decode硬约束泄漏；Q2 anchor-target循环校准；Q3 d=179,n=10/11 的相似度集中、same-feature聚类显著性和silent fallback风险。",
+    "2025-F-S043：71页全文+原PDF 71/71视觉审查+公式/伪代码/结果审计完成；p71仅引用Q1-Q3代码附件，当前资料包未提供源码，故R1。Q1加权和GA与自适应变异方向/表格相关统计存在合同问题；Q2评分范围和100分上界不闭合；Q3相似度矩阵统计、排名/类别标签跨表漂移且外部accuracy缺真值合同。",
+    "2025-F-S044：116页全文+原PDF 116/116视觉审查+pp86-116打印Python代码静态审计完成，R2；Q1打印代码实际仅Dijkstra、无IGA/Pareto原语；Q2随机占位特征+固定结果字典且AHP-熵权/CRITIC/固定权重漂移；Q3多模态加载/训练链不完整，未训练embedding复用为拓扑/行为代理，透视验证R2被截断且CV指标常量化，不宣称R3-R7。",
+    "2025-F-S045：94页全文+原PDF 94/94视觉审查+pp62-94打印Python代码静态审计完成，R2；Q1 GA公式/算子与Dijkstra代码漂移，Q2 GMM-MRF退化为KMeans/随机占位且灵敏度排名轴错误，Q3相似度需尺度合同且打印结果硬编码/事后调整；未执行作者完整项目/原始附件，不宣称R3-R7。",
+    "2024-D S013-S016：四篇Dev均完成全文/视觉/静态代码或打印附录审计，均R2；作者端到端原始数据执行链未完整复现，不宣称R3-R7。"
+  ],
+  "next_actions": [
+    "Use PROJECT_STATE.json for latest local state; baseline is verified v1.41 with local integration only.",
+    "2022-C retrospective delivery: verify official requirements against A/B, repair a separate revision, then study useful paper methods and produce a complete reference answer.",
+    "Preserve frozen A/B and scores. Do not call this exposed case a fresh blind test.",
+    "Locate 2023-C final evidence ZIP if needed; do not restart completed paper reading.",
+    "Only after the complete answer, select a different problem for transfer validation; preserve held-out answer boundaries."
+  ],
+  "current_version": "1.41.0",
+  "latest_completed_paper": "S016",
+  "core_identity": "MathModel-Core",
+  "core_protocol_version": "1.0",
+  "reproduction_level_latest": "S016:R2",
+  "release_status": "SEALED",
+  "latest_completed_train_paper": "S045",
+  "latest_completed_dev_paper": "S016",
+  "core_gain": "NOT_ESTABLISHED",
+  "test_exposure": "2024-F/2025-D previously evaluated after frozen independent answers; NOT_FRESH_BLIND; no Test-derived rule promotion",
+  "historical_pristine": "UNVERIFIED",
+  "core_ablation": "NOT_RUN",
+  "local_delivery_20260921": {
+    "case": "2022-C-delivery",
+    "status": "REFERENCE_V3_RETURN_SCOPED_PASS",
+    "report": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v3\\REFERENCE_SOLUTION.md",
+    "no_user_mastery_assessment": true,
+    "not_author_reproduction": true,
+    "not_new_release": true
+  }
+}

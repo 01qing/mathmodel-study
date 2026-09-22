@@ -1,0 +1,247 @@
+{
+  "paper_id": "S004",
+  "figure_count_caption_occurrences": 41,
+  "count_basis": "caption-like lines in all 59 extracted physical pages; includes duplicate/misnumbered caption occurrences where the paper text itself repeats them",
+  "visual_review_status": "PENDING_ORIGINAL_PDF; captions and surrounding argument text reviewed from all 59 extracted pages",
+  "figures": [
+    {
+      "caption": "图1.1 风电场信号传输示意图",
+      "physical_page": 6,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.1 问题一思路流程图",
+      "physical_page": 10,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.2 获取的100 秒内主轴扭矩和塔架推力的实时荷载数据",
+      "physical_page": 11,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.3 是对风机1 的主轴扭矩和塔架推力的前T 个数据进行拟合，并向前预测T 个数",
+      "physical_page": 12,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.3 对1 秒前的荷载数据进行拟合预测",
+      "physical_page": 12,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.4 窗口移动法示意图",
+      "physical_page": 13,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.5 模型求解流程图",
+      "physical_page": 14,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.6 100 台风机各元件累计疲劳损伤结果与数据中提供的雨流计数法所得结果的相似程度对比",
+      "physical_page": 15,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图4.7 代表性风机主要元件0-100 秒内的累计疲劳损伤程度增长过程",
+      "physical_page": 16,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.1 问题二思路流程图",
+      "physical_page": 17,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.2 简易风车模型，包含正视图及侧视图",
+      "physical_page": 20,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.3 在2000s 内每间隔20s 取一个关键帧，绘制出主轴扭矩参考值（红色）与估计值（蓝色）",
+      "physical_page": 22,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.4 在后100s 单位时间内的主轴扭矩参考值（红色）与估计值（蓝色）",
+      "physical_page": 22,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.6 所示。",
+      "physical_page": 23,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.5 优化后的2000s 内关键帧，绘制主轴扭矩参考值（红色）与估计值（蓝色）",
+      "physical_page": 23,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.6 优化后的后100s 单位时间内的主轴扭矩参考值（红色）与估计值（蓝色）",
+      "physical_page": 24,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.7 在2000s 内每间隔20s 取一个关键帧，绘制出塔架推力参考值（红色）与估计值（蓝色）",
+      "physical_page": 24,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.8 在后100s 单位时间内的主轴扭矩参考值（红色）与估计值（蓝色）",
+      "physical_page": 25,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.9 风力分解示意图",
+      "physical_page": 25,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.10 优化后的后100s 单位时间内的塔架推力参考值（红色）与估计值（蓝色）",
+      "physical_page": 26,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图5.11 优化后的后100s 单位时间内的塔架推力参考值（红色）与估计值（蓝色）",
+      "physical_page": 26,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.1 问题三思路流程图",
+      "physical_page": 28,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.2 具有繁殖约束的遗传算法流程",
+      "physical_page": 33,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.2 展示了算法1 的流程，与常规的遗传算法",
+      "physical_page": 33,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.3 遗传算法演化轨迹图",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.4 功率分配的实时性可视化结果",
+      "physical_page": 35,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.5 风电场WF1 和WF2 的Pt",
+      "physical_page": 37,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.6 风电场WF1 和WF2 中优化前后CD",
+      "physical_page": 37,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图6.7 风电场WF1 和WF2 中优化后有功功率方差值PVj",
+      "physical_page": 38,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.1 问题四思路流程图",
+      "physical_page": 40,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.2 卡尔曼滤波参数调优策略流程图",
+      "physical_page": 43,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.3 MSE 随着Q、R 变化情况",
+      "physical_page": 43,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.4 模型结构",
+      "physical_page": 44,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.5 算法总求解流程图",
+      "physical_page": 45,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.6 传输延迟预测部分主要求解流程",
+      "physical_page": 45,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.7 预测模型训练过程损失展示",
+      "physical_page": 46,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.8 预测模型在验证集上的结果",
+      "physical_page": 47,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.9 不同滤波算法对噪声数据的处理结果展示",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.10 展示了LSTM 时间序列预测模型，Arima 预测模型和简单移动平均预测模型在",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.10 多种时间序列预测模型在延迟区域的预测结果对比",
+      "physical_page": 50,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "caption": "图7.11 CDi 和PVj 的可视化结果",
+      "physical_page": 51,
+      "visual_review": "pending_source_pdf"
+    }
+  ],
+  "argumentation": [
+    {
+      "stage": "Q1 fatigue",
+      "pattern": "原始100秒载荷→起始窗口拟合/预测→滑窗示意→算法流程→100台终值对数对比→代表性累计轨迹",
+      "lesson": "趋势相似不是疲劳增量一致性；滑窗近似必须与精确雨流做数值误差和边界循环测试，并分开报告启动时延与稳态每步时延。"
+    },
+    {
+      "stage": "Q2 load surrogate",
+      "pattern": "风机结构/受力示意→初始预测vs参考→发现尺度/时滞偏差→经验修正→优化后预测vs参考→SSE表",
+      "lesson": "这是很好的“残差诊断→修正→复核”论证顺序，但经验系数若在同一数据上拟合并评价，需要独立留出验证。"
+    },
+    {
+      "stage": "Q3 optimization",
+      "pattern": "约束遗传算法流程→演化轨迹→2000次运行时间→总调度/疲劳/方差→汇总指标",
+      "lesson": "实时优化应报告每步延迟分布/最坏值；多指标需明确方向和权衡，不能用单一改善概括全面占优。"
+    },
+    {
+      "stage": "Q4 robustness",
+      "pattern": "去噪调参热图→LSTM结构→训练损失/验证预测→多滤波对比→延迟区域多预测器对比→五种处理策略下游指标",
+      "lesson": "结构上比S003更完整，但处理组标签、阈值量纲、跨风机Kalman状态和多指标权衡必须审计。"
+    }
+  ],
+  "numbering_issues": [
+    "图4.3在同一页先用于“前T数据拟合并向前预测T个数据”的说明，随后又作为正式图题，表述不统一",
+    "图5.8图题仍写“主轴扭矩参考值”，但所在段落讨论塔架推力，疑似图题复制错误",
+    "图5.10与图5.11的提取文本图题完全相同，无法仅凭文本区分两图角色",
+    "图6.2既作为正式图题又在下一行重复“图6.2展示…”，属于重复出现而非新增图",
+    "图7.10在页49先作为句子引用，页50再出现正式图题"
+  ],
+  "recommended_new_templates": [
+    "runtime_latency_distribution",
+    "multi_metric_tradeoff_table_or_dotplot",
+    "filtering_truth_noisy_methods"
+  ]
+}

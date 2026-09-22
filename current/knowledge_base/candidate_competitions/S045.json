@@ -1,0 +1,54 @@
+{
+  "paper_id": "S045",
+  "case_group": "2025-F",
+  "questions": {
+    "Q1": {
+      "baseline": "passable mask/polygons -> skeleton or centerline graph -> edge length + simple deterministic visibility/scene-change descriptors -> k-shortest/beam/RCSP candidate pool -> raw objective registry (interest, length, repeat) -> feasibility-first selection",
+      "author_route": "weighted five-index interest + route cost + claimed improved GA with roulette/crossover/mutation; printed appendix instead contains Dijkstra and separate scenic-score scripts",
+      "alternatives": [
+        "epsilon-constraint or resource-constrained shortest path on reduced graph",
+        "orienteering/MILP/CP-SAT for modest graph sizes",
+        "genuine NSGA-II/GA with path-preserving encoding when exact enumeration is infeasible"
+      ],
+      "not_recommended": [
+        "arbitrary vector one-point crossover on node sequences without adjacency repair",
+        "letting nearest-component straight-line bridges enter the final graph without walkability proof",
+        "calling a Dijkstra appendix implementation evidence for GA"
+      ],
+      "why_select": "the geometry and interpretable scene-change representation are reusable; optimizer should be chosen only after graph size and exact-gap feasibility are known",
+      "switch_condition": "promote evolutionary search only if bounded/exact candidate methods are too expensive and same-budget independent evaluation shows stable gain while preserving final route feasibility"
+    },
+    "Q2": {
+      "baseline": "deterministic grid/subregion landscape descriptors + simple KMeans/agglomerative diagnostic + optional spatial smoothing + non-circular scaling + transparent weighted score + full garden-by-run sensitivity matrix",
+      "author_route": "GMM-MRF with EM/ICM/BIC + open-close/rhythm features + Jichang reference normalization + perturbation analysis; printed code collapses to KMeans/random openness/hard-coded sensitivity inputs",
+      "alternatives": [
+        "GaussianMixture + BIC without MRF, then add Potts/graph smoothing only if spatial fragmentation remains",
+        "spatially constrained agglomerative/Spectral clustering on adjacency graph",
+        "pairwise/ordinal preference model if independent expert labels are sufficiently large"
+      ],
+      "not_recommended": [
+        "using random placeholder features inside real-garden scoring",
+        "using the calibration anchor's top rank as validation",
+        "computing Kendall tau between parameter-scenario order and garden order"
+      ],
+      "why_select": "small n favors auditable descriptors and transparent calibration; sophisticated spatial probabilistic models need actual likelihood/adjacency primitives and independent evidence",
+      "switch_condition": "promote GMM-MRF when enough subregions exist, spatial coherence matters, and BIC/held-out likelihood/spatial stability clearly improves over simple clustering"
+    },
+    "Q3": {
+      "baseline": "compact heterogeneous garden descriptor -> train/reference-fitted robust scaling by feature block -> cosine/Euclidean/Gower for continuous features + explicit set or weighted-minmax composition similarity -> externally defined pair/preference validation + hierarchical clustering as descriptive output",
+      "author_route": "unscaled-appearing composite vector + cosine/set-Jaccard fusion, alpha selected on internal clustering stability, Heyuan external application; printed code only hard-codes post-adjusted Heyuan similarities",
+      "alternatives": [
+        "Gower distance for mixed-scale mixed-type data",
+        "PCA/factor reduction after standardization and redundancy audit",
+        "metric learning only with many independent gardens and external pairwise labels"
+      ],
+      "not_recommended": [
+        "raw cosine over length/count and [0,1] features without documented scaling",
+        "individual post-hoc sign/offset correction of selected similarities",
+        "calling an unlabeled external application accuracy validation"
+      ],
+      "why_select": "with roughly ten reference gardens, compact standardized metrics and transparent similarity semantics dominate high-capacity learned metrics",
+      "switch_condition": "use learned metric/multimodal embeddings only when independent garden count and external preference labels support held-out validation; otherwise preserve descriptive similarity status"
+    }
+  }
+}

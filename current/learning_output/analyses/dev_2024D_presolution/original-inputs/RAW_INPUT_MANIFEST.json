@@ -1,0 +1,50 @@
+[
+  {
+    "dataset": 1,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集1\\数据集1.rar",
+    "sha256": "4e6373b94794923794a27aac6966f7f9ca720cd8361dbb418402db4e30e5feaf",
+    "compressed_bytes": 145588012,
+    "uncompressed_bytes": 1025132210,
+    "entries": 71
+  },
+  {
+    "dataset": 2,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集2\\数据集2.rar",
+    "sha256": "5341fd687f7c49d52bf2d70672a24147ceffed5cd5ff55f9de111621777b21b5",
+    "compressed_bytes": 4591724254,
+    "uncompressed_bytes": 23014782540,
+    "entries": 29263
+  },
+  {
+    "dataset": 3,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集3\\数据集3.rar",
+    "sha256": "11dcfafa237d3f0e13bbf8c85ee0f4ccdaa686f1085c977f3716b5250672156b",
+    "compressed_bytes": 302749438,
+    "uncompressed_bytes": 3560478204,
+    "entries": 6
+  },
+  {
+    "dataset": 4,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集4\\数据集4.rar",
+    "sha256": "5aebde18d027c6d5a22fbe5f83ee881fe49a16cf524be3d4e48871f35490e1a7",
+    "compressed_bytes": 10550286,
+    "uncompressed_bytes": 27113662,
+    "entries": 1204
+  },
+  {
+    "dataset": 5,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集5\\数据集5.rar",
+    "sha256": "3129cc8948cb2ac73b31ec742c1a9bed163109158ed9f759979f51955193d529",
+    "compressed_bytes": 858581582,
+    "uncompressed_bytes": 5784282534,
+    "entries": 133
+  },
+  {
+    "dataset": 6,
+    "archive": "D:\\BaiduNetdiskDownload\\2024年中国研究生数学建模竞赛赛题\\D题附件数据集\\数据集6\\数据集6.rar",
+    "sha256": "fc5d1978052838660b22fcea277ec6f67e06c01b0db4b0d0bf210000be5deea5",
+    "compressed_bytes": 796540446,
+    "uncompressed_bytes": 5213722755,
+    "entries": 109
+  }
+]

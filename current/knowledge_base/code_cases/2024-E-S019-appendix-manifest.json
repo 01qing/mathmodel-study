@@ -1,0 +1,88 @@
+{
+  "paper_id": "S019",
+  "source": "60-page indexed full text + page-60 appendix manifest of 16 external files",
+  "run_status": "MANIFEST_ONLY_NO_LISTED_SOURCE_FILES_FOUND_IN_CURRENT_WORKTREE_OR_UPLOADED_ARCHIVES; NO_AUTHOR_PIPELINE_EXECUTION",
+  "appendix_manifest": [
+    "yolov10+Bytrack 实现追踪与过线统计.py",
+    "yolov10m.pt",
+    "观测点a_metrics.xlsx",
+    "观测点b_metrics.xlsx",
+    "观测点c_metrics.xlsx",
+    "观测点d_metrics.xlsx",
+    "ARIMA 模型.py",
+    "平滑处理.py",
+    "多元回归.py",
+    "AdaBoost.py",
+    "车道占用率模型_AB.py",
+    "车道占用率模型_BC.py",
+    "车道占用率模型_CD.py",
+    "速度-密度关系拟合.py",
+    "流量-速度关系拟合.py",
+    "流量-密度关系拟合.py"
+  ],
+  "questions": {
+    "Q1": {
+      "declared_files": [
+        "yolov10+Bytrack 实现追踪与过线统计.py",
+        "ARIMA 模型.py",
+        "平滑处理.py",
+        "多元回归.py",
+        "AdaBoost.py",
+        "速度-密度关系拟合.py",
+        "流量-速度关系拟合.py",
+        "流量-密度关系拟合.py"
+      ],
+      "findings": [
+        "file names are listed, but source bodies are not embedded in the indexed paper and were not found in the current uploaded worktree/archives",
+        "therefore the exact 70/30 split order, AdaBoost hyperparameters, feature engineering and YOLO/ByteTrack implementation cannot be code-verified",
+        "paper equations/results can still be machine-replayed for unit, magnitude and consistency checks"
+      ]
+    },
+    "Q2": {
+      "declared_files": [
+        "车道占用率模型_AB.py",
+        "车道占用率模型_BC.py",
+        "车道占用率模型_CD.py"
+      ],
+      "findings": [
+        "inventory-model source files are listed but not available for execution",
+        "Qmax, initial inventory and threshold calculations are therefore audited from paper equations only"
+      ]
+    },
+    "Q3": {
+      "declared_files": [
+        "车道占用率模型_AB.py",
+        "车道占用率模型_BC.py",
+        "车道占用率模型_CD.py"
+      ],
+      "findings": [
+        "no available source file can resolve whether Eq.(53) sign order is a typesetting error or implementation error",
+        "the 1.3 capacity multiplier is a paper-level scenario assumption, not an observed code-estimated treatment parameter"
+      ]
+    },
+    "Q4": {
+      "declared_files": [
+        "yolov10+Bytrack 实现追踪与过线统计.py"
+      ],
+      "findings": [
+        "no separate placement-optimization source is listed",
+        "heatmap utilization and camera relocation are described in prose/formulas, not a reproducible placement optimizer"
+      ]
+    }
+  },
+  "machine_replay": [
+    "Eq.(9) unit closure",
+    "Table-7 linear-regression row magnitude",
+    "threshold/max-flow prose consistency",
+    "Qmax density-length consistency",
+    "58→30 congestion-duration percentage",
+    "Eq.(52)/Eq.(53) inventory sign monotonicity",
+    "B-camera removal vs K_AB/K_BC observation dependency"
+  ],
+  "safe_reuse": [
+    "YOLO+ByteTrack traffic extraction only after physical calibration and counting validation",
+    "time-aware 10-minute upstream-to-downstream forecast with explicit chronological/grouped holdout",
+    "stock-flow inventory controller with calibrated Qmax and hysteresis",
+    "sensor relocation only after observation-graph/policy dependency redesign"
+  ]
+}

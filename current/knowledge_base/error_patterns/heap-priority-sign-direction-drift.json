@@ -1,0 +1,11 @@
+{
+  "id": "heap-priority-sign-direction-drift",
+  "name": "Heap priority sign reverses intended heuristic",
+  "severity": "high",
+  "trigger": "priority tuple uses -size in a min-heap while prose says delay/minimize large allocations",
+  "risk": "heuristic acts opposite to its stated semantics",
+  "gate": "unit-test priority ordering on a tiny ready set before full optimization",
+  "source_examples": [
+    "2025-A-S028 Q1 MinPeak/LateAlloc"
+  ]
+}

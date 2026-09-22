@@ -1,0 +1,32 @@
+{
+  "status": "SEALED",
+  "base": "1.39.0 SEALED preserved",
+  "updated_at": "2026-09-13T06:12:52.241930+00:00",
+  "current_milestone": "S014_DEV_REVIEW_COMPLETE_R2",
+  "current": "S014",
+  "next": "Wait for new problem; do not open S015/S016",
+  "next_papers_not_opened": [
+    "S015",
+    "S016"
+  ],
+  "scope": "S014 full review and local audit; candidate rules not yet promoted;2024-Dgroup2of4",
+  "stable_core_changed": false,
+  "working_metadata_changes": [
+    "S014 reviewer catalog",
+    "S014 retriever Dev status"
+  ],
+  "core_gain": "NOT_ESTABLISHED",
+  "ablation": "NOT_RUN",
+  "historical_pristine": "UNVERIFIED",
+  "test_exposure": "2024-F and2025-D already evaluated after independent freezes; notfreshblind; noTestknowledgepromotioninthisincrement",
+  "evidence": "learning_output/analyses/dev_2024D/S014/S014_FINAL_REVIEW.md",
+  "validation": "learning_output/analyses/dev_2024D/S014/VALIDATION_S014.json",
+  "inherited_release_files_scope": "VERSION/PROGRESS_V139/RELEASE_MANIFEST_V139 describe baseline only; not v140 release",
+  "stage_status": "S014_STAGE_CLOSED",
+  "execution_status": "STOP_NEW_PAPERS_READY_FOR_USER_NEW_PROBLEM",
+  "resume_candidate": "S015 / 2024-D / Dev",
+  "current_version": "1.40.0",
+  "release_scope": "S014 Dev numerical-contract increment only",
+  "rules_promoted": "references/dev-numerical-contracts-v140.md",
+  "release_manifest": "RELEASE_MANIFEST_V140.json"
+}

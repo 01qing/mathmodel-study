@@ -1,0 +1,50 @@
+{
+  "case_group": "2024-A",
+  "papers": [
+    "S001",
+    "S002",
+    "S003",
+    "S004"
+  ],
+  "purpose": "same-problem method competition plus implementation/evidence consistency learning",
+  "questions": {
+    "Q1": {
+      "S001": "stateful/streaming fatigue emphasis and exact-baseline comparison",
+      "S002": "TW-Rainflow-Goodman-Miner window approximation",
+      "S003": "adaptive three-stage window narrative but printed fixed-window code",
+      "S004": "fixed 10 s overlapping-window amplitude/mean surrogate + startup trigonometric prediction",
+      "selection_rule": "Keep exact batch rainflow as gold standard. Window surrogates must pass synthetic-cycle scale/boundary tests; prefer stateful online cycle accounting when physical cumulative damage is required."
+    },
+    "Q2": {
+      "S001": "low-parameter physics + causal regression",
+      "S002": "physics features + BiLSTM/Nelder-Mead comparison",
+      "S003": "segmented high-order physics-inspired nonlinear regression with unit/scaling risks",
+      "S004": "physics-first torque/thrust formula + residual-driven lag/scale correction",
+      "selection_rule": "Start with semantically correct, unit-consistent physics. Add small residual/lag calibration only on training blocks and validate on untouched turbines/time. A correction factor must represent the physical process it is named after."
+    },
+    "Q3": {
+      "S001": "DDPG policy + safety layer",
+      "S002": "NSGA-II explicit Pareto solver",
+      "S003": "Pareto/region/LSTM/MPC narrative but static-SLSQP-like printed code",
+      "S004": "single-objective constrained genetic algorithm on power-allocation weights",
+      "selection_rule": "Use an explicit constrained optimizer/GA as reproducible benchmark before RL. For GA report objective implementation, feasibility after genetic operators, latency distribution, and solution-quality variability across seeds."
+    },
+    "Q4": {
+      "S001": "prediction + robust optimization route",
+      "S002": "SVD denoise + phase-delay + spline reconstruction",
+      "S003": "Kalman/delay/robust-MPC/PSO narrative with missing implementation evidence",
+      "S004": "Kalman vs moving average/SG + delay detection + SMA/ARIMA/LSTM + five-treatment downstream ablation",
+      "selection_rule": "S004 has the strongest staged evidence design among these texts, but implementation must reset per-entity filter states, use unit-aware delay thresholds, preserve treatment labels, and report fatigue-vs-variance trade-offs rather than an overall-win claim."
+    }
+  },
+  "new_consistency_checks": [
+    "overlapping window cycle reuse",
+    "per-entity state reset",
+    "calibration vs evaluation split",
+    "engineering parameter semantic validity",
+    "treatment label consistency",
+    "multi-metric dominance/trade-off",
+    "batch throughput vs per-step latency"
+  ],
+  "figure_design_lesson": "Across S001-S004, a strong answer follows mechanism/baseline → diagnostics → correction/optimization → direct constraint/runtime evidence → independent robustness/ablation. Figure quantity is secondary to claim coverage."
+}

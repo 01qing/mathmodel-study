@@ -1,0 +1,2 @@
+/mnt/data/mathmodel-study/v1.8/learning_sources/competitions/2025/E/supplemental/GTeacher1/q2/random_forest_example.py:52: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()

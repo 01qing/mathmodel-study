@@ -1,0 +1,260 @@
+{
+  "schema": "MathModel-Core v1",
+  "legacy_policy": "non-destructive",
+  "cards": [
+    {
+      "paper_id": "2024-A-S001-core",
+      "file": "knowledge_base/paper_reviews/2024-A-S001-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "2024-A-S002-core",
+      "file": "knowledge_base/paper_reviews/2024-A-S002-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "2024-A-S003-core",
+      "file": "knowledge_base/paper_reviews/2024-A-S003-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "2024-A-S004-core",
+      "file": "knowledge_base/paper_reviews/2024-A-S004-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S005",
+      "file": "knowledge_base/paper_reviews/2024-B-S005-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S006",
+      "file": "knowledge_base/paper_reviews/2024-B-S006-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S007",
+      "file": "knowledge_base/paper_reviews/2024-B-S007-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S008",
+      "file": "knowledge_base/paper_reviews/2024-B-S008-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S009",
+      "file": "knowledge_base/paper_reviews/2024-C-S009-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S010",
+      "file": "knowledge_base/paper_reviews/2024-C-S010-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S011",
+      "file": "knowledge_base/paper_reviews/2024-C-S011-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S012",
+      "file": "knowledge_base/paper_reviews/2024-C-S012-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S017",
+      "file": "knowledge_base/paper_reviews/2024-E-S017-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S018",
+      "file": "knowledge_base/paper_reviews/2024-E-S018-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S019",
+      "file": "knowledge_base/paper_reviews/2024-E-S019-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S020",
+      "file": "knowledge_base/paper_reviews/2024-E-S020-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "S025",
+      "file": "knowledge_base/paper_reviews/2025-A-S025-core.json",
+      "core_schema_version": "1.0",
+      "missing_new_protocol_fields": [],
+      "action": "CURRENT_SCHEMA"
+    },
+    {
+      "paper_id": "2025-E-S039-core",
+      "file": "knowledge_base/paper_reviews/2025-E-S039-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "2025-E-S040-core",
+      "file": "knowledge_base/paper_reviews/2025-E-S040-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    },
+    {
+      "paper_id": "2025-E-S041-core",
+      "file": "knowledge_base/paper_reviews/2025-E-S041-core.json",
+      "core_schema_version": null,
+      "missing_new_protocol_fields": [
+        "candidate_model_competition",
+        "six_hour_baselines",
+        "result_registry_ref",
+        "transferable_modules_ref",
+        "reproduction"
+      ],
+      "action": "NO_AUTO_REREAD; backfill on demand"
+    }
+  ]
+}

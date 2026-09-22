@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.5",
+  "case_id": "gmcm-2024-C",
+  "excellent_paper_archive": {
+    "source": "zhanwen/MathModel README",
+    "url": "https://pan.baidu.com/s/1uxhi5n47ZsLm9fU1xqpS3g",
+    "access_key": "opr4",
+    "status": "ARCHIVE_ENTRY_VERIFIED_WEB_ACCESS_BLOCKED_IN_CURRENT_ENVIRONMENT",
+    "evidence_note": "The repository README explicitly labels this as 2024 excellent papers."
+  },
+  "full_paper_materialization": {
+    "status": "BLOCKED_BY_CURRENT_WEB_ACCESS",
+    "minimum_required": 2,
+    "materialized_count": 0,
+    "selection_rule": "Choose two C-problem papers after reading all available candidate abstracts/body sections enough to maximize methodological diversity."
+  },
+  "verified_solution_profiles": [
+    {
+      "id": "profile-sdu-lucky-dog",
+      "award": "数模之星冠军",
+      "title": "基于多因素分析与深度学习的磁芯损耗建模",
+      "route": [
+        "multi-factor interaction",
+        "bidirectional LSTM",
+        "ideal-point-guided non-dominated sorting genetic algorithm"
+      ],
+      "status": "PROFILE_ONLY_NOT_FULL_PAPER",
+      "source": "山东大学研究生之家"
+    },
+    {
+      "id": "profile-fzu-hushaocheng",
+      "award": "全国一等奖",
+      "route": [
+        "feature extraction and classification",
+        "new Steinmetz correction equation",
+        "core-loss prediction",
+        "working-condition optimization"
+      ],
+      "status": "PROFILE_ONLY_NOT_FULL_PAPER",
+      "source": "福州大学电气工程与自动化学院"
+    },
+    {
+      "id": "profile-fzu-fangshuqi",
+      "award": "全国二等奖",
+      "route": [
+        "multi-feature fusion dimensionality reduction",
+        "improved multi-fold cross regression",
+        "ant-colony / particle-swarm optimization"
+      ],
+      "status": "PROFILE_ONLY_NOT_FULL_PAPER",
+      "source": "福州大学电气工程与自动化学院"
+    },
+    {
+      "id": "profile-uestc-humingfei",
+      "award": "全国一等奖",
+      "route": [
+        "public description only: data-driven core-loss modeling and optimization with innovative models/algorithms"
+      ],
+      "status": "PROFILE_ONLY_METHOD_DETAILS_INSUFFICIENT",
+      "source": "中国大学生在线/电子科技大学"
+    }
+  ],
+  "do_not_promote_profiles_to_papers": true
+}

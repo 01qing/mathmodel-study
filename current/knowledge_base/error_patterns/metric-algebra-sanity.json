@@ -1,0 +1,6 @@
+{
+  "id": "metric-algebra-sanity",
+  "trigger": "Reported metric combinations violate algebraic identities or bounds.",
+  "risk": "Typos/stale results can survive visual review and reverse model-selection conclusions.",
+  "gate": "For each common error vector verify MSE>=MAE^2, RMSE=sqrt(MSE), 0<=rates<=1, confusion-derived metrics recompute, percentage numerator/denominator identities, and any domain-specific conservation bounds."
+}

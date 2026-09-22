@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "skill-entry-evidence",
+      "exit_code": 0,
+      "passed": true,
+      "log": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\recovery\\skill-entry-evidence.log"
+    },
+    {
+      "name": "skill-entry-retriever",
+      "exit_code": 0,
+      "passed": true,
+      "log": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\recovery\\skill-entry-retriever.log"
+    },
+    {
+      "name": "core-skill",
+      "exit_code": 0,
+      "passed": true,
+      "log": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\recovery\\core-skill.log"
+    },
+    {
+      "name": "workspace",
+      "exit_code": 0,
+      "passed": true,
+      "log": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\recovery\\workspace.log"
+    },
+    {
+      "name": "library",
+      "exit_code": 0,
+      "passed": true,
+      "log": "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\recovery\\library.log"
+    },
+    {
+      "name": "sealed-source-unchanged",
+      "passed": true,
+      "changed": []
+    },
+    {
+      "name": "local-source-identity",
+      "passed": true
+    },
+    {
+      "name": "official-five-inputs",
+      "passed": true
+    }
+  ],
+  "working_copy_changed_baseline_files": [
+    ".agents/skills/graduate-mathmodel-learning/SKILL.md",
+    "learning_output/context/learning_state.json",
+    "learning_output/context/next_learning.md",
+    "learning_output/retriever-validation.json"
+  ],
+  "scope": "Restoration, routing, source identity, and existing retrieval checks only; no new modeling execution or award-rate evidence.",
+  "setup_first_failure": {
+    "kind": "ZIP filename decoding",
+    "cause": "historical handoff ZIP contains UTF-8 member names without encoding flag",
+    "repair": "decode that archive with metadata_encoding=utf-8; preserve source ZIP bytes",
+    "retest": "PASS"
+  }
+}

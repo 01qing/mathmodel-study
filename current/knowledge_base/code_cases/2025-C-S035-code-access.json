@@ -1,0 +1,18 @@
+{
+  "paper_id": "S035",
+  "case_group": "2025-C",
+  "artifact_type": "CODE_ACCESS_AUDIT",
+  "status": "CODE_REFERENCED_BUT_NOT_AVAILABLE",
+  "paper_evidence": "paper repeatedly names source paths such as src/core/*.py and problem-4 code paths; actual source is not embedded in the PDF",
+  "available_collection_audit": "2025 excellent-paper ZIP contains PDF files only; no S035 author source bundle is available",
+  "consequence": {
+    "reproduction_level": "R1",
+    "reason": "R2 requires printed or attachment code static audit; only path references are visible"
+  },
+  "do_not_claim": [
+    "implementation fidelity",
+    "code-to-paper correspondence",
+    "R2 or R3",
+    "runtime reproduction"
+  ]
+}

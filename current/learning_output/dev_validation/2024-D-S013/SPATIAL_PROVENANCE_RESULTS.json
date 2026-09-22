@@ -1,0 +1,50 @@
+{
+  "scope": "literal formula and conditional dataflow counterexamples; not author GIS or SVR full reproduction",
+  "tests": [
+    {
+      "id": "S013-SP01",
+      "source_page": 63,
+      "first": "FAIL",
+      "printed_axis_dot_product": 0.923076923076923,
+      "printed_cross_covariance": 1.3076923076923077,
+      "diagnosis": "Eq6-2/6-4 literal angle/axis expressions do not produce orthogonal principal axes",
+      "repair": "symmetric covariance eigendecomposition with declared ordering",
+      "retest": "PASS",
+      "repaired_cross_covariance": 1.620886743550023e-16
+    },
+    {
+      "id": "S013-SP02",
+      "source_pages": [
+        51,
+        104,
+        108
+      ],
+      "first": "UNSUPPORTED_SPATIAL_OUTPUT",
+      "prediction_range_same_year_inputs": 0.0,
+      "diagnosis": "national annual six-feature forecasts plus no-coordinate predictor imply identical same-year predictions; spatial disaggregation primitive not supplied",
+      "retest": "PASS_CONDITIONAL_INVARIANT",
+      "repair_status": "NOT_IMPLEMENTED; needs original regional input or disaggregation chain"
+    },
+    {
+      "id": "S013-SP03",
+      "source_pages": [
+        51,
+        52
+      ],
+      "table2020_grass": 0.02,
+      "table2020_forest": 0.003,
+      "prose2020_grass": 0.003,
+      "status": "CONTRADICTED_TABLE_VS_PROSE"
+    },
+    {
+      "id": "S013-SP04",
+      "source_pages": [
+        57,
+        58
+      ],
+      "prose_target": "SVR vulnerability index",
+      "figure5_24_title": "annual precipitation Getis-Ord Gi*",
+      "status": "RESULT_IDENTITY_MISMATCH_REQUIRES_SOURCE_TRACE"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "id": "METRIC_IDENTITY_REQUIRES_AGGREGATION_PROVENANCE",
+  "rule": "When metrics have algebraic identities for one confusion matrix (e.g. F1=2IoU/(1+IoU)), apparent mismatches must first check macro/micro/per-image aggregation and rounding provenance before declaring error.",
+  "scope": "generic"
+}

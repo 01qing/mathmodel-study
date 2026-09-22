@@ -1,0 +1,319 @@
+{
+  "mode": "evaluation",
+  "query": "Canny GMM 神经网络 二阶导数 信息熵 补充钻孔",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [],
+    "data": [],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S033",
+      "case_group": "2025-C",
+      "title": "C题-2-围岩裂隙精准识别与三维模型重构",
+      "page": 2,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S033-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-2-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "bc6529349c3a053b7774731f2fa3e383f6337807fd33954ee7726b04949878fd",
+      "chunk_id": "S033-p2-0",
+      "excerpt": "传统模型对此不敏感。构建二阶导数的JRC 改进模型，有效克服了一阶导数对线性趋势\n敏感的局限性。\n针对问题四，构建多钻孔裂隙网络三维重构与不确定性评估模型。首先，基于正弦曲\n线参数反演三维裂隙平面产状（倾角、倾向），建立平面方程。其次，提出包含空间距离贴\n近度、产状相似度、JRC 粗糙度相似度及垂向深度重叠度的多因子加权综合评价模型，计\n算相邻钻孔间裂隙的连通概率。在此基础上，对研究区域进行三维网格离散化，利用信息\n熵量化每个网格单元的不确定性，识别出高不确定性区域。最后，以最大化信息增益为目\n标，兼顾工程约束（最小间距≥500mm，孔深5000mm），推荐了3 个最优补充钻孔位置\n（1100，1500，0）、（1900，1500，0）、（1900，1100，0）（单位：mm），并确定其优先级，\n为后续勘探布设提供决策依据。\n本文通过系统研究，构建了从钻孔图像智能识别到三维裂隙网络重构的完整技术框\n架，有效提升了巷道围岩裂隙分析的自动化与精准化水平。研究成果为煤矿安全高效开采\n提供了重要的技术支撑，推进了钻孔成像技术在岩体裂隙定量表征与风险评估领域的应用\n研究。未来可进一步结合多源监测数据与地质力学模型，实现围岩稳定性的动态智能预警。\n关键词：多特征融合Canny 边缘检测模型；梯度下降法-牛顿法融合模型；神经网络的参\n数反演模型；基于二阶导数的JRC 改进模型；三维裂隙平面模型；连通概率；信息熵\n2",
+      "lexical_cosine": 0.1827637172984426,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "PROVISIONAL_2_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "NOT_DUE",
+        "reviewed_papers": [
+          "S032",
+          "S033"
+        ],
+        "pending_papers": [
+          "S034",
+          "S035",
+          "S036"
+        ]
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_78_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "no-label Canny/ridge + morphology baseline; compact segmentation model only after grouped held-out gain",
+          "Q2": "topology-aware unknown-count grouping + fixed P=pi*D + bounded robust sinusoid + reject",
+          "Q3": "ordered physical centerline + canonical JRC formula + sampling-density sensitivity",
+          "Q4": "attachment-derived 3D geometry + transparent/calibrated connectivity + propagated uncertainty + feasible expected-information-gain drilling"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S033.json",
+        "result_registry_file": "knowledge_base/result_registry/S033.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S033-modules.json",
+        "decision_warning": [
+          "Q1 method ranking is mainly visual and appendix exposes only a Canny fragment with cross-question path drift",
+          "Q2 visible fixed 3-component GMM cannot explain reported 5/1/3 fractures; pseudo-neural same-instance fitting is not held-out learning",
+          "Q3 JRC formula/area-correction claims drift and printed code treats a closed contour as an ordered profile",
+          "Q4 uses simulated fixed inputs, incomplete binary entropy/pseudo information gain, and a reported point violates the stated 500 mm spacing constraint"
+        ]
+      }
+    },
+    {
+      "paper_id": "S032",
+      "case_group": "2025-C",
+      "title": "C题-1-围岩裂隙精准识别与三维模型重构",
+      "page": 48,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S032-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+      "chunk_id": "S032-p48-0",
+      "excerpt": "48\n图4.20 基于AHP 的钻孔推荐分析图\n图4.21 基于AHP 的钻孔推荐分析图\n如图4.22 所示，为最终的补充钻孔位置推荐的三维示意图，以x、y、z 坐标（单位：\nmm）构建三维空间，清晰呈现了现有钻孔（1#-6#）以及推荐的3 个补充钻孔的空间分布\n情况。从图中可以看到，推荐钻孔（优先级1、优先级2、优先级3）的位置均处于现有钻\n孔之间的空白区域。这种布局能够有效填补现有钻孔在空间覆盖上的不足，通过在这些空\n白区域补充钻孔，可更全面地获取裂隙网络等相关地质信息，提升对该区域地质结构分析\n的完整性与准确性，为后续工程决策提供更充分的数据支撑。",
+      "lexical_cosine": 0.11262613256163814,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "PROVISIONAL_2_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "NOT_DUE",
+        "reviewed_papers": [
+          "S032",
+          "S033"
+        ],
+        "pending_papers": [
+          "S034",
+          "S035",
+          "S036"
+        ]
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+          "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+          "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+          "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+        "result_registry_file": "knowledge_base/result_registry/S032.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+        "decision_warning": [
+          "Q1 independent split/loss provenance missing",
+          "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+          "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+          "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+        ]
+      }
+    },
+    {
+      "paper_id": "S010",
+      "case_group": "2024-C",
+      "title": "C24103860012",
+      "page": 16,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q5_CATEGORY_SMOKE",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S010-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24103860012.pdf",
+      "source_sha256": "20aa9ecb0164fd4e11130590da00f8e0a22a1147dc43b1b85ba9aa4f951a56d3",
+      "chunk_id": "S010-p16-0",
+      "excerpt": "15\n图5-3 三种波形快速傅立叶变换示例\n2.二阶导数非0 值数量：二阶导数非零值是用于识别波形拐点的重要方法之一，由于\n拐点处左右斜率不同，因此在拐点处取三个点可以计算得到二阶导数非0。而在斜率不变\n情况下，计算二阶导数则值为0。考虑到本题数据通过精确的信号采样获得，因此我们设\n定一个极小的阈值用于判断二阶导数是否为0。\n特征选择：对于综合上述两个角度获取的特征，我们根据观察和经验进行初步的特征\n选择，特别是对于统计特征，经过分析我们决定丢弃均值、中位数，由于三种波形在正区\n间和负区间上的面积基本一致，因此均值和中位数均接近0，与波形类型不存在相关性。\n针对幅度前k 大信号频率和幅度特征，我们观察到三角波和梯形波大多仅仅具有5 个显著\n组成频率信号，因此我们对取值为5。对于剩下的特征，我们全部选取并通过五折交叉验\n证将数据集划分为训练集和测试集。这种方法确保每个数据子集都能作为测试集，从而提\n供更全面的模型评估。通过这种系统的特征选择和数据划分策略，我们能够有效降低过拟\n合的风险，并提高模型在实际应用中的预测能力。\n5.3 分类模型的建立与求解\n经过特征挑选，我们共选择了19 个特征作为模型训练的输入：方差、偏度、最小值、\n最大值、四分位数（Q1、Q2、Q3）、峰度、幅度前k 大信号频率和幅度（f1、f2、f3、f4、",
+      "lexical_cosine": 0.10013440200113592,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S006",
+      "case_group": "2024-B",
+      "title": "B24103530099",
+      "page": 34,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S006-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24103530099.pdf",
+      "source_sha256": "db528311404cb848e166fe9f837b20ebafab91f8b3ee6307677a8e7d56d09b1f",
+      "chunk_id": "S006-p34-0",
+      "excerpt": "33 \n \n5.2 相关理论 \n5.2.2 BP 神经网络 \nBP 神经网络是一种监督学习算法，由输入层、隐藏层和输出层组成，每一层包含多\n个神经元。其分为两个子过程，分别为工作信号正向传递与误差信号反向传递。BP 神经\n网络通过误差反向传播算法进行误差校正，最核心的特点就是：信号是前向传播，而误\n差是反向传播。前向传播过程中，输入信号经过输入层、隐藏层逐层处理，到输出层时，\n如果结果未到达期望要求，则进入反向传播过程，将误差信号原路返回，修改各层权重。\nBP 神经网络具体示意图如图5-2 所示： \n...\n...\n输入层\n隐藏层\n输出层\n \n图5-2 BP 神经网络示意图 \n5.2.2 CNN 系列 \n卷积神经网络（CNN, Convolutional Neural Networks）是深度学习中的一种特殊神经\n网络结构，特别适用于处理具有网格结构的数据，如图像和视频。CNN 的核心思想是通\n过卷积操作提取数据中的局部特征，逐层抽象出更高层次的表示，广泛应用于图像分类、\n目标检测、语义分割等任务。CNN 系列包括多个变种和改进模型，涵盖了从经典结构到\n现代复杂网络的演化。 \nCNN 的基本结构包括卷积层、池化层和全连接层。卷积层负责提取局部特征，通过\n卷积核对输入进行滑动并计算特征图；池化层用于下采样，减少特征图的维度并保持重\n要特征，常见的池化方法有最大池化和平均池化；全连接层则将提取到的特征向量化并\n用于最终的分类或回归任务。",
+      "lexical_cosine": 0.09931911207014657,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S007",
+      "case_group": "2024-B",
+      "title": "B24104760033",
+      "page": 52,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2024-B-S007-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\B\\B24104760033.pdf",
+      "source_sha256": "4489b34abb9b14010c621a9804b2b8f69dace4d99afd86606a512513925bcdb3",
+      "chunk_id": "S007-p52-0",
+      "excerpt": "图7.44\nMCS 神经网络学习曲线\n图7.45\nNSS 神经网络学习曲线\n图7.46\nMCS XGBoost 学习曲线\n图7.47\nNSS XGBoost 学习曲线\nLightGBM 在处理大规模数据集时表现出色，从图7.48,7.49中MCS 与NSS 模型的结\n果来看，它的训练速度快，内存占用低。尤其在NSS 模型中，对于高维稀疏数据的处\n理效果非常好。此外，LightGBM 在类别不平衡的数据集上表现优异。\n图7.48\nMCS LightGBM 学习曲线\n图7.49\nNSS LightGBM 学习曲线\n从上面的实验训练过程分析来看，对于少量数据而言，神经网络并没有特别高的优势。\n反而是随机森林算法等基于传统的机器学习方法在其中表现出了优异的结果。相比较于神\n经网络，反而少了过拟合的情况。\n51",
+      "lexical_cosine": 0.07061258405324901,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-B-S005-S008.json",
+        "papers": [
+          "S005",
+          "S006",
+          "S007",
+          "S008"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S040",
+      "case_group": "2025-E",
+      "title": "E题-无监督迁移学习下的轴承故障诊断建模与优化",
+      "page": 22,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2025-E-S040-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+      "source_sha256": "4b5875eb3b83395e54d5e8b9d033b045bb2e2ef54f9ada6a061588b311467eb2",
+      "chunk_id": "S040-p22-0",
+      "excerpt": "22 \n3）将最优IMF 组合信号\n等分为m 个长度为M 的窗口\n，\n。 \n4）分别从\n中提取16 个时域特征指标\n，从\n中提取13 个频域特\n征指标\n，并从\n中提取7 个熵域特征指标\n，构\n建成特征矩阵X，具体特征如表 4-8 所示。 \n表 4-8 振动信号特征名称列表 \n序号 \n特征名称 \n序号 \n特征名称 \n序号 \n特征名称 \n1 \n均值 \n13 \n脉冲指标 \n25 \n频域幅值峭\n度指标 \n2 \n方差 \n14 \n裕度指标 \n26 \n频率标准差 \n3 \n方根幅值 \n15 \n偏斜度指标 \n27 \n频域频率歪\n度 \n4 \n绝对平均幅\n值 \n16 \n峭度指标 \n28 \n频域频率峭\n度 \n5 \n最大值 \n17 \n频域幅值平\n均值 \n29 \n平方根比率 \n6 \n最小值 \n18 \n重心频率 \n30 \n近似熵 \n7 \n峰值 \n19 \n均方频率 \n31 \n包络熵 \n8 \n有效值 \n20 \n频率方差 \n32 \nEMD 能量熵 \n9 \n偏斜度 \n21 \n均方根频率 \n33 \n功率谱熵 \n10 \n峭度 \n22 \n频域幅值方\n差 \n34 \n样本熵 \n11 \n峰值指标 \n23 \n频域绝对平\n均幅值 \n35 \n小波包能量\n熵 \n12 \n波形指标 \n24 \n频域幅值偏\n度指标 \n36 \n模糊熵 \n（2）MixHop 模型原理 \nMiXHop（Mixing Multiple Orders of Graph Convolutions）模型[10]是一种图神经网络\n（GNN）模型，其核心思想是在单层中同时聚合节点的多阶邻居信息。传统的图卷积网络\n（GCN）通常只聚合一阶邻居的信息，而MiXHop 通过引入多阶邻接矩阵的幂次，实现了\n在同一层中同时学习一阶、二阶乃至更高阶邻居的特征。随后，这些不同阶的特征被串联\n在一起，用以丰富节点表示。其基本流程如下： \n（i）输入特征：将特征矩阵\n输入模型，其中N 为窗口数，d 为特征维度。",
+      "lexical_cosine": 0.053907265342606245,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [
+        {
+          "case_id": "2025-E-GTeacher1-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "PARTIAL_CODE_REVIEW",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+          "question_links": {
+            "Q1": [
+              "MAT→CSV/时域可视化",
+              "小波软阈值去噪",
+              "自定义EMD"
+            ],
+            "Q2": [
+              "RandomForestClassifier最小监督基线"
+            ],
+            "Q3": [],
+            "Q4": [
+              "基础信号/去噪可视化仅可作事前解释"
+            ]
+          },
+          "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+        },
+        {
+          "case_id": "2025-E-GTeacher2-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+          "question_links": {
+            "Q1": [
+              "detrend/bandpass/Hilbert envelope/resample/windowing",
+              "spectral-kurtosis band",
+              "order tracking"
+            ],
+            "Q2": [
+              "1D特征网络",
+              "MechanismFilterBank",
+              "Channel-SE",
+              "文件级train/val/test划分"
+            ],
+            "Q3": [
+              "CORAL loss",
+              "entropy minimization",
+              "BN recalibration/SHOT相关入口",
+              "目标文件聚合与融合"
+            ],
+            "Q4": [
+              "embedding/t-SNE",
+              "gate/channel weight",
+              "envelope example",
+              "adapt-loss/fusion-confidence图"
+            ]
+          },
+          "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+          "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+        }
+      ],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+        "papers": [
+          "S039",
+          "S040",
+          "S041"
+        ]
+      },
+      "mathmodel_core_summary": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

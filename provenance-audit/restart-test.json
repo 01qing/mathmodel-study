@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.5",
+  "case_id": "audit-fixture",
+  "created_at": "2026-09-08T13:22:09.453761+00:00",
+  "problem_fingerprint": "synthetic-fixture",
+  "solution_exposure_before_matrix": false,
+  "matrix_frozen": false,
+  "fresh_blind_eligible": true,
+  "rule": "If any paper/code/solution profile was read before matrix freeze, fresh_blind_eligible must remain false."
+}

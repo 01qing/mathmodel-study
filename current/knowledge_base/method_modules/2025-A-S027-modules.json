@@ -1,0 +1,82 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "modules": [
+    {
+      "id": "S027-Q1-DETERMINISTIC-MULTICRITERIA-LIST",
+      "question": "Q1",
+      "module": "ready-set deterministic multi-criteria DAG list scheduling",
+      "transfer_value": "high",
+      "reuse_conditions": [
+        "priority features are explicitly implemented",
+        "all topology/cache constraints replayed"
+      ],
+      "do_not_reuse_when": [
+        "priority helper is opaque or trained on one fixed graph only"
+      ],
+      "interfaces": {
+        "in": "DAG + node/cache metadata",
+        "out": "legal topological schedule"
+      }
+    },
+    {
+      "id": "S027-Q2-LIFETIME-FREELIST",
+      "question": "Q2",
+      "module": "cache free-list + lifetime bookkeeping skeleton",
+      "transfer_value": "high_after_repair",
+      "reuse_conditions": [
+        "allocator name and primitive agree",
+        "spill victim uses same objective direction as paper"
+      ],
+      "interfaces": {
+        "in": "buffer lifetimes/sizes/types",
+        "out": "cache offsets + spill events"
+      }
+    },
+    {
+      "id": "S027-Q3-EPSILON-TOLERANCE",
+      "question": "Q3",
+      "module": "explicit transfer-growth tolerance around a cycle-minimization objective",
+      "transfer_value": "high",
+      "reuse_conditions": [
+        "official epsilon sourced once",
+        "hard cap checked before selection"
+      ],
+      "interfaces": {
+        "in": "baseline transfer + candidate schedule metrics",
+        "out": "feasible/infeasible + cycle objective"
+      }
+    },
+    {
+      "id": "S027-RESULT-AGGREGATION-SEMANTICS",
+      "question": "cross-question",
+      "module": "store both aggregate-weighted and macro-per-instance improvement in Result Registry",
+      "transfer_value": "very_high",
+      "reuse_conditions": [
+        "multiple heterogeneous cases/workloads"
+      ],
+      "interfaces": {
+        "in": "per-instance baseline/candidate metrics",
+        "out": "micro/aggregate + macro summaries with explicit labels"
+      }
+    },
+    {
+      "id": "S027-CODE-CONTRACT-HELPER-COVERAGE",
+      "question": "cross-question",
+      "module": "algorithm-defining helper coverage audit",
+      "transfer_value": "very_high",
+      "reuse_conditions": [
+        "paper relies on named optimizer/priority/repair helper"
+      ],
+      "interfaces": {
+        "in": "paper algorithm primitives + code symbol graph",
+        "out": "implemented/missing/dead primitive map"
+      }
+    }
+  ],
+  "blocked_until_repaired": [
+    "Q1 MCBGS as a fully evidenced Type+Size+Criticality implementation",
+    "Q2 spill victim heuristic as written because paper/code direction disagree",
+    "Q3 DOSA optimizer core and multi-sequence collaboration label"
+  ]
+}

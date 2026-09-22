@@ -1,0 +1,40 @@
+{
+  "paper_id": "S036",
+  "case_group": "2025-C",
+  "modules": [
+    {
+      "id": "S036_Q1_CLEAN_SOURCE_HOLDOUT_GATE",
+      "role": "freeze original/source split before augmentation",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S036_Q2_PHYSICS_FRAGMENT_MERGE",
+      "role": "DBSCAN fragments + fixed-period model merge",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S036_Q3_MULTI_METRIC_SELECTION",
+      "role": "primary metric/Pareto contract for sampling methods",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S036_Q4_EDGE_REGISTRY_REPLAY",
+      "role": "thresholded edge list as single truth source for components",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S036_Q4_SCORE_SEMANTIC_GATE",
+      "role": "compatibility vs calibrated probability/EIG",
+      "transfer": "very_high"
+    }
+  ],
+  "blocked_transfers": [
+    "all-project training and all-project test metrics",
+    "augmentation as leakage fix",
+    "metric-conflicting universal winner",
+    "network component not reproducible from edge list",
+    "weighted score relabeled probability",
+    "hotspot utility relabeled EIG without posterior update",
+    "unavailable notebooks used to claim R2"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "paper_id": "S006",
+  "visual_review_status": "CAPTION_CONTEXT_REVIEWED_ORIGINAL_PDF_PIXELS_PENDING",
+  "explicit_caption_count": 30,
+  "figures": [
+    {
+      "id": "1-1",
+      "caption": "技术路线图",
+      "text_line": 378
+    },
+    {
+      "id": "3-1",
+      "caption": "自适应器损失图",
+      "text_line": 468
+    },
+    {
+      "id": "4-1",
+      "caption": "问题一建模流程图",
+      "text_line": 588
+    },
+    {
+      "id": "4-2",
+      "caption": "随机森林示意图",
+      "text_line": 670
+    },
+    {
+      "id": "4-3",
+      "caption": "GBDT 示意图",
+      "text_line": 705
+    },
+    {
+      "id": "4-4",
+      "caption": "RSSI 对应数据转换",
+      "text_line": 787
+    },
+    {
+      "id": "4-6",
+      "caption": "DBSCAN 数据处理示意图",
+      "text_line": 827
+    },
+    {
+      "id": "4-7",
+      "caption": "DBSCAN 部分结果高密度区域可视化",
+      "text_line": 857
+    },
+    {
+      "id": "4-8",
+      "caption": "2ap 情况下各特征与标签热力图",
+      "text_line": 957
+    },
+    {
+      "id": "4-9",
+      "caption": "2ap 情况下随机森林特征重要性排序",
+      "text_line": 994
+    },
+    {
+      "id": "4-10",
+      "caption": "2ap 情况下GBDT 特征重要性排序",
+      "text_line": 996
+    },
+    {
+      "id": "4-11",
+      "caption": "预测值与添加噪声后的预测值对比图",
+      "text_line": 1213
+    },
+    {
+      "id": "4-12",
+      "caption": "2ap 情况下各特征与标签热力图",
+      "text_line": 1237
+    },
+    {
+      "id": "4-13",
+      "caption": "3ap 情况下随机森林特征重要性排序",
+      "text_line": 1272
+    },
+    {
+      "id": "4-14",
+      "caption": "3ap 情况下GBDT 特征重要性排序",
+      "text_line": 1280
+    },
+    {
+      "id": "4-15",
+      "caption": "预测值与添加噪声后的预测值对比图",
+      "text_line": 1535
+    },
+    {
+      "id": "5-1",
+      "caption": "问题二建模流程图",
+      "text_line": 1585
+    },
+    {
+      "id": "5-2",
+      "caption": "BP 神经网络示意图",
+      "text_line": 1606
+    },
+    {
+      "id": "5-3",
+      "caption": "CNN 神经网络示意图",
+      "text_line": 1646
+    },
+    {
+      "id": "5-4",
+      "caption": "过采样示意图",
+      "text_line": 1674
+    },
+    {
+      "id": "5-5",
+      "caption": "BP 神经网络模型下损失与准确率随epoch 变化曲线图",
+      "text_line": 1765
+    },
+    {
+      "id": "5-6",
+      "caption": "卷积神经网络模型下损失与准确率随epoch 变化曲线图",
+      "text_line": 1767
+    },
+    {
+      "id": "5-7",
+      "caption": "卷积神经网络模型融入过采样方法后损失与准确率随epoch 变化曲线图",
+      "text_line": 1800
+    },
+    {
+      "id": "5-8",
+      "caption": "3ap 情况下卷积神经网络模型融入过采样方法后损失与准确率随epoch 变化曲线图",
+      "text_line": 2035
+    },
+    {
+      "id": "6-1",
+      "caption": "问题三建模流程图",
+      "text_line": 2371
+    },
+    {
+      "id": "6-2",
+      "caption": "深度残差神经网络示意图",
+      "text_line": 2418
+    },
+    {
+      "id": "6-3",
+      "caption": "各变量与各特征间热力图",
+      "text_line": 2513
+    },
+    {
+      "id": "6-4",
+      "caption": "损失与拟合优度随epoch 变化曲线图",
+      "text_line": 2577
+    },
+    {
+      "id": "6-5",
+      "caption": "3ap 情况下各变量与各特征间热力图",
+      "text_line": 2788
+    },
+    {
+      "id": "6-6",
+      "caption": "3ap 情况下损失与拟合优度随epoch 变化曲线图",
+      "text_line": 2838
+    }
+  ],
+  "argumentation_lessons": [
+    {
+      "figures": [
+        "4-9",
+        "4-10",
+        "4-13",
+        "4-14"
+      ],
+      "lesson": "compare model-specific feature importance, but add grouped-fold stability before treating rank as robust"
+    },
+    {
+      "figures": [
+        "4-11",
+        "4-15"
+      ],
+      "lesson": "prediction-vs-noisy-prediction plots document injected noise, not robustness or predictive accuracy"
+    },
+    {
+      "figures": [
+        "5-5",
+        "5-6",
+        "5-7",
+        "5-8"
+      ],
+      "lesson": "train/validation accuracy curves are insufficient when oversampling precedes split; validation design dominates curve appearance"
+    },
+    {
+      "figures": [
+        "6-4",
+        "6-6"
+      ],
+      "lesson": "stage-2 loss/R2 curves with true intermediates do not prove end-to-end two-stage performance; add cascade-level held-out prediction plot/error distribution"
+    },
+    {
+      "figures": [
+        "6-3",
+        "6-5"
+      ],
+      "lesson": "correlation heatmaps support screening, not causal claims"
+    }
+  ],
+  "recommended_new_figure_roles": [
+    "class distribution before/after training-only resampling",
+    "group-fold confusion matrix and macro-F1",
+    "stage-1 OOF prediction quality for each intermediate",
+    "ground-truth-vs-OOF intermediate shift",
+    "end-to-end cascade error ECDF",
+    "error propagation sensitivity from intermediates to throughput"
+  ]
+}

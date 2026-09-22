@@ -1,0 +1,11 @@
+{
+  "id": "aggregate-vs-case-average-semantic-drift",
+  "name": "Aggregate-weighted improvement mislabeled as average case improvement",
+  "severity": "high",
+  "trigger": "headline \"average\" percentage matches ratio of summed metrics rather than arithmetic mean of per-instance percentages",
+  "risk": "large instances dominate the claim and mask poor small-instance behavior",
+  "gate": "Result Registry must compute and label both macro per-instance mean and aggregate/micro weighted improvement from the same rows",
+  "source_examples": [
+    "2025-A-S027-Q1 89.2%/85.5%/89.2%"
+  ]
+}

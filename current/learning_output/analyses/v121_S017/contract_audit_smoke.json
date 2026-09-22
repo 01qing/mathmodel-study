@@ -1,0 +1,57 @@
+{
+  "paper_id": "S017",
+  "checks": {
+    "greenberg_parameter_contract": {
+      "paper_free_speed_kmh": 130,
+      "printed_code_V_c_kmh": 120,
+      "printed_code_K_jam": 25,
+      "density_input_physical_unit_verified": false,
+      "status": "MISMATCH_AND_UNCALIBRATED"
+    },
+    "temporal_split_contract": {
+      "window_length": 10,
+      "windows_constructed_before_split": true,
+      "split_method": "train_test_split random shuffle(default)",
+      "overlap_possible_across_train_test": true,
+      "status": "LEAKAGE_RISK"
+    },
+    "prediction_plot_alignment": {
+      "train_test_predictions_concatenated_after_random_split": true,
+      "chronological_alignment_preserved": false,
+      "status": "INVALID_TIME_ALIGNMENT"
+    },
+    "selected_event_validation": {
+      "selected_positive_checks": 2,
+      "full_event_confusion_metrics_visible": false,
+      "status": "INSUFFICIENT_FOR_DETECTOR_QUALITY"
+    },
+    "intervention_effect_contract": {
+      "speed_multipliers": [
+        1.2,
+        1.5,
+        1.8,
+        2.0
+      ],
+      "density_multipliers": [
+        0.8,
+        0.9
+      ],
+      "estimated_from_observed_treatment": false,
+      "status": "ASSUMPTION_NOT_EFFECT_ESTIMATE"
+    },
+    "appendix_implementation_visibility": {
+      "HA": true,
+      "DecisionTree": true,
+      "SVR": true,
+      "Greenberg": true,
+      "YOLOv5_DeepSORT": true,
+      "LSTM_training": false,
+      "Q4_camera_optimizer": false
+    }
+  },
+  "figure_outputs": [
+    "01_temporal_window_split.png",
+    "02_proxy_physical_calibration.png",
+    "03_intervention_evidence_ladder.png"
+  ]
+}

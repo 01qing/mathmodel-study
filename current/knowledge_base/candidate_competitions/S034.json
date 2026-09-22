@@ -1,0 +1,224 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "core_identity": "MathModel-Core",
+  "schema_version": "1.0",
+  "questions": {
+    "Q1": {
+      "problem_type_and_essence": "thin-structure segmentation under structured visual artifacts with weak/unclear label provenance",
+      "input_target_constraints": {
+        "input": "244x1350 unfolded borehole images and, if available, independently created fracture masks",
+        "target": "binary fracture mask / connected fracture instances",
+        "independent_evaluation_unit": "original borehole image/depth segment",
+        "hard_constraints": [
+          "freeze image/borehole split before threshold/weight fitting",
+          "ground-truth mask provenance must be explicit",
+          "augmentation/crops from one original image cannot cross folds"
+        ]
+      },
+      "baseline": {
+        "name": "Frangi/Canny/black-hat + morphology + connected-component rules",
+        "six_hour_plan": [
+          "normalize illumination and denoise",
+          "run 2-3 complementary ridge/edge detectors rather than all six initially",
+          "fuse by simple vote",
+          "remove implausible components by length/aspect/direction",
+          "evaluate on a small independently labeled holdout using IoU/F1 plus per-image errors"
+        ],
+        "why": "fast, transparent and does not require a large annotation set"
+      },
+      "author_route": {
+        "method": "six-method pixel vote followed by 12-feature manually weighted connected-component score, keep score>=6/10",
+        "advantages": [
+          "uses complementary line/edge/texture cues",
+          "two-stage design can favor recall first then precision",
+          "interpretable component features"
+        ],
+        "risks": [
+          "manual weights/threshold subjective",
+          "mask truth/tuning provenance unspecified",
+          "three-image pixel metrics may be optimistic if used during design"
+        ]
+      },
+      "alternatives": [
+        {
+          "model": "logistic regression / shallow tree / RandomForest on the same 12 component features",
+          "use_when": "a modest labeled set exists; learns weights while retaining interpretability"
+        },
+        {
+          "model": "compact U-Net/DeepLab-like segmentation",
+          "use_when": "enough independent pixel masks across boreholes exist and held-out gain is stable"
+        }
+      ],
+      "not_recommended_default": [
+        "large vision model without enough independent labels",
+        "reporting only pixel accuracy because background TN dominates"
+      ],
+      "switch_condition": "promote learned segmentation only if grouped held-out IoU/F1 materially and stably beats the classical baseline under comparable annotation/runtime budget"
+    },
+    "Q2": {
+      "problem_type_and_essence": "unknown-count fracture-instance grouping followed by robust geometry-constrained periodic curve fitting",
+      "input_target_constraints": {
+        "input": "binary fracture pixels converted to mm (about 0.386 mm/pixel horizontal, 0.370 mm/pixel vertical for the 244x1350 images)",
+        "target": "per-fracture R/P/beta/C plus fit/reject state",
+        "independent_evaluation_unit": "fracture instance/image",
+        "hard_constraints": [
+          "period is tied to borehole circumference when diameter/calibration is known",
+          "phase canonicalization",
+          "fit quality and physical plausibility gate"
+        ]
+      },
+      "baseline": {
+        "name": "component/DBSCAN merge + fixed-period bounded robust least squares",
+        "six_hour_plan": [
+          "extract/merge components",
+          "set P=pi*D or calibrated horizontal span",
+          "initialize C and R robustly",
+          "fit R,beta,C with scipy least_squares soft_l1 or RANSAC+refit",
+          "reject high-RMSE/low-R2/implausible amplitude fits"
+        ],
+        "why": "uses the cylindrical geometry and has fewer degrees of freedom than a free-period model"
+      },
+      "author_route": {
+        "method": "Model 1 DBSCAN + horizontal-band merge + RANSAC/LS free R/P/beta/C; Model 2 adaptive sliding window + reduced Hough with fixed P; Table 6 selects Model 1",
+        "advantages": [
+          "explicit robustness to fragmented/noisy pixels",
+          "model-family comparison rather than one method only"
+        ],
+        "risks": [
+          "RANSAC period primitive underspecified",
+          "horizontal/y-axis merge language drift",
+          "statistical p-values lack test provenance",
+          "free-period values 80-110 mm are not reconciled with known circumference"
+        ]
+      },
+      "alternatives": [
+        {
+          "model": "HDBSCAN / topology-guided connected components",
+          "use_when": "fracture count varies and DBSCAN epsilon is unstable"
+        },
+        {
+          "model": "fixed-period reduced Hough + nonlinear refit",
+          "use_when": "occlusion/outliers make direct initialization unstable and circumference is known"
+        }
+      ],
+      "not_recommended_default": [
+        "free 4-parameter sinusoid when period is physically fixed without evidence of calibration distortion",
+        "claiming superiority from p-values whose test/sample units are unspecified"
+      ],
+      "switch_condition": "allow free period only if image calibration/cylinder geometry is uncertain and held-out residuals show material improvement beyond fixed-period fit"
+    },
+    "Q3": {
+      "problem_type_and_essence": "multiscale roughness representation and numerical-integration/sampling sensitivity rather than purely predictive ML",
+      "input_target_constraints": {
+        "input": "ordered physical fracture centerline/profile in mm",
+        "target": "JRC and uncertainty/sensitivity of its numerical estimate",
+        "independent_evaluation_unit": "fracture profile",
+        "hard_constraints": [
+          "single ordered profile contract",
+          "one canonical JRC formula",
+          "sampling reference must be labeled numerical reference unless external ground truth exists"
+        ]
+      },
+      "baseline": {
+        "name": "ordered centerline + canonical Z2/JRC + sampling-density convergence",
+        "six_hour_plan": [
+          "extract centerline in mm",
+          "compute canonical Z2/JRC",
+          "run N=50/100/200/300/400 equal spacing",
+          "report convergence/stability and profile plots",
+          "add adaptive sampling only if equal-spacing convergence is inadequate"
+        ],
+        "why": "directly answers roughness sensitivity with minimal unsupported corrections"
+      },
+      "author_route": {
+        "method": "K=4 Fourier main contour + 4-level DWT detail + Bootstrap + equal/curvature/gradient/entropy sampling + RAF-corrected JRC",
+        "advantages": [
+          "multiscale decomposition is interpretable",
+          "explicit sampling sensitivity",
+          "uncertainty language via Bootstrap is directionally useful"
+        ],
+        "risks": [
+          "LS vs MLE estimator drift in Bootstrap pseudocode",
+          "percentile CI endpoints reversed",
+          "dense-sampling convergence called true JRC",
+          "RAF alpha/beta calibration provenance absent",
+          "Q4 later uses inconsistent JRC scale"
+        ]
+      },
+      "alternatives": [
+        {
+          "model": "spline/wavelet centerline smoothing + bootstrap/residual resampling",
+          "use_when": "profile contains nonperiodic local irregularity"
+        },
+        {
+          "model": "curvature-adaptive quadrature/sampling",
+          "use_when": "goal is computational efficiency and dense-grid convergence is available as a numerical reference"
+        }
+      ],
+      "not_recommended_default": [
+        "declaring adaptive sampling more accurate without external truth",
+        "copying RAF coefficients to new rock/image scales without calibration"
+      ],
+      "switch_condition": "promote Fourier+DWT/RAF only if held-out or external roughness evidence shows stable gain over canonical JRC and coefficients are calibrated train-only"
+    },
+    "Q4": {
+      "problem_type_and_essence": "sparse-observation 3D geometry inference plus measurement-location design under epistemic uncertainty and hard construction constraints",
+      "input_target_constraints": {
+        "input": "attachment-derived fracture geometry/JRC from six known boreholes",
+        "target": "connectivity relation/score, uncertainty or coverage field, and feasible supplementary locations",
+        "independent_evaluation_unit": "fracture pair / spatial cell / candidate borehole",
+        "hard_constraints": [
+          "do not call uncalibrated heuristic score probability",
+          "uncertainty semantics must match a stochastic model or be labeled coverage surrogate",
+          "500 mm safety spacing must specify new-new and existing-new sets"
+        ]
+      },
+      "baseline": {
+        "name": "transparent geometry compatibility + distance coverage score + feasible greedy placement",
+        "six_hour_plan": [
+          "reconstruct planes/centers",
+          "score distance/orientation/depth with interpretable monotone factors",
+          "call output compatibility unless labels allow calibration",
+          "build distance-to-nearest/coverage map",
+          "enumerate feasible candidate grid and greedy maximize coverage reduction with explicit all-hole spacing replay"
+        ],
+        "why": "works without pretending to have field connectivity labels or a Bayesian observation model"
+      },
+      "author_route": {
+        "method": "five-factor multiplicative connectivity 'probability' + DFS threshold 0.3 + exponential information-decay/IDW 'uncertainty' + sequential greedy 'information gain'",
+        "advantages": [
+          "clear end-to-end decision chain",
+          "computationally cheap and interpretable"
+        ],
+        "risks": [
+          "heuristic factors not probability-calibrated",
+          "64% vs 85% isolation-rate drift",
+          "cluster-mean score denominator unclear",
+          "coverage surrogate called posterior uncertainty/EIG",
+          "formal spacing constraint omits existing-new interactions"
+        ]
+      },
+      "alternatives": [
+        {
+          "model": "Bayesian graph / probabilistic plane-continuity model",
+          "use_when": "connectivity labels or defensible priors/likelihoods are available"
+        },
+        {
+          "model": "Gaussian process / spatial random field + expected variance reduction",
+          "use_when": "a continuous geostatistical target with variogram/measurement model is available"
+        },
+        {
+          "model": "robust MCDA/coverage optimization",
+          "use_when": "probabilistic calibration is impossible but engineering preferences are explicit"
+        }
+      ],
+      "not_recommended_default": [
+        "multiplying arbitrary [0,1] factors and calling the product calibrated probability",
+        "calling deterministic hotspot reduction expected information gain",
+        "optimizing locations before hard-feasibility filtering"
+      ],
+      "switch_condition": "use Bayesian/EIG language only after defining priors, observation likelihood/update and evaluating calibration; otherwise retain score/coverage terminology"
+    }
+  }
+}

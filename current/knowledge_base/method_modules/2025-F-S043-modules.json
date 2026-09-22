@@ -1,0 +1,64 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "transferable_modules": [
+    {
+      "module": "centerline_walkable_graph",
+      "input": "garden plan + path/obstacle polygons",
+      "output": "sampled walkable graph",
+      "use_when": "routes must respect narrow corridors and physical obstacles",
+      "gate": "buffer radius/centerline method and topology validated against plan scale"
+    },
+    {
+      "module": "fan_visibility_jaccard_change",
+      "input": "route samples + typed landscape geometry",
+      "output": "local richness and adjacent-view set change",
+      "use_when": "sequential novelty is central",
+      "gate": "view range/angle/occlusion rules registered and sensitivity tested"
+    },
+    {
+      "module": "fixed_scale_route_utility_or_pareto",
+      "input": "feasible route candidates + scene/repetition/length metrics",
+      "output": "ranked operating route or Pareto set",
+      "use_when": "route criteria conflict",
+      "gate": "normalization fixed from reference/train data; final route graph feasibility replayed; preference vs Pareto semantics explicit"
+    },
+    {
+      "module": "bounded_interpretable_illusion_score",
+      "input": "element/theme/open-close descriptors",
+      "output": "dimension-level score + sensitivity",
+      "use_when": "n is tiny and interpretability matters",
+      "gate": "every component scale closes algebraically; anchor separated from validation; weights/thresholds sensitivity reported"
+    },
+    {
+      "module": "compact_mixed_type_garden_similarity",
+      "input": "compact continuous + set/categorical descriptors",
+      "output": "distance/similarity matrix",
+      "use_when": "garden-level n is small",
+      "gate": "metric selected by variable type; standardization frozen on reference cohort; one matrix is the Result Registry truth source"
+    },
+    {
+      "module": "bootstrap_cluster_stability",
+      "input": "garden descriptors/distance matrix",
+      "output": "resampling co-clustering/stability",
+      "use_when": "cluster taxonomy is exploratory",
+      "gate": "linkage compatible with metric geometry; p>0.05 not used as equivalence proof"
+    },
+    {
+      "module": "external_validation_target_registry",
+      "input": "new gardens + predeclared classes/preferences/pairwise labels",
+      "output": "accuracy/ranking/similarity error",
+      "use_when": "generalization is claimed",
+      "gate": "ground truth defined before predictions and independent of the model construction"
+    }
+  ],
+  "blocked_modules": [
+    "global-optimum Gap=0 claim from heuristic convergence alone",
+    "moving population min/max score without provenance",
+    "Jichang=100 plus self-agreement as validation",
+    "unbounded score components under fixed [0,100] labels",
+    "Ward directly on arbitrary fused similarity without metric proof",
+    "p>0.05 as proof of commonality",
+    "unlabeled “similarity prediction error” as accuracy evidence"
+  ]
+}

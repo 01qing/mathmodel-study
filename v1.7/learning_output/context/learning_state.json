@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.4",
+  "learner": {
+    "profile_id": "default",
+    "preferred_depth": "deep",
+    "notes": [
+      "用户自述未接触数学建模竞赛；当前任务是改善Agent方法库，不是评定用户掌握度"
+    ]
+  },
+  "current_focus": {
+    "competition": "全国研究生数学建模竞赛",
+    "year": 2025,
+    "problem_id": "E",
+    "question_id": null,
+    "mode": "review",
+    "session_id": null
+  },
+  "methods": {},
+  "weak_points": [],
+  "error_patterns": [],
+  "completed_problems": [],
+  "pending_replications": [],
+  "next_actions": [
+    "核验2025 E原始MAT采样率、通道与独立采集单位",
+    "重提特征后进行分组及跨工况模型对照",
+    "逐问补足论文全文审阅；已接触解法的案例不标盲测"
+  ]
+}

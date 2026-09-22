@@ -1,0 +1,51 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "visual_status": "120/120 original PDF pages rendered and scanned",
+  "numbered_figures_detected": 9,
+  "numbered_tables_detected": 14,
+  "layout_profile": [
+    "dense LaTeX algorithm paper",
+    "few figures relative to tables/formulas",
+    "pastel architecture/problem diagrams",
+    "large printed-code appendix ~29 pages"
+  ],
+  "key_figure_roles": [
+    {
+      "role": "architecture/problem decomposition",
+      "why": "orient hardware/cache/DAG dependencies before algorithm details",
+      "supports": "problem structure",
+      "cannot_prove": "optimizer quality"
+    },
+    {
+      "role": "Q1 schedule/cache-pressure illustrations",
+      "why": "show why node order changes live-buffer peak",
+      "supports": "mechanism on representative case",
+      "cannot_prove": "global optimality/generalization"
+    },
+    {
+      "role": "Q2 cache allocation/spill illustration",
+      "why": "explain lifetime overlap and spill/reuse behavior",
+      "supports": "mechanistic plausibility",
+      "cannot_prove": "best victim policy"
+    },
+    {
+      "role": "Q3 performance comparison tables",
+      "why": "show per-workload cycles/traffic before-after",
+      "supports": "reported trade-off if Result Registry is consistent",
+      "cannot_prove": "Pareto optimality or cap correctness when epsilon drifts"
+    }
+  ],
+  "missing_or_better_evidence": [
+    "matched-budget baseline vs heuristic convergence/quality plot with multiple seeds for stochastic refiners",
+    "small-instance exact-gap chart from CP-SAT/MILP calibration",
+    "actual feasible cycle-vs-transfer scatter/Pareto front with official hard-cap line and selected point",
+    "macro-per-workload and aggregate-weighted improvement shown side by side to avoid average-semantics ambiguity",
+    "runtime/evaluation-budget table for MCBGS/MOACADSA/DOSA vs deterministic baselines"
+  ],
+  "new_problem_figure_decision_rules": [
+    "algorithmic paper needs evidence for quality, feasibility and computational budget—not only architecture drawings",
+    "for heterogeneous workload sets show per-workload distribution plus explicitly labeled aggregate summary",
+    "for hard-cap multiobjective problems plot infeasible points and cap line rather than radar-only summary"
+  ]
+}

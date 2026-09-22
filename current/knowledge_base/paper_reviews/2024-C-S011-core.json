@@ -1,0 +1,146 @@
+{
+  "paper_id": "S011",
+  "case_group": "2024-C",
+  "year": 2024,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 71,
+  "title": "C24104220149",
+  "paper_title": "基于多因素分析与深度学习的磁芯损耗建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT_WITH_Q4_Q5_EXACT_CONTRACT_SMOKE",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "time/frequency waveform inspection",
+        "handcrafted time-domain descriptors + PCA",
+        "SVM",
+        "decision tree",
+        "Stacking ensemble",
+        "5-fold CV for hyperparameter selection"
+      ],
+      "strengths": [
+        "uses interpretable waveform descriptors before classification",
+        "compares three classifier families and reports Accuracy/Recall/F1",
+        "uses a simple two-feature classification route that is suitable as a baseline"
+      ],
+      "risks": [
+        "all three classifiers report 1.00 Accuracy/Recall/F1, but the visible text does not define the independent grouping unit of train/test; row-level perfect classification is not evidence for unseen material/frequency/Bm regimes",
+        "the manuscript says models are finally trained on the complete training set and evaluated on a test set, while the exact split construction is not reproducible from the printed appendix",
+        "PCA is used during feature exploration, but the final classifier appears to use kurtosis and peak factor; the final feature-selection contract should be stated explicitly",
+        "label-driven feature screening and hyperparameter selection should be nested inside each CV fold; the visible paper does not establish that this was done before the reported perfect metrics"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "Steinmetz baseline",
+        "five temperature corrections: linear/quadratic/cubic/exponential/power",
+        "least squares",
+        "simulated annealing",
+        "PSO",
+        "dynamic-parameter PSO"
+      ],
+      "strengths": [
+        "compares several explicit correction hypotheses and several optimizers",
+        "reports R2/RMSE/MAPE rather than only fitted parameters",
+        "printed appendix contains an actual dynamic-parameter PSO class with inertia/cognitive/social schedules"
+      ],
+      "risks": [
+        "the abstract says dynamic PSO improves R2 over constant-parameter PSO by 0.041, but the visible uncorrected comparison table reports both as 0.9448; this claim is not supported by that table",
+        "dynamic PSO is not uniformly best: for the cubic correction least squares has higher R2/lower RMSE, while dynamic PSO has lower MAPE; optimizer ranking is metric-dependent",
+        "the main gain 0.9955-0.9448=0.0507 is attributable to temperature correction plus fitting, not evidence that dynamic PSO alone provides that gain",
+        "calibration and model comparison are on the same temperature support; unseen-temperature/generalization evidence is not visible"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "single-factor group means/variances and boxplots",
+        "pairwise crossed group means/variances",
+        "three-factor mean/variance plots",
+        "select 90C + sine + material4"
+      ],
+      "strengths": [
+        "keeps the factor-combination reasoning interpretable",
+        "visualizes single-factor and crossed-factor distributions before selecting a low-loss condition"
+      ],
+      "risks": [
+        "pairwise crossed means/boxplots are called synergistic effects, but no explicit interaction term, factorial model, contrast or interaction effect size is estimated; co-varying group means do not establish synergy",
+        "frequency and Bm are not adjusted, so raw means can be confounded by operating-condition distributions",
+        "the three-factor plot reuses the same attachment data to confirm the condition inferred from the same data; this is consistency within-sample, not independent validation"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "paper claims 10D engineered vector: Bm max + temperature + frequency + material one-hot + waveform one-hot",
+        "claimed feature-weight extraction + CNN + Bi-LSTM regression",
+        "compare with CNN and XGBoost",
+        "8:1:1 train/validation/test and Gaussian-noise stress test"
+      ],
+      "strengths": [
+        "separates validation and test in the prose and includes a perturbation stress test",
+        "compares against CNN and XGBoost",
+        "log-transforming the long-tailed loss target is a reasonable candidate transform if evaluated correctly"
+      ],
+      "risks": [
+        "printed Program 2 is headed Bi-LSTM but defines only CNNModel/Conv1d and contains no visible nn.LSTM; the named final architecture is not reproduced by the appendix",
+        "paper says the final input is 10D, while Program 2 uses input_size=1033; Program 4 exposes a 1033-component schema (1024 flux samples + condition/category features), so the architecture comparison also confounds feature schema",
+        "Program 3 traditional CNN uses input_size=10 while Program 2 uses 1033, so the reported superiority cannot be attributed cleanly to the claimed architecture when inputs differ",
+        "the manuscript interprets K-S statistic 0.2988 > 0.05 as proof of a long-tail distribution, apparently mixing a test statistic with a p-value/significance threshold; the test does not establish the stated distributional claim",
+        "random split and synthetic Gaussian perturbation do not establish cross-material/cross-condition generalization; grouped leave-condition-out tests are still required"
+      ]
+    },
+    "Q5": {
+      "route": [
+        "five mixed decision variables",
+        "two objectives: minimize predicted core loss and maximize f*Bm",
+        "claimed normalized weighted scalarization with weight a",
+        "GA vs PSO for scalarized route",
+        "NSGA-II vs MOPSO Pareto route"
+      ],
+      "strengths": [
+        "explicitly recognizes objectives have different units and should be normalized",
+        "retains an actual Pareto route instead of relying only on one weighted sum",
+        "correctly notes that a final Pareto point requires a preference/selection rule"
+      ],
+      "risks": [
+        "the text says objectives are normalized, but Eq. 8.3 is written directly in Fs and Fe and no reproducible normalization transform is visible; replaying the raw displayed formula does not match Table 8.2 objective values",
+        "the preference weight a is itself optimized as a decision variable. A trade-off weight should normally encode stakeholder preference/sensitivity, not be freely chosen by the same optimizer, otherwise the optimization can change the preference to improve its own score",
+        "Table 8.3 contains visible feasibility violations relative to Table 8.1: a MOPSO example has Bm=0.4261>0.3133 and another has f=49910<50000",
+        "NSGA-II is declared better than MOPSO mainly because the plotted points look more concentrated; a fair stochastic multiobjective comparison needs matched evaluation budgets/seeds and indicators such as hypervolume, IGD/GD, spread and feasibility rate",
+        "no Q5 GA/PSO/NSGA-II/MOPSO implementation is visible in the printed appendix (only Programs 1-4), so the final optimizer comparison is not reproducible from the appendix",
+        "Table 8.1/prose and constraint equation contain visible registry drift (e.g. 75 vs 70 in the temperature table/text and an apparent frequency-upper-bound mismatch in the rendered equation), reinforcing the need for one machine-readable domain registry"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "13-20",
+      "claim": "Q1 waveform features, classifiers and all-1.00 reported classification metrics"
+    },
+    {
+      "pages": "21-31,57-61",
+      "claim": "Q2 correction families, optimizer comparison and printed dynamic-PSO implementation"
+    },
+    {
+      "pages": "32-37",
+      "claim": "Q3 single/pair/triple factor mean/variance based synergy reasoning"
+    },
+    {
+      "pages": "38-46,62-71",
+      "claim": "Q4 claimed Bi-LSTM/10D route, reported metrics, and printed CNN/1033-feature code mismatch"
+    },
+    {
+      "pages": "47-54",
+      "claim": "Q5 scalarization, GA/PSO table, Pareto examples and NSGA-II-vs-MOPSO conclusion"
+    }
+  ],
+  "transfer_lessons": [
+    "A method name in the paper must resolve to the actual architecture in code; a heading saying Bi-LSTM does not substitute for an LSTM layer.",
+    "Architecture comparisons must keep the input schema and split fixed; changing 10 engineered features to 1033 raw-plus-context features confounds attribution.",
+    "Synergy/interaction claims require an explicit interaction estimand or factorial contrast, not only pairwise crossed means.",
+    "Test-statistic values and p-values have different semantics; never compare the wrong quantity with alpha.",
+    "Preference weights in scalarization are decision policy parameters, not ordinary optimization variables; analyze sensitivity rather than allowing the optimizer to choose its own preference.",
+    "Pareto optimizer claims require feasibility replay and quantitative front-quality indicators under matched budgets/random seeds.",
+    "Every reported optimum/front sample must be replayed against the same domain registry used by the optimizer and manuscript tables."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "paper_id": "S012",
+  "scope": "printed-appendix/static exact contract smoke",
+  "q1": {
+    "feature_scaling_before_split_visible": true,
+    "evidence": [
+      "get_feature computes feature-wise min/max on the full feature matrix before get_res() performs train_test_split",
+      "data_10 and data_snr_10 are feature-wise min-max scaled before get_res() split"
+    ],
+    "per_sample_waveform_scaling_note": "axis=-1 normalization of each waveform is within-row and is not itself cross-sample leakage; the cross-sample feature scaling is the leakage risk."
+  },
+  "q2": {
+    "random_row_split_visible": true,
+    "train_fraction": 0.8,
+    "test_fraction": 0.2,
+    "material_waveform_scope": "material 1, sine waveform, 1067 samples for the stated SE/LSE route",
+    "tlse_dsr_printed_implementation_visible": true,
+    "generalization_claim_supported_by_split": false,
+    "reason": "random same-support split does not test unseen temperature/material/waveform/condition generalization."
+  },
+  "q3": {
+    "explicit_interaction_model_visible": true,
+    "significant_interactions_from_table_5_18": [
+      "waveform×material"
+    ],
+    "nonsignificant_interactions_from_table_5_18": [
+      "temperature×waveform",
+      "temperature×material"
+    ],
+    "temperature_table_F": 17.755,
+    "temperature_prose_F_mistakenly_uses_intercept": 3456.213,
+    "f_statistic_used_as_effect_size_ranking": true,
+    "sequential_mann_whitney_tests": 47,
+    "multiplicity_correction_visible": false,
+    "order_dependent_tournament_risk": true
+  },
+  "q4": {
+    "wmtlmsedsr_printed_implementation_visible": true,
+    "material_embedding_visible": true,
+    "waveform_embedding_visible": true,
+    "random_row_split_visible": true,
+    "train_fraction": 0.8,
+    "validation_fraction": 0.2,
+    "reported_validation_mre_about": 0.02,
+    "cross_condition_generalization_demonstrated": false
+  },
+  "q5": {
+    "paper_frequency_bounds": [
+      50000,
+      500000
+    ],
+    "ga_code_frequency_bounds": [
+      5000,
+      500000
+    ],
+    "pso_code_frequency_bounds": [
+      5000,
+      500000
+    ],
+    "paper_reported_pso_frequency_lambda_1": 7862.85,
+    "paper_reported_pso_lambda_1_feasible_under_paper_bounds": false,
+    "paper_temperature_domain": [
+      25,
+      50,
+      70,
+      90
+    ],
+    "code_temperature_bounds_continuous": [
+      25,
+      90
+    ],
+    "code_material_bounds_continuous": [
+      0,
+      3
+    ],
+    "code_waveform_bounds_continuous": [
+      0,
+      2
+    ],
+    "discrete_decisions_preserved_by_optimizer": false,
+    "printed_lambda_expression": "[0.01, 0.1, 1, 10, 100][4]",
+    "printed_lambda_value": 100,
+    "table_5_37_formula_replay": [
+      {
+        "lambda": 0.01,
+        "loss": 1.53,
+        "energy": 48.19,
+        "reported_L": 1.05,
+        "replayed_L": 1.0481,
+        "absolute_diff": 0.0019,
+        "implied_lambda": 0.009961,
+        "matches_formula": true
+      },
+      {
+        "lambda": 0.1,
+        "loss": 41.01,
+        "energy": 621.61,
+        "reported_L": -21.15,
+        "replayed_L": -21.151,
+        "absolute_diff": 0.001,
+        "implied_lambda": 0.099998,
+        "matches_formula": true
+      },
+      {
+        "lambda": 1,
+        "loss": 1449.52,
+        "energy": 3664.84,
+        "reported_L": -2215.32,
+        "replayed_L": -2215.32,
+        "absolute_diff": 0.0,
+        "implied_lambda": 1.0,
+        "matches_formula": true
+      },
+      {
+        "lambda": 10,
+        "loss": 4710097.0,
+        "energy": 106556.35,
+        "reported_L": -5945538.16,
+        "replayed_L": 3644533.5,
+        "absolute_diff": 9590071.66,
+        "implied_lambda": 100.000002,
+        "matches_formula": false
+      },
+      {
+        "lambda": 100,
+        "loss": 79740.54,
+        "energy": 18659.54,
+        "reported_L": -106854.87,
+        "replayed_L": -1786213.46,
+        "absolute_diff": 1679358.59,
+        "implied_lambda": 10.000001,
+        "matches_formula": false
+      }
+    ],
+    "lambda_10_100_rows_appear_swapped_by_formula": true,
+    "ga_pso_same_result_table_visible": true
+  }
+}

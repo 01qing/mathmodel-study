@@ -1,0 +1,306 @@
+{
+  "paper_id": "S026",
+  "case_group": "2025-A",
+  "schema_version": "1.0",
+  "Q1": {
+    "max_vstay_bytes": [
+      {
+        "task": "Matmul_Case0",
+        "value": 9216,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case1",
+        "value": 34816,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "value": 4500,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "value": 7588,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case0",
+        "value": 14592,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case1",
+        "value": 14040,
+        "source_surface": "Table 4.3",
+        "status": "author_reported"
+      }
+    ],
+    "cross_paper_vs_S025": [
+      {
+        "task": "Matmul_Case0",
+        "S025": 9216,
+        "S026": 9216,
+        "delta_S026_minus_S025": 0,
+        "S026_better": false
+      },
+      {
+        "task": "Matmul_Case1",
+        "S025": 34816,
+        "S026": 34816,
+        "delta_S026_minus_S025": 0,
+        "S026_better": false
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "S025": 4500,
+        "S026": 4500,
+        "delta_S026_minus_S025": 0,
+        "S026_better": false
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "S025": 7588,
+        "S026": 7588,
+        "delta_S026_minus_S025": 0,
+        "S026_better": false
+      },
+      {
+        "task": "Conv_Case0",
+        "S025": 7660,
+        "S026": 14592,
+        "delta_S026_minus_S025": 6932,
+        "S026_better": false
+      },
+      {
+        "task": "Conv_Case1",
+        "S025": 14040,
+        "S026": 14040,
+        "delta_S026_minus_S025": 0,
+        "S026_better": false
+      }
+    ],
+    "finding": "S026 equals S025 on five workloads but is materially worse on Conv_Case0 (14592 vs 7660); no matched-runtime baseline is reported, so tabu search superiority is not established."
+  },
+  "Q2": {
+    "rows": [
+      {
+        "task": "Matmul_Case0",
+        "extra_transfer": 97664,
+        "exec_cycles": 202324,
+        "spill_count": 382,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      },
+      {
+        "task": "Matmul_Case1",
+        "extra_transfer": 664192,
+        "exec_cycles": 1237802,
+        "spill_count": 2591,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "extra_transfer": 47284,
+        "exec_cycles": 97770,
+        "spill_count": 221,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "extra_transfer": 120548,
+        "exec_cycles": 234458,
+        "spill_count": 553,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case0",
+        "extra_transfer": 93772,
+        "exec_cycles": 348677,
+        "spill_count": 271,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      },
+      {
+        "task": "Conv_Case1",
+        "extra_transfer": 367856,
+        "exec_cycles": 1350408,
+        "spill_count": 4243,
+        "source_surface": "Table 5.7",
+        "status": "author_reported"
+      }
+    ],
+    "cross_paper_vs_S025": [
+      {
+        "task": "Matmul_Case0",
+        "S025_extra_transfer": 12288,
+        "S026_extra_transfer": 97664,
+        "S026_excess_pct_vs_S025": 694.7916666666667,
+        "S026_lower": false
+      },
+      {
+        "task": "Matmul_Case1",
+        "S025_extra_transfer": 60416,
+        "S026_extra_transfer": 664192,
+        "S026_excess_pct_vs_S025": 999.3644067796611,
+        "S026_lower": false
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "S025_extra_transfer": 17148,
+        "S026_extra_transfer": 47284,
+        "S026_excess_pct_vs_S025": 175.74061114998833,
+        "S026_lower": false
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "S025_extra_transfer": 45820,
+        "S026_extra_transfer": 120548,
+        "S026_excess_pct_vs_S025": 163.09035355739852,
+        "S026_lower": false
+      },
+      {
+        "task": "Conv_Case0",
+        "S025_extra_transfer": 23752,
+        "S026_extra_transfer": 93772,
+        "S026_excess_pct_vs_S025": 294.7962276860896,
+        "S026_lower": false
+      },
+      {
+        "task": "Conv_Case1",
+        "S025_extra_transfer": 35344,
+        "S026_extra_transfer": 367856,
+        "S026_excess_pct_vs_S025": 940.7876867360796,
+        "S026_lower": false
+      }
+    ],
+    "objective_contract": "paper states extra data movement is primary and execution time secondary, but appendix uses raw scalarization fitness = 1.0*Bytes + 0.1*Cycles + penalty without normalization"
+  },
+  "Q3": {
+    "rows": [
+      {
+        "task": "Matmul_Case0",
+        "q2_transfer": 97664,
+        "q3_transfer": 67200,
+        "reported_transfer_improvement_pct": 31.29,
+        "recomputed_transfer_improvement_pct": 31.19266055045872,
+        "q2_cycles": 202324,
+        "q3_cycles": 151556,
+        "reported_time_improvement_pct": 25.1,
+        "recomputed_time_improvement_pct": 25.092426009766513,
+        "q2_spill_count": 382,
+        "q3_spill_count": 262,
+        "spill_reduction_pct": 31.413612565445025,
+        "old_transfer": 97664,
+        "new_transfer": 67200,
+        "old_time": 202324,
+        "new_time": 151556
+      },
+      {
+        "task": "Matmul_Case1",
+        "q2_transfer": 664192,
+        "q3_transfer": 503552,
+        "reported_transfer_improvement_pct": 24.19,
+        "recomputed_transfer_improvement_pct": 24.185777606475238,
+        "q2_cycles": 1237802,
+        "q3_cycles": 981812,
+        "reported_time_improvement_pct": 20.69,
+        "recomputed_time_improvement_pct": 20.68101360314493,
+        "q2_spill_count": 2591,
+        "q3_spill_count": 1979,
+        "spill_reduction_pct": 23.620223851794677,
+        "old_transfer": 664192,
+        "new_transfer": 503552,
+        "old_time": 1237802,
+        "new_time": 981812
+      },
+      {
+        "task": "FlashAttention_Case0",
+        "q2_transfer": 47284,
+        "q3_transfer": 32852,
+        "reported_transfer_improvement_pct": 30.52,
+        "recomputed_transfer_improvement_pct": 30.521952457490908,
+        "q2_cycles": 97770,
+        "q3_cycles": 70382,
+        "reported_time_improvement_pct": 28.01,
+        "recomputed_time_improvement_pct": 28.01268282704306,
+        "q2_spill_count": 221,
+        "q3_spill_count": 147,
+        "spill_reduction_pct": 33.4841628959276,
+        "old_transfer": 47284,
+        "new_transfer": 32852,
+        "old_time": 97770,
+        "new_time": 70382
+      },
+      {
+        "task": "FlashAttention_Case1",
+        "q2_transfer": 120548,
+        "q3_transfer": 105464,
+        "reported_transfer_improvement_pct": 12.51,
+        "recomputed_transfer_improvement_pct": 12.512857948700931,
+        "q2_cycles": 234458,
+        "q3_cycles": 209708,
+        "reported_time_improvement_pct": 10.56,
+        "recomputed_time_improvement_pct": 10.556261675865187,
+        "q2_spill_count": 553,
+        "q3_spill_count": 492,
+        "spill_reduction_pct": 11.030741410488245,
+        "old_transfer": 120548,
+        "new_transfer": 105464,
+        "old_time": 234458,
+        "new_time": 209708
+      },
+      {
+        "task": "Conv_Case0",
+        "q2_transfer": 93772,
+        "q3_transfer": 67962,
+        "reported_transfer_improvement_pct": 27.52,
+        "recomputed_transfer_improvement_pct": 27.524207652604186,
+        "q2_cycles": 348677,
+        "q3_cycles": 348677,
+        "reported_time_improvement_pct": 0.0,
+        "recomputed_time_improvement_pct": 0.0,
+        "q2_spill_count": 271,
+        "q3_spill_count": 222,
+        "spill_reduction_pct": 18.081180811808117,
+        "old_transfer": 93772,
+        "new_transfer": 67962,
+        "old_time": 348677,
+        "new_time": 348677
+      },
+      {
+        "task": "Conv_Case1",
+        "q2_transfer": 367856,
+        "q3_transfer": 260855,
+        "reported_transfer_improvement_pct": 29.09,
+        "recomputed_transfer_improvement_pct": 29.08774085511722,
+        "q2_cycles": 1350408,
+        "q3_cycles": 1045546,
+        "reported_time_improvement_pct": 22.58,
+        "recomputed_time_improvement_pct": 22.575547538225486,
+        "q2_spill_count": 4243,
+        "q3_spill_count": 2974,
+        "spill_reduction_pct": 29.90808390289889,
+        "old_transfer": 367856,
+        "new_transfer": 260855,
+        "old_time": 1350408,
+        "new_time": 1045546
+      }
+    ],
+    "formula_contract": {
+      "paper_q2_copyin_cost": "COPY_IN-used spill contributes 1*size; otherwise 2*size",
+      "paper_q3_eq_6_67": "lambda=0 for COPY_IN-used spill, 1 otherwise, so COPY_IN spill cost is omitted",
+      "status": "INCONSISTENT"
+    },
+    "implementation_visibility": "No DPEA MATLAB implementation appears in Appendix A; only Q1 and Q2 executable listings are visible."
+  },
+  "registry_rule": "All cross-question/cross-paper comparisons require a common evaluator and the same unit/constraint definitions before ranking methods."
+}

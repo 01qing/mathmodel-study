@@ -1,0 +1,98 @@
+{
+  "benchmark_id": "ROLE-P1-2022C-v0.2",
+  "condition": "Run A Single-Core Generalist",
+  "registry_status": "FROZEN",
+  "canonical_score_interpretation": "literal printed objective formulas; capped S4 values are sensitivity only",
+  "rows": [
+    {
+      "result_key": "result11",
+      "question": 1,
+      "dataset": "Attachment 1",
+      "C": 318,
+      "p1_penalty": 175,
+      "p2_penalty": 18,
+      "return_uses": 0,
+      "T_seconds": 3531,
+      "score1": -75,
+      "score2": 82,
+      "score3": 100,
+      "score4_literal": 94.03,
+      "weighted_literal": 24.003,
+      "score4_capped_sensitivity": 94.03,
+      "weighted_capped_sensitivity": 24.003,
+      "hard_failure_count": 0,
+      "warning_codes": [
+        "SAMPLED_CODE_DUPLICATE"
+      ],
+      "status": "REPRODUCED_FROM_FROZEN_RUN_STATE / EVENT_VALIDATED / SCORE_RECOMPUTED / HEURISTIC_FEASIBLE / NOT_OPTIMALITY_PROVEN"
+    },
+    {
+      "result_key": "result12",
+      "question": 1,
+      "dataset": "Attachment 2",
+      "C": 318,
+      "p1_penalty": 104,
+      "p2_penalty": 19,
+      "return_uses": 0,
+      "T_seconds": 2919,
+      "score1": -4,
+      "score2": 81,
+      "score3": 100,
+      "score4_literal": 100.15,
+      "weighted_literal": 52.715,
+      "score4_capped_sensitivity": 100,
+      "weighted_capped_sensitivity": 52.7,
+      "hard_failure_count": 0,
+      "warning_codes": [
+        "TIME_SCORE_GT_100",
+        "SAMPLED_CODE_DUPLICATE"
+      ],
+      "status": "REPRODUCED_FROM_FROZEN_RUN_STATE / EVENT_VALIDATED / SCORE_RECOMPUTED / HEURISTIC_FEASIBLE / NOT_OPTIMALITY_PROVEN"
+    },
+    {
+      "result_key": "result21",
+      "question": 2,
+      "dataset": "Attachment 1",
+      "C": 318,
+      "p1_penalty": 167,
+      "p2_penalty": 22,
+      "return_uses": 0,
+      "T_seconds": 2625,
+      "score1": -67,
+      "score2": 78,
+      "score3": 100,
+      "score4_literal": 103.09,
+      "weighted_literal": 26.909,
+      "score4_capped_sensitivity": 100,
+      "weighted_capped_sensitivity": 26.599999999999998,
+      "hard_failure_count": 0,
+      "warning_codes": [
+        "TIME_SCORE_GT_100",
+        "SAMPLED_CODE_DUPLICATE"
+      ],
+      "status": "REPRODUCED_FROM_FROZEN_RUN_STATE / EVENT_VALIDATED / SCORE_RECOMPUTED / HEURISTIC_FEASIBLE / NOT_OPTIMALITY_PROVEN"
+    },
+    {
+      "result_key": "result22",
+      "question": 2,
+      "dataset": "Attachment 2",
+      "C": 318,
+      "p1_penalty": 93,
+      "p2_penalty": 20,
+      "return_uses": 0,
+      "T_seconds": 3003,
+      "score1": 7,
+      "score2": 80,
+      "score3": 100,
+      "score4_literal": 99.31,
+      "weighted_literal": 56.730999999999995,
+      "score4_capped_sensitivity": 99.31,
+      "weighted_capped_sensitivity": 56.730999999999995,
+      "hard_failure_count": 0,
+      "warning_codes": [
+        "SAMPLED_CODE_DUPLICATE"
+      ],
+      "status": "REPRODUCED_FROM_FROZEN_RUN_STATE / EVENT_VALIDATED / SCORE_RECOMPUTED / HEURISTIC_FEASIBLE / NOT_OPTIMALITY_PROVEN"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "paper_id": "S020",
+  "case_group": "2024-E",
+  "year": 2024,
+  "problem_id": "E",
+  "split": "train",
+  "pages": 78,
+  "title": "E24106980067",
+  "paper_title": "高速公路应急车道紧急启用模型",
+  "school": "西安交通大学",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_PYTHON_APPENDIX_STATIC_AUDIT_WITH_TARGET_LEAKAGE_SEQUENCE_ARCHITECTURE_SHOCKWAVE_GREENSHEILDS_COUNTERFACTUAL_AND_LAYOUT_CONTRACT_CHECK",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "YOLOv5 + DeepSORT traffic detection/tracking and pixel-speed extraction",
+        "derived traffic flow/speed/density and Sigmoid congestion index",
+        "SK-Net + TCN + BiGRU narrative for traffic-flow/speed forecasting",
+        "shockwave-based 10-minute warning"
+      ],
+      "strengths": [
+        "complete detector→traffic state→forecast→warning narrative",
+        "uses chronological train_test_split(shuffle=False) in printed forecasting fragment",
+        "reports ablation tables and cross-video evaluation rather than only one training score"
+      ],
+      "risks": [
+        "printed forecasting code uses X=data.iloc[:72,[1,2]] and y=data.iloc[:72,1], so the target variable is directly included in the feature matrix; high R2 cannot support normal forecasting claims",
+        "MinMaxScaler is fit on all 72 rows before the train/test split, leaking test-range information into training preprocessing",
+        "input is reshaped to (samples,1,features); T=1 means the TCN/BiGRU cannot learn the claimed temporal dependence from a sequence axis",
+        "the printed sk_net_attention is mean/max pooling + dense sigmoid channel weighting, not the paper-described SK-Net Split/Fuse/Select multi-kernel selective-kernel structure",
+        "paper conclusion says R2 is close to 1 and generalization is strong, but Table 3.23 contains node1/video2 R2=-0.81001; worst-group performance must constrain the conclusion",
+        "the BiGRU explanation contains an unrelated “加料回潮设备” domain sentence, indicating cross-domain template contamination",
+        "speed conversion assumes pixels_per_meter and a fixed 0.4 s frame difference without visible camera calibration provenance; pixel→km/h needs an explicit geometric/timebase calibration contract"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "shockwave speed between adjacent monitoring points",
+        "travel-time threshold plus congestion-index threshold",
+        "open when upstream-propagating congestion wave is imminent",
+        "close when congestion index/speed/wave direction recover"
+      ],
+      "strengths": [
+        "uses signed shockwave direction to distinguish upstream propagation",
+        "states multiple open/close conditions rather than a single threshold"
+      ],
+      "risks": [
+        "travel time is printed as t_ij=D_ij/w_ij while upstream congestion requires w_ij<0; physical propagation duration should use a nonnegative magnitude/explicit sign convention, otherwise the time threshold can become negative",
+        "the close rule uses “w>0 and continuously slowing” without a quantitative persistence window/hysteresis registry, so chattering and ambiguous state transitions remain possible",
+        "printed appendix contains no executable Q2 state-machine implementation; the rule is prose/notation evidence only"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "segment-wise congestion-index/shockwave opening rule",
+        "Greenshields speed-density-flow model",
+        "two-lane→three-lane scenario analysis",
+        "compare congestion index and open duration before/after assumed intervention"
+      ],
+      "strengths": [
+        "uses a traffic-flow model to reason about capacity rather than only arbitrary percentage multipliers",
+        "explicitly distinguishes unchanged-demand and increased-demand scenarios"
+      ],
+      "risks": [
+        "with vf=100 km/h and kj=200 veh/km/lane, the paper sets post-opening unchanged-demand k=33.33 veh/km/lane and v=100 km/h; this pair violates its own Greenshields relation v=vf(1-k/kj). The low-density solution for the stated demand is about k=42.265 and v=78.868 km/h",
+        "the paper then forces “speed to free-flow and density to half” to generate post-opening congestion indices; this is a scenario construction, not observed or identified treatment effect",
+        "Table 5.4 says node2 and node4 congestion time decreased by >80%, but node2 reduction is (143-29)/143≈79.72%",
+        "Table 5.4 says multiple sites have emergency-lane utilization >70%; using open duration / observation-window duration gives about 21.98%,69.44%,20.15%,90.28%, so only node4 exceeds 70%",
+        "no executable Q3 simulator/control code is printed; the intervention numbers cannot be reproduced from the appendix alone"
+      ]
+    },
+    "Q4": {
+      "route": [
+        "heuristic diagnosis of monitoring blind zones",
+        "add 2–3 cameras between point3 and point4 at roughly 1000–1500 m spacing",
+        "add mobile cameras/UAVs and upgrade sensors/platform"
+      ],
+      "strengths": [
+        "recognizes coverage, cost, bottleneck locations, mobile sensing and data integration as relevant engineering criteria"
+      ],
+      "risks": [
+        "the task asks for an optimized camera layout, but no explicit decision variables, objective function, feasible set or quantitative comparison is solved; “2–3 points every 1000–1500 m” is an engineering heuristic, not an optimization result",
+        "camera placement is not linked quantitatively to state-estimation error, warning lead time, control decision value or cost, so claims of improved traffic efficiency/safety are unsupported by a sensing→policy→outcome mediation model",
+        "no Q4 optimization/source code is printed in the appendix"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "pages": "2-3",
+      "claim": "abstracted Q1-Q4 method route"
+    },
+    {
+      "pages": "39-53",
+      "claim": "SK-Net/TCN/BiGRU narrative, ablation and Table 3.23 including negative R2 subgroup"
+    },
+    {
+      "pages": "56-58",
+      "claim": "shockwave open/close rules and signed propagation speed"
+    },
+    {
+      "pages": "60-64",
+      "claim": "Greenshields scenario, Table 5.4 intervention claims and utilization wording"
+    },
+    {
+      "pages": "64-66",
+      "claim": "heuristic camera placement proposal"
+    },
+    {
+      "pages": "70-78",
+      "claim": "printed YOLO speed code and TCNAt-BiGRU code showing target leakage, global scaling and T=1 input"
+    }
+  ],
+  "transfer_lessons": [
+    "Run feature-target identity checks before model fitting; direct target leakage invalidates forecast metrics regardless of architecture sophistication.",
+    "Fit scalers/encoders only on training data after the split.",
+    "TCN/RNN/BiGRU temporal claims require a real sequence axis T>1 and a window construction that respects time.",
+    "Architecture names must be checked against implementation primitives; a channel gate is not automatically SK-Net.",
+    "Final conclusions must include the worst subgroup; a negative held-out R2 cannot be summarized as universally strong generalization.",
+    "Shockwave direction and propagation duration need one sign convention; use magnitude for elapsed time and sign for direction.",
+    "Post-intervention traffic states must be replayed through the same fundamental diagram used to derive them.",
+    "Percent-change and utilization claims should be machine-recomputed from table values before writing prose.",
+    "Heuristic camera spacing is not optimization without decision variables, objective(s), constraints, cost and quantitative baseline comparison.",
+    "Scan for cross-domain template residue before final paper generation."
+  ]
+}

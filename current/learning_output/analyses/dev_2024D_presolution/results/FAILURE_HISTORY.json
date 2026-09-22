@@ -1,0 +1,13 @@
+{
+  "history": [
+    "RAR extraction unsupported by tar; existing7zip succeeded",
+    "CRLF parser initial record count wrong; normalized and reran",
+    "native NetCDF Unicode pathname failed; ASCII basename from parent succeeded",
+    "prepare_features initial SyntaxError repaired then AST passed",
+    "missing pyproj dependency installed; full features completed",
+    "complex models failed temporal promotion gate; baseline retained",
+    "linear precipitation extrapolation failed all three historical comparisons; no-trend retained",
+    "visual first FAIL repaired and reviewed"
+  ],
+  "no_erasure": true
+}

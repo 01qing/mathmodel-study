@@ -1,0 +1,21 @@
+{
+  "version": "1.39.0",
+  "status": "SEALED",
+  "scope": "S013 Dev audit-rule increment, not complete2024-D case group",
+  "independent_solution_frozen": true,
+  "author_reproduction": "S013:R2",
+  "visual_pages": 113,
+  "new_dev_reviewed": [
+    "S013"
+  ],
+  "train_retrieval_added": [],
+  "core_gain": "NOT_ESTABLISHED",
+  "integrated_model_improvement": "NOT_ESTABLISHED",
+  "pending_nonrelease_goals": [
+    "S014-S016 authorized review",
+    "complete2024-D method map and Mini Transfer Test",
+    "explanation stability",
+    "independent downstream utility",
+    "controlled Core ablation"
+  ]
+}

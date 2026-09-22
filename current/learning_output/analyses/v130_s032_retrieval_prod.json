@@ -1,0 +1,319 @@
+{
+  "mode": "production",
+  "query": "围岩裂隙 图像分割 正弦拟合 JRC 连通性",
+  "candidate_pool_groups": [
+    "2024-A",
+    "2024-B",
+    "2024-C",
+    "2024-E",
+    "2025-A",
+    "2025-C",
+    "2025-E"
+  ],
+  "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+  "query_keyword_tags": {
+    "tasks": [
+      "regression",
+      "segmentation"
+    ],
+    "data": [
+      "image"
+    ],
+    "constraints": []
+  },
+  "matches": [
+    {
+      "paper_id": "S032",
+      "case_group": "2025-C",
+      "title": "C题-1-围岩裂隙精准识别与三维模型重构",
+      "page": 2,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+      "review_file": "knowledge_base/paper_reviews/2025-C-S032-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+      "source_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+      "chunk_id": "S032-p2-0",
+      "excerpt": "2\n工主观偏差，确保权重分配贴合候选钻孔的实际数据特征。经验证，在补充钻孔推荐优先\n级分析结果中，基于投影寻踪方法的平均综合得分达9.95，显著高于基于AHP 方法的8.40。\n关键词：围岩裂隙；图像分割；正弦拟合；粗糙度量化；三维重构",
+      "lexical_cosine": 0.2292214017702214,
+      "matched_keyword_tags": {
+        "tasks": [
+          "regression",
+          "segmentation"
+        ],
+        "data": [
+          "image"
+        ],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+        "papers": [
+          "S032",
+          "S033",
+          "S034",
+          "S035",
+          "S036"
+        ],
+        "status": "PROVISIONAL_1_OF_5_TRAIN_PAPERS",
+        "mini_transfer_status": "NOT_DUE"
+      },
+      "mathmodel_core_summary": {
+        "core_schema_version": "1.0",
+        "reproduction_level": "R2",
+        "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+        "baseline_summary": {
+          "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+          "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+          "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+          "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+        },
+        "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+        "result_registry_file": "knowledge_base/result_registry/S032.json",
+        "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+        "decision_warning": [
+          "Q1 independent split/loss provenance missing",
+          "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+          "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+          "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+        ]
+      }
+    },
+    {
+      "paper_id": "S040",
+      "case_group": "2025-E",
+      "title": "E题-无监督迁移学习下的轴承故障诊断建模与优化",
+      "page": 25,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2025-E-S040-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+      "source_sha256": "4b5875eb3b83395e54d5e8b9d033b045bb2e2ef54f9ada6a061588b311467eb2",
+      "chunk_id": "S040-p25-0",
+      "excerpt": "25 \n \n图 5.2 ViT 结构图 \nVision Transformer 处理图像的整体流程如下： \n(1)图像分块：将输入图像分割成一系列固定大小且互不重叠的Patch，通常选择\n像素的Patch 作为分割单位。每个这样的Patch 随后被展平为一维向量，这样，原始图像被\n转化为一个由一维向量构成的序列。其形式与自然语言中的词序列类似，使得图像数据得\n以类似于文本数据的方式被模型处理。 \n(2)线性投影：在将图像分割成一系列一维向量后，下一步是对这些向量执行线性投影，\n即进行图像的Token 化处理，以实现维度的变换。 \n(3)类别Token 引入：为了便于后续分类任务，ViT 在序列前添加一个额外的类别Token\n（Class Token）。这个类别Token 并非直接从输入图像中提取的特征，而是一个可学习的\n参数，在模型训练过程中不断优化，以适应不同的图像数据和分类任务。 \n(4)位置编码：由于Transformer 模型无法直接处理序列的位置信息，ViT 还引入了位置\n编码。通过将位置编码与Token 序列相加，模型得以在后续的计算中充分利用每个Token\n的位置信息。 \n(5)Transformer 编码器处理：结合了位置编码的Token 序列被输入到Transformer 的编\n码器中进行处理。编码器中的多头自注意力机制负责在Patch 之间进行全局特征提取，这\n使得模型能够捕捉到图像中不同区域之间的依赖关系。同时，编码器中的前馈神经网络则\n对各个Patch 的特征进行进一步的变换和增强，从而生成更具表达力的特征表示  \n(6)分类输出：从编码器最后一层输出序列中提取类别Token 对应的表示，被用于后续\n的多层感知机进行分类处理。 \n5.2.2 卷积神经网络 (Convolutional Neural Network, CNN) \nCNN 在图像处理领域取得了巨大成功，其核心在于利用卷积核自动学习局部特征。在\n故障诊断中，CNN 常被用于处理一维时间序列信号或二维时频图。本研究中，我们将\nMixHop 优化后的特征矩阵视为二维数据（或重塑为适合一维卷",
+      "lexical_cosine": 0.05542706229950898,
+      "matched_keyword_tags": {
+        "tasks": [
+          "segmentation"
+        ],
+        "data": [
+          "image"
+        ],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [
+        {
+          "case_id": "2025-E-GTeacher1-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "PARTIAL_CODE_REVIEW",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+          "question_links": {
+            "Q1": [
+              "MAT→CSV/时域可视化",
+              "小波软阈值去噪",
+              "自定义EMD"
+            ],
+            "Q2": [
+              "RandomForestClassifier最小监督基线"
+            ],
+            "Q3": [],
+            "Q4": [
+              "基础信号/去噪可视化仅可作事前解释"
+            ]
+          },
+          "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+        },
+        {
+          "case_id": "2025-E-GTeacher2-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+          "question_links": {
+            "Q1": [
+              "detrend/bandpass/Hilbert envelope/resample/windowing",
+              "spectral-kurtosis band",
+              "order tracking"
+            ],
+            "Q2": [
+              "1D特征网络",
+              "MechanismFilterBank",
+              "Channel-SE",
+              "文件级train/val/test划分"
+            ],
+            "Q3": [
+              "CORAL loss",
+              "entropy minimization",
+              "BN recalibration/SHOT相关入口",
+              "目标文件聚合与融合"
+            ],
+            "Q4": [
+              "embedding/t-SNE",
+              "gate/channel weight",
+              "envelope example",
+              "adapt-loss/fusion-confidence图"
+            ]
+          },
+          "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+          "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+        }
+      ],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+        "papers": [
+          "S039",
+          "S040",
+          "S041"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S011",
+      "case_group": "2024-C",
+      "title": "C24104220149",
+      "page": 53,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q4_Q5_CONTRACT_SMOKE",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S011-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+      "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+      "chunk_id": "S011-p53-0",
+      "excerpt": "52 \n \n表8.3 两种算法求解最优解 \n \n温度 频率 \n波形 \n磁芯 \n材料 \n磁通密\n度峰值 \n磁芯 \n损耗 \n传输 \n磁能 \nNSGA-II Pareto\n最优解1 \n90 \n192418 \n正弦波 \n材料1 \n0.0104 \n1049 \n2008 \nNSGA-II Pareto\n最优解2 \n90 \n379324 \n正弦波 \n材料1 \n0.0776 \n143186 \n29439 \nMOPSO Pareto \n最优解1 \n90 \n470110 \n正弦波 \n材料4 \n0.4261 \n87042 \n20032 \nMOPSO Pareto \n最优解2 \n90 \n49910 \n正弦波 \n材料1 \n0.1677 \n741841 \n83703 \n \nNSGA-II 求得的Pareto 最优解绘制的Pareto 前沿可视图如图8.5 所示。 \n \n图8.5 NSSGA-II 算法Pareto 前沿图 \nMOPSO 算法求得的Pareto 最优解绘制的Pareto 前沿图如图8.6 所示。 \n \n图8.6 MOPSO 算法Pareto 前沿图 \n从两个算法绘制出的Pareto 前沿图可视化结果可以看出，NSSGA-II 算法求\n得的Pareto 最优解较为集中，相邻解集之间距离近，MOPSO 算法求出的Pareto",
+      "lexical_cosine": 0.04433583929327653,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S009",
+      "case_group": "2024-C",
+      "title": "C24102890089",
+      "page": 4,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q5_FRAGMENT_SMOKE",
+      "review_file": "knowledge_base/paper_reviews/2024-C-S009-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24102890089.pdf",
+      "source_sha256": "81f2b821a8f442cd0c94f067edd27c570e2d63ddbbcae3a7d92f1f573e410b48",
+      "chunk_id": "S009-p4-2800",
+      "excerpt": "求解. . . . . . . . . . . . . . . . . . . . . . . . . .\n21\n5 . 3\n问题二结果与分析. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n25\n5 . 3 . 1 以附件一材料1 正弦波为基础的磁芯损耗修正方程的结果与分析. . . .\n25\n5 . 3 . 2 附件一材料2、3、4 正弦波的磁芯损耗修正方程的结果与分析. . . . . . .\n26\n5 . 3 . 3 较好修正SE 方程. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n27\n6.\n问题三模型的建立与求解. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .\n30\n3",
+      "lexical_cosine": 0.04090734694017553,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+        "papers": [
+          "S009",
+          "S010",
+          "S011",
+          "S012"
+        ]
+      },
+      "mathmodel_core_summary": null
+    },
+    {
+      "paper_id": "S039",
+      "case_group": "2025-E",
+      "title": "E题-基于迁移学习的高速列车轴承故障诊断研究",
+      "page": 57,
+      "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+      "review_file": "knowledge_base/paper_reviews/2025-E-S039-core.json",
+      "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-基于迁移学习的高速列车轴承故障诊断研究.pdf",
+      "source_sha256": "1ad142092e24fdfb46a313b2edb109f35290898bc2bb486dcf9c4d03765413ac",
+      "chunk_id": "S039-p57-700",
+      "excerpt": "题四的研究中，虽然通过MMD、CORAL 等方法对迁移过程\n进行了一定的可解释性分析，但深度学习模型的“黑箱”问题依然存在。未来的研究应进\n一步加强模型的可解释性，尤其是在迁移学习的过程中，帮助诊断人员更好地理解模\n型决策依据，增强对模型输出结果的信任。\n8.3 未来展望\n本文采用的VGG 和CNN 模型在图像分类和故障诊断等领域已经有了广泛应用，尤\n其在机械设备故障检测和医学影像分析等领域取得了显著成果。未来，深度学习模型与迁\n移学习、自适应学习等方法相结合，能够更好地应对跨设备、跨工况的故障诊断任务，提\n高模型的泛化能力和迁移能力。进一步加强模型的可解释性，并结合领域知识，可能为机\n械设备的故障检测提供更加精准和透明的解决方案。此外，随着数据量的不断增加和计算\n能力的提升，未来的模型有望更加高效、精准地识别复杂的故障模式，并拓展到更多领域。\n57",
+      "lexical_cosine": 0.037046872461278246,
+      "matched_keyword_tags": {
+        "tasks": [],
+        "data": [
+          "image"
+        ],
+        "constraints": []
+      },
+      "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+      "supplemental_code_cases": [
+        {
+          "case_id": "2025-E-GTeacher1-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "PARTIAL_CODE_REVIEW",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+          "question_links": {
+            "Q1": [
+              "MAT→CSV/时域可视化",
+              "小波软阈值去噪",
+              "自定义EMD"
+            ],
+            "Q2": [
+              "RandomForestClassifier最小监督基线"
+            ],
+            "Q3": [],
+            "Q4": [
+              "基础信号/去噪可视化仅可作事前解释"
+            ]
+          },
+          "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+        },
+        {
+          "case_id": "2025-E-GTeacher2-code",
+          "identity": "teacher_or_expert_supplement_not_paper_code",
+          "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+          "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+          "question_links": {
+            "Q1": [
+              "detrend/bandpass/Hilbert envelope/resample/windowing",
+              "spectral-kurtosis band",
+              "order tracking"
+            ],
+            "Q2": [
+              "1D特征网络",
+              "MechanismFilterBank",
+              "Channel-SE",
+              "文件级train/val/test划分"
+            ],
+            "Q3": [
+              "CORAL loss",
+              "entropy minimization",
+              "BN recalibration/SHOT相关入口",
+              "目标文件聚合与融合"
+            ],
+            "Q4": [
+              "embedding/t-SNE",
+              "gate/channel weight",
+              "envelope example",
+              "adapt-loss/fusion-confidence图"
+            ]
+          },
+          "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+          "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+        }
+      ],
+      "same_problem_cross_paper_map": {
+        "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+        "papers": [
+          "S039",
+          "S040",
+          "S041"
+        ]
+      },
+      "mathmodel_core_summary": null
+    }
+  ],
+  "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+  "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+}

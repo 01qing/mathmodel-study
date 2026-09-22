@@ -1,0 +1,6 @@
+{
+  "name": "post-selection cluster significance",
+  "trigger": "clusters are produced from features and the same features are then tested across those cluster labels to establish significance",
+  "rule": "same-feature ANOVA/p-values after clustering are descriptive/post-selection only; use resampling stability, external labels or held-out features for independent validation",
+  "source_example": "S042 Q3 KMeans on 179D then one-way ANOVA on same features"
+}

@@ -1,0 +1,172 @@
+{
+  "status": "PASS",
+  "scope": "S014 review closure and selected compatibility checks; NOT full22suite rerun, NOT Core gain",
+  "checks": [
+    {
+      "name": "sealed v139 content integrity",
+      "passed": true,
+      "scope": {
+        "files": 1788,
+        "changed": []
+      }
+    },
+    {
+      "name": "independent frozen files unchanged",
+      "passed": true,
+      "scope": {
+        "files": 55,
+        "changed": []
+      }
+    },
+    {
+      "name": "independent manifest identity",
+      "passed": true,
+      "scope": "SHA256 exact"
+    },
+    {
+      "name": "inherited skill logic unchanged",
+      "passed": true,
+      "scope": {
+        "changed": [],
+        "exceptions": [
+          ".agents/skills/graduate-mathmodel-learning/assets/catalog/local_papers_2024_2025.json",
+          ".agents/skills/mathmodel-case-retriever/assets/papers.json"
+        ]
+      }
+    },
+    {
+      "name": "frozen45paper split counts",
+      "passed": true,
+      "scope": "metadata only; no protected answer text opened"
+    },
+    {
+      "name": "S014 stays Dev",
+      "passed": true,
+      "scope": "review metadata cannot promoteDevtoTrain"
+    },
+    {
+      "name": "S015/S016 remain unread",
+      "passed": true,
+      "scope": "this review adds onlyS014"
+    },
+    {
+      "name": "split_manifest.json unchanged",
+      "passed": true,
+      "scope": "bytehash comparison; chunk content not read for paper learning"
+    },
+    {
+      "name": "chunks.json unchanged",
+      "passed": true,
+      "scope": "bytehash comparison; chunk content not read for paper learning"
+    },
+    {
+      "name": "all other paper metadata unchanged",
+      "passed": true,
+      "scope": "including protected Dev/Test records"
+    },
+    {
+      "name": "62pages audit ledger complete",
+      "passed": true,
+      "scope": "coverage record, not automated visual quality certification"
+    },
+    {
+      "name": "registry has unique IDs and bounded pages",
+      "passed": true,
+      "scope": "schema and provenance only"
+    },
+    {
+      "name": "four complete model competitions",
+      "passed": true,
+      "scope": "content existence; not evidence of competence"
+    },
+    {
+      "name": "all evidence levels cappedR2",
+      "passed": true,
+      "scope": "local fixture execution does not raise author reproduction"
+    },
+    {
+      "name": "seven gates and pending group status",
+      "passed": true,
+      "scope": "do not mark2024-Dgroupcomplete"
+    },
+    {
+      "name": "first audit failure retained",
+      "passed": true,
+      "scope": "audit hypothesis failure28/29 preserved"
+    },
+    {
+      "name": "local numerical audit passes",
+      "passed": true,
+      "scope": "30/30 checks; deterministic local fixtures only"
+    },
+    {
+      "name": "selected inherited regressions and retrieval",
+      "passed": true,
+      "scope": [
+        {
+          "name": "v139_contracts",
+          "exit_code": 0,
+          "passed": true,
+          "log": "v139_contracts.log"
+        },
+        {
+          "name": "v19_historical",
+          "exit_code": 0,
+          "passed": true,
+          "log": "v19_historical.log"
+        },
+        {
+          "name": "workspace",
+          "exit_code": 0,
+          "passed": true,
+          "log": "workspace.log"
+        },
+        {
+          "name": "retrieval_2025A",
+          "exit_code": 0,
+          "passed": true,
+          "log": "retrieval_2025A.log"
+        },
+        {
+          "name": "retrieval_2025F",
+          "exit_code": 0,
+          "passed": true,
+          "log": "retrieval_2025F.log"
+        }
+      ]
+    }
+  ],
+  "inherited_runs": [
+    {
+      "name": "v139_contracts",
+      "exit_code": 0,
+      "passed": true,
+      "log": "v139_contracts.log"
+    },
+    {
+      "name": "v19_historical",
+      "exit_code": 0,
+      "passed": true,
+      "log": "v19_historical.log"
+    },
+    {
+      "name": "workspace",
+      "exit_code": 0,
+      "passed": true,
+      "log": "workspace.log"
+    },
+    {
+      "name": "retrieval_2025A",
+      "exit_code": 0,
+      "passed": true,
+      "log": "retrieval_2025A.log"
+    },
+    {
+      "name": "retrieval_2025F",
+      "exit_code": 0,
+      "passed": true,
+      "log": "retrieval_2025F.log"
+    }
+  ],
+  "at": "2026-09-13T03:34:46.241762+00:00"
+}

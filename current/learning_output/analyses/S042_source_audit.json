@@ -1,0 +1,46 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "split": "train",
+  "title": "江南古典园林的美学特征建模",
+  "pdf_sha256": "b1132adba756118ab037d8af0af25cf5cd110e51092288042d5c5ae9b3b72a0c",
+  "registry_sha256": "b1132adba756118ab037d8af0af25cf5cd110e51092288042d5c5ae9b3b72a0c",
+  "pages": 182,
+  "full_text_extract": {
+    "path_external": "/mnt/data/next_s042/S042.txt",
+    "bytes": 460622,
+    "status": "COMPLETE"
+  },
+  "visual_audit": {
+    "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+    "pages_verified": "182/182",
+    "contact_sheets": "13/13 visually reviewed",
+    "note": "pages 103-182 are an extensive printed source-code appendix; p181 was rerendered after a prior truncated render and final verification found zero bad pages"
+  },
+  "printed_code": {
+    "pages": "103-182",
+    "files_identified": [
+      "data_loader_draw.py",
+      "garden_network_builder.py",
+      "macro_graph_builder.py",
+      "multi_objective_path_planner.py",
+      "visibility_analysis.py",
+      "voronoi_path_builder.py",
+      "garden_grid_modeling.py",
+      "garden_illusion_evaluation.py",
+      "block_feature_extractor.py",
+      "feature_extractor.py",
+      "garden_similarity_analyzer.py",
+      "garden_vector_builder.py"
+    ],
+    "status": "STATIC_AUDIT_AVAILABLE",
+    "limitations": [
+      "printed appendix is not an original executable project checkout",
+      "some algorithm-defining analyzer methods appear as signatures/docstrings without visible bodies in the printed excerpt",
+      "original contest attachments are not mounted as an executable author project in this release build"
+    ]
+  },
+  "reproduction_level": "R2",
+  "why": "full paper + all-page visual audit + printed source-code static audit; no author-code execution or original-data end-to-end reproduction",
+  "test_dev_protection": "S043-S045 remain unread Train; S030-S031 remain Dev reserve; S037-S038 Test remain frozen."
+}

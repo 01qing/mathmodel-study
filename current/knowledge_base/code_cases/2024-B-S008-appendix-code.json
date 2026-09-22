@@ -1,0 +1,49 @@
+{
+  "paper_id": "S008",
+  "source": "printed appendix text",
+  "run_status": "NOT_RUN_AS_AUTHOR_PIPELINE; STATIC_AUDIT_ONLY",
+  "questions": {
+    "Q1": {
+      "findings": [
+        "RF uses Pipeline with train/test split before pipeline fit",
+        "LSTM preprocessor fit_transform precedes split",
+        "LSTM input reshaped to (samples,1,features)"
+      ],
+      "risk": "RF path is structurally safer; LSTM path leaks preprocessing and is not a real temporal sequence model"
+    },
+    "Q2": {
+      "findings": [
+        "SGD scaler fit before split",
+        "multi-interferer SINR code subtracts dBm arrays directly",
+        "predicted PHY rate is inverted through duplicate-rate lookup table"
+      ],
+      "risk": "preprocessing leakage + physical SINR error + ambiguous output reconstruction"
+    },
+    "Q3": {
+      "findings": [
+        "SVR preprocessor fit before split",
+        "test features rely on upstream predicted seq_time/PHY-derived values",
+        "visible throughput formula provides a direct baseline",
+        "reported metric pair MSE=12.48, MAE=7.30 is algebraically impossible for the same errors"
+      ],
+      "risk": "oracle/deployment shift + leakage + inconsistent result table"
+    }
+  },
+  "replication_requirements": [
+    "official 2024-B data",
+    "original scripts/notebooks",
+    "experiment/session group ids",
+    "exact package versions"
+  ],
+  "safe_reimplementation_order": [
+    "define experiment groups",
+    "group split",
+    "train-only preprocessing",
+    "linear-power SINR",
+    "joint/constrained MCS-NSS prediction",
+    "OOF upstream predictions for downstream throughput",
+    "physics baseline",
+    "residual/direct ML comparison",
+    "metric algebra sanity checks"
+  ]
+}

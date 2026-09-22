@@ -1,0 +1,11 @@
+{
+  "case_group": "2025-C",
+  "status": "FINAL_AFTER_S032_S036",
+  "rules": [
+    "Q1: show qualitative overlays plus per-original-image/source-held-out IoU/F1; disclose label provenance, source overlap and annotation/runtime cost separately from predictive quality.",
+    "Q2: overlay physical-period reference and fitted traces; include residual/inlier/missingness/reject diagnostics and state whether P is fixed or free.",
+    "Q3: plot ordered physical profile, detrended profile, sampling points and estimate-vs-budget; label dense result numerical reference unless external truth; report conflicting metrics without hidden aggregation.",
+    "Q4: generate graph visualization and component statistics from the same thresholded edge registry; threshold-sensitivity plot must recompute components for every threshold.",
+    "Q4: drilling maps show existing/new locations and all exclusion radii before utility; probability/posterior/EIG wording requires calibration/observation-update evidence."
+  ]
+}

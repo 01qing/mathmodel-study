@@ -1,0 +1,13 @@
+{
+  "composition": "topology-safe list scheduler -> repaired lifetime allocator -> event-driven simulator -> feasibility-first replay",
+  "compatibility": {
+    "input_output_interface": "compatible",
+    "variable_definition": "compatible after one shared node/buffer schema",
+    "data_distribution": "not a learned-model issue",
+    "mathematical_assumptions": "compatible if DAG/lifetime assumptions hold",
+    "units_and_dimensions": "compatible if memory and cycle units are kept explicit",
+    "training_vs_execution_stage": "execution-only",
+    "evaluation_metric": "compatible under epsilon constraint"
+  },
+  "decision": "compatible_after_adapter"
+}

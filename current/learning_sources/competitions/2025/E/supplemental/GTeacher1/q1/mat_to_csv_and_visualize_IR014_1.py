@@ -1,0 +1,90 @@
+import scipy.io
+import pandas as pd
+#mat文件转csv文件
+mat_file_path = 'IR014_1.mat'
+
+mat_data = scipy.io.loadmat(mat_file_path)
+
+# 检查mat文件的变量名
+variable_names = list(mat_data.keys())
+variable_names.remove('__header__')
+variable_names.remove('__version__')
+variable_names.remove('__globals__')
+
+variable_names
+# csv提取变量名
+X175_DE_time = mat_data['X175_DE_time'].squeeze()  # Convert to 1D array
+X175_FE_time = mat_data['X175_FE_time'].squeeze()  # Convert to 1D array
+X175RPM = mat_data['X175RPM'].squeeze()  # Convert to 1D array
+
+# 确定数组长度
+length = len(X175_DE_time)
+
+# 将X175RPM填满数组
+if X175RPM.size == 1:
+    X175RPM = [X175RPM.item()] * length
+
+# Create a DataFrame
+df = pd.DataFrame({
+    'X175_DE_time': X175_DE_time,
+    'X175_FE_time': X175_FE_time,
+    'X175RPM': X175RPM
+})
+
+# Save the DataFrame to a CSV file
+csv_file_path = 'IR014_1data.csv'
+df.to_csv(csv_file_path, index=False)
+
+csv_file_path
+#可视化分析
+import pandas as pd
+
+# Load the CSV file into a DataFrame
+file_path = 'IR014_1data.csv'
+data = pd.read_csv(file_path)
+
+data.head()
+
+import matplotlib.pyplot as plt
+
+# 提取坐标绘图
+X175_DE_time_data = mat_data['X175_DE_time']
+X175_FE_time_data = mat_data['X175_FE_time']
+
+# 绘图
+fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+# X175_DE_time图片
+axs[0].plot(X175_DE_time_data)
+axs[0].set_title('X175_DE_time Data')
+axs[0].set_xlabel('Sample Number')
+axs[0].set_ylabel('Value')
+
+#  X175_FE_time图片
+axs[1].plot(X175_FE_time_data)
+axs[1].set_title('X175_FE_time Data')
+axs[1].set_xlabel('Sample Number')
+axs[1].set_ylabel('Value')
+
+plt.tight_layout()
+
+# Saving the plots
+plot_path_X175_DE_time = 'X175_DE_time_plot.png'
+plot_path_X175_FE_time = 'X175_FE_time_plot.png'
+fig.savefig(plot_path_X175_DE_time)
+fig.savefig(plot_path_X175_FE_time)
+
+(plot_path_X175_DE_time, plot_path_X175_FE_time)
+
+
+
+
+
+
+
+
+
+
+
+
+

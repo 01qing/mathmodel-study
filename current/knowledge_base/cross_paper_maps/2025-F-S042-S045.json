@@ -1,0 +1,73 @@
+{
+  "case_group": "2025-F",
+  "status": "FINAL_FOUR_OF_FOUR_TRAIN_PAPERS_REVIEWED",
+  "papers_reviewed": [
+    "S042",
+    "S043",
+    "S044",
+    "S045"
+  ],
+  "papers_pending": [],
+  "questions": {
+    "Q1": {
+      "S042": "Voronoi/spatial-index path + view matrix + surprisal/Hamming + NSGA-II label; code exposed decoded-route hard-constraint leak.",
+      "S043": "centerline graph + fan visibility + entropy/Jaccard change + weighted-sum GA; compact but scale/optimality contracts drift.",
+      "S044": "walkable graph + field-of-view change + claimed IGA/Pareto; printed code collapses optimizer to Dijkstra.",
+      "S045": "skeleton/key-node graph + five-index interest + claimed GA; formula objective drifts and printed code is Dijkstra/separate exoticness proxy.",
+      "recommended_route": "feasible walkable geometry -> reduced graph -> transparent local visibility/scene-change descriptors -> raw objective registry (interest, distance, repeats/turn burden) -> exact/k-shortest/RCSP/epsilon search when tractable -> genuine nondominated evolutionary search only when justified -> final decoded-route feasibility replay",
+      "six_hour_baseline": "build feasible centerline graph, use deterministic scene-change/visibility proxy, enumerate k-shortest feasible routes, score raw criteria, select with predeclared lexicographic/epsilon rule and overlay on map",
+      "high_risk_high_reward": "true NSGA-II/GA with visibility simulation or learned preference utility after enough human labels",
+      "abandon_conditions": "abandon GA if no same-budget gain over k-shortest/exact baseline, operators frequently require repair, or final route violates walkability/repetition/length contracts"
+    },
+    "Q2": {
+      "S042": "ecology/morphology/space-syntax descriptors + Jichang forced anchor; anchor-target circular validation.",
+      "S043": "theme entropy/harmony + openness/rhythm with reference scaling; several score-range closure issues.",
+      "S044": "interpretable descriptors claimed AHP-entropy; printed code includes random placeholders and fixed result injection.",
+      "S045": "GMM-MRF/open-close/rhythm/Jichang anchor; printed code collapses to KMeans/random openness and invalid sensitivity ranking axis.",
+      "recommended_route": "deterministic geometry/element/open-close descriptors -> redundancy/unit audit -> simple spatial clustering first -> optional spatial probabilistic smoothing only with real gain -> calibration/reference scaling frozen on calibration cohort -> transparent score or preference model -> full entity-by-run sensitivity -> independent expert/held-out validation",
+      "six_hour_baseline": "bounded deterministic descriptors + KMeans/agglomerative diagnostic + robust/fixed normalization + simple weighted score + leave-one-indicator-out and OAT sensitivity; clearly label score as constructed index",
+      "high_risk_high_reward": "GMM-MRF/graph model or supervised pairwise preference learning when enough subregions/independent labels exist",
+      "abandon_conditions": "abandon complex clustering/learned score if method primitives are missing, score depends on random placeholders, anchor is reused as validation, or robustness code does not preserve entity axis"
+    },
+    "Q3": {
+      "S042": "179D representation at n=10/11; similarity concentration and same-feature clustering significance risk.",
+      "S043": "compact 20D deterministic representation; similarity matrix/ranking/taxonomy drift and Ward/equivalence issues.",
+      "S044": "geometry/image/text + MKL/contrastive/PH/HMM claims; printed code has stubs/shared proxies/clamped or constant validation.",
+      "S045": "compact Q1/Q2 vector + cosine/Jaccard and external Heyuan; mixed-scale preprocessing unresolved and printed similarities are hard-coded/post-edited.",
+      "recommended_route": "compact auditable garden-level features -> train/reference-fitted scaling by feature block -> metric matched to data type (cosine/Euclidean/Gower/set Jaccard/weighted min-max explicitly named) -> similarity matrix single source -> cluster/stability as descriptive evidence -> external pairwise/preference/downstream validation at garden level",
+      "six_hour_baseline": "standardize a compact deterministic feature table, compute two transparent similarity baselines, inspect null/permutation concentration, hierarchical cluster with compatible distance, and hold out one garden/external labeled comparisons if available",
+      "high_risk_high_reward": "pretrained multimodal embeddings or metric learning with substantially more independent gardens and external preference labels",
+      "abandon_conditions": "abandon high-dimensional/deep similarity if independent n is tiny, pairs leak entities, similarity concentrates, external truth is absent, or outputs require post-hoc edits"
+    }
+  },
+  "method_composer_final": {
+    "compatible": [
+      "Q1: physical walkability/centerline extraction from any of S042-S045 + S042/S043 visibility/change ideas + a single shared raw objective registry + exact/epsilon optimizer; only then optionally evolutionary search.",
+      "Q2: deterministic morphology/ecology/open-close descriptors across papers + S045 spatial adjacency concept + non-circular calibration + S043/S045 sensitivity ideas after entity-axis repair.",
+      "Q3: S043/S045 compact deterministic feature representation + explicit scaling + S045 set/composition similarity or Gower + S042 resampling/stability gates + external independent truth when available."
+    ],
+    "blocked": [
+      "paper-labeled GA/NSGA/IGA when executable primitive is Dijkstra or absent",
+      "automatic straight-line bridge edges without walkability intersection checking",
+      "random placeholder features and hard-coded result dictionaries",
+      "anchor-target self-validation",
+      "pair-expanded/deep metric learning at tiny independent garden n",
+      "unscaled heterogeneous cosine similarity",
+      "manual pair-specific similarity sign/offset adjustment",
+      "unlabeled external case described as accuracy/generalization proof"
+    ],
+    "seven_gate_status": {
+      "input_output_interface": "PASS_WITH_GUARDS: geometry->graph->route and descriptor->score->similarity interfaces are clear; every module must export provenance/run_id.",
+      "variable_definitions": "PASS_WITH_GUARDS: distinguish raw objectives, constructed scores, calibrated probabilities, set Jaccard and continuous min-max similarity.",
+      "data_distribution": "CONDITIONAL: independent n is garden-level (~10 core objects); spatial cells/pairs do not increase independent garden count.",
+      "mathematical_assumptions": "CONDITIONAL: visibility proxies, spatial smoothness, anchor calibration and aesthetic similarity require explicit assumptions and external checks.",
+      "units": "PASS_WITH_GUARDS: geometry units standardized; heterogeneous similarity features require train/reference-fitted scaling/block weighting.",
+      "train_execution_stage": "CONDITIONAL: calibration/scaler/alpha/model selection must be fit on reference/train data; external garden processed with frozen parameters.",
+      "evaluation_metrics": "PASS_WITH_GUARDS: use raw route objectives, entity-level ranking stability and external truth; descriptive heatmaps/cluster metrics do not become accuracy evidence."
+    }
+  },
+  "mini_transfer": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX; post-learning synthetic warehouse-route/similarity fixture, not clean blind R7 evidence",
+  "capability_evidence_gate": "CLEAN_BLIND_CORE_GAIN_NOT_ESTABLISHED; controlled No-Core / Previous-Core / New-Core ablation NOT_RUN because no fixed three-condition agent harness exists",
+  "mini_transfer_ref": "learning_output/mini_transfer/2025-F/REPORT.md",
+  "capability_evidence_ref": "learning_output/mini_transfer/2025-F/CAPABILITY_EVIDENCE_GATE.md"
+}

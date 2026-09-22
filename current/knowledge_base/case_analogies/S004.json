@@ -1,0 +1,37 @@
+{
+  "paper_id": "S004",
+  "case_group": "2024-A",
+  "transferable_local_patterns": [
+    {
+      "subproblem": "Q1",
+      "pattern": "real-time fatigue proxy from fixed local windows",
+      "when_useful": "exact global cycle closure is too slow and ranking/online monitoring matters",
+      "minimum_validation": "synthetic known-cycle exact-rainflow comparison + scale/rank/boundary tests"
+    },
+    {
+      "subproblem": "Q2",
+      "pattern": "physics baseline followed by residual diagnosis and minimal lag/scale calibration",
+      "when_useful": "mechanism is known but parameters/response lag are imperfect",
+      "minimum_validation": "group/time holdout and unit/semantic audit"
+    },
+    {
+      "subproblem": "Q3",
+      "pattern": "allocation weights convert total-power equality into simplex-like constraint for heuristic optimization",
+      "when_useful": "many entities share one total resource and each has box/deviation constraints",
+      "minimum_validation": "post-normalization feasibility, seed stability, p95/p99/max latency"
+    },
+    {
+      "subproblem": "Q4",
+      "pattern": "denoise + delay reconstruction + downstream optimization with five-treatment ablation",
+      "when_useful": "corrupted input has separable noise and missing/delayed segments",
+      "minimum_validation": "component-level denoise/prediction metrics plus downstream multi-metric trade-off"
+    }
+  ],
+  "do_not_copy": [
+    "power factor as conversion efficiency",
+    "fixed 1e4 delay threshold across units",
+    "Kalman state across turbines",
+    "same-data fit/evaluation for correction constants",
+    "claim overall win when APV worsens"
+  ]
+}

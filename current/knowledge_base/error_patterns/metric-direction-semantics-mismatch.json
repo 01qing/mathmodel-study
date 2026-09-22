@@ -1,0 +1,6 @@
+{
+  "id": "metric-direction-semantics-mismatch",
+  "name": "Metric name/direction does not match its formula",
+  "trigger": "A quantity named efficiency/maximization is actually loss/(loss+benefit), where smaller is better.",
+  "gate": "Record formula, physical meaning, direction (min/max), unit and range together in a metric registry; plot/report using the registered direction."
+}

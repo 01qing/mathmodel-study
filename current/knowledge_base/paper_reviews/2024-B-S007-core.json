@@ -1,0 +1,117 @@
+{
+  "paper_id": "S007",
+  "case_group": "2024-B",
+  "year": 2024,
+  "problem_id": "B",
+  "split": "train",
+  "pages": 113,
+  "title": "B24104760033",
+  "paper_title": "WLAN 组网中网络吞吐量建模",
+  "review_status": "FULL_TEXT_PLUS_PRINTED_APPENDIX_STATIC_AUDIT",
+  "visual_status": "TEXT_FIGURE_CAPTIONS_ONLY_NO_PIXEL_LEVEL_PDF_AUDIT",
+  "questions": {
+    "Q1": {
+      "route": [
+        "3-sigma/missing-value preprocessing",
+        "engineered WLAN state features",
+        "nine-regressor comparison in results",
+        "CDF error quantile",
+        "RF/XGBoost feature importance"
+      ],
+      "target": "seq_time / AP transmit opportunity proxy",
+      "strengths": [
+        "compares linear, regularized, tree, kernel and neural baselines",
+        "reports MSE/MAE/MAPE plus CDF rather than a single scalar"
+      ],
+      "risks": [
+        "abstract says eight regressors while result section evaluates nine",
+        "row-random split after merging experiment files can leak experiment/session structure",
+        "CDF-derived 'accuracy=1-P90 relative error' is a custom precision score and must not be called standard regression accuracy",
+        "feature importance/correlation is sometimes narrated causally"
+      ]
+    },
+    "Q2": {
+      "route": [
+        "physically convert dBm to mW for SINR",
+        "predict MCS and NSS as two separate targets",
+        "compare eight classifiers in main text",
+        "visible appendix trains separate RF classifiers"
+      ],
+      "target": "MCS and NSS",
+      "strengths": [
+        "SINR implementation converts desired/interference/noise dBm values into linear mW before summation",
+        "separate targets avoid S005's PHY-rate inversion ambiguity"
+      ],
+      "risks": [
+        "MCS and NSS are split/trained independently with no joint-pair validity constraint",
+        "NSS validation accuracy near 0.98 coexists with F1/precision/recall near 0.55, a strong class-imbalance warning",
+        "main text claims eight-model comparison but visible appendix exposes only RF prediction path",
+        "paper text incorrectly infers near-1 NSS accuracy may mean balanced/easy data despite minority metrics contradicting that interpretation",
+        "AMC prose says high SINR lowers MCS/NSS and low SINR raises them, opposite the usual rate-adaptation direction and its own argmax threshold formula"
+      ]
+    },
+    "Q3": {
+      "route": [
+        "known MCS/NSS to PHY-rate lookup",
+        "effective-rate/per features",
+        "RSSI/hearing/interference features",
+        "GradientBoostingRegressor visible appendix",
+        "CDF relative-error quantile"
+      ],
+      "target": "throughput",
+      "strengths": [
+        "uses problem-provided true MCS/NSS in Q3 instead of cascading Q2 predictions",
+        "adds interpretable physical/protocol features before regression"
+      ],
+      "risks": [
+        "RSSI across antennas/interferers is averaged or summed directly in dBm in equations/code; log-domain power aggregation is not physically equivalent to linear-power aggregation",
+        "row-random split after concatenating experiment files can leak group structure",
+        "Q3 abstract and later prose copy Q1 metrics, contradicting Q3's own result table",
+        "custom CDF 'accuracy' again should be reported as P90 error / threshold coverage, not standard accuracy"
+      ]
+    }
+  },
+  "verified_text_evidence": [
+    {
+      "lines": "38-59",
+      "claim": "abstract gives Q1 metrics and reuses the same 2AP metrics for Q3"
+    },
+    {
+      "lines": "1653-1747",
+      "claim": "Q1 result section compares nine regression models although abstract says eight"
+    },
+    {
+      "lines": "1055-1104",
+      "claim": "Q2 pseudocode converts dBm quantities to mW before SINR ratio"
+    },
+    {
+      "lines": "1975-2126",
+      "claim": "NSS accuracy is near 0.984-0.988 while F1/precision/recall remain around 0.33-0.55"
+    },
+    {
+      "lines": "3330-3575",
+      "claim": "visible Q2 appendix trains separate RF models for MCS and NSS with independent train_test_split calls"
+    },
+    {
+      "lines": "1513-1575",
+      "claim": "Q3 formulas sum/average RSSI values directly"
+    },
+    {
+      "lines": "2216-2275",
+      "claim": "Q3 own table reports RF/XGBoost MSE near 1.9-3.4, but following prose repeats Q1 values near 10.4/1.756/0.064"
+    },
+    {
+      "lines": "3604-4118",
+      "claim": "Q3 visible code constructs dBm-mean RSSI features and uses random row split for GradientBoostingRegressor"
+    }
+  ],
+  "transfer_lessons": [
+    "For RF/SVM/boosting on WLAN rows, define the independent experiment/session first and split by group, not by row after concatenation.",
+    "For SINR and any power aggregation, convert dBm to linear power before sums/ratios and only convert the final ratio back to dB.",
+    "For structured outputs such as (MCS,NSS), either train a joint valid-pair class or use constrained decoding/checking after separate heads; separate high marginal accuracies do not guarantee a valid pair.",
+    "When class imbalance yields high accuracy but low macro F1/recall, report per-class support, confusion matrix, macro/balanced metrics and minority recall.",
+    "Cross-check abstract, tables, narrative conclusions and code outputs automatically; duplicated metrics across different questions are a red flag.",
+    "Power-like RSSI aggregation in dBm is not a linear sum/mean; use physically justified antenna combining or linear-power aggregation.",
+    "A P90 relative-error complement can be a task-specific precision score, but label it explicitly rather than calling it standard regression accuracy."
+  ]
+}

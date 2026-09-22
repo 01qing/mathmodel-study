@@ -1,0 +1,5 @@
+{
+  "id": "CLIPPING_SATURATION_INVALIDATES_ASSOCIATION",
+  "rule": "If many outputs hit a clipping boundary, analyze the unclipped latent metric and saturation rate before claiming correlations or group differences from the clipped values.",
+  "scope": "generic"
+}

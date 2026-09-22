@@ -1,0 +1,14 @@
+{
+  "pattern": "surrogate-optimizer-without-surrogate-validation",
+  "description": "Kriging/GP/RBF surrogate is optimized without evidence that the surrogate predicts the expensive simulator/objective accurately in the relevant domain.",
+  "detection": [
+    "surrogate-assisted optimizer reported",
+    "DOE/training sample design missing",
+    "holdout error/uncertainty calibration missing"
+  ],
+  "remedy": [
+    "declare DOE and parameter bounds",
+    "report cross-validated surrogate error and uncertainty",
+    "re-evaluate final/top-k candidate optima on the original simulator/objective"
+  ]
+}

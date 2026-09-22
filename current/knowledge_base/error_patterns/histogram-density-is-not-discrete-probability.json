@@ -1,0 +1,5 @@
+{
+  "id": "HISTOGRAM_DENSITY_IS_NOT_DISCRETE_PROBABILITY",
+  "rule": "Histogram density heights are not discrete probability masses. Shannon entropy requires normalized bin masses (or a valid differential-entropy treatment).",
+  "scope": "generic"
+}

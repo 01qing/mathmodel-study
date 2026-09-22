@@ -1,0 +1,5 @@
+{
+  "id": "BINARY_EVENT_ENTROPY_MISSING_COMPLEMENT",
+  "rule": "For a Bernoulli event, Shannon entropy is -p log p -(1-p) log(1-p). A sum of only -p log p is not standard binary uncertainty and has a different maximizer; label it a custom score unless a normalized categorical model is defined.",
+  "scope": "generic"
+}

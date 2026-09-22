@@ -1,0 +1,6 @@
+{
+  "pattern": "same_heuristic_cross_module_direction_drift",
+  "definition": "The same named selection heuristic reverses ranking direction between prose/modules.",
+  "example": "S025 Q2 selects smaller SPILL victim after COPY_IN preference; Q3 selects larger; prose says larger.",
+  "gate": "Store tie-break/priority tuple once and unit-test identical candidate ordering across Q2/Q3/deployment."
+}

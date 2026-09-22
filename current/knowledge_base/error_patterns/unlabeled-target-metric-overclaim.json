@@ -1,0 +1,34 @@
+{
+  "pattern_id": "unlabeled-target-metric-overclaim",
+  "name": "无标签目标域内部指标被误写为准确率/正确性",
+  "learned_from": [
+    "S039",
+    "S040",
+    "S041",
+    "2025-E-GTeacher2-code"
+  ],
+  "dangerous_proxies": [
+    "softmax confidence",
+    "MMD/CORAL下降",
+    "t-SNE混合",
+    "cluster cohesion",
+    "source-centroid similarity",
+    "attention/SHAP图"
+  ],
+  "valid_claims": [
+    "说明模型自信程度",
+    "说明表示分布更接近",
+    "说明聚类内部结构",
+    "说明模型关注位置/特征"
+  ],
+  "invalid_claims": [
+    "直接声称目标域accuracy",
+    "直接声称预测标签已被验证正确",
+    "把解释图当因果证据"
+  ],
+  "preferred_fix": [
+    "有独立目标真值时再计算accuracy/F1",
+    "无真值时明确写internal evidence或confidence",
+    "做多初始化/两次运行一致性、物理故障频率一致性和消融，但保持证据层级"
+  ]
+}

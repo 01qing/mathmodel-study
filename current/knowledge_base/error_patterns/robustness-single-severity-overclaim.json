@@ -1,0 +1,11 @@
+{
+  "name": "robustness-single-severity-overclaim",
+  "trigger": "robustness is claimed from one noisy/delayed dataset",
+  "checks": [
+    "sweep severity",
+    "report central tendency and worst-case/quantile",
+    "compare preprocessing-only and downstream effects",
+    "report feasibility under perturbation"
+  ],
+  "example": "S003 Q4 lacks an explicit noise/delay severity curve."
+}

@@ -1,0 +1,26 @@
+{
+  "version": "1.39.0",
+  "status": "SEALED",
+  "sealed_at": "2026-09-12T07:39:14.096305+08:00",
+  "scope": "S013 Dev audit-rule increment, not complete2024-D case group",
+  "latest_dev": "S013:R2",
+  "train_reviewed": 32,
+  "dev_case_group_complete": false,
+  "test_access": "NOT_OPENED",
+  "core_gain": "NOT_ESTABLISHED",
+  "baseline_v138_zip_sha256": "b887893513205db26f22cceccce7e998d86a2b1997066d282b1fc19c4f3f3d1a",
+  "independent_freeze_sha256": "ee139e2a7063fd6cb3a279ae5acba633f2e6784f8afa62d9e51fbc9a1db42a7e",
+  "content_files": 1788,
+  "content_hash_list": "FILES_V139.sha256",
+  "hash_list_sha256": "94cb1d7cad62d4e1d6db4b16922bbb5e236e4597fbd068da6c9a63c612a4bb98",
+  "contract_checks": 46,
+  "local_contract_checks": 18,
+  "history": "22/22 effective compatibility, original failures retained",
+  "pending": [
+    "S014-S016 authorized review",
+    "complete2024-D method map and Mini Transfer Test",
+    "explanation stability",
+    "independent downstream utility",
+    "controlled Core ablation"
+  ]
+}

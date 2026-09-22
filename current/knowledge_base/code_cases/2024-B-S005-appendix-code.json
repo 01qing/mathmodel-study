@@ -1,0 +1,48 @@
+{
+  "paper_id": "S005",
+  "source": "printed appendix text",
+  "execution_status": "NOT_EXECUTED_NO_ORIGINAL_CODE_BUNDLE_OR_OFFICIAL_DATA",
+  "audit_findings": [
+    {
+      "id": "s005-preprocess-before-split",
+      "severity": "high",
+      "evidence_lines": [
+        "3237-3242",
+        "4510-4514"
+      ],
+      "finding": "Scaler is fitted before holdout/split in visible paths; validation distribution leaks into preprocessing parameters."
+    },
+    {
+      "id": "s005-declared-weighted-rf-not-evidenced",
+      "severity": "medium",
+      "evidence_lines": [
+        "576-595",
+        "3281-3288"
+      ],
+      "finding": "Paper describes per-tree error weighting; visible main RF code uses standard sklearn aggregation. Treat weighted-RF claim as unverified unless omitted code is supplied."
+    },
+    {
+      "id": "s005-softmax-crossentropy",
+      "severity": "high",
+      "evidence_lines": [
+        "5135-5140"
+      ],
+      "finding": "Visible classifier returns probabilities via softmax and feeds them to CrossEntropyLoss, which expects logits."
+    },
+    {
+      "id": "s005-group-leakage-risk",
+      "severity": "high",
+      "evidence_lines": [
+        "50-53",
+        "775-780"
+      ],
+      "finding": "Paper states SINR depends on other rows from the same experiment, so row-random splitting can leak experiment context across train/validation."
+    }
+  ],
+  "required_future_replication": [
+    "official WLAN train/test data",
+    "original .py code if available",
+    "group/session identifiers",
+    "explicit PHY-rate to MCS/NSS mapping table"
+  ]
+}

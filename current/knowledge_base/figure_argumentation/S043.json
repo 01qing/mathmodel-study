@@ -1,0 +1,52 @@
+{
+  "paper_id": "S043",
+  "case_group": "2025-F",
+  "visual_audit": "71/71",
+  "key_figures": [
+    {
+      "paper_area": "Q1",
+      "figure_types": [
+        "overall flowchart",
+        "path/centerline maps",
+        "scene-change distributions",
+        "route overlays",
+        "GA result tables"
+      ],
+      "why": "connect garden geometry to route-network construction, scene-change score and final route",
+      "supports": "internal mechanism and within-paper ranking/optimization behavior",
+      "cannot_prove": "perceptual validity or certified global optimum/Gap=0 without external ratings or exact bound"
+    },
+    {
+      "paper_area": "Q2",
+      "figure_types": [
+        "theme/open-close maps",
+        "element-score bars",
+        "open-close ranking bars",
+        "final illusion ranking/radar"
+      ],
+      "why": "show how element distribution and openness components produce ranking",
+      "supports": "descriptive score decomposition under chosen formulas/weights",
+      "cannot_prove": "objective “small-in-large” quality because score scales, anchor and adjustment parameters are model-defined and not externally validated"
+    },
+    {
+      "paper_area": "Q3",
+      "figure_types": [
+        "similarity heatmaps",
+        "CV/commonality chart",
+        "cluster summaries",
+        "validation-garden bars",
+        "extended-aesthetic radar/heatmaps/correlation matrix"
+      ],
+      "why": "show pairwise structure, claimed commonality and external-garden extension",
+      "supports": "descriptive relationships under the chosen 20D representation",
+      "cannot_prove": "matrix-summary arithmetic when text conflicts with table, true cluster taxonomy, or predictive generalization without predeclared truth labels"
+    }
+  ],
+  "figure_decision_rules": [
+    "route map + objective table should be linked to the same route_id and final feasibility registry",
+    "score/ranking figures require algebraically closed component ranges and held-out/external validation",
+    "similarity heatmap statistics must be computed directly from the plotted matrix, not separately typed",
+    "cluster labels used in later radar/rank tables must carry the same taxonomy/version id or explicitly declare a new taxonomy",
+    "external-validation figures must state the ground-truth source and independent unit"
+  ]
+}

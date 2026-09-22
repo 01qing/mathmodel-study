@@ -1,0 +1,15 @@
+{
+  "artifact_id": "ROLE-P1-2022C-RUNB-REVIEW-v1",
+  "status": "FROZEN",
+  "reviewed": "ROLE-P1-2022C-RUNB-ARCH-INITIAL-v1",
+  "files": {
+    "REVIEWER_AUDIT_RECORD.md": {
+      "bytes": 2393,
+      "sha256": "1e6bc732fe984c16c292ca74f5e5d05c140c1e2e86e3e32fb1c3e257f243beff"
+    },
+    "reviewer_audit.json": {
+      "bytes": 5929,
+      "sha256": "bf921a9ff5934d7c6862286abdba7d39bd20802269417a0fe2f26ad0d75d8098"
+    }
+  }
+}

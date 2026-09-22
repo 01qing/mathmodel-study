@@ -1,0 +1,41 @@
+{
+  "paper_id": "S035",
+  "case_group": "2025-C",
+  "modules": [
+    {
+      "id": "S035_Q1_FRANGI_NO_LABEL_BASELINE",
+      "role": "no-label line-structure segmentation",
+      "transfer": "high when line/ridge geometry is meaningful"
+    },
+    {
+      "id": "S035_Q1_SOURCE_DEDUP_GATE",
+      "role": "deduplicate by content/source before split",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S035_Q2_FIXED_PERIOD_ROBUST_REJECT",
+      "role": "physics-fixed period fit with residual/missingness reject",
+      "transfer": "very_high"
+    },
+    {
+      "id": "S035_Q3_SAMPLING_STABILITY",
+      "role": "sampling density / arc-length stability analysis",
+      "transfer": "high"
+    },
+    {
+      "id": "S035_Q4_MC_SENSITIVITY_NOT_CALIBRATION",
+      "role": "uncertainty propagation with semantic guard",
+      "transfer": "very_high"
+    }
+  ],
+  "blocked_transfers": [
+    "LSTM without longitudinal observations",
+    "free P when calibrated circumference supplies P",
+    "accept all fitted rows without reject",
+    "dense sampling result relabeled ground truth",
+    "angle mean relabeled probability",
+    "self-normalized score relabeled calibrated probability",
+    "IDW map relabeled posterior uncertainty",
+    "unavailable referenced code used to claim R2"
+  ]
+}

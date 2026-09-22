@@ -1,0 +1,62 @@
+{
+  "paper_id": "S035",
+  "case_group": "2025-C",
+  "questions": {
+    "Q1": {
+      "baseline": "Frangi/ridge + Otsu + morphology + connected-component/orientation rules",
+      "author_route": "Frangi-centered deterministic pipeline; RF/SVM/XGBoost explored but rejected after poor transfer",
+      "alternatives": [
+        "small interpretable classifier on component features after source-grouped split",
+        "compact pretrained segmentation only if label volume and holdout evidence justify it"
+      ],
+      "not_recommended": [
+        "LSTM/temporal model without repeated longitudinal images",
+        "large deep segmentation on 10 images without external labels and source-group holdout"
+      ],
+      "why_select": "no-label deterministic pipeline is stable under tiny sample size; the paper itself exposes source overlap leakage in ML",
+      "switch_condition": "promote learned segmentation only after deduplicated original-image/borehole holdout shows material gain"
+    },
+    "Q2": {
+      "baseline": "connected components/DBSCAN + fixed P=pi*D + robust fit + reject",
+      "author_route": "morphology + DBSCAN + initial sinusoid + anomalous-block removal + refined fit, P=94.25 mm",
+      "alternatives": [
+        "RANSAC then bounded least-squares refit",
+        "HDBSCAN/topology-based instance grouping followed by fixed-frequency linear IRLS"
+      ],
+      "not_recommended": [
+        "free-period four-parameter fit when borehole circumference is calibrated",
+        "accepting every optimizer output without residual/missingness gate"
+      ],
+      "why_select": "the known borehole geometry makes period identifiable and reduces degrees of freedom",
+      "switch_condition": "free P only after quantified unwrap/distortion calibration shows the circumference contract is violated"
+    },
+    "Q3": {
+      "baseline": "ordered centerline + canonical Z2/JRC + equal-distance/equal-arc sensitivity",
+      "author_route": "JRC plus sampling-density and equal-arc comparison",
+      "alternatives": [
+        "spline detrend + arc-length resampling",
+        "multi-scale wavelet diagnostic without redefining JRC"
+      ],
+      "not_recommended": [
+        "calling dense estimate physical truth",
+        "adding correction factors without independent calibration"
+      ],
+      "why_select": "simple physical profile and sampling sensitivity are reproducible and interpretable",
+      "switch_condition": "promote adaptive/multiscale correction only with external truth or held-out calibration"
+    },
+    "Q4": {
+      "baseline": "deterministic plane geometry + transparent compatibility score + Monte-Carlo sensitivity + feasible coverage placement",
+      "author_route": "Monte-Carlo plane perturbation + angle/distance score + IDW uncertainty + three-hole recommendation",
+      "alternatives": [
+        "Bayesian posterior connectivity with calibrated likelihood",
+        "robust scenario ensemble with worst-case/quantile placement"
+      ],
+      "not_recommended": [
+        "treating angle mean or self-normalized Monte-Carlo score as calibrated probability",
+        "calling IDW spread posterior uncertainty without update model"
+      ],
+      "why_select": "Monte Carlo is useful for propagation, but probability semantics require calibration",
+      "switch_condition": "upgrade to probability/EIG only when observation model and labeled/likelihood evidence exist"
+    }
+  }
+}

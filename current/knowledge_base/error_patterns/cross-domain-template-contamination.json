@@ -1,0 +1,6 @@
+{
+  "name": "cross-domain template contamination",
+  "trigger": "unrelated domain entities appear inside another problem write-up",
+  "gate": "scan domain vocabulary and surrounding formulas/assumptions; remove or re-derive copied material",
+  "source_example": "S020 traffic BiGRU section mentions 加料回潮设备"
+}

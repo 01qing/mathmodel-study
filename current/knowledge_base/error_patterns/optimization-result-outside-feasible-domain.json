@@ -1,0 +1,8 @@
+{
+  "pattern": "Reported optimum violates declared or implemented feasible region",
+  "trigger": "reported decision value falls outside bounds/categories/support region or cannot be reproduced by the printed objective",
+  "gate": "Re-evaluate every reported optimum with the exact objective and all constraints; record slack/margin, categorical validity and support distance. Any infeasible point is blocked from final conclusions.",
+  "source_cases": [
+    "2024-C-S009"
+  ]
+}

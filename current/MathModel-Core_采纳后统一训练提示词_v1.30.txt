@@ -1,0 +1,41 @@
+继续 MathModel-Core 项目，不重新开始，不拆分或复制角色 Skill。
+
+【项目身份】
+当前唯一共享知识 Skill 为 MathModel-Core。当前任务是持续训练 Core，使其在陌生数学建模题上能够独立识别问题、选择模型、建立 6 小时 Baseline、实现与验证、审计结果、组合兼容模块并识别失效/放弃条件。Master / Architect / Engineer / Writer / Reviewer 仅为未来基于同一成熟 Core 的角色接口，现在不创建、不复制知识库。
+
+【冻结划分】
+按 year+problem 整题冻结：Train=2024-A/B/C/E、2025-A/C/E/F；Dev=2024-D、2025-B；Test=2024-F、2025-D。总计 45 篇，32 Train / 7 Dev / 6 Test。普通 evaluation/production 检索只能访问 reviewed Train pages。Dev 若用于迁移验证，严格执行 freeze Core → 题面/数据独立解题并冻结 → 再读 Dev 论文 → gap analysis → 只回写通用规则。Test 在独立答案冻结前禁止读取优秀论文答案、代码、图表、参数和结论。
+
+【每篇/每主要子问训练链】
+①全文学习
+②代码/公式/图表审计
+③Candidate Model Competition
+④6小时稳妥 Baseline
+⑤可迁移局部模块
+⑥错误模式
+⑦Reproduction Level
+⑧Same-Problem Method Competition Map
+⑨Skill 通用规则
+⑩专项与历史回归
+完整 case group 结束后增加⑪Mini Transfer Test。
+
+【Candidate Model Competition】
+至少区分 Baseline / 作者方案 / 主要替代 / 不推荐方案；必须说明为什么选、为什么不选、何时切换。复杂模型只有在独立验证中相对 Baseline 获得稳定、实质提升才进入主线。不要因“时间序列/深度学习/智能算法”等标签自动升级模型。
+
+【复现与证据】
+R0索引；R1全文精读；R2论文+打印/附件代码静态审计；R3 API或局部烟测；R4部分真实数据复现；R5原始数据端到端；R6独立重实现得到相近结论；R7在新题/变体/独立任务成功迁移。视觉审查单独记录。缺完整源码/数据/可执行链时不得抬高复现等级。算法名必须还原为实际公式、数据流和代码 primitive 再评价。
+
+【Result Registry / Figure / Composer】
+关键结果必须有单一来源和 provenance，核对摘要/正文/表格/图/代码。统计检验只有计划不算结果；无标签分布对齐不算准确率；目标批次统计必须声明 transductive 合同。每幅关键图记录输入、轴/单位、论证角色、不能证明什么及替代方案。跨论文组合前过七门：接口、变量、分布、数学假设、量纲、训练/执行阶段、评价指标。
+
+【能力证据升级】
+1. Capability Evidence Gate：规则/回归 PASS 只证明资产与合同未破坏，不证明陌生题能力提升；题组后必须有迁移/Dev能力证据。
+2. Controlled Core Ablation：重大里程碑用 No-Core / Previous-Core / New-Core 在同题、同预算、同工具、同 evaluator/rubric 下比较。
+3. Persistent Evidence Contract：正式版本保存修改文件、fixture、输入输出、log、Result Registry replay、ZIP 和 SHA256；聊天记录不能替代 release 证据。
+4. Lean Core + Retrieval：SKILL.md 只保留高频决策门禁，详细 Paper Card、代码审计、Figure、Error Pattern、Result Registry、Method Map 仍在同一个 Core 内按需检索。
+
+【PASS 语义】
+所有 PASS 必须注明范围，例如 archive integrity / arithmetic replay / retrieval isolation / regression compatibility / transfer capability。不得把检查通过写成“作者算法完整复现”或“Core 已证明更强”。
+
+【版本原则】
+从最新已封版本增量创建下一工作树；旧知识不删除，旧回归不破坏；新增知识做专项测试；失败历史保留；版本验证和 ZIP+SHA256完成后再 sealed。不要为了45篇全部学习而打开 Test。

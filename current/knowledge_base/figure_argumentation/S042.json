@@ -1,0 +1,57 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "visual_audit": "182/182",
+  "key_figures": [
+    {
+      "paper_area": "Q1",
+      "figure_types": [
+        "Voronoi/network maps",
+        "120x100 visibility matrix",
+        "transition matrix",
+        "Pareto fronts",
+        "route overlays",
+        "correlation/box plots"
+      ],
+      "why": "show geometric path construction, scene representation, objective tradeoff and selected routes",
+      "supports": "internal mechanism illustration and author-reported tradeoff/association",
+      "cannot_prove": "perceptual validity, global Pareto optimality, or constraint satisfaction unless tied to independent ratings/reference fronts/final path registry"
+    },
+    {
+      "paper_area": "Q2",
+      "figure_types": [
+        "grid maps",
+        "ecology/morphology heatmaps",
+        "ranking bars",
+        "two-dimension scatter",
+        "parallel coordinates",
+        "correlation heatmap"
+      ],
+      "why": "expose components behind constructed illusion score",
+      "supports": "within-dataset score decomposition and descriptor relationships",
+      "cannot_prove": "objective psychological illusion quality or external ranking validity because calibration and evaluation share the same garden set/anchor"
+    },
+    {
+      "paper_area": "Q3",
+      "figure_types": [
+        "similarity heatmaps",
+        "parallel coordinates",
+        "commonality bars",
+        "personality radar/bars",
+        "KMeans scatter",
+        "dendrogram",
+        "Near Garden extension"
+      ],
+      "why": "show pairwise concentration, feature stability and exploratory grouping",
+      "supports": "descriptive structure under the chosen 179D representation",
+      "cannot_prove": "true cultural universality, discriminative generalization, or statistically independent cluster significance"
+    }
+  ],
+  "figure_decision_rules": [
+    "Pareto plots must show objective orientation, feasible set/constraint status and reference-point/front provenance when HV/GD are quoted",
+    "constructed-score ranking figures need an external or held-out validation layer, not only agreement with a forced anchor",
+    "correlation heatmaps with |r|~1 should trigger redundancy/double-counting review",
+    "cluster/dendrogram plots are exploratory at n=10/11; stability or external labels are required before confirmatory claims",
+    "similarity heatmaps where every pair is high should be paired with null/permutation or discriminative reference distributions to detect concentration"
+  ]
+}

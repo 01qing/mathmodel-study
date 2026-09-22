@@ -1,0 +1,6 @@
+{
+  "name": "counterfactual state violates governing model",
+  "trigger": "post-policy q/k/v state is manually assigned but does not satisfy the same traffic/physical model",
+  "gate": "replay every counterfactual state through governing equation before computing benefits",
+  "source_example": "S020 sets k=33.33 and v=100 although Greenshields gives v≈83.3 for that k"
+}

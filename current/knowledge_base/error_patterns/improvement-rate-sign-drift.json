@@ -1,0 +1,6 @@
+{
+  "pattern": "improvement_rate_sign_drift",
+  "definition": "The sign or denominator of a reported improvement percentage conflicts with before/after values.",
+  "example": "S025 Conv0 transfer 23752→6100 should be +74.32% improvement, table shows -74.3%.",
+  "gate": "Generate improvement columns directly from the before/after registry and lock one sign convention."
+}

@@ -1,0 +1,6 @@
+{
+  "id": "descriptive-crosstab-not-interaction",
+  "trigger": "Crossed group means/variances are described as interaction/synergy without estimating an interaction term.",
+  "risk": "Main effects, covariate imbalance and true interaction are conflated.",
+  "gate": "Fit an explicit interaction model (ANOVA/ANCOVA/regression/mixed model) with strong continuous covariates adjusted; report interaction estimate/effect size/CI."
+}

@@ -1,0 +1,11 @@
+{
+  "id": "pareto-operating-point-rule-drift",
+  "name": "Declared Pareto operating-point rule not applied",
+  "severity": "critical",
+  "trigger": "paper states lexicographic/weighted choice but final row violates it",
+  "risk": "deployment recommendation is not reproducible",
+  "gate": "machine-select operating point from registry and assert equality",
+  "source_examples": [
+    "2025-A-S028 Q3 FlashAttention0"
+  ]
+}

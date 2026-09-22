@@ -1,0 +1,37 @@
+{
+  "paper_id": "S032",
+  "case_group": "2025-C",
+  "visual_audit": "71/71 original-PDF pages reviewed",
+  "key_figures": [
+    {
+      "question": "Q1",
+      "figure": "preprocessing panels / U-Net diagrams / segmentation examples / confusion matrix",
+      "role": "show image cleanup, architecture and qualitative segmentation; compare model metrics",
+      "cannot_prove": "generalization to unseen boreholes or thin cracks without grouped holdout and scale-ground-truth"
+    },
+    {
+      "question": "Q2",
+      "figure": "binary→cluster→skeleton→sine-fit panels + parameter histograms",
+      "role": "make geometric pipeline inspectable and expose fit heterogeneity",
+      "cannot_prove": "DBSCAN/robust-fit correctness or plausibility; histograms hide extreme rows unless table/residuals are checked"
+    },
+    {
+      "question": "Q3",
+      "figure": "raw/smoothed contour + equal vs curvature sampling + JRC charts/table",
+      "role": "illustrate sampling sensitivity and local roughness",
+      "cannot_prove": "curvature sampling is more accurate without an external roughness ground truth; clipped JRC can create artificial agreement"
+    },
+    {
+      "question": "Q4",
+      "figure": "3D borehole/fracture network + connectivity levels + uncertainty/recommendation bars",
+      "role": "communicate spatial structure and decision ranking",
+      "cannot_prove": "weighted connectivity is calibrated probability or recommended hole yields greater real information gain"
+    }
+  ],
+  "recommended_figure_rules": [
+    "always pair segmentation examples with per-group error metrics and holdout identity",
+    "for periodic fits show residuals/inliers and flag rejected/implausible fits, not only overlay",
+    "for JRC show raw Z2 and saturation counts alongside clipped JRC",
+    "for connectivity/recommendation add weight/scale sensitivity and expected-information-gain validation"
+  ]
+}

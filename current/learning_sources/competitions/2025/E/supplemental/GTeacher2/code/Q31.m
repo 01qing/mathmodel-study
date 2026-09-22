@@ -1,0 +1,124 @@
+%% ====== 路径（按需修改） ======
+targetDir = 'E:\BaiduNetdiskDownload\数据集\数据集\目标域数据集';   % A–P 的 *.mat 所在目录
+csvFile   = 'E:\dg\sjwl\outputs\labels_target.csv';                % 推理得到的 labels CSV（Run1）
+outDir    = 'E:\桌面\dg\sxjm2\提交\第三问\画图\新建文件夹';          % 目标输出目录（会自动创建）
+
+if ~exist(outDir,'dir'); mkdir(outDir); end
+
+%% ====== 读取 CSV（自动适配列名） ======
+opts = detectImportOptions(csvFile,'Delimiter',',');
+T = readtable(csvFile, opts);
+
+% 兼容大小写/不同命名
+cn = lower(T.Properties.VariableNames);
+fcol = find(strcmp(cn,'npy_file') | strcmp(cn,'file') | contains(cn,'file'), 1);
+lcol = find(strcmp(cn,'pred_label') | contains(cn,'label') | contains(cn,'pred'), 1);
+ccol = find(strcmp(cn,'confidence') | contains(cn,'conf') | contains(cn,'prob'), 1);
+assert(~isempty(fcol) && ~isempty(lcol) && ~isempty(ccol), 'CSV列识别失败。');
+
+file_col  = T{:,fcol};
+label_raw = T{:,lcol};
+conf_val  = double(T{:,ccol});
+
+% 归一化“基名”（用于匹配 *.mat）
+file_str = string(file_col);
+base = regexprep(file_str, '\.npy$','', 'ignorecase');
+base = regexprep(base, '\.mat$','', 'ignorecase');
+base = regexprep(base, '__\d+$','');
+
+% 标签转字符串（兼容数字 0/1/2/3 和字符串）
+label_str = strings(size(label_raw));
+if iscell(label_raw) || isstring(label_raw) || ischar(label_raw)
+    label_str = string(label_raw);
+else
+    lr = double(label_raw);
+    label_str(:) = "UNK";
+    label_str(lr==0) = "OR";
+    label_str(lr==1) = "IR";
+    label_str(lr==2) = "B";
+    label_str(lr==3) = "N";
+end
+label_str = upper(strtrim(label_str));
+
+Tclean = table(file_str, base, label_str, conf_val, ...
+    'VariableNames', {'file','base','pred_label','confidence'});
+
+%% ====== 读取目标域 A–P 的 *.mat ======
+D = dir(fullfile(targetDir,'*.mat'));
+assert(~isempty(D), '在目录中未找到 .mat 文件：%s', targetDir);
+
+% 若存在 A.mat~P.mat，则只取这些；否则按字母排序
+isAP = cellfun(@(s) ~isempty(regexp(s,'^[A-Pa-p]\.mat$','once')), {D.name});
+if any(isAP); D = D(isAP); end
+[~,ord] = sort(lower({D.name})); D = D(ord);
+if numel(D) > 16, D = D(1:16); end  % 最多取 A–P
+
+%% ====== 聚合每个 *.mat（多数投票 + 置信度统计） ======
+n = numel(D);
+res_file   = strings(n,1);
+res_sample = strings(n,1);
+res_label  = strings(n,1);
+res_cmaj   = zeros(n,1);
+res_call   = zeros(n,1);
+
+for i = 1:n
+    matname = string(D(i).name);
+    stem    = erase(matname, '.mat');
+
+    % 宽松匹配（空格->下划线）
+    idx = strcmpi(Tclean.base, stem);
+    if ~any(idx)
+        idx = strcmpi(Tclean.base, regexprep(stem,'\s+','_'));
+    end
+
+    res_file(i)   = matname;
+    if ~isempty(regexp(matname,'^[A-Pa-p]\.mat$','once'))
+        res_sample(i) = upper(extractBefore(matname,'.mat'));
+    else
+        res_sample(i) = "";
+    end
+
+    if any(idx)
+        labs = Tclean.pred_label(idx);
+        conf = Tclean.confidence(idx);
+
+        % 多数投票
+        [ulab,~,ic] = unique(labs);
+        counts = accumarray(ic,1);
+        [~,k] = max(counts);
+        bestLab = ulab(k);
+
+        res_label(i) = bestLab;
+        res_cmaj(i)  = mean(conf(labs==bestLab));  % 该“多数类”的平均置信度
+        res_call(i)  = mean(conf);                 % 所有窗口平均置信度
+    else
+        warning('未在CSV中找到与 %s 对应的窗口（base=%s）', matname, stem);
+        res_label(i) = "UNK";
+        res_cmaj(i)  = 0;
+        res_call(i)  = 0;
+    end
+end
+
+%% ====== 组装“快捷表格”（列名与示例一致） ======
+quickTbl = table(res_sample, res_file, res_label, res_cmaj, res_call, ...
+    'VariableNames', {'Sample','MAT_File','PredLabel_1','ConfMaj_1','ConfAll_1'});
+
+% 若包含完整 A..P，则按 A→P 排序
+if all(ismember(string('A':'P')', quickTbl.Sample))
+    [~,ix]  = ismember(quickTbl.Sample, string('A':'P')');
+    [~,ord2] = sort(ix);
+    quickTbl = quickTbl(ord2,:);
+end
+
+%% ====== 输出到目标目录（xlsx + csv） ======
+outXLSX = fullfile(outDir, '四项.xlsx');
+outCSV  = fullfile(outDir, '四项.csv');
+
+% 覆盖写
+if exist(outXLSX,'file'); delete(outXLSX); end
+if exist(outCSV,'file');  delete(outCSV);  end
+
+writetable(quickTbl, outXLSX, 'Sheet', 'run1_quick');
+writetable(quickTbl, outCSV);
+
+fprintf('✅ 已输出快捷表格到：\n%s\n%s\n', outXLSX, outCSV);

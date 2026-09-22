@@ -1,0 +1,81 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "q1_1_cars_repeated_returns",
+      "passed": true,
+      "returns": 2
+    },
+    {
+      "name": "q1_2_cars_repeated_returns",
+      "passed": true,
+      "returns": 4
+    },
+    {
+      "name": "q1_20_cars_repeated_returns",
+      "passed": true,
+      "returns": 6
+    },
+    {
+      "name": "q2_1_cars_repeated_returns",
+      "passed": true,
+      "returns": 2
+    },
+    {
+      "name": "q2_2_cars_repeated_returns",
+      "passed": true,
+      "returns": 4
+    },
+    {
+      "name": "q2_20_cars_repeated_returns",
+      "passed": true,
+      "returns": 6
+    },
+    {
+      "name": "reject_movement",
+      "passed": true
+    },
+    {
+      "name": "reject_matrix",
+      "passed": true
+    },
+    {
+      "name": "reject_count",
+      "passed": true
+    },
+    {
+      "name": "reject_flow",
+      "passed": true
+    },
+    {
+      "name": "result11_no_return_backward_equivalence",
+      "passed": true
+    },
+    {
+      "name": "result12_no_return_backward_equivalence",
+      "passed": true
+    },
+    {
+      "name": "result21_no_return_backward_equivalence",
+      "passed": true
+    },
+    {
+      "name": "result22_no_return_backward_equivalence",
+      "passed": true
+    },
+    {
+      "name": "q1_40_cars_multilane_return_stress",
+      "passed": true,
+      "returns": 72
+    },
+    {
+      "name": "q2_40_cars_multilane_return_stress",
+      "passed": true,
+      "returns": 69
+    },
+    {
+      "name": "reject_q2_schedule_under_q1_priority_rules",
+      "passed": true
+    }
+  ]
+}

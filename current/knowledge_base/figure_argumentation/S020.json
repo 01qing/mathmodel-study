@@ -1,0 +1,38 @@
+{
+  "paper_id": "S020",
+  "paper_title": "高速公路应急车道紧急启用模型",
+  "figure_count_indexed": 43,
+  "table_count_indexed": 28,
+  "argumentation_roles": [
+    {
+      "role": "detector/tracker architecture and examples",
+      "lesson": "Use architecture diagrams only to explain implementation; prove detector/tracker quality with held-out detection/tracking metrics and calibration evidence."
+    },
+    {
+      "role": "traffic state time-series evidence",
+      "lesson": "Plot flow/speed/density with a shared timebase and units; preserve timestamp alignment from raw video through aggregation."
+    },
+    {
+      "role": "ablation and forecast evidence",
+      "lesson": "Ablation tables are useful, but require leakage-free chronological/group holdout and worst-group metrics; do not summarize only the best site."
+    },
+    {
+      "role": "shockwave warning evidence",
+      "lesson": "Plot signed wave speed separately from nonnegative travel time and show state-machine thresholds/hysteresis on the same timeline."
+    },
+    {
+      "role": "fundamental-diagram counterfactual evidence",
+      "lesson": "Plot candidate post-opening states on the same Greenshields curve; reject states that do not lie on the governing model."
+    },
+    {
+      "role": "camera-layout decision evidence",
+      "lesson": "Map candidate sites with cost/coverage/state-estimation/control-value metrics; a prose spacing recommendation is not an optimization figure."
+    }
+  ],
+  "style_learning_boundary": "Current worktree contains indexed S020 text/captions but not mounted original S020 PDF pixels; exact colors/fonts/line widths/layout are not learned or claimed.",
+  "derived_template_smoke": [
+    "learning_output/analyses/v124_figure_template_smoke/01_leakage_contract.png",
+    "learning_output/analyses/v124_figure_template_smoke/02_greenshields_replay.png",
+    "learning_output/analyses/v124_figure_template_smoke/03_claim_recalculation.png"
+  ]
+}

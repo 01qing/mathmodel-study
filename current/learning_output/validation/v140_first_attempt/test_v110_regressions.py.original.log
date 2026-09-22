@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "scope": "v1.10 S002 learning regressions",
+  "passed": 15,
+  "tests": [
+    "S002 four questions",
+    "S002 figure index has 63 main-text figures",
+    "S002 argumentation roles recorded",
+    "S001-S002 cross map Q1-Q4",
+    "paper-code-evaluation-split-mismatch.json",
+    "aggregate-feasibility-overclaim.json",
+    "pareto-operating-point-selection.json",
+    "metric-definition-code-mismatch.json",
+    "arithmetic-sanity-check.json",
+    "prediction evidence template",
+    "constraint validation template",
+    "two nonempty v110 smoke PNGs",
+    "S002 metadata core reviewed",
+    "S002 all pages reviewed",
+    "method selection reference exists"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "bounded-score-output-range-violation",
+  "name": "Formula-derived score range contradicted by grading/result scale",
+  "trigger": "A weighted score is constructed from bounded normalized components but grade bands or reported results lie outside the mathematically possible range.",
+  "gate": "Derive the score support from component supports and weights; replay every reported score; require explicit rescaling/nonlinear transform provenance before publication."
+}

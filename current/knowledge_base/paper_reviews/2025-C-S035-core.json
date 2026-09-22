@@ -1,0 +1,65 @@
+{
+  "paper_id": "S035",
+  "case_group": "2025-C",
+  "year": 2025,
+  "problem_id": "C",
+  "split": "train",
+  "pages": 91,
+  "title": "基于 Frangi 滤波的钻孔裂隙识别与三维概率重构",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_91_PAGE_VISUAL_AUDIT; SOURCE_PATHS_REFERENCED_BUT_ACTUAL_AUTHOR_SOURCE_FILES_ABSENT",
+  "visual_status": "ORIGINAL 91-PAGE PDF ALL-PAGE VISUAL AUDIT; recovered mega/contact-sheet evidence retained",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1 original borehole image/source group; Q2 physical fracture trace; Q3 ordered physical profile; Q4 fracture plane/pair and spatial candidate location",
+    "input_structure": "borehole unfolded images, pixel/mm geometry, periodic fracture traces, roughness profiles, multi-hole spatial coordinates",
+    "validation_priority": "deduplicate source/content before split; Q2 use geometry-fixed period when diameter known and reject poor fits; Q3 separate numerical sampling stability from physical truth; Q4 propagate uncertainty but calibrate any probability claim",
+    "author_evaluation_scope": "selected attachment images, fit tables, JRC sampling analyses, Monte-Carlo-derived spatial scores; source tree paths are cited but code artifacts are unavailable in the current collection"
+  },
+  "questions": {
+    "Q1": "Frangi multi-scale line enhancement + Otsu + morphology + orientation masks; RF/SVM/XGBoost explored but poor transfer and a repeated/overlapping sample is explicitly diagnosed as leakage",
+    "Q2": "morphology/connectivity + DBSCAN + two-stage sinusoid fit with anomaly-block rejection; reported period fixed at 94.25 mm",
+    "Q3": "centerline extraction + JRC from Z2 + sampling-density and equal-arc sampling analyses",
+    "Q4": "2D-to-3D plane conversion + Monte-Carlo perturbation + angle/distance score fusion + IDW uncertainty surface and three supplementary-hole suggestions"
+  },
+  "reproduction": {
+    "level": "R1",
+    "evidence": [
+      "91/91 full-text and original-PDF visual review",
+      "formulas/tables/result surfaces audited"
+    ],
+    "not_achieved": [
+      "R2: paper cites source-code paths but actual source files are not in the available excellent-paper collection",
+      "R3-R7: no executable author chain or original-data reproduction"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "explicitly recognizes data leakage caused by overlapping source/test images",
+    "strong physics contract in Q2: P=94.25 mm aligns with pi*30 mm",
+    "uses reject-oriented two-stage fitting rather than relying only on one optimizer pass",
+    "separates sampling-density/equal-arc sensitivity in JRC"
+  ],
+  "key_risks": [
+    "Q1 explores a temporal module despite no actual repeated-time image axis in the provided dataset; temporal escalation should be conditional on genuine longitudinal data",
+    "Q2 tables include fits with residual near 1 and missingness up to 70%+; returned parameters need accept/reject contract",
+    "Q3 dense/high-density estimates are numerical references, not physical truth without independent roughness ground truth",
+    "Q4 Monte-Carlo propagation of assumed angle distributions does not itself calibrate connectivity probability",
+    "Q4 sample mean of an angle remains an angle; it cannot be interpreted as a probability estimator before an explicit mapping/calibration",
+    "Q4 IDW uncertainty surface is a spatial surrogate unless tied to a probabilistic observation/update model"
+  ],
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S035.json",
+  "result_registry_ref": "knowledge_base/result_registry/S035.json",
+  "code_access_ref": "knowledge_base/code_cases/2025-C-S035-code-access.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-C-S035-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S035.json",
+  "recommended_redo": [
+    "Q1 keep Frangi/Otsu/morphology as no-label 6h baseline; if labels exist, split/deduplicate at original-image/source level before compact ML/deep models",
+    "Q2 use fixed P=pi*D, robust linear/nonlinear fit with physical bounds, residual/inlier/missingness diagnostics and reject",
+    "Q3 use one ordered physical centerline, canonical JRC, and budget-vs-estimate convergence; label dense result numerical reference",
+    "Q4 use Monte Carlo for sensitivity/uncertainty propagation but map geometry to compatibility score unless calibrated connectivity labels exist; choose new holes under explicit hard feasibility and true posterior/EIG only if an observation model exists"
+  ]
+}

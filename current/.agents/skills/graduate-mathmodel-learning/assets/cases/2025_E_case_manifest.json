@@ -1,0 +1,71 @@
+{
+  "schema_version": "0.5",
+  "case_id": "gmcm-2025-E",
+  "year": 2025,
+  "problem_id": "E",
+  "canonical_working_title": "高速列车轴承智能故障诊断问题",
+  "title_status": "confirmed",
+  "title_variants": [],
+  "conflicts": [],
+  "problem_assets": [
+    {
+      "path": "D:\\BaiduNetdiskDownload\\2025年中国研究生数学建模竞赛赛题\\中文赛题ABCDEF题\\E题\\高速列车轴承智能故障诊断问题.docx",
+      "sha256": "626cef3ca50967ad8e506fa8c0bbf7e62f345a9fe1a3b46836e060a8eaa53baa",
+      "role": "local_problem_statement"
+    }
+  ],
+  "excellent_papers": [
+    {
+      "source_id": "S039",
+      "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-基于迁移学习的高速列车轴承故障诊断研究.pdf",
+      "sha256": "1ad142092e24fdfb46a313b2edb109f35290898bc2bb486dcf9c4d03765413ac",
+      "page_count": 93,
+      "reviewed_pages": [
+        1
+      ],
+      "review_status": "partial",
+      "review_evidence": "references/2025-E-evidence-lessons.md"
+    },
+    {
+      "source_id": "S040",
+      "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+      "sha256": "4b5875eb3b83395e54d5e8b9d033b045bb2e2ef54f9ada6a061588b311467eb2",
+      "page_count": 69,
+      "reviewed_pages": [
+        1,
+        37,
+        38
+      ],
+      "review_status": "partial",
+      "review_evidence": "references/2025-E-evidence-lessons.md"
+    },
+    {
+      "source_id": "S041",
+      "path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-高速列车轴承智能故障诊断问题.pdf",
+      "sha256": "bbd2095e8eac7257fc2852581e7453ce7e01dc1c4b3da46ac79811fde7697d08",
+      "page_count": 46,
+      "reviewed_pages": [
+        1
+      ],
+      "review_status": "partial",
+      "review_evidence": "references/2025-E-evidence-lessons.md"
+    }
+  ],
+  "supplementary_material": [],
+  "method_family_expectations": {
+    "Q1": "signal features",
+    "Q2": "grouped source classification",
+    "Q3": "unsupervised adaptation",
+    "Q4": "interpretability"
+  },
+  "first_pass_requirements": {
+    "minimum_papers_to_download": 2,
+    "prefer_method_diversity": true,
+    "must_download_all_official_attachments": true
+  },
+  "status": "PARTIAL_REFERENCE_STUDY",
+  "fresh_blind_eligible": false,
+  "solution_exposure_before_matrix": true,
+  "raw_signal_reproduction": "NOT_RUN",
+  "target_accuracy": "UNKNOWN"
+}

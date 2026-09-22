@@ -1,0 +1,167 @@
+{
+  "id": "Q1_base",
+  "question": 1,
+  "params": {
+    "n": 2,
+    "rate": 455.8
+  },
+  "total_mean": 65.24496,
+  "ci95_halfwidth": 0.08606198802924685,
+  "per_node_mean": [
+    32.58216,
+    32.6628
+  ],
+  "fairness_mean": 0.9999894961746223,
+  "runs": [
+    {
+      "mbps": [
+        32.6136,
+        32.6484
+      ],
+      "total_mbps": 65.262,
+      "attempts": [
+        30509,
+        30538
+      ],
+      "successes": [
+        27178,
+        27207
+      ],
+      "failures": [
+        3331,
+        3331
+      ],
+      "drops": [
+        0,
+        0
+      ],
+      "events": 181751,
+      "seed": 101,
+      "duration_us": 10000000,
+      "warmup_us": 500000,
+      "data_time_us": 40.45388328214129,
+      "fairness": 0.9999997156602309,
+      "trace": null
+    },
+    {
+      "mbps": [
+        32.8164,
+        32.5368
+      ],
+      "total_mbps": 65.3532,
+      "attempts": [
+        30686,
+        30453
+      ],
+      "successes": [
+        27347,
+        27114
+      ],
+      "failures": [
+        3339,
+        3339
+      ],
+      "drops": [
+        0,
+        0
+      ],
+      "events": 182136,
+      "seed": 202,
+      "duration_us": 10000000,
+      "warmup_us": 500000,
+      "data_time_us": 40.45388328214129,
+      "fairness": 0.9999816965621077,
+      "trace": null
+    },
+    {
+      "mbps": [
+        32.4936,
+        32.7444
+      ],
+      "total_mbps": 65.238,
+      "attempts": [
+        30435,
+        30644
+      ],
+      "successes": [
+        27078,
+        27287
+      ],
+      "failures": [
+        3357,
+        3357
+      ],
+      "drops": [
+        0,
+        0
+      ],
+      "events": 181763,
+      "seed": 303,
+      "duration_us": 10000000,
+      "warmup_us": 500000,
+      "data_time_us": 40.45388328214129,
+      "fairness": 0.999985220921056,
+      "trace": null
+    },
+    {
+      "mbps": [
+        32.4804,
+        32.7144
+      ],
+      "total_mbps": 65.1948,
+      "attempts": [
+        30456,
+        30651
+      ],
+      "successes": [
+        27067,
+        27262
+      ],
+      "failures": [
+        3389,
+        3389
+      ],
+      "drops": [
+        0,
+        0
+      ],
+      "events": 181800,
+      "seed": 404,
+      "duration_us": 10000000,
+      "warmup_us": 500000,
+      "data_time_us": 40.45388328214129,
+      "fairness": 0.9999871174983946,
+      "trace": null
+    },
+    {
+      "mbps": [
+        32.5068,
+        32.67
+      ],
+      "total_mbps": 65.1768,
+      "attempts": [
+        30493,
+        30629
+      ],
+      "successes": [
+        27089,
+        27225
+      ],
+      "failures": [
+        3404,
+        3404
+      ],
+      "drops": [
+        0,
+        0
+      ],
+      "events": 181824,
+      "seed": 505,
+      "duration_us": 10000000,
+      "warmup_us": 500000,
+      "data_time_us": 40.45388328214129,
+      "fairness": 0.9999937302313221,
+      "trace": null
+    }
+  ]
+}

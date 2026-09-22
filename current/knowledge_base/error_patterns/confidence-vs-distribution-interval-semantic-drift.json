@@ -1,0 +1,10 @@
+{
+  "pattern_id": "confidence-vs-distribution-interval-semantic-drift",
+  "name": "Confidence interval vs score-distribution interval drift",
+  "trigger": "mu±1.96*sample_SD across perturbation runs is called a confidence interval for a mean",
+  "risk": "uncertainty statement is overstated/misidentified",
+  "gate": "declare estimand; CI of mean uses SE/bootstrap CI, while mu±1.96*SD may be called a Normal reference/prediction-style distribution interval if assumptions hold",
+  "evidence": [
+    "S045 Q2 Eq.6.76"
+  ]
+}

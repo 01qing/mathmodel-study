@@ -1,0 +1,5 @@
+{
+  "id": "ORACLE_INTERMEDIATE_BYPASS",
+  "rule": "In a multi-stage pipeline, evaluating a downstream stage with ground-truth intermediate labels/features while deployment uses upstream predictions is oracle leakage/upper-bound evidence. Report oracle-stage and end-to-end results separately.",
+  "scope": "generic"
+}

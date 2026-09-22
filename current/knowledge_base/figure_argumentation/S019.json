@@ -1,0 +1,38 @@
+{
+  "paper_id": "S019",
+  "paper_title": "基于目标检测的高速公路应急车道实时启用策略研究",
+  "figure_count_indexed": 52,
+  "table_count_indexed": 11,
+  "argumentation_roles": [
+    {
+      "role": "video extraction and traffic-state evidence",
+      "lesson": "Show detection/tracking examples together with calibrated line/ROI geometry and a unit registry. A trend plot against screenshots verifies face plausibility, not detector/counting accuracy."
+    },
+    {
+      "role": "fundamental-diagram model comparison",
+      "lesson": "Use comparable scatter+fit panels and a metric table, but unit-close q/rho/u first and flag when point-detector definitions violate the continuous q=rho*u identity."
+    },
+    {
+      "role": "lead-time warning evidence",
+      "lesson": "Plot chronological lead forecasts with an explicit 10-minute shift, holdout boundary and event-level alarms; lag correlation/feature importance belongs before, not instead of, true future holdout."
+    },
+    {
+      "role": "inventory-controller evidence",
+      "lesson": "Plot K(t) with open/close hysteresis bands and separately replay inflow/outflow contributions. Calibrate Qmax/thresholds independently to avoid circular validation."
+    },
+    {
+      "role": "intervention counterfactual evidence",
+      "lesson": "If opening capacity is modeled by a multiplier, show a sensitivity fan across plausible multipliers and label it scenario analysis rather than measured effect."
+    },
+    {
+      "role": "sensor-layout decision evidence",
+      "lesson": "Draw the observation dependency graph before/after moving a camera. Any state feature lost by relocation must be redefined and revalidated before the controller is claimed operational."
+    }
+  ],
+  "style_learning_boundary": "Current worktree contains indexed S019 text/captions but not mounted original S019 PDF pixels; exact colors/fonts/line widths/layout are not learned or claimed.",
+  "derived_template_smoke": [
+    "learning_output/analyses/v123_figure_template_smoke/01_equation_algebra_replay.png",
+    "learning_output/analyses/v123_figure_template_smoke/02_regression_row_replay.png",
+    "learning_output/analyses/v123_figure_template_smoke/03_intervention_evidence_level.png"
+  ]
+}

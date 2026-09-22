@@ -1,0 +1,10 @@
+
+STDERR:
+Traceback (most recent call last):
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v137_s044_regressions.py", line 11, in <module>
+    ck('version compatible',st['current_version'] in {'1.37.0','1.38.0'})
+    ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/data/v141_inspect/v1.41-work/.agents/skills/graduate-mathmodel-learning/scripts/test_v137_s044_regressions.py", line 7, in ck
+    assert c,n; checks.append(n)
+           ^
+AssertionError: version compatible

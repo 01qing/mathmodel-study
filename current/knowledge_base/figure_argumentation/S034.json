@@ -1,0 +1,38 @@
+{
+  "paper_id": "S034",
+  "case_group": "2025-C",
+  "visual_audit": "68/68 original-PDF pages reviewed via 12 contact sheets and page renders",
+  "key_figures": [
+    {
+      "question": "Q1",
+      "figure": "Figs. 3-18 processing examples and Table 5 confusion metrics",
+      "role": "show how each classical detector contributes and quantify three-image pixel classification performance",
+      "cannot_prove": "generalization to unseen boreholes or correctness of TP/FP/FN without reference-mask provenance"
+    },
+    {
+      "question": "Q2",
+      "figure": "Figs. 20-31 cluster/fitting overlays, Fig.28 distributions, Table 6 model comparison, Table 7 parameters",
+      "role": "make cluster fragmentation, fit quality, parameter distributions and model-family comparison visible",
+      "cannot_prove": "significance from p-values with no test protocol, or necessity of free period despite known cylindrical geometry"
+    },
+    {
+      "question": "Q3",
+      "figure": "Figs.33-40 profile fits and sampling curves; Table 8 sampling JRC values",
+      "role": "show multiscale fit behavior and numerical sensitivity of JRC to sampling budget/strategy",
+      "cannot_prove": "physical accuracy of adaptive sampling without independent roughness truth; convergence to a dense numerical result is not ground truth"
+    },
+    {
+      "question": "Q4",
+      "figure": "Figs.41-49 3D fractures/network/probability matrix/uncertainty/coverage/recommended holes plus Tables 10-12",
+      "role": "communicate the complete geometry-to-network-to-placement decision chain",
+      "cannot_prove": "calibrated connectivity probabilities, posterior uncertainty, expected information gain or full hard-constraint feasibility without code/data replay"
+    }
+  ],
+  "recommended_figure_rules": [
+    "segmentation metric figures must name the reference-mask provenance and holdout unit; background-dominated accuracy should not replace fracture IoU/F1",
+    "periodic-fitting comparison must show physical period reference, residual/inlier diagnostics and rejected fits; p-value labels need test/sample-unit annotation",
+    "roughness sampling plots should label the dense result as numerical reference unless external truth exists and should show estimate-vs-N plus computation budget",
+    "active-drilling maps must plot existing and candidate holes with all exclusion-radius circles so hard feasibility is visible before utility ranking",
+    "connectivity heatmaps must label scores as calibrated probabilities only when calibration evidence exists"
+  ]
+}

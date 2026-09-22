@@ -1,0 +1,71 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "year": 2025,
+  "problem_id": "F",
+  "split": "train",
+  "pages": 182,
+  "title": "江南古典园林的美学特征建模",
+  "core_identity": "MathModel-Core",
+  "core_schema_version": "1.0",
+  "review_status": "FULL_TEXT_PLUS_ORIGINAL_182_PAGE_VISUAL_AUDIT_PLUS_PRINTED_CODE_STATIC_AUDIT",
+  "visual_status": "ORIGINAL 182-PAGE PDF ALL-PAGE VISUAL AUDIT; figures/tables + pages 103-182 printed-code appendix reviewed",
+  "problem_data_contract": {
+    "independent_evaluation_unit": "Q1 garden/path/network instance and path candidate; Q2 garden-level score with patch/grid/network descriptors; Q3 garden as the independent sample for cross-garden similarity/generalization",
+    "input_structure": "10 representative Jiangnan gardens with multimodal geometry/element/path data; Q3 later adds Near Garden for an 11-garden analysis; printed appendix contains 12 Python source listings",
+    "validation_priority": "separate score construction from external/perceptual validation; preserve path hard constraints after decode/repair; avoid calibrating the scoring anchor on the same gardens then calling agreement validation; for Q3 use leave-one-garden/external labels or discriminative benchmarks rather than self-similarity and post-clustering ANOVA",
+    "author_evaluation_scope": "Q1 route/path metrics and correlation with turning density; Q2 score ranking/correlations/expert-prior agreement; Q3 self-similarity/commonality/personality/clustering plus Near Garden extension; printed-code static audit only"
+  },
+  "questions": {
+    "Q1": "Voronoi/spatial-index path graph -> 120x100 ray visibility matrix -> Markov surprise + Hamming spatial change -> macro anomaly aggregation -> NSGA-II route optimization of anomaly vs repeat length",
+    "Q2": "grid/patch landscape ecology + spatial morphology + space syntax -> ten indicators -> 0-100 normalization and Jichang Garden anchor -> weighted illusion score/ranking",
+    "Q3": "179D multi-scale/multimodal garden vector with convolutional autoencoder and hand-selected summaries -> four cosine-similarity modalities -> weighted similarity -> commonality/personality/KMeans/ANOVA -> Near Garden extension"
+  },
+  "reproduction": {
+    "level": "R2",
+    "evidence": [
+      "182/182 full-text and original-PDF visual audit",
+      "printed Python appendix pp103-182 statically audited; filenames and core implementation primitives mapped"
+    ],
+    "not_achieved": [
+      "R3: no execution of the full author project against original contest attachments",
+      "R4-R7: no partial/end-to-end original-data reproduction or independent reimplementation/transfer attributable to this paper"
+    ],
+    "visual_audit_separate": {
+      "status": "FULL_ORIGINAL_PDF_VISUAL_AUDIT",
+      "does_not_raise_reproduction_level": true
+    }
+  },
+  "key_strengths": [
+    "Q1 decomposes a subjective route-experience concept into explicit visibility, temporal surprise, spatial difference and Pareto route objectives",
+    "Q1 printed code actually uses -log(probability) for temporal surprise, which is semantically consistent with low-probability=high-surprise even though Eq.(4) prose/formula uses raw p",
+    "Q1 keeps two objectives rather than collapsing route interest and repeat length into one hidden weight",
+    "Q2 combines patch ecology, morphology and space-syntax evidence and provides rich diagnostic figures",
+    "Q3 explicitly organizes micro/meso/macro features and separates expert/network/spatial/abstract similarity components before fusion"
+  ],
+  "key_risks": [
+    "Q1 Eq.(4) writes LD=0.5*p+0.5*d while the surrounding text defines lower transition probability as higher surprise; printed code instead uses -log(p). This is a paper-formula/code semantic contract drift.",
+    "Q1 mathematical constraint states 2<=n<=100, yet the reported Pareto paths span 30-222 nodes. Printed code limits step_choices to <100 but shortest-path bridging can extend the decoded path and evaluate() has no final <=100 feasibility gate.",
+    "Q1 reports HV=0.4884, then later describes Hypervolume coverage >=90% without a visible normalization/reference-point contract; GD is said to approach a theoretical optimal front whose provenance is not established in the visible method.",
+    "Q1 turning-density correlation is not an independent perceptual validation: route geometry/turning and the constructed anomaly/network representation share structure; correlation supports association, not model correctness.",
+    "Q1 printed visibility code treats only 实体建筑 as a full occluder; this is a concrete implementation assumption that should not be generalized to all gardens without sensitivity checks.",
+    "Q2 scores use the same ten gardens to define min/max and additionally force Jichang Garden indicators to 100, then use agreement with Jichang Garden being best as validation. This is anchor-target circular calibration, not independent validation.",
+    "Q2 AI is reported correlated 0.99 with connectivity/IIC while the text claims the indicator system avoids highly redundant indicators; near-collinearity requires redundancy analysis rather than semantic assertion alone.",
+    "Q3 n=10/11 gardens but d=179 features, weighted cosine similarities are all >0.85 and mean about 0.985-0.986; this may reflect high-dimensional/normalization concentration and does not by itself validate cultural universality.",
+    "Q3 KMeans uses the same high-dimensional features to create clusters and one-way ANOVA on those same features is then used as significance evidence. This is post-selection/double-dipping, not independent cluster validation.",
+    "Q3 reports CV=0 for some features while the personality index divides by feature standard deviation; a zero-variance guard is required. Printed analyzer bodies are not visible enough to verify that guard.",
+    "Q3 printed feature engineering contains explicit hand-selection/reallocation such as “为了凑够116维”, so dimension completion is an engineering convention, not learned evidence of semantic sufficiency.",
+    "Q3 broad exception fallbacks can silently turn PCA/KMeans failures into plausible zero/default feature vectors, masking pipeline failure."
+  ],
+  "candidate_model_competition_ref": "knowledge_base/candidate_competitions/S042.json",
+  "result_registry_ref": "knowledge_base/result_registry/S042.json",
+  "code_access_ref": "knowledge_base/code_cases/2025-F-S042-appendix-code.json",
+  "transferable_modules_ref": "knowledge_base/method_modules/2025-F-S042-modules.json",
+  "figure_argumentation_ref": "knowledge_base/figure_argumentation/S042.json",
+  "recommended_redo": [
+    "Q1 keep transparent visibility/change metrics, but define temporal surprise consistently as -log(p) or 1-p, impose path constraints after every decode/bridge, and compare Pareto quality with a declared reference set/reference point plus user/perceptual validation.",
+    "Q2 keep interpretable ecology/morphology descriptors but fit normalization/directions/weights on a development subset or external expert criterion; do not force the evaluation anchor to 100 before validating the ranking; collapse/reweight near-collinear indicators.",
+    "Q3 with only 10-11 independent gardens, start from a compact interpretable descriptor and leave-one-garden/external validation. Treat autoencoder/KMeans as exploratory; use stability/resampling or external labels instead of same-feature ANOVA to validate clusters.",
+    "Across all questions, attach uncertainty/sensitivity to hand-set thresholds, weights and visibility assumptions and ensure Result Registry distinguishes construction metrics from independent evidence."
+  ]
+}

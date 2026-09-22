@@ -1,0 +1,294 @@
+{
+  "status": "FINAL_R2_AUDIT_REGISTRY",
+  "paper_id": "S016",
+  "case_group": "2024-D",
+  "split": "dev",
+  "source_sha256": "7d86005f5321da9836ebb158952d8ad3eb65c9a1e73b7f6d4fe6c1d7fb9e67af",
+  "text_pages_reviewed": 114,
+  "visual_pages_reviewed": 114,
+  "reproduction_level": "R2",
+  "audit_replay": {
+    "passed": 19,
+    "total": 19,
+    "scope": "LOCAL_ARITHMETIC_AND_STATIC_OR_SYNTHETIC_AUDIT_ONLY"
+  },
+  "visual_followup_tests": {
+    "passed": 11,
+    "total": 11,
+    "scope": "LOCAL_ARITHMETIC_AND_SYNTHETIC_MECHANISMS_ONLY"
+  },
+  "records": [
+    {
+      "id": "flow_0_crop",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": 0.017758,
+      "LUD": 0.19089,
+      "LUC": 0.173131,
+      "K_minus_LUD_plus_LUC": -9.999999999975306e-07,
+      "author_identity_holds": true,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_0_forest",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": 2.561795,
+      "LUD": 2.623178,
+      "LUC": 0.061382,
+      "K_minus_LUD_plus_LUC": -9.999999996956888e-07,
+      "author_identity_holds": true,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_0_grass",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.336966,
+      "LUD": 0.029117,
+      "LUC": 0.366083,
+      "K_minus_LUD_plus_LUC": 0.0,
+      "author_identity_holds": true,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_0_shrub",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.650894,
+      "LUD": 0.017411,
+      "LUC": 0.668305,
+      "K_minus_LUD_plus_LUC": 1.1102230246251565e-16,
+      "author_identity_holds": true,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_0_wetland",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -1.153579,
+      "LUD": 0.024277,
+      "LUC": 1.177856,
+      "K_minus_LUD_plus_LUC": 0.0,
+      "author_identity_holds": true,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_1_crop",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.346666,
+      "LUD": 0.096746,
+      "LUC": 0.106546,
+      "K_minus_LUD_plus_LUC": -0.336866,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_1_forest",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": 2.105965,
+      "LUD": 0.000951,
+      "LUC": 0.153398,
+      "K_minus_LUD_plus_LUC": 2.258412,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_1_grass",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.364588,
+      "LUD": 0.043703,
+      "LUC": 0.014705,
+      "K_minus_LUD_plus_LUC": -0.39358600000000005,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_1_shrub",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.432412,
+      "LUD": 0.058419,
+      "LUC": 0.010403,
+      "K_minus_LUD_plus_LUC": -0.480428,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_1_wetland",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -1.323177,
+      "LUD": 0.150114,
+      "LUC": 0.003094,
+      "K_minus_LUD_plus_LUC": -1.470197,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_2_crop",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": 0.209042,
+      "LUD": 0.100119,
+      "LUC": 0.11026,
+      "K_minus_LUD_plus_LUC": 0.21918300000000002,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_2_forest",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": 1.040309,
+      "LUD": 0.000775,
+      "LUC": 0.125137,
+      "K_minus_LUD_plus_LUC": 1.164671,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_2_grass",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.30412,
+      "LUD": 0.045494,
+      "LUC": 0.015308,
+      "K_minus_LUD_plus_LUC": -0.334306,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_2_shrub",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.427508,
+      "LUD": 0.061367,
+      "LUC": 0.010928,
+      "K_minus_LUD_plus_LUC": -0.477947,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "flow_2_wetland",
+      "pdf_pages": [
+        27,
+        28,
+        29,
+        104
+      ],
+      "K": -0.932658,
+      "LUD": 0.175987,
+      "LUC": 0.003627,
+      "K_minus_LUD_plus_LUC": -1.105018,
+      "author_identity_holds": false,
+      "scope": "printed values only, same-denominator/time contract"
+    },
+    {
+      "id": "lstm_2015_2020",
+      "pdf_pages": [
+        22,
+        87
+      ],
+      "body_prediction_and_truth": [
+        262.84225,
+        260.08557,
+        270.5438,
+        270.62848,
+        273.0116,
+        276.20404
+      ],
+      "appendix_prediction": [
+        263.7575,
+        260.5738,
+        271.44904,
+        271.3931,
+        273.9359,
+        277.6378
+      ],
+      "appendix_truth": [
+        273.74158,
+        299.14838,
+        269.47815,
+        276.62497,
+        264.9937,
+        285.12454
+      ],
+      "appendix_mae_mm": 12.031726666666666,
+      "appendix_rmse_mm": 17.102393416221982,
+      "scope": "table replay only; heldout membership and original preprocessing not established"
+    },
+    {
+      "id": "upper_tail_counterexample",
+      "pdf_pages": [
+        42
+      ],
+      "fixture": "independent standardized variables, both upper-tail probabilities .1, Z marginalized",
+      "correct_event_probability": 0.010000000000000002,
+      "printed_lower_cdf_probability": 0.81,
+      "correct_return_observation_intervals": 99.99999999999999,
+      "printed_return_observation_intervals": 1.2345679012345678,
+      "scope": "synthetic mathematical counterexample, not Chinese climate data"
+    }
+  ],
+  "evidence_boundary": "Registry finalization means the recorded contradictions/arithmetics are traceable. It does not claim author end-to-end execution, R3+, or Core capability gain."
+}

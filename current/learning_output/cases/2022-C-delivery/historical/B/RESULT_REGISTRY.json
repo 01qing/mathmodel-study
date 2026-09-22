@@ -1,0 +1,87 @@
+{
+  "benchmark_id": "ROLE-P1-2022C-v0.2",
+  "core": "MathModel-Core v1.41.0 SEALED read-only",
+  "core_wrapper_sha256": "a4ef5b69d31ab2b5de032e9fa9e8c78f15a09b773bfca3ace57870cdb418016f",
+  "architect_initial": "ROLE-P1-2022C-RUNB-ARCH-INITIAL-v1",
+  "reviewer_initial_decision": "HOLD",
+  "architect_revised": "ROLE-P1-2022C-RUNB-ARCH-REVISED-v1",
+  "reviewer_retest_decision": "PASS",
+  "headline": {
+    "Q1_附件1": {
+      "score": {
+        "total": 16.398,
+        "s1": -87,
+        "s2": 79,
+        "s3": 88,
+        "s4": 98.98,
+        "hbad": 187,
+        "dbad": 21,
+        "return_uses": 12,
+        "T": 3036,
+        "base": 2934,
+        "deltaT": 102,
+        "blocks": 24
+      },
+      "provenance": "revised_execution.json + independent Reviewer score replay + exact result XLSX matrix checksum",
+      "result_file": "03_architect_revised/result11.xlsx",
+      "matrix_checksum_sha256": "9838f6a28eb96e598f7f7b58572ca07405e87c2f8da8180b785f7c827480fa55"
+    },
+    "Q2_附件1": {
+      "score": {
+        "total": 21.704,
+        "s1": -72,
+        "s2": 79,
+        "s3": 86,
+        "s4": 96.04,
+        "hbad": 172,
+        "dbad": 21,
+        "return_uses": 14,
+        "T": 3330,
+        "base": 2934,
+        "deltaT": 396,
+        "blocks": 21
+      },
+      "provenance": "revised_execution.json + independent Reviewer score replay + exact result XLSX matrix checksum",
+      "result_file": "03_architect_revised/result21.xlsx",
+      "matrix_checksum_sha256": "bcbac4c78bb3c99de3335f1f0a0732a83738de9ce737c1ccc629ed060d539eb5"
+    },
+    "Q1_附件2": {
+      "score": {
+        "total": 37.858,
+        "s1": -39,
+        "s2": 81,
+        "s3": 96,
+        "s4": 99.58,
+        "hbad": 139,
+        "dbad": 19,
+        "return_uses": 4,
+        "T": 2976,
+        "base": 2934,
+        "deltaT": 42,
+        "blocks": 23
+      },
+      "provenance": "revised_execution.json + independent Reviewer score replay + exact result XLSX matrix checksum",
+      "result_file": "03_architect_revised/result12.xlsx",
+      "matrix_checksum_sha256": "e98467fbf869b45801b3adc49028320497071897c648c087230990fbc7975419"
+    },
+    "Q2_附件2": {
+      "score": {
+        "total": 51.17099999999999,
+        "s1": -1,
+        "s2": 81,
+        "s3": 90,
+        "s4": 92.71,
+        "hbad": 101,
+        "dbad": 19,
+        "return_uses": 10,
+        "T": 3663,
+        "base": 2934,
+        "deltaT": 729,
+        "blocks": 20
+      },
+      "provenance": "revised_execution.json + independent Reviewer score replay + exact result XLSX matrix checksum",
+      "result_file": "03_architect_revised/result22.xlsx",
+      "matrix_checksum_sha256": "bc281e00e9d723ad74c2966851d29a36df807491cf3888452a7f1c771b96529a"
+    }
+  }
+}

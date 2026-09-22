@@ -1,0 +1,27 @@
+{
+  "rule_change": "path-preserving splice at shared vertex + final decoded-edge replay",
+  "pivot": "E",
+  "child": [
+    "S",
+    "A",
+    "B",
+    "E",
+    "T"
+  ],
+  "invalid_edges": [],
+  "status": "PASS",
+  "similarity_scale_fixture": {
+    "raw_cosine": {
+      "A_B": 0.999989881548171,
+      "A_C": 0.9999999990112429
+    },
+    "scaled_cosine": {
+      "A_B": 0.6230940892298894,
+      "A_C": 0.9888572799865547
+    },
+    "raw_both_above_0_999": true,
+    "scaled_correct_separation": true,
+    "interpretation": "raw cosine concentration is not evidence of high semantic similarity; feature-block scaling restores separation in this fixture"
+  },
+  "overall": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX"
+}

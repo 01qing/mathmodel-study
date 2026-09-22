@@ -1,0 +1,7 @@
+{
+  "pattern_id": "random-placeholder-contamination",
+  "name": "真实数据链混入随机/模拟占位特征",
+  "trigger": "nominal real-data feature pipeline fills unavailable features with random/synthetic values without isolating them from headline results",
+  "example": "S044 Q2 random fractal dimension, NNI, openness and contag",
+  "gate": "synthetic placeholders must carry provenance flag and be excluded from real-result claims; missing real feature stays missing until sourced/computed"
+}

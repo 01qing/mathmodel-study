@@ -1,0 +1,47 @@
+{
+  "case_group": "2024-D",
+  "version": "v1.41",
+  "patterns": [
+    {
+      "id": "STATISTIC_SEMANTIC_DRIFT",
+      "trigger": "field/title says variance/mean while code primitive is sum/SD or a different support",
+      "gate": "operator+unit+denominator+source registry"
+    },
+    {
+      "id": "SAMPLED_PREVALENCE_AS_POPULATION_RISK",
+      "trigger": "class-balanced sample rates reported as original population risk",
+      "gate": "train-only resampling + untouched target-pop evaluator"
+    },
+    {
+      "id": "TARGET_LINEAGE_LEAKAGE",
+      "trigger": "label or label-derived variable available only after outcome enters predictor",
+      "gate": "label_source + forecast_origin + available_at"
+    },
+    {
+      "id": "EVALUATOR_MECHANISM_MIX",
+      "trigger": "fitted/OOB/holdout/time-space metrics compared as if same evidence",
+      "gate": "run_id/split_id/evaluator contract"
+    },
+    {
+      "id": "STATIC_CLUSTER_AS_FUTURE_DYNAMICS",
+      "trigger": "historical spatial cluster/risk names directly relabeled with future years",
+      "gate": "future driver + historical backtest"
+    },
+    {
+      "id": "MARGINAL_COMPOSITION_AS_FLOW",
+      "trigger": "two-period shares treated as identified class-to-class transition",
+      "gate": "same-entity trajectories or explicit identification assumptions"
+    },
+    {
+      "id": "OUTPUT_SPACE_DRIFT",
+      "trigger": "margin/SHAP/class score called probability or causal effect",
+      "gate": "output_space/class/link + scope"
+    },
+    {
+      "id": "INTERFACE_ALIGNMENT_BY_SHAPE",
+      "trigger": "same length/shape assumed to mean same entity/coordinate or CSV header silently becomes data",
+      "gate": "unique key/coordinate/header replay"
+    }
+  ],
+  "scope": "Generic Dev error patterns only; not author-specific numerical conclusions."
+}

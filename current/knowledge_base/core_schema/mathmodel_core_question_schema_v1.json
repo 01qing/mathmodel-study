@@ -1,0 +1,48 @@
+{
+  "schema_name": "MathModel-Core Paper/Question Learning Schema",
+  "schema_version": "1.0",
+  "effective_from_version": "1.25.0",
+  "principle": "Extract transferable decision capability rather than summarize papers.",
+  "paper_fields": [
+    "paper_id",
+    "case_group",
+    "split",
+    "source/evidence",
+    "visual_audit",
+    "reproduction_level",
+    "question_cards",
+    "same_problem_method_map",
+    "result_registry",
+    "error_patterns",
+    "transferable_modules"
+  ],
+  "question_card_fields": [
+    "problem_type_and_essence",
+    "input_data_and_independent_unit",
+    "target_and_constraints",
+    "author_method_chain",
+    "why_author_method_fits",
+    "candidate_model_competition",
+    "six_hour_baseline",
+    "data_to_model_mapping",
+    "assumptions_formulas_parameters",
+    "validation_protocol",
+    "code_paper_mapping",
+    "figure_decisions",
+    "result_metrics",
+    "cross_surface_consistency",
+    "risks_and_errors",
+    "applicability",
+    "failure_and_abandon_conditions",
+    "recommended_rebuild",
+    "transferable_modules"
+  ],
+  "candidate_model_competition_required_roles": [
+    "baseline",
+    "author_route",
+    "major_alternatives",
+    "not_recommended"
+  ],
+  "allow_not_applicable": true,
+  "legacy_policy": "Do not re-read S001-S020 indiscriminately. Preserve old assets and backfill only on demand or by non-destructive migration."
+}

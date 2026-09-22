@@ -1,0 +1,427 @@
+{
+  "paper_id": "S002",
+  "figure_count_main_text": 63,
+  "count_basis": "Unique numbered main-text figures 1-63 before references/appendix; appendix local figure numbering excluded.",
+  "visual_review_status": "PENDING_ORIGINAL_PDF; figure captions and surrounding argument text reviewed from full extracted text",
+  "figures": [
+    {
+      "figure_id": "1",
+      "caption": "风电场有功功率优化调度总体方案图",
+      "physical_page": 7,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "2",
+      "caption": "问题一思路流程图",
+      "physical_page": 10,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "3",
+      "caption": "雨流计数法原理图",
+      "physical_page": 11,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "4",
+      "caption": "滑动时间窗原理图",
+      "physical_page": 12,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "5",
+      "caption": "TW-Rainflow-Goodman-Miner方案的程序流程图",
+      "physical_page": 14,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "6",
+      "caption": "计时器时间<1s验证图",
+      "physical_page": 15,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "7",
+      "caption": "主轴的累积疲劳损伤程度",
+      "physical_page": 16,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "8",
+      "caption": "主轴的累积疲劳损伤值的相关性分析热度图",
+      "physical_page": 16,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "9",
+      "caption": "主轴的累积疲劳损伤值的评价指标对比",
+      "physical_page": 16,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "10",
+      "caption": "塔架的累积疲劳损伤程度",
+      "physical_page": 17,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "11",
+      "caption": "塔架的累积疲劳损伤值的相关性分析热度图",
+      "physical_page": 17,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "12",
+      "caption": "塔架的累积疲劳损伤值的评价指标对比",
+      "physical_page": 18,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "13",
+      "caption": "10台风机的主轴累积疲劳损失在100s内的增长过程",
+      "physical_page": 18,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "14",
+      "caption": "10台风机的塔架累积疲劳损失在100s内的增长过程",
+      "physical_page": 19,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "15",
+      "caption": "问题二思路流程图",
+      "physical_page": 20,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "16",
+      "caption": "BiLSTM原理图",
+      "physical_page": 22,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "17",
+      "caption": "基于数据拟合的主轴扭矩和塔架推力估算方法程序流程图",
+      "physical_page": 23,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "18",
+      "caption": "基于BiLSTM方法的主轴扭矩训练结果图",
+      "physical_page": 25,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "19",
+      "caption": "基于BiLSTM方法的训练集和测试集中估算扭矩值和给定实际扭矩值的散点图",
+      "physical_page": 25,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "20",
+      "caption": "基于BiLSTM方法的主轴扭矩训练过程示意图",
+      "physical_page": 26,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "21",
+      "caption": "基于BiLSTM方法的塔架推力训练结果图",
+      "physical_page": 26,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "22",
+      "caption": "基于BiLSTM方法的训练集和测试集中估算推力值和给定实际推力值的散点图",
+      "physical_page": 27,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "23",
+      "caption": "基于BiLSTM方法的塔架推力训练过程示意图",
+      "physical_page": 27,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "24",
+      "caption": "基于Nelder-Mead方法的主轴扭矩拟合效果",
+      "physical_page": 27,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "25",
+      "caption": "基于Nelder-Mead方法的塔架推力拟合效果",
+      "physical_page": 28,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "26",
+      "caption": "基于两种拟合方法的主轴扭矩拟合效果对比图",
+      "physical_page": 28,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "27",
+      "caption": "基于两种拟合方法的塔架推力拟合效果对比图",
+      "physical_page": 29,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "28",
+      "caption": "问题三思路流程图",
+      "physical_page": 30,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "29",
+      "caption": "有功功率优化分配模型求解流程图",
+      "physical_page": 32,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "30",
+      "caption": "含有计时器的程序执行动图截图",
+      "physical_page": 33,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "31",
+      "caption": "每时刻风机总输出功率与电网调度功率对比图",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "32",
+      "caption": "每时刻调度功率与风机总输出功率之和的误差柱状图",
+      "physical_page": 34,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "33",
+      "caption": "优化前后所有风机的主轴累积疲劳损伤程度对比图",
+      "physical_page": 35,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "34",
+      "caption": "优化前后所有风机的推力累积疲劳损伤程度对比图",
+      "physical_page": 35,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "35",
+      "caption": "优化前后不同时刻下的功率数据分布对比图",
+      "physical_page": 36,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "36",
+      "caption": "优化前后不同时刻下所有风机的功率分配对比图",
+      "physical_page": 37,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "37",
+      "caption": "问题四思路流程图",
+      "physical_page": 39,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "38",
+      "caption": "奇异值分解SVD原理图",
+      "physical_page": 39,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "39",
+      "caption": "相位差判断与计算时延原理图",
+      "physical_page": 40,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "40",
+      "caption": "考虑噪声干扰和通信延迟的风机有功功率优化流程图",
+      "physical_page": 42,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "41",
+      "caption": "噪声干扰和通信延迟作用下的风机有功功率优化方案求解过程截图",
+      "physical_page": 43,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "42",
+      "caption": "降噪和去延迟处理后的风机有功功率优化方案求解过程截图",
+      "physical_page": 43,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "43",
+      "caption": "SVD降噪处理对于风速数据的信噪比影响展示图",
+      "physical_page": 45,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "44",
+      "caption": "SVD降噪前后的前100s的风速数据与无噪声数据对比图",
+      "physical_page": 45,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "45",
+      "caption": "相位差的直方图",
+      "physical_page": 46,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "46",
+      "caption": "基于改进三次样条插值法对主轴扭矩延迟数据进行去延迟校正前后的对比图",
+      "physical_page": 47,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "47",
+      "caption": "基于改进三次样条插值法据进行去延迟校正前后的评价指标对比图",
+      "physical_page": 47,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "48",
+      "caption": "含噪声和延迟优化风机分配功率总和检验",
+      "physical_page": 48,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "49",
+      "caption": "含噪声与延迟下主轴累积疲劳损伤对比",
+      "physical_page": 48,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "50",
+      "caption": "含噪声与延迟下推力累积疲劳损伤对比",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "51",
+      "caption": "含噪声与延迟下功率分配方差特性分析",
+      "physical_page": 49,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "52",
+      "caption": "降噪、去延迟下优化风机分配功率总和检验",
+      "physical_page": 50,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "53",
+      "caption": "降噪、去延迟下主轴累积疲劳损伤对比",
+      "physical_page": 50,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "54",
+      "caption": "降噪、去延迟下推力累积疲劳损伤对比",
+      "physical_page": 51,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "55",
+      "caption": "含噪声与延迟下功率分配方差特性分析",
+      "physical_page": 51,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "56",
+      "caption": "含噪声和延迟优化风机分配功率总和检验",
+      "physical_page": 52,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "57",
+      "caption": "含噪声与延迟下主轴累积疲劳损伤对比",
+      "physical_page": 53,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "58",
+      "caption": "含噪声与延迟下推力累积疲劳损伤对比",
+      "physical_page": 53,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "59",
+      "caption": "含噪声与延迟下功率分配方差特性分析",
+      "physical_page": 54,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "60",
+      "caption": "降噪、去延迟下优化风机分配功率总和检验",
+      "physical_page": 54,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "61",
+      "caption": "降噪、去延迟下主轴累积疲劳损伤对比",
+      "physical_page": 55,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "62",
+      "caption": "降噪、去延迟下推力累积疲劳损伤对比",
+      "physical_page": 55,
+      "visual_review": "pending_source_pdf"
+    },
+    {
+      "figure_id": "63",
+      "caption": "降噪、去延迟下功率分配方差特性分析",
+      "physical_page": 56,
+      "visual_review": "pending_source_pdf"
+    }
+  ],
+  "argumentation": [
+    {
+      "question": "Q1",
+      "figures": "2-14",
+      "chain": "method flow → algorithm primitives → program flow → runtime → multi-panel full+zoom fatigue comparison → correlation heatmap → RMSE/MAPE/runtime comparison → representative time-growth curves",
+      "what_to_learn": "For an approximate online algorithm, show both speed and fidelity, then inspect global distribution and local/time behavior.",
+      "what_not_to_overclaim": "Correlation and selected turbines do not prove exact cycle-count equivalence or all-turbine validity."
+    },
+    {
+      "question": "Q2",
+      "figures": "15-27",
+      "chain": "problem flow → model schematic → train/test prediction curves → y=x scatter → training process → simple baseline curves → metric table/comparison curves",
+      "what_to_learn": "Prediction evidence should combine time/sequence fit, calibration-like scatter, optimization trace, and a simpler baseline.",
+      "what_not_to_overclaim": "If code randomizes samples, figures labeled temporal train/test do not establish future-time generalization."
+    },
+    {
+      "question": "Q3",
+      "figures": "28-36",
+      "chain": "optimization flow → runtime screenshot → aggregate balance and error → objective benefit (fatigue) → allocation distribution and variance",
+      "what_to_learn": "A constrained optimizer needs separate evidence for runtime, feasibility, and objective gain.",
+      "what_not_to_overclaim": "Aggregate balance does not verify componentwise bounds; add min/max and violation-count plots."
+    },
+    {
+      "question": "Q4",
+      "figures": "37-63",
+      "chain": "robustness flow → denoising and delay mechanism → preprocessing quality → downstream power balance/fatigue/variance before/after → longer-horizon robustness",
+      "what_to_learn": "Evaluate preprocessing locally and then show its downstream effect.",
+      "what_not_to_overclaim": "Repeated near-duplicate plots increase volume without proportionally increasing evidence; consolidate scenarios."
+    }
+  ],
+  "figure_budget_lesson": {
+    "observed_main_figures": 63,
+    "assessment": "High figure count supports detailed traceability but Q4 contains repeated scenario/metric combinations. Learn the evidence roles, not the raw count.",
+    "recommended_reuse": "For a new 4-question paper, allocate figures by claims: 3-6 core visual units per question, with multi-panel figures for related scenarios; increase only when each extra figure answers a distinct validation question."
+  },
+  "recommended_new_templates": [
+    "prediction_curve_plus_parity_scatter",
+    "constraint_violation_dashboard",
+    "scenario_metric_small_multiples",
+    "runtime_accuracy_tradeoff"
+  ]
+}

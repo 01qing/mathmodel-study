@@ -1,0 +1,54 @@
+{
+  "paper_id": "S042",
+  "case_group": "2025-F",
+  "questions": {
+    "Q1": {
+      "baseline": "walkable graph from provided paths/obstacles + shortest/simple-path candidates + transparent local scene-change score + Pareto/epsilon-constraint on interest vs repeated distance",
+      "author_route": "Voronoi/spatial-index graph + ray visibility + Markov surprise/Hamming change + macro aggregation + NSGA-II",
+      "alternatives": [
+        "k-shortest/simple path enumeration + deterministic multi-criteria ranking for smaller graphs",
+        "multiobjective label-setting / epsilon-constraint if the graph/objectives permit exact or bounded search",
+        "user-rated pairwise scene-change model if perceptual labels are available"
+      ],
+      "not_recommended": [
+        "calling raw transition probability a positive surprise term when lower probability is defined as more surprising",
+        "NSGA-II without final decoded-path feasibility replay",
+        "claiming convergence to a theoretical Pareto front without a demonstrable reference front"
+      ],
+      "why_select": "author route is structurally plausible for large irregular gardens, but the reusable core is the transparent scene-state/change representation and Pareto contract, not NSGA-II itself",
+      "switch_condition": "prefer exact/k-shortest/epsilon methods when simplified graph is small enough; promote learned perceptual scoring only when visitor labels exist"
+    },
+    "Q2": {
+      "baseline": "small interpretable set of nonredundant landscape/morphology indicators + declared beneficial direction + train/dev normalization + transparent weighted score and sensitivity analysis",
+      "author_route": "10 ecology/morphology/syntax indicators -> ten-garden min-max -> force Jichang Garden indicators to 100 -> 50/50 dimension fusion",
+      "alternatives": [
+        "PCA/factor analysis after redundancy diagnostics",
+        "AHP/entropy/CRITIC weights with robustness analysis",
+        "supervised preference/ranking model if independent expert/visitor scores exist"
+      ],
+      "not_recommended": [
+        "using the same anchor prior both to force scores and to validate score correctness",
+        "keeping multiple 0.99-correlated indicators without checking double counting",
+        "interpreting a 0-100 constructed score as an objective psychological measurement"
+      ],
+      "why_select": "interpretable indicators suit tiny garden-level n; however calibration and validation must be separated",
+      "switch_condition": "use learned ranking only with enough independent gardens and labels; use dimension reduction when collinearity makes hand weighting unstable"
+    },
+    "Q3": {
+      "baseline": "compact expert/network/spatial descriptor, standardized within training folds; cosine/Euclidean similarity + leave-one-garden sensitivity; hierarchical clustering with resampling stability",
+      "author_route": "179D micro/meso/macro vector + convolutional autoencoder/hand summaries + four cosine similarities weighted 0.4/0.2/0.2/0.2 + commonality/personality + KMeans/ANOVA + Near Garden extension",
+      "alternatives": [
+        "regularized metric learning if external similarity labels exist",
+        "factor/PCA representation with leave-one-garden stability",
+        "kernel/MDS or hierarchical clustering on a compact distance matrix"
+      ],
+      "not_recommended": [
+        "KMeans in d=179 with n=10/11 as confirmatory evidence",
+        "ANOVA on the same features that created the cluster labels",
+        "using all-pair high similarity as proof of discriminative generalization or cultural sufficiency"
+      ],
+      "why_select": "for n=10/11, a compact transparent representation is the safest baseline; high-capacity autoencoding is exploratory unless validated out-of-sample",
+      "switch_condition": "promote representation learning/metric learning only with many independent gardens/patches plus garden-level holdout and an external downstream criterion"
+    }
+  }
+}

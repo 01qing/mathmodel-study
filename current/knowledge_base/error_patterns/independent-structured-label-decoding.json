@@ -1,0 +1,6 @@
+{
+  "id": "independent-structured-label-decoding",
+  "trigger": "A structured output tuple is predicted with independent heads and recombined without validity constraints.",
+  "risk": "High marginal accuracy does not ensure a valid or supported joint combination.",
+  "gate": "Enumerate valid tuples from specification/training support; prefer joint-class prediction or constrained decoding; report invalid-pair rate and joint exact-match accuracy."
+}

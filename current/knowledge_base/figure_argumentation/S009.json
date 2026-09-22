@@ -1,0 +1,53 @@
+{
+  "paper_id": "S009",
+  "source": "figure captions and full-text context",
+  "explicit_caption_count": 22,
+  "table_caption_count": 32,
+  "pixel_level_audit": false,
+  "argumentation_roles": [
+    {
+      "role": "Q1 representation/classification evidence",
+      "examples": [
+        "图2 三类波形",
+        "图3 材料磁通分布",
+        "图4 特征热力图",
+        "图7 混淆矩阵"
+      ],
+      "lesson": "Use one raw-shape panel, one engineered-feature separability panel and one confusion/per-class metric panel. A feature heatmap should support selection, not replace grouped validation."
+    },
+    {
+      "role": "Q2 physics-model comparison",
+      "examples": [
+        "图9-12 four fit-comparison figures",
+        "图13-14 residual panels"
+      ],
+      "lesson": "Prefer aligned small multiples with common axes plus held-out-temperature residual/relative-error panels; do not infer generalization from fitted curves alone."
+    },
+    {
+      "role": "Q3 factor effects/interactions",
+      "examples": [
+        "图16-18 main-effect boxplots",
+        "表17-19 interaction ANOVA"
+      ],
+      "lesson": "Main-effect boxplots are descriptive. For interactions, add covariate-adjusted marginal means/contrasts with confidence intervals after controlling log f and log Bm."
+    },
+    {
+      "role": "Q4 regime-specific prediction",
+      "examples": [
+        "表27-30 parameter and fit metrics",
+        "表31 selected predictions"
+      ],
+      "lesson": "A 12-regime model needs a parameter-consistency table generated from code plus held-out group error distribution; a few point predictions do not establish generalization."
+    },
+    {
+      "role": "Q5 optimization evidence",
+      "examples": [
+        "图20 technical route",
+        "图21 claimed PSO flow",
+        "图22 optimization result"
+      ],
+      "lesson": "Show feasible-domain/Pareto evidence, selected operating point, constraint margins and model-support distance. A convergence curve or one point cannot prove bi-objective optimality."
+    }
+  ],
+  "style_learning_boundary": "No source PDF pixels mounted; visual style/colors/fonts are not claimed learned."
+}

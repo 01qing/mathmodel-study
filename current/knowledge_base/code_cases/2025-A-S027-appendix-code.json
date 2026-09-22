@@ -1,0 +1,113 @@
+{
+  "paper_id": "S027",
+  "case_group": "2025-A",
+  "language": "Python (printed appendix)",
+  "audit_level": "R2_STATIC_PRINTED_CODE_AUDIT",
+  "source_sections": [
+    "Q1 appendix",
+    "Q2 appendix",
+    "Q3 appendix"
+  ],
+  "findings": [
+    {
+      "id": "Q1_CORE_HELPERS_MISSING",
+      "question": "Q1",
+      "severity": "critical",
+      "paper_claim": "MCBGS priority combines Type, Size and Criticality with L0/cache feasibility",
+      "visible_code": "calls calculate_balanced_node_priority, calculate_simple_critical_path_info, can_schedule_node_with_l0_constraints, update_l0_cache_states but definitions are absent from the printed appendix/full extracted text",
+      "impact": "algorithm-defining priority/feasibility cannot be independently executed or traced"
+    },
+    {
+      "id": "Q1_AVERAGE_SEMANTICS_DRIFT",
+      "question": "Q1",
+      "severity": "high",
+      "paper_claim": "average reductions 89.2%, 85.5%, 89.2%",
+      "visible_evidence": "values match aggregate sum-weighted reduction across workloads, while arithmetic mean of six per-workload reductions is ~76.55%, 59.34%, 76.51%",
+      "impact": "result wording changes cross-workload interpretation"
+    },
+    {
+      "id": "Q2_ALLOCATOR_NAME_DRIFT",
+      "question": "Q2",
+      "severity": "high",
+      "paper_claim": "abstract calls Best-Fit / optimal-fit style allocation",
+      "visible_code": "first free block satisfying size is selected: First-Fit behavior",
+      "impact": "algorithm name does not match implementation primitive"
+    },
+    {
+      "id": "Q2_SPILL_DIRECTION_DRIFT",
+      "question": "Q2",
+      "severity": "critical",
+      "paper_claim": "choose spill victim with minimum cost V(B,t)=argmin(...)",
+      "visible_code": "score=size*remaining_lifespan*cost_factor then sorts reverse=True and selects largest score; access frequency and alpha/beta/gamma are absent",
+      "impact": "visible code can choose the opposite victim from the mathematical rule"
+    },
+    {
+      "id": "Q2_MAIN_MISSING",
+      "question": "Q2",
+      "severity": "high",
+      "paper_claim": "appendix is runnable program",
+      "visible_code": "contains if __name__ == \"__main__\": main() but no def main found in the extracted appendix/full text",
+      "impact": "printed program is not executable end-to-end as given"
+    },
+    {
+      "id": "Q2_RESULT_AGGREGATION_PROVENANCE",
+      "question": "Q2",
+      "severity": "high",
+      "paper_claim": "Table 5.11 reports average-period style MOACADSA result 35840 transfer / 942535 cycles / 280 spill",
+      "visible_evidence": "these are neither simple means nor totals of the six Table 5.12 workload rows",
+      "impact": "headline comparison lacks a traceable aggregation contract"
+    },
+    {
+      "id": "Q3_CAP_PARAMETER_DRIFT",
+      "question": "Q3",
+      "severity": "critical",
+      "paper_claim": "most narrative/constructor uses 15% transfer tolerance while Eq.(6.127) states tau=0.1",
+      "visible_code": "traffic_tolerance=0.15",
+      "impact": "feasible set and reported optimality depend on which cap is authoritative"
+    },
+    {
+      "id": "Q3_BASELINE_SOURCE_DRIFT",
+      "question": "Q3",
+      "severity": "critical",
+      "paper_claim": "Q3 improves the Q2 baseline in Tables 5.12/6.14",
+      "visible_code": "hard-coded baseline differs for Conv_Case0 (132096 vs 99072 transfer; 504991 vs 480222 cycles) and several cycle values",
+      "impact": "reported improvement cannot be reliably replayed from one shared source"
+    },
+    {
+      "id": "Q3_OPTIMIZER_CORE_MISSING",
+      "question": "Q3",
+      "severity": "critical",
+      "paper_claim": "DOSA/multi-strategy optimizer",
+      "visible_code": "calls self._apply_optimization_strategies(best_solution,max_traffic) but no definition appears in full extracted appendix",
+      "impact": "algorithm core missing; cannot raise to R3"
+    },
+    {
+      "id": "Q3_SIGN_CONVENTION_DRIFT",
+      "question": "Q3",
+      "severity": "high",
+      "paper_claim": "transfer overhead increases ~7.2%",
+      "visible_table": "Table 6.14 change-rate column shows negative percentages despite bytes increasing",
+      "impact": "sign convention can invert interpretation"
+    },
+    {
+      "id": "Q3_MULTI_SEQUENCE_LABEL_EVIDENCE_GAP",
+      "question": "Q3",
+      "severity": "medium",
+      "paper_claim": "multi-sequence collaborative scheduling",
+      "visible_code": "process_single_case(task_name) evaluates cases independently; no shared resource state across workloads is visible",
+      "impact": "collaborative/multi-sequence label is not implementation-supported"
+    }
+  ],
+  "r3_blockers": [
+    "algorithm-defining helper definitions missing in Q1",
+    "Q2 printed entry point main() missing",
+    "Q3 _apply_optimization_strategies missing",
+    "original runnable project/data bundle not available in current workspace"
+  ],
+  "positive_reusable_code_patterns": [
+    "explicit graph/node abstractions",
+    "cache free-list and lifecycle bookkeeping skeleton",
+    "per-case result dictionary structure suitable for Result Registry after values are sourced consistently",
+    "lexicographic cycle/traffic comparison is a useful baseline once hard cap is enforced"
+  ]
+}

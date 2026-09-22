@@ -1,0 +1,35 @@
+{
+  "new_regressions": {
+    "scope": "Known-defect regression checks",
+    "passed": 18,
+    "tests": [
+      "initial contamination recorded",
+      "reinitialization cannot erase exposure",
+      "different fingerprint rejected without overwrite",
+      "freeze contaminated matrix remains contaminated",
+      "same freeze idempotent",
+      "different matrix rejected without overwrite",
+      "fresh case allowed",
+      "empty matrix rejected",
+      "corrupted gate fails closed",
+      "zero papers valid",
+      "real nonzero PDF count valid",
+      "wrong hash blocked",
+      "wrong page count blocked",
+      "full review without coverage blocked",
+      "full declared review with coverage accepted",
+      "missing PDF blocked",
+      "duplicate source blocked",
+      "historical validator accepts evidenced nonzero inventory"
+    ],
+    "independent_modeling_evaluation": "NOT_RUN"
+  },
+  "schema_compatibility": "PASS",
+  "python_syntax": "PASS",
+  "json_parse": "PASS",
+  "original_upstream_files_identical": 54,
+  "original_upstream_skills": 10,
+  "whole_S0_S8": "NOT_RUN",
+  "fresh_blind_evaluation": "NOT_RUN",
+  "raw_signal_reproduction": "NOT_RUN"
+}
