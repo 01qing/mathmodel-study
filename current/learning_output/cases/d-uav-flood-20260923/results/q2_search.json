@@ -1,0 +1,272 @@
+{
+  "elapsed": 81.96494269371033,
+  "seeds": [
+    {
+      "seed": 0,
+      "flights": 20,
+      "energy": 74.18482820582668,
+      "makespan": 9996.026996541506,
+      "weighted_tardiness": 279706.42015312146,
+      "weighted_arrival": 3305407.205525528,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 6,
+        "C": 7
+      }
+    },
+    {
+      "seed": 2,
+      "flights": 20,
+      "energy": 69.98971979605673,
+      "makespan": 10246.44259195849,
+      "weighted_tardiness": 463785.7066992143,
+      "weighted_arrival": 3463410.8716195496,
+      "hard_late": 0,
+      "types": {
+        "A": 8,
+        "B": 5,
+        "C": 7
+      }
+    },
+    {
+      "seed": 11,
+      "flights": 21,
+      "energy": 75.49265329343729,
+      "makespan": 10389.084768007506,
+      "weighted_tardiness": 185121.89781972987,
+      "weighted_arrival": 3196814.5631090705,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 7,
+        "C": 7
+      }
+    },
+    {
+      "seed": 13,
+      "flights": 20,
+      "energy": 75.9580536539848,
+      "makespan": 10939.084768007506,
+      "weighted_tardiness": 401491.56615714735,
+      "weighted_arrival": 3392790.854434367,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 5,
+        "C": 8
+      }
+    },
+    {
+      "seed": 14,
+      "flights": 20,
+      "energy": 75.7167653584923,
+      "makespan": 9973.740633699628,
+      "weighted_tardiness": 169720.0575687391,
+      "weighted_arrival": 3240011.467138789,
+      "hard_late": 0,
+      "types": {
+        "A": 9,
+        "B": 4,
+        "C": 7
+      }
+    },
+    {
+      "seed": 15,
+      "flights": 20,
+      "energy": 70.87845140281931,
+      "makespan": 9312.163826699873,
+      "weighted_tardiness": 52467.277412612435,
+      "weighted_arrival": 3050187.9545284184,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 6,
+        "C": 7
+      }
+    },
+    {
+      "seed": 17,
+      "flights": 20,
+      "energy": 72.89812296704132,
+      "makespan": 10913.154988400556,
+      "weighted_tardiness": 166012.1709810344,
+      "weighted_arrival": 3341137.223727574,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 6,
+        "C": 7
+      }
+    },
+    {
+      "seed": 18,
+      "flights": 22,
+      "energy": 76.51120664717094,
+      "makespan": 9673.740633699628,
+      "weighted_tardiness": 151544.1722228435,
+      "weighted_arrival": 3239043.694071717,
+      "hard_late": 0,
+      "types": {
+        "A": 10,
+        "B": 5,
+        "C": 7
+      }
+    },
+    {
+      "seed": 21,
+      "flights": 20,
+      "energy": 69.24725782243955,
+      "makespan": 9545.532127390865,
+      "weighted_tardiness": 158677.03215836853,
+      "weighted_arrival": 3095500.0764670004,
+      "hard_late": 0,
+      "types": {
+        "A": 6,
+        "B": 7,
+        "C": 7
+      }
+    },
+    {
+      "seed": 22,
+      "flights": 19,
+      "energy": 73.26063113921838,
+      "makespan": 10905.40679536659,
+      "weighted_tardiness": 350708.1730164618,
+      "weighted_arrival": 3184862.6454233434,
+      "hard_late": 0,
+      "types": {
+        "A": 6,
+        "B": 6,
+        "C": 7
+      }
+    },
+    {
+      "seed": 23,
+      "flights": 19,
+      "energy": 67.65962182290114,
+      "makespan": 10139.856686192743,
+      "weighted_tardiness": 265777.680891532,
+      "weighted_arrival": 3423617.568968269,
+      "hard_late": 0,
+      "types": {
+        "A": 7,
+        "B": 5,
+        "C": 7
+      }
+    },
+    {
+      "seed": 25,
+      "flights": 22,
+      "energy": 72.32022380209627,
+      "makespan": 7929.091349604669,
+      "weighted_tardiness": 59063.92365246781,
+      "weighted_arrival": 2982736.8447994045,
+      "hard_late": 0,
+      "types": {
+        "A": 8,
+        "B": 8,
+        "C": 6
+      }
+    },
+    {
+      "seed": 26,
+      "flights": 18,
+      "energy": 72.42199018708466,
+      "makespan": 11273.82850067287,
+      "weighted_tardiness": 358369.36504094576,
+      "weighted_arrival": 3601856.9089631634,
+      "hard_late": 0,
+      "types": {
+        "A": 5,
+        "B": 5,
+        "C": 8
+      }
+    },
+    {
+      "seed": 28,
+      "flights": 21,
+      "energy": 78.28606220177029,
+      "makespan": 10284.983974408524,
+      "weighted_tardiness": 267145.7632765599,
+      "weighted_arrival": 3302255.0933183697,
+      "hard_late": 0,
+      "types": {
+        "A": 8,
+        "B": 5,
+        "C": 8
+      }
+    },
+    {
+      "seed": 31,
+      "flights": 20,
+      "energy": 72.02249189586027,
+      "makespan": 10407.811700794533,
+      "weighted_tardiness": 307830.29829532537,
+      "weighted_arrival": 3354741.8247067123,
+      "hard_late": 0,
+      "types": {
+        "A": 8,
+        "B": 4,
+        "C": 8
+      }
+    },
+    {
+      "seed": 33,
+      "flights": 20,
+      "energy": 72.92145964530171,
+      "makespan": 10669.569964327538,
+      "weighted_tardiness": 263623.4875822992,
+      "weighted_arrival": 3728109.053646513,
+      "hard_late": 0,
+      "types": {
+        "A": 6,
+        "B": 7,
+        "C": 7
+      }
+    },
+    {
+      "seed": 34,
+      "flights": 22,
+      "energy": 74.59634024338206,
+      "makespan": 7852.856686192743,
+      "weighted_tardiness": 122516.5814767695,
+      "weighted_arrival": 3124518.5416201847,
+      "hard_late": 0,
+      "types": {
+        "A": 9,
+        "B": 7,
+        "C": 6
+      }
+    }
+  ],
+  "iterations": 400,
+  "baseline": {
+    "flights": 20,
+    "energy": 70.87845140281931,
+    "makespan": 9312.163826699873,
+    "weighted_tardiness": 52467.277412612435,
+    "weighted_arrival": 3050187.9545284184,
+    "hard_late": 0,
+    "types": {
+      "A": 7,
+      "B": 6,
+      "C": 7
+    }
+  },
+  "final": {
+    "flights": 27,
+    "energy": 84.29916168782987,
+    "makespan": 9094.592418392316,
+    "weighted_tardiness": 20331.277412612435,
+    "weighted_arrival": 3083298.0180212683,
+    "hard_late": 0,
+    "types": {
+      "A": 11,
+      "B": 9,
+      "C": 7
+    }
+  },
+  "seed": 84217,
+  "global_optimal": false
+}
