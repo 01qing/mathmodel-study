@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "frozen_files_checked": 41,
+  "frozen_mismatches": [],
+  "source_text_files_checked": 20,
+  "source_mismatches": [],
+  "review_files": 10,
+  "new_scoped_check_files": 4,
+  "reference_links_broken": [],
+  "workspace_validator": "[PASS] learning workspace is valid",
+  "papers_full_text_reviewed": 10,
+  "author_full_program_reproductions": 0,
+  "core_version": "1.41.0",
+  "case_version": "v9"
+}

@@ -1,0 +1,96 @@
+{
+  "TRACE_00.json": {
+    "completed_successes": [
+      420,
+      146,
+      409
+    ],
+    "completed_payload_mbps": [
+      50.4,
+      17.52,
+      49.08
+    ],
+    "total_payload_mbps": 117.0,
+    "data_occupancy_by_concurrency_us": {
+      "0": 64879.88609039015,
+      "1": 30838.145502413623,
+      "2": 4201.060640631942,
+      "3": 80.90776656428352
+    },
+    "data_busy_union_us": 35120.11390960985,
+    "sum_node_data_airtime_us": 39482.99008337036,
+    "overlap_extra_airtime_us": 4362.876173760509,
+    "boundary": "completion counted by release in [warmup,warmup+duration]; occupancy clipped to window",
+    "note": "occupancy includes failed data, excludes ACK/DIFS; cannot substitute for successful bits"
+  },
+  "TRACE_01.json": {
+    "completed_successes": [
+      423,
+      128,
+      390
+    ],
+    "completed_payload_mbps": [
+      50.76,
+      15.36,
+      46.8
+    ],
+    "total_payload_mbps": 112.91999999999999,
+    "data_occupancy_by_concurrency_us": {
+      "0": 65176.30601140814,
+      "1": 30644.88091268131,
+      "2": 4178.813075910552
+    },
+    "data_busy_union_us": 34823.69398859186,
+    "sum_node_data_airtime_us": 39002.50706450241,
+    "overlap_extra_airtime_us": 4178.813075910548,
+    "boundary": "completion counted by release in [warmup,warmup+duration]; occupancy clipped to window",
+    "note": "occupancy includes failed data, excludes ACK/DIFS; cannot substitute for successful bits"
+  },
+  "TRACE_10.json": {
+    "completed_successes": [
+      398,
+      108,
+      425
+    ],
+    "completed_payload_mbps": [
+      47.76,
+      12.96,
+      51.0
+    ],
+    "total_payload_mbps": 111.72,
+    "data_occupancy_by_concurrency_us": {
+      "0": 65371.43220710801,
+      "1": 30178.68433523504,
+      "2": 4409.429574374808,
+      "3": 40.45388328214176
+    },
+    "data_busy_union_us": 34628.56779289199,
+    "sum_node_data_airtime_us": 39118.90513383108,
+    "overlap_extra_airtime_us": 4490.3373409390915,
+    "boundary": "completion counted by release in [warmup,warmup+duration]; occupancy clipped to window",
+    "note": "occupancy includes failed data, excludes ACK/DIFS; cannot substitute for successful bits"
+  },
+  "TRACE_11.json": {
+    "completed_successes": [
+      409,
+      114,
+      414
+    ],
+    "completed_payload_mbps": [
+      49.08,
+      13.68,
+      49.68
+    ],
+    "total_payload_mbps": 112.44,
+    "data_occupancy_by_concurrency_us": {
+      "0": 64980.801140850876,
+      "1": 31040.854234313592,
+      "2": 3978.344624835532
+    },
+    "data_busy_union_us": 35019.198859149124,
+    "sum_node_data_airtime_us": 38997.54348398466,
+    "overlap_extra_airtime_us": 3978.344624835532,
+    "boundary": "completion counted by release in [warmup,warmup+duration]; occupancy clipped to window",
+    "note": "occupancy includes failed data, excludes ACK/DIFS; cannot substitute for successful bits"
+  }
+}

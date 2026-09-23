@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "scope": "installed skill syntax and synthetic handoff integrity; no new contest problem run",
+  "checks": [
+    "fresh snapshot accepted",
+    "changed answer invalidates snapshot",
+    "previous snapshot archived",
+    "matching review accepted",
+    "unresolved major blocks PASS",
+    "changes-required review recorded",
+    "wrong review snapshot rejected",
+    "outside-case path rejected",
+    "review file cannot review itself"
+  ],
+  "skill_validation": [
+    {
+      "skill": "mathmodel-evidence",
+      "returncode": 0,
+      "output": "Skill is valid!",
+      "error": ""
+    },
+    {
+      "skill": "mathmodel-architect",
+      "returncode": 0,
+      "output": "Skill is valid!",
+      "error": ""
+    },
+    {
+      "skill": "mathmodel-reviewer",
+      "returncode": 0,
+      "output": "Skill is valid!",
+      "error": ""
+    }
+  ],
+  "workspace": "[PASS] learning workspace is valid",
+  "independent_agent_test": false
+}

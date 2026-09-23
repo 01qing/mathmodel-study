@@ -10,11 +10,11 @@
   },
   "current_focus": {
     "competition": "全国研究生数学建模竞赛",
-    "year": 2022,
-    "problem_id": "C",
+    "year": 2023,
+    "problem_id": "A",
     "question_id": null,
     "mode": "review",
-    "session_id": "20260921-local-integration"
+    "session_id": "20260922-2023A-ten-paper-completion"
   },
   "methods": {},
   "weak_points": [],
@@ -46,11 +46,8 @@
     "2024-D S013-S016：四篇Dev均完成全文/视觉/静态代码或打印附录审计，均R2；作者端到端原始数据执行链未完整复现，不宣称R3-R7。"
   ],
   "next_actions": [
-    "Use PROJECT_STATE.json for latest local state; baseline is verified v1.41 with local integration only.",
-    "2022-C retrospective delivery: verify official requirements against A/B, repair a separate revision, then study useful paper methods and produce a complete reference answer.",
-    "Preserve frozen A/B and scores. Do not call this exposed case a fresh blind test.",
-    "Locate 2023-C final evidence ZIP if needed; do not restart completed paper reading.",
-    "Only after the complete answer, select a different problem for transfer validation; preserve held-out answer boundaries."
+    "Wait for user-provided new problem; pause new paper reading.",
+    "Use installed mathmodel-architect then mathmodel-reviewer; revise and recheck; formal papers retain S0-S8."
   ],
   "current_version": "1.41.0",
   "latest_completed_paper": "S016",
@@ -71,5 +68,14 @@
     "no_user_mastery_assessment": true,
     "not_author_reproduction": true,
     "not_new_release": true
-  }
+  },
+  "local_delivery_20260922": {
+    "case": "2023-A-transfer",
+    "status": "TEN_FULL_TEXT_REVIEWS_WITH_SCOPED_CHECKS",
+    "reference_solution": "learning_output/cases/2023-A-transfer/revision_v9/REFERENCE_SOLUTION.md",
+    "papers_full_text_reviewed": 10,
+    "author_full_program_reproductions": 0,
+    "not_new_release": true
+  },
+  "local_role_workflow": "DEPLOYED_SEQUENTIAL_1.0"
 }

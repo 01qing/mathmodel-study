@@ -12,9 +12,12 @@
       "raw_layout_sha256": "fea1221bb72820e56010951b9801785eeeb07bdb8e0ced663a59a0726840c713",
       "pages_reported_by_conversion": 56,
       "original_pdf_sha256_from_user_manifest": "d33556a20cd948a1a64b448a798d7bd5199ed33e64b8b42f9c9066718709cc1a",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "56 Markdown pages, selected raw-layout, appendix static audit, formula/branch probes and four-topology simulations; original MATLAB not run",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23100070049/A23100070049.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23100070049/A23100070049_raw_layout.md",
+      "review": "paper_learning/A23100070049/REVIEW.md"
     },
     {
       "paper_id": "A23102470073",
@@ -24,9 +27,12 @@
       "raw_layout_sha256": "00117f3ee6990801850255b9b55e16002b90e3070052d58776e86a60ed03942f",
       "pages_reported_by_conversion": 58,
       "original_pdf_sha256_from_user_manifest": "aa54a343324fc710c752ea7b69e867ea0aad0718984b8e6a64bfdcc18c6168cb",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 58 pages of available Markdown/raw-layout text and appendix, formula reconstructions, timing ablations, printed-table statistics, synthetic event regressions; no original image or full author-program reproduction",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23102470073/A23102470073.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23102470073/A23102470073_raw_layout.md",
+      "review": "paper_learning/A23102470073/REVIEW.md"
     },
     {
       "paper_id": "A23102480015",
@@ -36,9 +42,12 @@
       "raw_layout_sha256": "2ebe5a9869ad0dc3942dc3305eff5853a65a0730d3dc4596ad1b6389fc2eb80f",
       "pages_reported_by_conversion": 83,
       "original_pdf_sha256_from_user_manifest": "7db2e491ea02eb7c01688033655cabb5078c01df430d7b24d236ffcbc6c5376b",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 83 pages of available converted text, appendix static audit, six Q3 scalar reconstructions, printed-table checks, timing/reward/reset/collision branch probes, four existing trace ledger audits; no original image or full author-program reproduction",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23102480015/A23102480015.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23102480015/A23102480015_raw_layout.md",
+      "review": "paper_learning/A23102480015/REVIEW.md"
     },
     {
       "paper_id": "A23102860239",
@@ -48,9 +57,12 @@
       "raw_layout_sha256": "40d814076ef39e985086a3a71b57db5e6c0153438f37bedac601dd4d1d407d4d",
       "pages_reported_by_conversion": 62,
       "original_pdf_sha256_from_user_manifest": "38d57aaa359c2dc862f4747d20e8078f40aabccab210f4bc358e70c97eb96802",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 62 pages of available converted text; missing formulas/images not reconstructed. Q2 reward-formula probes, Q4 attempt-probability closure, seven Q3 parameter-table comparisons, previous error/slot/80-existing-run audits. No full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23102860239/A23102860239.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23102860239/A23102860239_raw_layout.md",
+      "review": "paper_learning/A23102860239/REVIEW.md"
     },
     {
       "paper_id": "A23102890028",
@@ -60,9 +72,12 @@
       "raw_layout_sha256": "77c0a032b5e2b7a215998f1c12226947bfaded97d9452f6bda80b39f489350cf",
       "pages_reported_by_conversion": 89,
       "original_pdf_sha256_from_user_manifest": "1c7b883fad088a25a29c04754435150623e3b661bfbf8fa7e5f600a75a7d3e16",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 89 pages of available converted text and appendix; Q4 scalar reconstruction and calibration audit; deterministic packet-history, busy-freeze, reward and parameterized-duration probes. No original page-image inspection or full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23102890028/A23102890028.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23102890028/A23102890028_raw_layout.md",
+      "review": "paper_learning/A23102890028/REVIEW.md"
     },
     {
       "paper_id": "A23103360079",
@@ -72,9 +87,12 @@
       "raw_layout_sha256": "4300e872f35a931571158ad839a80cae20840254e3d01ee0c3a1f5ec18ca2ba1",
       "pages_reported_by_conversion": 77,
       "original_pdf_sha256_from_user_manifest": "a59d579510dd4db685d173d2d7206f77ae0a606bffe06307792c022ebb9a1825",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 77 available converted pages and appendix text. Scalar reconstructions and isolated event/operator checks; no image-pixel inspection or full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23103360079/A23103360079.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23103360079/A23103360079_raw_layout.md",
+      "review": "paper_learning/A23103360079/REVIEW.md"
     },
     {
       "paper_id": "A23103840031",
@@ -84,9 +102,12 @@
       "raw_layout_sha256": "b4de68ac720dac7fb542cd54a898e21ae4dfed0625705743250a898236ad9e44",
       "pages_reported_by_conversion": 55,
       "original_pdf_sha256_from_user_manifest": "72276b20f6a2c1e39ccd4b127977bb2ceda2dbb8c55e201d85c45db5f63306ec",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 55 available converted pages and appendix text. Scalar reconstructions and isolated event/operator checks; no image-pixel inspection or full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23103840031/A23103840031.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23103840031/A23103840031_raw_layout.md",
+      "review": "paper_learning/A23103840031/REVIEW.md"
     },
     {
       "paper_id": "A23104220005",
@@ -99,7 +120,9 @@
       "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
       "reading_scope": "All 49 Markdown pages; selected raw-layout pages; appendix static review; our bounded Python probes; no image or MATLAB reproduction",
       "award_status": "User supplied excellent-paper collection; award not independently verified",
-      "review": "paper_learning/A23104220005/REVIEW.md"
+      "review": "paper_learning/A23104220005/REVIEW.md",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23104220005/A23104220005.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23104220005/A23104220005_raw_layout.md"
     },
     {
       "paper_id": "A23104860166",
@@ -109,9 +132,12 @@
       "raw_layout_sha256": "7b71fc9bf87414c91df1061f0c6e8b350e9a6820ebf62430d436f8a6801781da",
       "pages_reported_by_conversion": 68,
       "original_pdf_sha256_from_user_manifest": "a950543026bccb49372f015c9d0f37ba23cee9086c2c4cfd91d1df8981236094",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 68 available converted pages and appendix text. Scalar reconstructions and isolated event/operator checks; no image-pixel inspection or full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23104860166/A23104860166.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23104860166/A23104860166_raw_layout.md",
+      "review": "paper_learning/A23104860166/REVIEW.md"
     },
     {
       "paper_id": "A23105330383",
@@ -121,9 +147,15 @@
       "raw_layout_sha256": "d4b2a66d213e86061909b8d111980d583e0b9aa9ccd437da533160568d95d0a2",
       "pages_reported_by_conversion": 63,
       "original_pdf_sha256_from_user_manifest": "42d4cb93c11a8aa4f65c0122c49743e7cc535075bc6292cfbac59912c532bcc3",
-      "status": "REGISTERED_NOT_READ",
-      "reading_scope": "None",
-      "award_status": "User supplied excellent-paper collection; award not independently verified"
+      "status": "FULL_MARKDOWN_REVIEW_PARTIAL_NUMERICAL_CHECKS",
+      "reading_scope": "All 63 available converted pages and appendix text. Scalar reconstructions and isolated event/operator checks; no image-pixel inspection or full author-program execution.",
+      "award_status": "User supplied excellent-paper collection; award not independently verified",
+      "markdown_repo_path": "learning_sources/2023A_markdown/A23105330383/A23105330383.md",
+      "raw_layout_repo_path": "learning_sources/2023A_markdown/A23105330383/A23105330383_raw_layout.md",
+      "review": "paper_learning/A23105330383/REVIEW.md"
     }
-  ]
+  ],
+  "portable_root": "learning_sources/2023A_markdown",
+  "path_resolution": "Prefer *_repo_path relative to project root current/; original *_path retained only as source provenance.",
+  "path_base_in_git_repository": "current/"
 }

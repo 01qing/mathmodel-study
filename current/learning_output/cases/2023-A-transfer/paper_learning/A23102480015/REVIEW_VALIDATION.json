@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "full_text_pages": 83,
+  "full_author_reproduction": false,
+  "frozen_files_verified": 41,
+  "registry_full_reviews": 4,
+  "current_solution": "learning_output/cases/2023-A-transfer/revision_v6/REFERENCE_SOLUTION.md",
+  "next_paper": "A23102860239",
+  "scripts": [
+    "run_checks.py:PASS",
+    "reward_ledger.py:PASS"
+  ],
+  "limitations": [
+    "converted text only; source images not inspected",
+    "Q3 S_new line truncated; not reconstructed",
+    "No full author program executed"
+  ]
+}

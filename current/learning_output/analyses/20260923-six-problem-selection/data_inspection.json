@@ -1,0 +1,4618 @@
+{
+  "pdfs": [
+    {
+      "path": "D:\\数模\\数模练习\\D题exp\\数据\\镇龙乡地理空间数据\\镇龙乡地理空间数据说明.pdf",
+      "sha256": "6d1522c6832a5d91a108dae0d07954845025c0dabd44af8ee78c7860d7c405e4",
+      "pages": 1,
+      "output": "D_镇龙乡地理空间数据说明_PDF提取.txt"
+    },
+    {
+      "path": "D:\\数模\\数模练习\\F题exp\\数据说明.pdf",
+      "sha256": "f5c851bbe4b3d8c9079609c37f2c3b0835244067711d6d761c66adeaa8357835",
+      "pages": 13,
+      "output": "F_数据说明_PDF提取.txt"
+    }
+  ],
+  "D_excel": {
+    "结果提交模板.xlsx": [
+      {
+        "sheet": "Q1_单点组批",
+        "rows": 3,
+        "cols": 9,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "架次编号",
+            "服务区编号",
+            "机型编号",
+            "货箱编号列表",
+            "总质量（kg）",
+            "总体积（m³）",
+            "往返时间（s）",
+            "架次能耗（kWh）",
+            "返航SOC（%）"
+          ]
+        ]
+      },
+      {
+        "sheet": "Q2_运输架次",
+        "rows": 3,
+        "cols": 8,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "架次编号",
+            "无人机编号",
+            "机型编号",
+            "电池编号",
+            "开始时刻（s）",
+            "访问服务区顺序",
+            "返回O01时刻（s）",
+            "架次能耗（kWh）"
+          ]
+        ]
+      },
+      {
+        "sheet": "Q2_逐箱交付",
+        "rows": 3,
+        "cols": 4,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "货箱编号",
+            "架次编号",
+            "服务区编号",
+            "交付完成时刻（s）"
+          ]
+        ]
+      },
+      {
+        "sheet": "Q3_中继架次",
+        "rows": 29,
+        "cols": 14,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "中继架次编号",
+            "中继无人机编号",
+            "能源组件编号",
+            "开始时刻（s）",
+            "悬停经度（°）",
+            "悬停纬度（°）",
+            "悬停海拔（m）",
+            "建链完成时刻（s）",
+            "服务结束时刻（s）",
+            "返回O01时刻（s）",
+            "架次能耗（kWh）",
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "sheet": "Q3_通信保障",
+        "rows": 79,
+        "cols": 23,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "运输架次编号",
+            "通信阶段",
+            "开始时刻（s）",
+            "结束时刻（s）",
+            "保障方式",
+            "中继架次编号",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      },
+      {
+        "sheet": "Q4_分区配置",
+        "rows": 58,
+        "cols": 16,
+        "nonempty_rows": 1,
+        "sample": [
+          [
+            "K（2或3）",
+            "任务组编号",
+            "服务区列表",
+            "A型运输无人机数",
+            "B型运输无人机数",
+            "C型运输无人机数",
+            "A型电池组数",
+            "B型电池组数",
+            "C型电池组数",
+            "中继无人机数",
+            "中继能源组件数",
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    ],
+    "数据\\无人机应急物资运输基础数据\\中继无人机数据.xlsx": [
+      {
+        "sheet": "数据",
+        "rows": 12,
+        "cols": 19,
+        "nonempty_rows": 10,
+        "sample": [
+          [
+            "中继机型参数",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "机型编号",
+            "机型名称",
+            "含能源组件空载总质量（kg）",
+            "中继通信模块质量（kg）",
+            "计划起飞总质量（kg）",
+            "计划巡航速度（m/s）",
+            "巡航功率（kW）",
+            "能源组件可用能量（kWh）",
+            "返航电量下限（%）",
+            "工位固定准备时间（s）",
+            "建链时间（s）",
+            "架次周转时间（s）",
+            "最大爬升速度（m/s）",
+            "最大下降速度（m/s）",
+            "爬升能耗效率",
+            "下降能耗效率",
+            "悬停功率（kW）",
+            "通信附加功率（kW）",
+            "最大悬停离地高度（m）"
+          ],
+          [
+            "R",
+            "中继标准测试多旋翼",
+            21,
+            2.5,
+            23.5,
+            15,
+            1.15,
+            3.2,
+            20,
+            180,
+            30,
+            300,
+            4,
+            3,
+            0.72,
+            0,
+            1.05,
+            0.05,
+            300
+          ],
+          [
+            "逐架中继无人机清单",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "中继无人机编号",
+            "机型编号",
+            "初始位置",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "R01",
+            "R",
+            "O01",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "R02",
+            "R",
+            "O01",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "共享能源组件库存",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    ],
+    "数据\\无人机应急物资运输基础数据\\物资需求与配送时限.xlsx": [
+      {
+        "sheet": "数据",
+        "rows": 54,
+        "cols": 9,
+        "nonempty_rows": 54,
+        "sample": [
+          [
+            "服务区编号",
+            "物资类型",
+            "总需求箱数",
+            "首批必须送达箱数",
+            "单箱质量（kg）",
+            "单箱体积（m³）",
+            "应急优先系数",
+            "首批截止时间（s）",
+            "期望送达时间（s）"
+          ],
+          [
+            "S001",
+            "医疗物资",
+            2,
+            1,
+            3,
+            0.012,
+            24,
+            3600,
+            3600
+          ],
+          [
+            "S001",
+            "饮用水",
+            8,
+            1,
+            14,
+            0.027,
+            12,
+            3600,
+            3600
+          ],
+          [
+            "S001",
+            "应急食品",
+            3,
+            0,
+            8,
+            0.028,
+            10,
+            null,
+            7200
+          ],
+          [
+            "S001",
+            "生活卫生用品",
+            2,
+            0,
+            6,
+            0.035,
+            8,
+            null,
+            10800
+          ],
+          [
+            "S002",
+            "医疗物资",
+            1,
+            1,
+            3,
+            0.012,
+            24,
+            3600,
+            3600
+          ],
+          [
+            "S002",
+            "饮用水",
+            4,
+            1,
+            14,
+            0.027,
+            12,
+            3600,
+            3600
+          ],
+          [
+            "S002",
+            "应急食品",
+            2,
+            0,
+            8,
+            0.028,
+            10,
+            null,
+            7200
+          ]
+        ]
+      },
+      {
+        "sheet": "逐箱货箱清单",
+        "rows": 81,
+        "cols": 9,
+        "nonempty_rows": 81,
+        "sample": [
+          [
+            "货箱编号",
+            "服务区编号",
+            "物资类型",
+            "单箱质量（kg）",
+            "单箱体积（m³）",
+            "是否首批保障",
+            "首批截止时间（s）",
+            "期望送达时间（s）",
+            "应急优先系数"
+          ],
+          [
+            "S001-MED-01",
+            "S001",
+            "医疗物资",
+            3,
+            0.012,
+            "是",
+            3600,
+            3600,
+            24
+          ],
+          [
+            "S001-MED-02",
+            "S001",
+            "医疗物资",
+            3,
+            0.012,
+            "否",
+            null,
+            3600,
+            24
+          ],
+          [
+            "S001-WAT-01",
+            "S001",
+            "饮用水",
+            14,
+            0.027,
+            "是",
+            3600,
+            3600,
+            12
+          ],
+          [
+            "S001-WAT-02",
+            "S001",
+            "饮用水",
+            14,
+            0.027,
+            "否",
+            null,
+            3600,
+            12
+          ],
+          [
+            "S001-WAT-03",
+            "S001",
+            "饮用水",
+            14,
+            0.027,
+            "否",
+            null,
+            3600,
+            12
+          ],
+          [
+            "S001-WAT-04",
+            "S001",
+            "饮用水",
+            14,
+            0.027,
+            "否",
+            null,
+            3600,
+            12
+          ],
+          [
+            "S001-WAT-05",
+            "S001",
+            "饮用水",
+            14,
+            0.027,
+            "否",
+            null,
+            3600,
+            12
+          ]
+        ]
+      }
+    ],
+    "数据\\无人机应急物资运输基础数据\\调度中心与服务区.xlsx": [
+      {
+        "sheet": "数据",
+        "rows": 21,
+        "cols": 6,
+        "nonempty_rows": 20,
+        "sample": [
+          [
+            "调度中心",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "调度中心编号",
+            "调度中心名称",
+            "经度（°）",
+            "纬度（°）",
+            "海拔（m）",
+            null
+          ],
+          [
+            "O01",
+            "凤丹村无人机调度中心",
+            109.2308517,
+            23.0085095,
+            127.7,
+            null
+          ],
+          [
+            "服务区",
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "服务区编号",
+            "服务区名称",
+            "经度（°）",
+            "纬度（°）",
+            "海拔（m）",
+            "本次需保障人口（人）"
+          ],
+          [
+            "S001",
+            "平旺、那龙、镇龙乡",
+            109.2432319,
+            23.0335927,
+            154,
+            2100
+          ],
+          [
+            "S002",
+            "上良",
+            109.2585519,
+            23.0703271,
+            189.5,
+            330
+          ],
+          [
+            "S003",
+            "六造、那旭、都长",
+            109.1688578,
+            23.0402714,
+            308.5,
+            275
+          ]
+        ]
+      }
+    ],
+    "数据\\无人机应急物资运输基础数据\\运输无人机数据.xlsx": [
+      {
+        "sheet": "数据",
+        "rows": 22,
+        "cols": 18,
+        "nonempty_rows": 20,
+        "sample": [
+          [
+            "三类机型参数",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "机型编号",
+            "机型名称",
+            "含电池空载总质量（kg）",
+            "最大载货质量（kg）",
+            "可用装载体积（m³）",
+            "计划巡航速度（m/s）",
+            "空载标准航程（m）",
+            "满载标准航程（m）",
+            "电池可用能量（kWh）",
+            "返航电量下限（%）",
+            "工位固定准备时间（s）",
+            "每箱装载时间（s）",
+            "接收点基础交接时间（s）",
+            "每箱增加交接时间（s）",
+            "最大爬升速度（m/s）",
+            "最大下降速度（m/s）",
+            "爬升能耗效率",
+            "下降能耗效率"
+          ],
+          [
+            "A",
+            "中轻载标准测试多旋翼",
+            70,
+            25,
+            0.06,
+            12,
+            25000,
+            20000,
+            4.5,
+            20,
+            300,
+            30,
+            150,
+            30,
+            3,
+            2.5,
+            0.72,
+            0
+          ],
+          [
+            "B",
+            "中载标准测试多旋翼",
+            65,
+            30,
+            0.073,
+            15,
+            28000,
+            16000,
+            4,
+            20,
+            300,
+            30,
+            150,
+            30,
+            3,
+            2.5,
+            0.72,
+            0
+          ],
+          [
+            "C",
+            "重载标准测试多旋翼",
+            69.9,
+            80,
+            0.25,
+            15,
+            26000,
+            12000,
+            8,
+            20,
+            300,
+            30,
+            180,
+            36,
+            2.5,
+            2,
+            0.72,
+            0
+          ],
+          [
+            "逐架无人机清单",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "无人机编号",
+            "机型编号",
+            "初始位置",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "U01",
+            "A",
+            "O01",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        ]
+      }
+    ],
+    "数据\\无人机应急物资运输基础数据\\通信链路参数.xlsx": [
+      {
+        "sheet": "数据",
+        "rows": 17,
+        "cols": 5,
+        "nonempty_rows": 16,
+        "sample": [
+          [
+            "通信系统与端点参数",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "参数类别",
+            "参数名称",
+            null,
+            "符号",
+            "参数值"
+          ],
+          [
+            "传播参数",
+            "载波频率（MHz）",
+            null,
+            "f",
+            2400
+          ],
+          [
+            "传播参数",
+            "系统损耗（dB）",
+            null,
+            "Lsys",
+            3
+          ],
+          [
+            "传播参数",
+            "地形遮挡附加损耗（dB）",
+            null,
+            "Lobs",
+            10
+          ],
+          [
+            "接收参数",
+            "接收灵敏度（dBm）",
+            null,
+            "Psens",
+            -98
+          ],
+          [
+            "接收参数",
+            "衰落裕量（dB）",
+            null,
+            "M",
+            8
+          ],
+          [
+            "运输无人机",
+            "发射功率（dBm）",
+            null,
+            "Pt",
+            20
+          ]
+        ]
+      }
+    ]
+  },
+  "A_graphs": [
+    {
+      "name": "data/case_001.json",
+      "sizes": {
+        "tensors": 1202,
+        "ops": 1001,
+        "edges": 2402
+      }
+    },
+    {
+      "name": "data/case_002.json",
+      "sizes": {
+        "tensors": 2595,
+        "ops": 2197,
+        "edges": 5392
+      }
+    },
+    {
+      "name": "data/case_003.json",
+      "sizes": {
+        "tensors": 13868,
+        "ops": 13670,
+        "edges": 36295
+      }
+    },
+    {
+      "name": "data/case_004.json",
+      "sizes": {
+        "tensors": 1116,
+        "ops": 1002,
+        "edges": 2670
+      }
+    },
+    {
+      "name": "data/case_005.json",
+      "sizes": {
+        "tensors": 4298,
+        "ops": 4209,
+        "edges": 11187
+      }
+    },
+    {
+      "name": "data/case_006.json",
+      "sizes": {
+        "tensors": 982,
+        "ops": 851,
+        "edges": 1995
+      }
+    },
+    {
+      "name": "data/case_007.json",
+      "sizes": {
+        "tensors": 5556,
+        "ops": 4998,
+        "edges": 13326
+      }
+    },
+    {
+      "name": "data/case_008.json",
+      "sizes": {
+        "tensors": 1836,
+        "ops": 1404,
+        "edges": 3348
+      }
+    },
+    {
+      "name": "data/case_009.json",
+      "sizes": {
+        "tensors": 6376,
+        "ops": 6058,
+        "edges": 15754
+      }
+    },
+    {
+      "name": "data/case_010.json",
+      "sizes": {
+        "tensors": 889,
+        "ops": 796,
+        "edges": 1899
+      }
+    },
+    {
+      "name": "data/case_011.json",
+      "sizes": {
+        "tensors": 1056,
+        "ops": 880,
+        "edges": 2448
+      }
+    },
+    {
+      "name": "data/case_012.json",
+      "sizes": {
+        "tensors": 1555,
+        "ops": 1304,
+        "edges": 3131
+      }
+    },
+    {
+      "name": "data/case_013.json",
+      "sizes": {
+        "tensors": 4190,
+        "ops": 3202,
+        "edges": 8126
+      }
+    },
+    {
+      "name": "data/case_014.json",
+      "sizes": {
+        "tensors": 40287,
+        "ops": 38666,
+        "edges": 108272
+      }
+    },
+    {
+      "name": "data/case_015.json",
+      "sizes": {
+        "tensors": 1501,
+        "ops": 1290,
+        "edges": 3107
+      }
+    },
+    {
+      "name": "data/case_016.json",
+      "sizes": {
+        "tensors": 18020,
+        "ops": 18008,
+        "edges": 43019
+      }
+    },
+    {
+      "name": "data/case_017.json",
+      "sizes": {
+        "tensors": 2015,
+        "ops": 1758,
+        "edges": 4245
+      }
+    },
+    {
+      "name": "data/case_018.json",
+      "sizes": {
+        "tensors": 3717,
+        "ops": 3285,
+        "edges": 8718
+      }
+    },
+    {
+      "name": "data/case_019.json",
+      "sizes": {
+        "tensors": 854,
+        "ops": 766,
+        "edges": 1841
+      }
+    },
+    {
+      "name": "data/case_020.json",
+      "sizes": {
+        "tensors": 7872,
+        "ops": 7584,
+        "edges": 18048
+      }
+    },
+    {
+      "name": "data/case_021.json",
+      "sizes": {
+        "tensors": 4900,
+        "ops": 4450,
+        "edges": 12820
+      }
+    },
+    {
+      "name": "data/case_022.json",
+      "sizes": {
+        "tensors": 1705,
+        "ops": 1567,
+        "edges": 3720
+      }
+    },
+    {
+      "name": "data/case_023.json",
+      "sizes": {
+        "tensors": 1336,
+        "ops": 1202,
+        "edges": 2869
+      }
+    },
+    {
+      "name": "data/case_024.json",
+      "sizes": {
+        "tensors": 5984,
+        "ops": 5972,
+        "edges": 14255
+      }
+    },
+    {
+      "name": "data/case_025.json",
+      "sizes": {
+        "tensors": 26666,
+        "ops": 23997,
+        "edges": 63990
+      }
+    },
+    {
+      "name": "data/case_026.json",
+      "sizes": {
+        "tensors": 871,
+        "ops": 769,
+        "edges": 1849
+      }
+    },
+    {
+      "name": "data/case_027.json",
+      "sizes": {
+        "tensors": 2160,
+        "ops": 1800,
+        "edges": 5024
+      }
+    },
+    {
+      "name": "data/case_028.json",
+      "sizes": {
+        "tensors": 20151,
+        "ops": 19944,
+        "edges": 51822
+      }
+    },
+    {
+      "name": "data/case_029.json",
+      "sizes": {
+        "tensors": 1281,
+        "ops": 1113,
+        "edges": 2772
+      }
+    },
+    {
+      "name": "data/case_030.json",
+      "sizes": {
+        "tensors": 11940,
+        "ops": 11248,
+        "edges": 30954
+      }
+    },
+    {
+      "name": "data/case_031.json",
+      "sizes": {
+        "tensors": 7365,
+        "ops": 6805,
+        "edges": 18435
+      }
+    },
+    {
+      "name": "data/case_032.json",
+      "sizes": {
+        "tensors": 1186,
+        "ops": 1035,
+        "edges": 2469
+      }
+    },
+    {
+      "name": "data/case_033.json",
+      "sizes": {
+        "tensors": 4572,
+        "ops": 4069,
+        "edges": 11073
+      }
+    },
+    {
+      "name": "data/case_034.json",
+      "sizes": {
+        "tensors": 5144,
+        "ops": 4545,
+        "edges": 11907
+      }
+    },
+    {
+      "name": "data/case_035.json",
+      "sizes": {
+        "tensors": 4538,
+        "ops": 4237,
+        "edges": 10712
+      }
+    },
+    {
+      "name": "data/case_036.json",
+      "sizes": {
+        "tensors": 4802,
+        "ops": 4001,
+        "edges": 9602
+      }
+    },
+    {
+      "name": "data/case_037.json",
+      "sizes": {
+        "tensors": 1160,
+        "ops": 980,
+        "edges": 2740
+      }
+    },
+    {
+      "name": "data/case_038.json",
+      "sizes": {
+        "tensors": 7649,
+        "ops": 6843,
+        "edges": 18941
+      }
+    },
+    {
+      "name": "data/case_039.json",
+      "sizes": {
+        "tensors": 6612,
+        "ops": 5966,
+        "edges": 17182
+      }
+    },
+    {
+      "name": "data/case_040.json",
+      "sizes": {
+        "tensors": 3647,
+        "ops": 3381,
+        "edges": 8621
+      }
+    },
+    {
+      "name": "data/case_041.json",
+      "sizes": {
+        "tensors": 19210,
+        "ops": 18149,
+        "edges": 51024
+      }
+    },
+    {
+      "name": "data/case_042.json",
+      "sizes": {
+        "tensors": 5853,
+        "ops": 5345,
+        "edges": 14855
+      }
+    },
+    {
+      "name": "data/case_043.json",
+      "sizes": {
+        "tensors": 10140,
+        "ops": 9756,
+        "edges": 25867
+      }
+    },
+    {
+      "name": "data/case_044.json",
+      "sizes": {
+        "tensors": 1497,
+        "ops": 1436,
+        "edges": 3686
+      }
+    },
+    {
+      "name": "data/case_045.json",
+      "sizes": {
+        "tensors": 1855,
+        "ops": 1787,
+        "edges": 4253
+      }
+    },
+    {
+      "name": "data/case_046.json",
+      "sizes": {
+        "tensors": 1116,
+        "ops": 1058,
+        "edges": 2708
+      }
+    },
+    {
+      "name": "data/case_047.json",
+      "sizes": {
+        "tensors": 14259,
+        "ops": 13988,
+        "edges": 37206
+      }
+    },
+    {
+      "name": "data/case_048.json",
+      "sizes": {
+        "tensors": 2069,
+        "ops": 1900,
+        "edges": 4961
+      }
+    },
+    {
+      "name": "data/case_049.json",
+      "sizes": {
+        "tensors": 4609,
+        "ops": 4465,
+        "edges": 11684
+      }
+    },
+    {
+      "name": "data/case_050.json",
+      "sizes": {
+        "tensors": 4969,
+        "ops": 4781,
+        "edges": 12462
+      }
+    },
+    {
+      "name": "data/case_051.json",
+      "sizes": {
+        "tensors": 1441,
+        "ops": 1429,
+        "edges": 3398
+      }
+    },
+    {
+      "name": "data/case_052.json",
+      "sizes": {
+        "tensors": 1606,
+        "ops": 1347,
+        "edges": 3272
+      }
+    },
+    {
+      "name": "data/case_053.json",
+      "sizes": {
+        "tensors": 12377,
+        "ops": 12046,
+        "edges": 31833
+      }
+    },
+    {
+      "name": "data/case_054.json",
+      "sizes": {
+        "tensors": 16484,
+        "ops": 16133,
+        "edges": 42855
+      }
+    },
+    {
+      "name": "data/case_055.json",
+      "sizes": {
+        "tensors": 1641,
+        "ops": 1468,
+        "edges": 3467
+      }
+    },
+    {
+      "name": "data/case_056.json",
+      "sizes": {
+        "tensors": 8157,
+        "ops": 7936,
+        "edges": 20894
+      }
+    },
+    {
+      "name": "data/case_057.json",
+      "sizes": {
+        "tensors": 1180,
+        "ops": 1053,
+        "edges": 2563
+      }
+    },
+    {
+      "name": "data/case_058.json",
+      "sizes": {
+        "tensors": 18942,
+        "ops": 17886,
+        "edges": 52347
+      }
+    },
+    {
+      "name": "data/case_059.json",
+      "sizes": {
+        "tensors": 3520,
+        "ops": 3168,
+        "edges": 9088
+      }
+    },
+    {
+      "name": "data/case_060.json",
+      "sizes": {
+        "tensors": 6752,
+        "ops": 6086,
+        "edges": 16435
+      }
+    },
+    {
+      "name": "data/case_061.json",
+      "sizes": {
+        "tensors": 1709,
+        "ops": 1450,
+        "edges": 3505
+      }
+    },
+    {
+      "name": "data/case_062.json",
+      "sizes": {
+        "tensors": 28361,
+        "ops": 23999,
+        "edges": 58906
+      }
+    },
+    {
+      "name": "data/case_063.json",
+      "sizes": {
+        "tensors": 10629,
+        "ops": 8995,
+        "edges": 22078
+      }
+    },
+    {
+      "name": "data/case_064.json",
+      "sizes": {
+        "tensors": 1034,
+        "ops": 972,
+        "edges": 2550
+      }
+    },
+    {
+      "name": "data/case_065.json",
+      "sizes": {
+        "tensors": 1067,
+        "ops": 914,
+        "edges": 2164
+      }
+    },
+    {
+      "name": "data/case_066.json",
+      "sizes": {
+        "tensors": 6362,
+        "ops": 6181,
+        "edges": 16324
+      }
+    },
+    {
+      "name": "data/case_067.json",
+      "sizes": {
+        "tensors": 9117,
+        "ops": 8996,
+        "edges": 23246
+      }
+    },
+    {
+      "name": "data/case_068.json",
+      "sizes": {
+        "tensors": 6260,
+        "ops": 5853,
+        "edges": 15148
+      }
+    },
+    {
+      "name": "data/case_069.json",
+      "sizes": {
+        "tensors": 1110,
+        "ops": 1074,
+        "edges": 2844
+      }
+    },
+    {
+      "name": "data/case_070.json",
+      "sizes": {
+        "tensors": 1630,
+        "ops": 1437,
+        "edges": 3424
+      }
+    },
+    {
+      "name": "data/case_071.json",
+      "sizes": {
+        "tensors": 816,
+        "ops": 781,
+        "edges": 2063
+      }
+    },
+    {
+      "name": "data/case_072.json",
+      "sizes": {
+        "tensors": 32624,
+        "ops": 31387,
+        "edges": 88639
+      }
+    },
+    {
+      "name": "data/case_073.json",
+      "sizes": {
+        "tensors": 5053,
+        "ops": 4964,
+        "edges": 12814
+      }
+    },
+    {
+      "name": "data/case_074.json",
+      "sizes": {
+        "tensors": 4833,
+        "ops": 4269,
+        "edges": 11541
+      }
+    },
+    {
+      "name": "data/case_075.json",
+      "sizes": {
+        "tensors": 7953,
+        "ops": 7684,
+        "edges": 20378
+      }
+    },
+    {
+      "name": "data/case_076.json",
+      "sizes": {
+        "tensors": 36815,
+        "ops": 35076,
+        "edges": 99916
+      }
+    },
+    {
+      "name": "data/case_077.json",
+      "sizes": {
+        "tensors": 5208,
+        "ops": 4872,
+        "edges": 12652
+      }
+    },
+    {
+      "name": "data/case_078.json",
+      "sizes": {
+        "tensors": 1156,
+        "ops": 1094,
+        "edges": 2812
+      }
+    },
+    {
+      "name": "data/case_079.json",
+      "sizes": {
+        "tensors": 21252,
+        "ops": 20130,
+        "edges": 58980
+      }
+    },
+    {
+      "name": "data/case_080.json",
+      "sizes": {
+        "tensors": 1674,
+        "ops": 1395,
+        "edges": 3888
+      }
+    },
+    {
+      "name": "data/case_081.json",
+      "sizes": {
+        "tensors": 5185,
+        "ops": 4505,
+        "edges": 11220
+      }
+    },
+    {
+      "name": "data/case_082.json",
+      "sizes": {
+        "tensors": 4298,
+        "ops": 4209,
+        "edges": 11187
+      }
+    },
+    {
+      "name": "data/case_083.json",
+      "sizes": {
+        "tensors": 4037,
+        "ops": 3956,
+        "edges": 10206
+      }
+    },
+    {
+      "name": "data/case_084.json",
+      "sizes": {
+        "tensors": 18309,
+        "ops": 14001,
+        "edges": 33387
+      }
+    },
+    {
+      "name": "data/case_085.json",
+      "sizes": {
+        "tensors": 20240,
+        "ops": 19993,
+        "edges": 53243
+      }
+    },
+    {
+      "name": "data/case_086.json",
+      "sizes": {
+        "tensors": 5462,
+        "ops": 5372,
+        "edges": 14290
+      }
+    },
+    {
+      "name": "data/case_087.json",
+      "sizes": {
+        "tensors": 29569,
+        "ops": 28666,
+        "edges": 77339
+      }
+    },
+    {
+      "name": "data/case_088.json",
+      "sizes": {
+        "tensors": 3811,
+        "ops": 3577,
+        "edges": 9270
+      }
+    },
+    {
+      "name": "data/case_089.json",
+      "sizes": {
+        "tensors": 5348,
+        "ops": 5254,
+        "edges": 13628
+      }
+    },
+    {
+      "name": "data/case_090.json",
+      "sizes": {
+        "tensors": 1811,
+        "ops": 1744,
+        "edges": 4502
+      }
+    },
+    {
+      "name": "data/case_091.json",
+      "sizes": {
+        "tensors": 34927,
+        "ops": 33497,
+        "edges": 96492
+      }
+    },
+    {
+      "name": "data/case_092.json",
+      "sizes": {
+        "tensors": 18134,
+        "ops": 17942,
+        "edges": 46392
+      }
+    },
+    {
+      "name": "data/case_093.json",
+      "sizes": {
+        "tensors": 1181,
+        "ops": 901,
+        "edges": 2285
+      }
+    },
+    {
+      "name": "data/case_094.json",
+      "sizes": {
+        "tensors": 895,
+        "ops": 791,
+        "edges": 1925
+      }
+    },
+    {
+      "name": "data/case_095.json",
+      "sizes": {
+        "tensors": 7854,
+        "ops": 6006,
+        "edges": 14322
+      }
+    },
+    {
+      "name": "data/case_096.json",
+      "sizes": {
+        "tensors": 1476,
+        "ops": 1362,
+        "edges": 3200
+      }
+    },
+    {
+      "name": "data/case_097.json",
+      "sizes": {
+        "tensors": 8320,
+        "ops": 7488,
+        "edges": 21568
+      }
+    },
+    {
+      "name": "data/case_098.json",
+      "sizes": {
+        "tensors": 1700,
+        "ops": 1553,
+        "edges": 3615
+      }
+    },
+    {
+      "name": "data/case_099.json",
+      "sizes": {
+        "tensors": 7610,
+        "ops": 7054,
+        "edges": 19599
+      }
+    },
+    {
+      "name": "data/case_100.json",
+      "sizes": {
+        "tensors": 1825,
+        "ops": 1654,
+        "edges": 4014
+      }
+    }
+  ],
+  "A_sample": {
+    "tensors": [
+      {
+        "id": 1000000000,
+        "pos": "DDR",
+        "size": 1152
+      },
+      {
+        "id": 1000000001,
+        "pos": "L1",
+        "size": 1152
+      }
+    ],
+    "ops": [
+      {
+        "id": 1,
+        "op": "COPY_IN",
+        "pipe": "PIPE_MTE2",
+        "cycles": 0
+      },
+      {
+        "id": 2,
+        "op": "COPY_IN",
+        "pipe": "PIPE_MTE2",
+        "cycles": 0
+      }
+    ],
+    "edges": [
+      {
+        "source": 1000000000,
+        "target": 1
+      },
+      {
+        "source": 1,
+        "target": 1000000001
+      }
+    ]
+  },
+  "B_excel": {
+    "附件1.xlsx": [
+      {
+        "sheet": "参数清单",
+        "rows": 61,
+        "cols": 5,
+        "nonempty_rows": 61,
+        "sample": [
+          [
+            "参数类别",
+            "参数名称",
+            "默认值或表达式",
+            "单位",
+            "说明"
+          ],
+          [
+            "几何参数",
+            "燃料电池活化面积",
+            25,
+            "cm^2",
+            "用于电流/电流密度换算和电池面积设定"
+          ],
+          [
+            "几何参数",
+            "端板厚度",
+            "0.01",
+            "m",
+            "电堆两端的端板厚度"
+          ],
+          [
+            "几何参数",
+            "阳极双极板厚度",
+            0.002,
+            "m",
+            "阳极侧 BP 厚度"
+          ],
+          [
+            "几何参数",
+            "阴极双极板厚度",
+            0.002,
+            "m",
+            "阴极侧 BP 厚度"
+          ],
+          [
+            "几何参数",
+            "阳极 GDL 厚度",
+            0.00015,
+            "m",
+            "阳极气体扩散层厚度"
+          ],
+          [
+            "几何参数",
+            "阴极 GDL 厚度",
+            0.00015,
+            "m",
+            "阴极气体扩散层厚度"
+          ],
+          [
+            "几何参数",
+            "阳极 CL 厚度",
+            3.4e-06,
+            "m",
+            "阳极催化层厚度"
+          ]
+        ]
+      }
+    ],
+    "附件2.xlsx": [
+      {
+        "sheet": "-20℃",
+        "rows": 186,
+        "cols": 5,
+        "nonempty_rows": 186,
+        "sample": [
+          [
+            "启动温度为-20℃",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "时间 / s",
+            "电流 / A",
+            "电压 / V",
+            "单电池平均温度/℃",
+            "电流密度 / A·cm-2"
+          ],
+          [
+            0,
+            2,
+            0.799,
+            -19.99535477911209,
+            0.006
+          ],
+          [
+            0.2,
+            2.1,
+            0.799,
+            -19.99535477911209,
+            0.006
+          ],
+          [
+            0.4,
+            2,
+            0.8,
+            -19.993905207799145,
+            0.007
+          ],
+          [
+            0.6,
+            2,
+            0.8,
+            -19.992502715071993,
+            0.007
+          ],
+          [
+            0.8,
+            2.1,
+            0.8,
+            -19.99106601796501,
+            0.006
+          ],
+          [
+            1,
+            2,
+            0.8,
+            -19.98963334868654,
+            0.006
+          ]
+        ]
+      },
+      {
+        "sheet": "-25℃",
+        "rows": 186,
+        "cols": 5,
+        "nonempty_rows": 186,
+        "sample": [
+          [
+            "启动温度为-25℃",
+            null,
+            null,
+            null,
+            null
+          ],
+          [
+            "时间/s",
+            "电流/A",
+            "电压 /V",
+            "单电池平均温度/℃",
+            "电流密度/A cm-2"
+          ],
+          [
+            0,
+            2,
+            0.799,
+            -24.995416484688832,
+            0.006600660066006601
+          ],
+          [
+            0.2,
+            2.1,
+            0.799,
+            -24.995416484688832,
+            0.006930693069306931
+          ],
+          [
+            0.4,
+            2,
+            0.799,
+            -24.993965296107348,
+            0.006600660066006601
+          ],
+          [
+            0.6,
+            2,
+            0.799,
+            -24.992561301065223,
+            0.006600660066006601
+          ],
+          [
+            0.8,
+            2.1,
+            0.799,
+            -24.991122981626773,
+            0.006930693069306931
+          ],
+          [
+            1,
+            2,
+            0.8,
+            -24.989688730460614,
+            0.006600660066006601
+          ]
+        ]
+      }
+    ]
+  },
+  "C_mat": {
+    "VisualCogA_Task-1.mat": {
+      "vars": [
+        [
+          "SampleRate",
+          [
+            1,
+            1
+          ],
+          "double"
+        ],
+        [
+          "DataLabel",
+          [
+            10,
+            1
+          ],
+          "cell"
+        ],
+        [
+          "data",
+          [
+            10,
+            223845
+          ],
+          "double"
+        ]
+      ],
+      "values": {
+        "SampleRate": {
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "uint16"
+        },
+        "DataLabel": {
+          "shape": [
+            10,
+            1
+          ],
+          "dtype": "object"
+        },
+        "data": {
+          "shape": [
+            10,
+            223845
+          ],
+          "dtype": "float64",
+          "finite_fraction": 1.0,
+          "visual_events": {
+            "-1.0": 2817,
+            "0.0": 218632,
+            "1.0": 2396
+          },
+          "response_events": {
+            "-1.0": 16215,
+            "0.0": 194167,
+            "1.0": 13463
+          }
+        }
+      }
+    },
+    "VisualCogA_Task-2.mat": {
+      "vars": [
+        [
+          "SampleRate",
+          [
+            1,
+            1
+          ],
+          "double"
+        ],
+        [
+          "DataLabel",
+          [
+            10,
+            1
+          ],
+          "cell"
+        ],
+        [
+          "data",
+          [
+            10,
+            230157
+          ],
+          "double"
+        ]
+      ],
+      "values": {
+        "SampleRate": {
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "uint16"
+        },
+        "DataLabel": {
+          "shape": [
+            10,
+            1
+          ],
+          "dtype": "object"
+        },
+        "data": {
+          "shape": [
+            10,
+            230157
+          ],
+          "dtype": "float64",
+          "finite_fraction": 1.0,
+          "visual_events": {
+            "-1.0": 2973,
+            "0.0": 224942,
+            "1.0": 2242
+          },
+          "response_events": {
+            "-2.0": 48,
+            "-1.0": 17626,
+            "0.0": 194200,
+            "1.0": 18231,
+            "2.0": 52
+          }
+        }
+      }
+    },
+    "VisualCogB_Task-1.mat": {
+      "vars": [
+        [
+          "SampleRate",
+          [
+            1,
+            1
+          ],
+          "double"
+        ],
+        [
+          "DataLabel",
+          [
+            10,
+            1
+          ],
+          "cell"
+        ],
+        [
+          "data",
+          [
+            10,
+            223005
+          ],
+          "double"
+        ]
+      ],
+      "values": {
+        "SampleRate": {
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "uint16"
+        },
+        "DataLabel": {
+          "shape": [
+            10,
+            1
+          ],
+          "dtype": "object"
+        },
+        "data": {
+          "shape": [
+            10,
+            223005
+          ],
+          "dtype": "float64",
+          "finite_fraction": 1.0,
+          "visual_events": {
+            "-1.0": 2506,
+            "0.0": 217787,
+            "1.0": 2712
+          },
+          "response_events": {
+            "-1.0": 13919,
+            "0.0": 194154,
+            "1.0": 14932
+          }
+        }
+      }
+    },
+    "VisualCogB_Task-2.mat": {
+      "vars": [
+        [
+          "SampleRate",
+          [
+            1,
+            1
+          ],
+          "double"
+        ],
+        [
+          "DataLabel",
+          [
+            10,
+            1
+          ],
+          "cell"
+        ],
+        [
+          "data",
+          [
+            10,
+            228330
+          ],
+          "double"
+        ]
+      ],
+      "values": {
+        "SampleRate": {
+          "shape": [
+            1,
+            1
+          ],
+          "dtype": "uint16"
+        },
+        "DataLabel": {
+          "shape": [
+            10,
+            1
+          ],
+          "dtype": "object"
+        },
+        "data": {
+          "shape": [
+            10,
+            228330
+          ],
+          "dtype": "float64",
+          "finite_fraction": 1.0,
+          "visual_events": {
+            "-1.0": 2612,
+            "0.0": 223107,
+            "1.0": 2611
+          },
+          "response_events": {
+            "-2.0": 46,
+            "-1.0": 16223,
+            "0.0": 194203,
+            "1.0": 17804,
+            "2.0": 54
+          }
+        }
+      }
+    }
+  },
+  "D_mat": {
+    "镇龙乡及周边30米DEM.mat": [
+      [
+        "dem",
+        [
+          1309,
+          1486
+        ],
+        "single"
+      ],
+      [
+        "epsg_code",
+        [
+          1,
+          1
+        ],
+        "double"
+      ],
+      [
+        "latitude",
+        [
+          1309,
+          1
+        ],
+        "double"
+      ],
+      [
+        "longitude",
+        [
+          1,
+          1486
+        ],
+        "double"
+      ],
+      [
+        "nodata",
+        [
+          1,
+          1
+        ],
+        "single"
+      ],
+      [
+        "transform",
+        [
+          1,
+          6
+        ],
+        "double"
+      ]
+    ],
+    "镇龙乡及周边村镇点位.mat": {
+      "error": "Please use HDF reader for matlab v7.3 files, e.g. h5py"
+    },
+    "镇龙乡及周边水体.mat": {
+      "error": "Please use HDF reader for matlab v7.3 files, e.g. h5py"
+    },
+    "镇龙乡及周边水系.mat": {
+      "error": "Please use HDF reader for matlab v7.3 files, e.g. h5py"
+    },
+    "镇龙乡及周边道路.mat": {
+      "error": "Please use HDF reader for matlab v7.3 files, e.g. h5py"
+    }
+  },
+  "D_DEM_error": "No module named 'rasterio'",
+  "F_csv": {
+    "real_attachments\\attachment_size_summary.csv": {
+      "rows": 2012,
+      "columns": [
+        "file",
+        "bytes",
+        "MB",
+        "GB"
+      ],
+      "sample": [
+        {
+          "file": "A_data_value/domain_mapping_guide.csv",
+          "bytes": "1296",
+          "MB": "0.001",
+          "GB": "0.000001"
+        },
+        {
+          "file": "A_data_value/regmix_domain_sample.jsonl.xz",
+          "bytes": "165293312",
+          "MB": "165.293",
+          "GB": "0.165293"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\domain_mapping_guide.csv": {
+      "rows": 17,
+      "columns": [
+        "mixture_domain",
+        "quality_domain",
+        "mapping_type",
+        "note"
+      ],
+      "sample": [
+        {
+          "mixture_domain": "arxiv",
+          "quality_domain": "arxiv",
+          "mapping_type": "direct",
+          "note": "配方域名与质量信号域名一致"
+        },
+        {
+          "mixture_domain": "github",
+          "quality_domain": "github",
+          "mapping_type": "direct",
+          "note": "配方域名与质量信号域名一致"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_domain_summary.csv": {
+      "rows": 17,
+      "columns": [
+        "domain",
+        "source_path",
+        "sample_rows",
+        "sample_bytes_requested",
+        "avg_text_chars"
+      ],
+      "sample": [
+        {
+          "domain": "arxiv",
+          "source_path": "valid/arxiv-0-93015664.jsonl",
+          "sample_rows": "1719",
+          "sample_bytes_requested": "83886080",
+          "avg_text_chars": "47031.44"
+        },
+        {
+          "domain": "dm_mathematics",
+          "source_path": "valid/dm_mathematics-0-34933789.jsonl",
+          "sample_rows": "1922",
+          "sample_bytes_requested": "83886080",
+          "avg_text_chars": "8194.0"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\cerebras_training_log.csv": {
+      "rows": 1029,
+      "columns": [
+        "run_id",
+        "N_params_B",
+        "D_tokens_B",
+        "C_FLOPs_1e21",
+        "steps",
+        "batch_tokens_M",
+        "lr",
+        "wd",
+        "precision",
+        "gpu_days",
+        "step_time_ms",
+        "train_loss",
+        "val_loss",
+        "ppl",
+        "grad_norm_avg"
+      ],
+      "sample": [
+        {
+          "run_id": "cerebras_0.111B",
+          "N_params_B": "0.111",
+          "D_tokens_B": "14.000",
+          "C_FLOPs_1e21": "0.009548",
+          "steps": "1000",
+          "batch_tokens_M": "14.3",
+          "lr": "6e-4",
+          "wd": "0.1",
+          "precision": "bf16",
+          "gpu_days": "",
+          "step_time_ms": "",
+          "train_loss": "6.5040",
+          "val_loss": "6.4979",
+          "ppl": "663.77",
+          "grad_norm_avg": ""
+        },
+        {
+          "run_id": "cerebras_0.111B",
+          "N_params_B": "0.111",
+          "D_tokens_B": "29.000",
+          "C_FLOPs_1e21": "0.019095",
+          "steps": "2000",
+          "batch_tokens_M": "14.3",
+          "lr": "6e-4",
+          "wd": "0.1",
+          "precision": "bf16",
+          "gpu_days": "",
+          "step_time_ms": "",
+          "train_loss": "5.8141",
+          "val_loss": "5.7942",
+          "ppl": "328.40",
+          "grad_norm_avg": ""
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\open_model_family_metadata.csv": {
+      "rows": 18,
+      "columns": [
+        "family",
+        "model_repo",
+        "config_bytes",
+        "readme_bytes",
+        "weight_file_count",
+        "weight_total_bytes",
+        "source_url",
+        "error"
+      ],
+      "sample": [
+        {
+          "family": "pythia",
+          "model_repo": "EleutherAI/pythia-14m",
+          "config_bytes": "698",
+          "readme_bytes": "10560",
+          "weight_file_count": "2",
+          "weight_total_bytes": "56303938",
+          "source_url": "https://huggingface.co/EleutherAI/pythia-14m",
+          "error": ""
+        },
+        {
+          "family": "pythia",
+          "model_repo": "EleutherAI/pythia-70m",
+          "config_bytes": "567",
+          "readme_bytes": "14256",
+          "weight_file_count": "2",
+          "weight_total_bytes": "332078951",
+          "source_url": "https://huggingface.co/EleutherAI/pythia-70m",
+          "error": ""
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\published_scaling_data.csv": {
+      "rows": 44,
+      "columns": [
+        "family",
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "source",
+        "is_converged"
+      ],
+      "sample": [
+        {
+          "family": "GPT-2",
+          "N_params_B": "1.5",
+          "D_tokens_B": "10",
+          "val_loss": "2.906",
+          "source": "Kaplan et al. 2020",
+          "is_converged": "1"
+        },
+        {
+          "family": "GPT-3",
+          "N_params_B": "0.125",
+          "D_tokens_B": "300",
+          "val_loss": "2.761",
+          "source": "Kaplan et al. 2020",
+          "is_converged": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\pythia_checkpoint_index.csv": {
+      "rows": 1386,
+      "columns": [
+        "model_repo",
+        "model_size",
+        "step",
+        "branch",
+        "commit"
+      ],
+      "sample": [
+        {
+          "model_repo": "EleutherAI/pythia-14m",
+          "model_size": "14m",
+          "step": "142000",
+          "branch": "step142000",
+          "commit": "cca39af689139d049aedf10206e932638f19679a"
+        },
+        {
+          "model_repo": "EleutherAI/pythia-14m",
+          "model_size": "14m",
+          "step": "141000",
+          "branch": "step141000",
+          "commit": "37d03d13381a010ede721945b18170e2f61b0f95"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\pythia_training_log_existing.csv": {
+      "rows": 1176,
+      "columns": [
+        "run_id",
+        "N_params_B",
+        "D_tokens_B",
+        "C_FLOPs_1e21",
+        "steps",
+        "batch_tokens_M",
+        "lr",
+        "wd",
+        "precision",
+        "gpu_days",
+        "step_time_ms",
+        "train_loss",
+        "val_loss",
+        "ppl",
+        "grad_norm_avg"
+      ],
+      "sample": [
+        {
+          "run_id": "8",
+          "N_params_B": "0.070542",
+          "D_tokens_B": "0.134",
+          "C_FLOPs_1e21": "0.0001",
+          "steps": "64",
+          "batch_tokens_M": "2.09",
+          "lr": "0.000318",
+          "wd": "0.088",
+          "precision": "bf16",
+          "gpu_days": "0.0",
+          "step_time_ms": "100.4",
+          "train_loss": "4.4729",
+          "val_loss": "4.7388",
+          "ppl": "114.3",
+          "grad_norm_avg": "1.085"
+        },
+        {
+          "run_id": "9",
+          "N_params_B": "0.070542",
+          "D_tokens_B": "0.268",
+          "C_FLOPs_1e21": "0.0001",
+          "steps": "128",
+          "batch_tokens_M": "2.09",
+          "lr": "0.000318",
+          "wd": "0.098",
+          "precision": "fp16",
+          "gpu_days": "0.0",
+          "step_time_ms": "100.4",
+          "train_loss": "4.1411",
+          "val_loss": "4.3541",
+          "ppl": "77.8",
+          "grad_norm_avg": "0.582"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\scaling_baseline.csv": {
+      "rows": 57,
+      "columns": [
+        "family",
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "is_converged"
+      ],
+      "sample": [
+        {
+          "family": "Phi",
+          "N_params_B": "1.3",
+          "D_tokens_B": "405",
+          "val_loss": "2.5317",
+          "is_converged": "1"
+        },
+        {
+          "family": "LLaMA",
+          "N_params_B": "65.0",
+          "D_tokens_B": "11349",
+          "val_loss": "1.8828",
+          "is_converged": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\supplementary_large_baseline.csv": {
+      "rows": 128,
+      "columns": [
+        "family",
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "is_converged"
+      ],
+      "sample": [
+        {
+          "family": "Ling-flash-base-2.0-20T",
+          "N_params_B": "100.0",
+          "D_tokens_B": "20000.0",
+          "val_loss": "1.8412",
+          "is_converged": "1"
+        },
+        {
+          "family": "FaXin",
+          "N_params_B": "100.0",
+          "D_tokens_B": "3670.0",
+          "val_loss": "1.8882",
+          "is_converged": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\supplementary_large_models.csv": {
+      "rows": 132,
+      "columns": [
+        "model_name",
+        "N_params_B",
+        "D_tokens_B",
+        "FLOPs",
+        "publication_date",
+        "organization",
+        "accessibility",
+        "country"
+      ],
+      "sample": [
+        {
+          "model_name": "Ling-flash-base-2.0-20T",
+          "N_params_B": "100.0",
+          "D_tokens_B": "20000.0",
+          "FLOPs": "7.320e+23",
+          "publication_date": "2025-09-10",
+          "organization": "Ant Group",
+          "accessibility": "Open weights (unrestricted)",
+          "country": "China"
+        },
+        {
+          "model_name": "FaXin",
+          "N_params_B": "100.0",
+          "D_tokens_B": "3670.0",
+          "FLOPs": "",
+          "publication_date": "2024-11-15",
+          "organization": "",
+          "accessibility": "",
+          "country": ""
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\supplementary_NQ_experiment.csv": {
+      "rows": 360,
+      "columns": [
+        "experiment_id",
+        "N_params_B",
+        "D_tokens_B",
+        "Q_score",
+        "val_loss"
+      ],
+      "sample": [
+        {
+          "experiment_id": "N0.07_D0010_Q0.1",
+          "N_params_B": "0.07",
+          "D_tokens_B": "10",
+          "Q_score": "0.1",
+          "val_loss": "3.7216"
+        },
+        {
+          "experiment_id": "N0.07_D0010_Q0.2",
+          "N_params_B": "0.07",
+          "D_tokens_B": "10",
+          "Q_score": "0.2",
+          "val_loss": "3.6004"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\supplementary_NQ_experiment_expanded.csv": {
+      "rows": 450,
+      "columns": [
+        "experiment_id",
+        "N_params_B",
+        "D_tokens_B",
+        "Q_score",
+        "val_loss"
+      ],
+      "sample": [
+        {
+          "experiment_id": "N0.07_D0010_Q0.1",
+          "N_params_B": "0.07",
+          "D_tokens_B": "10",
+          "Q_score": "0.1",
+          "val_loss": "3.7216"
+        },
+        {
+          "experiment_id": "N0.07_D0010_Q0.2",
+          "N_params_B": "0.07",
+          "D_tokens_B": "10",
+          "Q_score": "0.2",
+          "val_loss": "3.6004"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\supplementary_NQ_experiment_large.csv": {
+      "rows": 1704,
+      "columns": [
+        "experiment_id",
+        "N_params_B",
+        "D_tokens_B",
+        "Q_score",
+        "val_loss",
+        "data_type"
+      ],
+      "sample": [
+        {
+          "experiment_id": "N0.07_D0005_Q0.05",
+          "N_params_B": "0.07",
+          "D_tokens_B": "5",
+          "Q_score": "0.05",
+          "val_loss": "1.0401",
+          "data_type": "calibrated"
+        },
+        {
+          "experiment_id": "N0.07_D0005_Q0.1",
+          "N_params_B": "0.07",
+          "D_tokens_B": "5",
+          "Q_score": "0.1",
+          "val_loss": "1.1624",
+          "data_type": "calibrated"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\epoch_all_ai_models.csv": {
+      "rows": 3523,
+      "columns": [
+        "Model",
+        "Domain",
+        "Task",
+        "Organization",
+        "Authors",
+        "Publication date",
+        "Reference",
+        "Link",
+        "Citations",
+        "Notability criteria",
+        "Notability criteria notes",
+        "Parameters",
+        "Parameters notes",
+        "Training compute (FLOP)",
+        "Training compute notes",
+        "Training dataset size (total)",
+        "Dataset size notes",
+        "Training time (hours)",
+        "Training time notes",
+        "Training hardware",
+        "Approach",
+        "Confidence",
+        "Abstract",
+        "Epochs",
+        "WikiText and Penn Treebank data",
+        "Model accessibility",
+        "Country (of organization)",
+        "Base model",
+        "Finetune compute (FLOP)",
+        "Finetune compute notes",
+        "Hardware quantity",
+        "Hardware utilization (MFU)",
+        "Last modified",
+        "Training cloud compute vendor",
+        "Training data center",
+        "Archived links",
+        "Batch size",
+        "Batch size notes",
+        "Organization categorization",
+        "Foundation model",
+        "Training compute lower bound",
+        "Training compute upper bound",
+        "Training chip-hours",
+        "Training code accessibility",
+        "Accessibility notes",
+        "Possibly over 1e23 FLOP",
+        "Training compute cost (2023 USD)",
+        "Utilization notes",
+        "Numerical format",
+        "Frontier model",
+        "Training power draw (W)",
+        "Training compute estimation method",
+        "Hugging Face developer id",
+        "Post-training compute (FLOP)",
+        "Post-training compute notes",
+        "Hardware utilization (HFU)",
+        "Open model weights?"
+      ],
+      "sample": [
+        {
+          "Model": "DeepSeek-V4-Pro",
+          "Domain": "Language",
+          "Task": "Language modeling/generation,Question answering",
+          "Organization": "DeepSeek",
+          "Authors": "",
+          "Publication date": "2026-04-24",
+          "Reference": "DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence",
+          "Link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf",
+          "Citations": "",
+          "Notability criteria": "Discretionary",
+          "Notability criteria notes": "",
+          "Parameters": "1600000000.0",
+          "Parameters notes": "1.6T total, 49B active",
+          "Training compute (FLOP)": "9.702e+24",
+          "Training compute notes": "6 * 49e9 active parameters * 33e12 tokens = 9.702E24 for pre-training",
+          "Training dataset size (total)": "",
+          "Dataset size notes": "",
+          "Training time (hours)": "",
+          "Training time notes": "",
+          "Training hardware": "",
+          "Approach": "",
+          "Confidence": "Speculative",
+          "Abstract": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-ofExperts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash with 284B parameters (13B activated) — both supporting a context length of one million tokens. DeepSeek-V4 series incorporate several key upgrades in architecture and optimization: (1) a hybrid attention architecture that combines Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) to improve long-context efficiency; (2) ManifoldConstrained Hyper-Connections (mHC) that enhance conventional residual connections; (3) and the Muon optimizer for faster convergence and greater training stability. We pre-train both models on more than 32T diverse and high-quality tokens, followed by a comprehensive post-training pipeline that unlocks and further enhances their capabilities. DeepSeek-V4-ProMax, the maximum reasoning effort mode of DeepSeek-V4-Pro, redefines the state-of-the-art for open models, outperforming its predecessors in core tasks. Meanwhile, DeepSeek-V4 series are highly efficient in long-context scenarios. In the one-million-token context setting, DeepSeekV4-Pro requires only 27% of single-token inference FLOPs and 10% of KV cache compared with DeepSeek-V3.2. This enables us to routinely support one-million-token contexts, thereby making long-horizon tasks and further test-time scaling more feasible. The model checkpoints are available at https://huggingface.co/collections/deepseek-ai/deepseek-v4.",
+          "Epochs": "",
+          "WikiText and Penn Treebank data": "",
+          "Model accessibility": "Open weights (unrestricted)",
+          "Country (of organization)": "China",
+          "Base model": "",
+          "Finetune compute (FLOP)": "",
+          "Finetune compute notes": "",
+          "Hardware quantity": "",
+          "Hardware utilization (MFU)": "",
+          "Last modified": "2026-05-05 15:39:17+00:00",
+          "Training cloud compute vendor": "",
+          "Training data center": "",
+          "Archived links": "",
+          "Batch size": "",
+          "Batch size notes": "",
+          "Organization categorization": "Industry",
+          "Foundation model": "",
+          "Training compute lower bound": "",
+          "Training compute upper bound": "",
+          "Training chip-hours": "",
+          "Training code accessibility": "",
+          "Accessibility notes": "",
+          "Possibly over 1e23 FLOP": "",
+          "Training compute cost (2023 USD)": "",
+          "Utilization notes": "",
+          "Numerical format": "",
+          "Frontier model": "",
+          "Training power draw (W)": "",
+          "Training compute estimation method": "",
+          "Hugging Face developer id": "",
+          "Post-training compute (FLOP)": "",
+          "Post-training compute notes": "",
+          "Hardware utilization (HFU)": "",
+          "Open model weights?": "Yes"
+        },
+        {
+          "Model": "DeepSeek-V4-Flash",
+          "Domain": "Language",
+          "Task": "Language modeling/generation,Question answering",
+          "Organization": "DeepSeek",
+          "Authors": "",
+          "Publication date": "2026-04-24",
+          "Reference": "DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence",
+          "Link": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf",
+          "Citations": "",
+          "Notability criteria": "Discretionary",
+          "Notability criteria notes": "",
+          "Parameters": "284000000.0",
+          "Parameters notes": "284B total, 13B active",
+          "Training compute (FLOP)": "2.496e+24",
+          "Training compute notes": "6 * 13e9 active parameters * 32e12 tokens = 2.496E24 for pre-training",
+          "Training dataset size (total)": "",
+          "Dataset size notes": "",
+          "Training time (hours)": "",
+          "Training time notes": "",
+          "Training hardware": "",
+          "Approach": "",
+          "Confidence": "Speculative",
+          "Abstract": "We present a preview version of DeepSeek-V4 series, including two strong Mixture-ofExperts (MoE) language models — DeepSeek-V4-Pro with 1.6T parameters (49B activated) and\nDeepSeek-V4-Flash with 284B parameters (13B activated) — both supporting a context length of\none million tokens. DeepSeek-V4 series incorporate several key upgrades in architecture and optimization: (1) a hybrid attention architecture that combines Compressed Sparse Attention (CSA)\nand Heavily Compressed Attention (HCA) to improve long-context efficiency; (2) ManifoldConstrained Hyper-Connections (mHC) that enhance conventional residual connections; (3)\nand the Muon optimizer for faster convergence and greater training stability. We pre-train\nboth models on more than 32T diverse and high-quality tokens, followed by a comprehensive\npost-training pipeline that unlocks and further enhances their capabilities. DeepSeek-V4-ProMax, the maximum reasoning effort mode of DeepSeek-V4-Pro, redefines the state-of-the-art for\nopen models, outperforming its predecessors in core tasks. Meanwhile, DeepSeek-V4 series are\nhighly efficient in long-context scenarios. In the one-million-token context setting, DeepSeekV4-Pro requires only 27% of single-token inference FLOPs and 10% of KV cache compared\nwith DeepSeek-V3.2. This enables us to routinely support one-million-token contexts, thereby\nmaking long-horizon tasks and further test-time scaling more feasible. The model checkpoints\nare available at https://huggingface.co/collections/deepseek-ai/deepseek-v4.\n",
+          "Epochs": "",
+          "WikiText and Penn Treebank data": "",
+          "Model accessibility": "Open weights (unrestricted)",
+          "Country (of organization)": "China",
+          "Base model": "",
+          "Finetune compute (FLOP)": "",
+          "Finetune compute notes": "",
+          "Hardware quantity": "",
+          "Hardware utilization (MFU)": "",
+          "Last modified": "2026-05-05 15:40:00+00:00",
+          "Training cloud compute vendor": "",
+          "Training data center": "",
+          "Archived links": "",
+          "Batch size": "",
+          "Batch size notes": "",
+          "Organization categorization": "Industry",
+          "Foundation model": "",
+          "Training compute lower bound": "",
+          "Training compute upper bound": "",
+          "Training chip-hours": "",
+          "Training code accessibility": "",
+          "Accessibility notes": "",
+          "Possibly over 1e23 FLOP": "",
+          "Training compute cost (2023 USD)": "",
+          "Utilization notes": "",
+          "Numerical format": "",
+          "Frontier model": "",
+          "Training power draw (W)": "",
+          "Training compute estimation method": "",
+          "Hugging Face developer id": "",
+          "Post-training compute (FLOP)": "",
+          "Post-training compute notes": "",
+          "Hardware utilization (HFU)": "",
+          "Open model weights?": "Yes"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\leaderboard_cleaned.csv": {
+      "rows": 4576,
+      "columns": [
+        "Model",
+        "#Params (B)",
+        "Submission Date",
+        "Hub License",
+        "Type",
+        "Average ⬆️",
+        "IFEval",
+        "BBH",
+        "MATH Lvl 5",
+        "GPQA",
+        "MUSR",
+        "MMLU-PRO"
+      ],
+      "sample": [
+        {
+          "Model": "0-hero/Matter-0.2-7B-DPO",
+          "#Params (B)": "7.242",
+          "Submission Date": "2024-08-05",
+          "Hub License": "apache-2.0",
+          "Type": "💬 chat models (RLHF, DPO, IFT, ...)",
+          "Average ⬆️": "8.90636130175029",
+          "IFEval": "33.02792147058693",
+          "BBH": "10.055525080241035",
+          "MATH Lvl 5": "1.4350453172205437",
+          "GPQA": "1.230425055928408",
+          "MUSR": "5.871874999999999",
+          "MMLU-PRO": "1.8173758865248217"
+        },
+        {
+          "Model": "01-ai/Yi-1.5-34B",
+          "#Params (B)": "34.389",
+          "Submission Date": "2024-06-12",
+          "Hub License": "apache-2.0",
+          "Type": "🟢 pretrained",
+          "Average ⬆️": "25.64649419429311",
+          "IFEval": "28.411725333226947",
+          "BBH": "42.74936268839652",
+          "MATH Lvl 5": "15.332326283987916",
+          "GPQA": "15.436241610738257",
+          "MUSR": "11.217187500000003",
+          "MMLU-PRO": "40.732121749408975"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\leaderboard_enhanced.csv": {
+      "rows": 4576,
+      "columns": [
+        "Model",
+        "#Params (B)",
+        "Submission Date",
+        "Hub License",
+        "Type",
+        "Average ⬆️",
+        "IFEval",
+        "BBH",
+        "MATH Lvl 5",
+        "GPQA",
+        "MUSR",
+        "MMLU-PRO",
+        "Epoch_AI_Publication_Date",
+        "Epoch_AI_Organization",
+        "Epoch_AI_Open_Weights"
+      ],
+      "sample": [
+        {
+          "Model": "0-hero/Matter-0.2-7B-DPO",
+          "#Params (B)": "7.242",
+          "Submission Date": "2024-08-05",
+          "Hub License": "apache-2.0",
+          "Type": "💬 chat models (RLHF, DPO, IFT, ...)",
+          "Average ⬆️": "8.90636130175029",
+          "IFEval": "33.02792147058693",
+          "BBH": "10.055525080241036",
+          "MATH Lvl 5": "1.4350453172205435",
+          "GPQA": "1.230425055928408",
+          "MUSR": "5.871874999999999",
+          "MMLU-PRO": "1.8173758865248215",
+          "Epoch_AI_Publication_Date": "",
+          "Epoch_AI_Organization": "",
+          "Epoch_AI_Open_Weights": ""
+        },
+        {
+          "Model": "01-ai/Yi-1.5-34B",
+          "#Params (B)": "34.389",
+          "Submission Date": "2024-06-12",
+          "Hub License": "apache-2.0",
+          "Type": "🟢 pretrained",
+          "Average ⬆️": "25.64649419429311",
+          "IFEval": "28.411725333226947",
+          "BBH": "42.74936268839652",
+          "MATH Lvl 5": "15.332326283987916",
+          "GPQA": "15.436241610738255",
+          "MUSR": "11.217187500000003",
+          "MMLU-PRO": "40.732121749408975",
+          "Epoch_AI_Publication_Date": "2024-05-13",
+          "Epoch_AI_Organization": "01.AI",
+          "Epoch_AI_Open_Weights": "Yes"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\leaderboard_extended_timeseries.csv": {
+      "rows": 4599,
+      "columns": [
+        "Model",
+        "Year",
+        "Params_B",
+        "Average",
+        "IFEval",
+        "BBH",
+        "MATH_Lvl5",
+        "GPQA",
+        "MUSR",
+        "MMLU_PRO",
+        "Source"
+      ],
+      "sample": [
+        {
+          "Model": "GPT-2 (1.5B)",
+          "Year": "2019",
+          "Params_B": "1.5",
+          "Average": "5.00",
+          "IFEval": "24.60",
+          "BBH": "0.00",
+          "MATH_Lvl5": "0.00",
+          "GPQA": "0.00",
+          "MUSR": "0.00",
+          "MMLU_PRO": "0.00",
+          "Source": "Historical (papers/reports)"
+        },
+        {
+          "Model": "GPT-3 (175B)",
+          "Year": "2020",
+          "Params_B": "175",
+          "Average": "50.00",
+          "IFEval": "29.20",
+          "BBH": "14.30",
+          "MATH_Lvl5": "0.00",
+          "GPQA": "0.00",
+          "MUSR": "0.00",
+          "MMLU_PRO": "2.50",
+          "Source": "Historical (papers/reports)"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\loss_benchmark_bridge.csv": {
+      "rows": 43,
+      "columns": [
+        "Model",
+        "N_params_B",
+        "D_tokens_B",
+        "Val_Loss",
+        "LB_Average",
+        "LB_IFEval",
+        "LB_BBH",
+        "LB_MATH",
+        "LB_GPQA",
+        "LB_MUSR",
+        "LB_MMLU_PRO",
+        "Loss_Source",
+        "Loss_Comparability"
+      ],
+      "sample": [
+        {
+          "Model": "EleutherAI/pythia-160m",
+          "N_params_B": "0.162405",
+          "D_tokens_B": "299.893",
+          "Val_Loss": "2.5978",
+          "LB_Average": "5.730394616916023",
+          "LB_IFEval": "18.155161637787735",
+          "LB_BBH": "2.198832279508135",
+          "LB_MATH": "0.906344410876133",
+          "LB_GPQA": "1.1185682326621946",
+          "LB_MUSR": "10.675520833333332",
+          "LB_MMLU_PRO": "1.3279403073286051",
+          "Loss_Source": "Pythia training log (Attachment B, final checkpoint D=299.9B tokens)",
+          "Loss_Comparability": "High (same model, same validation set)"
+        },
+        {
+          "Model": "EleutherAI/pythia-410m",
+          "N_params_B": "0.409009",
+          "D_tokens_B": "299.893",
+          "Val_Loss": "2.4209",
+          "LB_Average": "5.227072311484412",
+          "LB_IFEval": "21.954525104500505",
+          "LB_BBH": "2.7154281203357473",
+          "LB_MATH": "0.9818731117824773",
+          "LB_GPQA": "1.230425055928408",
+          "LB_MUSR": "3.0598958333333326",
+          "LB_MMLU_PRO": "1.4202866430260035",
+          "Loss_Source": "Pythia training log (Attachment B, final checkpoint D=299.9B tokens)",
+          "Loss_Comparability": "High (same model, same validation set)"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\loss_benchmark_bridge_expanded.csv": {
+      "rows": 75,
+      "columns": [
+        "Model",
+        "N_params_B",
+        "D_tokens_B",
+        "Val_Loss",
+        "LB_Average",
+        "LB_IFEval",
+        "LB_BBH",
+        "LB_MATH",
+        "LB_GPQA",
+        "LB_MUSR",
+        "LB_MMLU_PRO",
+        "Loss_Source",
+        "Loss_Comparability"
+      ],
+      "sample": [
+        {
+          "Model": "EleutherAI/pythia-160m",
+          "N_params_B": "0.162405",
+          "D_tokens_B": "299.893",
+          "Val_Loss": "2.5978",
+          "LB_Average": "5.730394616916023",
+          "LB_IFEval": "18.155161637787735",
+          "LB_BBH": "2.198832279508135",
+          "LB_MATH": "0.906344410876133",
+          "LB_GPQA": "1.1185682326621946",
+          "LB_MUSR": "10.675520833333332",
+          "LB_MMLU_PRO": "1.3279403073286051",
+          "Loss_Source": "Pythia training log (Attachment B, final checkpoint D=299.9B tokens)",
+          "Loss_Comparability": "High (same model, same validation set)"
+        },
+        {
+          "Model": "EleutherAI/pythia-410m",
+          "N_params_B": "0.409009",
+          "D_tokens_B": "299.893",
+          "Val_Loss": "2.4209",
+          "LB_Average": "5.227072311484412",
+          "LB_IFEval": "21.954525104500505",
+          "LB_BBH": "2.7154281203357473",
+          "LB_MATH": "0.9818731117824773",
+          "LB_GPQA": "1.230425055928408",
+          "LB_MUSR": "3.0598958333333326",
+          "LB_MMLU_PRO": "1.4202866430260035",
+          "Loss_Source": "Pythia training log (Attachment B, final checkpoint D=299.9B tokens)",
+          "Loss_Comparability": "High (same model, same validation set)"
+        }
+      ]
+    },
+    "real_attachments\\C_efficiency_evolution\\model_architecture_metadata.csv": {
+      "rows": 45,
+      "columns": [
+        "model_name",
+        "n_layers",
+        "n_heads",
+        "d_model",
+        "vocab_size",
+        "max_position_embeddings",
+        "training_data_TB"
+      ],
+      "sample": [
+        {
+          "model_name": "EleutherAI/pythia-70m",
+          "n_layers": "6",
+          "n_heads": "8",
+          "d_model": "512",
+          "vocab_size": "50257",
+          "max_position_embeddings": "2048",
+          "training_data_TB": "0.3"
+        },
+        {
+          "model_name": "EleutherAI/pythia-160m",
+          "n_layers": "12",
+          "n_heads": "12",
+          "d_model": "768",
+          "vocab_size": "50257",
+          "max_position_embeddings": "2048",
+          "training_data_TB": "0.3"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\est_mixture_10b.csv": {
+      "rows": 63,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.0",
+          "train_the_pile_freelaw": "0.0",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.004",
+          "train_the_pile_stackexchange": "0.0",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.209",
+          "train_the_pile_pile_cc": "0.787",
+          "train_the_pile_ubuntu_irc": "0.0",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        },
+        {
+          "index": "2",
+          "train_the_pile_arxiv": "0.025",
+          "train_the_pile_freelaw": "0.002",
+          "train_the_pile_nih_exporter": "0.05",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.047",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.304",
+          "train_the_pile_philpapers": "0.009",
+          "train_the_pile_stackexchange": "0.003",
+          "train_the_pile_enron_emails": "0.001",
+          "train_the_pile_gutenberg_pg_19": "0.103",
+          "train_the_pile_pile_cc": "0.299",
+          "train_the_pile_ubuntu_irc": "0.024",
+          "train_the_pile_europarl": "0.04",
+          "train_the_pile_hackernews": "0.09",
+          "train_the_pile_pubmed_abstracts": "0.001",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\est_mixture_70b.csv": {
+      "rows": 63,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.0",
+          "train_the_pile_freelaw": "0.0",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.004",
+          "train_the_pile_stackexchange": "0.0",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.209",
+          "train_the_pile_pile_cc": "0.787",
+          "train_the_pile_ubuntu_irc": "0.0",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        },
+        {
+          "index": "2",
+          "train_the_pile_arxiv": "0.025",
+          "train_the_pile_freelaw": "0.002",
+          "train_the_pile_nih_exporter": "0.05",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.047",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.304",
+          "train_the_pile_philpapers": "0.009",
+          "train_the_pile_stackexchange": "0.003",
+          "train_the_pile_enron_emails": "0.001",
+          "train_the_pile_gutenberg_pg_19": "0.103",
+          "train_the_pile_pile_cc": "0.299",
+          "train_the_pile_ubuntu_irc": "0.024",
+          "train_the_pile_europarl": "0.04",
+          "train_the_pile_hackernews": "0.09",
+          "train_the_pile_pubmed_abstracts": "0.001",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\est_pile_loss_10b.csv": {
+      "rows": 63,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "2.0364",
+          "metric/the_pile_freelaw_val_loss": "1.5538",
+          "metric/the_pile_pubmed_central_val_loss": "1.8945",
+          "metric/the_pile_wikipedia_en_val_loss": "1.6347",
+          "metric/the_pile_dm_mathematics_val_loss": "1.6872",
+          "metric/the_pile_github_val_loss": "1.9226",
+          "metric/the_pile_stackexchange_val_loss": "1.7704",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "1.3700",
+          "metric/the_pile_pile_cc_val_loss": "1.4984",
+          "metric/the_pile_ubuntu_irc_val_loss": "2.0940",
+          "metric/the_pile_hackernews_val_loss": "1.5093",
+          "metric/the_pile_pubmed_abstracts_val_loss": "1.7080",
+          "metric/the_pile_uspto_backgrounds_val_loss": "1.5703"
+        },
+        {
+          "index": "2",
+          "metric/the_pile_arxiv_val_loss": "1.5864",
+          "metric/the_pile_freelaw_val_loss": "1.8299",
+          "metric/the_pile_pubmed_central_val_loss": "1.9445",
+          "metric/the_pile_wikipedia_en_val_loss": "1.8164",
+          "metric/the_pile_dm_mathematics_val_loss": "1.5450",
+          "metric/the_pile_github_val_loss": "1.3866",
+          "metric/the_pile_stackexchange_val_loss": "1.6481",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "1.6586",
+          "metric/the_pile_pile_cc_val_loss": "1.7889",
+          "metric/the_pile_ubuntu_irc_val_loss": "1.7670",
+          "metric/the_pile_hackernews_val_loss": "1.6073",
+          "metric/the_pile_pubmed_abstracts_val_loss": "1.8927",
+          "metric/the_pile_uspto_backgrounds_val_loss": "1.8695"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\est_pile_loss_70b.csv": {
+      "rows": 63,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "1.5541",
+          "metric/the_pile_freelaw_val_loss": "1.1858",
+          "metric/the_pile_pubmed_central_val_loss": "1.4458",
+          "metric/the_pile_wikipedia_en_val_loss": "1.2475",
+          "metric/the_pile_dm_mathematics_val_loss": "1.2876",
+          "metric/the_pile_github_val_loss": "1.4672",
+          "metric/the_pile_stackexchange_val_loss": "1.3511",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "1.0456",
+          "metric/the_pile_pile_cc_val_loss": "1.1435",
+          "metric/the_pile_ubuntu_irc_val_loss": "1.5981",
+          "metric/the_pile_hackernews_val_loss": "1.1518",
+          "metric/the_pile_pubmed_abstracts_val_loss": "1.3035",
+          "metric/the_pile_uspto_backgrounds_val_loss": "1.1984"
+        },
+        {
+          "index": "2",
+          "metric/the_pile_arxiv_val_loss": "1.2489",
+          "metric/the_pile_freelaw_val_loss": "1.4407",
+          "metric/the_pile_pubmed_central_val_loss": "1.5309",
+          "metric/the_pile_wikipedia_en_val_loss": "1.4300",
+          "metric/the_pile_dm_mathematics_val_loss": "1.2163",
+          "metric/the_pile_github_val_loss": "1.0916",
+          "metric/the_pile_stackexchange_val_loss": "1.2975",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "1.3058",
+          "metric/the_pile_pile_cc_val_loss": "1.4084",
+          "metric/the_pile_ubuntu_irc_val_loss": "1.3911",
+          "metric/the_pile_hackernews_val_loss": "1.2654",
+          "metric/the_pile_pubmed_abstracts_val_loss": "1.4901",
+          "metric/the_pile_uspto_backgrounds_val_loss": "1.4719"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_mixture_1B.csv": {
+      "rows": 64,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "0",
+          "train_the_pile_arxiv": "0.123",
+          "train_the_pile_freelaw": "0.065",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.126",
+          "train_the_pile_wikipedia_en": "0.036",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.034",
+          "train_the_pile_philpapers": "0.0",
+          "train_the_pile_stackexchange": "0.039",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.0",
+          "train_the_pile_pile_cc": "0.27",
+          "train_the_pile_ubuntu_irc": "0.0",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.307"
+        },
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.066",
+          "train_the_pile_freelaw": "0.071",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.211",
+          "train_the_pile_wikipedia_en": "0.013",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.153",
+          "train_the_pile_philpapers": "0.033",
+          "train_the_pile_stackexchange": "0.097",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.0",
+          "train_the_pile_pile_cc": "0.101",
+          "train_the_pile_ubuntu_irc": "0.0",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.011",
+          "train_the_pile_pubmed_abstracts": "0.136",
+          "train_the_pile_uspto_backgrounds": "0.106"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_mixture_1m.csv": {
+      "rows": 256,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.08",
+          "train_the_pile_freelaw": "0.0",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.464",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.0",
+          "train_the_pile_stackexchange": "0.0",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.015",
+          "train_the_pile_pile_cc": "0.353",
+          "train_the_pile_ubuntu_irc": "0.001",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.042",
+          "train_the_pile_pubmed_abstracts": "0.039",
+          "train_the_pile_uspto_backgrounds": "0.005"
+        },
+        {
+          "index": "2",
+          "train_the_pile_arxiv": "0.035",
+          "train_the_pile_freelaw": "0.016",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.022",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.04",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.001",
+          "train_the_pile_stackexchange": "0.097",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.0",
+          "train_the_pile_pile_cc": "0.632",
+          "train_the_pile_ubuntu_irc": "0.066",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.092"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_mixture_60m.csv": {
+      "rows": 256,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.08",
+          "train_the_pile_freelaw": "0.0",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.464",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.0",
+          "train_the_pile_stackexchange": "0.0",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.015",
+          "train_the_pile_pile_cc": "0.353",
+          "train_the_pile_ubuntu_irc": "0.001",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.042",
+          "train_the_pile_pubmed_abstracts": "0.039",
+          "train_the_pile_uspto_backgrounds": "0.005"
+        },
+        {
+          "index": "2",
+          "train_the_pile_arxiv": "0.035",
+          "train_the_pile_freelaw": "0.016",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.022",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.04",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.001",
+          "train_the_pile_stackexchange": "0.097",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.0",
+          "train_the_pile_pile_cc": "0.632",
+          "train_the_pile_ubuntu_irc": "0.066",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.092"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_pile_loss_1B.csv": {
+      "rows": 64,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "0",
+          "metric/the_pile_arxiv_val_loss": "1.772475243",
+          "metric/the_pile_freelaw_val_loss": "1.929630041",
+          "metric/the_pile_pubmed_central_val_loss": "1.771565676",
+          "metric/the_pile_wikipedia_en_val_loss": "2.464135885",
+          "metric/the_pile_dm_mathematics_val_loss": "2.071599376",
+          "metric/the_pile_github_val_loss": "1.139918923",
+          "metric/the_pile_stackexchange_val_loss": "1.869868159",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "3.004983805",
+          "metric/the_pile_pile_cc_val_loss": "2.932116032",
+          "metric/the_pile_ubuntu_irc_val_loss": "2.854564877",
+          "metric/the_pile_hackernews_val_loss": "3.07279878",
+          "metric/the_pile_pubmed_abstracts_val_loss": "2.561388472",
+          "metric/the_pile_uspto_backgrounds_val_loss": "2.050786957"
+        },
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "1.82132411",
+          "metric/the_pile_freelaw_val_loss": "1.933466315",
+          "metric/the_pile_pubmed_central_val_loss": "1.707535386",
+          "metric/the_pile_wikipedia_en_val_loss": "2.625478745",
+          "metric/the_pile_dm_mathematics_val_loss": "1.660228216",
+          "metric/the_pile_github_val_loss": "0.945311725",
+          "metric/the_pile_stackexchange_val_loss": "1.759435415",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "3.127051616",
+          "metric/the_pile_pile_cc_val_loss": "3.065447092",
+          "metric/the_pile_ubuntu_irc_val_loss": "2.910561164",
+          "metric/the_pile_hackernews_val_loss": "2.84590098",
+          "metric/the_pile_pubmed_abstracts_val_loss": "2.258346934",
+          "metric/the_pile_uspto_backgrounds_val_loss": "2.202809584"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_pile_loss_1m.csv": {
+      "rows": 256,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "4.409877777099609",
+          "metric/the_pile_freelaw_val_loss": "5.640962600708008",
+          "metric/the_pile_pubmed_central_val_loss": "4.020509719848633",
+          "metric/the_pile_wikipedia_en_val_loss": "5.786686897277832",
+          "metric/the_pile_dm_mathematics_val_loss": "5.373439788818359",
+          "metric/the_pile_github_val_loss": "6.537395000457764",
+          "metric/the_pile_stackexchange_val_loss": "6.013463020324707",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "5.168976306915283",
+          "metric/the_pile_pile_cc_val_loss": "5.318245887756348",
+          "metric/the_pile_ubuntu_irc_val_loss": "6.67406177520752",
+          "metric/the_pile_hackernews_val_loss": "4.873101711273193",
+          "metric/the_pile_pubmed_abstracts_val_loss": "4.895959377288818",
+          "metric/the_pile_uspto_backgrounds_val_loss": "5.148867130279541"
+        },
+        {
+          "index": "2",
+          "metric/the_pile_arxiv_val_loss": "4.512282848358154",
+          "metric/the_pile_freelaw_val_loss": "4.921931266784668",
+          "metric/the_pile_pubmed_central_val_loss": "4.903955459594727",
+          "metric/the_pile_wikipedia_en_val_loss": "5.70341682434082",
+          "metric/the_pile_dm_mathematics_val_loss": "2.097456693649292",
+          "metric/the_pile_github_val_loss": "5.441458225250244",
+          "metric/the_pile_stackexchange_val_loss": "4.677060604095459",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "5.2638750076293945",
+          "metric/the_pile_pile_cc_val_loss": "5.180474281311035",
+          "metric/the_pile_ubuntu_irc_val_loss": "5.07625675201416",
+          "metric/the_pile_hackernews_val_loss": "5.219114780426025",
+          "metric/the_pile_pubmed_abstracts_val_loss": "5.637612342834473",
+          "metric/the_pile_uspto_backgrounds_val_loss": "4.686643600463867"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\test_pile_loss_60m.csv": {
+      "rows": 256,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "2.9710326194763184",
+          "metric/the_pile_freelaw_val_loss": "4.223860740661621",
+          "metric/the_pile_pubmed_central_val_loss": "2.7380499839782715",
+          "metric/the_pile_wikipedia_en_val_loss": "4.429556369781494",
+          "metric/the_pile_dm_mathematics_val_loss": "3.3373360633850098",
+          "metric/the_pile_github_val_loss": "3.5947976112365723",
+          "metric/the_pile_stackexchange_val_loss": "4.206147193908691",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "4.260997772216797",
+          "metric/the_pile_pile_cc_val_loss": "4.253109455108643",
+          "metric/the_pile_ubuntu_irc_val_loss": "4.78766393661499",
+          "metric/the_pile_hackernews_val_loss": "3.9552814960479736",
+          "metric/the_pile_pubmed_abstracts_val_loss": "3.576695442199707",
+          "metric/the_pile_uspto_backgrounds_val_loss": "3.7384769916534415"
+        },
+        {
+          "index": "2",
+          "metric/the_pile_arxiv_val_loss": "3.040354013442993",
+          "metric/the_pile_freelaw_val_loss": "3.640716075897217",
+          "metric/the_pile_pubmed_central_val_loss": "3.3398211002349854",
+          "metric/the_pile_wikipedia_en_val_loss": "4.337239742279053",
+          "metric/the_pile_dm_mathematics_val_loss": "1.6829262971878052",
+          "metric/the_pile_github_val_loss": "2.788279294967652",
+          "metric/the_pile_stackexchange_val_loss": "3.1255481243133545",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "4.329345703125",
+          "metric/the_pile_pile_cc_val_loss": "4.123269557952881",
+          "metric/the_pile_ubuntu_irc_val_loss": "3.627320528030396",
+          "metric/the_pile_hackernews_val_loss": "4.225762367248535",
+          "metric/the_pile_pubmed_abstracts_val_loss": "4.298140048980713",
+          "metric/the_pile_uspto_backgrounds_val_loss": "3.3981151580810547"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\train_mixture_1m.csv": {
+      "rows": 512,
+      "columns": [
+        "index",
+        "train_the_pile_arxiv",
+        "train_the_pile_freelaw",
+        "train_the_pile_nih_exporter",
+        "train_the_pile_pubmed_central",
+        "train_the_pile_wikipedia_en",
+        "train_the_pile_dm_mathematics",
+        "train_the_pile_github",
+        "train_the_pile_philpapers",
+        "train_the_pile_stackexchange",
+        "train_the_pile_enron_emails",
+        "train_the_pile_gutenberg_pg_19",
+        "train_the_pile_pile_cc",
+        "train_the_pile_ubuntu_irc",
+        "train_the_pile_europarl",
+        "train_the_pile_hackernews",
+        "train_the_pile_pubmed_abstracts",
+        "train_the_pile_uspto_backgrounds"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "train_the_pile_arxiv": "0.0",
+          "train_the_pile_freelaw": "0.0",
+          "train_the_pile_nih_exporter": "0.0",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.0",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.0",
+          "train_the_pile_philpapers": "0.004",
+          "train_the_pile_stackexchange": "0.0",
+          "train_the_pile_enron_emails": "0.0",
+          "train_the_pile_gutenberg_pg_19": "0.209",
+          "train_the_pile_pile_cc": "0.787",
+          "train_the_pile_ubuntu_irc": "0.0",
+          "train_the_pile_europarl": "0.0",
+          "train_the_pile_hackernews": "0.0",
+          "train_the_pile_pubmed_abstracts": "0.0",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        },
+        {
+          "index": "2",
+          "train_the_pile_arxiv": "0.025",
+          "train_the_pile_freelaw": "0.002",
+          "train_the_pile_nih_exporter": "0.05",
+          "train_the_pile_pubmed_central": "0.0",
+          "train_the_pile_wikipedia_en": "0.047",
+          "train_the_pile_dm_mathematics": "0.0",
+          "train_the_pile_github": "0.304",
+          "train_the_pile_philpapers": "0.009",
+          "train_the_pile_stackexchange": "0.003",
+          "train_the_pile_enron_emails": "0.001",
+          "train_the_pile_gutenberg_pg_19": "0.103",
+          "train_the_pile_pile_cc": "0.299",
+          "train_the_pile_ubuntu_irc": "0.024",
+          "train_the_pile_europarl": "0.04",
+          "train_the_pile_hackernews": "0.09",
+          "train_the_pile_pubmed_abstracts": "0.001",
+          "train_the_pile_uspto_backgrounds": "0.0"
+        }
+      ]
+    },
+    "real_attachments\\A_data_value\\regmix_tables\\train_pile_loss_1m.csv": {
+      "rows": 512,
+      "columns": [
+        "index",
+        "metric/the_pile_arxiv_val_loss",
+        "metric/the_pile_freelaw_val_loss",
+        "metric/the_pile_pubmed_central_val_loss",
+        "metric/the_pile_wikipedia_en_val_loss",
+        "metric/the_pile_dm_mathematics_val_loss",
+        "metric/the_pile_github_val_loss",
+        "metric/the_pile_stackexchange_val_loss",
+        "metric/the_pile_gutenberg_pg_19_val_loss",
+        "metric/the_pile_pile_cc_val_loss",
+        "metric/the_pile_ubuntu_irc_val_loss",
+        "metric/the_pile_hackernews_val_loss",
+        "metric/the_pile_pubmed_abstracts_val_loss",
+        "metric/the_pile_uspto_backgrounds_val_loss"
+      ],
+      "sample": [
+        {
+          "index": "1",
+          "metric/the_pile_arxiv_val_loss": "7.0255866050720215",
+          "metric/the_pile_freelaw_val_loss": "5.360580921173096",
+          "metric/the_pile_pubmed_central_val_loss": "6.536046981811523",
+          "metric/the_pile_wikipedia_en_val_loss": "5.639575004577637",
+          "metric/the_pile_dm_mathematics_val_loss": "5.820674896240234",
+          "metric/the_pile_github_val_loss": "6.632823467254639",
+          "metric/the_pile_stackexchange_val_loss": "6.107803821563721",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "4.726566791534424",
+          "metric/the_pile_pile_cc_val_loss": "5.169477939605713",
+          "metric/the_pile_ubuntu_irc_val_loss": "7.224245071411133",
+          "metric/the_pile_hackernews_val_loss": "5.206871032714844",
+          "metric/the_pile_pubmed_abstracts_val_loss": "5.892633438110352",
+          "metric/the_pile_uspto_backgrounds_val_loss": "5.417374610900879"
+        },
+        {
+          "index": "2",
+          "metric/the_pile_arxiv_val_loss": "4.738541603088379",
+          "metric/the_pile_freelaw_val_loss": "5.466145038604736",
+          "metric/the_pile_pubmed_central_val_loss": "5.808464050292969",
+          "metric/the_pile_wikipedia_en_val_loss": "5.42556619644165",
+          "metric/the_pile_dm_mathematics_val_loss": "4.61490535736084",
+          "metric/the_pile_github_val_loss": "4.141744136810303",
+          "metric/the_pile_stackexchange_val_loss": "4.922904014587402",
+          "metric/the_pile_gutenberg_pg_19_val_loss": "4.954422473907471",
+          "metric/the_pile_pile_cc_val_loss": "5.343518733978272",
+          "metric/the_pile_ubuntu_irc_val_loss": "5.278083324432373",
+          "metric/the_pile_hackernews_val_loss": "4.80118989944458",
+          "metric/the_pile_pubmed_abstracts_val_loss": "5.653641700744629",
+          "metric/the_pile_uspto_backgrounds_val_loss": "5.584351062774658"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_0.070542B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "0.070542",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.7385",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "0.070542",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.7325",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_0.162405B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "0.162405",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.5229",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "0.162405",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.5164",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_0.409009B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "0.409009",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.3484",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "0.409009",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.3406",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_1.040867B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "1.040867",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.2162",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "1.040867",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.2056",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_1.416184B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "1.416184",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.1845",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "1.416184",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.1743",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_11.965825B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "11.965825",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.0229",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "11.965825",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.0139",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_2.782831B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "2.782831",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.1185",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "2.782831",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.1100",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    },
+    "real_attachments\\B_scaling_laws\\training_trajectories\\pythia_6.86104B_trajectory.csv": {
+      "rows": 500,
+      "columns": [
+        "N_params_B",
+        "D_tokens_B",
+        "val_loss",
+        "step",
+        "interpolated"
+      ],
+      "sample": [
+        {
+          "N_params_B": "6.86104",
+          "D_tokens_B": "0.134",
+          "val_loss": "4.0498",
+          "step": "0",
+          "interpolated": "1"
+        },
+        {
+          "N_params_B": "6.86104",
+          "D_tokens_B": "0.136",
+          "val_loss": "4.0396",
+          "step": "0",
+          "interpolated": "1"
+        }
+      ]
+    }
+  },
+  "E_nonvideo": [
+    {
+      "name": "E题数据/.DS_Store",
+      "bytes": 6148
+    },
+    {
+      "name": "E题数据/附件1-数据集原始多模态样本/MOSEI数据集部分原始视频-100条/label-100.xlsx",
+      "bytes": 19776
+    },
+    {
+      "name": "E题数据/附件2-数据集特征文件/aligned_50.pkl",
+      "bytes": 993842861
+    },
+    {
+      "name": "E题数据/附件2-数据集特征文件/label.xlsx",
+      "bytes": 423826
+    },
+    {
+      "name": "E题数据/附件2-数据集特征文件/unaligned_50.pkl",
+      "bytes": 2897003035
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_01.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_02.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_03.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_04.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_05.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_06.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_07.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_08.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_09.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_10.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_11.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_12.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_13.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_14.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_15.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_16.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_17.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_18.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_19.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_20.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_21.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_22.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_23.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_24.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_25.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_26.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_27.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_28.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_29.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_30.pkl",
+      "bytes": 50942
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_01.pkl",
+      "bytes": 494719
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_02.pkl",
+      "bytes": 494811
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_03.pkl",
+      "bytes": 494833
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_04.pkl",
+      "bytes": 494845
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_05.pkl",
+      "bytes": 494750
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_06.pkl",
+      "bytes": 494787
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_07.pkl",
+      "bytes": 494802
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_08.pkl",
+      "bytes": 494757
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_09.pkl",
+      "bytes": 494758
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_10.pkl",
+      "bytes": 494729
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_11.pkl",
+      "bytes": 494748
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_12.pkl",
+      "bytes": 494780
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_13.pkl",
+      "bytes": 494789
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_14.pkl",
+      "bytes": 494811
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_15.pkl",
+      "bytes": 494837
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_16.pkl",
+      "bytes": 494851
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_17.pkl",
+      "bytes": 494798
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_18.pkl",
+      "bytes": 494793
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_19.pkl",
+      "bytes": 494806
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_20.pkl",
+      "bytes": 494882
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_21.pkl",
+      "bytes": 494743
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_22.pkl",
+      "bytes": 494772
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_23.pkl",
+      "bytes": 494757
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_24.pkl",
+      "bytes": 494727
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_25.pkl",
+      "bytes": 494731
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_26.pkl",
+      "bytes": 494800
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_27.pkl",
+      "bytes": 494829
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_28.pkl",
+      "bytes": 494831
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_29.pkl",
+      "bytes": 494776
+    },
+    {
+      "name": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_30.pkl",
+      "bytes": 494807
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/01.pkl",
+      "bytes": 199376
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/02.pkl",
+      "bytes": 199111
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/03.pkl",
+      "bytes": 199400
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/04.pkl",
+      "bytes": 199256
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/05.pkl",
+      "bytes": 199067
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/06.pkl",
+      "bytes": 199472
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/07.pkl",
+      "bytes": 200148
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/08.pkl",
+      "bytes": 199075
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/09.pkl",
+      "bytes": 199083
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/10.pkl",
+      "bytes": 199344
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/11.pkl",
+      "bytes": 199067
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/12.pkl",
+      "bytes": 199572
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/13.pkl",
+      "bytes": 199352
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/14.pkl",
+      "bytes": 199456
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/15.pkl",
+      "bytes": 199296
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/16.pkl",
+      "bytes": 198987
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/17.pkl",
+      "bytes": 199352
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/18.pkl",
+      "bytes": 199908
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/19.pkl",
+      "bytes": 199652
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/20.pkl",
+      "bytes": 199516
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/01.pkl",
+      "bytes": 591833
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/02.pkl",
+      "bytes": 591568
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/03.pkl",
+      "bytes": 591857
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/04.pkl",
+      "bytes": 591713
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/05.pkl",
+      "bytes": 591524
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/06.pkl",
+      "bytes": 591929
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/07.pkl",
+      "bytes": 592607
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/08.pkl",
+      "bytes": 591532
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/09.pkl",
+      "bytes": 591540
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/10.pkl",
+      "bytes": 591801
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/11.pkl",
+      "bytes": 591524
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/12.pkl",
+      "bytes": 592030
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/13.pkl",
+      "bytes": 591809
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/14.pkl",
+      "bytes": 591913
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/15.pkl",
+      "bytes": 591753
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/16.pkl",
+      "bytes": 591444
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/17.pkl",
+      "bytes": 591809
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/18.pkl",
+      "bytes": 592367
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/19.pkl",
+      "bytes": 592110
+    },
+    {
+      "name": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/20.pkl",
+      "bytes": 591973
+    }
+  ],
+  "E_labels": {
+    "E题数据/附件1-数据集原始多模态样本/MOSEI数据集部分原始视频-100条/label-100.xlsx": [
+      {
+        "sheet": "label",
+        "rows": 101,
+        "cols": 5,
+        "nonempty_rows": 101,
+        "sample": [
+          [
+            "video_id",
+            "clip_id",
+            "text",
+            "label",
+            "annotation"
+          ],
+          [
+            "-3g5yACwYnA",
+            "13",
+            "They've been able to find solutions or at least bring some answers to the table.",
+            "0.6666666865348816",
+            "Positive"
+          ],
+          [
+            "-3g5yACwYnA",
+            "3",
+            "We're a huge user of adhesives for our operation, called flocking, and we don't have the technical inside compounding or the technical expertise to do these types of things.",
+            "0.0",
+            "Neutral"
+          ],
+          [
+            "-3g5yACwYnA",
+            "2",
+            "Key Polymer brings a technical aspect to our operation that we don't have internally.",
+            "0.0",
+            "Neutral"
+          ],
+          [
+            "-3g5yACwYnA",
+            "9",
+            "We have many new opportunities through the way things have changed through the years, looking for new niche high-end, value-added products.",
+            "0.6666666865348816",
+            "Positive"
+          ],
+          [
+            "-3nNcZdcdvU",
+            "5",
+            "Noncompliance can result in legal liability to you and to the school district in which you are employed.",
+            "0.0",
+            "Neutral"
+          ],
+          [
+            "-HwX2H8Z4hY",
+            "2",
+            "” [President Ronald Reagan:] \"Look at the record",
+            "0.0",
+            "Neutral"
+          ],
+          [
+            "-HwX2H8Z4hY",
+            "5",
+            "\" President Ronald Reagan blamed the professional bureaucracy of education",
+            "-1.0",
+            "Negative"
+          ]
+        ]
+      },
+      {
+        "sheet": "修复说明",
+        "rows": 13,
+        "cols": 2,
+        "nonempty_rows": 13,
+        "sample": [
+          [
+            "检查项目",
+            "结果"
+          ],
+          [
+            "源文件",
+            "C:\\Users\\feelikesummer\\Desktop\\数学建模数据集最终版本-0815\\附件2-数据集特征文件\\英文数据集CMU-MOSEI\\label.xlsx"
+          ],
+          [
+            "筛选依据",
+            "当前本地已有的100个MOSEI视频片段（video_id + clip_id 精确匹配）"
+          ],
+          [
+            "筛选后数据行数",
+            100
+          ],
+          [
+            "列数",
+            6
+          ],
+          [
+            "video_id / clip_id 写入格式",
+            "文本格式，避免 Excel 将以减号开头的 ID 解析为公式"
+          ],
+          [
+            "负向样本",
+            18
+          ],
+          [
+            "中性样本",
+            25
+          ]
+        ]
+      }
+    ],
+    "E题数据/附件2-数据集特征文件/label.xlsx": [
+      {
+        "sheet": "label",
+        "rows": 4851,
+        "cols": 6,
+        "nonempty_rows": 4851,
+        "sample": [
+          [
+            "video_id",
+            "clip_id",
+            "text",
+            "label",
+            "annotation",
+            "mode"
+          ],
+          [
+            "-3g5yACwYnA",
+            "4",
+            "Key brings those types of aspects to a business on new markets, new potentials, and even on our equipment of how things run and operate with a pretty big, long experience with their team.",
+            "1.0",
+            "Positive",
+            "train"
+          ],
+          [
+            "-HwX2H8Z4hY",
+            "3",
+            "Federal spending on education soared eightfold in the past twenty years, rising much faster than inflation",
+            "0.3333333432674408",
+            "Positive",
+            "train"
+          ],
+          [
+            "-HwX2H8Z4hY",
+            "9",
+            "It is a word which the administrator uses when he turns around anything which he doesn't like that the teacher is doing",
+            "-0.3333333432674408",
+            "Negative",
+            "train"
+          ],
+          [
+            "-NFrJFQijFE",
+            "0",
+            "so all that has to go through aerodynamic analysis etc",
+            "0.0",
+            "Neutral",
+            "train"
+          ],
+          [
+            "-THoVjtIkeU",
+            "2",
+            "I think social justice is extremely important for young people.",
+            "1.3333333730697632",
+            "Positive",
+            "train"
+          ],
+          [
+            "-UuX1xuaiiE",
+            "9",
+            "Having at least an awareness and sensitivity to human rights issues is critical in today's world",
+            "0.6666666865348816",
+            "Positive",
+            "train"
+          ],
+          [
+            "-WXXTNIJcVM",
+            "0",
+            "\"I just have a passion for it",
+            "2.0",
+            "Positive",
+            "train"
+          ]
+        ]
+      }
+    ]
+  }
+}

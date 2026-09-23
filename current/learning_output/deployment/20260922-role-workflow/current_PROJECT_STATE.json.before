@@ -1,0 +1,169 @@
+{
+  "updated": "2026-09-22",
+  "project_root": "D:\\softdown\\codex\\mathmodel-study\\current",
+  "user_objective": "学习优秀论文，生成有推导、代码、结果和验证的完整参考解答，帮助用户通过对照改进竞赛作品。",
+  "user_input_required": false,
+  "version": {
+    "baseline": "1.41.0",
+    "baseline_status": "SEALED_AND_LOCALLY_HASH_VERIFIED",
+    "baseline_archive": "D:/softdown/codex/mathmodel-recovery/2026-09-21/Graduate-MathModel-Learning-Skill-v1.41.zip",
+    "baseline_sha256": "191c4dad37c811049516c66862bd2d45d1364784ff277ec73e5667d07cb64d6f",
+    "baseline_tree": "D:/softdown/codex/mathmodel-recovery/2026-09-21/sealed-v1.41",
+    "working_copy": "LOCAL_INTEGRATION_20260921",
+    "new_core_release": false,
+    "note": "Copied VERSION and release manifests identify the baseline, not a new seal for local changes."
+  },
+  "library": {
+    "papers": 45,
+    "chunks": 6752,
+    "train": 32,
+    "dev": 7,
+    "test": 6,
+    "train_reviewed_per_release": 32,
+    "dev_2024D_reviewed_per_release": [
+      "S013",
+      "S014",
+      "S015",
+      "S016"
+    ],
+    "reviewed_is_not_end_to_end_reproduction": true,
+    "source_pdfs_hash_verified_locally": 45,
+    "retrieval_scope": "reviewed Train only"
+  },
+  "later_work": {
+    "2023-C": {
+      "latest_report": "10/10 complete; final evidence sealed",
+      "local_verification": "Final sealed ZIP not located or independently rechecked here",
+      "expected_final_sha256": "e57e493cc622b4ca5843516e4033354153fa4228b80867cfcfb227d2b758d9d4",
+      "source": "learning_sources/recovery_20260921/historical_MathModel-Core_新Chat总交接_20260921.md",
+      "action": "Preserve completion record; do not redo 10 papers merely because local final ZIP is absent"
+    },
+    "2022-D": {
+      "latest_report": "Role pipeline smoke frozen",
+      "local_replay": "NOT_RUN",
+      "role_superiority": "NOT_ESTABLISHED"
+    },
+    "2022-C": {
+      "A_B_archives": "IDENTITY_AND_ZIP_CRC_VERIFIED",
+      "blind_evaluation_latest_report": "FROZEN_AND_UNBLINDED; A=31/36 B=31/36",
+      "score_source": "conversation_0_snapshot.json / turn bef7e84b-2e80-4e5e-9620-cf30217a89b1",
+      "evaluation_snapshot": "conversation_1_snapshot.json contains truncated evaluator output",
+      "new_scoring_or_model_replay_here": "Separate revision_v1 executed; frozen A/B unchanged",
+      "historical_handoff_A_B_NOT_RUN": "Superseded by actual frozen artifacts and later conversation"
+    }
+  },
+  "roles": {
+    "knowledge_base": "ONE_SHARED_CORE",
+    "interfaces": [
+      "Architect",
+      "Reviewer"
+    ],
+    "full_multiagent_production_system": "NOT_DEPLOYED",
+    "available_existing_modules": [
+      "model selection",
+      "model code and results",
+      "paper formal writer",
+      "quality assurance"
+    ],
+    "capability_or_award_rate_gain": "NOT_ESTABLISHED"
+  },
+  "current_case": {
+    "id": "2023-A-transfer",
+    "status": "TEN_FULL_TEXT_REVIEWS_WITH_SCOPED_CHECKS",
+    "reference_solution": "learning_output/cases/2023-A-transfer/revision_v9/REFERENCE_SOLUTION.md",
+    "freeze_manifest": "learning_output/cases/2023-A-transfer/FIRST_ANSWER_FREEZE.json",
+    "next_action": "Select a local new problem with unseen same-problem answers; inspect prompt/data only, produce and freeze a full solution before paper comparison. LOCAL ONLY; no PDF parsing.",
+    "same_problem_solution_exposure": "After first-answer freeze: all ten available-text papers reviewed; not a fresh blind test",
+    "related_domain_exposure": "2024-B WLAN learning already existed; not domain-naive",
+    "markdown_registry": "learning_output/cases/2023-A-transfer/PAPER_MARKDOWN_REGISTRY.json",
+    "papers_full_text_reviewed": 10,
+    "papers_end_to_end_reproduced": 0,
+    "partial_paper_reviews": [],
+    "synthesis": "learning_output/cases/2023-A-transfer/LEARNING_SYNTHESIS_10_PAPERS.md"
+  },
+  "next_unseen_transfer_case": "2023-A FIRST ANSWER FROZEN; next phase is exposed paper comparison",
+  "unresolved_nonblocking": [
+    "2023-C final sealed evidence ZIP not locally located",
+    "2022-C full evaluator text still needed; saved API output is truncated"
+  ],
+  "truth_precedence": [
+    "actual file identities and scoped executed checks",
+    "latest applicable local PROJECT_STATE.json",
+    "dated source records with explicit evidence limits",
+    "historical snapshots; never silently treated as current"
+  ],
+  "validation": {
+    "setup": "PASS",
+    "report": "learning_output/recovery/setup_validation.json"
+  },
+  "case_history": {
+    "2022-C-delivery": {
+      "id": "2022-C-delivery",
+      "kind": "RETROSPECTIVE_LEARNING_AND_DELIVERY",
+      "fresh_blind": false,
+      "status": "REFERENCE_V3_RETURN_IMPLEMENTED_AND_SCOPED_VALIDATION_PASSED",
+      "input_manifest": "learning_output/cases/2022-C-delivery/INPUT_MANIFEST.json",
+      "next_action": "Select a different problem and evaluate transfer of model selection, visit-based state representation, independent validation and evidence-based writing",
+      "outputs_expected": [
+        "complete reference solution",
+        "runnable code",
+        "actual results and required files",
+        "validation and useful figures",
+        "question-level learning notes"
+      ],
+      "excellent_papers_opened_in_this_setup": true,
+      "partial_paper_reviews": [
+        "C22103190082",
+        "C22103360057"
+      ],
+      "paper_review_scope": "Selected chapters only; no full-paper reproduction or new library count",
+      "reference_solution": "learning_output/cases/2022-C-delivery/revision_v3/REFERENCE_SOLUTION.md",
+      "validation": [
+        "SELECTED_RETURN_REPLAY.json",
+        "RETURN_REGRESSIONS.json",
+        "RETURN_STRESS.json",
+        "XLSX_VALIDATION.json",
+        "RETURN_COMPARISON.json"
+      ],
+      "limits": [
+        "Finite retrospective search with fixed v2 warm starts",
+        "Equal candidate counts, not equal runtime or exhaustive search",
+        "Explicit arrival and sampled endpoint assumptions",
+        "No formal competition certification or unseen transfer evidence"
+      ],
+      "multiseed": {
+        "seeds": [
+          101,
+          202,
+          303,
+          404,
+          505
+        ],
+        "mutations_per_seed": 60,
+        "candidate_evaluations": 1200,
+        "final_runs_validated": 20,
+        "strict_improvements": 20
+      },
+      "return_status": "Implemented source-release/destination-reservation return motion and independent repeated-visit replay; selected once for result21",
+      "return_comparison": {
+        "evaluations_per_arm_per_case": 24,
+        "total_new_candidates": 192,
+        "selected_return_counts": [
+          0,
+          0,
+          1,
+          0
+        ],
+        "regressions_passed": 17
+      }
+    }
+  },
+  "user_preferences": {
+    "paper_input_format": "Markdown preferred and required before PDF content extraction",
+    "pdf_content_policy": "Do not directly parse PDFs; tell user which PDFs need conversion and wait for their Markdown",
+    "source": "Explicit user instruction 2026-09-22",
+    "2023A_markdown_root": "D:\\BaiduNetdiskDownload\\研究生数学建模竞赛优秀论文选（2004-2025）\\2023年研究生数学建模竞赛优秀论文选\\2023A优秀论文",
+    "work_scope": "LOCAL_ONLY; user explicitly stopped GitHub handling on 2026-09-22"
+  },
+  "portable_source_root": "learning_sources/2023A_markdown"
+}

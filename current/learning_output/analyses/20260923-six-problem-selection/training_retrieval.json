@@ -1,0 +1,1146 @@
+{
+  "A": {
+    "mode": "production",
+    "query": "有向无环图多核调度 任务依赖 资源容量 缓存 数据搬运 事件仿真 最大完成时间 优化与独立约束校验",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [
+        "optimization",
+        "simulation"
+      ],
+      "data": [],
+      "constraints": [
+        "resources",
+        "feasibility"
+      ]
+    },
+    "matches": [
+      {
+        "paper_id": "S025",
+        "case_group": "2025-A",
+        "title": "A题-1-通用神经网络处理器下的核内调度问题",
+        "page": 9,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_CODE_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S025-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-1-通用神经网络处理器下的核内调度问题.pdf",
+        "source_sha256": "f7034863abda2444cde9b51a14c31cded6282a8eace906faa90edb4f4a087531",
+        "chunk_id": "S025-p9-0",
+        "excerpt": "挑战主要体现在异构性：计算图节点类型多样（操作节点与缓存管理节点具有多样\n性），依赖边复杂（显式拓扑排序要求下的隐式生命周期约束），硬件限制严格（如L0 缓\n存独占性）。优化需要最小化流水线空闲时间，同时减少SPILL 频次。逻辑上可以先从问\n题一的拓扑序序列入手，融入问题二的地址分配问题，再执行优化求解。\n3 模型假设\n1. 计算图结构假设：计算图为有向无环图（DAG），所有节点必须按照拓扑序执行，不存\n在循环依赖；\n2. 硬件架构假设：NPU 包含多个可并行工作的独立执行单元（Cube、Vector、MTE 等），\n每个单元内部严格顺序执行；\n3. 缓存管理假设：各级缓存（L0、L1、UB）为有限容量的连续地址空间，缓冲区必须分\n配在不重叠的地址区间；\n4. 数据生命周期假设：每个缓冲区的生命周期从ALLOC 节点开始到FREE 节点结束，期\n间必须持续占用缓存空间；\n5. SPILL 机制假设：当缓存容量不足时可通过SPILL 操作将数据换入换出DDR，其时间\n和搬运开销有确定的计算规则；\n6. 优化目标假设：问题逐步从单目标（最小缓存峰值）过渡到多目标（平衡执行时间与数\n据搬运量），允许在不同目标间权衡；\n7. 问题一特殊假设：\n理想化条件：不考虑实际硬件缓存容量限制，假设缓存容量无限大，仅统计L1 和UB\n类型缓存的使用量，不计入L0 级缓存；\nL0 缓存约束：L0A、L0B、L0C 上分别同时最多只能有一个缓冲区驻留，L0 缓冲区必\n须在申请后尽快释放。\n9",
+        "lexical_cosine": 0.14648889034959728,
+        "matched_keyword_tags": {
+          "tasks": [
+            "optimization"
+          ],
+          "data": [],
+          "constraints": [
+            "feasibility",
+            "resources"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_PDF_PIXEL_AUDIT",
+          "baseline_summary": {
+            "Q1": "FREE-first + critical-path list scheduling",
+            "Q2": "lifetime Best-Fit/linear-scan + greedy spill",
+            "Q3": "epsilon-constraint critical-path list scheduling under C<=1.05*C_Q2"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S025.json",
+          "result_registry_file": "knowledge_base/result_registry/S025.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S025-modules.json",
+          "decision_warning": [
+            "paper-claimed SA/ILP/Pareto implementation not fully visible in printed code",
+            "Q3 reported rows include hard-cap violations",
+            "victim heuristic drifts across Q2/Q3"
+          ]
+        }
+      },
+      {
+        "paper_id": "S027",
+        "case_group": "2025-A",
+        "title": "A题-NPU 核内调度算法设计与优化研究",
+        "page": 88,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S027-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-NPU 核内调度算法设计与优化研究.pdf",
+        "source_sha256": "9cefb2c06f81b95f53132fdf9c41407e2cdff8188a72cc33a21720ea32647bc2",
+        "chunk_id": "S027-p88-700",
+        "excerpt": "SPILL 操作从被动的容量管理手段转变为主动的性能优\n化工具，通过三大核心优化策略的协同作用，在保证数据搬运量约束的前提下，实现了执\n行时间的显著减少。实验证明，在控制搬运量增长不超过15% 的约束下，我们的算法能够\n实现执行时间的最大化减少，为NPU 核内调度的性能优化提供了新的思路。\n8.2 模型优点与创新\n本研究提出的NPU 缓存分配与调度模型具有多方面的显著优点和创新点。在理论创\n新方面，我们构建了基于拓扑排序的关键路径分析理论框架，通过严格的数学推导为节点\n调度优先级的量化计算提供了坚实的理论基础，该理论不仅适用于NPU 调度问题，还可\n推广到其他有向无环图的调度优化场景。\n在算法效率方面，设计的MOACADSA 算法在多项式时间复杂度O(N 2 log N) 内获得\n高质量的近似解，相比传统算法在数据搬运量优化方面实现了7.6%-9.4% 的性能提升，在\n执行周期优化方面实现了21.9% 的突破性改进。框架系统性方面，提出的MACADOF 框架\n综合考虑了缓存容量、数据依赖和执行时序等多重约束，实现了缓存分配策略、SPILL 操\n88",
+        "lexical_cosine": 0.1461186711690259,
+        "matched_keyword_tags": {
+          "tasks": [
+            "optimization"
+          ],
+          "data": [],
+          "constraints": [
+            "feasibility",
+            "resources"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_120_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack + memory-delta list scheduling",
+            "Q2": "lifetime sweep + deterministic Best-Fit + min incremental-transfer spill",
+            "Q3": "official epsilon hard cap + lexicographic/resource-aware local search"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S027.json",
+          "result_registry_file": "knowledge_base/result_registry/S027.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S027-modules.json",
+          "decision_warning": [
+            "Q1 composite priority/core helpers are absent from printed appendix and 89.2% is aggregate-weighted rather than macro per-workload average",
+            "Q2 Best-Fit/First-Fit naming and spill argmin/reverse-sort direction drift; Table5.11 aggregation provenance unresolved",
+            "Q3 10%/15% hard-cap drift, negative change-sign convention, baseline-source drift and missing optimizer-core helper"
+          ]
+        }
+      },
+      {
+        "paper_id": "S026",
+        "case_group": "2025-A",
+        "title": "A题-2-通用神经网络处理器下的核内调度问题",
+        "page": 6,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_MATLAB_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S026-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-2-通用神经网络处理器下的核内调度问题.pdf",
+        "source_sha256": "c83c14e555122c1a7d7901f9108073c9b97299793cdf1e0e2581153307ff6a37",
+        "chunk_id": "S026-p6-0",
+        "excerpt": "9. 系统无外部任务或中断干扰；\n三、符号说明\n符号\n意义\nG\n计算图，定义为有向无环图(DAG)，表示为G = (V, E)\nV\n计算图的节点集合，包含N 个节点\nE\n计算图的边集合，表示节点间的依赖关系\nS\n调度序列，表示为[v1, v2, . . . , vN]，是V 的一个排列\nOp\n节点操作类型映射，Op : V →O，O 为操作类型集合\nType\n缓存类型映射，Type : V →T ，T 为缓存类型集合\nSize\n缓存大小映射，Size : V →N，N 为非负整数集\nTtarget\n目标缓存类型集合，需计算驻留量的缓存（如{L1, UB}）\nM(v)\n节点v 对目标缓存占用的贡献函数\nCk(S)\n调度序列S 执行到第k 个位置时的累积缓存驻留量\nCmax(S)\n调度过程中的缓存驻留峰值，即maxk=1,...,N Ck(S)\nB\n缓冲区集合，包含所有需管理的缓冲区，记|B| = Nb\nxb\n缓存分配变量，缓冲区b 的地址偏移\nyb\nSPILL 标志变量，yb = 1 表示缓冲区b 执行SPILL 操作\nF\n总额外数据搬运量，SPILL 操作引入的总数据搬运开销\n四、问题一模型建立与求解\n4.1 问题描述与分析\n问题一要求针对给定的计算图G = {V, E}（其定义为有向无环图，DAG），生成一个\n包含所有节点的调度序列S。该序列必须满足计算图的拓扑依赖约束，且其优化目标为最\n小化执行过程中的缓存驻留峰值max(Vstay)。该问题本质上是一个在严格拓扑序约束下的\n组合优化问题。\n缓存占用量Vstay 是一个动态变化的量，其计算规则如下：初始化Vstay = 0，按序列S\n6",
+        "lexical_cosine": 0.13560521362574582,
+        "matched_keyword_tags": {
+          "tasks": [
+            "optimization"
+          ],
+          "data": [],
+          "constraints": [
+            "feasibility",
+            "resources"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_98_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack list scheduling",
+            "Q2": "lifetime Best-Fit + deterministic spill by true incremental bytes/next use",
+            "Q3": "epsilon-constraint resource-aware list scheduling under transfer hard cap"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S026.json",
+          "result_registry_file": "knowledge_base/result_registry/S026.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S026-modules.json",
+          "decision_warning": [
+            "Q1 priority features and adaptive tabu length drift from visible code; tabu memory representation is flawed",
+            "Q2 visible code is PSO-like with inactive Mbest/P and raw Bytes+Cycles scalarization",
+            "Q3 DPEA implementation absent; Q3 spill-cost formula changes semantics from Q2 and hard transfer cap is not explicit"
+          ]
+        }
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  },
+  "B": {
+    "mode": "production",
+    "query": "燃料电池 传热传质 相变结冰 一维瞬态偏微分方程 参数标定 留出验证 动态控制 能耗优化",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [
+        "optimization"
+      ],
+      "data": [],
+      "constraints": []
+    },
+    "matches": [
+      {
+        "paper_id": "S003",
+        "case_group": "2024-A",
+        "title": "A24103530117",
+        "page": 18,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+        "review_file": "knowledge_base/paper_reviews/2024-A-S003-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103530117.pdf",
+        "source_sha256": "f6e0e476017750c9c13d03d1b103d32f32d74d2fe96feb40760c5b3bb3dff17c",
+        "chunk_id": "S003-p18-700",
+        "excerpt": "循环 \n阈值调整 \n使用固定阈值，不能调整 \n动态阈值，根据实时数据调整 \n存储与计算优化 \n需要完整保存序列数据 \n采用滑动窗口和 \n动态内存优化，减少存储需求 \n尾部数据处理 \n未特别处理尾部数据 \n通过逆向滑动窗口 \n处理尾部数据，避免遗漏 \n疲劳损伤累积 \n处理结束后累积疲劳损伤计算 \n实时累积疲劳损伤， \n识别到循环即更新 \n \nD = ∑\n1\nNj(Sj)\nn\nj=1\n \n（4-12） \n \nSrem = Sj+k \n（4-13）",
+        "lexical_cosine": 0.08080857125379542,
+        "matched_keyword_tags": {
+          "tasks": [
+            "optimization"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+          "papers": [
+            "S001",
+            "S002",
+            "S003",
+            "S004"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S011",
+        "case_group": "2024-C",
+        "title": "C24104220149",
+        "page": 25,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q4_Q5_CONTRACT_SMOKE",
+        "review_file": "knowledge_base/paper_reviews/2024-C-S011-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+        "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+        "chunk_id": "S011-p25-0",
+        "excerpt": "24 \n \n表5.2 不同方法对比下的评价指标 \n \n最小二乘法 \n模拟退火 \n粒子群 \n动态粒子群 \nR² \n0.9448 \n0.9448 \n0.9448 \n0.9448 \nRMSE \n40474.5657 \n40474.5657 \n40474.5680 \n40474.5656 \nMAPE \n35.6627 \n35.6634 \n35.6802 \n35.6626 \n参数寻优结果如表5.3 所示。从表5.3 可以看出，四种方法对三个参数的寻\n优结果差距不大，决定系数R²都为0.9448。这是由于数据量较多并且需要拟合\n的参数较为简单，且数据质量较好，无异常值等，导致四种方法都能较好的拟合\n到参数。 \n表5.3 不同方法对参数寻优结果 \n \n最小二乘法 \n模拟退火 \n粒子群 \n动态粒子群 \nk \n1.4997 \n1.4997 \n1.50 \n1.4999 \nα \n1.4296 \n1.4296 \n1.4296 \n1.4296 \nβ \n2.4713 \n2.4712 \n2.4712 \n2.4712 \n然后，本文对四种方法的预测结果进行了可视化展示，展示如图5.4 所示。\n从四个图可以看出，四种方法的拟合平面都与真实数据差距不大，整体来看符合\n数据的变化情况。 \n \n(a)最小二乘法预测曲面与真实数据       (b) 模拟退火预测曲面与真实数据 \n \n(c)粒子群预测曲面与真实数据           (d) 动态粒子群预测曲面与真实数据 \n图5.4 四种算法拟合曲面与真实数据三维图",
+        "lexical_cosine": 0.06593452945937686,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+          "papers": [
+            "S009",
+            "S010",
+            "S011",
+            "S012"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S026",
+        "case_group": "2025-A",
+        "title": "A题-2-通用神经网络处理器下的核内调度问题",
+        "page": 20,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_MATLAB_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S026-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-2-通用神经网络处理器下的核内调度问题.pdf",
+        "source_sha256": "c83c14e555122c1a7d7901f9108073c9b97299793cdf1e0e2581153307ff6a37",
+        "chunk_id": "S026-p20-700",
+        "excerpt": "问题属于强NP 难问题。精确算法难\n以在合理时间内求解，需要设计高效的启发式算法。针对上述挑战，本文选择基于自适应\n二进制量子粒子群优化（ABQPSO）的算法框架[4]，主要基于以下考虑：\n• 强大的全局搜索能力：能够处理高维离散优化问题\n• 良好的约束处理能力：通过自适应机制处理复杂约束\n• 高效的收敛特性：量子行为机制提高收敛速度\n• 参数自适应：能够根据搜索状态动态调整参数\n20",
+        "lexical_cosine": 0.05033408849139315,
+        "matched_keyword_tags": {
+          "tasks": [
+            "optimization"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_98_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack list scheduling",
+            "Q2": "lifetime Best-Fit + deterministic spill by true incremental bytes/next use",
+            "Q3": "epsilon-constraint resource-aware list scheduling under transfer hard cap"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S026.json",
+          "result_registry_file": "knowledge_base/result_registry/S026.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S026-modules.json",
+          "decision_warning": [
+            "Q1 priority features and adaptive tabu length drift from visible code; tabu memory representation is flawed",
+            "Q2 visible code is PSO-like with inactive Mbest/P and raw Bytes+Cycles scalarization",
+            "Q3 DPEA implementation absent; Q3 spill-cost formula changes semantics from Q2 and hard transfer cap is not explicit"
+          ]
+        }
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  },
+  "C": {
+    "mode": "production",
+    "query": "脑电信号 时间序列 去噪 事件相关电位 神经动力学模型 参数可辨识性 分类 交叉验证",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [
+        "classification"
+      ],
+      "data": [
+        "time_series"
+      ],
+      "constraints": []
+    },
+    "matches": [
+      {
+        "paper_id": "S002",
+        "case_group": "2024-A",
+        "title": "A24103350007",
+        "page": 40,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_APPENDIX_VISUAL_PENDING_SOURCE_PDF_NOT_REPRODUCED",
+        "review_file": "knowledge_base/paper_reviews/2024-A-S002-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\A\\A24103350007.pdf",
+        "source_sha256": "7fe2813d94da5d72676dd6c8fe0ff6cfead155b8aeb67918be9269de1a0cab5e",
+        "chunk_id": "S002-p40-700",
+        "excerpt": "相位差。这种方法适用于对时域信号进行\n采样，生成时间序列，并通过计算信号的互相关找到滞后时间，进而转换为角度得到信\n号的相位差[11]。\n使用相位差判断与计算时间序列延时的具体步骤为：\n1）获取需要比较的两个时间序列，假设分别为푥푡和푦푡；\n2）对两个时间序列进行傅里叶变换，得到频域表示푋푓和푌푓；\n3）计算两个信号的复数傅里叶系数之间的相位差：푝ℎ푎푠푒_푑푖푓푓= 푎푟푔(푌(푓)) −\n푎푟푔(푋(푓))其中，푎푟푔· 表示求取复数的幅角；\n4）将相位差转换为时间延迟：푡푖푚푒_푑푖푓푓= 푝ℎ푎푠푒_푑푖푓푓/(2휋푓)其中，푓为信号的频率，\n2휋푓表示信号的周期；\n5）得到两个时间序列之间的时间延迟。\n时域\n频域\n频域\n傅里叶\n变换\n时域\n频域\n傅里叶\n变换\n图39 相位差判断与计算时延原理图",
+        "lexical_cosine": 0.11129714873834766,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [
+            "time_series"
+          ],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2024-A-S001-S004.json",
+          "papers": [
+            "S001",
+            "S002",
+            "S003",
+            "S004"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S044",
+        "case_group": "2025-F",
+        "title": "F题-多模态数据融合视角下江南古典园林美学特征量化建模研究",
+        "page": 82,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_PRINTED_CODE_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-F-S044-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\F题优秀论文\\F题-多模态数据融合视角下江南古典园林美学特征量化建模研究.pdf",
+        "source_sha256": "d8e40c2d4765e4c50350715f3e5f739e2a2ce11974664c506a639e921e7ad840",
+        "chunk_id": "S044-p82-0",
+        "excerpt": "82\nw1、w2、w3、w4，深度指数D，开口指数O，景观丰富度Rv，视野通透度Pv 等）对模型\n的影响程度，\n表19. 综合透视分析报告\n评估维度\n评估指标\n指标值\n综合评估\n科学性\nPearson 相关系数\n0.8000(p=0.01)\n强\nSpearman 秩相关系数\n0.7500(p=0.02)\n有效性\n均方误差(MSE)\n28.2159\n强\n平均绝对误差(MAE)\n4.1746\n决定系数(R²)\n0.7500\n可泛化性\n5 折交叉验证平均MSE\n30.0000\n强\n5 折交叉验证平均MAE\n4.5000\n5 折交叉验证平均R²\n0.7800\n图113. 综合透视美学模型验证指指数\n明确各参数在透视美学评价中的敏感性与重要性，整体为透视美学评价模型的可靠性\n与合理性提供验证依据，并为模型在实际使用中给予使用者基于偏好的调参指导。",
+        "lexical_cosine": 0.10042794767538199,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-F-S042-S045.json",
+          "figure_decision_rules": "knowledge_base/figure_decision_rules/2025-F-final.json",
+          "papers": [
+            "S042",
+            "S043",
+            "S044",
+            "S045"
+          ],
+          "status": "FINAL_FOUR_OF_FOUR_TRAIN_PAPERS_REVIEWED",
+          "reviewed_papers": [
+            "S042",
+            "S043",
+            "S044",
+            "S045"
+          ],
+          "pending_papers": []
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_116_PAGE_VISUAL_AUDIT",
+          "baseline_summary": {
+            "Q1": "transparent walkable/scene-change route metrics + exact/k-shortest/epsilon baseline; evolutionary Pareto only with real GA primitives",
+            "Q2": "deterministic bounded garden descriptors + computed AHP/entropy/CRITIC + held-out expert validation; no random placeholders/fixed results",
+            "Q3": "compact garden-level similarity + real pretrained modality features when available + garden-level grouped validation before pairwise metric learning"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S044.json",
+          "result_registry_file": "knowledge_base/result_registry/S044.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-F-S044-modules.json",
+          "decision_warning": [
+            "Q1 printed code is Dijkstra, not IGA/Pareto",
+            "Q2 random placeholders and fixed score injection",
+            "Q2 AHP-entropy vs AHP-CRITIC/fixed-weight drift",
+            "Q3 stubs/untrained embedding/shared proxy similarity",
+            "Q3 R2 clamp and hard-coded CV metrics",
+            "pairwise unseen-garden validation requires entity-level split"
+          ]
+        }
+      },
+      {
+        "paper_id": "S010",
+        "case_group": "2024-C",
+        "title": "C24103860012",
+        "page": 21,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q5_CATEGORY_SMOKE",
+        "review_file": "knowledge_base/paper_reviews/2024-C-S010-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24103860012.pdf",
+        "source_sha256": "20aa9ecb0164fd4e11130590da00f8e0a22a1147dc43b1b85ba9aa4f951a56d3",
+        "chunk_id": "S010-p21-0",
+        "excerpt": "20\n图5-5 随机森林特征重要性分析结果\n模型精确度：为了评估随机森林模型的性能，我们采用了准确率（Accuracy）、召回\n率（Recall）、精确率（Precision）、以及F1 分数（F1 Score）作为评估指标，对训\n练集、交叉验证集和测试集进行了全面分析。尽管随机森林模型在训练集和测试集上的各\n项指标均为1，显示出完美的分类能力，但在交叉验证集上稍微下降的性能表明，模型可\n能存在轻微的过拟合情况。特别是在交叉验证中的性能指标为0.997，表明模型的泛化能\n力虽然很强，但在应对未见数据时仍可能存在少量误分类的可能性。总的来说，随机森林\n模型在当前的数据集上展示了非常强的学习和泛化能力。\n表5-5 随机森林模型精确度\n准确率\n召回率\n精确率\nF1\n训练集\n1\n1\n1\n1\n交叉验证集\n0.997\n0.997\n0.997\n0.997\n测试集\n1\n1\n1\n1\n（3）逻辑回归模型",
+        "lexical_cosine": 0.09611230144246241,
+        "matched_keyword_tags": {
+          "tasks": [
+            "classification"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+          "papers": [
+            "S009",
+            "S010",
+            "S011",
+            "S012"
+          ]
+        },
+        "mathmodel_core_summary": null
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  },
+  "D": {
+    "mode": "production",
+    "query": "无人机应急物资运输 路径调度 载重电池时间窗 连续通信遮挡 链路预算 中继资源分配 独立可行性验证",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [],
+      "data": [
+        "graph"
+      ],
+      "constraints": [
+        "feasibility"
+      ]
+    },
+    "matches": [
+      {
+        "paper_id": "S025",
+        "case_group": "2025-A",
+        "title": "A题-1-通用神经网络处理器下的核内调度问题",
+        "page": 34,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_CODE_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S025-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-1-通用神经网络处理器下的核内调度问题.pdf",
+        "source_sha256": "f7034863abda2444cde9b51a14c31cded6282a8eace906faa90edb4f4a087531",
+        "chunk_id": "S025-p34-0",
+        "excerpt": "理SPILL 操作扩展、缓冲区偏移分配的非重叠性、各级缓存容量限制，以及搬运成本sb 的\n计算方法。此外基于本问的要求，我们定义了两类关键时间变量：节点开始执行时间S(vi)\n和结束时间E(vi)。这些变量受到多种约束条件限制：执行依赖约束确保如果节点vj 依赖\n节点vi，则E(vi) ≤S(vj)；执行时间定义约束表示E(vi) = S(vi) + ti，其中ti 是节点执行\n时长；时间非负性约束要求S(vi) ≥0 和E(vi) ≥0；目标函数则表示为T = maxi{E(vi)}，\n即所有节点完成时间的最大值。\n5.10 问题3 模型求解与结果分析\n5.10.1 算法描述\n基于本问我们提出了一种针对深度学习计算图优化的多层次协同算法框架，旨在解决\n高性能计算系统中执行时间最小化与数据搬运成本控制的多目标优化问题。该框架采用分\n层优化策略，将复杂的联合优化问题分解为任务调度、资源分配和性能评估三个相互关联\n的子问题。实验证明这种分解能够有效降低优化空间复杂度，使复杂系统更易于求解。算\n法的核心思想是通过自适应优先级机制指导任务调度，利用时序敏感策略实现高效的缓存\n资源管理。我们独创的时间窗口模型能够精确捕获计算单元与内存单元之间的交互关系，\n进一步提高资源分配精度。动态调整的权重机制使系统可根据任务特征灵活平衡吞吐量与\n延迟目标，适应不同应用场景的需求变化。\n本研究采用约束多目标优化方法在执行效率和资源消耗之间寻找最优平衡点。与传统\n的启发式方法相比，本算法能够同时考虑流水线并行性、数据局部性和资源竞争等多重约\n束，通过迭代优化和局部搜索相结合的策略，在保证解的可行性的前提下显著提升系统整\n体性能。\n自适应优先级调度算法是一种基于动态优先级的任务调度策略，其核心特征在于能够\n根据任务的关键路径长度、执行开销和资源可用性动态调整调度优先级。该算法继承了关\n键路径方法（Critical Path Method, CPM）的思想，通过拓扑排序计算每个节点到根节点的\n最长路径，并将其作为优先级计算的基础指标。在本问题中，算法特别针对深度学习计算\n图的特点进行了适应性改进：首",
+        "lexical_cosine": 0.12252766172932014,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [
+            "graph"
+          ],
+          "constraints": [
+            "feasibility"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_PDF_PIXEL_AUDIT",
+          "baseline_summary": {
+            "Q1": "FREE-first + critical-path list scheduling",
+            "Q2": "lifetime Best-Fit/linear-scan + greedy spill",
+            "Q3": "epsilon-constraint critical-path list scheduling under C<=1.05*C_Q2"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S025.json",
+          "result_registry_file": "knowledge_base/result_registry/S025.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S025-modules.json",
+          "decision_warning": [
+            "paper-claimed SA/ILP/Pareto implementation not fully visible in printed code",
+            "Q3 reported rows include hard-cap violations",
+            "victim heuristic drifts across Q2/Q3"
+          ]
+        }
+      },
+      {
+        "paper_id": "S027",
+        "case_group": "2025-A",
+        "title": "A题-NPU 核内调度算法设计与优化研究",
+        "page": 80,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S027-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-NPU 核内调度算法设计与优化研究.pdf",
+        "source_sha256": "9cefb2c06f81b95f53132fdf9c41407e2cdff8188a72cc33a21720ea32647bc2",
+        "chunk_id": "S027-p80-700",
+        "excerpt": "法的核心创新在于其突破了传统单序列独立优化的局限性，通过构\n建序列间资源共享和时间窗口协调机制，实现了全局最优的调度决策。算法的理论基础建\n立在以下三个关键技术创新之上：\n序列间资源依赖关系建模：传统的单序列调度算法将每个计算序列视为独立的优化单\n元，忽略了序列间潜在的资源共享机会。本研究创新性地引入了序列间资源依赖图Ginter =\n(Vseq, Edep)，其中Vseq 表示所有调度序列的集合，Edep 表示序列间的资源依赖关系。通过分\n析不同序列中操作节点的资源需求模式，算法能够识别出可以并行执行的序列段，从而实\n现资源的高效复用。\n动态时间窗口协调策略：针对多序列执行过程中的时间冲突问题，算法设计了动态时\n间窗口协调机制。该机制通过构建时间窗口冲突矩阵Tconflict，实时监测不同序列的执行进\n度，并根据资源可用性动态调整各序列的执行时间窗口。具体而言，算法采用优先级调度\n策略，对于存在资源竞争的时间段，优先保证关键路径序列的执行，同时通过时间窗口平\n移技术最小化整体执行延迟。\n多目标优化平衡机制：多序列协同调度面临执行时间最小化与资源利用率最大化的多\n目标优化挑战。算法通过引入加权目标函数Fmulti = α · Ttotal + β · Rwaste + γ · Cconflict，其中\n80",
+        "lexical_cosine": 0.08819560319157752,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [
+            "graph"
+          ],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_120_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack + memory-delta list scheduling",
+            "Q2": "lifetime sweep + deterministic Best-Fit + min incremental-transfer spill",
+            "Q3": "official epsilon hard cap + lexicographic/resource-aware local search"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S027.json",
+          "result_registry_file": "knowledge_base/result_registry/S027.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S027-modules.json",
+          "decision_warning": [
+            "Q1 composite priority/core helpers are absent from printed appendix and 89.2% is aggregate-weighted rather than macro per-workload average",
+            "Q2 Best-Fit/First-Fit naming and spill argmin/reverse-sort direction drift; Table5.11 aggregation provenance unresolved",
+            "Q3 10%/15% hard-cap drift, negative change-sign convention, baseline-source drift and missing optimizer-core helper"
+          ]
+        }
+      },
+      {
+        "paper_id": "S028",
+        "case_group": "2025-A",
+        "title": "A题-面向 Davinci 架构的 NPU 核内调度算法研究",
+        "page": 44,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S028-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-面向 Davinci 架构的 NPU 核内调度算法研究.pdf",
+        "source_sha256": "42c5fb495eadd637e6a90263675157f5a0d75d868f5ace69b06d266d86892130",
+        "chunk_id": "S028-p44-700",
+        "excerpt": "𝑧𝑒为规则复杂度），适应度取𝐹𝑖𝑡= 1/(1 + 𝐶𝑜𝑠𝑡) \n（4）进化与可行性保障：采用子树交叉与子树变异并配合精英保留；每次生成新规\n则后先经就绪集过滤，若产生不可行序列则由修复器最小扰动纠正。 \n（5）选择与早停：基于验证集表现与复杂度惩罚选取最优规则𝑅\\∗；满足代数上限\n或改进停滞时终止。 \n（6）部署与复用：在新计算图上直接用𝑅\\∗在线产生拓扑可行序列，或将其作为\n𝐺𝐴/𝑇𝑆的高质量初解以缩短迭代时间。 \n5.2.2 NAGA-II 算法 \nNAGA-II 算法得到的是帕累托最优解集。帕累托最优（ParetoOptimality）是多目标\n优化理论中的一个核心概念，用于描述资源分配的一种理想状态[15] ]。其定义为当系统\n达到帕累托最优时，任何为了改善某一目标的尝试都必然导致至少一个其他目标性能的\n下降，数学表示上为设x∗为决策空间的一个解，对于决策空间的任意x都有𝑓𝑘(𝑥∗) ≤𝑓(𝑥)，\n则称x∗为帕累托最优解。所有帕累托最优解的集合构成帕累托最优解集\n（ParetoOptimalSet）。帕累托最优解集在目标函数空间中的映射称为帕累托前沿。 \n调度算法的性能优化策略问题属于NP-hard 问题，通常难以在多项式时间内找到完\n整的帕累托前沿，因此多采用启发式算法求解。非支配排序遗传算法（NAGA-II 算法）\n[8]是一种基于帕累托最优最优概念设计的改进遗传算法，它采用了快速非支配排序和拥\n挤度比较技术，在性能和计算时间上表现优秀，适合应用于核内调度处理问题[16] 。此\n外，算法结构简单且易于实现，过迭代式的搜索逐步逼近Pareto 前沿，不依赖于问题的\n具体数学形式，具有广泛的适用性，适合本题设计具有良好通用性和泛化性模型的要求。\nNAGA-II 算法的关键思想如下：",
+        "lexical_cosine": 0.07402209548257278,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [
+            "graph"
+          ],
+          "constraints": [
+            "feasibility"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_77_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack urgency before incremental-memory tie-break",
+            "Q2": "lifetime sweep + coalescing free-list + deficit-aware minimum incremental-transfer spill subset",
+            "Q3": "canonical epsilon hard cap + feasibility-first cycle minimization"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S028.json",
+          "result_registry_file": "knowledge_base/result_registry/S028.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S028-modules.json",
+          "decision_warning": [
+            "Q1 MinPeak/LateAlloc printed heap priorities put larger ALLOC earlier than prose implies; complexity table misuses Big-O.",
+            "Q2 FlashAttention_Case1 final 33792 is not traceable to Table14 visible minimum 54720; objective semantics drift Peak+transfer to Time+transfer.",
+            "Q3 10% hard cap conflicts with S025 5% contract candidate; Conv0 baseline source drifts, FlashAttention0 violates transfer-first lexicographic selection, and 201731 vs 2017 time values conflict.",
+            "2025-A Mini Transfer passed only after revising Q1 priority ordering; this validates Core rules, not S028 author method R7."
+          ]
+        }
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  },
+  "E": {
+    "mode": "production",
+    "query": "多模态文本语音视觉 特征时序对齐 缺失信息 情感分类 回归 可解释性 消融 验证集 标签泄漏",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [
+        "classification",
+        "regression"
+      ],
+      "data": [
+        "time_series"
+      ],
+      "constraints": []
+    },
+    "matches": [
+      {
+        "paper_id": "S040",
+        "case_group": "2025-E",
+        "title": "E题-无监督迁移学习下的轴承故障诊断建模与优化",
+        "page": 5,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+        "review_file": "knowledge_base/paper_reviews/2025-E-S040-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-无监督迁移学习下的轴承故障诊断建模与优化.pdf",
+        "source_sha256": "4b5875eb3b83395e54d5e8b9d033b045bb2e2ef54f9ada6a061588b311467eb2",
+        "chunk_id": "S040-p5-700",
+        "excerpt": "\n差异，设计合适的迁移学习策略，将源域知识迁移到目标域，实现对目标域轴承故障的分\n类与标注，并进行结果可视化与分析。 \n问题4：迁移诊断的可解释性 \n结合问题3 中模型的结构设计、迁移过程和决策过程，以及轴承故障特点与机理，对\n迁移诊断的事前、迁移过程或事后（任选其一或多个方面）可解释性进行分析。提升迁移\n诊断的透明性与可验证性，避免模型在跨工况/跨设备场景中沦为“黑箱”。",
+        "lexical_cosine": 0.10859089958133077,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [
+          {
+            "case_id": "2025-E-GTeacher1-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "PARTIAL_CODE_REVIEW",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+            "question_links": {
+              "Q1": [
+                "MAT→CSV/时域可视化",
+                "小波软阈值去噪",
+                "自定义EMD"
+              ],
+              "Q2": [
+                "RandomForestClassifier最小监督基线"
+              ],
+              "Q3": [],
+              "Q4": [
+                "基础信号/去噪可视化仅可作事前解释"
+              ]
+            },
+            "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+          },
+          {
+            "case_id": "2025-E-GTeacher2-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+            "question_links": {
+              "Q1": [
+                "detrend/bandpass/Hilbert envelope/resample/windowing",
+                "spectral-kurtosis band",
+                "order tracking"
+              ],
+              "Q2": [
+                "1D特征网络",
+                "MechanismFilterBank",
+                "Channel-SE",
+                "文件级train/val/test划分"
+              ],
+              "Q3": [
+                "CORAL loss",
+                "entropy minimization",
+                "BN recalibration/SHOT相关入口",
+                "目标文件聚合与融合"
+              ],
+              "Q4": [
+                "embedding/t-SNE",
+                "gate/channel weight",
+                "envelope example",
+                "adapt-loss/fusion-confidence图"
+              ]
+            },
+            "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+            "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+          }
+        ],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+          "papers": [
+            "S039",
+            "S040",
+            "S041"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S041",
+        "case_group": "2025-E",
+        "title": "E题-高速列车轴承智能故障诊断问题",
+        "page": 2,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+        "review_file": "knowledge_base/paper_reviews/2025-E-S041-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-高速列车轴承智能故障诊断问题.pdf",
+        "source_sha256": "bbd2095e8eac7257fc2852581e7453ce7e01dc1c4b3da46ac79811fde7697d08",
+        "chunk_id": "S041-p2-0",
+        "excerpt": "2\n域聚类生成伪标签。t-SNE 可视化表明，迁移后源域与目标域特征从分离状态转为高度混\n合，域对齐效果显著（MMD 值从0.89 降至0.15）。最终，目标域16 个文件被分类为5\n个正常（A/B/G/L/O.mat）、3 个滚动体故障（D/F/P.mat）、5 个内圈故障（C/E/I/J/N.mat）\n和3 个外圈故障（H/K/M.mat），关键特征统计与物理机理一致。消融实验验证了方法的\n鲁棒性，目标域特征内聚性达0.91，跨域匹配度达0.89，证明迁移模型有效解决了无标签\n目标域的故障诊断问题。\n针对问题四，本文从事前、迁移过程和事后三个层面系统分析\nResNet-CBAM+DANN-MMD 模型的可解释性。事前可解释性基于模型模块化结构（特征\n提取器、域鉴别器、分类器等）和域适应方法，其透明设计使决策逻辑可追溯，如源域分\n类边界可通过混淆矩阵验证，目标域聚类依赖余弦距离符合直观认知。迁移过程可解释性\n通过t-SNE 可视化与量化指标体现：迁移后特征分布从域分离变为高度混合，MMD 值从\n0.89 降至0.15，特征内聚性和跨域匹配度均提升至0.9，证明知识迁移有效且保留判别性。\n事后可解释性采用SHAP 进行局部样本和单样本分析，显示模型决策聚焦于故障特征频点，\n与包络谱机理一致；可解释性指标（如保真度从0.08 升至0.27、类内一致性从0.42 升至\n0.75）表明迁移后目标域解释性接近源域水平。分析成果为迁移诊断提供了多维度可审计\n依据，增强模型在工程应用中的可信度。\n关键词：轴承故障诊断；迁移学习；可解释性分析；深度学习；时频分析；域适应；\nResNet-CBAM；Vision Transformer；",
+        "lexical_cosine": 0.1055289097233655,
+        "matched_keyword_tags": {
+          "tasks": [
+            "classification"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [
+          {
+            "case_id": "2025-E-GTeacher1-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "PARTIAL_CODE_REVIEW",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+            "question_links": {
+              "Q1": [
+                "MAT→CSV/时域可视化",
+                "小波软阈值去噪",
+                "自定义EMD"
+              ],
+              "Q2": [
+                "RandomForestClassifier最小监督基线"
+              ],
+              "Q3": [],
+              "Q4": [
+                "基础信号/去噪可视化仅可作事前解释"
+              ]
+            },
+            "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+          },
+          {
+            "case_id": "2025-E-GTeacher2-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+            "question_links": {
+              "Q1": [
+                "detrend/bandpass/Hilbert envelope/resample/windowing",
+                "spectral-kurtosis band",
+                "order tracking"
+              ],
+              "Q2": [
+                "1D特征网络",
+                "MechanismFilterBank",
+                "Channel-SE",
+                "文件级train/val/test划分"
+              ],
+              "Q3": [
+                "CORAL loss",
+                "entropy minimization",
+                "BN recalibration/SHOT相关入口",
+                "目标文件聚合与融合"
+              ],
+              "Q4": [
+                "embedding/t-SNE",
+                "gate/channel weight",
+                "envelope example",
+                "adapt-loss/fusion-confidence图"
+              ]
+            },
+            "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+            "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+          }
+        ],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+          "papers": [
+            "S039",
+            "S040",
+            "S041"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S039",
+        "case_group": "2025-E",
+        "title": "E题-基于迁移学习的高速列车轴承故障诊断研究",
+        "page": 57,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_VISUAL_FULL_SCAN_NOT_REPRODUCED",
+        "review_file": "knowledge_base/paper_reviews/2025-E-S039-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\E题优秀论文\\E题-基于迁移学习的高速列车轴承故障诊断研究.pdf",
+        "source_sha256": "1ad142092e24fdfb46a313b2edb109f35290898bc2bb486dcf9c4d03765413ac",
+        "chunk_id": "S039-p57-700",
+        "excerpt": "题四的研究中，虽然通过MMD、CORAL 等方法对迁移过程\n进行了一定的可解释性分析，但深度学习模型的“黑箱”问题依然存在。未来的研究应进\n一步加强模型的可解释性，尤其是在迁移学习的过程中，帮助诊断人员更好地理解模\n型决策依据，增强对模型输出结果的信任。\n8.3 未来展望\n本文采用的VGG 和CNN 模型在图像分类和故障诊断等领域已经有了广泛应用，尤\n其在机械设备故障检测和医学影像分析等领域取得了显著成果。未来，深度学习模型与迁\n移学习、自适应学习等方法相结合，能够更好地应对跨设备、跨工况的故障诊断任务，提\n高模型的泛化能力和迁移能力。进一步加强模型的可解释性，并结合领域知识，可能为机\n械设备的故障检测提供更加精准和透明的解决方案。此外，随着数据量的不断增加和计算\n能力的提升，未来的模型有望更加高效、精准地识别复杂的故障模式，并拓展到更多领域。\n57",
+        "lexical_cosine": 0.08207632797444506,
+        "matched_keyword_tags": {
+          "tasks": [
+            "classification"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [
+          {
+            "case_id": "2025-E-GTeacher1-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "PARTIAL_CODE_REVIEW",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher1-code.json",
+            "question_links": {
+              "Q1": [
+                "MAT→CSV/时域可视化",
+                "小波软阈值去噪",
+                "自定义EMD"
+              ],
+              "Q2": [
+                "RandomForestClassifier最小监督基线"
+              ],
+              "Q3": [],
+              "Q4": [
+                "基础信号/去噪可视化仅可作事前解释"
+              ]
+            },
+            "warning": "问题2仅在随包示例CSV上烟测；问题1缺IR014_1.mat，未端到端复现。"
+          },
+          {
+            "case_id": "2025-E-GTeacher2-code",
+            "identity": "teacher_or_expert_supplement_not_paper_code",
+            "status": "STATIC_AUDIT_AND_ENTRYPOINT_SMOKE",
+            "card": "knowledge_base/code_cases/2025-E-GTeacher2-code.json",
+            "question_links": {
+              "Q1": [
+                "detrend/bandpass/Hilbert envelope/resample/windowing",
+                "spectral-kurtosis band",
+                "order tracking"
+              ],
+              "Q2": [
+                "1D特征网络",
+                "MechanismFilterBank",
+                "Channel-SE",
+                "文件级train/val/test划分"
+              ],
+              "Q3": [
+                "CORAL loss",
+                "entropy minimization",
+                "BN recalibration/SHOT相关入口",
+                "目标文件聚合与融合"
+              ],
+              "Q4": [
+                "embedding/t-SNE",
+                "gate/channel weight",
+                "envelope example",
+                "adapt-loss/fusion-confidence图"
+              ]
+            },
+            "warning": "缺原始/预处理数据，未端到端运行；存在48kHz大小写回退和缺信号默认N类等已知风险。",
+            "paper_code_map": "knowledge_base/code_cases/2025-E-GTeacher2-paper-code-map.json"
+          }
+        ],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-E-S039-S041-with-code.json",
+          "papers": [
+            "S039",
+            "S040",
+            "S041"
+          ]
+        },
+        "mathmodel_core_summary": null
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  },
+  "F": {
+    "mode": "production",
+    "query": "多来源数据 质量评价 配比单纯形 非线性回归 标度律 参数辨识 资源预算约束 多目标优化 外推不确定性 因果识别",
+    "candidate_pool_groups": [
+      "2024-A",
+      "2024-B",
+      "2024-C",
+      "2024-E",
+      "2025-A",
+      "2025-C",
+      "2025-E",
+      "2025-F"
+    ],
+    "split_manifest_sha256": "0f110a9c76f1c8604dbabdee10f9c6cb701e9846755ea9577a3ef59c8318a347",
+    "query_keyword_tags": {
+      "tasks": [
+        "classification",
+        "regression",
+        "optimization",
+        "multiobjective"
+      ],
+      "data": [],
+      "constraints": [
+        "resources",
+        "feasibility",
+        "robustness"
+      ]
+    },
+    "matches": [
+      {
+        "paper_id": "S027",
+        "case_group": "2025-A",
+        "title": "A题-NPU 核内调度算法设计与优化研究",
+        "page": 3,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-A-S027-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\A题优秀论文\\A题-NPU 核内调度算法设计与优化研究.pdf",
+        "source_sha256": "9cefb2c06f81b95f53132fdf9c41407e2cdff8188a72cc33a21720ea32647bc2",
+        "chunk_id": "S027-p3-0",
+        "excerpt": "术的发展，提高人工智能计算系统的性能具有重要的理论意义和实用价值。\n关键词：DAG 调度; 峰值内存最小化; 束搜索; 最小费用流; 多目标优化\n3",
+        "lexical_cosine": 0.1338132316580115,
+        "matched_keyword_tags": {
+          "tasks": [
+            "multiobjective",
+            "optimization"
+          ],
+          "data": [],
+          "constraints": [
+            "resources"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-A-S025-S028.json",
+          "papers": [
+            "S025",
+            "S026",
+            "S027",
+            "S028"
+          ],
+          "status": "FINAL_TRAIN_GROUP_COMPLETE",
+          "mini_transfer_status": "PASS_AFTER_RULE_REVISION",
+          "mini_transfer_ref": "learning_output/mini_transfer/2025-A/mini_transfer_report.json"
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_120_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "Kahn/FREE-first + critical-path/slack + memory-delta list scheduling",
+            "Q2": "lifetime sweep + deterministic Best-Fit + min incremental-transfer spill",
+            "Q3": "official epsilon hard cap + lexicographic/resource-aware local search"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S027.json",
+          "result_registry_file": "knowledge_base/result_registry/S027.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-A-S027-modules.json",
+          "decision_warning": [
+            "Q1 composite priority/core helpers are absent from printed appendix and 89.2% is aggregate-weighted rather than macro per-workload average",
+            "Q2 Best-Fit/First-Fit naming and spill argmin/reverse-sort direction drift; Table5.11 aggregation provenance unresolved",
+            "Q3 10%/15% hard-cap drift, negative change-sign convention, baseline-source drift and missing optimizer-core helper"
+          ]
+        }
+      },
+      {
+        "paper_id": "S011",
+        "case_group": "2024-C",
+        "title": "C24104220149",
+        "page": 48,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PRINTED_APPENDIX_AUDITED_Q4_Q5_CONTRACT_SMOKE",
+        "review_file": "knowledge_base/paper_reviews/2024-C-S011-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2024年研究生数学建模竞赛优秀论文选\\2024年研究生数学建模竞赛优秀论文选\\C\\C24104220149.pdf",
+        "source_sha256": "382bde4b71f57eae705347767120aa58b2d993ae090d71cdf246d0e13d6bf871",
+        "chunk_id": "S011-p48-700",
+        "excerpt": ".2) \n \n上式中，T 表示温度，W 表示波形，L 表示磁芯材料，f 表示频率，Bm 表示\n磁通密度峰值。 \n针对上述多目标优化问题，首先对两个目标函数分析，结合经验公式分析可\n得，两个目标函数的量纲不一致且存在对抗关系，因此采取两种方式对多目标问\n题进行转化求解。 \n8.2.2 多目标转化单目标优化求解 \n首先针对目标函数量纲不一致的问题，对两个目标函数进行归一化处理，由\n于问题中并未给出两个目标函数的权重，设置磁通损耗权重为a ，则传输磁能的\n权重为（1-a），将a 作为决策变量加入最优化问题中，最终将多目标优化问题转",
+        "lexical_cosine": 0.1102203132928068,
+        "matched_keyword_tags": {
+          "tasks": [
+            "multiobjective",
+            "optimization"
+          ],
+          "data": [],
+          "constraints": []
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2024-C-S009-S012.json",
+          "papers": [
+            "S009",
+            "S010",
+            "S011",
+            "S012"
+          ]
+        },
+        "mathmodel_core_summary": null
+      },
+      {
+        "paper_id": "S032",
+        "case_group": "2025-C",
+        "title": "C题-1-围岩裂隙精准识别与三维模型重构",
+        "page": 44,
+        "reading_status": "CORE_REVIEWED_FULL_TEXT_PIXEL_VISUAL_AND_PRINTED_PYTHON_STATIC_AUDIT",
+        "review_file": "knowledge_base/paper_reviews/2025-C-S032-core.json",
+        "source_path": "D:\\BaiduNetdiskDownload\\2025年研究生数学建模竞赛优秀论文选\\2025年研究生数学建模竞赛优秀论文选\\C题优秀论文\\C题-1-围岩裂隙精准识别与三维模型重构.pdf",
+        "source_sha256": "6f14d27f0371e94857a592c7469eeec37172009384bdba8a847c26019e8d96c8",
+        "chunk_id": "S032-p44-700",
+        "excerpt": "-方案层”三级结构，各层次间为“支配-从属”关系。各层\n次要素表如表9 所示。\n表12 各层次要素表\n层次级别\n层次名称\n包含要素及定义\n目标层\n最优补充钻孔位\n置\n筛选综合性能最优（不确定性降低显著、协\n同性强、可行性高）的钻孔位置\n准则层1\n不确定性降低能\n力\n补充钻孔对高不确定性区域的信息补充效\n果，核心指标为不确定性降低量\nU\nΔ\n（基于模块四不确定性指数U 计算）",
+        "lexical_cosine": 0.10930512253903783,
+        "matched_keyword_tags": {
+          "tasks": [],
+          "data": [],
+          "constraints": [
+            "feasibility",
+            "robustness"
+          ]
+        },
+        "transferability": "REQUIRES_READING_AND_STRUCTURAL_REVIEW",
+        "supplemental_code_cases": [],
+        "same_problem_cross_paper_map": {
+          "cross_paper_map": "knowledge_base/cross_paper_maps/2025-C-S032-S036.json",
+          "papers": [
+            "S032",
+            "S033",
+            "S034",
+            "S035",
+            "S036"
+          ],
+          "status": "FINAL_5_OF_5_TRAIN_PAPERS",
+          "mini_transfer_status": "PASS_MECHANISM_TRANSFER_AFTER_RULE_FIX",
+          "reviewed_papers": [
+            "S032",
+            "S033",
+            "S034",
+            "S035",
+            "S036"
+          ],
+          "pending_papers": []
+        },
+        "mathmodel_core_summary": {
+          "core_schema_version": "1.0",
+          "reproduction_level": "R2",
+          "visual_audit": "FULL_ORIGINAL_71_PAGE_CONTACT_SHEET_AUDIT",
+          "baseline_summary": {
+            "Q1": "grouped-image compact U-Net/morphology with IoU/F1",
+            "Q2": "component merge + bounded robust fixed-period sinusoid + reject",
+            "Q3": "physical-unit contour + sampling sensitivity + Z2/JRC without unexplained scale",
+            "Q4": "geometry compatibility + uncertainty propagation + expected information gain/robust MCDA"
+          },
+          "candidate_competition_file": "knowledge_base/candidate_competitions/S032.json",
+          "result_registry_file": "knowledge_base/result_registry/S032.json",
+          "method_modules_file": "knowledge_base/method_modules/2025-C-S032-modules.json",
+          "decision_warning": [
+            "Q1 independent split/loss provenance missing",
+            "Q2 claimed robust fitting is not visible in printed code and extreme amplitudes lack reject gate",
+            "Q3 headline LoG/attention absent from printed code; per-image scale factors and JRC clipping distort provenance",
+            "Q4 hand-set pseudo-probabilities/entropy implementation/PPIGA validation require repair"
+          ]
+        }
+      }
+    ],
+    "supplemental_code_boundary": "Supplemental code links are method-level learning aids, not proof that the code belongs to the matched paper.",
+    "scope": "Heuristic candidate retrieval; automatic tags do not resolve negation, causality or assumptions"
+  }
+}

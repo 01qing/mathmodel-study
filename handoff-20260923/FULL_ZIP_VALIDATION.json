@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "file": "D:\\softdown\\codex\\mathmodel-study\\handoff-20260923\\MathModel_完整历史资料包_20260923.zip",
+  "files_checked": 3903,
+  "uncompressed_bytes": 861706963,
+  "archive_bytes": 485989981,
+  "sha256": "a0683f5d7d2a8a74d866585419fd5ddaf56256ec6fc8d847e64242afe7b75179",
+  "crc": "PASS",
+  "per_file_sha256": "PASS",
+  "excluded_directories": [
+    "D:\\softdown\\codex\\mathmodel-study\\.git",
+    "D:\\softdown\\codex\\mathmodel-study\\handoff-20260923",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\.agents\\skills\\data-cleaning-and-visualization\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\.agents\\skills\\graduate-mathmodel-learning\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\.agents\\skills\\mathmodel-case-retriever\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v1\\node_modules",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v1\\code\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v2\\node_modules",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v2\\code\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v3\\node_modules",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2022-C-delivery\\revision_v3\\code\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2023-A-transfer\\code\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\cases\\2023-A-transfer\\paper_learning\\A23102470073\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\current\\learning_output\\deployment\\20260922-role-workflow\\validation_dependencies",
+    "D:\\softdown\\codex\\mathmodel-study\\v1.6\\.agents\\skills\\graduate-mathmodel-learning\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\v1.7\\.agents\\skills\\graduate-mathmodel-learning\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-study\\v1.7\\.agents\\skills\\mathmodel-case-retriever\\scripts\\__pycache__",
+    "D:\\softdown\\codex\\mathmodel-recovery\\2026-09-21\\sealed-v1.41",
+    "C:\\Users\\lingyun\\.codex\\skills\\mathmodel-evidence\\scripts\\__pycache__"
+  ],
+  "known_missing": "Full historical ChatGPT transcripts and independently identified 2023-C final sealed ZIP are not guaranteed present; see upload guide."
+}

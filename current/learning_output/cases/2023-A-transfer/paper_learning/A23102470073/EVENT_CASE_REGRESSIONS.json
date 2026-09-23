@@ -1,0 +1,300 @@
+{
+  "scope": "our model with synthetic fixed draws; no author-code replay",
+  "cases": [
+    {
+      "name": "outer_first_separate",
+      "initial_backoffs": [
+        0,
+        5,
+        15
+      ],
+      "first_packets": {
+        "0": {
+          "node": 0,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": true,
+          "release": 131.4538832821413
+        },
+        "2": {
+          "node": 2,
+          "start": 178.0,
+          "end": 218.4538832821413,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 15,
+          "noise_bad": false,
+          "success": true,
+          "release": 266.4538832821413
+        }
+      },
+      "busy_union_check": null,
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 55,
+        "errors": [],
+        "error_count": 0,
+        "packets": 8
+      }
+    },
+    {
+      "name": "outer_staggered_overlap",
+      "initial_backoffs": [
+        0,
+        5,
+        2
+      ],
+      "first_packets": {
+        "0": {
+          "node": 0,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": true,
+          "release": 131.4538832821413
+        },
+        "2": {
+          "node": 2,
+          "start": 61.0,
+          "end": 101.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 2,
+          "noise_bad": false,
+          "success": true,
+          "release": 149.4538832821413
+        },
+        "1": {
+          "node": 1,
+          "start": 237.4538832821413,
+          "end": 277.9077665642826,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 5,
+          "noise_bad": false,
+          "success": true,
+          "release": 325.9077665642826
+        }
+      },
+      "busy_union_check": "center waited until both outer exchanges ended plus DIFS",
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 57,
+        "errors": [],
+        "error_count": 0,
+        "packets": 8
+      }
+    },
+    {
+      "name": "center_first",
+      "initial_backoffs": [
+        5,
+        0,
+        8
+      ],
+      "first_packets": {
+        "1": {
+          "node": 1,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": true,
+          "release": 131.4538832821413
+        },
+        "0": {
+          "node": 0,
+          "start": 219.4538832821413,
+          "end": 259.9077665642826,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 5,
+          "noise_bad": false,
+          "success": true,
+          "release": 307.9077665642826
+        },
+        "2": {
+          "node": 2,
+          "start": 246.4538832821413,
+          "end": 286.9077665642826,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 8,
+          "noise_bad": false,
+          "success": true,
+          "release": 334.9077665642826
+        }
+      },
+      "busy_union_check": null,
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 57,
+        "errors": [],
+        "error_count": 0,
+        "packets": 8
+      }
+    },
+    {
+      "name": "neighbor_simultaneous",
+      "initial_backoffs": [
+        0,
+        0,
+        8
+      ],
+      "first_packets": {
+        "0": {
+          "node": 0,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": false,
+          "release": 148.4538832821413
+        },
+        "1": {
+          "node": 1,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": false,
+          "release": 148.4538832821413
+        },
+        "2": {
+          "node": 2,
+          "start": 263.4538832821413,
+          "end": 303.9077665642826,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 8,
+          "noise_bad": false,
+          "success": true,
+          "release": 351.9077665642826
+        }
+      },
+      "busy_union_check": null,
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 62,
+        "errors": [],
+        "error_count": 0,
+        "packets": 9
+      }
+    },
+    {
+      "name": "outers_simultaneous",
+      "initial_backoffs": [
+        0,
+        5,
+        0
+      ],
+      "first_packets": {
+        "0": {
+          "node": 0,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": true,
+          "release": 131.4538832821413
+        },
+        "2": {
+          "node": 2,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": true,
+          "release": 131.4538832821413
+        },
+        "1": {
+          "node": 1,
+          "start": 219.4538832821413,
+          "end": 259.9077665642826,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 5,
+          "noise_bad": false,
+          "success": true,
+          "release": 307.9077665642826
+        }
+      },
+      "busy_union_check": null,
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 57,
+        "errors": [],
+        "error_count": 0,
+        "packets": 8
+      }
+    },
+    {
+      "name": "all_simultaneous",
+      "initial_backoffs": [
+        0,
+        0,
+        0
+      ],
+      "first_packets": {
+        "0": {
+          "node": 0,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": false,
+          "release": 148.4538832821413
+        },
+        "1": {
+          "node": 1,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": false,
+          "release": 148.4538832821413
+        },
+        "2": {
+          "node": 2,
+          "start": 43.0,
+          "end": 83.45388328214129,
+          "stage": 0,
+          "cw": 16,
+          "backoff": 0,
+          "noise_bad": false,
+          "success": false,
+          "release": 148.4538832821413
+        }
+      },
+      "busy_union_check": null,
+      "independent_trace_check": {
+        "status": "PASS",
+        "checks": 85,
+        "errors": [],
+        "error_count": 0,
+        "packets": 12
+      }
+    }
+  ]
+}

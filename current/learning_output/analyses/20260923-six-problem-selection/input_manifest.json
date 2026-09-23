@@ -1,0 +1,50 @@
+[
+  {
+    "id": "A",
+    "path": "D:\\数模\\数模练习\\A题exp\\通用神经网络处理器下的多核调度问题.docx",
+    "sha256": "21c6dec4138ee34fca41ac8907c7e8073b9728611bab7c6b410364db706bb375",
+    "paragraphs": 152,
+    "media_count": 5,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  },
+  {
+    "id": "B",
+    "path": "D:\\数模\\数模练习\\B题exp\\氢燃料电池低温冷启动建模与控制策略研究.docx",
+    "sha256": "df96f1683994d532248e4c47a235cc2306bea15b451b614fc9676ab83e4b0ebc",
+    "paragraphs": 238,
+    "media_count": 69,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  },
+  {
+    "id": "C",
+    "path": "D:\\数模\\数模练习\\C题exp\\服务于脑机接口与精神性疾病诊断的脑电图计算模型.docx",
+    "sha256": "89bef64a05fd491f50769106ddcbcfb5a7fba437fad9a303e63169e6eb03e8df",
+    "paragraphs": 87,
+    "media_count": 14,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  },
+  {
+    "id": "D",
+    "path": "D:\\数模\\数模练习\\D题exp\\山区洪涝灾害下无人机运输与通信协同优化.docx",
+    "sha256": "719cccec8137a54c751e7bbe8c97ecba1c441a6f9671e9f64e3427fa78de571d",
+    "paragraphs": 111,
+    "media_count": 3,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  },
+  {
+    "id": "E",
+    "path": "D:\\数模\\数模练习\\E题exp\\复杂场景下多模态情感识别的数学建模与算法设计.docx",
+    "sha256": "ed5e2cf014c94fc1c5e0e8f35cc82c5d262e86705fc5f926083dabb94be79fee",
+    "paragraphs": 120,
+    "media_count": 3,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  },
+  {
+    "id": "F",
+    "path": "D:\\数模\\数模练习\\F题exp\\算力约束下提升大语言模型能力的资源配置建模.docx",
+    "sha256": "345c9d6ad6a04844695d5a36df2bdc6cf9517295faa8781e3eff4a520075c10d",
+    "paragraphs": 89,
+    "media_count": 0,
+    "note": "OOXML文字和公式文字提取；图像未读取，公式结构未完整渲染"
+  }
+]

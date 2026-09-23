@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "available_text_pages_reviewed": 62,
+  "full_reviews": 5,
+  "author_program_reproduced": false,
+  "frozen_files_verified": 41,
+  "latest_solution": "revision_v7/REFERENCE_SOLUTION.md",
+  "next_paper": "A23102890028",
+  "new_checks": "Q2 formulas: two rates; Q4 closure: five printed parameters and residual; Q3: seven parameter columns"
+}

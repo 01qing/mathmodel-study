@@ -1,0 +1,74 @@
+{
+  "scope": "scalar consistency checks; no original C++ or optimization replay",
+  "root_checks": [
+    {
+      "p": 0.10462063228196894,
+      "cleared_polynomial": -2.220446049250313e-16,
+      "finite_sum_tau": 0.10462063228196894,
+      "original_residual": 0.0
+    },
+    {
+      "p": 0.5,
+      "cleared_polynomial": 0.0,
+      "finite_sum_tau": 0.0307692308221343,
+      "original_residual": -0.4692307691778657
+    },
+    {
+      "p": 1.0,
+      "cleared_polynomial": 0.0,
+      "finite_sum_tau": 0.0023005333054480813,
+      "original_residual": -0.9976994666945519
+    }
+  ],
+  "q3": {
+    "reported_pf": 0.46479313254,
+    "reported_tau": 0.057893,
+    "finite_sum_tau": 0.03672080307203458,
+    "reported_Ptr": 0.0845,
+    "Ptr_from_reported_tau": 0.11243440055099996
+  },
+  "error_metrics": [
+    {
+      "question": 1,
+      "theory": 67.174,
+      "simulation": 62.389,
+      "efficiency_difference_percentage_points": 1.0498025449758674,
+      "relative_error_percent": 7.669621247335273
+    },
+    {
+      "question": 2,
+      "theory": 70.562,
+      "simulation": 66.139,
+      "efficiency_difference_percentage_points": 1.606610969851072,
+      "relative_error_percent": 6.687431016495565
+    },
+    {
+      "question": 3,
+      "theory": 31.269,
+      "simulation": 45.283,
+      "efficiency_difference_percentage_points": 3.074594120228171,
+      "relative_error_percent": 30.947596228165104
+    },
+    {
+      "question": 4,
+      "theory": 98.567,
+      "simulation": 110.627,
+      "efficiency_difference_percentage_points": 2.645897323387451,
+      "relative_error_percent": 10.901497826028006
+    }
+  ],
+  "backoff": {
+    "standard_mean_us": 67.5,
+    "plus_one_mean_us": 76.5
+  },
+  "payload": {
+    "required_bits": 12000,
+    "q3_code_bits": 10000,
+    "reward_ratio": 0.8333333333333334
+  },
+  "export": {
+    "counter_kilobits": 12,
+    "literal_times_100_bits": 1200,
+    "correct_times_1000_bits": 12000
+  }
+}

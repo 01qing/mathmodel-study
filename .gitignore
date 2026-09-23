@@ -5,3 +5,9 @@
 .mypy_cache/
 .DS_Store
 Thumbs.db
+
+/handoff-20260923.zip
+
+/current/learning_output/analyses/20260923-six-problem-selection/runtime_deps/
+
+/handoff-20260923/*.zip

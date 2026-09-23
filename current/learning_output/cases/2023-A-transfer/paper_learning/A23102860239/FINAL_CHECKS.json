@@ -1,0 +1,139 @@
+{
+  "scope": "local scalar reconstruction and seven printed parameter columns; author simulator not run",
+  "q2": [
+    {
+      "rate": 275.3,
+      "literal_eq4_8_mbps": 70.01782614781843,
+      "corrected_independent_mbps": 70.5584636464047,
+      "printed_table_mbps": 70.5586
+    },
+    {
+      "rate": 455.8,
+      "literal_eq4_8_mbps": 77.48001890572806,
+      "corrected_independent_mbps": 78.1755322989996,
+      "printed_table_mbps": 70.5586
+    }
+  ],
+  "q4_attempt_closure": {
+    "tau1": 0.10673008709736298,
+    "tau2": 0.08927662256382264,
+    "p1": 0.08927662256382264,
+    "p2": 0.20206886270291524,
+    "b001": 0.09720158539536779,
+    "b002": 0.07123659697639358,
+    "residual": 1.3877787807814457e-17
+  },
+  "q3_parameter_rows": [
+    {
+      "column": 1,
+      "rate": 286.8,
+      "cwmin": 16,
+      "retries": 6,
+      "author_theory": 46.986,
+      "author_simulation": 45.557,
+      "printed_nmse": 0.00092497,
+      "point_squared_relative_error": 0.0009249697052231766,
+      "relative_theory_error_vs_author_sim_percent": 3.1367298110059894,
+      "frozen_simulation": 45.01848,
+      "relative_theory_error_vs_frozen_percent": 4.370471859556346,
+      "author_sim_minus_frozen_mbps": 0.5385200000000054
+    },
+    {
+      "column": 2,
+      "rate": 286.8,
+      "cwmin": 32,
+      "retries": 5,
+      "author_theory": 40.161,
+      "author_simulation": 37.533,
+      "printed_nmse": 0.0043,
+      "point_squared_relative_error": 0.004281950924774365,
+      "relative_theory_error_vs_author_sim_percent": 7.001838382223635,
+      "frozen_simulation": 37.374,
+      "relative_theory_error_vs_frozen_percent": 7.457055707176119,
+      "author_sim_minus_frozen_mbps": 0.15899999999999892
+    },
+    {
+      "column": 3,
+      "rate": 286.8,
+      "cwmin": 16,
+      "retries": 32,
+      "author_theory": 45.9061,
+      "author_simulation": 45.51,
+      "printed_nmse": 7.4451e-05,
+      "point_squared_relative_error": 7.445071758576157e-05,
+      "relative_theory_error_vs_author_sim_percent": 0.8703581630411072,
+      "frozen_simulation": 45.3588,
+      "relative_theory_error_vs_frozen_percent": 1.2066015855798584,
+      "author_sim_minus_frozen_mbps": 0.15119999999999578
+    },
+    {
+      "column": 4,
+      "rate": 158.4,
+      "cwmin": 16,
+      "retries": 6,
+      "author_theory": 36.113,
+      "author_simulation": 35.126,
+      "printed_nmse": 0.00074698,
+      "point_squared_relative_error": 0.0007469768964678627,
+      "relative_theory_error_vs_author_sim_percent": 2.8098844161020375,
+      "frozen_simulation": 33.98832,
+      "relative_theory_error_vs_frozen_percent": 6.251206296751355,
+      "author_sim_minus_frozen_mbps": 1.137679999999996
+    },
+    {
+      "column": 5,
+      "rate": 158.4,
+      "cwmin": 32,
+      "retries": 5,
+      "author_theory": 31.886,
+      "author_simulation": 28.234,
+      "printed_nmse": 0.0131,
+      "point_squared_relative_error": 0.013117813563136288,
+      "relative_theory_error_vs_author_sim_percent": 12.934759509810867,
+      "frozen_simulation": 27.80688,
+      "relative_theory_error_vs_frozen_percent": 14.669463096902646,
+      "author_sim_minus_frozen_mbps": 0.42712000000000216
+    },
+    {
+      "column": 6,
+      "rate": 158.4,
+      "cwmin": 16,
+      "retries": 32,
+      "author_theory": 36.718,
+      "author_simulation": 36.495,
+      "printed_nmse": 3.6885e-05,
+      "point_squared_relative_error": 3.688516164916174e-05,
+      "relative_theory_error_vs_author_sim_percent": 0.6110426085765397,
+      "frozen_simulation": 36.34824,
+      "relative_theory_error_vs_frozen_percent": 1.01727071241966,
+      "author_sim_minus_frozen_mbps": 0.14676000000000045
+    },
+    {
+      "column": 7,
+      "rate": 455.8,
+      "cwmin": 16,
+      "retries": 32,
+      "author_theory": 54.573,
+      "author_simulation": 54.576,
+      "printed_nmse": 3.0219e-09,
+      "point_squared_relative_error": 3.0219470627947567e-09,
+      "relative_theory_error_vs_author_sim_percent": -0.005496921723835424,
+      "frozen_simulation": 54.70608,
+      "relative_theory_error_vs_frozen_percent": -0.2432636372410535,
+      "author_sim_minus_frozen_mbps": -0.13007999999999953
+    }
+  ],
+  "q3_window_groups": {
+    "16": {
+      "count": 5,
+      "mape_vs_author_sim_percent": 1.4867023840899019,
+      "mape_vs_frozen_sim_percent": 2.6177628183096546
+    },
+    "32": {
+      "count": 2,
+      "mape_vs_author_sim_percent": 9.968298946017251,
+      "mape_vs_frozen_sim_percent": 11.063259402039382
+    }
+  },
+  "caution": "Different simulator semantics; comparison with frozen simulation is diagnostic, not ground truth; missing formulas remain unreconstructed."
+}

@@ -1,0 +1,43 @@
+{
+  "scope": "scalar and isolated boundary checks; no original MATLAB replay",
+  "q2": {
+    "literal_tau": 1.125,
+    "required_tau": 0.11764705882352941,
+    "independent_throughput": 70.55846364640472
+  },
+  "q3_vulnerability": {
+    "data_slots": 5,
+    "exchange_slots": 15,
+    "printed_exchange_slots": 7
+  },
+  "q4_reward": {
+    "center_only": 0.07488262434399999,
+    "outer_simultaneous": 0.009919255656,
+    "outer_single": 0.011446016865571201,
+    "outer_overlap": 0.1583761918224288,
+    "printed_reward": 0.48788290485442876,
+    "event_count_reward": 0.42291953616642874
+  },
+  "touching_probe": {
+    "interval1": [
+      0,
+      41
+    ],
+    "interval2": [
+      41,
+      82
+    ],
+    "positive_overlap": false,
+    "literal_strict_separation_branch_collision": true
+  },
+  "wakeup_probe": {
+    "initial": [
+      200,
+      200
+    ],
+    "horizon": 100,
+    "literal_if_elseif_updated_nodes": 1,
+    "independent_conditions_updated_nodes": 2,
+    "reachability": "isolated branch probe, not full trajectory"
+  }
+}

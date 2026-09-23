@@ -1,0 +1,688 @@
+{
+  "scope": "deterministic isolated branch reconstructions; original code not fully run",
+  "retry_history_cases": [
+    {
+      "limit": 5,
+      "events": [
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "success",
+        "failure"
+      ],
+      "literal": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 0,
+          "dropped": true
+        }
+      ],
+      "reset_counter": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 0,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        }
+      ]
+    },
+    {
+      "limit": 6,
+      "events": [
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "success",
+        "failure"
+      ],
+      "literal": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 5,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 5,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 0,
+          "dropped": true
+        }
+      ],
+      "reset_counter": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 5,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 0,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        }
+      ]
+    },
+    {
+      "limit": 32,
+      "events": [
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "failure",
+        "success",
+        "failure"
+      ],
+      "literal": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 5,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 6,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 7,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 8,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 9,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 10,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 11,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 12,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 13,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 14,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 15,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 16,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 17,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 18,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 19,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 20,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 21,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 22,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 23,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 24,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 25,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 26,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 27,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 28,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 29,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 30,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 31,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 31,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 0,
+          "dropped": true
+        }
+      ],
+      "reset_counter": [
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 2,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 3,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 4,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 5,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 6,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 7,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 8,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 9,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 10,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 11,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 12,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 13,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 14,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 15,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 16,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 17,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 18,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 19,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 20,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 21,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 22,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 23,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 24,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 25,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 26,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 27,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 28,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 29,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 30,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 31,
+          "dropped": false
+        },
+        {
+          "event": "success",
+          "counter": 0,
+          "dropped": false
+        },
+        {
+          "event": "failure",
+          "counter": 1,
+          "dropped": false
+        }
+      ]
+    }
+  ],
+  "freeze_cases": [
+    {
+      "rate": 455.8,
+      "remaining_slots": 1,
+      "Ts": 131.4538832821413,
+      "appendix_deadline": 183.4538832821413,
+      "full_freeze_deadline": 183.4538832821413,
+      "matches": true
+    },
+    {
+      "rate": 455.8,
+      "remaining_slots": 7,
+      "Ts": 131.4538832821413,
+      "appendix_deadline": 237.4538832821413,
+      "full_freeze_deadline": 237.4538832821413,
+      "matches": true
+    },
+    {
+      "rate": 455.8,
+      "remaining_slots": 15,
+      "Ts": 131.4538832821413,
+      "appendix_deadline": 178.0,
+      "full_freeze_deadline": 309.4538832821413,
+      "matches": false
+    },
+    {
+      "rate": 455.8,
+      "remaining_slots": 31,
+      "Ts": 131.4538832821413,
+      "appendix_deadline": 322.0,
+      "full_freeze_deadline": 453.4538832821413,
+      "matches": false
+    },
+    {
+      "rate": 286.8,
+      "remaining_slots": 1,
+      "Ts": 147.27782426778242,
+      "appendix_deadline": 199.27782426778242,
+      "full_freeze_deadline": 199.27782426778242,
+      "matches": true
+    },
+    {
+      "rate": 286.8,
+      "remaining_slots": 7,
+      "Ts": 147.27782426778242,
+      "appendix_deadline": 253.27782426778242,
+      "full_freeze_deadline": 253.27782426778242,
+      "matches": true
+    },
+    {
+      "rate": 286.8,
+      "remaining_slots": 15,
+      "Ts": 147.27782426778242,
+      "appendix_deadline": 325.2778242677824,
+      "full_freeze_deadline": 325.2778242677824,
+      "matches": true
+    },
+    {
+      "rate": 286.8,
+      "remaining_slots": 31,
+      "Ts": 147.27782426778242,
+      "appendix_deadline": 322.0,
+      "full_freeze_deadline": 469.2778242677824,
+      "matches": false
+    },
+    {
+      "rate": 158.4,
+      "remaining_slots": 1,
+      "Ts": 181.87272727272727,
+      "appendix_deadline": 233.87272727272727,
+      "full_freeze_deadline": 233.87272727272727,
+      "matches": true
+    },
+    {
+      "rate": 158.4,
+      "remaining_slots": 7,
+      "Ts": 181.87272727272727,
+      "appendix_deadline": 287.8727272727273,
+      "full_freeze_deadline": 287.8727272727273,
+      "matches": true
+    },
+    {
+      "rate": 158.4,
+      "remaining_slots": 15,
+      "Ts": 181.87272727272727,
+      "appendix_deadline": 359.8727272727273,
+      "full_freeze_deadline": 359.8727272727273,
+      "matches": true
+    },
+    {
+      "rate": 158.4,
+      "remaining_slots": 31,
+      "Ts": 181.87272727272727,
+      "appendix_deadline": 322.0,
+      "full_freeze_deadline": 503.8727272727273,
+      "matches": false
+    }
+  ],
+  "noise_reward_cases": [
+    {
+      "ptr": 0.178,
+      "ps": 0.859,
+      "body_mbps": 52.452351020446486,
+      "code_mbps": 104.90470204089297,
+      "ratio": 2.0,
+      "scope": "controlled inputs, not recovered published throughput"
+    },
+    {
+      "ptr": 0.22,
+      "ps": 0.75,
+      "body_mbps": 47.96188886945055,
+      "code_mbps": 95.9237777389011,
+      "ratio": 2.0,
+      "scope": "controlled inputs, not recovered published throughput"
+    },
+    {
+      "ptr": 0.4,
+      "ps": 0.6,
+      "body_mbps": 42.416704850428744,
+      "code_mbps": 84.83340970085749,
+      "ratio": 2.0,
+      "scope": "controlled inputs, not recovered published throughput"
+    }
+  ],
+  "hardcoded_collision_cases": [
+    {
+      "rate": 455.8,
+      "start_gap": 40.45388328214129,
+      "hardcoded": 40.45388328214129,
+      "actual_duration": 40.45388328214129,
+      "literal_collision": false,
+      "parametric_collision": false
+    },
+    {
+      "rate": 286.8,
+      "start_gap": 48.36585377496186,
+      "hardcoded": 40.45388328214129,
+      "actual_duration": 56.27782426778243,
+      "literal_collision": false,
+      "parametric_collision": true
+    },
+    {
+      "rate": 158.4,
+      "start_gap": 65.66330527743428,
+      "hardcoded": 40.45388328214129,
+      "actual_duration": 90.87272727272726,
+      "literal_collision": false,
+      "parametric_collision": true
+    }
+  ]
+}

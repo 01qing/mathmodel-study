@@ -1,0 +1,173 @@
+{
+  "scope": "local scalar and isolated event probes; no original full Python simulation",
+  "q2": {
+    "tau": 0.13104367406500605,
+    "throughput": 72.62899999826212,
+    "initial_backoff_support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "required_support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "q3_table_probability": [
+    {
+      "table_pf": 0.2291,
+      "table_tau2": 0.2291,
+      "required_pf": 0.30619,
+      "residual": -0.07709000000000002
+    },
+    {
+      "table_pf": 0.2558,
+      "table_tau2": 0.2558,
+      "required_pf": 0.33022000000000007,
+      "residual": -0.07442000000000004
+    },
+    {
+      "table_pf": 0.1963,
+      "table_tau2": 0.1963,
+      "required_pf": 0.27666999999999997,
+      "residual": -0.08036999999999997
+    },
+    {
+      "table_pf": 0.2502,
+      "table_tau2": 0.2502,
+      "required_pf": 0.32518,
+      "residual": -0.07498000000000005
+    },
+    {
+      "table_pf": 0.277,
+      "table_tau2": 0.277,
+      "required_pf": 0.34930000000000005,
+      "residual": -0.07230000000000003
+    },
+    {
+      "table_pf": 0.2343,
+      "table_tau2": 0.2343,
+      "required_pf": 0.31087,
+      "residual": -0.07656999999999997
+    },
+    {
+      "table_pf": 0.2961,
+      "table_tau2": 0.2961,
+      "required_pf": 0.36649,
+      "residual": -0.07039000000000001
+    }
+  ],
+  "q4": [
+    {
+      "rate": 455.8,
+      "w": 16,
+      "r": 32,
+      "tau_outer": 0.106730087097363,
+      "tau_center": 0.08927662256382264,
+      "Ps": 1.4701518995321923,
+      "collision_weight": -0.08767308369337257,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 286.8,
+      "w": 16,
+      "r": 6,
+      "tau_outer": 0.10672260606064711,
+      "tau_center": 0.08933394966231659,
+      "Ps": 1.4699414464363447,
+      "collision_weight": -0.08765470222534093,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 286.8,
+      "w": 32,
+      "r": 5,
+      "tau_outer": 0.05729676635652033,
+      "tau_center": 0.05322319159470264,
+      "Ps": 1.4763889702916437,
+      "collision_weight": -0.05119773280942032,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 286.8,
+      "w": 16,
+      "r": 32,
+      "tau_outer": 0.106730087097363,
+      "tau_center": 0.08927662256382264,
+      "Ps": 1.4701518995321923,
+      "collision_weight": -0.08767308369337257,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 158.4,
+      "w": 16,
+      "r": 6,
+      "tau_outer": 0.10672260606064711,
+      "tau_center": 0.08933394966231659,
+      "Ps": 1.4699414464363447,
+      "collision_weight": -0.08765470222534093,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 158.4,
+      "w": 32,
+      "r": 5,
+      "tau_outer": 0.05729676635652033,
+      "tau_center": 0.05322319159470264,
+      "Ps": 1.4763889702916437,
+      "collision_weight": -0.05119773280942032,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    },
+    {
+      "rate": 158.4,
+      "w": 16,
+      "r": 32,
+      "tau_outer": 0.106730087097363,
+      "tau_center": 0.08927662256382264,
+      "Ps": 1.4701518995321923,
+      "collision_weight": -0.08767308369337257,
+      "scope": "finite-sum closure; appendix parenthesis drift not silently adopted"
+    }
+  ],
+  "collision_latch_probe": {
+    "source_interval": [
+      0,
+      41
+    ],
+    "interferer_interval": [
+      0,
+      20
+    ],
+    "noise": false,
+    "positive_overlap": true,
+    "source_completion_time": 89,
+    "appendix_current_channel_success": true,
+    "required_sticky_failure": true
+  }
+}

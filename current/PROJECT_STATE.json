@@ -1,7 +1,7 @@
 {
   "updated": "2026-09-22",
   "project_root": "D:\\softdown\\codex\\mathmodel-study\\current",
-  "user_objective": "学习优秀论文，生成有推导、代码、结果和验证的完整参考解答，帮助用户通过对照改进竞赛作品。",
+  "user_objective": "最终目标是提高用户参加数学建模竞赛的获奖率：学习优秀论文的方法与论证标准，针对新题生成有推导、代码、结果和验证的完整参考解答，供用户与自己的作品对照改进。该目标尚无获奖率提升验证证据。",
   "user_input_required": false,
   "version": {
     "baseline": "1.41.0",
@@ -65,21 +65,32 @@
       "paper formal writer",
       "quality assurance"
     ],
-    "capability_or_award_rate_gain": "NOT_ESTABLISHED"
+    "capability_or_award_rate_gain": "NOT_ESTABLISHED",
+    "local_workflow": "DEPLOYED_SEQUENTIAL_SKILL_HANDOFF_1.0",
+    "installed_entrypoints": [
+      "mathmodel-evidence",
+      "mathmodel-architect",
+      "mathmodel-reviewer"
+    ],
+    "execution": "Same assistant sequential roles by default; no independent-agent claim",
+    "validation": "LOCAL_SKILL_AND_HANDOFF_CHECKS_PASS; real new-problem workflow not yet run",
+    "validation_report": "learning_output/deployment/20260922-role-workflow/VALIDATION.json"
   },
   "current_case": {
     "id": "2023-A-transfer",
-    "status": "FIRST_PAPER_TEXT_REVIEW_AND_DIAGNOSTIC_REVISION_COMPLETE",
-    "reference_solution": "learning_output/cases/2023-A-transfer/revision_v2/REFERENCE_SOLUTION.md",
+    "status": "TEN_FULL_TEXT_REVIEWS_WITH_SCOPED_CHECKS",
+    "reference_solution": "learning_output/cases/2023-A-transfer/revision_v9/REFERENCE_SOLUTION.md",
     "freeze_manifest": "learning_output/cases/2023-A-transfer/FIRST_ANSWER_FREEZE.json",
-    "next_action": "Review A23100070049 by question, prioritizing Q3 hidden timing and Q4 asymmetric topology; no direct PDF extraction",
-    "same_problem_solution_exposure": "After freeze: A23104220005 all 49 Markdown pages reviewed; 9 other registered papers unread",
+    "next_action": "2023-A complete; await user new problem; use deployed Architect/Reviewer workflow",
+    "same_problem_solution_exposure": "After first-answer freeze: all ten available-text papers reviewed; not a fresh blind test",
     "related_domain_exposure": "2024-B WLAN learning already existed; not domain-naive",
     "markdown_registry": "learning_output/cases/2023-A-transfer/PAPER_MARKDOWN_REGISTRY.json",
-    "papers_full_text_reviewed": 1,
-    "papers_end_to_end_reproduced": 0
+    "papers_full_text_reviewed": 10,
+    "papers_end_to_end_reproduced": 0,
+    "partial_paper_reviews": [],
+    "synthesis": "learning_output/cases/2023-A-transfer/LEARNING_SYNTHESIS_10_PAPERS.md"
   },
-  "next_unseen_transfer_case": "2023-A FIRST ANSWER FROZEN; next phase is exposed paper comparison",
+  "next_unseen_transfer_case": "Await user-provided new problem and attachments; pause new paper reading",
   "unresolved_nonblocking": [
     "2023-C final sealed evidence ZIP not locally located",
     "2022-C full evaluator text still needed; saved API output is truncated"
@@ -160,6 +171,8 @@
     "paper_input_format": "Markdown preferred and required before PDF content extraction",
     "pdf_content_policy": "Do not directly parse PDFs; tell user which PDFs need conversion and wait for their Markdown",
     "source": "Explicit user instruction 2026-09-22",
-    "2023A_markdown_root": "D:\\BaiduNetdiskDownload\\研究生数学建模竞赛优秀论文选（2004-2025）\\2023年研究生数学建模竞赛优秀论文选\\2023A优秀论文"
-  }
+    "2023A_markdown_root": "D:\\BaiduNetdiskDownload\\研究生数学建模竞赛优秀论文选（2004-2025）\\2023年研究生数学建模竞赛优秀论文选\\2023A优秀论文",
+    "work_scope": "LOCAL_ONLY; user explicitly stopped GitHub handling on 2026-09-22"
+  },
+  "portable_source_root": "learning_sources/2023A_markdown"
 }

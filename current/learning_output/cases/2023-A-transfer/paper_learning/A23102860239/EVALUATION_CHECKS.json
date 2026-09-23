@@ -1,0 +1,705 @@
+{
+  "scope": "partial review: Q3/Q4, evaluation and supplied appendix; no full author execution",
+  "source_sha256": {
+    "markdown": "d848658ebd142b5788c4278a7927ec40d782b5d892adcbb872b9daab676b59fa",
+    "raw_layout": "40d814076ef39e985086a3a71b57db5e6c0153438f37bedac601dd4d1d407d4d"
+  },
+  "nmse_definition": "candidate mean squared error divided by squared fixed theory; original Eq3.23 absent in converted text",
+  "printed_error_audit": [
+    {
+      "name": "Q1 throughput",
+      "theory": 67.17434,
+      "simulation": 65.351722,
+      "signed_relative_error_percent": -2.713265214068361,
+      "point_squared_relative_error": 0.0007361808121873405,
+      "reported_nmse": 0.000912,
+      "point_error_divided_by_reported": 0.8072158028369961,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": false
+    },
+    {
+      "name": "Q1 collision",
+      "theory": 0.104621,
+      "simulation": 0.108623,
+      "signed_relative_error_percent": 3.8252358513109153,
+      "point_squared_relative_error": 0.0014632429318154332,
+      "reported_nmse": 0.002467,
+      "point_error_divided_by_reported": 0.5931264417573706,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": false
+    },
+    {
+      "name": "Q2 throughput",
+      "theory": 70.5586,
+      "simulation": 68.9944,
+      "signed_relative_error_percent": -2.216880720422454,
+      "point_squared_relative_error": 0.0004914560128580792,
+      "reported_nmse": 0.000514,
+      "point_error_divided_by_reported": 0.9561401028367299,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": false
+    },
+    {
+      "name": "Q3 throughput p44",
+      "theory": 54.5733,
+      "simulation": 54.7118,
+      "signed_relative_error_percent": 0.2537871083478471,
+      "point_squared_relative_error": 6.44078963635598e-06,
+      "reported_nmse": 1.417e-07,
+      "point_error_divided_by_reported": 45.45370244429061,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": true
+    },
+    {
+      "name": "Q3 collision p44",
+      "theory": 0.296356,
+      "simulation": 0.271731,
+      "signed_relative_error_percent": -8.309263183468529,
+      "point_squared_relative_error": 0.006904385465214563,
+      "reported_nmse": 0.0069,
+      "point_error_divided_by_reported": 1.0006355746687772,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": false
+    },
+    {
+      "name": "Q4 throughput p55",
+      "theory": 102.572708,
+      "simulation": 103.236599,
+      "signed_relative_error_percent": 0.647239419670953,
+      "point_squared_relative_error": 4.1891886637600615e-05,
+      "reported_nmse": 1.417e-07,
+      "point_error_divided_by_reported": 295.6378732364193,
+      "violates_mean_sample_lower_bound_if_same_sample_mean": true
+    }
+  ],
+  "jensen_identity_check": "PASS",
+  "existing_scenarios": [
+    {
+      "id": "Q1_base",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.11023797508176092,
+          "seed_mean_failure_fraction": 0.11024016688353924,
+          "seed_min_failure_fraction": 0.10881183601642443,
+          "seed_max_failure_fraction": 0.11163217787688978,
+          "total_completed_attempts": 152579,
+          "total_failed_attempts": 16820,
+          "mean_payload_mbps": 32.58216
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.10999574927247163,
+          "seed_mean_failure_fraction": 0.10999476135997406,
+          "seed_min_failure_fraction": 0.1090772152727749,
+          "seed_max_failure_fraction": 0.11113650461980476,
+          "total_completed_attempts": 152915,
+          "total_failed_attempts": 16820,
+          "mean_payload_mbps": 32.6628
+        }
+      ],
+      "pooled_failure_fraction": 0.11011672897012707,
+      "total_payload_mbps": 65.24496,
+      "jain_mean": 0.9999894961746223,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q2_base",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.0,
+          "seed_mean_failure_fraction": 0.0,
+          "seed_min_failure_fraction": 0.0,
+          "seed_max_failure_fraction": 0.0,
+          "total_completed_attempts": 143697,
+          "total_failed_attempts": 0,
+          "mean_payload_mbps": 34.48728
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.0,
+          "seed_mean_failure_fraction": 0.0,
+          "seed_min_failure_fraction": 0.0,
+          "seed_max_failure_fraction": 0.0,
+          "total_completed_attempts": 143606,
+          "total_failed_attempts": 0,
+          "mean_payload_mbps": 34.46544
+        }
+      ],
+      "pooled_failure_fraction": 0.0,
+      "total_payload_mbps": 68.95272,
+      "jain_mean": 0.999994013204602,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_base",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.34556494959179523,
+          "seed_mean_failure_fraction": 0.34566936785019575,
+          "seed_min_failure_fraction": 0.3417073601223745,
+          "seed_max_failure_fraction": 0.3566746216355013,
+          "total_completed_attempts": 172095,
+          "total_failed_attempts": 59470,
+          "mean_payload_mbps": 27.03
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.34084231705783496,
+          "seed_mean_failure_fraction": 0.34094840559881623,
+          "seed_min_failure_fraction": 0.33303715221858166,
+          "seed_max_failure_fraction": 0.35050008773469027,
+          "total_completed_attempts": 174946,
+          "total_failed_attempts": 59629,
+          "mean_payload_mbps": 27.67608
+        }
+      ],
+      "pooled_failure_fraction": 0.34318423471578285,
+      "total_payload_mbps": 54.70608,
+      "jain_mean": 0.9990205051122399,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_286.8_W16_r6",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.37468961270286916,
+          "seed_mean_failure_fraction": 0.374690276244062,
+          "seed_min_failure_fraction": 0.369635761589404,
+          "seed_max_failure_fraction": 0.3766428714390553,
+          "total_completed_attempts": 151021,
+          "total_failed_attempts": 56586,
+          "mean_payload_mbps": 22.6644
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.37685154211547467,
+          "seed_mean_failure_fraction": 0.37685143352555844,
+          "seed_min_failure_fraction": 0.37368104714839057,
+          "seed_max_failure_fraction": 0.3834370191986086,
+          "total_completed_attempts": 149470,
+          "total_failed_attempts": 56328,
+          "mean_payload_mbps": 22.35408
+        }
+      ],
+      "pooled_failure_fraction": 0.37576499795334967,
+      "total_payload_mbps": 45.01848,
+      "jain_mean": 0.9999216561031264,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_286.8_W32_r5",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.3444312595355145,
+          "seed_mean_failure_fraction": 0.34445222631565164,
+          "seed_min_failure_fraction": 0.3413793103448276,
+          "seed_max_failure_fraction": 0.3517232510288066,
+          "total_completed_attempts": 117980,
+          "total_failed_attempts": 40636,
+          "mean_payload_mbps": 18.56256
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.3412973872412663,
+          "seed_mean_failure_fraction": 0.3413084716105725,
+          "seed_min_failure_fraction": 0.33977183806268274,
+          "seed_max_failure_fraction": 0.3429421768707483,
+          "total_completed_attempts": 118993,
+          "total_failed_attempts": 40612,
+          "mean_payload_mbps": 18.81144
+        }
+      ],
+      "pooled_failure_fraction": 0.3428576251302891,
+      "total_payload_mbps": 37.374,
+      "jain_mean": 0.9998084440894681,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_286.8_W16_r32",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.3495152927030886,
+          "seed_mean_failure_fraction": 0.3495780256271479,
+          "seed_min_failure_fraction": 0.34116970537496194,
+          "seed_max_failure_fraction": 0.3553409050702332,
+          "total_completed_attempts": 146377,
+          "total_failed_attempts": 51161,
+          "mean_payload_mbps": 22.85184
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.3521357365406802,
+          "seed_mean_failure_fraction": 0.35227731378760657,
+          "seed_min_failure_fraction": 0.34112290334460477,
+          "seed_max_failure_fraction": 0.3623918286281742,
+          "total_completed_attempts": 144751,
+          "total_failed_attempts": 50972,
+          "mean_payload_mbps": 22.50696
+        }
+      ],
+      "pooled_failure_fraction": 0.3508181968069028,
+      "total_payload_mbps": 45.3588,
+      "jain_mean": 0.9990709705470221,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_158.4_W16_r6",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.3920801526717557,
+          "seed_mean_failure_fraction": 0.39210222452978055,
+          "seed_min_failure_fraction": 0.38856526429341964,
+          "seed_max_failure_fraction": 0.3989537925021796,
+          "total_completed_attempts": 115280,
+          "total_failed_attempts": 45199,
+          "mean_payload_mbps": 16.81944
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.3886196788281243,
+          "seed_mean_failure_fraction": 0.3886406164254277,
+          "seed_min_failure_fraction": 0.38269052240695417,
+          "seed_max_failure_fraction": 0.39108505410182354,
+          "total_completed_attempts": 117009,
+          "total_failed_attempts": 45472,
+          "mean_payload_mbps": 17.16888
+        }
+      ],
+      "pooled_failure_fraction": 0.3903370370529814,
+      "total_payload_mbps": 33.98832,
+      "jain_mean": 0.9997191344708579,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_158.4_W32_r5",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.39352282333051564,
+          "seed_mean_failure_fraction": 0.39353002773824436,
+          "seed_min_failure_fraction": 0.3909656506509123,
+          "seed_max_failure_fraction": 0.39526151568036383,
+          "total_completed_attempts": 94640,
+          "total_failed_attempts": 37243,
+          "mean_payload_mbps": 13.77528
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.38932294386763877,
+          "seed_mean_failure_fraction": 0.3893234521042271,
+          "seed_min_failure_fraction": 0.387423617276858,
+          "seed_max_failure_fraction": 0.3904256994383497,
+          "total_completed_attempts": 95738,
+          "total_failed_attempts": 37273,
+          "mean_payload_mbps": 14.0316
+        }
+      ],
+      "pooled_failure_fraction": 0.39141077225309645,
+      "total_payload_mbps": 27.80688,
+      "jain_mean": 0.9998962989009915,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q3_158.4_W16_r32",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.30751233545145024,
+          "seed_mean_failure_fraction": 0.30782612403314896,
+          "seed_min_failure_fraction": 0.2951164159031689,
+          "seed_max_failure_fraction": 0.32133320617966815,
+          "total_completed_attempts": 109846,
+          "total_failed_attempts": 33779,
+          "mean_payload_mbps": 18.25608
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.3099925858802208,
+          "seed_mean_failure_fraction": 0.31045072764574216,
+          "seed_min_failure_fraction": 0.2972436504714215,
+          "seed_max_failure_fraction": 0.33208458618819936,
+          "total_completed_attempts": 109251,
+          "total_failed_attempts": 33867,
+          "mean_payload_mbps": 18.09216
+        }
+      ],
+      "pooled_failure_fraction": 0.3087490928675427,
+      "total_payload_mbps": 36.34824,
+      "jain_mean": 0.9967537241488448,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_base",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02764485469698257,
+          "seed_mean_failure_fraction": 0.02764531866295716,
+          "seed_min_failure_fraction": 0.02676335805735343,
+          "seed_max_failure_fraction": 0.02869637158728283,
+          "total_completed_attempts": 211902,
+          "total_failed_attempts": 5858,
+          "mean_payload_mbps": 49.45056
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.18064473532178993,
+          "seed_mean_failure_fraction": 0.18064078465752711,
+          "seed_min_failure_fraction": 0.17957042957042957,
+          "seed_max_failure_fraction": 0.18192219679633867,
+          "total_completed_attempts": 60583,
+          "total_failed_attempts": 10944,
+          "mean_payload_mbps": 11.91336
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.027294453260787426,
+          "seed_mean_failure_fraction": 0.027294718060981656,
+          "seed_min_failure_fraction": 0.02668298077601826,
+          "seed_max_failure_fraction": 0.028232850195930314,
+          "total_completed_attempts": 211728,
+          "total_failed_attempts": 5779,
+          "mean_payload_mbps": 49.42776
+        }
+      ],
+      "pooled_failure_fraction": 0.04663443567190472,
+      "total_payload_mbps": 110.79168,
+      "jain_mean": 0.8133767244265219,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_286.8_W16_r6",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02581872879987078,
+          "seed_mean_failure_fraction": 0.02581956387369494,
+          "seed_min_failure_fraction": 0.025142338892527837,
+          "seed_max_failure_fraction": 0.02652251888150749,
+          "total_completed_attempts": 198112,
+          "total_failed_attempts": 5115,
+          "mean_payload_mbps": 46.31928
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.1810798819421671,
+          "seed_mean_failure_fraction": 0.18109644302619715,
+          "seed_min_failure_fraction": 0.17676912764531266,
+          "seed_max_failure_fraction": 0.1849341976036142,
+          "total_completed_attempts": 51839,
+          "total_failed_attempts": 9387,
+          "mean_payload_mbps": 10.18848
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.024464661874428542,
+          "seed_mean_failure_fraction": 0.024464477682614262,
+          "seed_min_failure_fraction": 0.02387080494574817,
+          "seed_max_failure_fraction": 0.025195066700226528,
+          "total_completed_attempts": 197959,
+          "total_failed_attempts": 4843,
+          "mean_payload_mbps": 46.34784
+        }
+      ],
+      "pooled_failure_fraction": 0.043189480029470206,
+      "total_payload_mbps": 102.85560000000001,
+      "jain_mean": 0.801932454665215,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_286.8_W32_r5",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02073572422409632,
+          "seed_mean_failure_fraction": 0.02073729806002822,
+          "seed_min_failure_fraction": 0.01908869171762876,
+          "seed_max_failure_fraction": 0.022268788180139224,
+          "total_completed_attempts": 140868,
+          "total_failed_attempts": 2921,
+          "mean_payload_mbps": 33.107279999999996
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.08864515527660831,
+          "seed_mean_failure_fraction": 0.08863588562645776,
+          "seed_min_failure_fraction": 0.08436278342455043,
+          "seed_max_failure_fraction": 0.0910284126003706,
+          "total_completed_attempts": 64369,
+          "total_failed_attempts": 5706,
+          "mean_payload_mbps": 14.07912
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.0209373512972209,
+          "seed_mean_failure_fraction": 0.020937872361730874,
+          "seed_min_failure_fraction": 0.019964539007092198,
+          "seed_max_failure_fraction": 0.022283033620015637,
+          "total_completed_attempts": 140801,
+          "total_failed_attempts": 2948,
+          "mean_payload_mbps": 33.08472
+        }
+      ],
+      "pooled_failure_fraction": 0.03345008351683919,
+      "total_payload_mbps": 80.27112,
+      "jain_mean": 0.8990766562587039,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_286.8_W16_r32",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02581872879987078,
+          "seed_mean_failure_fraction": 0.02581956387369494,
+          "seed_min_failure_fraction": 0.025142338892527837,
+          "seed_max_failure_fraction": 0.02652251888150749,
+          "total_completed_attempts": 198112,
+          "total_failed_attempts": 5115,
+          "mean_payload_mbps": 46.31928
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.1810798819421671,
+          "seed_mean_failure_fraction": 0.18109644302619715,
+          "seed_min_failure_fraction": 0.17676912764531266,
+          "seed_max_failure_fraction": 0.1849341976036142,
+          "total_completed_attempts": 51839,
+          "total_failed_attempts": 9387,
+          "mean_payload_mbps": 10.18848
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.024464661874428542,
+          "seed_mean_failure_fraction": 0.024464477682614262,
+          "seed_min_failure_fraction": 0.02387080494574817,
+          "seed_max_failure_fraction": 0.025195066700226528,
+          "total_completed_attempts": 197959,
+          "total_failed_attempts": 4843,
+          "mean_payload_mbps": 46.34784
+        }
+      ],
+      "pooled_failure_fraction": 0.043189480029470206,
+      "total_payload_mbps": 102.85560000000001,
+      "jain_mean": 0.801932454665215,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_158.4_W16_r6",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02158393496608979,
+          "seed_mean_failure_fraction": 0.021584218324267598,
+          "seed_min_failure_fraction": 0.019959161370107274,
+          "seed_max_failure_fraction": 0.02240073709366272,
+          "total_completed_attempts": 173694,
+          "total_failed_attempts": 3749,
+          "mean_payload_mbps": 40.7868
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.185218072603813,
+          "seed_mean_failure_fraction": 0.1852258394582485,
+          "seed_min_failure_fraction": 0.17623112278397898,
+          "seed_max_failure_fraction": 0.19197022068598776,
+          "total_completed_attempts": 38290,
+          "total_failed_attempts": 7092,
+          "mean_payload_mbps": 7.48752
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.021656366453366816,
+          "seed_mean_failure_fraction": 0.021656539390996703,
+          "seed_min_failure_fraction": 0.021080179454733693,
+          "seed_max_failure_fraction": 0.021957466401910847,
+          "total_completed_attempts": 173621,
+          "total_failed_attempts": 3760,
+          "mean_payload_mbps": 40.76664
+        }
+      ],
+      "pooled_failure_fraction": 0.03786517291010231,
+      "total_payload_mbps": 89.04096,
+      "jain_mean": 0.7815251245136079,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_158.4_W32_r5",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.019696357718168644,
+          "seed_mean_failure_fraction": 0.01969519990644092,
+          "seed_min_failure_fraction": 0.018595614765473216,
+          "seed_max_failure_fraction": 0.02178546057305233,
+          "total_completed_attempts": 126267,
+          "total_failed_attempts": 2487,
+          "mean_payload_mbps": 29.7072
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.09287799972927503,
+          "seed_mean_failure_fraction": 0.09290432555224694,
+          "seed_min_failure_fraction": 0.08918296892980437,
+          "seed_max_failure_fraction": 0.09725220804710501,
+          "total_completed_attempts": 51713,
+          "total_failed_attempts": 4803,
+          "mean_payload_mbps": 11.2584
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.019536851445457644,
+          "seed_mean_failure_fraction": 0.01953662274091905,
+          "seed_min_failure_fraction": 0.018885928988907,
+          "seed_max_failure_fraction": 0.02054361567635904,
+          "total_completed_attempts": 126223,
+          "total_failed_attempts": 2466,
+          "mean_payload_mbps": 29.70168
+        }
+      ],
+      "pooled_failure_fraction": 0.032070689638169246,
+      "total_payload_mbps": 70.66728,
+      "jain_mean": 0.8800641352800228,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    },
+    {
+      "id": "Q4_158.4_W16_r32",
+      "nodes": [
+        {
+          "node": 1,
+          "pooled_failure_fraction": 0.02158393496608979,
+          "seed_mean_failure_fraction": 0.021584218324267598,
+          "seed_min_failure_fraction": 0.019959161370107274,
+          "seed_max_failure_fraction": 0.02240073709366272,
+          "total_completed_attempts": 173694,
+          "total_failed_attempts": 3749,
+          "mean_payload_mbps": 40.7868
+        },
+        {
+          "node": 2,
+          "pooled_failure_fraction": 0.185218072603813,
+          "seed_mean_failure_fraction": 0.1852258394582485,
+          "seed_min_failure_fraction": 0.17623112278397898,
+          "seed_max_failure_fraction": 0.19197022068598776,
+          "total_completed_attempts": 38290,
+          "total_failed_attempts": 7092,
+          "mean_payload_mbps": 7.48752
+        },
+        {
+          "node": 3,
+          "pooled_failure_fraction": 0.021656366453366816,
+          "seed_mean_failure_fraction": 0.021656539390996703,
+          "seed_min_failure_fraction": 0.021080179454733693,
+          "seed_max_failure_fraction": 0.021957466401910847,
+          "total_completed_attempts": 173621,
+          "total_failed_attempts": 3760,
+          "mean_payload_mbps": 40.76664
+        }
+      ],
+      "pooled_failure_fraction": 0.03786517291010231,
+      "total_payload_mbps": 89.04096,
+      "jain_mean": 0.7815251245136079,
+      "failure_semantics": "Q3 includes overlap OR channel error; other scenarios Pe=0; not retry-limit drops"
+    }
+  ],
+  "residual_slot_checks": [
+    {
+      "slots": 1,
+      "elapsed_in_current_slot_us": 0.0,
+      "remaining_us": 9.0,
+      "paper_floor_remaining_us": 9,
+      "frozen_full_slot_remaining_us": 9,
+      "advance_us": 0
+    },
+    {
+      "slots": 1,
+      "elapsed_in_current_slot_us": 0.1,
+      "remaining_us": 8.9,
+      "paper_floor_remaining_us": 0,
+      "frozen_full_slot_remaining_us": 9,
+      "advance_us": 9
+    },
+    {
+      "slots": 1,
+      "elapsed_in_current_slot_us": 4.5,
+      "remaining_us": 4.5,
+      "paper_floor_remaining_us": 0,
+      "frozen_full_slot_remaining_us": 9,
+      "advance_us": 9
+    },
+    {
+      "slots": 1,
+      "elapsed_in_current_slot_us": 8.9,
+      "remaining_us": 0.09999999999999964,
+      "paper_floor_remaining_us": 0,
+      "frozen_full_slot_remaining_us": 9,
+      "advance_us": 9
+    },
+    {
+      "slots": 2,
+      "elapsed_in_current_slot_us": 0.0,
+      "remaining_us": 18.0,
+      "paper_floor_remaining_us": 18,
+      "frozen_full_slot_remaining_us": 18,
+      "advance_us": 0
+    },
+    {
+      "slots": 2,
+      "elapsed_in_current_slot_us": 0.1,
+      "remaining_us": 17.9,
+      "paper_floor_remaining_us": 9,
+      "frozen_full_slot_remaining_us": 18,
+      "advance_us": 9
+    },
+    {
+      "slots": 2,
+      "elapsed_in_current_slot_us": 4.5,
+      "remaining_us": 13.5,
+      "paper_floor_remaining_us": 9,
+      "frozen_full_slot_remaining_us": 18,
+      "advance_us": 9
+    },
+    {
+      "slots": 2,
+      "elapsed_in_current_slot_us": 8.9,
+      "remaining_us": 9.1,
+      "paper_floor_remaining_us": 9,
+      "frozen_full_slot_remaining_us": 18,
+      "advance_us": 9
+    },
+    {
+      "slots": 7,
+      "elapsed_in_current_slot_us": 0.0,
+      "remaining_us": 63.0,
+      "paper_floor_remaining_us": 63,
+      "frozen_full_slot_remaining_us": 63,
+      "advance_us": 0
+    },
+    {
+      "slots": 7,
+      "elapsed_in_current_slot_us": 0.1,
+      "remaining_us": 62.9,
+      "paper_floor_remaining_us": 54,
+      "frozen_full_slot_remaining_us": 63,
+      "advance_us": 9
+    },
+    {
+      "slots": 7,
+      "elapsed_in_current_slot_us": 4.5,
+      "remaining_us": 58.5,
+      "paper_floor_remaining_us": 54,
+      "frozen_full_slot_remaining_us": 63,
+      "advance_us": 9
+    },
+    {
+      "slots": 7,
+      "elapsed_in_current_slot_us": 8.9,
+      "remaining_us": 54.1,
+      "paper_floor_remaining_us": 54,
+      "frozen_full_slot_remaining_us": 63,
+      "advance_us": 9
+    }
+  ]
+}

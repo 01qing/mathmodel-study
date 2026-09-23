@@ -1,0 +1,3 @@
+# Preserve original bytes for hashed source papers and experiment evidence.
+learning_sources/2023A_markdown/** -text
+learning_output/cases/2023-A-transfer/** -text

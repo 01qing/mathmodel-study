@@ -1,0 +1,1404 @@
+{
+  "E_special_all": {
+    "附件3对齐": [
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_01.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          3340.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_02.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          19422.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_03.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          26114.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_04.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          18868.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_05.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          3427.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_06.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          27572.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_07.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          28428.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_08.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          17704.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_09.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9650.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_10.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          4617.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_11.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7840.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_12.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7312.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_13.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          27612.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_14.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          21892.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_15.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7705.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_16.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          26653.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_17.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          11360.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_18.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14396.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_19.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          18704.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_20.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          26114.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_21.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          4553.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_22.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          4695.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_23.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          20338.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_24.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          2428.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_25.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9994.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_26.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          3632.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_27.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          18402.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_28.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          25703.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_29.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          5544.0
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/对齐版本/附件3_30.pkl",
+        "keys": [
+          "audio",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          4357.0
+        ]
+      }
+    ],
+    "附件3未对齐": [
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_01.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_02.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_03.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_04.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_05.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_06.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_07.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_08.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_09.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_10.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_11.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_12.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_13.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_14.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_15.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_16.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_17.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_18.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_19.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_20.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_21.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_22.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_23.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_24.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_25.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_26.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_27.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_28.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_29.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      },
+      {
+        "file": "E题数据/附件3-模态缺失特征样本/未对齐版本/附件3_未对齐版本_30.pkl",
+        "keys": [
+          "audio",
+          "raw_text",
+          "vision"
+        ]
+      }
+    ],
+    "附件4对齐": [
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/01.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          12725.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/02.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14624.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/03.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          19650.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/04.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          24867.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/05.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9540.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/06.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9578.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/07.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          24935.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/08.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7545.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/09.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          16755.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/10.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          27036.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/11.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14984.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/12.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7842.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/13.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          5876.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/14.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          29525.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/15.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          25090.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/16.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          6659.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/17.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          18216.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/18.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          23794.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/19.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          29238.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/对齐版本/20.pkl",
+        "keys": [
+          "audio",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14409.0
+        ]
+      }
+    ],
+    "附件4未对齐": [
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/01.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          12725.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/02.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14624.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/03.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          19650.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/04.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          24867.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/05.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9540.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/06.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          9578.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/07.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          24935.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/08.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7545.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/09.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          16755.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/10.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          27036.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/11.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14984.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/12.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          7842.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/13.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          5876.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/14.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          29525.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/15.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          25090.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/16.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          6659.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/17.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          18216.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/18.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          23794.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/19.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          29238.0
+        ]
+      },
+      {
+        "file": "E题数据/附件4-可解释专项视频样本与特征文件/附件4-可解释专项视频样本与特征文件/未对齐版本/20.pkl",
+        "keys": [
+          "audio",
+          "audio_lengths",
+          "id",
+          "raw_text",
+          "text",
+          "text_bert",
+          "vision",
+          "vision_lengths"
+        ],
+        "text_bert_integral": true,
+        "text_bert_range": [
+          0.0,
+          14409.0
+        ]
+      }
+    ]
+  },
+  "training_group_counts": [
+    {
+      "group": "2024-A",
+      "split": "train",
+      "count": 4
+    },
+    {
+      "group": "2024-B",
+      "split": "train",
+      "count": 4
+    },
+    {
+      "group": "2024-C",
+      "split": "train",
+      "count": 4
+    },
+    {
+      "group": "2024-D",
+      "split": "dev",
+      "count": 4
+    },
+    {
+      "group": "2024-E",
+      "split": "train",
+      "count": 4
+    },
+    {
+      "group": "2024-F",
+      "split": "test",
+      "count": 4
+    },
+    {
+      "group": "2025-A",
+      "split": "train",
+      "count": 4
+    },
+    {
+      "group": "2025-B",
+      "split": "dev",
+      "count": 3
+    },
+    {
+      "group": "2025-C",
+      "split": "train",
+      "count": 5
+    },
+    {
+      "group": "2025-D",
+      "split": "test",
+      "count": 2
+    },
+    {
+      "group": "2025-E",
+      "split": "train",
+      "count": 3
+    },
+    {
+      "group": "2025-F",
+      "split": "train",
+      "count": 4
+    }
+  ],
+  "A_smoke_summary": [
+    {
+      "question": 1,
+      "exit_code": 0,
+      "makespan": 233110,
+      "seconds": 0.5417815000000701
+    },
+    {
+      "question": 2,
+      "exit_code": 0,
+      "makespan": 233110,
+      "seconds": 0.2831777000001239
+    },
+    {
+      "question": 3,
+      "exit_code": 0,
+      "makespan": 233110,
+      "seconds": 0.3050009999997201
+    }
+  ]
+}

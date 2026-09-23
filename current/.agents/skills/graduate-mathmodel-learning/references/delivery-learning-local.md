@@ -1,3 +1,5 @@
+> 当前入口已部署（2026-09-22）：共享Core + mathmodel-architect解题 + mathmodel-reviewer审查，默认顺序执行解题、审查、修正与复核。等待用户提供新题，暂停新论文学习。技能与交接完整性检查通过，真实新题尚未运行，非独立多智能体系统。正式Core仍v1.41.0。入口协议：C:/Users/lingyun/.codex/skills/mathmodel-evidence/references/solve-review.md。
+
 # 本地交付导向学习（2026-09-21，尚非新Core发布）
 
 用户当前目标是让Skill学习优秀论文并产出高质量完整解答，供日后与个人作品对比。用户尚无指定题目或个人解答，已委托自主整理与选题。默认允许直接展示完整参考解答；仅在用户明确要求独立练习时，才采用practice的先答后反馈。

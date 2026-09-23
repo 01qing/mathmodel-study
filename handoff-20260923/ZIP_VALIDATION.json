@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "file": "D:\\softdown\\codex\\mathmodel-study\\handoff-20260923\\MathModel_换Chat交接包_20260923.zip",
+  "bytes": 10031324,
+  "sha256": "4c135646aa7d1353303b15f941580e9b170b6afa969edccf2eaad71d820f3b06",
+  "files_checked": 956,
+  "zip_crc": "PASS",
+  "per_file_sha256": "PASS",
+  "scope": "archive integrity, not model correctness"
+}

@@ -1,0 +1,508 @@
+{
+  "scope": "selected Q3 sections; our reconstruction, not original MATLAB execution",
+  "sources": {
+    "results\\RESULTS.json": "46fc5f79454e31c8a3b1ea1e651ba42ea15465c0be2d2bb0ebfd1130a25cf927",
+    "code\\analytic.py": "22e91315dfc6fcafad8fa48a096270fe4100bdba0b0f3558d4ceac1a0a9dc96d",
+    "paper_learning\\A23102470073\\q3_state_model.py": "3e04b64d7814e5eaf93e75612ee959d83b67b62f2b6b80d9e4e5c9310e5c98e1"
+  },
+  "clarification": "Appendix active solve3 has no active throughput output; its model plus body reward is our diagnostic combination.",
+  "independent_new_simulations": 0,
+  "comparison": "same-problem retrospective; frozen existing event simulation is a model reference, not physical truth",
+  "table5_2_shifted_configuration_diagnostic": [
+    {
+      "computed_configuration": "Q3_286.8_W16_r6",
+      "paper_printed_mbps": 44.76,
+      "diagnostic_minus_printed_mbps": -0.00019845486903591336
+    },
+    {
+      "computed_configuration": "Q3_286.8_W32_r5",
+      "paper_printed_mbps": 41.012,
+      "diagnostic_minus_printed_mbps": -0.00036467951525764875
+    },
+    {
+      "computed_configuration": "Q3_286.8_W16_r32",
+      "paper_printed_mbps": 44.762,
+      "diagnostic_minus_printed_mbps": 4.342815499569497e-05
+    },
+    {
+      "computed_configuration": "Q3_158.4_W16_r6",
+      "paper_printed_mbps": 32.515,
+      "diagnostic_minus_printed_mbps": -0.00019874711406231427
+    },
+    {
+      "computed_configuration": "Q3_158.4_W32_r5",
+      "paper_printed_mbps": 30.787,
+      "diagnostic_minus_printed_mbps": -0.00024206791395542382
+    },
+    {
+      "computed_configuration": "Q3_158.4_W16_r32",
+      "paper_printed_mbps": 32.678,
+      "diagnostic_minus_printed_mbps": 0.0001217416617436129
+    }
+  ],
+  "rows": [
+    {
+      "id": "Q3_base",
+      "params": {
+        "rate": 455.8,
+        "w": 16,
+        "cap": 1024,
+        "r": 32
+      },
+      "simulation_reference_mbps": 54.70608,
+      "reference_ci_halfwidth": 0.3805630920191594,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.33568056031385896,
+        "effective_failure": 0.3356805603138592,
+        "closure_residual": -2.220446049250313e-16,
+        "body_failure_consistency": -2.220446049250313e-16,
+        "total_mbps": 56.84642323293327,
+        "roots_found_by_scan": 1,
+        "b00": 0.03925498720822225,
+        "tau": 0.05909052913876543,
+        "overlap": 0.26186728923762126,
+        "no_overlap_terms": [
+          0.015094169267910964,
+          0.01038353586432505,
+          0.009025118109279043,
+          0.004799099497669273,
+          0.6988307880231944
+        ],
+        "Ts": 131.4538832821413,
+        "Tc": 148.4538832821413,
+        "data_time": 40.45388328214129
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.09572096984830206,
+        "effective_failure": 0.4763123505716683,
+        "closure_residual": 0.0,
+        "body_failure_consistency": -0.3805913807233663,
+        "total_mbps": 55.96585908315459,
+        "roots_found_by_scan": 1,
+        "b00": 0.08655846577960251,
+        "tau": 0.09572096984830206,
+        "overlap": 0.4181248339685203,
+        "no_overlap_terms": [
+          0.03328311195511835,
+          0.022896019020869754,
+          0.0041689146526131095,
+          0.002163711732808411,
+          0.5193634086700701
+        ],
+        "Ts": 131.4538832821413,
+        "Tc": 148.4538832821413,
+        "data_time": 40.45388328214129
+      },
+      "additive_noise_reward_diagnostic_mbps": 54.5190654987751,
+      "poisson": {
+        "p": 0.3329530581165139,
+        "mean_attempt_cycle_us": 270.11182075781824,
+        "total_mbps": 59.26851538851171,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.039124412367569805,
+      "poisson_relative_error": 0.08339905525147673
+    },
+    {
+      "id": "Q3_286.8_W16_r6",
+      "params": {
+        "rate": 286.8,
+        "w": 16,
+        "cap": 1024,
+        "r": 6
+      },
+      "simulation_reference_mbps": 45.01848,
+      "reference_ci_halfwidth": 0.180921446169067,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.378349961154667,
+        "effective_failure": 0.3783499611546669,
+        "closure_residual": 1.1102230246251565e-16,
+        "body_failure_consistency": 1.1102230246251565e-16,
+        "total_mbps": 47.181557873096295,
+        "roots_found_by_scan": 1,
+        "b00": 0.03265794358489612,
+        "tau": 0.0524759862162602,
+        "overlap": 0.3092777346162965,
+        "no_overlap_terms": [
+          0.007690881953692403,
+          0.010029554060032333,
+          0.006251038104195973,
+          0.005781496336031165,
+          0.6609692949297516
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.09572127502372715,
+        "effective_failure": 0.5931625823876064,
+        "closure_residual": -1.3877787807814457e-17,
+        "body_failure_consistency": -0.49744130736387926,
+        "total_mbps": 40.283496170893336,
+        "roots_found_by_scan": 1,
+        "b00": 0.086558718904944,
+        "tau": 0.09572127502372717,
+        "overlap": 0.5479584248751183,
+        "no_overlap_terms": [
+          0.02040705613772952,
+          0.02661250997893795,
+          0.002884793912322835,
+          0.0025563493984639136,
+          0.3995808656974275
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "additive_noise_reward_diagnostic_mbps": 44.75980154513096,
+      "poisson": {
+        "p": 0.37676388887818435,
+        "mean_attempt_cycle_us": 306.29943955030683,
+        "total_mbps": 48.833477099676244,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.04804866519474449,
+      "poisson_relative_error": 0.08474291223684682
+    },
+    {
+      "id": "Q3_286.8_W32_r5",
+      "params": {
+        "rate": 286.8,
+        "w": 32,
+        "cap": 1024,
+        "r": 5
+      },
+      "simulation_reference_mbps": 37.374,
+      "reference_ci_halfwidth": 0.197549639592513,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.2991981623720331,
+        "effective_failure": 0.29919816237203317,
+        "closure_residual": -5.551115123125783e-17,
+        "body_failure_consistency": -5.551115123125783e-17,
+        "total_mbps": 42.38928932879164,
+        "roots_found_by_scan": 1,
+        "b00": 0.024906621729490194,
+        "tau": 0.035514681476741014,
+        "overlap": 0.22133129152448128,
+        "no_overlap_terms": [
+          0.00586776519742437,
+          0.008581275787075194,
+          0.003345528153687723,
+          0.003346895408103614,
+          0.7575272439292278
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.054137876017178246,
+        "effective_failure": 0.40054496259609174,
+        "closure_residual": -6.938893903907228e-18,
+        "body_failure_consistency": -0.3464070865789135,
+        "total_mbps": 46.21126598812732,
+        "roots_found_by_scan": 1,
+        "b00": 0.051206967686774504,
+        "tau": 0.05413787601717825,
+        "overlap": 0.3339388473289908,
+        "no_overlap_terms": [
+          0.012072539058805449,
+          0.01765540774523844,
+          0.0009227844541923646,
+          0.0009086904761683386,
+          0.6345017309366046
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "additive_noise_reward_diagnostic_mbps": 41.01163532048474,
+      "poisson": {
+        "p": 0.31991224161906673,
+        "mean_attempt_cycle_us": 401.7363624051767,
+        "total_mbps": 40.628899269716875,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.13419193366489113,
+      "poisson_relative_error": 0.08708993604422521
+    },
+    {
+      "id": "Q3_286.8_W16_r32",
+      "params": {
+        "rate": 286.8,
+        "w": 16,
+        "cap": 1024,
+        "r": 32
+      },
+      "simulation_reference_mbps": 45.3588,
+      "reference_ci_halfwidth": 0.1896514843027644,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.3744187412835578,
+        "effective_failure": 0.374418741283558,
+        "closure_residual": -2.220446049250313e-16,
+        "body_failure_consistency": -2.220446049250313e-16,
+        "total_mbps": 47.132110064494704,
+        "roots_found_by_scan": 1,
+        "b00": 0.032374879171010534,
+        "tau": 0.05175167689236172,
+        "overlap": 0.3049097125372866,
+        "no_overlap_terms": [
+          0.007632691815444175,
+          0.009953669247232531,
+          0.006100702522317998,
+          0.0056396677430730745,
+          0.6657635561346457
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.09572096984830206,
+        "effective_failure": 0.5931610026363688,
+        "closure_residual": 0.0,
+        "body_failure_consistency": -0.4974400327880668,
+        "total_mbps": 40.28360723565339,
+        "roots_found_by_scan": 1,
+        "b00": 0.08655846577960251,
+        "tau": 0.09572096984830206,
+        "overlap": 0.5479566695959653,
+        "no_overlap_terms": [
+          0.020406997963562146,
+          0.026612434114952503,
+          0.002884775517941754,
+          0.0025563330373009796,
+          0.3995827897702773
+        ],
+        "Ts": 147.27782426778242,
+        "Tc": 164.27782426778242,
+        "data_time": 56.27782426778243
+      },
+      "additive_noise_reward_diagnostic_mbps": 44.762043428154996,
+      "poisson": {
+        "p": 0.374375052696298,
+        "mean_attempt_cycle_us": 309.5217910116753,
+        "total_mbps": 48.51031226658441,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.03909517148810604,
+      "poisson_relative_error": 0.06947962174009015
+    },
+    {
+      "id": "Q3_158.4_W16_r6",
+      "params": {
+        "rate": 158.4,
+        "w": 16,
+        "cap": 1024,
+        "r": 6
+      },
+      "simulation_reference_mbps": 33.98832,
+      "reference_ci_halfwidth": 0.1339365406522162,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.43482432404327653,
+        "effective_failure": 0.43482432404327653,
+        "closure_residual": 0.0,
+        "body_failure_consistency": 0.0,
+        "total_mbps": 34.86247749236404,
+        "roots_found_by_scan": 1,
+        "b00": 0.024431299507630098,
+        "tau": 0.04310075152392749,
+        "overlap": 0.37202702671475163,
+        "no_overlap_terms": [
+          1.7046533503697372e-05,
+          0.008330834633863176,
+          0.0016140302019212272,
+          0.006606495697618312,
+          0.6114045662183419
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.09572127502372715,
+        "effective_failure": 0.7908745511243082,
+        "closure_residual": -1.3877787807814457e-17,
+        "body_failure_consistency": -0.695153276100581,
+        "total_mbps": 17.90326174149246,
+        "roots_found_by_scan": 1,
+        "b00": 0.086558718904944,
+        "tau": 0.09572127502372717,
+        "overlap": 0.7676383901381202,
+        "no_overlap_terms": [
+          6.057292689403572e-05,
+          0.02960267770182384,
+          0.0007890961663578607,
+          0.0029320958992011393,
+          0.19897716716760291
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "additive_noise_reward_diagnostic_mbps": 32.51480125288594,
+      "poisson": {
+        "p": 0.43950322678172415,
+        "mean_attempt_cycle_us": 383.77634596052155,
+        "total_mbps": 35.05146343391991,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.025719349834414817,
+      "poisson_relative_error": 0.03127967001369614
+    },
+    {
+      "id": "Q3_158.4_W32_r5",
+      "params": {
+        "rate": 158.4,
+        "w": 32,
+        "cap": 1024,
+        "r": 5
+      },
+      "simulation_reference_mbps": 27.80688,
+      "reference_ci_halfwidth": 0.19704214763315292,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.3597109759940543,
+        "effective_failure": 0.3597109759940543,
+        "closure_residual": 0.0,
+        "body_failure_consistency": 0.0,
+        "total_mbps": 32.27296599687226,
+        "roots_found_by_scan": 1,
+        "b00": 0.019433876740043803,
+        "tau": 0.03028597408785755,
+        "overlap": 0.28856775110450483,
+        "no_overlap_terms": [
+          1.3570172701041068e-05,
+          0.008160500457023339,
+          0.0009382276334600119,
+          0.00436354768862745,
+          0.6979564029436833
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.054137876017178246,
+        "effective_failure": 0.5519683618537335,
+        "closure_residual": -6.938893903907228e-18,
+        "body_failure_consistency": -0.4978304858365553,
+        "total_mbps": 30.854544585945497,
+        "roots_found_by_scan": 1,
+        "b00": 0.051206967686774504,
+        "tau": 0.05413787601717825,
+        "overlap": 0.5021870687263705,
+        "no_overlap_terms": [
+          3.5834126240404126e-05,
+          0.021549055417652556,
+          0.00025241514552126434,
+          0.0011338391137680028,
+          0.47484178747044725
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "additive_noise_reward_diagnostic_mbps": 30.786757932086044,
+      "poisson": {
+        "p": 0.3808665597638441,
+        "mean_attempt_cycle_us": 485.85435957558576,
+        "total_mbps": 30.583655930653542,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": 0.16061082713602737,
+      "poisson_relative_error": 0.09985931289858985
+    },
+    {
+      "id": "Q3_158.4_W16_r32",
+      "params": {
+        "rate": 158.4,
+        "w": 16,
+        "cap": 1024,
+        "r": 32
+      },
+      "simulation_reference_mbps": 36.34824,
+      "reference_ci_halfwidth": 0.08258669325519091,
+      "body": {
+        "mode": "body",
+        "stage_failure": 0.42643522576327053,
+        "effective_failure": 0.4264352257632704,
+        "closure_residual": 1.1102230246251565e-16,
+        "body_failure_consistency": 1.1102230246251565e-16,
+        "total_mbps": 34.93868480007565,
+        "roots_found_by_scan": 1,
+        "b00": 0.024136584585250836,
+        "tau": 0.04208170666923513,
+        "overlap": 0.3627058064036338,
+        "no_overlap_terms": [
+          1.6890542047054674e-05,
+          0.008254599836371713,
+          0.0015454658075632732,
+          0.006313623383304427,
+          0.6211636140270798
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "appendix_active_plus_body_reward": {
+        "mode": "appendix_active",
+        "stage_failure": 0.09572096984830206,
+        "effective_failure": 0.7908723256506497,
+        "closure_residual": 0.0,
+        "body_failure_consistency": -0.6951513558023477,
+        "total_mbps": 17.90343553702635,
+        "roots_found_by_scan": 1,
+        "b00": 0.08655846577960251,
+        "tau": 0.09572096984830206,
+        "overlap": 0.7676359173896108,
+        "no_overlap_terms": [
+          6.057275421946847e-05,
+          0.0296025933138006,
+          0.0007890911348249215,
+          0.0029320770717193747,
+          0.1989797483358248
+        ],
+        "Ts": 181.87272727272727,
+        "Tc": 198.87272727272727,
+        "data_time": 90.87272727272726
+      },
+      "additive_noise_reward_diagnostic_mbps": 32.67812174166174,
+      "poisson": {
+        "p": 0.4338491016100505,
+        "mean_attempt_cycle_us": 392.0864686762533,
+        "total_mbps": 34.65465566111673,
+        "assumption": "Poisson interfering starts; exploratory closure only"
+      },
+      "body_relative_error": -0.03877918710574013,
+      "poisson_relative_error": -0.046593296921206395
+    }
+  ],
+  "summary": {
+    "body_mape": 0.06936707811307054,
+    "poisson_mape": 0.07177768644373304,
+    "body_worst_absolute_relative_error": 0.16061082713602737,
+    "W16": {
+      "count": 5,
+      "body_mape": 0.03815335719811506,
+      "poisson_mape": 0.06309891123266324
+    },
+    "W32": {
+      "count": 2,
+      "body_mape": 0.14740138040045925,
+      "poisson_mape": 0.09347462447140753
+    }
+  }
+}

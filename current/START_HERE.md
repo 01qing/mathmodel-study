@@ -1,3 +1,11 @@
+> 当前入口已部署（2026-09-22）：共享Core + mathmodel-architect解题 + mathmodel-reviewer审查，默认顺序执行解题、审查、修正与复核。等待用户提供新题，暂停新论文学习。技能与交接完整性检查通过，真实新题尚未运行，非独立多智能体系统。正式Core仍v1.41.0。入口协议：C:/Users/lingyun/.codex/skills/mathmodel-evidence/references/solve-review.md。
+
+> 最新状态（2026-09-22）：2023-A的10/10篇可用全文文本已学完，完整参考答案为learning_output/cases/2023-A-transfer/revision_v9/REFERENCE_SOLUTION.md，汇总为同目录LEARNING_SYNTHESIS_10_PAPERS.md。下一步做新题先答后对照的迁移检验。作者完整程序复现0篇，正式Core v1.41.0不变。只在本地，不处理GitHub、不解析PDF。下方旧进度为历史记录，以PROJECT_STATE.json为准。
+
+> 最新状态（2026-09-22）：2023-A已完成6/10篇全文文本评审，完整参考答案为learning_output/cases/2023-A-transfer/revision_v8/REFERENCE_SOLUTION.md；第六篇A23102890028已完成。下一篇A23103360079（77页），文件已在本地。原作者完整程序复现0篇，正式Core仍v1.41.0。只做本地学习，不处理GitHub、不解析PDF。下方较早状态仅作历史记录，以PROJECT_STATE.json和最新进度为准。
+
+> 最新本地状态：5/10篇全文评审；第六篇A23102890028部分评审及标定检查完成。完整主解仍revision_v7，新增CALIBRATION_SUPPLEMENT.md。下一步读完第六篇；仅本地工作。
+
 # MathModel 当前工作入口
 
 目标：通过优秀论文学习，产出可运行、可验证、论证完整的数模解答，帮助用户对照改进自己的竞赛作品。
@@ -47,4 +55,4 @@
 
 2023-A 四问第一版参考解答、16 个主场景及敏感性运行已生成，并在读取同题论文前保存 FIRST_ANSWER_FREEZE.json 与独立 ZIP。当前转入用户提供的 10 篇 Markdown 论文对照，旧 2022-C 完成记录保留。
 
-最新进展：A23104220005 的 49 页正文与附录完成全文文本评审，另有 20 次局部调度探针和 20 条连续轨迹验证；没有执行原 MATLAB 或解析 PDF。当前完整解答是 `learning_output/cases/2023-A-transfer/revision_v2/REFERENCE_SOLUTION.md`，新增连续每秒逐 AP 统计与论文对照说明。10 篇中 1 篇完成文本评审，9 篇未读；下一篇为 A23100070049。正式 Core v1.41 与 45 篇基线计数不变。
+最新进展：四篇全文文本评审及案例修订v6已完成，完整解答在 `learning_output/cases/2023-A-transfer/revision_v6/REFERENCE_SOLUTION.md`。下一篇A23102860239。所有10篇Markdown本地路径已登记，不需要重新提供，不重跑已完成实验。

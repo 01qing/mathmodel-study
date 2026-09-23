@@ -1,0 +1,16 @@
+---
+name: mathmodel-evidence
+description: 本地研赛学习与解题入口。使用已核验的 MathModel-Core v1.41 及其当前工作副本，支持优秀论文学习、完整解答和用户方案对照；兼容 mathmodel-evidence 旧名。
+---
+
+# MathModel 本地入口
+
+当前工作根目录：`D:/softdown/codex/mathmodel-study/current`。
+
+先读该目录的 `PROJECT_STATE.json` 与 `START_HERE.md`，再读 [Core 主入口](D:/softdown/codex/mathmodel-study/current/.agents/skills/graduate-mathmodel-learning/SKILL.md)。相对路径和依赖工作目录的脚本均以当前根目录为准。
+
+基线是 SHA256 核验过的 v1.41.0 SEALED；current 是后续本地工作副本，不是新的封存发布版。历史 v1.6/v1.7/v1.41-work 和历史发布清单不能覆盖当前 PROJECT_STATE.json 的工作状态。原封存目录和 ZIP 保留不改。
+
+用户目标：学习优秀论文后，给题目能生成可验证的完整解答，供用户日后与自己的解答对照，提升竞赛能力。用户目前没有指定题目或个人解答，已授权自行整理资料、选择案例；不要把提交练习答案设为前提。
+
+完整比赛论文仍路由到当前项目的 paper-workflow-orchestrator。已有 Architect/Reviewer 是实验接口，尚无完整多角色生产系统或获奖率提升证据。按需读取知识，不把角色对比实验设为日常解题的前置条件。

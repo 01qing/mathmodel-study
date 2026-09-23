@@ -1,0 +1,13 @@
+{
+  "frozen_files_unchanged": 41,
+  "full_available_text_pages": 58,
+  "new_ablation_runs": 40,
+  "epochs_per_ablation_run": 100000,
+  "q4_parameter_cases": 7,
+  "event_regression_cases": 6,
+  "event_trace_assertions": 373,
+  "author_printed_table_rows_checked": 160,
+  "original_matlab_execution": false,
+  "original_python_full_execution": false,
+  "original_images_viewed": false
+}
